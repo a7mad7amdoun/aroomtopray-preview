@@ -1,0 +1,152 @@
+/* Modern room refinement: one warm palette, calm surfaces and deliberate accents.
+   Door geometry remains registered to the existing architectural photographs. */
+:root {
+ --surface:#faf8f2; --surface-2:#eeece5; --ink:#142033; --muted:#586274;
+ --line:#d8d8d0; --field:#7b8593; --focus:#355c86;
+ --room-reading-surface:rgba(250,248,242,.97); --room-reading-edge:#d8d3c6;
+ --quiet-shadow:0 2px 5px #14203305,0 18px 60px #1420330d;
+ --room-ease:cubic-bezier(.2,.75,.25,1);
+ --guide-radius:12px;
+}
+:root[data-theme=dark] {
+ --surface:#111b2a; --surface-2:#1a2739; --ink:#edf0f4; --muted:#b1bdcd;
+ --line:#344154; --field:#8291a5; --focus:#f4cd5e;
+ --room-reading-surface:rgba(17,27,42,.97); --room-reading-edge:#3a4453;
+ --quiet-shadow:0 2px 5px #0002,0 18px 60px #0003;
+}
+@media(prefers-color-scheme:dark) { :root:not([data-theme=light]) {
+ --surface:#111b2a; --surface-2:#1a2739; --ink:#edf0f4; --muted:#b1bdcd;
+ --line:#344154; --field:#8291a5; --focus:#f4cd5e;
+ --room-reading-surface:rgba(17,27,42,.97); --room-reading-edge:#3a4453;
+ --quiet-shadow:0 2px 5px #0002,0 18px 60px #0003;
+}}
+
+/* A single, quieter header; yellow belongs to the active destination. */
+.top.room-header { background:color-mix(in srgb,var(--surface) 94%,transparent); box-shadow:none; }
+.top.room-header>.wrap { min-height:80px; padding-block:12px; }
+.top.room-header .brand { font-weight:600; letter-spacing:-.04em; }
+.top.room-header .brand small { font-family:var(--f-body); text-transform:none; letter-spacing:.02em; font-size:.7rem; }
+.top.room-header .primary-navigation { padding:3px; background:transparent; border-color:transparent; gap:6px; }
+.top.room-header .primary-navigation>a { border-radius:24px; font-size:.87rem; padding-inline:18px; transition:background-color 180ms var(--room-ease),color 180ms var(--room-ease); }
+.top.room-header .primary-navigation>a[aria-current] { background:var(--sign); color:var(--sign-ink); border-color:transparent; box-shadow:none; }
+.top.room-header .primary-navigation>a[aria-current]::after { display:none; }
+.top.room-header .site-menu>summary { border-color:var(--line); border-radius:24px; min-height:44px; font-weight:500; }
+.top.room-header .site-menu-panel { border-radius:16px; padding:24px; box-shadow:var(--quiet-shadow),0 12px 30px #0002; }
+.top.room-header .menu-tools>a,.top.room-header .menu-destinations>a { border-radius:8px; }
+.top.room-header .room-restore-button { border-radius:24px; }
+
+/* One generous reading surface; remove the heavy yellow panel border. */
+.room-layout>.room-main { border:1px solid var(--room-reading-edge); border-radius:20px; box-shadow:var(--quiet-shadow); }
+.room-main :is(.room-home-intro,.room-directory-intro,.d-head) { padding-bottom:6px; }
+.room-main .room-home-intro { padding-bottom:28px; }
+.room-main .room-home-intro h1 { font-size:clamp(2.2rem,7.6cqi,3.65rem); line-height:1.08; font-weight:600; letter-spacing:-.055em; margin:18px 0; }
+.room-main .room-home-intro h1>span { font-weight:400; color:var(--muted); }
+.room-main .room-introduction { font-size:1rem; line-height:1.7; max-width:42ch; }
+.room-eyebrow { font-weight:500; font-size:.76rem; }
+.room-eyebrow>span { width:22px; height:3px; border-radius:2px; }
+.room-main h2 { letter-spacing:-.025em; }
+.room-main .directory-title-line { gap:16px; margin-block:16px; }
+.room-main :is(.category-emblem,.d-code) { background:var(--sign); color:var(--sign-ink); border-radius:14px; box-shadow:none; }
+.room-main .category-emblem { width:62px; height:62px; }
+.room-main .category-emblem>svg { width:32px; height:32px; }
+.room-main .directory-title-line h1 { font-size:clamp(1.8rem,6cqi,2.7rem); font-weight:600; letter-spacing:-.045em; }
+.room-main .directory-intro-copy>p { line-height:1.7; }
+
+/* Tabs read as navigation, leaving the main search as the primary control. */
+.room-main .guide-tabs {
+ gap:16px; padding:0; border:0; border-bottom:1px solid var(--line);
+ border-radius:0; background:transparent; margin-bottom:26px;
+}
+.room-main .guide-tabs>:is(a,button) {
+ position:relative; flex:1; min-height:48px; padding:12px 4px 15px; gap:8px;
+ border:0; border-radius:0; font-size:.88rem; font-weight:500; background:none; color:var(--muted); box-shadow:none;
+}
+.room-main .guide-tabs>:is(a,button)::after {
+ content:''; position:absolute; inset-inline:0; bottom:-1px; height:3px;
+ background:var(--sign); transform:scaleX(0); transform-origin:center; transition:transform 200ms var(--room-ease);
+}
+.room-main .guide-tabs>:is(a,button)[aria-selected=true] { background:none; color:var(--ink); font-weight:650; box-shadow:none; }
+.room-main .guide-tabs>:is(a,button)[aria-selected=true]::after { transform:scaleX(1); }
+.room-main .guide-tabs>:is(a,button):hover { color:var(--ink); background:none; }
+.room-main .guide-tabs>:is(a,button):focus-visible { border-radius:4px; outline-offset:3px; }
+.room-main .place-search>label { font-size:.86rem; font-weight:600; }
+.room-main .place-search-field { min-height:62px; border:1px solid var(--field); border-radius:14px; background:var(--surface); box-shadow:0 3px 10px #00000003; transition:border-color 180ms,box-shadow 180ms; }
+.room-main .place-search-field:focus-within { border-color:var(--focus); box-shadow:0 0 0 3px color-mix(in srgb,var(--focus) 18%,transparent); }
+.room-main .place-search-field button { width:42px; height:42px; min-height:42px; margin:8px; border-radius:50%; background:var(--sign); color:var(--sign-ink); flex:none; }
+.room-main .place-search-results { border-radius:12px; box-shadow:var(--quiet-shadow); }
+.room-main .directory-workspace .controls { padding:20px; border-radius:14px; background:color-mix(in srgb,var(--surface-2) 50%,transparent); border-color:var(--line); box-shadow:none; }
+.room-main :is(.directory-search-row,.directory-country select,.country-search) { border-radius:10px; background:var(--surface); }
+.room-main .directory-refine { margin-top:2px; }
+.room-main .directory-search-meta { font-size:.78rem; }
+.room-main .results-toolbar { margin-block:24px 16px; }
+.room-main .room-disclosure { border-radius:10px; }
+.room-main .room-disclosure>summary { font-weight:500; }
+.room-main .room-source-promise { color:var(--muted); font-size:.78rem; border-top:0; padding-top:0; margin-top:18px; }
+.room-main .room-source-promise p { line-height:1.65; }
+.room-main .room-source-promise a { color:var(--ink); }
+.room-main :is(.room,.country-card,.visitor-art,.directory-photo) { box-shadow:none; border-radius:12px; }
+.room-main .room { border-color:var(--line); background:color-mix(in srgb,var(--surface) 85%,transparent); }
+.room-main .room .facts>.fact-essential { background:var(--surface-2); border-radius:8px; }
+.room-main .step-symbol { border-radius:50%; background:var(--surface-2); }
+.room-main .country-card { padding:18px; }
+.room-main .home-airport-board { margin-top:16px; }
+.room-main .home-airport-board>summary { font-size:.86rem; }
+
+/* Realistic wall notices keep their individual material identities. */
+.room-environment .door-notice { border-radius:5px; box-shadow:0 1px 2px #0002,0 6px 12px #0000000c; transition:box-shadow 180ms var(--room-ease),border-color 180ms var(--room-ease); }
+.room-environment .door-notice-title>b { font-weight:600; letter-spacing:-.02em; }
+.room-environment .door-notice-count { font-size:.75rem; opacity:.75; }
+.room-environment .door-notice:is(:hover,:focus-visible) { box-shadow:0 2px 3px #0002,0 8px 16px #00000017; }
+.room-environment .room-wayfinding-label { font-size:.76rem; letter-spacing:.025em; margin-bottom:14px; }
+.room-environment .door-room-sign { border-radius:3px; box-shadow:0 2px 4px #0002; }
+.room-environment .door-action-caption { border-radius:24px; min-height:36px; padding:7px 12px; box-shadow:0 2px 6px #00000012; }
+.room-environment .room-focus-button { border-radius:10px; }
+.room-environment .room-utilities { column-gap:14px; }
+.room-environment .room-art-note { opacity:.85; font-size:.7rem; }
+.room-environment .room-scene-caption { line-height:1.6; }
+.immersive-site .site-footer { border-radius:16px; color:var(--muted); }
+.immersive-site .site-footer .brand { color:var(--ink); }
+
+@media(min-width:1100px) and (min-height:700px) and (min-aspect-ratio:3/2) {
+ .immersive-site:has(.review-preview-notice) .room-environment { --room-stage-top:max(calc((100svh - var(--room-stage-height)) * .5),calc(126px - var(--room-stage-height) * .1)); }
+ html:not([data-room-focus=true]) .room-layout>.room-main { padding:clamp(28px,2.7vw,44px); margin-top:28px; }
+ html:not([data-room-focus=true]) .immersive-site .site-footer { border-radius:16px; }
+ .room-environment .door-notice { min-height:80px; padding:16px; }
+ .room-environment .room-utilities { margin-top:22px; }
+}
+@container prayer-guide (max-width:400px) {
+ .room-main .guide-tabs { gap:10px; }
+ .room-main .guide-tabs>:is(a,button) { gap:6px; font-size:.81rem; padding-inline:0; }
+ .room-main .guide-tabs svg { width:16px; height:16px; }
+ .room-main .directory-workspace .controls { padding:16px; }
+ .room-main .category-emblem { width:52px; height:52px; border-radius:12px; }
+ .room-main .category-emblem>svg { width:28px; height:28px; }
+}
+@media(max-width:600px) {
+ .top.room-header>.wrap { min-height:72px; }
+ .top.room-header .brand small { font-size:.62rem; }
+ .top.room-header .site-menu-panel { padding:18px; }
+ .room-layout>.room-main { border-radius:16px; padding:25px 20px; }
+ .room-main .room-home-intro h1 { font-size:2.15rem; }
+ .room-environment .door-notice { border-radius:4px; }
+ .room-environment .door-action-caption { min-height:30px; padding:5px 8px; }
+ .room-environment .room-art-note { font-size:.7rem; }
+}
+html[dir=rtl] .room-main .room-home-intro h1 { font-size:clamp(2.1rem,7cqi,3.4rem); line-height:1.45; letter-spacing:0; }
+html[dir=rtl] .room-main .directory-title-line h1 { letter-spacing:0; line-height:1.5; }
+html[dir=rtl] .room-environment .room-wayfinding-label { letter-spacing:0; font-size:.95rem; }
+html[dir=rtl] .room-environment .door-notice-title>b { letter-spacing:0; }
+html[dir=rtl] .room-main .guide-tabs>:is(a,button) { font-size:1rem; line-height:1.6; }
+@media(prefers-reduced-motion:no-preference) {
+ .room-main .guide-panel:not([hidden]) { animation:guide-arrival 240ms var(--room-ease) both; }
+ @keyframes guide-arrival { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:none; } }
+}
+@media(prefers-reduced-motion:reduce) {
+ .top.room-header .primary-navigation>a,.room-main .guide-tabs>:is(a,button)::after,
+ .room-main .place-search-field,.room-environment .door-notice { transition:none; }
+}
+@media print {
+ .review-preview-notice { display:none; }
+ .room-layout>.room-main { border:0; border-radius:0; box-shadow:none; }
+ .room-main .guide-panel { animation:none!important; transform:none!important; opacity:1!important; }
+}

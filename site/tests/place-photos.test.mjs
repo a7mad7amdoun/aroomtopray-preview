@@ -7,7 +7,7 @@ import { PLACE_PHOTOS } from '../src/data/place-photos.js';
 import { photosForPlace, photoSearchUrl, linkedPhotoSources } from '../src/lib/place-photos.js';
 
 test('curated images have exact existing place identities, credits, dates and reuse licences',()=>{
- const queue=JSON.parse(readFileSync(new URL('../../docs/PHOTO-RESEARCH.json',import.meta.url)));
+ const queue=JSON.parse(readFileSync(new URL('../../research/PHOTO-RESEARCH.json',import.meta.url)));
  assert.equal(queue.places.length,536);
  assert.equal(new Set(queue.places.map(p=>p.id)).size,536);
  for(const photo of PLACE_PHOTOS){
@@ -52,7 +52,7 @@ test('photo references preserve existing sources without unsafe links or duplica
 });
 
 test('research queue keeps missing room photographs visible even when an exterior is available',()=>{
- const {places}=JSON.parse(readFileSync(new URL('../../docs/PHOTO-RESEARCH.json',import.meta.url)));
+ const {places}=JSON.parse(readFileSync(new URL('../../research/PHOTO-RESEARCH.json',import.meta.url)));
  assert.equal(places.filter(p=>p.status==='sourced-room-photo').length,2);
  assert.equal(places.find(p=>p.placeUrl==='/universities/university-of-warwick/').status,'context-photo-only');
  assert.equal(places.find(p=>p.placeUrl==='/airports/lhr/').status,'sourced-sign-photo');

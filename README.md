@@ -14,6 +14,7 @@ Based on Hamza’s A Room to Pray project, originally imported from [Inheriting-
 
 - `site/`: Astro source and tests. Server function source is retained for reference and tests only; GitHub Pages does not deploy it.
 - `docs/`: the prepared static review snapshot, served by GitHub Pages.
+- `research/`: photo provenance and the research queue, retained separately from generated pages.
 - No custom domain, production bindings or secret files are included.
 
 ## Refresh the review snapshot

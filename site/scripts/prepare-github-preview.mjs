@@ -4,6 +4,9 @@ const [inputArg, outputArg, base='/aroomtopray-preview'] = process.argv.slice(2)
 if (!inputArg || !outputArg || !/^\/[a-z0-9-]+$/.test(base)) throw new Error('Usage: node prepare-github-preview.mjs INPUT OUTPUT /repository');
 const input=resolve(inputArg),output=resolve(outputArg);
 if (input===output || output===resolve('/') || !output.startsWith(resolve('.')+'/')) throw new Error('Use a distinct output directory inside the working directory.');
+if(input.startsWith(output+'/') || output.startsWith(input+'/')) throw new Error('Input and output must not contain one another.');
+try { const existing=await readdir(output); if(existing.length && !existing.includes('preview-version.json')) throw new Error('Refusing to replace a directory that is not a generated preview.'); } catch(error) { if(error.code!=='ENOENT') throw error; }
+await rm(output,{recursive:true,force:true});
 await mkdir(output,{recursive:true});
 await cp(input,output,{recursive:true});
 const escape=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
@@ -41,7 +44,7 @@ async function walk(dir) {
    if(!text.includes('name="robots" content="noindex"'))throw new Error(`Missing preview noindex: ${file}`);
    pages++;
   }
-  await writeFile(file,text);
+  await writeFile(file,text.trimEnd()+'\n');
  }
 }
 await walk(output);

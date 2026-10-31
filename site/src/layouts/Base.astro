@@ -19,6 +19,7 @@ import '../styles/room-door.css';
 import '../styles/premium-navigation.css';
 import '../styles/room-spatial.css';
 import '../styles/information-design.css';
+import '../styles/modern-room.css';
 import AppearanceControls from '../components/AppearanceControls.astro';
 import RoomEnvironment from '../components/RoomEnvironment.astro';
 import { ROOM_COPY } from '../data/room-copy.js';
@@ -118,9 +119,9 @@ const ogImage = new URL(og || '/og/default.jpg', SITE).href;
     </div>
     <div class="wrap footer-bottom"><p>{t.footer.sourceNote}</p><p>Inheriting Islam · <a href="https://lifeistemporary.com/">Life Is Temporary</a> · <a href="https://firstadhan.com/">First Adhān</a></p></div>
   </footer>
-  {import.meta.env.PROD && <script is:inline>
+  {import.meta.env.PROD && !reviewPreview && <script is:inline>
     // One count per page view: the page, the day and the approximate city (functions/api/visit.js). No cookies.
-    if (!import.meta.env.PUBLIC_REVIEW_PREVIEW && navigator.sendBeacon && !navigator.webdriver) navigator.sendBeacon('/api/visit', JSON.stringify({ p: location.pathname, r: document.referrer }));
+    if (navigator.sendBeacon && !navigator.webdriver) navigator.sendBeacon('/api/visit', JSON.stringify({ p: location.pathname, r: document.referrer }));
   </script>}
 </body>
 </html>

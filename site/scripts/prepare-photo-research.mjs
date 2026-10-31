@@ -40,10 +40,10 @@ const queue={
  ],
  places,
 };
-await mkdir(new URL('docs/',root),{recursive:true});
-await writeFile(new URL('docs/PHOTO-RESEARCH.json',root),JSON.stringify(queue,null,2)+'\n');
+await mkdir(new URL('research/',root),{recursive:true});
+await writeFile(new URL('research/PHOTO-RESEARCH.json',root),JSON.stringify(queue,null,2)+'\n');
 const columns=['id','category','name','city','country','countryCode','status','placeUrl','photoSearchUrl','existingSourceLinks','acceptedPhotoIds'];
 const cell=value=>'"'+String(Array.isArray(value)?value.join(' | '):value??'').replaceAll('"','""')+'"';
 const csv=[columns.join(','),...places.map(place=>columns.map(key=>cell(place[key])).join(','))].join('\r\n')+'\r\n';
-await writeFile(new URL('docs/PHOTO-RESEARCH.csv',root),csv);
+await writeFile(new URL('research/PHOTO-RESEARCH.csv',root),csv);
 console.log(JSON.stringify({places:places.length,withPhotos:places.filter(p=>p.acceptedPhotoIds.length).length,byCategory:Object.fromEntries(inputs.map(([,kind])=>[kind,places.filter(p=>p.category===kind).length]))}));
