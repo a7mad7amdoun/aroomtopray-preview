@@ -27,7 +27,13 @@ const number=new Intl.NumberFormat(locale);
         <span class="door-swing-shadow" aria-hidden="true"></span>
         <div class="door-leaf" aria-hidden="true">
           <span class="door-skin"></span>
-          <div class="door-window"><span class="window-reflection"></span></div>
+          <div class="door-window">
+            <span class="window-wayfinding">
+              {doors.map(([category,icon])=><svg class={`window-symbol window-symbol-${settings[category]}`} viewBox="0 0 24 24" aria-hidden="true"><use href={`#i-${icon}`}/></svg>)}
+              <span class="window-wayfinding-rule"></span>
+            </span>
+            <span class="window-reflection"></span>
+          </div>
           <span class="door-handle" aria-hidden="true"></span>
           <span class="door-kickplate" aria-hidden="true"></span>
           <span class="door-hinge door-hinge-top"></span><span class="door-hinge door-hinge-bottom"></span>

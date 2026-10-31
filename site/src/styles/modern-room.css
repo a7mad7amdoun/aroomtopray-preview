@@ -150,3 +150,25 @@ html[dir=rtl] .room-main .guide-tabs>:is(a,button) { font-size:1rem; line-height
  .room-layout>.room-main { border:0; border-radius:0; box-shadow:none; }
  .room-main .guide-panel { animation:none!important; transform:none!important; opacity:1!important; }
 }
+/* Quiet wayfinding on the closed pane; the full scene lives beyond the door.
+   This moves with the leaf, leaving the existing outside view stationary. */
+.room-environment { --window-paper:#e5e8df; --window-ink:#283748; }
+:root[data-theme=dark] .room-environment { --window-paper:#203042; --window-ink:#ede8d8; }
+@media(prefers-color-scheme:dark) {
+ :root:not([data-theme=light]) .room-environment { --window-paper:#203042; --window-ink:#ede8d8; }
+}
+.window-wayfinding {
+ position:absolute; inset:0; display:grid; place-items:center;
+ background:linear-gradient(145deg,#ffffff16,transparent 65%),var(--window-paper);
+ color:var(--window-ink); box-shadow:inset 0 0 14px #07101b14;
+ opacity:1; transition:opacity 240ms ease; pointer-events:none;
+}
+.window-symbol { grid-area:1/1; width:42%; height:auto; opacity:0; transition:opacity 180ms ease; }
+[data-room-preview=airport] .window-symbol-airport,
+[data-room-preview=campus] .window-symbol-campus,
+[data-room-preview=hospital] .window-symbol-hospital { opacity:1; }
+.window-wayfinding-rule { position:absolute; bottom:18%; left:39%; width:22%; height:2px; background:#cda333; }
+[data-door-state=open] .window-wayfinding { opacity:0; }
+@media(prefers-reduced-motion:reduce) {
+ .window-wayfinding,.window-symbol { transition:none; }
+}
