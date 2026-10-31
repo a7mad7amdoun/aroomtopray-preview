@@ -1,0 +1,7 @@
+---
+import VisitorPicture from './VisitorPicture.astro';
+import { EDITORIAL_SCENES, EDITORIAL_ART } from '../lib/editorial-art.js';
+const { scene, sizes='(max-width: 650px) 90vw, (max-width: 960px) 80vw, 620px' }=Astro.props;
+if (!EDITORIAL_SCENES.has(scene)) throw new Error('Unknown editorial artwork: '+scene);
+---
+<VisitorPicture scene={EDITORIAL_ART[scene].scene} {sizes}/>

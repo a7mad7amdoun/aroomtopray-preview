@@ -1,0 +1,47 @@
+---
+import ThemeArt from './ThemeArt.astro';
+import Mark from './Mark.astro';
+import { getCopy, localizedPath, formatCount } from '../lib/i18n.js';
+import { WAYFINDING_COPY } from '../data/wayfinding-copy.js';
+import { airports } from '../lib/airports.js';
+import { universities } from '../lib/universities.js';
+import { hospitals } from '../lib/hospitals.js';
+
+interface Props {
+  kind: 'airports' | 'universities' | 'hospitals';
+  locale?: string;
+  variant?: 'card' | 'hero' | 'compact';
+  href?: string;
+  current?: boolean;
+}
+const { kind, locale = 'en', variant = 'card', href, current = false } = Astro.props;
+const t = getCopy(locale), w = WAYFINDING_COPY[locale] || WAYFINDING_COPY.en;
+const meta = {
+  airports: { scene: 'airport', icon: 'gate', number: '01', count: airports.length },
+  universities: { scene: 'campus', icon: 'campus', number: '02', count: universities.length },
+  hospitals: { scene: 'hospital', icon: 'care', number: '03', count: hospitals.length },
+}[kind];
+const destination = href || localizedPath(`/${kind}/`, locale);
+const action = href ? t.directories[kind].action : t.home.cards[kind].action;
+---
+<a class={`destination-poster poster-${kind} poster-${variant}`} href={destination} data-destination={kind} aria-current={current ? 'true' : undefined}>
+  <div class="poster-setting">
+    <ThemeArt scene={meta.scene} />
+    <span class="setting-caption">{w.artwork}</span>
+    <div class="poster-mount">
+      <span class="poster-fixing" aria-hidden="true"></span>
+      <div class="notice-board">
+        <div class="notice-category"><svg width="25" height="25" aria-hidden="true"><use href={`#i-${meta.icon}`} /></svg><h3>{t.nav[kind]}</h3><span class="notice-number" aria-hidden="true">{meta.number}</span></div>
+        <div class="notice-body">
+          <p class="notice-context">{w.board[kind]}</p>
+          <div class="notice-prayer"><span class="notice-pictogram"><Mark size={30} /></span><span><strong>{t.common.prayerRoom}</strong>{locale !== 'ar' && <small lang="ar" dir="rtl">مُصَلّى</small>}</span><span class="notice-arrow" aria-hidden="true">↗</span></div>
+          <div class="notice-rows" aria-label={t.common.viewDetails}>
+            {[w.locations[kind], w.access, w.facilities].map((label, i) => <div><span class="notice-row-number" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span><span>{label}</span><span aria-hidden="true">→</span></div>)}
+          </div>
+          <p class="notice-count"><b>{formatCount(meta.count, locale)}</b><span>{t.directories[kind].placesLabel}</span><span aria-hidden="true">·</span><span>{t.common.sources}</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="poster-link"><span>{action}</span><span aria-hidden="true">↗</span></div>
+</a>

@@ -1,0 +1,193 @@
+---
+// "Is this room still here?" traveller check-ins, with optional photos that an editor approves before they appear.
+// Usage on an airport page: <CheckIn code={a.code} iata={a.iata} spaces={a.spaces.map((s) => s.name)} />
+// Everything here needs JavaScript, so the whole block stays hidden without it. See docs/CHECKINS.md.
+interface Props { code: string; iata: string; spaces: string[] }
+const { code, iata, spaces = [] } = Astro.props;
+const many = spaces.length > 1;
+const reviewPreview = import.meta.env.PUBLIC_REVIEW_PREVIEW === 'true';
+---
+{!reviewPreview && spaces.length > 0 && (
+  <section class="card checkin" data-checkin={code} data-iata={iata} data-names={JSON.stringify(spaces)} aria-labelledby="ci-h" hidden>
+    <span class="eyebrow">Traveller check-ins</span>
+    <h2 id="ci-h">Is this room still here?</h2>
+    <p class="fine">Tap one if you have prayed here recently. We count taps only: no names, no locations.</p>
+    {spaces.map((name, i) => (
+      <div class="ci-space" data-space={i}>
+        {many && <h3>{name}</h3>}
+        <p class="ci-last" data-last>Loading traveller check-ins…</p>
+        <p class="ci-changed" data-changed hidden>Some travellers report this may have changed. We’re checking.</p>
+        <p class="ci-q" id={`ci-q-${i}`}>I prayed here recently:</p>
+        <div class="ci-btns" role="group" aria-labelledby={`ci-q-${i}`}>
+          <button type="button" class="btn ghost" data-status="still">Still here</button>
+          <button type="button" class="btn ghost" data-status="moved">Moved</button>
+          <button type="button" class="btn ghost" data-status="closed">Closed</button>
+        </div>
+        <p class="ci-msg" data-msg role="status" aria-live="polite"></p>
+      </div>
+    ))}
+
+    <div class="ci-photos" data-photos hidden>
+      <h3>Traveller photos</h3>
+      <div class="ci-grid" data-grid></div>
+    </div>
+
+    <details class="ci-add">
+      <summary>Add a photo of the room (optional)</summary>
+      <form data-photo-form novalidate>
+        {many && (
+          <label>Which space<select name="space">{spaces.map((name, i) => <option value={i}>{name}</option>)}</select></label>
+        )}
+        <label>Photo<input type="file" name="file" accept="image/*" required></label>
+        <label class="ci-tick"><input type="checkbox" name="consent" value="yes" required> No people’s faces or documents are visible</label>
+        <label class="hp" aria-hidden="true">Leave empty<input name="website" tabindex="-1" autocomplete="off"></label>
+        <p class="fine">An editor reviews every photo before it appears. We shrink it and remove its location and camera details on your device before sending. Photos that aren’t approved are deleted, and unreviewed ones after 180 days at most. <a href="/about/#privacy">Privacy</a></p>
+        <button class="btn" type="submit">Send photo for review</button>
+        <p class="ci-msg" data-photo-msg role="status" aria-live="polite"></p>
+      </form>
+    </details>
+  </section>
+)}
+
+<style>
+  .checkin { display: grid; gap: 10px }
+  .checkin h2 { font-size: 1.25rem; margin: 0 }
+  .checkin h3 { font-size: 1.02rem; margin: 6px 0 0 }
+  .ci-space { border-top: 1px solid var(--line); padding-top: 12px; display: grid; gap: 6px }
+  .ci-last, .ci-q { margin: 0 }
+  .ci-q { font-weight: 700 }
+  .ci-changed { margin: 0; padding: 8px 12px; border-radius: 8px; background: var(--mute-bg); font-size: .95rem }
+  .ci-btns { display: flex; flex-wrap: wrap; gap: 8px }
+  .ci-btns .btn { min-height: 44px; flex: 1 1 7rem }
+  .ci-btns .btn[aria-pressed="true"] { background: var(--ink); color: var(--bg) }
+  .ci-msg { margin: 0; min-height: 1.4em; font-size: .92rem }
+  .ci-msg.is-err { color: var(--alert) }
+  /* figures are added by the script, so they need :global() to pick up these scoped styles */
+  .ci-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; margin-top: 8px }
+  .ci-grid :global(figure) { margin: 0 }
+  .ci-grid :global(img) { width: 100%; height: auto; aspect-ratio: auto; border-radius: 8px; display: block; background: var(--surface-2) }
+  .ci-grid :global(figcaption) { font-size: .8rem; color: var(--muted); margin-top: 4px }
+  .ci-add { border-top: 1px solid var(--line); padding-top: 12px }
+  .ci-add summary { cursor: pointer; font-weight: 700; min-height: 44px; display: flex; align-items: center; gap: 10px; list-style: none }
+  .ci-add summary::-webkit-details-marker { display: none }
+  .ci-add summary::before { content: "+"; display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid currentColor; font-size: 1.1rem; line-height: 1; flex: none }
+  .ci-add[open] summary::before { content: "−" }
+  .ci-add form { display: grid; gap: 12px; margin-top: 8px }
+  .ci-add label { display: grid; gap: 6px; font-weight: 600 }
+  .ci-add input[type=file], .ci-add select { font: inherit; min-height: 44px; max-width: 100% }
+  .ci-add select { padding: 0 10px; border-radius: 10px; border: 1px solid var(--field); background: var(--surface); color: var(--ink) }
+  .ci-add .ci-tick { display: flex; gap: 10px; align-items: center; font-weight: 600; min-height: 44px }
+  .ci-tick input { width: 24px; height: 24px; flex: none }
+</style>
+
+<script>
+  const MAX_SIDE = 1600, MAX_BYTES = 900 * 1024;
+  const root = document.querySelector<HTMLElement>('[data-checkin]');
+  if (root) {
+    const code = root.dataset.checkin!, iata = root.dataset.iata!;
+    const names: string[] = JSON.parse(root.dataset.names || '[]');
+    root.hidden = false;
+    const ago = (n: number) => (n <= 0 ? 'today' : n === 1 ? 'yesterday' : `${n} days ago`);
+    const fmt = (d: string) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+    type Sum = { daysSinceStill: number | null; mayHaveChanged: boolean };
+    const show = (box: HTMLElement, s?: Sum) => {
+      box.querySelector<HTMLElement>('[data-last]')!.textContent = s && s.daysSinceStill !== null
+        ? `Last confirmed by a traveller: ${ago(s.daysSinceStill)}.`
+        : 'No traveller has confirmed this room yet.';
+      box.querySelector<HTMLElement>('[data-changed]')!.hidden = !s?.mayHaveChanged;
+    };
+    const boxes = [...root.querySelectorAll<HTMLElement>('[data-space]')];
+
+    fetch(`/api/checkin?code=${encodeURIComponent(code)}`)
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d) => boxes.forEach((b) => show(b, d.spaces?.[b.dataset.space!])))
+      .catch(() => boxes.forEach((b) => (b.querySelector<HTMLElement>('[data-last]')!.textContent = 'Traveller check-ins couldn’t load right now.')));
+
+    for (const box of boxes) {
+      const msg = box.querySelector<HTMLElement>('[data-msg]')!;
+      const btns = [...box.querySelectorAll<HTMLButtonElement>('[data-status]')];
+      btns.forEach((btn) => btn.addEventListener('click', async () => {
+        btns.forEach((b) => (b.disabled = true));
+        msg.classList.remove('is-err'); msg.textContent = 'Sending…';
+        try {
+          const r = await fetch('/api/checkin', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ code, space: Number(box.dataset.space), status: btn.dataset.status }) });
+          if (r.status === 429) { msg.textContent = 'You’ve checked in here a few times today. Thank you.'; return; }
+          if (!r.ok) throw new Error(String(r.status));
+          const d = await r.json().catch(() => ({}));
+          if (d.space) show(box, d.space);
+          btn.setAttribute('aria-pressed', 'true');
+          msg.textContent = 'Sent. Thank you for checking in.';
+        } catch {
+          msg.classList.add('is-err'); msg.textContent = 'That didn’t send. Check your connection and try again.';
+          btns.forEach((b) => (b.disabled = false));
+        }
+      }));
+    }
+
+    // Approved photos only (the API never lists or serves pending ones).
+    const photos = root.querySelector<HTMLElement>('[data-photos]')!, grid = root.querySelector<HTMLElement>('[data-grid]')!;
+    fetch(`/api/photo?code=${encodeURIComponent(code)}`)
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d) => {
+        const list: { id: string; w: number; h: number; date: string; space: number }[] = d.photos || [];
+        for (const p of list) {
+          const fig = document.createElement('figure'), img = document.createElement('img');
+          img.src = `/api/photo?code=${encodeURIComponent(code)}&id=${encodeURIComponent(p.id)}`;
+          img.width = p.w; img.height = p.h; img.loading = 'lazy'; img.decoding = 'async';
+          img.alt = `Traveller photo of the prayer room at ${iata}, ${fmt(p.date)}`;
+          const cap = document.createElement('figcaption');
+          cap.textContent = (names.length > 1 && names[p.space] ? names[p.space] + ' · ' : '') + fmt(p.date);
+          fig.append(img, cap); grid.append(fig);
+        }
+        photos.hidden = list.length === 0;
+      })
+      .catch(() => {});
+
+    // Photo: resize to at most 1600px and re-encode as JPEG on a canvas (this drops EXIF, including GPS), under 900 KB.
+    const form = root.querySelector<HTMLFormElement>('[data-photo-form]')!;
+    const pmsg = root.querySelector<HTMLElement>('[data-photo-msg]')!;
+    const toBlob = (c: HTMLCanvasElement, q: number) => new Promise<Blob | null>((res) => c.toBlob(res, 'image/jpeg', q));
+    async function shrink(file: File): Promise<Blob> {
+      let src: ImageBitmap | HTMLImageElement;
+      try { src = await createImageBitmap(file, { imageOrientation: 'from-image' }); }
+      catch {
+        src = await new Promise<HTMLImageElement>((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = URL.createObjectURL(file); });
+      }
+      let scale = Math.min(1, MAX_SIDE / Math.max(src.width, src.height));
+      for (let round = 0; round < 6; round++) {
+        const c = document.createElement('canvas');
+        c.width = Math.max(1, Math.round(src.width * scale)); c.height = Math.max(1, Math.round(src.height * scale));
+        c.getContext('2d')!.drawImage(src, 0, 0, c.width, c.height);
+        for (const q of [0.85, 0.75, 0.65]) {
+          const b = await toBlob(c, q);
+          if (b && b.size <= MAX_BYTES) return b;
+        }
+        scale *= 0.8;
+      }
+      throw new Error('too big');
+    }
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(form), file = fd.get('file') as File | null, btn = form.querySelector<HTMLButtonElement>('button')!;
+      pmsg.classList.remove('is-err');
+      if (!file || !file.size) { pmsg.classList.add('is-err'); pmsg.textContent = 'Choose a photo first.'; return; }
+      if (fd.get('consent') !== 'yes') { pmsg.classList.add('is-err'); pmsg.textContent = 'Please tick the box to confirm no faces or documents are visible.'; return; }
+      btn.disabled = true; pmsg.textContent = 'Preparing your photo…';
+      try {
+        const blob = await shrink(file);
+        const out = new FormData();
+        out.set('code', code); out.set('space', String(fd.get('space') ?? 0)); out.set('consent', 'yes'); out.set('website', String(fd.get('website') || ''));
+        out.set('photo', blob, 'photo.jpg');
+        pmsg.textContent = 'Sending…';
+        const r = await fetch('/api/photo', { method: 'POST', body: out });
+        if (r.status === 429) throw new Error('limit');
+        if (!r.ok) throw new Error(String(r.status));
+        form.reset();
+        pmsg.textContent = 'Sent. An editor will review your photo before it appears. Thank you.';
+      } catch (err) {
+        pmsg.classList.add('is-err');
+        pmsg.textContent = (err as Error).message === 'limit' ? 'You’ve sent several photos today. Please try again tomorrow.' : 'Your photo didn’t send. Check your connection and try again.';
+      } finally { btn.disabled = false; }
+    });
+  }
+</script>

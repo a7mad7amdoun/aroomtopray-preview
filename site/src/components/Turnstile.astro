@@ -1,0 +1,14 @@
+---
+// Cloudflare Turnstile check for the report and contact forms (functions/api/_util.js verifies the token).
+// The site key comes from PUBLIC_TURNSTILE_SITEKEY at build; without it nothing is added (local builds).
+// The widget puts a hidden "cf-turnstile-response" field into the form, so both the page script and a plain
+// form post carry the token. Without JavaScript there is no token, and the server answers with a page saying so.
+const key = import.meta.env.PUBLIC_TURNSTILE_SITEKEY;
+---
+{key && (
+  <div class="full turnstile-box">
+    <div class="cf-turnstile" data-sitekey={key} data-theme="auto" data-size="flexible"></div>
+    <noscript><p class="fine">Sending needs JavaScript, for a quick check that you are a person.</p></noscript>
+  </div>
+  <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+)}

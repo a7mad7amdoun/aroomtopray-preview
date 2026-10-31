@@ -1,0 +1,39 @@
+---
+import { PRESENTATION_COPY } from '../data/presentation-copy.js';
+import { PHOTO_COPY } from '../data/photo-copy.js';
+const {locale='en'}=Astro.props;
+const t=PRESENTATION_COPY[locale] || PRESENTATION_COPY.en, p=PHOTO_COPY[locale] || PHOTO_COPY.en;
+---
+<dialog class="photo-dialog" id="photo-dialog" data-photo-dialog aria-labelledby="photo-dialog-title">
+ <div class="photo-dialog-shell">
+  <header class="photo-dialog-header"><h2 id="photo-dialog-title">{t.photoViewer}</h2><button type="button" data-photo-close autofocus><svg width="19" height="19" aria-hidden="true"><use href="#i-close"/></svg><span>{t.closePhoto}</span></button></header>
+  <div data-photo-dialog-body></div>
+  <p class="photo-dialog-notice">{p.historical}</p>
+ </div>
+</dialog>
+<script>
+ import { initPhotoViewer } from '../scripts/photo-viewer.js';
+ document.querySelectorAll('[data-photo-viewer]').forEach(root=>initPhotoViewer(root));
+</script>
+<style>
+ .photo-dialog { width:min(1120px,calc(100vw - 32px)); max-width:none; max-height:calc(100dvh - 32px); margin:auto; padding:0; border:1px solid var(--field); border-radius:8px; color:var(--ink); background:var(--surface); box-shadow:0 24px 90px #0006; overscroll-behavior:contain; }
+ .photo-dialog:not([open]) { display:none; }
+ .photo-dialog::backdrop { background:#060b13b8; }
+ .photo-dialog-shell { padding:clamp(16px,3vw,28px); }
+ .photo-dialog-header { display:flex; justify-content:space-between; align-items:center; gap:16px; margin:0 0 20px; }
+ .photo-dialog-header h2 { margin:0; font:600 1.05rem/1.5 var(--f-display); }
+ .photo-dialog-header button { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:44px; padding:9px 12px; border:1px solid var(--field); border-radius:4px; color:var(--ink); background:var(--surface-2); font:600 .85rem/1.4 var(--f-body); cursor:pointer; flex:none; }
+ .photo-dialog-header button:hover { background:var(--sign); color:var(--sign-ink); border-color:var(--sign-ink); }
+ .photo-dialog-header button:focus-visible { outline:3px solid var(--focus); outline-offset:3px; }
+ :global(.photo-dialog .photo-viewer-figure) { display:block; padding:0; margin:0; border:0; background:transparent; box-shadow:none; }
+ :global(.photo-dialog .photo-viewer-figure>img) { display:block; width:100%; height:auto; max-height:65dvh; margin-inline:auto; object-fit:contain; background:var(--surface-2); border-radius:3px; filter:none; }
+ :global(.photo-dialog .photo-viewer-figure>figcaption) { padding:20px 0 0; max-width:85ch; }
+ :global(.photo-dialog .photo-viewer-figure .photo-credit) { gap:8px 16px; }
+ .photo-dialog-notice { margin:16px 0 0; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:.82rem; line-height:1.6; max-width:90ch; }
+ @media(max-width:480px) {
+  .photo-dialog { width:calc(100vw - 16px); max-height:calc(100dvh - 16px); }
+  .photo-dialog-header { align-items:flex-start; gap:10px; }
+  .photo-dialog-header button span { max-width:12ch; }
+ }
+ @media print { .photo-dialog { display:none!important; } }
+</style>

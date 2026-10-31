@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import EditorialArtwork from '../components/EditorialArtwork.astro';
+import ArtworkCredits from '../components/ArtworkCredits.astro';
+import { checked } from '../lib/airports.js';
+---
+<Base title="About A Room to Pray" description="Who runs A Room to Pray, how we check airport prayer rooms, and what we do with data." nav="about">
+  <div class="wrap">
+    <article class="prose">
+      <span class="eyebrow">About</span>
+      <h1 style="font-size:clamp(2rem,4.4vw,3rem)">A free guide to praying at airports.</h1>
+      <p>A Room to Pray lists prayer rooms at airports around the world: where they are, whether they’re before or after security, whether there is somewhere to make wuḍūʾ, whether women have a private space, and which way the qibla is. It covers {checked.length} airports so far, and we add more every month.</p>
+      <p>It is published by Inheriting Islam LLC, the publisher of <a href="https://lifeistemporary.com/">Life Is Temporary</a> and <a href="https://firstadhan.com/">First Adhān</a>. It is independent: no airport runs it or pays for it. There are no ads and nothing to buy.</p>
+
+      <EditorialArtwork/>
+      <h2 id="editor">Editor</h2>
+      <p>A Room to Pray is edited by Hamza Abdul-Tawwaab, founder of Inheriting Islam. He reviews every change to the listings and every traveller report before it goes live. Write to him through the <a href="/contact/">contact page</a>.</p>
+
+      <h2>How we check</h2>
+      <p>Each listing starts from the airport’s own website or an official release, and links to it. When a site can’t be reached from where we work, we use an archived copy or a search excerpt of the official page, and the listing says so. Anything that comes from somewhere other than the airport is marked “Not from the airport”. Each listing shows the date we last checked its source.</p>
+      <p>When an airport’s website lists no prayer or quiet room, we say exactly that, with the date. It doesn’t always mean there is no room, so please tell us if you know of one.</p>
+      <p>The qibla shown is the great-circle bearing from the airport to the Kaʿbah, measured from true north. It is a fixed number, not a live compass. If a room has its own qibla marker, use it.</p>
+
+      <h2>Asking airports for a room</h2>
+      <p>Where a room, washing facilities or a private space for women isn’t listed, the airport page offers a short, polite message and a link to the airport’s own feedback page. You send it yourself, in your own name, if you choose to. We never contact airports on your behalf.</p>
+
+      <h2 id="privacy">Privacy</h2>
+      <p>We don’t use cookies, ads or trackers. We keep daily totals of which pages are opened, with the approximate city and region Cloudflare’s network gives for each visit and the site that linked here; we store no network address and nothing that identifies you. We also count how many times each airport’s feedback link is opened, with no personal details. If you send a report, we store what you wrote, the airport, the month you were there and the time you sent it, so an editor can check it; reports are deleted automatically after 180 days. To stop spam, we keep a keyed one-way code made from your network address for one day only. The report and contact forms are also checked by Cloudflare Turnstile, which receives your network address for that check only and sets no tracking cookies. Please don’t include your name, email or phone number in a report. If you use the contact page and choose to give an email address, we use it only to reply to you, and delete the message after 180 days.</p>
+      <p id="checkins">If you tap “Still here”, “Moved” or “Closed” on an airport page, we add one to a count for that room and note the date of the last “still here”. We keep no network address, country or device details with it. Counts for an airport are deleted after a year with no check-ins. If you send a photo, your browser shrinks it and removes its location and camera details before sending. An editor reviews every photo before it can appear. Photos that aren’t approved are deleted, and unreviewed ones after 180 days at most. To stop spam, check-ins and photos use the same one-day keyed code as reports.</p>
+      <p>The layover planner works out prayer times in your browser. Your flights are kept only on your own device, so you don’t have to type them again, and are never sent to us.</p>
+
+      <p>If you choose Light or Dark appearance, this browser stores that preference on this device. Selecting System removes the override. Language is part of the page address; the language selector does not create a profile. The visit preparation checklist is temporary and is not saved or sent.</p>
+      <h2 id="saved-privacy">Saved places</h2>
+      <p>When you choose “Save place”, we keep only that listing’s page address in this browser’s local storage. Your shortlist is not sent to us, does not sync between devices, and is not a booking or confirmation of facilities. You can remove a place on the <a href="/saved/">Saved places page</a>, or clear this website’s browser data to remove the whole list. Clearing browser data or using a private window may also remove it.</p>
+      <p>Opening saved listings needs a connection. Copy or print the room details before you travel if you need to keep them offline. The original source-check dates and any cautions stay with those notes; saving or printing a listing does not verify it again.</p>
+
+      <h2>Corrections</h2>
+      <p>Found something wrong or out of date? Open the airport’s page and use “Been through recently? Tell us”, or write to us on the <a href="/contact/">contact page</a>. The editor checks every report against the airport before anything changes. Use of the site is covered by our <a href="/terms/">terms</a>.</p>
+      <ArtworkCredits/>
+    </article>
+  </div>
+</Base>

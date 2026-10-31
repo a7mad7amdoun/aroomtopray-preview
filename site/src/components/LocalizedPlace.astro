@@ -1,0 +1,214 @@
+---
+import PlacePhotos from './PlacePhotos.astro';
+import PlaceOverview from './PlaceOverview.astro';
+import VisitorArtwork from './VisitorArtwork.astro';
+import GuideTabNav from './GuideTabNav.astro';
+import CountryBadge from './CountryBadge.astro';
+import {GUIDE_COPY} from '../data/guide-copy.js';
+import Base from '../layouts/Base.astro';
+import PlaceActions from './PlaceActions.astro';
+import VisitInsights from './VisitInsights.astro';
+import { photosForPlace } from '../lib/place-photos.js';
+import { PHOTO_COPY } from '../data/photo-copy.js';
+import { L, host } from '../lib/airports.js';
+import { getCopy, translateTerm, localizedPath } from '../lib/i18n.js';
+
+interface Props { place: any; kind: 'airports' | 'universities' | 'hospitals'; locale: 'fr' | 'ar' | 'es' }
+const { place, kind, locale } = Astro.props;
+const common = getCopy(locale);
+const g=GUIDE_COPY[locale];
+const guideTabs=[{id:'room-details',label:g.rooms,icon:'pin'},{id:'direction',label:g.direction,icon:'qibla'},{id:'visitor-tools',label:g.help,icon:'help'}];
+const words = {
+  fr: {
+    airports: 'Aéroports', universities: 'Universités', hospitals: 'Hôpitaux', home: 'Accueil', breadcrumb: 'Fil d’Ariane',
+    title: 'Prier à', intro: 'Un lieu à trouver. Un moment pour vous recueillir.',
+    airportIntro: 'Repérez le terminal et le côté du contrôle de sécurité, puis vérifiez les horaires et les équipements de la salle.',
+    universityIntro: 'Repérez le bâtiment et vérifiez les horaires et les conditions d’accès. Les salles peuvent être réservées aux étudiants et au personnel.',
+    hospitalIntro: 'Repérez la salle et les conditions d’accès. Le personnel du service ou l’aumônerie peut vous orienter à votre arrivée.',
+    before: 'Avant votre visite', sourceNotice: 'Les repères et les équipements sont traduits. Les noms de lieux, les descriptions détaillées et les précautions issues des sources restent en anglais pour préserver leur formulation. Consultez la source officielle avant votre visite.',
+    original: 'Page complète en anglais', originalHelp: 'Retrouvez les signalements, les autres services et toutes les fonctions de la page originale.',
+    rooms: 'Salles répertoriées', room: 'Salle', choose: 'Choisir une salle', onPage: 'Sur cette page', details: 'Emplacement et accès',
+    location: 'Emplacement', access: 'Accès', security: 'Contrôle de sécurité', hours: 'Horaires', wudu: 'Ablutions', women: 'Espace pour les femmes',
+    facilities: 'Équipements, toutes salles confondues', anyRoom: 'Les équipements peuvent se trouver dans des salles différentes. Vérifiez chaque salle ci-dessous.',
+    type: 'Type de salle', groupPrayer: 'Prière collective / Jumuʿah', marker: 'Repère de qibla', source: 'Source', checked: 'Source consultée', dateUnknown: 'Date non précisée',
+    qibla: 'Direction de la qibla', north: 'N', trueNorth: 'depuis le nord géographique', fixed: 'Schéma fixe : le nord est en haut. Il ne suit pas l’orientation de votre téléphone. Utilisez le repère de la salle s’il existe.',
+    near: 'Ce lieu est proche de La Mecque : la direction peut varier sur place. Utilisez le repère de la salle.',
+    pending: 'Cet aéroport n’a pas encore été vérifié. Demandez à l’aéroport quelles sont les installations actuellement disponibles.',
+    unlisted: 'L’absence de salle dans les sources consultées ne signifie pas nécessairement qu’il n’y en a pas. Confirmez auprès du lieu.',
+    planned: 'Une salle est prévue, mais son ouverture n’est pas confirmée. Vérifiez auprès de l’aéroport avant de vous y rendre.',
+    hold: 'Cet hôpital est encore en cours de vérification. Les informations officielles disponibles sont limitées : demandez au personnel ou à l’aumônerie avant votre visite.',
+    conflict: 'Certaines informations publiées diffèrent ou peuvent être périmées. Confirmez les horaires et les numéros de salle auprès de l’établissement.',
+    thin: 'Informations limitées : une seule salle est répertoriée. Confirmez son emplacement et les conditions d’accès avant votre visite.',
+    chapel: 'Chapelle interreligieuse partagée avec d’autres confessions. Vérifiez les horaires et les offices.',
+    jumuahNotice: 'Les horaires de Jumuʿah sur les campus peuvent changer à chaque période universitaire. Consultez la dernière annonce de l’association étudiante.',
+    chaplaincy: 'Contacter l’aumônerie', chaplain: 'Aumônier musulman', listed: 'Répertorié', unknown: 'Non précisé', askStaff: 'Demandez au personnel du service de contacter l’aumônerie.',
+    hospitalScope: 'Cette page concerne les lieux de prière, pas les soins médicaux.', officialAirport: 'Page officielle de l’aéroport', officialUniversity: 'Page officielle de l’université', officialHospital: 'Page officielle de l’hôpital',
+    archive: 'Page officielle, copie archivée', snippet: 'Page officielle, extrait de recherche', indirect: 'Source officielle, copie indirecte', unofficial: 'Source externe à l’établissement',
+    locate: 'Repérer', enter: 'Accéder', prepare: 'Se préparer', checkHours: 'Vérifiez les horaires de votre salle', confirm: 'Confirmez les informations sur place', correction: 'Signaler une correction sur la page en anglais',
+  },
+  ar: {
+    airports: 'المطارات', universities: 'الجامعات', hospitals: 'المستشفيات', home: 'الرئيسية', breadcrumb: 'مسار التصفح',
+    title: 'الصلاة في', intro: 'مكان تجده. ولحظة تخشع فيها.',
+    airportIntro: 'حدّد مبنى الركاب وما إذا كانت الغرفة قبل التفتيش الأمني أو بعده، ثم تحقّق من ساعات العمل والمرافق.',
+    universityIntro: 'حدّد المبنى وتحقّق من ساعات العمل وشروط الدخول. قد تقتصر بعض الغرف على الطلاب والموظفين.',
+    hospitalIntro: 'حدّد مكان الغرفة وشروط الدخول. يمكن لموظفي القسم أو فريق الرعاية الروحية إرشادك عند الوصول.',
+    before: 'قبل الزيارة', sourceNotice: 'تُرجمت عناصر الواجهة والمرافق. وتبقى أسماء الأماكن والأوصاف التفصيلية والتنبيهات الواردة في المصادر بالإنجليزية حفاظًا على صياغتها. راجع المصدر الرسمي قبل الزيارة.',
+    original: 'الصفحة الكاملة بالإنجليزية', originalHelp: 'تجد البلاغات والخدمات الأخرى وجميع وظائف الموقع في الصفحة الأصلية.',
+    rooms: 'الغرف المدرجة', room: 'غرفة', choose: 'اختر غرفة', onPage: 'في هذه الصفحة', details: 'الموقع والدخول',
+    location: 'الموقع', access: 'الدخول', security: 'التفتيش الأمني', hours: 'ساعات العمل', wudu: 'الوضوء', women: 'مساحة للنساء',
+    facilities: 'المرافق في جميع الغرف', anyRoom: 'قد تتوزع المرافق على غرف مختلفة. تحقّق من تفاصيل كل غرفة أدناه.',
+    type: 'نوع الغرفة', groupPrayer: 'صلاة الجماعة / الجمعة', marker: 'علامة القبلة', source: 'المصدر', checked: 'تاريخ الاطّلاع على المصدر', dateUnknown: 'التاريخ غير مذكور',
+    qibla: 'اتجاه القبلة', north: 'ش', trueNorth: 'من الشمال الجغرافي', fixed: 'رسم ثابت: الشمال في الأعلى. لا يتبع اتجاه هاتفك. استخدم علامة القبلة في الغرفة إن وُجدت.',
+    near: 'هذا المكان قريب من مكة، لذا قد يختلف الاتجاه داخل الموقع. استخدم علامة القبلة في الغرفة.',
+    pending: 'لم نتحقّق من هذا المطار بعد. اسأل المطار عن مرافق الصلاة المتاحة حاليًا.',
+    unlisted: 'عدم ذكر غرفة في المصادر التي راجعناها لا يعني بالضرورة عدم وجودها. تأكّد من الجهة المعنية.',
+    planned: 'هناك غرفة مخطّط لها، لكن افتتاحها غير مؤكّد. تحقّق من المطار قبل الزيارة.',
+    hold: 'ما زلنا نتحقّق من هذا المستشفى. المعلومات الرسمية المتاحة محدودة؛ اسأل موظفي القسم أو فريق الرعاية الروحية قبل الزيارة.',
+    conflict: 'تختلف بعض التفاصيل المنشورة أو قد تكون قديمة. تأكّد من المواعيد وأرقام الغرف لدى المؤسسة.',
+    thin: 'المعلومات محدودة: توجد غرفة واحدة مدرجة فقط. تأكّد من موقعها وشروط الدخول قبل الزيارة.',
+    chapel: 'هذه قاعة صلاة مشتركة بين أتباع ديانات مختلفة. تحقّق من ساعات العمل ومواعيد الشعائر.',
+    jumuahNotice: 'قد تتغيّر مواعيد صلاة الجمعة في الجامعات كل فصل دراسي. راجع أحدث إعلان للجمعية الطلابية الإسلامية.',
+    chaplaincy: 'التواصل مع الرعاية الروحية', chaplain: 'مرشد ديني مسلم', listed: 'مدرج', unknown: 'غير مذكور', askStaff: 'اطلب من موظفي القسم التواصل مع فريق الرعاية الروحية.',
+    hospitalScope: 'تتناول هذه الصفحة أماكن الصلاة، وليس الرعاية الطبية.', officialAirport: 'صفحة المطار الرسمية', officialUniversity: 'صفحة الجامعة الرسمية', officialHospital: 'صفحة المستشفى الرسمية',
+    archive: 'صفحة رسمية، نسخة مؤرشفة', snippet: 'صفحة رسمية، مقتطف من نتائج البحث', indirect: 'مصدر رسمي، نسخة غير مباشرة', unofficial: 'مصدر خارج المؤسسة',
+    locate: 'حدّد المكان', enter: 'تحقّق من الدخول', prepare: 'استعدّ', checkHours: 'تحقّق من ساعات عمل الغرفة', confirm: 'تأكّد من المعلومات عند الوصول', correction: 'الإبلاغ عن تصحيح في الصفحة الإنجليزية',
+  },
+  es: {
+    airports: 'Aeropuertos', universities: 'Universidades', hospitals: 'Hospitales', home: 'Inicio', breadcrumb: 'Ruta de navegación',
+    title: 'Rezar en', intro: 'Un lugar que encontrar. Un momento para recogerse.',
+    airportIntro: 'Localiza la terminal y comprueba si la sala está antes o después del control de seguridad. Después, revisa sus horarios y servicios.',
+    universityIntro: 'Localiza el edificio y comprueba los horarios y las condiciones de acceso. Algunas salas pueden estar reservadas a estudiantes y personal.',
+    hospitalIntro: 'Localiza la sala y comprueba las condiciones de acceso. El personal de planta o el servicio de atención espiritual puede orientarte al llegar.',
+    before: 'Antes de la visita', sourceNotice: 'La interfaz y los servicios están traducidos. Los nombres, las descripciones detalladas y las advertencias de las fuentes se mantienen en inglés para conservar su redacción. Consulta la fuente oficial antes de la visita.',
+    original: 'Página completa en inglés', originalHelp: 'Los avisos, otros servicios y todas las funciones están disponibles en la página original.',
+    rooms: 'Salas registradas', room: 'Sala', choose: 'Elige una sala', onPage: 'En esta página', details: 'Ubicación y acceso',
+    location: 'Ubicación', access: 'Acceso', security: 'Control de seguridad', hours: 'Horario', wudu: 'Abluciones', women: 'Espacio para mujeres',
+    facilities: 'Servicios del conjunto de salas', anyRoom: 'Los servicios pueden estar en salas distintas. Comprueba los detalles de cada sala.',
+    type: 'Tipo de sala', groupPrayer: 'Oración colectiva / Yumuʿa', marker: 'Indicador de alquibla', source: 'Fuente', checked: 'Fuente consultada', dateUnknown: 'Fecha no indicada',
+    qibla: 'Dirección de la alquibla', north: 'N', trueNorth: 'desde el norte geográfico', fixed: 'Diagrama fijo: el norte está arriba. No sigue la orientación del teléfono. Usa el indicador de la sala si lo hay.',
+    near: 'Este lugar está cerca de La Meca, por lo que la dirección puede variar dentro del recinto. Usa el indicador de la sala.',
+    pending: 'Todavía no hemos revisado este aeropuerto. Pregunta al aeropuerto por las instalaciones de oración disponibles.',
+    unlisted: 'Que no aparezca una sala en las fuentes consultadas no significa necesariamente que no exista. Confírmalo con el lugar.',
+    planned: 'Hay una sala prevista, pero su apertura no está confirmada. Consulta al aeropuerto antes de visitarla.',
+    hold: 'Seguimos revisando este hospital. La información oficial disponible es limitada: consulta al personal o al servicio de atención espiritual antes de ir.',
+    conflict: 'Algunos datos publicados difieren o pueden estar desactualizados. Confirma horarios y números de sala con la institución.',
+    thin: 'Información limitada: solo hay una sala registrada. Confirma su ubicación y el acceso antes de la visita.',
+    chapel: 'Capilla interreligiosa compartida con otras confesiones. Comprueba sus horarios y los de los servicios religiosos.',
+    jumuahNotice: 'Los horarios de Yumuʿa en los campus pueden cambiar cada periodo académico. Consulta el último aviso de la asociación islámica estudiantil.',
+    chaplaincy: 'Contactar con atención espiritual', chaplain: 'Asesor espiritual musulmán', listed: 'Registrado', unknown: 'No indicado', askStaff: 'Pide al personal de planta que contacte con el servicio de atención espiritual.',
+    hospitalScope: 'Esta página trata sobre lugares para rezar, no sobre atención médica.', officialAirport: 'Página oficial del aeropuerto', officialUniversity: 'Página oficial de la universidad', officialHospital: 'Página oficial del hospital',
+    archive: 'Página oficial, copia archivada', snippet: 'Página oficial, fragmento de búsqueda', indirect: 'Fuente oficial, copia indirecta', unofficial: 'Fuente externa a la institución',
+    locate: 'Localiza', enter: 'Comprueba el acceso', prepare: 'Prepárate', checkHours: 'Consulta el horario de la sala', confirm: 'Confirma los datos al llegar', correction: 'Comunicar una corrección en la página en inglés',
+  },
+};
+const t = {
+  ...words[locale],
+  airports: common.nav.airports, universities: common.nav.universities, hospitals: common.nav.hospitals, home: common.nav.home,
+  before: common.detail.overview, sourceNotice: common.detail.sourceEnglishNotice, original: common.detail.originalPage,
+  rooms: common.detail.roomCount, choose: common.detail.roomNavigation, location: common.common.location,
+  access: common.common.access, hours: common.common.hours, wudu: common.common.wudu, source: common.common.source,
+  facilities: common.detail.facilities,
+};
+const airport = kind === 'airports';
+const university = kind === 'universities';
+const noteKind = airport ? 'Airport' : university ? 'University' : 'Hospital';
+const noindex = airport ? place.status === 'pending' : kind === 'hospitals' && place.hold;
+const title = `${t.title} ${place.name} | A Room to Pray`;
+const intro = airport ? t.airportIntro : university ? t.universityIntro : t.hospitalIntro;
+const date = (value) => {
+  if (!value) return t.dateUnknown;
+  const parsed = new Date(`${value}T12:00:00Z`);
+  return Number.isNaN(parsed.valueOf()) ? t.dateUnknown : new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(parsed);
+};
+const term = (value) => translateTerm(value || 'Not stated', locale);
+const attrs = (value) => term(value) === value ? { lang: 'en', dir: 'ltr' } : {};
+const provenance = (verified) => verified === true ? (airport ? t.officialAirport : university ? t.officialUniversity : t.officialHospital)
+  : verified === 'archive' ? t.archive : verified === 'snippet' ? t.snippet : verified === 'indirect' ? t.indirect : t.unofficial;
+const verificationClass = (verified) => verified === false || verified == null ? 'b-unv' : 'b-ok';
+const warnings = [place.hold && t.hold, place.conflict && t.conflict, place.thin && t.thin, airport && place.status === 'pending' && t.pending, airport && place.status === 'none' && t.unlisted, airport && place.status === 'planned' && t.planned].filter(Boolean);
+const firstRoom = place.spaces[0];
+const qibla = Number(place.qibla);
+const badge = (map, key) => map[key] || map.unknown;
+const roomStatus = airport ? common.status[place.status] : place.hold ? common.common.checking : `${place.spaces.length} · ${t.rooms}`;
+const amenity = (group, key) => common.amenities[group][key] || common.amenities[group].unknown;
+---
+<Base {title} description={`${t.title} ${place.name}. ${intro}`} nav={kind} {noindex} og={airport && place.art ? `/og/${place.code}.jpg` : null}>
+  <div class={`wrap localized-place sector-${kind}`}>
+    <nav class="crumbs" aria-label={t.breadcrumb}>
+      <a href={localizedPath('/', locale)}>{t.home}</a><span aria-hidden="true">/</span>
+      <a href={localizedPath(`/${kind}/`, locale)} data-directory-return={g.backToResults}>{t[kind]}</a><span aria-hidden="true">/</span>
+      <span aria-current="page" lang="en" dir="ltr">{place.iata || place.short}</span>
+    </nav>
+    <div class="d-head">
+      <div class="d-code" aria-hidden="true">{airport ? place.iata : <svg width="56" height="56" aria-hidden="true"><use href={university?'#i-campus':'#i-care'}/></svg>}</div>
+      <div class="d-title">
+        <p class="eyebrow">{t[kind]}</p>
+        <h1>{t.title} <bdi lang="en">{place.name}</bdi></h1>
+        <div class="d-meta"><span class={`pill ${airport ? L.status[place.status][1] : place.hold ? 'p-unk' : 'p-yes'}`}>{roomStatus}</span><bdi lang="en">{place.city}</bdi><CountryBadge country={place.country} {locale}/>{place.group && <bdi lang="en">{place.group}</bdi>}<span>{t.checked} {date(place.checked)}</span></div>
+      </div>
+    </div>
+    <section class="visit-intro" aria-labelledby="visit-intro-title">
+      <div class="visit-intro-copy"><span class="icon-tile"><svg width="28" height="28" aria-hidden="true"><use href="#i-pin" /></svg></span><div><h2 id="visit-intro-title">{t.before}</h2><p>{intro}</p></div></div>
+      <nav class="page-jumps" aria-label={t.onPage}><a href="#room-details">{t.details} <span aria-hidden="true">↓</span></a><a href="#qibla">{t.qibla} <span aria-hidden="true">↓</span></a>{photosForPlace(place.url).length>0&&<a href="#place-photos"><svg width="17" height="17" aria-hidden="true"><use href="#i-photo"/></svg>{PHOTO_COPY[locale].title}<span aria-hidden="true">↓</span></a>}{place.chaplaincy && <a href="#chap-h">{t.chaplaincy} <span aria-hidden="true">↓</span></a>}</nav>
+      {place.spaces.length > 1 && <details class="room-picker"><summary>{t.choose} <span>{place.spaces.length}</span></summary><ol>{place.spaces.map((space, index) => <li><a href={`#room-${index + 1}`}><span class="tnum">{String(index + 1).padStart(2, '0')}</span><span class="room-picker-copy"><strong><bdi lang="en">{space.name}</bdi></strong><small lang="en" dir="ltr">{space.loc}</small></span><span aria-hidden="true">↗</span></a></li>)}</ol></details>}
+    </section>
+    <PlaceActions {place} kind={noteKind} />
+    <aside class="translation-notice note"><p>{t.sourceNotice}</p><a href={place.url} hreflang="en">{t.original} <span aria-hidden="true">↗</span></a></aside>
+    <PlaceOverview {place} {kind} {locale} />
+    {warnings.map(warning => <p class="note localized-warning">{warning}</p>)}
+    {place.note && <p class="note localized-warning" lang="en" dir="ltr">{place.note}</p>}
+    {kind === 'hospitals' && <p class="fine localized-summary-note">{t.hospitalScope}</p>}
+    {firstRoom && <ol class="visit-steps" aria-label={t.before}>
+      <li><span class="eyebrow">01 · {t.locate}</span><strong><bdi lang="en">{firstRoom.name}</bdi></strong><span lang="en" dir="ltr">{firstRoom.loc}</span></li>
+      <li><span class="eyebrow">02 · {t.enter}</span><strong>{airport ? t.security : t.access}</strong><span lang={airport ? undefined : attrs(firstRoom.access).lang} dir={airport ? undefined : attrs(firstRoom.access).dir}>{airport ? amenity('side', firstRoom.side) : term(firstRoom.access)}</span></li>
+      <li><span class="eyebrow">03 · {t.prepare}</span><strong>{t.checkHours}</strong><span {...attrs(firstRoom.hours)}>{term(firstRoom.hours)}</span></li>
+    </ol>}
+    <div class="d-grid" data-guide-tabs>
+      <GuideTabNav tabs={guideTabs} label={g.overview}/>
+      <div class="d-main guide-panel" id="room-details">
+        {place.spaces.length === 0 && <section class="none-panel"><h2>{roomStatus}</h2><p>{t.confirm}</p><a class="btn ghost" href={place.url} hreflang="en">{t.original}</a></section>}
+        {place.spaces.map((space, index) => <article class="card room" id={`room-${index + 1}`}>
+          <div class="room-top"><h2><span class="eyebrow">{t.room} {index + 1}</span><bdi lang="en">{space.name}</bdi></h2><span class="tag" {...attrs(space.type)}>{term(space.type)}</span></div>
+          <p class="where"><svg width="20" height="20" aria-hidden="true"><use href="#i-pin" /></svg><span lang="en" dir="ltr">{space.loc}</span></p>
+          <dl class="facts">
+            <div class="fact-essential"><dt><svg width="17" height="17" aria-hidden="true"><use href={airport?'#i-security':'#i-key'}/></svg>{airport ? t.security : t.access}</dt><dd lang={airport ? undefined : attrs(space.access).lang} dir={airport ? undefined : attrs(space.access).dir}>{airport ? amenity('side', space.side) : term(space.access)}</dd></div>
+            <div class="fact-essential"><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-clock"/></svg>{t.hours}</dt><dd {...attrs(space.hours)}>{term(space.hours)}</dd></div>
+            {airport && space.access && <div class="fact-essential fact-access"><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-key"/></svg>{t.access}</dt><dd lang="en" dir="ltr">{space.access}</dd></div>}
+            <div><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-water"/></svg>{t.wudu}</dt><dd><span class={`pill ${badge(L.wudu, space.wudu)[1]}`}>{amenity('wudu', space.wudu)}</span></dd></div>
+            <div><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-screen"/></svg>{t.women}</dt><dd><span class={`pill ${badge(L.women, space.women)[1]}`}>{amenity('women', space.women)}</span></dd></div>
+            {space.qibla_marker && <div><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-qibla"/></svg>{t.marker}</dt><dd lang="en" dir="ltr">{space.qibla_marker}</dd></div>}
+            {space.jumuah && <div><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-community"/></svg>{t.groupPrayer}</dt><dd lang="en" dir="ltr">{space.jumuah}</dd></div>}
+          </dl>
+          {space.caution && <p class="extra note" lang="en" dir="ltr">{space.caution}</p>}
+          {space.chapel && <p class="extra">{t.chapel}</p>}
+          {space.extra && <p class="extra" lang="en" dir="ltr">{space.extra}</p>}
+          <div class="src"><span><svg width="16" height="16" aria-hidden="true"><use href="#i-source"/></svg>{t.source}: <a href={space.src} rel="noopener" dir="ltr">{host(space.src)}</a></span><span>{t.checked} {date(space.checked)} · <span class={`badge ${verificationClass(space.verified)}`}>{provenance(space.verified)}</span></span></div>
+        </article>)}
+        {university && place.spaces.some(space => space.jumuah) && <p class="note">{t.jumuahNotice}</p>}
+        {place.chaplaincy && <section class="card room" aria-labelledby="chap-h">
+          <div class="room-top"><h2 id="chap-h">{t.chaplaincy}</h2><span class="tag">{t.chaplain}: {place.chaplain ? t.listed : t.unknown}</span></div>
+          {place.chaplaincy.how_to_request ? <p lang="en" dir="ltr">{place.chaplaincy.how_to_request}</p> : <p>{t.askStaff}</p>}
+          {place.chaplaincy.source_url && <p class="fine">{t.source}: <a href={place.chaplaincy.source_url} rel="noopener" dir="ltr">{host(place.chaplaincy.source_url)}</a></p>}
+        </section>}
+        <PlacePhotos place={place} {locale} />
+      </div>
+      <section id="direction" class="guide-panel direction-panel">
+        <section class="card compass" id="qibla" aria-labelledby="qibla-title">
+          <svg viewBox="0 0 240 240" role="img" aria-label={`${t.qibla}: ${qibla.toFixed(1)}° ${t.trueNorth}`}>
+            <circle cx="120" cy="120" r="108" fill="var(--surface-2)" stroke="var(--line)" stroke-width="2" />
+            {Array.from({ length: 12 }, (_, index) => <path d="M120 18v9" stroke="var(--muted)" stroke-width="2" transform={`rotate(${index * 30} 120 120)`} />)}
+            <text x="120" y="51" text-anchor="middle" fill="var(--ink)" font-family="var(--f-body)" font-size="18" font-weight="700">{t.north}</text>
+            <g transform={`rotate(${qibla} 120 120)`}><path d="m120 31 12 89-12-7-12 7Z" fill="var(--sign)" stroke="var(--sign-ink)" stroke-width="1.5" /><path d="m120 209 8-89-8 7-8-7Z" fill="var(--line)" /></g>
+            <circle cx="120" cy="120" r="6" fill="var(--ink)" />
+          </svg>
+          <div class="stack"><h2 id="qibla-title">{t.qibla}</h2><div class="big tnum" dir="ltr">{qibla.toFixed(1)}°</div><b>{t.trueNorth}</b><p class="fine">{t.fixed}</p>{airport && place.km < 600 && <p class="fine">{t.near}</p>}</div>
+        </section>
+      </section>
+      <aside id="visitor-tools" class="d-side guide-panel">
+        <VisitInsights {kind} {locale} placeUrl={place.url} compact />
+        <section class="card stack"><h2>{t.original}</h2><p>{t.originalHelp}</p><a class="btn sign-btn" href={place.url} hreflang="en">{t.original} <span aria-hidden="true">↗</span></a><a class="fine" href={`${place.url}${airport ? '' : '#report'}`} hreflang="en">{t.correction}</a></section>
+        <VisitorArtwork scene={airport ? 'airport' : university ? 'campus' : 'hospital'} {locale} placement="supporting" purpose="visitor-preparation"/>
+      </aside>
+    </div>
+  </div>
+</Base>

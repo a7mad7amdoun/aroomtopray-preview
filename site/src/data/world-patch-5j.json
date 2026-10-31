@@ -1,0 +1,307 @@
+[
+ {
+  "iata": "LYP",
+  "name": "Faisalabad International Airport",
+  "city": "Faisalabad",
+  "country": "PK",
+  "region": "Asia",
+  "lat": 31.364923,
+  "lon": 72.995319,
+  "qibla_deg": 259.6,
+  "distance_km": 3468,
+  "spaces": [
+   {
+    "name": "Prayer rooms and ablution areas (unlocated)",
+    "location": "Not stated (\"throughout the airport\")",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "yes (\"ablution areas/rooms are available\")",
+    "women": "yes (\"for women and men\")",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://paawebadmin.paa.gov.pk/api/v1/Content/WebPortalsMenus?_Search=faisalabad&ApiKey=123456789_API",
+    "verified": "verified"
+   }
+  ],
+  "feedback_url": "unknown",
+  "notes": "paa.gov.pk is a JavaScript app; deep links (e.g. https://paa.gov.pk/airport/faisalabad/services/prayer-rooms) return HTTP 404 when loaded directly. The Faisalabad airport portal content was read on 18 Oct 2026 from the site's own public content API (official PAA domain, key embedded in the site's JavaScript), the source cited. Its \"Prayer Rooms\" service entry (front-end path /services/prayer-rooms under portal /airport/faisalabad) says: \"Muslim prayer rooms and ablution areas/rooms are available throughout the airport for women and men.\" This is the same standard text used on other PAA airport portals; no terminal, side, hours or count is given. The portal also has a \"Complaint & Feedback\" / E-Complaint section (path /procedure/complaints-feedback), but no directly loadable URL was found, so feedback_url is unknown. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "GWD",
+  "name": "New Gwadar International Airport",
+  "city": "Gurandani",
+  "country": "PK",
+  "region": "Asia",
+  "lat": 25.296733,
+  "lon": 62.498822,
+  "qibla_deg": 264.1,
+  "distance_km": 2351,
+  "spaces": [
+   {
+    "name": "Prayer rooms and ablution areas (unlocated)",
+    "location": "Not stated (\"throughout the airport\")",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "yes (\"ablution areas/rooms are available\")",
+    "women": "yes (\"for women and men\")",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://paawebadmin.paa.gov.pk/api/v1/Content/WebPortalsMenus?_Search=gwadar&ApiKey=123456789_API",
+    "verified": "verified"
+   }
+  ],
+  "feedback_url": "unknown",
+  "notes": "paa.gov.pk is a JavaScript app; deep links (e.g. https://paa.gov.pk/airport/gwadar/services/prayer-rooms) return HTTP 404 when loaded directly. The Gwadar airport portal content was read on 18 Oct 2026 from the site's own public content API (official PAA domain, key embedded in the site's JavaScript), the source cited. Its \"Prayer Rooms\" service entry (front-end path /services/prayer-rooms under portal /airport/gwadar) says: \"Muslim prayer rooms and ablution areas/rooms are available throughout the airport for women and men.\" This is the same standard text used on other PAA airport portals; no terminal, side, hours or count is given. The portal also has a \"Complaint & Feedback\" / E-Complaint section (path /procedure/complaints-feedback), but no directly loadable URL was found, so feedback_url is unknown. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "UET",
+  "name": "Quetta International Airport",
+  "city": "Quetta",
+  "country": "PK",
+  "region": "Asia",
+  "lat": 30.2514,
+  "lon": 66.937798,
+  "qibla_deg": 256.5,
+  "distance_km": 2877,
+  "spaces": [
+   {
+    "name": "Prayer rooms and ablution areas (unlocated)",
+    "location": "Not stated (\"throughout the airport\")",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "yes (\"ablution areas/rooms are available\")",
+    "women": "yes (\"for women and men\")",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://paawebadmin.paa.gov.pk/api/v1/Content/WebPortalsMenus?_Search=quetta&ApiKey=123456789_API",
+    "verified": "verified"
+   }
+  ],
+  "feedback_url": "unknown",
+  "notes": "paa.gov.pk is a JavaScript app; deep links (e.g. https://paa.gov.pk/airport/quetta/services/prayer-rooms) return HTTP 404 when loaded directly. The Quetta airport portal content was read on 18 Oct 2026 from the site's own public content API (official PAA domain, key embedded in the site's JavaScript), the source cited. Its \"Prayer Rooms\" service entry (front-end path /services/prayer-rooms under portal /airport/quetta) says: \"Muslim prayer rooms and ablution areas/rooms are available throughout the airport for women and men.\" This is the same standard text used on other PAA airport portals; no terminal, side, hours or count is given. The portal also has a \"Complaint & Feedback\" / E-Complaint section (path /procedure/complaints-feedback), but no directly loadable URL was found, so feedback_url is unknown. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "GAN",
+  "name": "Gan International Airport",
+  "city": "Gan",
+  "country": "MV",
+  "region": "Asia",
+  "lat": -0.692975,
+  "lon": 73.152627,
+  "qibla_deg": 306.2,
+  "distance_km": 4375,
+  "spaces": [
+   {
+    "name": "Prayer Room (Domestic Departure Hall)",
+    "location": "Domestic Departure Hall, after the security check",
+    "side": "airside",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://ganairport.com/depatures.html",
+    "verified": "verified"
+   },
+   {
+    "name": "Prayer Room (International Departure Hall)",
+    "location": "International Departure Hall, after security and passport control",
+    "side": "airside",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://ganairport.com/depatures.html",
+    "verified": "verified"
+   }
+  ],
+  "feedback_url": "unknown",
+  "notes": "Official Gan International Airport (Addu International Airport Pvt Ltd) Departures Guide https://ganairport.com/depatures.html fetched directly 18 Oct 2026. Quote: \"Once the security check is complete and if you are a domestic passenger proceed to the Domestic Departure Hall ... In the Departure Hall toilets and a Prayer Room is available.\" and, for international passengers after Passport Control, \"proceed to the International Departure Hall ... In the Departure Hall toilets and a Prayer Room is available.\" Side is from that sequence (after security). The site's other 39 linked pages (arrivals, services, travel guide) were fetched and do not mention prayer. No feedback page was found (phone +960 689 8010 only). Scheduled Maldivian flights shown on the site for 18 Oct 2026. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "HAQ",
+  "name": "Hanimaadhoo International Airport",
+  "city": "Haa Dhaalu Atoll",
+  "country": "MV",
+  "region": "Asia",
+  "lat": 6.743235,
+  "lon": 73.167072,
+  "qibla_deg": 297.9,
+  "distance_km": 3935,
+  "spaces": [
+   {
+    "name": "Prayer rooms (planned in terminal design)",
+    "location": "New passenger terminal (location not stated)",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.airport-technology.com/projects/hanimaadhoo-international-airport-redevelopment-maldives/",
+    "verified": "unverified"
+   }
+  ],
+  "feedback_url": "unknown",
+  "notes": "Secondary only. Airport Technology project profile (published 26 Apr 2023, read directly 18 Oct 2026) on the Hanimaadhoo redevelopment says the new passenger terminal \"will also feature modern facilities and amenities such as VIP waiting lounges, prayer rooms, seating areas and baby care facilities.\" This was written before the terminal opened (operations moved to the new terminal in Oct 2025 per edition.mv), so the prayer rooms are a planned feature not confirmed after opening. No official operator facilities page was found (macl.aero covers Velana only). Maldivian news articles on the opening (edition.mv, atolltimes.mv, psmnews.mv) were fetched and do not mention prayer facilities. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "BWN",
+  "name": "Brunei International Airport",
+  "city": "Bandar Seri Begawan",
+  "country": "BN",
+  "region": "Asia",
+  "lat": 4.9442,
+  "lon": 114.928001,
+  "qibla_deg": 290.9,
+  "distance_km": 8266,
+  "spaces": [
+   {
+    "name": "Prayer rooms in the terminal (unlocated)",
+    "location": "Airport Terminal (location not stated)",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.theborneopost.com/2014/04/29/foundation-laying-ceremony-for-the-airports-new-surau/",
+    "verified": "unverified"
+   },
+   {
+    "name": "Airport Surau (prayer hall)",
+    "location": "Separate building \"in the vicinity of the new Brunei International Airport Terminal\", on a raised platform",
+    "side": "landside",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "surau",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.theborneopost.com/2014/04/29/foundation-laying-ceremony-for-the-airports-new-surau/",
+    "verified": "unverified"
+   }
+  ],
+  "feedback_url": "unknown",
+  "notes": "Secondary only (news). The Borneo Post, 29 Apr 2014 (reporting BruDirect), read via its Wayback capture of 5 Jun 2021 because the live page is behind a Cloudflare challenge: the Ministry of Communications and BEDB laid the foundation for \"the new Surau (Prayer Hall) for the Brunei International Airport ... The Surau located in the vicinity of the new Brunei International Airport Terminal will provide Muslim worshippers with an additional and better praying facility in addition to the existing prayer rooms available in the Airport Terminal ... can be seen by both departing and arriving passengers ... will accommodate at least 300 worshippers and is expected to be completed by the end of November 2014.\" Completion was not confirmed by a later source; the surau side is INFERENCE (separate building outside the terminal). The article is 12 years old. No official airport website was found (bruneiairport.com is a parked travel-search domain; dca.gov.bn site search for surau/prayer returns nothing). Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "LGK",
+  "name": "Langkawi International Airport",
+  "city": "Langkawi",
+  "country": "MY",
+  "region": "Asia",
+  "lat": 6.32973,
+  "lon": 99.728699,
+  "qibla_deg": 291.1,
+  "distance_km": 6640,
+  "spaces": [
+   {
+    "name": "Male Prayer Room",
+    "location": "Not stated",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "no (male room; a separate Female Prayer Room is listed)",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.malaysiaairports.com.my/en/langkawi/air-travel/airport-facilities",
+    "verified": "verified"
+   },
+   {
+    "name": "Female Prayer Room",
+    "location": "Not stated",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "yes (separate Female Prayer Room)",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.malaysiaairports.com.my/en/langkawi/air-travel/airport-facilities",
+    "verified": "verified"
+   }
+  ],
+  "feedback_url": "https://feedback.malaysiaairports.com.my/",
+  "notes": "The official MAHB Langkawi facilities page (https://www.malaysiaairports.com.my/en/langkawi/air-travel/airport-facilities) is JavaScript-rendered; its content was read on 18 Oct 2026 from the facilities feed the page itself loads (api.myairports.com.my/passengercms/api/facilitieslist, airport \"langkawi\"). Category \"Prayer Rooms\" lists two items: \"Male Prayer Room\" and \"Female Prayer Room\". No location, side, hours or ablution details are given; the MAHB shop/dine/services feed for Langkawi has no prayer entry. Feedback URL is the MAHB feedback portal linked from the site footer. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "SZB",
+  "name": "Sultan Abdul Aziz Shah International Airport",
+  "city": "Subang",
+  "country": "MY",
+  "region": "Asia",
+  "lat": 3.13058,
+  "lon": 101.549004,
+  "qibla_deg": 292.6,
+  "distance_km": 6960,
+  "spaces": [
+   {
+    "name": "Surau (Domestic Hall)",
+    "location": "Skypark Subang Terminal, Level G, Domestic Hall, beside Chocolate Box (Lot G36A)",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "surau",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.subangskypark.com/amenities-facilities/",
+    "verified": "verified"
+   },
+   {
+    "name": "Surau (International Hall)",
+    "location": "Skypark Subang Terminal, Level G, International Hall, beside Langkawi Duty Free (Lot G34)",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "surau",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.subangskypark.com/amenities-facilities/",
+    "verified": "verified"
+   },
+   {
+    "name": "Surau (Level M)",
+    "location": "Skypark Subang Terminal, Level M, beside Firefly Office (Lot M1-2)",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "surau",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.subangskypark.com/amenities-facilities/",
+    "verified": "verified"
+   }
+  ],
+  "feedback_url": "https://www.subangskypark.com/contact-us-travellers/",
+  "notes": "Official Subang SkyPark (terminal operator) \"Amenities/ Facilities\" page https://www.subangskypark.com/amenities-facilities/ fetched directly 18 Oct 2026. Quote: \"Surau Level G Domestic Hall, Beside Chocolate Box (Lot G36A) International Hall, Beside Langkawi Duty Free (Lot G34) Level M Beside Firefly Office (Lot M1-2)\". The page does not say whether the halls are before or after security, and gives no hours, ablution or women's-area details, so side/wudu/women are unknown. The new MAHB site has no Subang facilities page (malaysiaairports.com.my/en/subang shows KLIA content). Feedback URL is the SkyPark \"Contact Us (Travellers)\" page. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ }
+]

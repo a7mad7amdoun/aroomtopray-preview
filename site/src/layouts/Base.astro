@@ -1,0 +1,126 @@
+---
+import '@fontsource-variable/archivo/wdth.css';
+import '@fontsource/atkinson-hyperlegible/400.css';
+import '@fontsource/atkinson-hyperlegible/700.css';
+import '@fontsource/jetbrains-mono/400.css';
+import '@fontsource/jetbrains-mono/600.css';
+import '@fontsource/noto-naskh-arabic/600.css';
+import '@fontsource/noto-naskh-arabic/400.css';
+import '../styles/global.css';
+import '../styles/improvements.css';
+import '../styles/experience.css';
+import '../styles/sanctuary.css';
+import '../styles/immersive-room.css';
+import '../styles/room-guide.css';
+import '../styles/room-artwork.css';
+import '../styles/editorial-art.css';
+import '../styles/countries.css';
+import '../styles/room-door.css';
+import '../styles/premium-navigation.css';
+import '../styles/room-spatial.css';
+import '../styles/information-design.css';
+import AppearanceControls from '../components/AppearanceControls.astro';
+import RoomEnvironment from '../components/RoomEnvironment.astro';
+import { ROOM_COPY } from '../data/room-copy.js';
+import { DOOR_COPY } from '../data/door-copy.js';
+import { WAYFINDING_COPY } from '../data/wayfinding-copy.js';
+import { LOCALES, getCopy, localeFromPath, localeMeta, localizedPath } from '../lib/i18n.js';
+import { hasLocalizedRoute, languageTarget, navigationPath } from '../lib/localized-routes.js';
+import Icons from '../components/Icons.astro';
+import Mark from '../components/Mark.astro';
+import { SITE } from '../lib/airports.js';
+
+interface Props { title: string; description: string; nav?: string; noindex?: boolean; og?: string | null; jsonld?: object; destinationNav?: boolean }
+const { title, description, nav = '', noindex = false, og = null, jsonld, destinationNav = true } = Astro.props;
+const reviewPreview = import.meta.env.PUBLIC_REVIEW_PREVIEW === 'true';
+const locale = localeFromPath(Astro.url.pathname);
+const t = getCopy(locale);
+const w = WAYFINDING_COPY[locale];
+const r = ROOM_COPY[locale];
+const door = DOOR_COPY[locale];
+const visitHash = ['airports','universities','hospitals'].includes(nav) ? `#panel-${nav}` : '';
+const roomKind = ['airports','universities','hospitals'].includes(nav) ? nav : 'home';
+const languageLinks = LOCALES.map(l => ({ code: l.code, label: l.nativeName, href: languageTarget(Astro.url.pathname, l.code) }));
+const local = path => navigationPath(path, locale);
+const canonical = new URL(Astro.url.pathname, SITE).href;
+const ogImage = new URL(og || '/og/default.jpg', SITE).href;
+---
+<!doctype html>
+<html lang={locale} dir={localeMeta(locale).dir} data-sector={nav || 'home'}>
+<head>
+  <meta charset="utf-8">
+  <script is:inline>document.documentElement.classList.add('js'); try { const theme = localStorage.getItem('aroomtopray.theme.v1'); if (theme === 'light' || theme === 'dark') document.documentElement.setAttribute('data-theme', theme); } catch {} try { sessionStorage.removeItem('aroomtopray.focus.v1'); } catch {}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonical}>
+  {hasLocalizedRoute(Astro.url.pathname) && LOCALES.map(l => <link rel="alternate" hreflang={l.code} href={new URL(localizedPath(Astro.url.pathname, l.code), SITE).href} />)}
+  {hasLocalizedRoute(Astro.url.pathname) && <link rel="alternate" hreflang="x-default" href={new URL(localizedPath(Astro.url.pathname, 'en'), SITE).href} />}
+  {(noindex || reviewPreview) && <meta name="robots" content="noindex">}
+  <meta name="theme-color" content="#FFC629">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="A Room to Pray">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={canonical}>
+  <meta property="og:image" content={ogImage}>
+  <meta name="twitter:card" content="summary_large_image">
+  {jsonld && <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />}
+</head>
+<body class="immersive-site">
+  {reviewPreview && <aside class="review-preview-notice" style="padding:7px 16px;text-align:center;font-size:12px;background:#111b2a;color:#f7f6f0;position:relative;z-index:5" aria-label="Review preview">{{en:'Design preview for Hamza · Forms, check-ins and uploads are disabled.',fr:'Aperçu pour Hamza · Formulaires, signalements de présence et envois désactivés.',ar:'معاينة التصميم لحمزة · النماذج وتسجيل الزيارات ورفع الصور معطّلة.',es:'Vista previa para Hamza · Formularios, registros de visitas y cargas desactivados.'}[locale]}</aside>}
+  <a class="skip" href="#main">{t.nav.skip}</a>
+  <Icons />
+  <header class="top room-header">
+    <div class="wrap">
+      <a class="brand" href={localizedPath('/',locale)} aria-label={`A Room to Pray · ${t.nav.home}`}><Mark size={35}/><span>A Room to Pray<small>{w.directory}</small></span></a>
+      <nav class="primary-navigation" aria-label={t.footer.directories}>
+        {(['airports','universities','hospitals'] as const).map(kind=><a href={local(`/${kind}/`)} aria-current={nav===kind?'page':undefined}><svg width="19" height="19" aria-hidden="true"><use href={`#i-${{airports:'airport',universities:'campus',hospitals:'care'}[kind]}`}/></svg>{t.nav[kind]}</a>)}
+      </nav>
+      <button class="room-restore-button" type="button" hidden aria-controls="prayer-room" data-room-focus-exit><svg width="16" height="16" aria-hidden="true"><use href="#i-door-open"/></svg>{door.restore}</button>
+      <details class="site-menu" data-site-menu>
+        <summary><span>{r.menu}</span><span class="menu-glyph" aria-hidden="true"><i></i><i></i></span></summary>
+        <div class="site-menu-panel">
+          <nav class="menu-destinations" aria-label={t.footer.directories}>{(['airports','universities','hospitals'] as const).map(kind=><a href={local(`/${kind}/`)} aria-current={nav===kind?'page':undefined}><svg width="20" height="20" aria-hidden="true"><use href={`#i-${{airports:'airport',universities:'campus',hospitals:'care'}[kind]}`}/></svg>{t.nav[kind]} <svg class="menu-destination-arrow directional-icon" width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a>)}</nav>
+          <nav class="menu-tools" aria-label={t.footer.prepare}>
+            <a href={local('/visit/')+visitHash}>{r.details}</a>
+            <a class="saved-nav" href="/saved/">{t.nav.saved}{locale!=='en'&&<small class="source-language">EN</small>}<span class="saved-count" data-saved-count hidden></span></a>
+            {(['planner','travel','rooms-won','about','contact'] as const).map((path,i)=><a href={`/${path}/`}>{[t.nav.planner,t.nav.travel,t.nav.roomsWon,t.nav.about,t.nav.contact][i]}{locale!=='en'&&<small class="source-language">EN</small>}</a>)}
+          </nav>
+          <div class="menu-preferences"><AppearanceControls {locale} {languageLinks}/></div>
+        </div>
+      </details>
+    </div>
+  </header>
+  <div class="room-layout">
+  <RoomEnvironment kind={roomKind} {locale}/>
+  <script>import '../scripts/navigation.js';</script>
+  <main id="main" class="room-main" tabindex="-1">
+    <div class="room-focus-toolbar" hidden data-room-focus-toolbar>
+      <span>{door.focused}</span>
+
+    </div>
+    <slot name="welcome" />
+    <slot />
+
+  </main>
+  </div>
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-about stack"><a class="brand" href={localizedPath('/', locale)}><Mark size={28} />A Room to Pray</a><p>{t.footer.statement}</p><span class="fine">{t.footer.description}</span></div>
+      <nav aria-label={t.footer.directories}><h2>{t.footer.directories}</h2>{['airports', 'universities', 'hospitals'].map(k => <a href={local(`/${k}/`)}>{t.nav[k]}</a>)}<a href="/saved/">{t.nav.saved}{locale !== 'en' && <small class="source-language">EN</small>}</a></nav>
+      <nav aria-label={t.footer.prepare}><h2>{t.footer.prepare}</h2><a href={local('/visit/')+visitHash}>{t.home.stepsEyebrow}</a><a href="/planner/">{t.nav.planner}{locale !== 'en' && <small class="source-language">EN</small>}</a><a href="/travel/">{t.nav.travel}{locale !== 'en' && <small class="source-language">EN</small>}</a><a href="/rooms-won/">{t.nav.roomsWon}{locale !== 'en' && <small class="source-language">EN</small>}</a></nav>
+      <nav aria-label={t.footer.project}><h2>{t.footer.project}</h2><a href="/about/">{t.nav.about}{locale !== 'en' && <small class="source-language">EN</small>}</a><a href="/contact/">{t.nav.contact}{locale !== 'en' && <small class="source-language">EN</small>}</a><a href="/about/#privacy">{t.footer.privacy}{locale !== 'en' && <small class="source-language">EN</small>}</a><a href="/terms/">{t.footer.terms}{locale !== 'en' && <small class="source-language">EN</small>}</a></nav>
+    </div>
+    <div class="wrap footer-bottom"><p>{t.footer.sourceNote}</p><p>Inheriting Islam · <a href="https://lifeistemporary.com/">Life Is Temporary</a> · <a href="https://firstadhan.com/">First Adhān</a></p></div>
+  </footer>
+  {import.meta.env.PROD && <script is:inline>
+    // One count per page view: the page, the day and the approximate city (functions/api/visit.js). No cookies.
+    if (!import.meta.env.PUBLIC_REVIEW_PREVIEW && navigator.sendBeacon && !navigator.webdriver) navigator.sendBeacon('/api/visit', JSON.stringify({ p: location.pathname, r: document.referrer }));
+  </script>}
+</body>
+</html>

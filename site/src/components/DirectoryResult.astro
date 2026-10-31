@@ -1,0 +1,60 @@
+---
+import CountryFlag from './CountryFlag.astro';
+import { countryCode, countryName, countrySearchText } from '../lib/countries.js';
+import { getCopy, localizedPath, translateTerm, formatCount } from '../lib/i18n.js';
+import { photosForPlace } from '../lib/place-photos.js';
+import { PHOTO_COPY } from '../data/photo-copy.js';
+import { L } from '../lib/airports.js';
+const {place:p,kind,locale='en',hasHalal=false}=Astro.props;
+const t=getCopy(locale),airport=kind==='airports';
+const id=`result-${p.url.split('/').filter(Boolean).join('-')}`;
+const status=airport?t.status[p.status]:p.hold?t.common.checking:`${formatCount(p.spaces.length,locale)} · ${t.common.listings}`;
+const statusClass=airport?L.status[p.status][1]:p.hold?'p-unk':'p-yes';
+const photo=photosForPlace(p.url)[0];
+const photoYear=photo&&new Intl.DateTimeFormat(locale,{year:'numeric',timeZone:'UTC'}).format(new Date(`${photo.dateTaken}T12:00:00Z`));
+const fields=[
+ {icon:'water',label:t.common.wudu,value:p.status==='pending'?t.status.pending:t.amenities.wudu[p.wudu]},
+ {icon:'screen',label:t.common.women,value:p.status==='pending'?t.status.pending:t.amenities.women[p.women]},
+ {icon:'qibla',label:t.common.qibla,value:`${formatCount(Math.round(p.qibla),locale)}°`},
+];
+---
+<a class="lrow directory-result" href={localizedPath(p.url,locale)} aria-labelledby={`${id}-name`} aria-describedby={`${id}-location ${id}-status`}
+ data-name={p.name} data-location={p.city} data-country={countryCode(p.country)} data-region={airport?p.region:p.country} data-status={p.status} data-halal={hasHalal?'1':'0'} data-rooms={JSON.stringify(p.rooms)} data-text={[p.iata,p.name,p.city,p.country,translateTerm(p.country,locale),countrySearchText(p.country),p.group].filter(Boolean).join(' ')}>
+ <span class="code"><CountryFlag country={p.country}/><bdi>{p.iata||countryCode(p.country)}</bdi></span>
+ <span class="nm">
+  <b id={`${id}-name`} dir="auto">{airport?p.short:p.name}</b>
+  <span class="result-location" id={`${id}-location`}><bdi>{p.city}</bdi><span aria-hidden="true"> · </span>{countryName(p.country,locale)}</span>
+  <span class="mob mob-s" id={`${id}-status`}><span class={`pill ${statusClass}`}>{status}</span></span>
+  <span class="row-facilities">{fields.map(field=><span class="result-fact"><svg width="16" height="16" aria-hidden="true"><use href={`#i-${field.icon}`}/></svg><span class="result-fact-label">{field.label}</span><span class="result-fact-value"><bdi>{field.value}</bdi></span></span>)}</span>
+  {photo&&<span class="result-photo-note"><svg width="14" height="14" aria-hidden="true"><use href="#i-photo"/></svg>{PHOTO_COPY[locale].kinds[photo.kind]}<span aria-hidden="true"> · </span>{photoYear}</span>}
+ </span>
+ <svg class="row-arrow directional-icon" width="19" height="19" aria-hidden="true"><use href="#i-arrow"/></svg>
+</a>
+<style>
+ :global(.room-main .directory-workspace) .directory-result.lrow { padding:20px 14px; border-radius:3px; text-decoration:none; transition:background-color .16s,border-color .16s; }
+ :global(.room-main .directory-workspace) .directory-result:focus-visible { outline:3px solid var(--focus); outline-offset:2px; position:relative; z-index:1; }
+ .directory-result .nm>b { text-wrap:pretty; }
+ .directory-result:is(:hover,:focus-visible) .nm>b { text-decoration:underline; text-underline-offset:4px; text-decoration-thickness:1px; }
+ .directory-result .result-location { line-height:1.5; }
+ :global(.room-main .directory-workspace) .directory-result .row-facilities { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 16px; padding-top:12px; margin-top:12px; border-top:1px solid var(--line); }
+ .directory-result .row-facilities .result-fact { display:grid; grid-template-columns:16px minmax(0,1fr); align-items:start; gap:2px 6px; margin:0; min-width:0; }
+ .result-fact svg { grid-column:1; grid-row:1/3; margin-top:2px; }
+ .directory-result .result-fact .result-fact-label { margin:0; font-size:.73rem; line-height:1.45; }
+ .directory-result .result-fact .result-fact-value { grid-column:2; margin:0; font-size:.82rem; line-height:1.45; color:var(--ink); overflow-wrap:anywhere; }
+ .directory-result .result-photo-note { display:flex; align-items:center; gap:5px; font-size:.73rem; margin-top:12px; }
+ .result-photo-note svg { flex:none; }
+ :global(.room-main .directory-workspace .list[data-view=cards]) .directory-result { box-shadow:0 1px 2px #0f1c2e08; border-radius:5px; }
+ :global(.room-main .directory-workspace .list[data-view=cards]) .directory-result .code { margin-bottom:4px; }
+ @container prayer-guide (min-width:680px) {
+  :global(.room-main .directory-workspace .list:not([data-view=cards])) .directory-result .row-facilities { grid-template-columns:repeat(3,minmax(0,1fr)); }
+ }
+ @container prayer-guide (max-width:400px) {
+  :global(.room-main .directory-workspace) .directory-result.lrow { grid-template-columns:40px minmax(0,1fr) 16px; padding:18px 0; gap:10px; }
+  :global(.room-main .directory-workspace) .directory-result .code { width:40px; min-height:50px; font-size:.7rem; }
+  :global(.room-main .directory-workspace .list[data-view=cards]) .directory-result.lrow { grid-template-columns:1fr; padding:16px; }
+  :global(.room-main .directory-workspace .list[data-view=cards]) .directory-result .code { width:auto; min-height:0; }
+ }
+ :global(html[dir=rtl]) .directory-result .result-fact .result-fact-label { font-size:.87rem; }
+ :global(html[dir=rtl]) .directory-result .result-fact .result-fact-value { font-size:.95rem; line-height:1.7; }
+ @media(prefers-reduced-motion:reduce) { :global(.room-main .directory-workspace) .directory-result.lrow { transition:none; } }
+</style>

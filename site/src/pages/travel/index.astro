@@ -1,0 +1,33 @@
+---
+import SectionIntro from '../../components/SectionIntro.astro';
+import Base from '../../layouts/Base.astro';
+import { guides, REVIEWED } from '../../data/travel/guides.js';
+---
+<Base title="How to pray while travelling | A Room to Pray" description="Short, sourced guides to praying on a plane, wuḍūʾ and tayammum at the airport, shortening and combining, and praying in public." nav="travel" noindex={!REVIEWED}>
+  <SectionIntro eyebrow="Praying while travelling" title="Go prepared. Travel with a little more clarity." description="Short, sourced guides for the questions that come up on a journey: praying in the air, making wuḍūʾ, and finding a quiet place in a busy terminal." art="/art/gate.webp" label="Practical questions. Sourced explanations." href="#travel-topics" action="Explore the guides" />
+  <div class="wrap">
+    <div class="travel-context"><p>These guides report what the Qurʾān, the Sunnah and the four Sunni schools say, including where they differ. We don’t give fatwās. For your own situation, ask your local scholar.</p>{!REVIEWED && <p class="note" role="note"><b>Awaiting review by our editor.</b> These guides are drafts and haven’t yet been checked by Hamza Abdul-Tawwaab.</p>}</div>
+    <div class="section-heading" id="travel-topics"><div><span class="eyebrow">One question at a time</span><h2>What would you like to understand?</h2></div></div>
+    <ul class="travel-cards">
+      {guides.map((g, i) => (
+        <li class="card">
+          <div class="travel-icon"><svg width="28" height="28" aria-hidden="true"><use href={`#i-${['gate', 'water', 'mark', 'clock', 'pin'][i]}`} /></svg></div><span class="eyebrow tnum">Guide {String(i + 1).padStart(2, '0')}</span>
+          <h2><a href={`/travel/${g.slug}/`}>{g.title}</a></h2>
+          <p class="muted">{g.short}</p>
+        </li>
+      ))}
+    </ul>
+    <p class="fine" style="margin:0 0 64px">Looking for a room? <a href="/airports/">Find a prayer room at the airport</a>.</p>
+  </div>
+</Base>
+<style>
+  .travel-cards { list-style: none; margin: 0 0 32px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 16px }
+  .travel-cards li { display: flex; flex-direction: column; gap: 8px; position: relative }
+  .travel-cards h2 { font-size: 1.3rem; font-stretch: 105% }
+  .travel-cards a { text-decoration: none }
+  .travel-cards a::after { content: ""; position: absolute; inset: 0; border-radius: 14px }
+  .travel-cards li:hover { border-color: var(--ink) }
+  .travel-cards a:focus-visible::after { outline: 3px solid var(--focus); outline-offset: 2px }
+  .travel-cards p { font-size: .95rem }
+  .guide .lede { font-size: 1.1rem; color: var(--muted) }
+</style>

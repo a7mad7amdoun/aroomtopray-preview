@@ -1,0 +1,38 @@
+/* Matched light/evening artwork. Keep this layer separate from the guide layout. */
+:root {
+ --view-airport-light:image-set(url('/art/immersive/refined/airport-light-480.webp') 1x,url('/art/immersive/refined/airport-light-1024.webp') 2x);
+ --view-airport-dark:image-set(url('/art/immersive/refined/airport-dark-480.webp') 1x,url('/art/immersive/refined/airport-dark-1024.webp') 2x);
+ --view-campus-light:image-set(url('/art/immersive/refined/campus-light-480.webp') 1x,url('/art/immersive/refined/campus-light-1024.webp') 2x);
+ --view-campus-dark:image-set(url('/art/immersive/refined/campus-dark-480.webp') 1x,url('/art/immersive/refined/campus-dark-1024.webp') 2x);
+ --view-hospital-light:image-set(url('/art/immersive/refined/hospital-light-480.webp') 1x,url('/art/immersive/refined/hospital-light-1024.webp') 2x);
+ --view-hospital-dark:image-set(url('/art/immersive/refined/hospital-dark-480.webp') 1x,url('/art/immersive/refined/hospital-dark-1024.webp') 2x);
+ --view-airport:var(--view-airport-light);
+ --view-campus:var(--view-campus-light);
+ --view-hospital:var(--view-hospital-light);
+}
+:root[data-theme=dark] {
+ --view-airport:var(--view-airport-dark);
+ --view-campus:var(--view-campus-dark);
+ --view-hospital:var(--view-hospital-dark);
+}
+@media(prefers-color-scheme:dark) { :root:not([data-theme=light]) {
+ --view-airport:var(--view-airport-dark);
+ --view-campus:var(--view-campus-dark);
+ --view-hospital:var(--view-hospital-dark);
+}}
+.outside-airport { background-image:var(--view-airport); }
+.outside-campus { background-image:var(--view-campus); }
+.outside-hospital { background-image:var(--view-hospital); }
+/* Keep artwork visible; lighting is baked into the paired assets. */
+.door-outside,.door-window-view,.notice-picture { filter:none; }
+.destination-card .destination-image { min-height:0; background-position:center 44%; }
+.destination-card .destination-number,.door-notice .notice-micro { display:none; }
+.door-window-view { transition:none; }
+.destination-card:focus-visible { outline-offset:3px; }
+@container prayer-guide (max-width:400px) {
+ .destination-card .destination-image { min-height:86px; }
+}
+/* In installed/mobile windows the bottom edge must clear the home indicator. */
+@media(display-mode:standalone) {
+ .immersive-site .site-footer { padding-bottom:max(25px,env(safe-area-inset-bottom)); }
+}

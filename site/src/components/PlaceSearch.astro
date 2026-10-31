@@ -1,0 +1,22 @@
+---
+import {photosForPlace} from '../lib/place-photos.js';
+import {PHOTO_COPY} from '../data/photo-copy.js';
+import {countryFlagUrl,countryName,countrySearchText} from '../lib/countries.js';
+import { airports } from '../lib/airports.js';
+import { universities } from '../lib/universities.js';
+import { hospitals } from '../lib/hospitals.js';
+import { getCopy,localizedPath,translateTerm } from '../lib/i18n.js';
+import { ROOM_COPY } from '../data/room-copy.js';
+const {locale='en'}=Astro.props, t=getCopy(locale),r=ROOM_COPY[locale];
+const kinds=['airports','universities','hospitals'];
+const index=[airports,universities,hospitals].flatMap((places,i)=>places.map(p=>({url:localizedPath(p.url,locale),photoLabel:photosForPlace(p.url).length?PHOTO_COPY[locale].badge:'',name:p.short||p.name,city:p.city,flagUrl:countryFlagUrl(p.country),country:countryName(p.country,locale),code:p.iata||'',kind:t.nav[kinds[i]],text:[p.name,p.city,p.country,translateTerm(p.country,locale),countrySearchText(p.country),p.iata].filter(Boolean).join(' ')})));
+---
+<form class="place-search" data-place-search role="search" action={localizedPath('/airports/',locale)} method="get">
+  <label for="place-search-input">{r.search}</label>
+  <div class="place-search-field"><svg width="22" height="22" aria-hidden="true"><use href="#i-search"/></svg><input id="place-search-input" name="q" type="search" placeholder={r.placeholder} autocomplete="off" maxlength="160" /><button type="submit" aria-label={r.search}><svg class="directional-icon" width="22" height="22" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+  <div class="place-search-results" hidden><p id="place-search-status" role="status" data-place-search-status></p><ul id="place-search-results" aria-label={r.search}></ul><div class="place-search-directories">{kinds.map(kind=><a href={localizedPath(`/${kind}/`,locale)} data-search-directory={localizedPath(`/${kind}/`,locale)}>{t.nav[kind]} ↗</a>)}</div></div>
+  <noscript><p class="fine">{r.select} {kinds.map(kind=><a href={localizedPath(`/${kind}/`,locale)}>{t.nav[kind]} · </a>)}</p></noscript>
+  <script type="application/json" data-place-search-index set:html={JSON.stringify(index).replace(/</g,'\\u003c')} />
+  <script type="application/json" data-place-search-copy set:html={JSON.stringify({empty:r.empty,select:r.select,suggestions:r.suggestions})} />
+</form>
+<script>import '../scripts/place-search.js';</script>

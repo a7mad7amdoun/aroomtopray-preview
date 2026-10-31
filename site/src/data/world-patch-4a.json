@@ -1,0 +1,182 @@
+[
+ {
+  "iata": "AHB",
+  "name": "Abha International Airport",
+  "city": "Abha",
+  "country": "SA",
+  "region": "Middle East",
+  "lat": 18.2404,
+  "lon": 42.656601,
+  "qibla_deg": 320.6,
+  "distance_km": 461,
+  "spaces": [
+   {
+    "name": "Musalla (prayer area)",
+    "location": "Location not stated",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://gaca.gov.sa/-/media/Files/PDF/Reports/2023-ATQS-Report-AHB.pdf?as=0&hash=90C19CF3F85116EE1E05DF090293DD5C",
+    "verified": "verified-archive"
+   }
+  ],
+  "feedback_url": "https://www.cluster2airports.sa/contact",
+  "notes": "GACA (General Authority of Civil Aviation) official 'Comprehensive Airport Service Quality Evaluation' report for 2023 (نتائج برنامج التقييم الشامل لجودة خدمات المطار), read as a Wayback capture (web.archive.org/web/20260121140338) of https://gaca.gov.sa/-/media/Files/PDF/Reports/2023-ATQS-Report-AHB.pdf?as=0&hash=90C19CF3F85116EE1E05DF090293DD5C. In the 'airport facilities and services quality' results table, category 12 'المصلى' (the musalla) is scored 53% in 2023 (49% in 2022), while category 16 'فندق المطار' (airport hotel) is marked N/A; a scored category implies the musalla exists and was assessed. The report does not give its location (terminal, before/after security), hours, wudu or women's space. Operator since 2022: Cluster2 Airports (تجمع مطارات الثاني); its site is a JavaScript app and its services page did not render via r.jina.ai. Not visually verified. A later 2024 GACA report for AHB is archived but is image-only (no extractable text). flydubai's Abha page lists only 'Cafeteria serving snacks' and shops (silence, not evidence).",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "ELQ",
+  "name": "Prince Naif bin Abdulaziz International Airport",
+  "city": "Qassim",
+  "country": "SA",
+  "region": "Middle East",
+  "lat": 26.302799,
+  "lon": 43.774399,
+  "qibla_deg": 217.3,
+  "distance_km": 675,
+  "spaces": [
+   {
+    "name": "Musalla (prayer area)",
+    "location": "Location not stated",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://gaca.gov.sa/-/media/Files/PDF/Reports/2023-ATQS-Report-ELQ.pdf",
+    "verified": "verified-archive"
+   }
+  ],
+  "feedback_url": "https://www.cluster2airports.sa/contact",
+  "notes": "GACA (General Authority of Civil Aviation) official 'Comprehensive Airport Service Quality Evaluation' report for 2023 (نتائج برنامج التقييم الشامل لجودة خدمات المطار), read as a Wayback capture (web.archive.org/web/2026 (capture of 20260120)) of https://gaca.gov.sa/-/media/Files/PDF/Reports/2023-ATQS-Report-ELQ.pdf. In the 'airport facilities and services quality' results table, category 12 'المصلى' (the musalla) is scored 35% in 2023 (32% in 2022), while category 16 'فندق المطار' (airport hotel) is marked N/A; a scored category implies the musalla exists and was assessed. The report does not give its location (terminal, before/after security), hours, wudu or women's space. Operator since 2022: Cluster2 Airports (تجمع مطارات الثاني); its site is a JavaScript app and its services page did not render via r.jina.ai. Not visually verified. A 2024 GACA report is archived but image-only.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "TIF",
+  "name": "Taif International Airport",
+  "city": "Taif",
+  "country": "SA",
+  "region": "Middle East",
+  "lat": 21.484739,
+  "lon": 40.544074,
+  "qibla_deg": 264.8,
+  "distance_km": 75,
+  "spaces": [
+   {
+    "name": "Musalla (prayer area)",
+    "location": "Location not stated",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://gaca.gov.sa/-/media/Files/PDF/Reports/ATQS2022/Taif-International-Airport-2022.pdf?as=0",
+    "verified": "verified-archive"
+   }
+  ],
+  "feedback_url": "https://www.cluster2airports.sa/contact",
+  "notes": "GACA (General Authority of Civil Aviation) official 'Comprehensive Airport Service Quality Evaluation' report for 2022 (نتائج برنامج التقييم الشامل لجودة خدمات المطار), read as a Wayback capture (web.archive.org/web/20251008233602) of https://gaca.gov.sa/-/media/Files/PDF/Reports/ATQS2022/Taif-International-Airport-2022.pdf?as=0. In the 'airport facilities and services quality' results table, category 12 'المصلى' (the musalla) is scored 32% in 2022 (31% in 2021), while category 16 'فندق المطار' (airport hotel) is marked N/A; a scored category implies the musalla exists and was assessed. The report does not give its location (terminal, before/after security), hours, wudu or women's space. Operator since 2022: Cluster2 Airports (تجمع مطارات الثاني); its site is a JavaScript app and its services page did not render via r.jina.ai. Not visually verified. The 2024 report (2024-ATQS-Report-TIF.pdf) is archived but image-only, so the 2022 report is the latest readable one. Relates to the current Taif airport, not the planned new airport.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "TUU",
+  "name": "Prince Sultan bin Abdulaziz International Airport",
+  "city": "Tabuk",
+  "country": "SA",
+  "region": "Middle East",
+  "lat": 28.3711,
+  "lon": 36.624865,
+  "qibla_deg": 156.6,
+  "distance_km": 837,
+  "spaces": [
+   {
+    "name": "Musalla (prayer area)",
+    "location": "Location not stated",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://gaca.gov.sa/-/media/Files/PDF/Reports/ATQS2022/Prince-Sultan-bin-Abdulaziz-Airport-in-Tabuk2022.pdf",
+    "verified": "verified-archive"
+   }
+  ],
+  "feedback_url": "https://www.cluster2airports.sa/contact",
+  "notes": "GACA (General Authority of Civil Aviation) official 'Comprehensive Airport Service Quality Evaluation' report for 2022 (نتائج برنامج التقييم الشامل لجودة خدمات المطار), read as a Wayback capture (web.archive.org/web/20251208093910) of https://gaca.gov.sa/-/media/Files/PDF/Reports/ATQS2022/Prince-Sultan-bin-Abdulaziz-Airport-in-Tabuk2022.pdf. In the 'airport facilities and services quality' results table, category 12 'المصلى' (the musalla) is scored 29% in 2022 (26% in 2021), while category 16 'فندق المطار' (airport hotel) is marked N/A; a scored category implies the musalla exists and was assessed. The report does not give its location (terminal, before/after security), hours, wudu or women's space. Operator since 2022: Cluster2 Airports (تجمع مطارات الثاني); its site is a JavaScript app and its services page did not render via r.jina.ai. Not visually verified. Corroborated by flydubai's Tabuk airport page (https://www.flydubai.com/en/destinations/airports/tabuk-airport, read via r.jina.ai), whose 'Airport facilities' list includes 'Prayer room' (location not given). 2024 GACA report archived but image-only.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "YNB",
+  "name": "Prince Abdulmohsen Bin Abdulaziz International Airport",
+  "city": "Yanbu",
+  "country": "SA",
+  "region": "Middle East",
+  "lat": 24.144199,
+  "lon": 38.0634,
+  "qibla_deg": 148.8,
+  "distance_km": 352,
+  "spaces": [
+   {
+    "name": "Musalla (prayer area)",
+    "location": "Location not stated",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://gaca.gov.sa/-/media/Files/PDF/Reports/ATQS2022/Prince-Abdul-Mohsen-bin-Abdulaziz-airport-in-Yanbu-2022.pdf?as=0",
+    "verified": "verified-archive"
+   }
+  ],
+  "feedback_url": "https://www.cluster2airports.sa/contact",
+  "notes": "GACA (General Authority of Civil Aviation) official 'Comprehensive Airport Service Quality Evaluation' report for 2022 (نتائج برنامج التقييم الشامل لجودة خدمات المطار), read as a Wayback capture (web.archive.org/web/20251008214401) of https://gaca.gov.sa/-/media/Files/PDF/Reports/ATQS2022/Prince-Abdul-Mohsen-bin-Abdulaziz-airport-in-Yanbu-2022.pdf?as=0. In the 'airport facilities and services quality' results table, category 12 'المصلى' (the musalla) is scored 54% in 2022 (51% in 2021), while category 16 'فندق المطار' (airport hotel) is marked N/A; a scored category implies the musalla exists and was assessed. The report does not give its location (terminal, before/after security), hours, wudu or women's space. Operator since 2022: Cluster2 Airports (تجمع مطارات الثاني); its site is a JavaScript app and its services page did not render via r.jina.ai. Not visually verified. 2024 GACA report archived but image-only.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "ORN",
+  "name": "Oran Es-Sénia (Ahmed Ben Bella) International Airport",
+  "city": "Es-Sénia",
+  "country": "DZ",
+  "region": "Africa",
+  "lat": 35.620648,
+  "lon": -0.622486,
+  "qibla_deg": 100.8,
+  "distance_km": 4219,
+  "spaces": [
+   {
+    "name": "Prayer hall (قاعة الصلاة)",
+    "location": "Not stated (reported as prepared for Hajj departures, possibly in the Hajj terminal only)",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.elbilad.net/s@qfrj9oar144123",
+    "verified": "unverified"
+   }
+  ],
+  "feedback_url": "unknown",
+  "notes": "Secondary source only: El Bilad article 'مغادرة أول فوج من الحجاج من مطار وهران الدولي إلى البقاع المقدسة' (citing APS/وأج, about the 1447 AH / 2026 Hajj season departures) says the airport prepared facilities for pilgrims including 'تهيئة بهو المطار وقاعة الصلاة ومقهى ومطعم وغيرها'. The article does not name the terminal (international flights moved to the new T1 in Oct 2022; domestic, Hajj and Umrah flights to terminal 2 in Jan 2023 per algerie-eco), so the hall may be in the Hajj/domestic terminal only. Location, hours, wudu, women's space unknown. Official EGSA Oran site did not answer. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ }
+]

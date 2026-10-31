@@ -1,0 +1,15 @@
+---
+import DestinationBoard from './DestinationBoard.astro';
+import { WAYFINDING_COPY } from '../data/wayfinding-copy.js';
+const { locale = 'en', compact = false, current = '' } = Astro.props;
+const w = WAYFINDING_COPY[locale] || WAYFINDING_COPY.en;
+const kinds = ['airports', 'universities', 'hospitals'] as const;
+---
+<section class:list={['destination-navigation', { 'destination-navigation-compact': compact }]} id={compact ? undefined : 'explore'}>
+  <div class="wrap">
+    <div class="section-heading"><div><span class="eyebrow">{w.eyebrow}</span><h2>{compact ? w.again : w.title}</h2></div><p>{w.description}</p></div>
+    <nav class="destination-poster-grid" aria-label={w.directory}>
+      {kinds.map(kind => <DestinationBoard {kind} {locale} variant={compact ? 'compact' : 'card'} current={current === kind} />)}
+    </nav>
+  </div>
+</section>

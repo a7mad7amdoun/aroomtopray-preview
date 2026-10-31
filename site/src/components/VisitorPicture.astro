@@ -1,0 +1,13 @@
+---
+import { visitorArtSources } from '../data/visitor-art.js';
+const {scene, alt='', sizes='(max-width: 650px) 90vw, 620px'}=Astro.props;
+---
+<picture class="visitor-picture" data-editorial-picture data-visitor-picture={scene}>
+ <source data-editorial-dark media="(prefers-color-scheme: dark)" srcset={visitorArtSources(scene,'dark')} {sizes} type="image/webp"/>
+ <img src={`/art/visitors/${scene}-light-480.webp`} srcset={visitorArtSources(scene,'light')} {sizes} width="1664" height="936" {alt} loading="lazy" decoding="async"/>
+</picture>
+<script>import '../scripts/editorial-art.js';</script>
+<style>
+ .visitor-picture { display:block; width:100%; min-width:0; }
+ .visitor-picture>img { display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:contain; }
+</style>

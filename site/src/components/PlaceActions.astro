@@ -1,0 +1,21 @@
+---
+import { getCopy, localeFromPath } from '../lib/i18n.js';
+import { placeNotes } from '../lib/place-notes.js';
+const { place, kind } = Astro.props;
+const notes = placeNotes(place, kind);
+const locale = localeFromPath(Astro.url.pathname);
+const t = getCopy(locale);
+---
+<div class="place-actions" data-place-actions data-save-label={t.common.save} data-saved-label={t.common.saved}>
+  <div class="btns">
+    <button class="btn sign-btn" type="button" data-save-place={place.url} aria-pressed="false" hidden><svg width="16" height="16" aria-hidden="true"><use href="#i-save"/></svg><span data-action-label>{t.common.save}</span></button>
+    <button class="btn ghost" type="button" data-copy-place hidden><svg width="16" height="16" aria-hidden="true"><use href="#i-copy"/></svg><span data-action-label>{t.common.copy}</span></button>
+    <button class="btn ghost" type="button" data-print hidden><svg width="16" height="16" aria-hidden="true"><use href="#i-print"/></svg><span data-action-label>{t.common.print}</span></button>
+    <a class="text-action" href="/saved/">{t.nav.saved} {locale !== 'en' && <small class="source-language">EN</small>}<span aria-hidden="true">→</span></a>
+  </div>
+  <p class="fine" data-place-status role="status" aria-live="polite"></p>
+  <script type="application/json" data-place-notes set:html={JSON.stringify(notes).replace(/</g, '\\u003c')} />
+</div>
+<script>
+  import '../scripts/place-actions.js';
+</script>

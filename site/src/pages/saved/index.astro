@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import EditorialArtwork from '../../components/EditorialArtwork.astro';
+---
+<Base title="Your saved places | A Room to Pray" description="Keep prayer-room listings together, compare facilities and print directions for your visit." nav="saved" noindex={true}>
+  <div class="wrap saved-page">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Saved places</span></nav>
+    <div class="saved-intro">
+      <div class="stack"><span class="eyebrow">Ready for your next stop</span><h1>Your places.<br>Your peace of mind.</h1><p class="lede">Keep the places you need together. Compare the essentials, then take the directions with you.</p></div>
+      <aside class="saved-privacy"><span class="eyebrow">On this device only</span><p>No account needed. Your saved list stays in this browser. Opening listings still needs a connection; copy or print your notes before travelling.</p><a href="/about/#saved-privacy">How saved places work</a></aside>
+    </div>
+    <noscript><p class="note">Saved places needs JavaScript to read this browser’s list. All directories and individual room details remain available.</p></noscript>
+    <div class="saved-toolbar" data-saved-tools hidden><span class="eyebrow" data-saved-total></span><div class="btns"><button class="btn sign-btn" type="button" data-copy-saved>Copy all notes</button><button class="btn ghost" type="button" data-print hidden>Print travel notes</button><a href="/airports/" class="text-action">Add another place →</a></div></div>
+    <p class="saved-status" data-saved-status role="status" aria-live="polite"></p>
+    <div class="saved-undo" data-saved-undo hidden><span data-undo-label></span><button class="clear" type="button" data-undo>Undo removal</button></div>
+    <div class="saved-empty" data-saved-empty hidden>
+      <span class="empty-sign" aria-hidden="true">＋</span><h2>A place for every stop.</h2><p>Open a listing and choose <b>Save place</b>. Your shortlist will appear here with room directions, source dates and practical details.</p>
+      <div class="btns"><a class="btn sign-btn" href="/airports/">Find an airport</a><a class="btn ghost" href="/universities/">Universities</a><a class="btn ghost" href="/hospitals/">Hospitals</a></div>
+      <EditorialArtwork placement="supporting"/>
+    </div>
+    <div data-saved-content></div>
+    <div data-saved-recovery hidden><button type="button" class="btn ghost" data-reset-saved>Reset unreadable saved data</button></div>
+    <p class="saved-footnote">Saving a listing does not recheck its facilities. Original source dates and cautions remain attached. Check the signs and ask staff when you arrive.</p>
+  </div>
+</Base>
+<script>import '../../scripts/saved-page.js';</script>

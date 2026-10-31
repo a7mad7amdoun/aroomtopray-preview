@@ -1,0 +1,231 @@
+/* One identity, three physical settings. Brand colors and type roles come from Hamza's original site. */
+:root {
+  --notice-paper: #fffef8;
+  --notice-ink: #0f1c2e;
+  --notice-rule: #cbd0d4;
+  --notice-backing: #b5aa91;
+}
+:root[data-theme=dark] { --notice-paper:#1e2a3b; --notice-ink:#f3f5f8; --notice-rule:#495669; --notice-backing:#6b6659; }
+@media (prefers-color-scheme:dark) {
+  :root:not([data-theme=light]) { --notice-paper:#1e2a3b; --notice-ink:#f3f5f8; --notice-rule:#495669; --notice-backing:#6b6659; }
+}
+
+/* Main destinations first, visit tools second. The mobile menu keeps the same order. */
+.top { border-top-width:4px; }
+.top .nav { align-items:center; gap:24px; padding-top:10px; }
+.nav-destinations { display:flex; gap:7px; flex:1; }
+.top .nav-destinations>a { flex:1; justify-content:flex-start; gap:12px; border-radius:4px; background:var(--surface-2); color:var(--ink); padding:10px 14px; font-size:.91rem; }
+.nav-route-number { color:var(--muted); font:400 .64rem var(--f-mono); }
+.nav-route-arrow { margin-inline-start:auto; color:var(--muted); font-size:1.05rem; }
+.top .nav-destinations>a[aria-current],.top .nav-destinations>a:hover { background:var(--sign); color:var(--sign-ink); box-shadow:none; }
+.nav-destinations>a[aria-current] span,.nav-destinations>a:hover span { color:var(--sign-ink); }
+.nav-utilities { display:flex; gap:4px; align-items:center; }
+.top .nav-utilities>a,.more-navigation>summary { min-height:44px; padding:9px 11px; font-size:.81rem; border-radius:4px; }
+.more-navigation { position:relative; }
+.more-navigation>summary { display:flex; align-items:center; gap:14px; cursor:pointer; font-weight:700; color:var(--muted); list-style:none; }
+.more-navigation>summary::-webkit-details-marker { display:none; }
+.more-navigation[open]>summary,.more-navigation>summary:hover { background:var(--surface-2); color:var(--ink); }
+.more-navigation-links { position:absolute; inset-inline-end:0; top:calc(100% + 10px); width:max-content; min-width:220px; max-width:calc(100vw - 48px); padding:8px; background:var(--surface); border:1px solid var(--line); border-top:3px solid var(--sign); box-shadow:0 12px 28px #0002; z-index:45; }
+.top .more-navigation-links>a { display:flex; white-space:normal; font-size:.87rem; padding:10px 12px; }
+.top .more-navigation-links>a:hover { background:var(--surface-2); }
+
+/* Unobscured artwork beside a short, clear introduction. */
+.sanctuary-hero { min-height:0; background:var(--surface-2); }
+.home-arrival { display:grid; grid-template-columns:.9fr 1.1fr; gap:48px; align-items:center; padding-block:36px; }
+.home-arrival .sanctuary-copy { width:100%; max-width:none; gap:24px; }
+.home-arrival .sanctuary-copy h1 { font-size:clamp(2.8rem,4.9vw,4.25rem); line-height:1.04; max-width:16ch; }
+.home-arrival .sanctuary-copy>p { font-size:1.03rem; max-width:44ch; }
+.arrival-room { margin:0; min-width:0; align-self:stretch; border:1px solid var(--line); background:var(--surface); }
+.arrival-art { position:relative; height:440px; }
+.arrival-art>.concept-art { position:absolute; inset:0; background-position:55% center; }
+.arrival-sign { position:absolute; inset-inline-start:22px; bottom:22px; display:flex; align-items:center; gap:15px; padding:13px 17px; max-width:calc(100% - 44px); background:var(--sign); color:var(--sign-ink); border:2px solid var(--sign-ink); border-radius:3px; box-shadow:0 6px 20px #0003; }
+.arrival-sign>svg { flex-shrink:0; }
+.arrival-sign>span:first-of-type { font:750 1.15rem/1.15 var(--f-display); }
+.arrival-sign small { display:block; font:600 1.2rem/1.3 var(--f-arabic); }
+.arrival-sign>span:last-child { margin-inline-start:12px; font-size:2rem; line-height:1; }
+.arrival-room figcaption { padding:11px 15px; font-size:.68rem; line-height:1.45; color:var(--muted); border-top:1px solid var(--line); }
+
+/* Every category uses this same clickable sign. Only its physical mount changes. */
+.destination-navigation { padding-block:48px 54px; }
+.destination-navigation .section-heading { margin-bottom:26px; }
+.destination-navigation .section-heading h2 { max-width:none; }
+.destination-poster-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+.destination-poster { display:block; min-width:0; text-decoration:none; background:var(--surface); border:1px solid var(--line); border-radius:4px; overflow:hidden; transition:border-color .16s,box-shadow .16s; }
+.destination-poster:hover,.destination-poster:focus-visible { border-color:var(--ink); box-shadow:0 8px 22px #0002; }
+.poster-setting { position:relative; isolation:isolate; min-height:446px; display:flex; align-items:flex-end; padding:128px 18px 22px; }
+.poster-setting>.concept-art { position:absolute; inset:0; z-index:-1; background-position:60% center; }
+.setting-caption { position:absolute; inset-inline-start:12px; top:12px; padding:4px 7px; background:var(--surface); color:var(--muted); border:1px solid var(--line); border-radius:2px; font:400 .54rem/1.4 var(--f-mono); }
+.poster-mount { position:relative; width:100%; }
+.notice-board { position:relative; border:5px solid #111b28; background:#16202e; color:#f3f5f8; border-radius:3px; box-shadow:0 10px 18px #0005; }
+.notice-category { display:flex; align-items:center; gap:10px; min-height:51px; padding:12px; background:var(--sign); color:var(--sign-ink); }
+.notice-category>svg { flex-shrink:0; width:24px; height:24px; }
+.notice-category h3 { font-family:var(--f-display); font-weight:750; font-stretch:105%; letter-spacing:-.015em; font-size:clamp(1.08rem,1.6vw,1.4rem); line-height:1.15; overflow-wrap:anywhere; }
+.notice-number { font:400 .64rem var(--f-mono); margin-inline-start:auto; }
+.notice-body { padding:15px 13px 0; }
+.notice-context { font:400 .56rem/1.4 var(--f-mono); letter-spacing:.035em; text-transform:uppercase; color:#b9c4d1; }
+.notice-prayer { display:flex; align-items:center; gap:10px; padding-block:15px; }
+.notice-pictogram { display:grid; place-items:center; width:40px; height:40px; background:var(--sign); color:var(--sign-ink); flex-shrink:0; border-radius:2px; }
+.notice-prayer strong { display:block; font:750 1.1rem/1.2 var(--f-display); }
+.notice-prayer small { display:block; font:600 1.15rem/1.3 var(--f-arabic); margin-top:2px; text-align:start; }
+.notice-arrow { margin-inline-start:auto; font-size:2.1rem; line-height:1; flex-shrink:0; }
+.notice-rows { display:grid; gap:4px; }
+.notice-rows>div { display:flex; gap:10px; align-items:center; min-height:31px; padding:6px 8px; background:#253145; font-size:.76rem; line-height:1.35; }
+.notice-row-number { font:400 .56rem var(--f-mono); color:#b9c4d1; }
+.notice-rows>div>span:last-child { margin-inline-start:auto; color:var(--sign); }
+.notice-count { display:flex; align-items:baseline; flex-wrap:wrap; gap:6px; padding-block:12px; color:#b9c4d1; font-size:.63rem; line-height:1.4; }
+.notice-count b { font:600 .78rem var(--f-mono); color:var(--sign); }
+.poster-link { display:flex; align-items:center; justify-content:space-between; gap:15px; min-height:54px; padding:14px 18px; background:var(--surface); color:var(--ink); border-top:3px solid var(--sign); font-weight:700; font-size:.92rem; }
+.poster-link>span:last-child { font-size:1.5rem; line-height:1; }
+.destination-poster:hover .poster-link,.destination-poster:focus-visible .poster-link { background:var(--sign); color:var(--sign-ink); }
+
+/* Airport: a suspended, dark departures panel. */
+.poster-airports .poster-fixing::before,.poster-airports .poster-fixing::after { content:''; position:absolute; bottom:calc(100% - 2px); height:55px; width:5px; background:#182434; box-shadow:1px 0 0 #7c8a9a; }
+.poster-airports .poster-fixing::before { inset-inline-start:32px; }
+.poster-airports .poster-fixing::after { inset-inline-end:32px; }
+.poster-airports .notice-rows>div { background:linear-gradient(#253145 49%,#111b28 49%,#111b28 52%,#253145 52%); }
+
+/* Campus: one pinned paper notice, on a simple framed noticeboard. */
+.poster-universities .poster-mount { padding:12px; border:5px solid #384452; background:var(--notice-backing); box-shadow:0 10px 18px #0003; }
+.poster-universities .notice-board { border:0; border-radius:0; background:var(--notice-paper); color:var(--notice-ink); box-shadow:2px 4px 0 #0002; }
+.poster-universities .poster-fixing { position:absolute; top:8px; inset-inline-start:50%; width:12px; height:12px; border-radius:50%; background:var(--sign); border:2px solid #14171c; z-index:2; box-shadow:1px 2px 2px #0004; }
+.poster-universities .notice-context,.poster-universities .notice-count,.poster-universities .notice-row-number { color:var(--notice-ink); }
+.poster-universities .notice-rows { gap:0; border-top:1px solid var(--notice-rule); }
+.poster-universities .notice-rows>div { background:none; border-bottom:1px solid var(--notice-rule); padding-inline:0; }
+.poster-universities .notice-rows>div>span:last-child,.poster-universities .notice-count b { color:var(--notice-ink); }
+
+/* Hospital: a clear, structured information sheet behind a metal display frame. */
+.poster-hospitals .notice-board { border:6px solid #718090; outline:1px solid #263342; outline-offset:-3px; border-radius:2px; background:var(--notice-paper); color:var(--notice-ink); }
+.poster-hospitals .poster-fixing::before,.poster-hospitals .poster-fixing::after { content:''; position:absolute; bottom:7px; width:4px; height:4px; border-radius:50%; background:#e4e9ed; z-index:2; }
+.poster-hospitals .poster-fixing::before { inset-inline-start:2px; }
+.poster-hospitals .poster-fixing::after { inset-inline-end:2px; }
+.poster-hospitals .notice-context,.poster-hospitals .notice-count,.poster-hospitals .notice-row-number { color:var(--notice-ink); }
+.poster-hospitals .notice-rows { gap:0; border:1px solid var(--notice-rule); }
+.poster-hospitals .notice-rows>div { background:none; }
+.poster-hospitals .notice-rows>div+div { border-top:1px solid var(--notice-rule); }
+.poster-hospitals .notice-row-number { align-self:stretch; padding-inline-end:8px; border-inline-end:1px solid var(--notice-rule); display:flex; align-items:center; }
+.poster-hospitals .notice-rows>div>span:last-child,.poster-hospitals .notice-count b { color:var(--notice-ink); }
+
+/* Directory introductions share the exact same typography and geometry. */
+.sector-hero { padding-block:32px; }
+.sector-hero-grid { grid-template-columns:.88fr 1.12fr; gap:48px; }
+.sector-copy h1 { font-family:var(--f-display); font-weight:780; font-stretch:112%; letter-spacing:-.025em; font-size:clamp(2.5rem,4.3vw,3.5rem); line-height:1.08; max-width:17ch; }
+.directory-scene { min-width:0; }
+.poster-hero .poster-setting { min-height:475px; padding:45px 24px 24px; justify-content:flex-end; align-items:flex-end; }
+.poster-hero .poster-mount { width:300px; max-width:85%; }
+.poster-hero .poster-setting>.concept-art { background-position:48% center; }
+.poster-hero .poster-link { min-height:50px; }
+.art-explanation { font-size:.65rem; line-height:1.45; margin-top:9px; }
+.directory-wayfinding { padding-block:30px; }
+.directory-wayfinding>.journey-path { border:1px solid var(--line); background:var(--surface); padding:20px; border-radius:4px; gap:24px; }
+.directory-wayfinding .journey-path::before { display:none; }
+.directory-wayfinding .path-stop { background:var(--sign); color:var(--sign-ink); border:0; border-radius:3px; }
+.browse-heading { padding-block:23px 0; }
+.controls { border-radius:4px; }
+.section-art { border-radius:4px; }
+.d-art { height:clamp(220px,30vw,360px); border-radius:4px; }
+.concept-detail>.concept-art { background-position:60% 52%; }
+.wayfinding-label { border-radius:3px; }
+
+/* Repeat the three route posters on every inner page, without repeating the long introduction. */
+.destination-navigation-compact { margin-top:56px; border-top:1px solid var(--line); background:var(--surface-2); padding-block:34px 40px; }
+.destination-navigation-compact .section-heading h2 { font-size:1.6rem; }
+.destination-navigation-compact .section-heading p { font-size:.9rem; }
+.poster-compact .poster-setting { min-height:285px; padding-top:95px; }
+.poster-compact .notice-context,.poster-compact .notice-rows { display:none; }
+.poster-compact .notice-prayer { padding-block:1px 11px; }
+.poster-compact .notice-count { padding-block:6px 10px; }
+.poster-compact .notice-category { min-height:44px; padding-block:10px; }
+.poster-compact .notice-category h3 { font-size:1.15rem; }
+.poster-compact .poster-link { font-size:.86rem; min-height:50px; }
+.destination-poster[aria-current=true] .poster-link { background:var(--sign); color:var(--sign-ink); }
+
+/* Arabic uses the same roles, with a native Arabic typeface and unmirrored room artwork. */
+[dir=rtl] .notice-context,[dir=rtl] .setting-caption { font-family:var(--f-body); font-size:.8rem; letter-spacing:0; }
+[dir=rtl] .notice-category h3,[dir=rtl] .notice-prayer strong { font-family:var(--f-display); font-size:1.35rem; }
+[dir=rtl] .notice-rows>div { font-size:.95rem; }
+[dir=rtl] .notice-count { font-size:.85rem; }
+[dir=rtl] .home-arrival .sanctuary-copy h1 { max-width:15ch; font-size:clamp(2.8rem,4.8vw,4rem); line-height:1.35; }
+[dir=rtl] .sector-copy h1 { font-size:clamp(2.8rem,4.5vw,3.7rem); line-height:1.35; }
+
+@media (max-width:1100px) {
+  .top .nav,.js .top .nav.is-open { grid-template-columns:1fr; gap:12px; }
+  .nav-destinations { width:100%; }
+  .nav-utilities { border-top:1px solid var(--line); padding-top:8px; }
+  .nav-utilities .more-navigation { margin-inline-start:auto; }
+  .home-arrival,.sector-hero-grid { gap:30px; }
+  .arrival-art { height:400px; }
+  .destination-poster-grid { gap:15px; }
+  .poster-setting { padding-inline:12px; }
+  .notice-category { gap:7px; padding-inline:10px; }
+  .notice-category h3 { font-size:1.08rem; }
+  .notice-category>svg { width:20px; height:20px; }
+  .notice-number { display:none; }
+  .notice-prayer { gap:8px; }
+  .notice-prayer strong { font-size:1rem; }
+  .notice-pictogram { width:32px; height:36px; }
+  .notice-pictogram svg { width:25px; }
+  .notice-body { padding-inline:10px; }
+  .notice-rows>div { font-size:.71rem; gap:7px; padding-inline:5px; }
+  .poster-universities .poster-mount { padding:8px; }
+  .poster-link { font-size:.85rem; padding-inline:14px; }
+  .poster-hero .poster-setting { padding-inline:18px; }
+  .poster-hero .poster-mount { max-width:95%; }
+}
+@media (max-width:800px) {
+  .home-arrival,.sector-hero-grid { grid-template-columns:1fr; gap:26px; padding-block:28px; }
+  .home-arrival .sanctuary-copy { max-width:680px; }
+  .home-arrival .sanctuary-copy h1 { font-size:clamp(2.7rem,7vw,4rem); max-width:none; }
+  .home-arrival .sanctuary-copy>p { max-width:55ch; }
+  .arrival-art { height:370px; }
+  .arrival-art>.concept-art { background-position:50% 55%; }
+  .sector-hero { padding-block:0 20px; }
+  .sector-copy h1 { max-width:22ch; }
+  .poster-hero .poster-setting { min-height:440px; }
+  .poster-hero .poster-mount { max-width:75%; width:310px; }
+  .destination-poster-grid { grid-template-columns:1fr; gap:22px; max-width:680px; margin-inline:auto; }
+  .poster-setting { min-height:400px; padding:50px 22px 24px; justify-content:flex-end; }
+  .poster-mount { width:310px; max-width:85%; }
+  .poster-setting>.concept-art { background-position:48% center; }
+  .notice-category h3 { font-size:1.4rem; }
+  .notice-category>svg { width:24px; height:24px; }
+  .notice-prayer strong { font-size:1.16rem; }
+  .notice-rows>div { font-size:.82rem; }
+  .notice-number { display:block; }
+  .notice-body { padding-inline:14px; }
+  .poster-link { font-size:1rem; }
+  .poster-compact .poster-setting { min-height:245px; padding-top:50px; }
+  .poster-compact .poster-mount { max-width:80%; }
+  .destination-navigation-compact .section-heading { align-items:start; }
+  .directory-wayfinding>.journey-path { padding:18px; }
+}
+@media (max-width:600px) {
+  .top .nav-destinations { flex-direction:column; gap:6px; }
+  .top .nav-destinations>a { width:100%; min-height:48px; font-size:1rem; }
+  .nav-utilities { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+  .nav-utilities .more-navigation { grid-column:1/-1; margin:0; }
+  .top .nav-utilities>a { font-size:.85rem; white-space:normal; }
+  .more-navigation>summary { justify-content:space-between; border:1px solid var(--line); }
+  .more-navigation-links { position:static; margin-top:8px; width:100%; min-width:0; max-width:none; box-shadow:none; border-top-width:1px; }
+  .arrival-art { height:320px; }
+  .arrival-sign { inset-inline-start:15px; bottom:15px; padding:10px 13px; }
+  .arrival-sign>span:first-of-type { font-size:1.05rem; }
+  .destination-navigation { padding-block:32px; }
+  .destination-navigation .section-heading { display:block; }
+  .destination-navigation .section-heading>p { margin-top:15px; }
+  .poster-setting { padding-inline:16px; min-height:410px; }
+  .poster-mount { max-width:100%; width:290px; }
+  .poster-hero .poster-setting { min-height:440px; }
+  .poster-hero .poster-mount { max-width:100%; width:295px; }
+  .poster-compact .poster-mount { max-width:100%; width:290px; }
+  .poster-compact .poster-setting { min-height:280px; }
+  .directory-wayfinding>.journey-path { grid-template-columns:1fr; }
+  .poster-link { font-size:.94rem; }
+  .notice-category h3 { font-size:1.3rem; }
+  .d-art { height:240px; }
+}
+@media (prefers-reduced-motion:reduce) { .destination-poster { transition:none; } }
+@media print {
+  .destination-navigation,.directory-scene,.arrival-room,.more-navigation { display:none!important; }
+  .home-arrival,.sector-hero-grid { display:block; padding:0; }
+  .home-arrival .sanctuary-copy { width:100%; }
+}

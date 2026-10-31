@@ -1,0 +1,43 @@
+// The same navigation and sign language in every setting.
+export const WAYFINDING_COPY = {
+  en: {
+    more: 'More', prepare: 'Before you go', directory: 'Prayer space directory',
+    eyebrow: 'One purpose. Three settings.', title: 'Follow the sign.',
+    description: 'Choose your setting. Find the room. Check how to get in.',
+    again: 'Find your next place to pray', artwork: 'Illustrated setting',
+    board: { airports: 'Airport information', universities: 'Campus noticeboard', hospitals: 'Hospital information' },
+    titles: { airports: 'Prayer rooms at airports.', universities: 'Prayer rooms on campus.', hospitals: 'Prayer rooms in hospitals.' },
+    locations: { airports: 'Terminal & security', universities: 'Building & room', hospitals: 'Building & floor' },
+    access: 'Access & opening hours', facilities: 'Room facilities',
+  },
+  fr: {
+    more: 'Plus', prepare: 'Avant de partir', directory: 'Annuaire des salles de prière',
+    eyebrow: 'Un même besoin. Trois cadres.', title: 'Suivez le panneau.',
+    description: 'Choisissez votre destination. Trouvez la salle. Vérifiez les conditions d’accès.',
+    again: 'Trouvez votre prochain lieu de prière', artwork: 'Cadre illustré',
+    board: { airports: 'Informations aéroport', universities: 'Panneau du campus', hospitals: 'Informations hôpital' },
+    titles: { airports: 'Prier à l’aéroport.', universities: 'Prier sur le campus.', hospitals: 'Prier à l’hôpital.' },
+    locations: { airports: 'Terminal et sécurité', universities: 'Bâtiment et salle', hospitals: 'Bâtiment et étage' },
+    access: 'Accès et horaires', facilities: 'Équipements de la salle',
+  },
+  ar: {
+    more: 'المزيد', prepare: 'قبل أن تذهب', directory: 'دليل المصلّيات',
+    eyebrow: 'حاجة واحدة. ثلاثة أماكن.', title: 'اتبع اللوحة.',
+    description: 'اختر وجهتك. اعثر على المصلّى. تحقّق من شروط الدخول.',
+    again: 'اعثر على مكانك التالي للصلاة', artwork: 'مشهد توضيحي',
+    board: { airports: 'معلومات المطار', universities: 'لوحة إعلانات الجامعة', hospitals: 'معلومات المستشفى' },
+    titles: { airports: 'مصلّيات في المطارات.', universities: 'مصلّيات في الجامعات.', hospitals: 'مصلّيات في المستشفيات.' },
+    locations: { airports: 'المبنى والتفتيش الأمني', universities: 'المبنى والغرفة', hospitals: 'المبنى والطابق' },
+    access: 'الدخول وأوقات الفتح', facilities: 'مرافق المصلّى',
+  },
+  es: {
+    more: 'Más', prepare: 'Antes de ir', directory: 'Directorio de salas de oración',
+    eyebrow: 'Un propósito. Tres entornos.', title: 'Sigue la señal.',
+    description: 'Elige tu destino. Encuentra la sala. Comprueba cómo acceder.',
+    again: 'Encuentra tu próximo lugar para rezar', artwork: 'Entorno ilustrado',
+    board: { airports: 'Información del aeropuerto', universities: 'Tablón del campus', hospitals: 'Información del hospital' },
+    titles: { airports: 'Rezar en aeropuertos.', universities: 'Rezar en el campus.', hospitals: 'Rezar en hospitales.' },
+    locations: { airports: 'Terminal y seguridad', universities: 'Edificio y sala', hospitals: 'Edificio y planta' },
+    access: 'Acceso y horarios', facilities: 'Servicios de la sala',
+  },
+};

@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import VisitorArtwork from './VisitorArtwork.astro';
+import GuideTabNav from './GuideTabNav.astro';
+import VisitInsights from './VisitInsights.astro';
+import { getCopy, localizedPath } from '../lib/i18n.js';
+const {locale='en'}=Astro.props;
+const t=getCopy(locale), kinds=['airports','universities','hospitals'];
+const visitTabs=kinds.map((kind,i)=>({id:`panel-${kind}`,label:t.nav[kind],icon:['airport','campus','care'][i]}));
+const labels={en:{choose:'Where are you going?',check:'Your preparation checklist',count:'steps checked',note:'A personal checklist for this visit. Nothing is saved or sent.'},fr:{choose:'Où allez-vous ?',check:'Votre liste de préparation',count:'étapes cochées',note:'Une liste pour cette visite. Rien n’est enregistré ni envoyé.'},ar:{choose:'إلى أين تتجه؟',check:'قائمة الاستعداد للزيارة',count:'خطوات مكتملة',note:'قائمة شخصية لهذه الزيارة. لا يتم حفظ أي شيء أو إرساله.'},es:{choose:'¿Adónde vas?',check:'Tu lista de preparación',count:'pasos marcados',note:'Una lista para esta visita. No se guarda ni se envía nada.'}}[locale];
+---
+<Base title={`${t.home.stepsEyebrow} | A Room to Pray`} description={t.home.sourceText}>
+  <div class="wrap visit-page"><header class="visit-heading"><span class="wayfinding-label"><svg width="23" height="23" aria-hidden="true"><use href="#i-gate"/></svg>{t.home.stepsEyebrow}<span aria-hidden="true">→</span></span><h1>{t.home.stepsTitle}</h1><p>{t.home.exploreDescription}</p></header>
+    <div class="visit-directions" data-guide-tabs>
+    <GuideTabNav tabs={visitTabs} label={labels.choose}/>
+    {kinds.map((kind,i)=><section class={`visit-panel guide-panel sector-${kind}`} id={`panel-${kind}`} data-visit-panel={kind} aria-labelledby={`panel-heading-${kind}`}><div class="visit-instructions"><h2 id={`panel-heading-${kind}`}>{t.directories[kind].wayfindingTitle}</h2><ol>{t.directories[kind].steps.map((s,j)=><li><span class="path-stop">{j+1}</span><div><h3>{s.title}</h3><p>{s.text}</p></div></li>)}</ol><p class="note">{t.directories[kind].note}</p><a class="btn sign-btn" href={localizedPath(`/${kind}/`,locale)}>{t.directories[kind].action} →</a><VisitorArtwork scene={['airport','campus','hospital'][i]} {locale}/></div></section>)}
+    </div>
+    <section class="visit-checklist" data-visit-checklist><div><span class="eyebrow">{t.home.stepsEyebrow}</span><h2>{labels.check}</h2><p>{labels.note}</p><span class="checklist-count" data-checklist-count data-label={labels.count} role="status" aria-live="polite">{new Intl.NumberFormat(locale).format(0)} / {new Intl.NumberFormat(locale).format(t.home.steps.length)} {labels.count}</span></div><div>{t.home.steps.map((s,i)=><label><input type="checkbox" data-visit-check /><span><b>{s.title}</b><small>{s.text}</small></span></label>)}</div></section>
+    <VisitInsights {locale} />
+  </div>
+</Base>
+<script>import '../scripts/visit-guide.js';</script>

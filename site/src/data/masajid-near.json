@@ -1,0 +1,847 @@
+{
+ "ATL": [
+  {
+   "name": "Atlanta Masjid of Al-Islam",
+   "address": "560 Fayetteville Road SE, Atlanta, GA 30316",
+   "lat": 33.738643,
+   "lon": -84.3107519,
+   "km": 15.7,
+   "distance_basis": "straight-line",
+   "src": "https://www.atlantamasjid.com/",
+   "osm": "node/462897271",
+   "jumuah": "2:00 pm",
+   "jumuah_src": "https://www.atlantamasjid.com/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  },
+  {
+   "name": "Al-Farooq Masjid of Atlanta",
+   "address": "442 14th Street NW, Atlanta, GA 30318",
+   "lat": 33.7858323,
+   "lon": -84.4015416,
+   "km": 16.8,
+   "distance_basis": "straight-line",
+   "src": "https://alfarooqmasjid.org/",
+   "osm": "way/269845515",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "DFW": [
+  {
+   "name": "Islamic Center of Euless",
+   "address": "203 South Ector Drive, Euless, TX 76040",
+   "lat": 32.8352985,
+   "lon": -97.0899187,
+   "km": 8.4,
+   "distance_basis": "straight-line",
+   "src": "https://icoeuless.com/",
+   "osm": "node/12038368478",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "verified": true,
+   "checked": "2026-10-13"
+  },
+  {
+   "name": "Valley Ranch Islamic Center",
+   "address": "351 Ranchview Drive, Irving, TX",
+   "lat": 32.9172725,
+   "lon": -96.9478424,
+   "km": 8.7,
+   "distance_basis": "straight-line",
+   "src": "https://vric.org",
+   "osm": "node/12977682702",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "ORD": [
+  {
+   "name": "SABAH Islamic Cultural Center",
+   "address": "9920 Grand Avenue, Franklin Park, IL 60131",
+   "lat": 41.930225,
+   "lon": -87.8731562,
+   "km": 6,
+   "distance_basis": "straight-line",
+   "src": "https://www.sabahchicago.com/",
+   "osm": "way/1330653478",
+   "jumuah": "Every Friday at 1:00 pm",
+   "jumuah_src": "https://www.sabahchicago.com/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  },
+  {
+   "name": "Albanian American Islamic Center",
+   "address": "5825 St. Charles Road, Berkeley, IL 60163",
+   "lat": 41.8890806,
+   "lon": -87.9141882,
+   "km": 10,
+   "distance_basis": "straight-line",
+   "src": "https://albanianamericanislamiccenter.com/jummah/",
+   "osm": "way/361648827",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "LAX": [
+  {
+   "name": "Islamic Center of Hawthorne",
+   "address": "12209 Hawthorne Way, Hawthorne, CA 90250",
+   "lat": 33.9213889,
+   "lon": -118.3538889,
+   "km": 5.5,
+   "distance_basis": "straight-line",
+   "src": "https://themasjidapp.org/ichla",
+   "osm": "node/358856730",
+   "jumuah": "1:00 pm and 2:10 pm (two khutbahs)",
+   "jumuah_src": "https://themasjidapp.org/ichla",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  },
+  {
+   "name": "King Fahad Mosque",
+   "address": "10980 Washington Blvd, Culver City, CA 90232",
+   "lat": 34.0115344,
+   "lon": -118.4102487,
+   "km": 7.7,
+   "distance_basis": "straight-line",
+   "src": "https://kingfahadmosque.org/",
+   "osm": "node/8403520487",
+   "jumuah": "1:00 pm",
+   "jumuah_src": "https://kingfahadmosque.org/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "JFK": [
+  {
+   "name": "Masjid Ahlul Qur'aan Wa Sunnah",
+   "address": "135-11 125th Street, South Ozone Park, NY 11420",
+   "lat": 40.6688953,
+   "lon": -73.8142421,
+   "km": 4.4,
+   "distance_basis": "straight-line",
+   "src": "https://www.maqws.org",
+   "osm": "way/282392380",
+   "jumuah": "1:00 pm (iqamah varies with the length of the khutbah)",
+   "jumuah_src": "https://www.maqws.org",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  },
+  {
+   "name": "Masjid Al-Ansar",
+   "address": "161-34 Foch Boulevard, Jamaica, NY 11434",
+   "lat": 40.6839189,
+   "lon": -73.7834132,
+   "km": 5,
+   "distance_basis": "straight-line",
+   "src": "https://www.myalansar.com/",
+   "osm": "way/282923924",
+   "jumuah": "Khutbah 1:15 pm",
+   "jumuah_src": "https://www.myalansar.com/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "CLT": [
+  {
+   "name": "Masjid Ash-Shaheed",
+   "address": "400 West Sugar Creek Road, Charlotte, NC 28213",
+   "lat": 35.2641019,
+   "lon": -80.7936227,
+   "km": 14.7,
+   "distance_basis": "straight-line",
+   "src": "https://masjidashshaheed.org/",
+   "osm": "way/264072153",
+   "jumuah": "1:30 pm",
+   "jumuah_src": "https://masjidashshaheed.org/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  },
+  {
+   "name": "Masjid Al Towbah (Islamic Center of Charlotte)",
+   "address": "1700 Progress Lane, Charlotte, NC 28205",
+   "lat": 35.2086065,
+   "lon": -80.7691601,
+   "km": 15.8,
+   "distance_basis": "straight-line",
+   "src": "https://iccharlotte.org/al-towbah/",
+   "osm": "node/13290005626",
+   "jumuah": "1:00 pm and 2:15 pm",
+   "jumuah_src": "https://iccharlotte.org/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "LAS": [
+  {
+   "name": "Islamic Information Center (Masjid An-Noor)",
+   "address": "1610 East Russell Road, Las Vegas, NV 89119",
+   "lat": 36.0894609,
+   "lon": -115.130642,
+   "km": 2,
+   "distance_basis": "straight-line",
+   "src": "https://iiclasvegas.org/prayers/",
+   "osm": "way/1017985625",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "MCO": [
+  {
+   "name": "Islamic Center of Orlando (Jama Masjid)",
+   "address": "11543 Ruby Lake Road, Orlando, FL 32836",
+   "lat": 28.3985644,
+   "lon": -81.5025207,
+   "km": 19.2,
+   "distance_basis": "straight-line",
+   "src": "https://www.icorlando.org/",
+   "osm": "way/1233327764",
+   "jumuah": "Jumuʿah 1 at 1:15 pm, Jumuʿah 2 at 2:35 pm",
+   "jumuah_src": "https://www.icorlando.org/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "MIA": [
+  {
+   "name": "Masjid Al-Ihsaan",
+   "address": "10180 SW 168th Street, Miami, FL 33157",
+   "lat": 25.6131666,
+   "lon": -80.3558929,
+   "km": 21.4,
+   "distance_basis": "straight-line",
+   "src": "https://www.masjidalihsaan.com/",
+   "osm": "way/436041460",
+   "jumuah": "Khutbah 1:30 pm, iqamah 2:00 pm",
+   "jumuah_src": "https://www.masjidalihsaan.com/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "YVR": [
+  {
+   "name": "Marpole Musalla (New Westminster Islamic Society)",
+   "address": "8879 Selkirk Street, Vancouver, BC V6P 4J6",
+   "lat": 49.2046176,
+   "lon": -123.1337927,
+   "km": 3.8,
+   "distance_basis": "straight-line",
+   "src": "https://nwmis.org/",
+   "osm": "way/1461914495",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "verified": true,
+   "checked": "2026-10-13"
+  },
+  {
+   "name": "Richmond Jamia Masjid",
+   "address": "12300 Blundell Road, Richmond, BC V6W 1B3",
+   "lat": 49.1540842,
+   "lon": -123.0875706,
+   "km": 8.3,
+   "distance_basis": "straight-line",
+   "src": "https://org.thebcma.com/richmond",
+   "osm": "way/456253899",
+   "jumuah": "First khutbah 1:15 pm, second khutbah 2:30 pm",
+   "jumuah_src": "https://org.thebcma.com/richmond",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "SYD": [
+  {
+   "name": "Al Hijrah Mosque",
+   "address": "45 Station Street, Tempe NSW 2044",
+   "lat": -33.9254371,
+   "lon": 151.159321,
+   "km": 2.8,
+   "distance_basis": "straight-line",
+   "src": "https://cide.org.au",
+   "osm": "node/3318094580",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "verified": true,
+   "checked": "2026-10-13"
+  },
+  {
+   "name": "Masjid Darul Imaan",
+   "address": "10-12 Eden Street, Wolli Creek NSW 2205",
+   "lat": -33.9368449,
+   "lon": 151.1492871,
+   "km": 2.8,
+   "distance_basis": "straight-line",
+   "src": "https://imaan.com.au",
+   "osm": "way/1458020764",
+   "jumuah": "Khutbah begins 1:10 pm all year; prayer follows the khutbah",
+   "jumuah_src": "https://imaan.com.au",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "MEL": [
+  {
+   "name": "Australian Bosnian Islamic Centre",
+   "address": "285 Station Road, Albanvale VIC",
+   "lat": -37.7473004,
+   "lon": 144.7780613,
+   "km": 10,
+   "distance_basis": "straight-line",
+   "src": "https://abic.org.au/",
+   "osm": "way/1170477550",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "YYZ": [
+  {
+   "name": "Malton Islamic Centre",
+   "address": "6836 Professional Court, Mississauga, ON L4V 1X6",
+   "lat": 43.7075165,
+   "lon": -79.6310944,
+   "km": 3.5,
+   "distance_basis": "straight-line",
+   "src": "https://www.maltonislamiccentre.com/jummah",
+   "osm": "way/34749303",
+   "jumuah": "Adhan 1:15 pm, khutbah 1:30 pm, salah 2:00 pm (one Jummah only)",
+   "jumuah_src": "https://www.maltonislamiccentre.com/jummah",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  },
+  {
+   "name": "Malton Masjid (Anjuman-E-Anwarul Islam of Malton)",
+   "address": "7097 Airport Road, Mississauga, ON L4T 2G7",
+   "lat": 43.7063905,
+   "lon": -79.6444861,
+   "km": 3.6,
+   "distance_basis": "straight-line",
+   "src": "https://maltonmasjid.ad-din.site/",
+   "osm": "way/311209215",
+   "jumuah": "Iqamah 2:00 pm and 3:15 pm (two Jumuʿahs)",
+   "jumuah_src": "https://maltonmasjid.ad-din.site/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  },
+  {
+   "name": "Masjid Adam",
+   "address": "1759 Bloor Street, Mississauga, ON L4X 1S7",
+   "lat": 43.6250456,
+   "lon": -79.5871898,
+   "km": 6.6,
+   "distance_basis": "straight-line",
+   "src": "https://www.masjidadam.com/",
+   "osm": "node/5155817234",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "MUC": [
+  {
+   "name": "DITIB Fatih Moschee Unterschleißheim",
+   "address": "Andreas-Danzer-Weg 32, 85716 Unterschleißheim",
+   "lat": 48.2824553,
+   "lon": 11.5561015,
+   "km": 18.8,
+   "distance_basis": "straight-line",
+   "src": "https://ditib-unterschleissheim.de/",
+   "osm": "node/12849560026",
+   "jumuah": "Every Friday at Dhuhr time; doors open 30 minutes earlier",
+   "jumuah_src": "https://ditib-unterschleissheim.de/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  },
+  {
+   "name": "Islamisches Zentrum München",
+   "address": "Wallnerstraße 1-5, 80939 München",
+   "lat": 48.210352,
+   "lon": 11.6340966,
+   "km": 19.5,
+   "distance_basis": "straight-line",
+   "src": "https://islamisches-zentrum-muenchen.de",
+   "osm": "node/221616058",
+   "jumuah": "Arabic-language Friday prayer 13:30, German-language 15:00 (times the centre lists for after the summer-time change)",
+   "jumuah_src": "https://islamisches-zentrum-muenchen.de",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "SFO": [
+  {
+   "name": "Islamic Center of San Francisco",
+   "address": "400 Crescent Avenue, San Francisco, CA 94110",
+   "lat": 37.7347308,
+   "lon": -122.4166813,
+   "km": 13.3,
+   "distance_basis": "straight-line",
+   "src": "https://www.icofsf.org/",
+   "osm": "way/273163284",
+   "jumuah": "1:00 pm and 2:00 pm",
+   "jumuah_src": "https://www.icofsf.org/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  },
+  {
+   "name": "Islamic Society of San Francisco (Masjid Darussalam)",
+   "address": "20 Jones Street, San Francisco, CA",
+   "lat": 37.7814413,
+   "lon": -122.4118068,
+   "km": 18.3,
+   "distance_basis": "straight-line",
+   "src": "https://islamsf.org/",
+   "osm": "way/32864985",
+   "jumuah": "Khutbah 1:15 pm, same time all year; prayer ends by 1:45 pm",
+   "jumuah_src": "https://islamsf.org/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "EWR": [
+  {
+   "name": "NIA Masjid & Community Center",
+   "address": "229-231 Roseville Avenue, Newark, NJ 07107",
+   "lat": 40.7585682,
+   "lon": -74.1892171,
+   "km": 7.9,
+   "distance_basis": "straight-line",
+   "src": "https://www.niamasjid.org/",
+   "osm": "way/447256078",
+   "jumuah": "Friday at 1:00 pm",
+   "jumuah_src": "https://www.niamasjid.org/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "IAH": [
+  {
+   "name": "Islamic Da'wah Center",
+   "address": "201 Travis Street, Houston, TX",
+   "lat": 29.762962,
+   "lon": -95.3605815,
+   "km": 24.7,
+   "distance_basis": "straight-line",
+   "src": "https://www.islamicdawahcenter.org/",
+   "osm": "way/260789761",
+   "jumuah": "1:30 pm (one Jumuʿah; doors open 12:30)",
+   "jumuah_src": "https://www.islamicdawahcenter.org/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "BOS": [
+  {
+   "name": "Islamic Society of Boston Cultural Center",
+   "address": "100 Malcolm X Blvd, Roxbury, MA 02120",
+   "lat": 42.3309021,
+   "lon": -71.0933788,
+   "km": 7.8,
+   "distance_basis": "straight-line",
+   "src": "https://isbcc.org/",
+   "osm": "node/5567734724",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "verified": true,
+   "checked": "2026-10-13"
+  },
+  {
+   "name": "Arabic Jumaa Mosque",
+   "address": "31-41 Quint Avenue, Allston, MA",
+   "lat": 42.3517072,
+   "lon": -71.1343998,
+   "km": 10.5,
+   "distance_basis": "straight-line",
+   "src": "https://arabic-jumaa-mosque-boston.yolasite.com/",
+   "osm": "way/29930238",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "SEA": [
+  {
+   "name": "Islamic Center of Eastside (Bellevue Masjid)",
+   "address": "14700 Main Street, Bellevue, WA 98007",
+   "lat": 47.6101893,
+   "lon": -122.1440816,
+   "km": 21.9,
+   "distance_basis": "straight-line",
+   "src": "https://www.eastsidemosque.com/",
+   "osm": "way/1302641979",
+   "jumuah": "First Jumuʿah 1:30–2:00 pm (Main Street masjid)",
+   "jumuah_src": "https://www.eastsidemosque.com/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "PHX": [
+  {
+   "name": "Islamic Community Center of Phoenix",
+   "address": "7516 North Black Canyon Highway, Phoenix, AZ 85051",
+   "lat": 33.5465447,
+   "lon": -112.112878,
+   "km": 15.9,
+   "distance_basis": "straight-line",
+   "src": "https://iccpaz.com/",
+   "osm": "way/765866621",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "SLC": [
+  {
+   "name": "Utah Islamic Center",
+   "address": "984 W 9000 S, West Jordan, UT 84088",
+   "lat": 40.5880443,
+   "lon": -111.9193516,
+   "km": 22.9,
+   "distance_basis": "straight-line",
+   "src": "https://www.utislamiccenter.org/",
+   "osm": "node/8079022397",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "BWI": [
+  {
+   "name": "Masjid Bait Allah",
+   "address": "200 S. Calhoun Street, Baltimore, MD 21223",
+   "lat": 39.2853271,
+   "lon": -76.6399747,
+   "km": 12.5,
+   "distance_basis": "straight-line",
+   "src": "https://www.mbabaltimore.org/",
+   "osm": "way/336431718",
+   "jumuah": "Jumuʿah salah 1:15 pm",
+   "jumuah_src": "https://www.mbabaltimore.org/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  },
+  {
+   "name": "Hasbuna Allahu Islamic Center",
+   "address": "3306 Liberty Heights Avenue, Baltimore, MD 21215",
+   "lat": 39.3247212,
+   "lon": -76.6723092,
+   "km": 16.6,
+   "distance_basis": "straight-line",
+   "src": "https://haicbaltimore.org/",
+   "osm": "way/336532297",
+   "jumuah": "Khutbah 1:30 pm, salah 2:00 pm",
+   "jumuah_src": "https://haicbaltimore.org/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "IAD": [
+  {
+   "name": "ADAMS Center (Sterling)",
+   "address": "46903 Sugarland Road, Sterling, VA 20164",
+   "lat": 39.0065164,
+   "lon": -77.3792966,
+   "km": 9.6,
+   "distance_basis": "straight-line",
+   "src": "https://adamscenter.org/jumuah/",
+   "osm": "way/225451717",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "SAN": [
+  {
+   "name": "Masjidul Taqwa San Diego",
+   "address": "2575 Imperial Avenue, San Diego, CA 92102",
+   "lat": 32.7061023,
+   "lon": -117.138477,
+   "km": 5.7,
+   "distance_basis": "straight-line",
+   "src": "http://www.masjidultaqwasandiego.org/",
+   "osm": "node/9333226913",
+   "jumuah": "Every Friday, 1:00–1:30 pm",
+   "jumuah_src": "http://www.masjidultaqwasandiego.org/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  },
+  {
+   "name": "Islamic Center of San Diego",
+   "address": "7050 Eckstrom Avenue, San Diego, CA 92111",
+   "lat": 32.8205876,
+   "lon": -117.1654603,
+   "km": 9.9,
+   "distance_basis": "straight-line",
+   "src": "https://icsd.org",
+   "osm": "way/1442629344",
+   "jumuah": "1st Jumuʿah 12:30 pm, 2nd Jumuʿah 2:00 pm",
+   "jumuah_src": "https://icsd.org",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "TPA": [
+  {
+   "name": "Islamic Society of Tampa Bay Area (ISTABA)",
+   "address": "7326 E. Sligh Avenue, Tampa, FL 33610",
+   "lat": 28.0111279,
+   "lon": -82.373767,
+   "km": 16.1,
+   "distance_basis": "straight-line",
+   "src": "https://istaba.org/prayer/",
+   "osm": "way/1327351345",
+   "jumuah": "Khutbah begins at 1:30 pm all year",
+   "jumuah_src": "https://istaba.org/prayer/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "AUS": [
+  {
+   "name": "Nueces Mosque",
+   "address": "1906 Nueces Street, Austin, TX 78705",
+   "lat": 30.283198,
+   "lon": -97.744345,
+   "km": 12.4,
+   "distance_basis": "straight-line",
+   "src": "https://nuecesmosque.com/",
+   "osm": "way/380922453",
+   "jumuah": "Three Jumuʿahs: 1:00, 2:00 and 3:00 pm",
+   "jumuah_src": "https://nuecesmosque.com/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "HNL": [
+  {
+   "name": "Muslim Association of Hawaii (Manoa masjid)",
+   "address": "1935 Aleo Place, Honolulu, HI 96822",
+   "lat": 21.3085134,
+   "lon": -157.8213766,
+   "km": 10.9,
+   "distance_basis": "straight-line",
+   "src": "http://www.hawaiimasjid.com/",
+   "osm": "way/155155850",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "MDW": [
+  {
+   "name": "Hometown Mercy Mosque",
+   "address": "8925 S Kostner Avenue, Hometown, IL 60456",
+   "lat": 41.7301192,
+   "lon": -87.7333826,
+   "km": 6.4,
+   "distance_basis": "straight-line",
+   "src": "https://hometownmercymosque.org/",
+   "osm": "way/235939778",
+   "jumuah": "Khutbah 1:00 pm",
+   "jumuah_src": "https://hometownmercymosque.org/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  },
+  {
+   "name": "Mosque Foundation",
+   "address": "7360 W. 93rd Street, Bridgeview, IL 60455",
+   "lat": 41.7228415,
+   "lon": -87.802971,
+   "km": 8.2,
+   "distance_basis": "straight-line",
+   "src": "https://www.mosquefoundation.org/",
+   "osm": "way/662825023",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "verified": true,
+   "checked": "2026-10-13"
+  },
+  {
+   "name": "Palos Islamic Center",
+   "address": "12300 South 80th Avenue, Palos Park, IL 60464",
+   "lat": 41.6668818,
+   "lon": -87.8166097,
+   "km": 14.3,
+   "distance_basis": "straight-line",
+   "src": "https://palosic.org/",
+   "osm": "way/1359913156",
+   "jumuah": "First khutbah 1:00 pm, second khutbah 2:15 pm",
+   "jumuah_src": "https://palosic.org/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "LHR": [
+  {
+   "name": "Heathrow Jamia Masjid",
+   "address": "Park Lane, Cranford, TW5 9RW",
+   "lat": 51.4811809,
+   "lon": -0.4154874,
+   "km": 3.3,
+   "distance_basis": "straight-line",
+   "src": "https://heathrowjamiamasjid.co.uk/",
+   "osm": "way/1172463833",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "verified": true,
+   "checked": "2026-10-13"
+  },
+  {
+   "name": "Quba Masjid & Islamic Centre",
+   "address": "Golden Crescent, Hayes UB3 1AQ",
+   "lat": 51.5086981,
+   "lon": -0.4228302,
+   "km": 4.9,
+   "distance_basis": "straight-line",
+   "src": "https://www.qubamasjid.com/",
+   "osm": "way/706357193",
+   "jumuah": "Jummah 1 begins 1:15 pm, Jummah 2 begins 2:15 pm",
+   "jumuah_src": "https://www.qubamasjid.com/",
+   "jumuah_read": "2026-10-13",
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "DCA": [
+  {
+   "name": "Masjid Muhammad (The Nation's Mosque)",
+   "address": "1519 4th Street NW, Washington, DC 20001",
+   "lat": 38.9103218,
+   "lon": -77.0158875,
+   "km": 6.7,
+   "distance_basis": "straight-line",
+   "src": "https://thenationsmosque.org/",
+   "osm": "way/67247033",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "caution": "The masjid's site has a notice about a different Jumuʿah location during construction. Check it before you go.",
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "AMS": [
+  {
+   "name": "Masjid At-Taqwa (Euromoslim)",
+   "address": "Ekingenstraat 3-7, Amsterdam-Osdorp",
+   "lat": 52.3569671,
+   "lon": 4.7968051,
+   "km": 5.8,
+   "distance_basis": "straight-line",
+   "src": "https://www.euromoslim.org",
+   "osm": "node/4421084893",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "verified": true,
+   "checked": "2026-10-13"
+  },
+  {
+   "name": "De Blauwe Moskee",
+   "address": "Henri Dunantstraat 10-12, 1066 AX Amsterdam",
+   "lat": 52.3485267,
+   "lon": 4.8314881,
+   "km": 6.4,
+   "distance_basis": "straight-line",
+   "src": "https://www.blauwemoskee.nl",
+   "osm": "way/443374617",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ],
+ "DTW": [
+  {
+   "name": "Muslim Community of Western Suburbs (MCWS)",
+   "address": "40440 Palmer Road, Canton, MI 48188",
+   "lat": 42.2949872,
+   "lon": -83.4391904,
+   "km": 11.4,
+   "distance_basis": "straight-line",
+   "src": "https://www.mcws.org/",
+   "osm": "way/654454281",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "verified": true,
+   "checked": "2026-10-13"
+  },
+  {
+   "name": "Masjid Bilal Canton",
+   "address": "1525 North Ridge Road, Canton, MI 48187",
+   "lat": 42.3165925,
+   "lon": -83.5301074,
+   "km": 18.5,
+   "distance_basis": "straight-line",
+   "src": "https://www.masjidbilalcanton.org/",
+   "osm": "way/660359629",
+   "jumuah": null,
+   "jumuah_src": null,
+   "jumuah_read": null,
+   "verified": true,
+   "checked": "2026-10-13"
+  }
+ ]
+}

@@ -1,0 +1,280 @@
+[
+ {
+  "iata": "NGO",
+  "name": "Chubu Centrair International Airport",
+  "city": "Tokoname",
+  "country": "JP",
+  "region": "Asia",
+  "lat": 34.858398,
+  "lon": 136.804993,
+  "qibla_deg": 291.5,
+  "distance_km": 9267,
+  "spaces": [
+   {
+    "name": "Prayer Room (Terminal 1 arrivals)",
+    "location": "Terminal 1, Level 2 Arrivals Lobby (Non-Restricted Area)",
+    "side": "landside",
+    "hours": "Open during regular terminal hours",
+    "wudu": "partial (\"cleaning facilities in the nearby toilets\")",
+    "women": "yes (partition)",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.centrair.jp/en/service/prayer-room.html",
+    "verified": "verified"
+   },
+   {
+    "name": "Prayer Room (Terminal 1 international departures)",
+    "location": "Terminal 1, 3rd-floor International Departure Restricted Area",
+    "side": "airside",
+    "hours": "Open during International Departure Area regular hours; not available during late-night flight hours",
+    "wudu": "partial (\"cleaning facilities in the nearby toilets\")",
+    "women": "yes (partition)",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.centrair.jp/en/service/prayer-room.html",
+    "verified": "verified"
+   },
+   {
+    "name": "Prayer Room (Terminal 2 arrivals)",
+    "location": "Terminal 2, 1st-floor Arrivals Lobby (Non-Restricted Area)",
+    "side": "landside",
+    "hours": "Open during regular terminal hours",
+    "wudu": "partial (\"cleaning facilities in the nearby toilets\")",
+    "women": "yes (partition)",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.centrair.jp/en/service/prayer-room.html",
+    "verified": "verified"
+   }
+  ],
+  "feedback_url": "https://www.centrair.jp/en/help/index.html",
+  "notes": "Official Centrair page https://www.centrair.jp/en/service/prayer-room.html read via r.jina.ai on 18 Oct 2026 (direct requests return 403). Quote: \"This room is divided into two areas by partitions so that men and women can worship separately. There are also cleaning facilities in the nearby toilets. You do not need to make a reservation prior to use.\" Three locations listed under 'Hours of use'. The page does not say whether the 'cleaning facilities' are dedicated wudu stations, or describe a qibla marker. Feedback URL is the official 'Need Help?' page (no dedicated feedback form was identified). Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "TPE",
+  "name": "Taiwan Taoyuan International Airport",
+  "city": "Taoyuan",
+  "country": "TW",
+  "region": "Asia",
+  "lat": 25.0777,
+  "lon": 121.233002,
+  "qibla_deg": 286.5,
+  "distance_km": 8194,
+  "spaces": [
+   {
+    "name": "Prayer room",
+    "location": "unknown (terminal not named in the listing)",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "no (Tourism Administration listing marks 'Facilities for Ritual Ablution (Wudu)': No)",
+    "women": "unknown",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://eng.taiwan.net.tw/m1.aspx?sNo=0022187",
+    "verified": "unverified"
+   }
+  ],
+  "feedback_url": "https://www.taoyuan-airport.com/emailus",
+  "notes": "Secondary (government tourism board) only. The Taiwan Tourism Administration 'Muslim-friendly Environment' page (https://eng.taiwan.net.tw/m1.aspx?sNo=0022187, read directly 18 Oct 2026) lists 'Taiwan Taoyuan International Airport Co. Ltd. | Taoyuan City' with Water-Friendly Washrooms: No, Facilities for Ritual Ablution (Wudu): No, Prayer Room: Yes. The official taoyuan-airport.com 'Dining/ Shopping/ Service' directory (read via r.jina.ai, all Service pages) has no prayer-room entry; the airport map is JavaScript/Mapbox behind a Cloudflare challenge and could not be read. Third-party sites (HalalTrip) place Muslim prayer rooms near Gate B3 (T1) and Gate C1 (T2), 24 hours, but that is not confirmed by any official page, so no location is recorded. Feedback URL is the official 'emailus' page linked from the site footer. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "CNX",
+  "name": "Chiang Mai International Airport",
+  "city": "Chiang Mai",
+  "country": "TH",
+  "region": "Asia",
+  "lat": 18.766799926799997,
+  "lon": 98.962600708,
+  "qibla_deg": 283.5,
+  "distance_km": 6146,
+  "spaces": [
+   {
+    "name": "Muslim Prayer Room",
+    "location": "Domestic terminal, floor 2, Arrival zone (Public area)",
+    "side": "landside",
+    "hours": "24 hours, daily (00:00–23:59 every day)",
+    "wudu": "yes (\"a dedicated area for Wudu (ablution)\")",
+    "women": "unknown",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://chiangmai.airportthai.co.th/service/facility/detail/261",
+    "verified": "verified"
+   }
+  ],
+  "feedback_url": "https://contact-us.airportthai.co.th/?port=CNX",
+  "notes": "Official AOT page https://chiangmai.airportthai.co.th/service/facility/detail/261 read directly on 18 Oct 2026 (content is in the page's server-rendered data). Quote: \"The airport provides a prayer room for the convenience of Muslim passengers and users to perform their religious practices. Inside the room, you will find amenities such as prayer rugs and a dedicated area for Wudu (ablution).\" Location fields: name 'Domestic', terminal 'Domestic', floor '2', area 'Public', zone 'Arrival'; opening times 00:00:00–23:59:59 all seven days. The AOT content search for 'prayer' at CNX returns only this one entry, so no international-terminal room is listed. Women's space, qibla marker and Jumu'ah not stated. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "HKT",
+  "name": "Phuket International Airport",
+  "city": "Phuket",
+  "country": "TH",
+  "region": "Asia",
+  "lat": 8.113257,
+  "lon": 98.3174,
+  "qibla_deg": 290.3,
+  "distance_km": 6425,
+  "spaces": [
+   {
+    "name": "Muslim Prayer Room",
+    "location": "International terminal, floor 3, near Entrance 1 (Public area)",
+    "side": "landside",
+    "hours": "24 hours, daily (00:00–23:59 every day)",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://phuket.airportthai.co.th/service/facility/detail/263",
+    "verified": "verified"
+   }
+  ],
+  "feedback_url": "https://contact-us.airportthai.co.th/?port=HKT",
+  "notes": "Official AOT page https://phuket.airportthai.co.th/service/facility/detail/263 read directly on 18 Oct 2026 (content is in the page's server-rendered data). Quote: \"Our prayer room is designed to provide visitors with a comfortable space for worship. It features a spacious layout and a serene atmosphere, making it ideal for prayer and meditation. The room is fully equipped with all necessary facilities\". Location fields: name 'Entrance 1', floor '3', area 'Public', flight type 'International'; opening times 00:00:00–23:59:59 all seven days. The AOT content search for 'prayer' at HKT returns only this entry; no domestic-terminal or airside room is listed. Wudu, women's space, qibla marker and Jumu'ah not stated ('all necessary facilities' is not specific). Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "KNO",
+  "name": "Kualanamu International Airport",
+  "city": "Medan (Beringin)",
+  "country": "ID",
+  "region": "Asia",
+  "lat": 3.637847,
+  "lon": 98.870566,
+  "qibla_deg": 292.7,
+  "distance_km": 6664,
+  "spaces": [
+   {
+    "name": "Musala (level 1)",
+    "location": "Passenger terminal, level 1 (per 2013 report)",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "yes (2013 report: level 1 has a dedicated wudu area)",
+    "women": "unknown",
+    "type": "musala",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.jpnn.com/news/penumpang-di-knia-berwudhu-di-wastafel",
+    "verified": "unverified"
+   },
+   {
+    "name": "Musala (level 2)",
+    "location": "Passenger terminal, level 2 (per 2013 report)",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "no (2013 report: no wudu area; toilet with 2 sinks next to it)",
+    "women": "unknown",
+    "type": "musala",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.jpnn.com/news/penumpang-di-knia-berwudhu-di-wastafel",
+    "verified": "unverified"
+   }
+  ],
+  "feedback_url": "unknown",
+  "notes": "Secondary only, and old. JPNN news article dated 3 Aug 2013 (https://www.jpnn.com/news/penumpang-di-knia-berwudhu-di-wastafel, read via r.jina.ai on 18 Oct 2026) quotes Angkasa Pura II's Ali Sofyan: \"KNIA memiliki beberapa musala seperti di lantai 1 dan di lantai 2. Di lantai satu sudah tersedia tempat khusus berwudhu, namun untuk di lantai 2 memang disediakan musala namun tempat berwudhunya belum disiapkan.\" Wudu may have been added on level 2 since. Before/after security not stated. The official site kualanamu-airport.co.id did not answer (timeout) on 18 Oct 2026, so nothing current was confirmed. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "ADL",
+  "name": "Adelaide Airport",
+  "city": "Adelaide",
+  "country": "AU",
+  "region": "Oceania",
+  "lat": -34.947512,
+  "lon": 138.533393,
+  "qibla_deg": 283.4,
+  "distance_km": 12115,
+  "spaces": [
+   {
+    "name": "Domestic prayer room",
+    "location": "Level 2, between Rip Curl and NewsLink",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.adelaideairport.com.au/at-the-airport/facilities-and-services/",
+    "verified": "verified"
+   },
+   {
+    "name": "International prayer room",
+    "location": "International area, post-Emigration, near the escalator/stairs",
+    "side": "airside",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.adelaideairport.com.au/at-the-airport/facilities-and-services/",
+    "verified": "verified"
+   }
+  ],
+  "feedback_url": "https://www.adelaideairport.com.au/help-centre/contact-us/",
+  "notes": "Official page https://www.adelaideairport.com.au/at-the-airport/facilities-and-services/ read via r.jina.ai on 18 Oct 2026 (direct requests return 403). Under 'Places of worship': \"Quiet spaces for reflection are available for travellers. Head to our domestic prayer room on Level 2 between Rip Curl and NewsLink, or the international prayer room post-Emigration near the escalator/stairs.\" The page does not say whether the domestic room is before or after security (the Level 2 shops are likely after security, but that is not stated), and gives no hours, wudu, women's space or qibla details. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "PER",
+  "name": "Perth Airport",
+  "city": "Perth",
+  "country": "AU",
+  "region": "Oceania",
+  "lat": -31.94029998779297,
+  "lon": 115.96700286865234,
+  "qibla_deg": 295.3,
+  "distance_km": 10033,
+  "spaces": [
+   {
+    "name": "Quiet room",
+    "location": "Terminal 1 International, ground floor, near the public Arrivals Hall",
+    "side": "landside",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "multi-faith room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.perthairport.com.au/at-the-airport/facilities-and-services",
+    "verified": "verified"
+   }
+  ],
+  "feedback_url": "https://www.perthairport.com.au/contact-us",
+  "notes": "Official page https://www.perthairport.com.au/at-the-airport/facilities-and-services read via r.jina.ai on 18 Oct 2026 (it returned a Cloudflare 403 on the first try). Quote under 'Quiet room': \"A non-denominational room for prayer or quiet contemplation is located on the ground floor at T1 International, near the public Arrivals Hall.\" No room is listed for T2, T3 or T4 (domestic). Hours, wudu, women's space and qibla not stated. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "WLG",
+  "name": "Wellington International Airport",
+  "city": "Wellington",
+  "country": "NZ",
+  "region": "Oceania",
+  "lat": -41.326839,
+  "lon": 174.806862,
+  "qibla_deg": 256.3,
+  "distance_km": 15271,
+  "spaces": [],
+  "feedback_url": "https://www.wellingtonairport.co.nz/about/feedback/",
+  "notes": "No prayer, multi-faith, meditation or quiet room is listed on the official site as of 18 Oct 2026. All 407 URLs in https://www.wellingtonairport.co.nz/sitemap.xml were fetched directly and full-text scanned for prayer, multi-faith, chapel, meditation, quiet room, faith room, reflection room and musalla: the only hits are news and community-award pages (school prayer groups, wildlife 'sanctuary'). The 'At the airport' hub (/services/) lists maps, baggage, lounges, WiFi, family facilities, lost property, accommodation, conference centre, security, international procedures and accessibility, with no prayer space. The terminal map SVGs carry no prayer label. The site's own search (/search/?q=) for 'prayer' returns 1 result (a news story about students), for 'chapel' none, and 'quiet' and 'faith' only news and community pages. A room may exist without being listed.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ }
+]

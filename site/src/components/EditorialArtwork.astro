@@ -1,0 +1,9 @@
+---
+import VisitorArtwork from './VisitorArtwork.astro';
+import { editorialScene, EDITORIAL_ART } from '../lib/editorial-art.js';
+import { localeFromPath } from '../lib/i18n.js';
+const { scene=editorialScene(Astro.url.pathname), placement='story' }=Astro.props;
+const locale=localeFromPath(Astro.url.pathname);
+const artwork=EDITORIAL_ART[scene];
+---
+{artwork&&<VisitorArtwork scene={artwork.scene} {locale} {placement} purpose={scene} title={locale==='en'?artwork.title:undefined} caption={locale==='en'?artwork.caption:undefined}/>}

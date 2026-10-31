@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import DestinationChoices from './DestinationChoices.astro';
+import PlaceSearch from './PlaceSearch.astro';
+import PrayerRoomBoard from './PrayerRoomBoard.astro';
+import GuidePrinciples from './GuidePrinciples.astro';
+import { IDENTITY_COPY } from '../data/identity-copy.js';
+import VisitInsights from './VisitInsights.astro';
+import HomeReferenceSections from './HomeReferenceSections.astro';
+import GuideTabNav from './GuideTabNav.astro';
+import CountryExplorer from './CountryExplorer.astro';
+import { getCopy, localizedPath } from '../lib/i18n.js';
+import { ROOM_COPY } from '../data/room-copy.js';
+import { GUIDE_COPY } from '../data/guide-copy.js';
+const { locale='en' }=Astro.props, t=getCopy(locale), r=ROOM_COPY[locale],g=GUIDE_COPY[locale];
+const identity=IDENTITY_COPY[locale];
+const tabs=[{id:'find-place',label:g.find,icon:'search'},{id:'countries',label:g.countryTab,icon:'globe'},{id:'your-visit',label:g.prepare,icon:'book'}];
+---
+<Base title={`${r.title} ${r.line} | A Room to Pray`} description={t.home.description}>
+ <div class="wrap guide-home" data-guide-tabs>
+  <header class="room-home-intro"><span class="room-eyebrow"><span></span>{g.guide}</span><h1 id="home-title">{r.title}<br/><span>{r.line}</span></h1><p class="room-introduction">{r.information}</p></header>
+  <GuideTabNav {tabs} label={g.overview}/>
+  <section id="find-place" class="guide-panel">
+   <PlaceSearch {locale}/>
+   <DestinationChoices {locale}/>
+   <details class="room-disclosure home-airport-board" data-print-expand><summary><span><svg width="19" height="19" aria-hidden="true"><use href="#i-airport"/></svg>{identity.boardTitle}</span><span aria-hidden="true">+</span></summary><PrayerRoomBoard {locale}/></details>
+   <div class="room-promise room-source-promise"><svg width="19" height="19" aria-hidden="true"><use href="#i-check"/></svg><div><p>{identity.promise}</p><a href="#guide-principles-title">{identity.how}<span aria-hidden="true"> →</span></a></div></div>
+  </section>
+  <section id="countries" class="guide-panel"><CountryExplorer {locale}/></section>
+  <section id="your-visit" class="guide-panel">
+   <header class="panel-heading"><span class="guide-kicker">{t.home.stepsEyebrow}</span><h2>{r.source}</h2></header>
+   <ol class="room-three-steps">{t.home.steps.map((s,i)=><li><span class="step-symbol"><svg width="23" height="23" aria-hidden="true"><use href={`#i-${['pin','key','water'][i]}`}/></svg></span><h3>{s.title}</h3><p>{s.text}</p></li>)}</ol>
+   <a href={localizedPath('/visit/',locale)} class="btn sign-btn">{r.details}<span aria-hidden="true">↗</span></a>
+   <GuidePrinciples {locale}/>
+   <details class="room-disclosure"><summary>{r.research}<span aria-hidden="true">+</span></summary><VisitInsights {locale}/></details>
+   {locale==='en'&&<details class="room-disclosure" data-print-expand><summary>{g.source}<span aria-hidden="true">+</span></summary><HomeReferenceSections/></details>}
+  </section>
+ </div>
+</Base>

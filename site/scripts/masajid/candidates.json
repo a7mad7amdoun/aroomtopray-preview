@@ -1,0 +1,4651 @@
+{
+ "ATL": {
+  "airport": {
+   "lat": 33.6367,
+   "lon": -84.4281
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/272388688",
+    "name": "Masjid Al-Quran",
+    "lat": 33.7142048,
+    "lon": -84.3717896,
+    "km": 10.1,
+    "website": null,
+    "addr": "500 McDonough Boulevard Southeast, Atlanta, 30315",
+    "denomination": null
+   },
+   {
+    "osm": "way/272293462",
+    "name": "Masjid Al-Mu'minun",
+    "lat": 33.7236772,
+    "lon": -84.3884839,
+    "km": 10.3,
+    "website": null,
+    "addr": "1127 Hank Aaron Drive Southwest, Atlanta, 30315",
+    "denomination": null
+   },
+   {
+    "osm": "node/3503081325",
+    "name": "5 Points Islamic Center (Masjid Jami Islamic Center)",
+    "lat": 33.751802,
+    "lon": -84.3934938,
+    "km": 13.2,
+    "website": null,
+    "addr": "105 Broad Street Southwest, Atlanta, 30303",
+    "denomination": null
+   },
+   {
+    "osm": "node/462897271",
+    "name": "Atlanta Masjid of Al Islam",
+    "lat": 33.738643,
+    "lon": -84.3107519,
+    "km": 15.7,
+    "website": "https://www.atlantamasjid.com/",
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/269845515",
+    "name": "Al-Farooq Masjid of Atlanta",
+    "lat": 33.7858323,
+    "lon": -84.4015416,
+    "km": 16.8,
+    "website": "https://alfarooqmasjid.org/",
+    "addr": "442 14th Street Northwest, Atlanta, 30318-7944",
+    "denomination": null
+   },
+   {
+    "osm": "way/51291649",
+    "name": "Ismaili Jamat Khana",
+    "lat": 33.7974024,
+    "lon": -84.2783605,
+    "km": 22.6,
+    "website": null,
+    "addr": "Carriage Place Court, Scottdale, 30033",
+    "denomination": "ismaili"
+   }
+  ]
+ },
+ "DFW": {
+  "airport": {
+   "lat": 32.8968,
+   "lon": -97.038
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "node/13752992861",
+    "name": "HEB Masjid",
+    "lat": 32.8483365,
+    "lon": -97.0969874,
+    "km": 7.7,
+    "website": null,
+    "addr": "901 Clinic Drive, Euless, 76039",
+    "denomination": null
+   },
+   {
+    "osm": "node/12038368478",
+    "name": "Islamic Center of Euless",
+    "lat": 32.8352985,
+    "lon": -97.0899187,
+    "km": 8.4,
+    "website": "https://icoeuless.com/",
+    "addr": "203 South Ector Drive, Euless, 76040",
+    "denomination": null
+   },
+   {
+    "osm": "node/12977682702",
+    "name": "Valley Ranch Islamic Center",
+    "lat": 32.9172725,
+    "lon": -96.9478424,
+    "km": 8.7,
+    "website": "https://vric.org",
+    "addr": "351 Ranchview Drive, Irving",
+    "denomination": null
+   },
+   {
+    "osm": "way/1346085110",
+    "name": "Xhamia Shqiptare DFW",
+    "lat": 32.8563923,
+    "lon": -97.1602916,
+    "km": 12.3,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/424223465",
+    "name": "Madinah Masjid of Carrollton",
+    "lat": 32.9751557,
+    "lon": -96.9093891,
+    "km": 14.8,
+    "website": "https://madinahmasjid.com/",
+    "addr": "2180 Old Denton Road, Carrollton, 75006",
+    "denomination": null
+   },
+   {
+    "osm": "node/5341746000",
+    "name": "IALFM Mosque",
+    "lat": 33.0344387,
+    "lon": -97.0830864,
+    "km": 15.9,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/1130995547",
+    "name": "IALFM Mosque",
+    "lat": 33.0354077,
+    "lon": -97.0830104,
+    "km": 16,
+    "website": null,
+    "addr": "Peters Colony Road, Flower Mound, 75022",
+    "denomination": null
+   },
+   {
+    "osm": "node/1595716783",
+    "name": "Dar El Salaam Islamic Center",
+    "lat": 32.7569927,
+    "lon": -97.1117016,
+    "km": 17,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/423752564",
+    "name": "Minhaj ul Quran International",
+    "lat": 33.0133608,
+    "lon": -96.8875328,
+    "km": 19.1,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/1394443121",
+    "name": "MOMIN of Texas",
+    "lat": 32.9986738,
+    "lon": -96.8619783,
+    "km": 20,
+    "website": null,
+    "addr": "2945 Frankford Road, Dallas, 75287",
+    "denomination": "shia"
+   },
+   {
+    "osm": "way/670759640",
+    "name": "Masjid Al-Sahaabah Watauga Center",
+    "lat": 32.8682536,
+    "lon": -97.2517276,
+    "km": 20.2,
+    "website": null,
+    "addr": "6005 Chapman Road, Watauga, 76148",
+    "denomination": null
+   },
+   {
+    "osm": "node/13067658068",
+    "name": "City of Knowledge",
+    "lat": 33.0333595,
+    "lon": -96.8863257,
+    "km": 20.8,
+    "website": "https://cfkdfw.org/",
+    "addr": "1800 Golden Trail Court, Carrollton, 75010",
+    "denomination": "shia"
+   },
+   {
+    "osm": "way/654513276",
+    "name": "New Islamic Generation Foundation",
+    "lat": 32.7131211,
+    "lon": -97.0969495,
+    "km": 21.2,
+    "website": null,
+    "addr": null,
+    "denomination": "sunni"
+   }
+  ]
+ },
+ "DEN": {
+  "airport": {
+   "lat": 39.86,
+   "lon": -104.6738
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "node/9910939668",
+    "name": null,
+    "lat": 39.7458121,
+    "lon": -104.816675,
+    "km": 17.6,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/327689668",
+    "name": "Northeast Denver Islamic Center",
+    "lat": 39.7646863,
+    "lon": -104.9389322,
+    "km": 25,
+    "website": "https://northeastdenverislamiccenter.com/",
+    "addr": "3400 North Albion Street, Denver, 80207",
+    "denomination": null
+   }
+  ]
+ },
+ "ORD": {
+  "airport": {
+   "lat": 41.9786,
+   "lon": -87.9048
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/1330653478",
+    "name": "SABAH Islamic Cultural Center",
+    "lat": 41.930225,
+    "lon": -87.8731562,
+    "km": 6,
+    "website": "https://www.sabahchicago.com/",
+    "addr": "9920 West Grand Avenue, Franklin Park, 60131",
+    "denomination": null
+   },
+   {
+    "osm": "way/662826694",
+    "name": "Islamic Cultural Center of Des Plaines",
+    "lat": 42.0454958,
+    "lon": -87.8609254,
+    "km": 8.3,
+    "website": "https://www.iccofdesplaines.com/",
+    "addr": "480 Potter Road, Des Plaines, 60016",
+    "denomination": null
+   },
+   {
+    "osm": "way/163331065",
+    "name": "Rumija Islamic Center",
+    "lat": 41.9909331,
+    "lon": -87.7959702,
+    "km": 9.1,
+    "website": null,
+    "addr": "6023 North Northwest Highway, Chicago, 60631",
+    "denomination": null
+   },
+   {
+    "osm": "way/361648827",
+    "name": "Albanian-American Islamic Center",
+    "lat": 41.8890806,
+    "lon": -87.9141882,
+    "km": 10,
+    "website": "https://albanianamericanislamiccenter.com/",
+    "addr": "5825 Saint Charles Road, Berkeley, 60163",
+    "denomination": null
+   },
+   {
+    "osm": "way/163226157",
+    "name": "Chicago Mosque",
+    "lat": 41.9898929,
+    "lon": -87.7830662,
+    "km": 10.1,
+    "website": "https://www.chicagomosque.org/",
+    "addr": "6201 West Peterson Avenue",
+    "denomination": null
+   },
+   {
+    "osm": "way/163086840",
+    "name": "Islamic Community Center of Illinois (ICCI)",
+    "lat": 41.93801,
+    "lon": -87.7877443,
+    "km": 10.7,
+    "website": null,
+    "addr": "6435 West Belmont Avenue, Chicago, 60634",
+    "denomination": null
+   },
+   {
+    "osm": "way/821661948",
+    "name": "Ismaili Jamatkhana Center",
+    "lat": 42.0579155,
+    "lon": -87.8146015,
+    "km": 11.5,
+    "website": "https://the.ismaili/us/en/news/jamatkhana-glenview",
+    "addr": "100 Shermer Road, Glenview, 60025",
+    "denomination": "ismaili"
+   },
+   {
+    "osm": "way/202352435",
+    "name": "Muslim Community Center",
+    "lat": 42.0377323,
+    "lon": -87.7709727,
+    "km": 12.9,
+    "website": null,
+    "addr": "8601 Menard Avenue, Morton Grove, 60053",
+    "denomination": null
+   },
+   {
+    "osm": "way/162463912",
+    "name": "Dar Al-Hadith",
+    "lat": 41.9684706,
+    "lon": -87.7402953,
+    "km": 13.6,
+    "website": null,
+    "addr": "4809 North Elston Avenue, Chicago, 60630",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/1236509631",
+    "name": "Masjid As-Sunnah",
+    "lat": 42.0338616,
+    "lon": -87.7573039,
+    "km": 13.6,
+    "website": "https://masjidsunnahchi.org/",
+    "addr": "5114 Main Street, Skokie, 60077",
+    "denomination": null
+   },
+   {
+    "osm": "way/162460792",
+    "name": "MASOM",
+    "lat": 41.9678982,
+    "lon": -87.7374784,
+    "km": 13.9,
+    "website": null,
+    "addr": "4353 West Lawrence Avenue, Chicago, 60630",
+    "denomination": "shia"
+   },
+   {
+    "osm": "node/9137226650",
+    "name": "Masjid Darussalam",
+    "lat": 41.9028195,
+    "lon": -88.0470177,
+    "km": 14.5,
+    "website": "https://masjidds.org/",
+    "addr": "21W525 North Avenue, Lombard, 60148",
+    "denomination": null
+   },
+   {
+    "osm": "way/1099788122",
+    "name": "Muslim Community Center",
+    "lat": 41.9601203,
+    "lon": -87.7289276,
+    "km": 14.7,
+    "website": "https://mccchicago.org/",
+    "addr": "4380 North Elston Avenue, Chicago, 60641",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/805894557",
+    "name": "Sacred Learning Center",
+    "lat": 41.998003,
+    "lon": -87.7261127,
+    "km": 14.9,
+    "website": "https://www.sacredlearning.org/",
+    "addr": "3900 West Devon Avenue, Lincolnwood, 60712",
+    "denomination": null
+   },
+   {
+    "osm": "node/10941257036",
+    "name": "Islamic Education Center",
+    "lat": 41.9058275,
+    "lon": -88.057152,
+    "km": 15,
+    "website": "https://www.iechusaini.org/",
+    "addr": "1269 Goodrich Avenue, Glendale Heights, 60139",
+    "denomination": null
+   }
+  ]
+ },
+ "LAX": {
+  "airport": {
+   "lat": 33.9425,
+   "lon": -118.408
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "node/4641017624",
+    "name": "Islamic Center of Inglewood",
+    "lat": 33.9530392,
+    "lon": -118.3509708,
+    "km": 5.4,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/358856730",
+    "name": "Islamic Center of Hawthorne",
+    "lat": 33.9213889,
+    "lon": -118.3538889,
+    "km": 5.5,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/358856715",
+    "name": "Ahmadiyya Muslim Center",
+    "lat": 33.9125,
+    "lon": -118.3441667,
+    "km": 6.8,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/8403520487",
+    "name": "King Fahad Mosque",
+    "lat": 34.0115344,
+    "lon": -118.4102487,
+    "km": 7.7,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/412475901",
+    "name": "Masjid Omar ibn Al-Khattab",
+    "lat": 34.0185669,
+    "lon": -118.2924402,
+    "km": 13.6,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/10117355746",
+    "name": "Masjid Bilal",
+    "lat": 34.0109468,
+    "lon": -118.2562323,
+    "km": 15.9,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/420968977",
+    "name": "Masjid Al-Falah",
+    "lat": 34.068638,
+    "lon": -118.3069725,
+    "km": 16.8,
+    "website": null,
+    "addr": "309 South Serrano Avenue, 90020",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "relation/6336076",
+    "name": "Islamic Center of Southern California",
+    "lat": 34.0664084,
+    "lon": -118.291235,
+    "km": 17.5,
+    "website": null,
+    "addr": "434 South Vermont Avenue, Los Angeles, 90020",
+    "denomination": null
+   },
+   {
+    "osm": "way/450374899",
+    "name": "Bab-Ul-Ilm Islamic Center",
+    "lat": 33.9852914,
+    "lon": -118.1794611,
+    "km": 21.6,
+    "website": "http://www.babulilm.org/",
+    "addr": "5950 Heliotrope Circle, Maywood, 90270",
+    "denomination": "shia"
+   },
+   {
+    "osm": "way/1188708554",
+    "name": "Bell Islamic Center",
+    "lat": 33.9759458,
+    "lon": -118.1712145,
+    "km": 22.2,
+    "website": "https://www.facebook.com/p/Bell-Islamic-Center-100066382398353/",
+    "addr": "5250 Gage Avenue, Bell, 90201",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/449978240",
+    "name": "Islamic Society of Downey",
+    "lat": 33.9490006,
+    "lon": -118.1470618,
+    "km": 24.1,
+    "website": null,
+    "addr": "11022 Old River School Road, Downey, 90241",
+    "denomination": null
+   }
+  ]
+ },
+ "JFK": {
+  "airport": {
+   "lat": 40.6394,
+   "lon": -73.7793
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "node/6243433735",
+    "name": "Masjid Al-Hamdililah",
+    "lat": 40.6771981,
+    "lon": -73.7907266,
+    "km": 4.3,
+    "website": null,
+    "addr": "121-03 Sutphin Boulevard",
+    "denomination": null
+   },
+   {
+    "osm": "way/282392380",
+    "name": "Masjid Ahlul Qur'aan Wa Sunnah",
+    "lat": 40.6688953,
+    "lon": -73.8142421,
+    "km": 4.4,
+    "website": "https://www.maqws.org",
+    "addr": "135-11 125th Street, 11420",
+    "denomination": null
+   },
+   {
+    "osm": "way/282923924",
+    "name": "Masjid Al-Ansar",
+    "lat": 40.6839189,
+    "lon": -73.7834132,
+    "km": 5,
+    "website": "https://www.myalansar.com/",
+    "addr": "161-34 Foch Boulevard, Queens, 11434",
+    "denomination": null
+   },
+   {
+    "osm": "way/285038264",
+    "name": "Rockaway Islamic Center",
+    "lat": 40.5927591,
+    "lon": -73.7839929,
+    "km": 5.2,
+    "website": "https://rockawayislamiccenter.com",
+    "addr": "53-08 Rockaway Beach Boulevard, 11691",
+    "denomination": null
+   },
+   {
+    "osm": "node/6401287493",
+    "name": "Majid on the Van Wyck",
+    "lat": 40.6867563,
+    "lon": -73.8083037,
+    "km": 5.8,
+    "website": null,
+    "addr": "109-06 Van Wyck Expressway",
+    "denomination": null
+   },
+   {
+    "osm": "way/628850166",
+    "name": "Islamic Center Of Five Towns Masjid Hewlett",
+    "lat": 40.6426425,
+    "lon": -73.7065689,
+    "km": 6.1,
+    "website": null,
+    "addr": "437 Hamilton Avenue, Hewlett, 11557",
+    "denomination": null
+   },
+   {
+    "osm": "node/11205758316",
+    "name": "Imam Al-Khoei Foundation",
+    "lat": 40.7010459,
+    "lon": -73.8149837,
+    "km": 7.5,
+    "website": "https://www.al-khoei.org/the-foundation/",
+    "addr": "89-89 Van Wyck Expressway, Jamaica, 11435",
+    "denomination": "shia"
+   },
+   {
+    "osm": "way/282273301",
+    "name": "Masjid Al Jama",
+    "lat": 40.6887844,
+    "lon": -73.8419779,
+    "km": 7.6,
+    "website": null,
+    "addr": "94-17 102nd Street, 11416",
+    "denomination": null
+   },
+   {
+    "osm": "way/248591443",
+    "name": "Icna Al-Markaz Masjid",
+    "lat": 40.7081702,
+    "lon": -73.7943087,
+    "km": 7.8,
+    "website": null,
+    "addr": "166-26 89th Avenue, Jamaica, 11432",
+    "denomination": null
+   },
+   {
+    "osm": "way/248287542",
+    "name": "Darus Salaam Masjid",
+    "lat": 40.7066496,
+    "lon": -73.8086582,
+    "km": 7.9,
+    "website": null,
+    "addr": "148-16 87th Road, Jamaica, 11435",
+    "denomination": null
+   },
+   {
+    "osm": "way/662673614",
+    "name": "Muhammadi Masjid",
+    "lat": 40.69303,
+    "lon": -73.7180676,
+    "km": 7.9,
+    "website": null,
+    "addr": "681 Elmont Road, Elmont, 11003",
+    "denomination": null
+   },
+   {
+    "osm": "node/2553533693",
+    "name": "Masjid Mission Center",
+    "lat": 40.7108915,
+    "lon": -73.7875791,
+    "km": 8,
+    "website": null,
+    "addr": "87-26 175th Street, Jamaica, 11432",
+    "denomination": null
+   },
+   {
+    "osm": "way/248847594",
+    "name": "Hollis Muslim Center",
+    "lat": 40.7085053,
+    "lon": -73.7524408,
+    "km": 8,
+    "website": "https://hollismuslimcenter.org",
+    "addr": "109-01 205th Place, 11412",
+    "denomination": null
+   },
+   {
+    "osm": "node/11242991186",
+    "name": "Arafa Islamic Center",
+    "lat": 40.7129224,
+    "lon": -73.7813032,
+    "km": 8.2,
+    "website": "https://aicnyc.org",
+    "addr": "181-12 Hillside Avenue, Jamaica, 11432",
+    "denomination": null
+   },
+   {
+    "osm": "way/247853538",
+    "name": "Masjid Eesa ibn Maryam",
+    "lat": 40.7131666,
+    "lon": -73.7695547,
+    "km": 8.2,
+    "website": null,
+    "addr": "90-20 191st Street, 11423",
+    "denomination": null
+   }
+  ]
+ },
+ "CLT": {
+  "airport": {
+   "lat": 35.214,
+   "lon": -80.9431
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/264072153",
+    "name": "Masjid Ash-Shaheed",
+    "lat": 35.2641019,
+    "lon": -80.7936227,
+    "km": 14.7,
+    "website": null,
+    "addr": "400 West Sugar Creek Road, Charlotte, 28213",
+    "denomination": null
+   },
+   {
+    "osm": "way/836907102",
+    "name": "Al Zahra Islamic Center of Charlotte",
+    "lat": 35.1905077,
+    "lon": -80.7740168,
+    "km": 15.6,
+    "website": "https://azicc.org/",
+    "addr": "5227 Monroe Road, Charlotte, 28205",
+    "denomination": null
+   },
+   {
+    "osm": "node/13290005626",
+    "name": "Islamic Center of Charlotte",
+    "lat": 35.2086065,
+    "lon": -80.7691601,
+    "km": 15.8,
+    "website": "https://iccharlotte.org/",
+    "addr": "1700 Progress Lane, Charlotte, 28205",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/323577288",
+    "name": "Islamic Society of Greater Charlotte",
+    "lat": 35.2572316,
+    "lon": -80.7399315,
+    "km": 19.1,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   }
+  ]
+ },
+ "LAS": {
+  "airport": {
+   "lat": 36.0834,
+   "lon": -115.1518
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/1017985625",
+    "name": "Islamic Information Center - مسجد النور",
+    "lat": 36.0894609,
+    "lon": -115.130642,
+    "km": 2,
+    "website": null,
+    "addr": "1610 East Russell Road, Las Vegas, 89119",
+    "denomination": null
+   },
+   {
+    "osm": "node/1138636726",
+    "name": "Islamic Center",
+    "lat": 36.1299338,
+    "lon": -115.071606,
+    "km": 8.9,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/1247400173",
+    "name": "Baitul Tauheed Mosque",
+    "lat": 36.2181669,
+    "lon": -115.2373845,
+    "km": 16.8,
+    "website": null,
+    "addr": "6547 West Cheyenne Avenue, Las Vegas, 89109",
+    "denomination": "ahmadiyya"
+   }
+  ]
+ },
+ "MCO": {
+  "airport": {
+   "lat": 28.4294,
+   "lon": -81.309
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "node/358751270",
+    "name": "Majid al-Ihsaan",
+    "lat": 28.498648,
+    "lon": -81.295457,
+    "km": 7.8,
+    "website": null,
+    "addr": "6309 Pershing Avenue, Orlando, 32822",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/1383889508",
+    "name": "Masjid Al-Quddus",
+    "lat": 28.5387287,
+    "lon": -81.3891993,
+    "km": 14.5,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/778921092",
+    "name": "Masjid Al-Haqq",
+    "lat": 28.5422905,
+    "lon": -81.3868302,
+    "km": 14.7,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/358749915",
+    "name": "Islamic Center of Osceola County",
+    "lat": 28.317992,
+    "lon": -81.408632,
+    "km": 15.8,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/549413163",
+    "name": "IEC of Florida",
+    "lat": 28.5753748,
+    "lon": -81.2685886,
+    "km": 16.7,
+    "website": null,
+    "addr": "2221 Harrell Road",
+    "denomination": null
+   },
+   {
+    "osm": "way/921097957",
+    "name": "Masjid Al-Malik",
+    "lat": 28.5736651,
+    "lon": -81.2246121,
+    "km": 18,
+    "website": null,
+    "addr": "2042 Rouse Road, Orlando, 32817",
+    "denomination": null
+   },
+   {
+    "osm": "way/448919655",
+    "name": "Masjid Al-Rahim",
+    "lat": 28.5423505,
+    "lon": -81.4460032,
+    "km": 18.4,
+    "website": null,
+    "addr": null,
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/1233327764",
+    "name": "Islamic Center of Orlando - Jama Masjid",
+    "lat": 28.3985644,
+    "lon": -81.5025207,
+    "km": 19.2,
+    "website": null,
+    "addr": "11543 Ruby Lake Road, Orlando, 32826",
+    "denomination": null
+   },
+   {
+    "osm": "node/5317348918",
+    "name": "Masjid al Agha",
+    "lat": 28.3321898,
+    "lon": -81.4825885,
+    "km": 20.1,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   }
+  ]
+ },
+ "MIA": {
+  "airport": {
+   "lat": 25.796,
+   "lon": -80.2898
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/436041460",
+    "name": "Masjid Al-Ihsaan",
+    "lat": 25.6131666,
+    "lon": -80.3558929,
+    "km": 21.4,
+    "website": null,
+    "addr": "10180 Southwest 168th Street, Miami, 33157",
+    "denomination": null
+   }
+  ]
+ },
+ "PHX": {
+  "airport": {
+   "lat": 33.4353,
+   "lon": -112.0059
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/961448488",
+    "name": "Muslim Community Mosque",
+    "lat": 33.4681553,
+    "lon": -112.0132792,
+    "km": 3.7,
+    "website": null,
+    "addr": "1818 North 32nd Street, Phoenix, 85008",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/11715606348",
+    "name": "Ibadurahman Mosque",
+    "lat": 33.4658117,
+    "lon": -111.9722747,
+    "km": 4.6,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/339041927",
+    "name": "Islamic Community Center",
+    "lat": 33.424044,
+    "lon": -111.9370514,
+    "km": 6.5,
+    "website": null,
+    "addr": "131 East 6th Street, Tempe, 85281",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/11946151199",
+    "name": "Ismaili Cultural Center",
+    "lat": 33.5061802,
+    "lon": -112.0349318,
+    "km": 8.3,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/516320452",
+    "name": "Bait-ul-Aman Mosque",
+    "lat": 33.349196,
+    "lon": -111.8779535,
+    "km": 15.3,
+    "website": null,
+    "addr": "2035 West Elliot Road, Chandler, 85224",
+    "denomination": "ahmadiyya"
+   },
+   {
+    "osm": "way/961446909",
+    "name": null,
+    "lat": 33.5687574,
+    "lon": -112.0617943,
+    "km": 15.7,
+    "website": null,
+    "addr": "9032 North 9th Street, Phoenix, 85020",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/961446910",
+    "name": "Islamic Center of Arizona",
+    "lat": 33.5689167,
+    "lon": -112.0618094,
+    "km": 15.7,
+    "website": null,
+    "addr": "9026 North 9th Street, Phoenix, 85020",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/963519414",
+    "name": "Islamic Community Center of Phoenix Secondary",
+    "lat": 33.5454852,
+    "lon": -112.1129186,
+    "km": 15.8,
+    "website": "https://iccpaz.com",
+    "addr": "7362 North Black Canyon Highway, Phoenix, 85051",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/765866621",
+    "name": "Islamic Community Center of Phoenix",
+    "lat": 33.5465447,
+    "lon": -112.112878,
+    "km": 15.9,
+    "website": "https://iccpaz.com/",
+    "addr": "7516 North Black Canyon Highway, Phoenix, 85051",
+    "denomination": null
+   },
+   {
+    "osm": "way/926417663",
+    "name": "Masjid Al Noor",
+    "lat": 33.416734,
+    "lon": -111.807998,
+    "km": 18.5,
+    "website": null,
+    "addr": "55 North Matlock Street, Mesa, 85203",
+    "denomination": null
+   },
+   {
+    "osm": "way/1419529990",
+    "name": "es Salaam Mosque",
+    "lat": 33.3216782,
+    "lon": -111.8586716,
+    "km": 18.6,
+    "website": null,
+    "addr": "1071 North Alma School Road, Chandler, 85225",
+    "denomination": null
+   },
+   {
+    "osm": "way/514632233",
+    "name": "Islamic Center of East Valley",
+    "lat": 33.3109725,
+    "lon": -111.8576136,
+    "km": 19.5,
+    "website": null,
+    "addr": "425 North Alma School Road, Chandler, 85224",
+    "denomination": null
+   },
+   {
+    "osm": "way/932264194",
+    "name": "IEFAZ",
+    "lat": 33.3941495,
+    "lon": -111.7784501,
+    "km": 21.6,
+    "website": null,
+    "addr": "2434 East Southern Avenue, Mesa, 85204",
+    "denomination": null
+   }
+  ]
+ },
+ "SEA": {
+  "airport": {
+   "lat": 47.4479,
+   "lon": -122.3103
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "node/10815627077",
+    "name": "Mayf Center",
+    "lat": 47.462567,
+    "lon": -122.3320988,
+    "km": 2.3,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/521303313",
+    "name": "Abu-Bakr",
+    "lat": 47.4768623,
+    "lon": -122.2843697,
+    "km": 3.8,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/8597655822",
+    "name": "Abu-Bakr Mosque",
+    "lat": 47.5521354,
+    "lon": -122.289007,
+    "km": 11.7,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/228765032",
+    "name": "Islamic School of Seattle and Masjid Al Taqwa",
+    "lat": 47.6087105,
+    "lon": -122.2998208,
+    "km": 17.9,
+    "website": "https://www.salatomatic.com/spc/Seattle/Masjid-Al-Taqwa/XG08K4By92",
+    "addr": "720 25th Avenue, Seattle, 98122",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/4590210227",
+    "name": "ICMV",
+    "lat": 47.388221,
+    "lon": -122.0424436,
+    "km": 21.2,
+    "website": null,
+    "addr": "23745 225th Way Southeast, Maple Valley, 98038",
+    "denomination": null
+   },
+   {
+    "osm": "way/1302641979",
+    "name": "Islamic Center of Eastside",
+    "lat": 47.6101893,
+    "lon": -122.1440816,
+    "km": 21.9,
+    "website": "https://www.eastsidemosque.com/",
+    "addr": "14700 Main Street, Bellevue, 98007",
+    "denomination": null
+   },
+   {
+    "osm": "node/11172437437",
+    "name": "Islamic Center of Eastside",
+    "lat": 47.6291396,
+    "lon": -122.151019,
+    "km": 23.4,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/30455220",
+    "name": "Masjid Madeena",
+    "lat": 47.6178515,
+    "lon": -122.1222275,
+    "km": 23.6,
+    "website": null,
+    "addr": "827 164th Avenue Northeast, Bellevue, 98008",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/223482714",
+    "name": "Islamic House",
+    "lat": 47.6625959,
+    "lon": -122.3047038,
+    "km": 23.9,
+    "website": "https://msauw.org",
+    "addr": "4625 22nd Avenue Northeast, Seattle, 98105",
+    "denomination": null
+   }
+  ]
+ },
+ "YVR": {
+  "airport": {
+   "lat": 49.1939,
+   "lon": -123.184
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/1461914495",
+    "name": "Marpole Musalla",
+    "lat": 49.2046176,
+    "lon": -123.1337927,
+    "km": 3.8,
+    "website": "https://nwmis.org/",
+    "addr": "8879 Selkirk Street, Vancouver, V6P 6K9",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/907151259",
+    "name": "Ismaili Jamatkhana Richmond",
+    "lat": 49.1827211,
+    "lon": -123.1174857,
+    "km": 5,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/456251299",
+    "name": "Az-Zahraa Islamic Centre",
+    "lat": 49.1508668,
+    "lon": -123.0904948,
+    "km": 8.3,
+    "website": "https://www.az-zahraa.org/",
+    "addr": "8580 Number 5 Road",
+    "denomination": "shia"
+   },
+   {
+    "osm": "way/456253899",
+    "name": "Richmond Jamea Masjid",
+    "lat": 49.1540842,
+    "lon": -123.0875706,
+    "km": 8.3,
+    "website": "https://org.thebcma.com/richmond",
+    "addr": "12300 Blundell Road, Richmond, V6W 1B3",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/309517994",
+    "name": "Al-Masjid al-Jamia Vancouver",
+    "lat": 49.26442,
+    "lon": -123.1189909,
+    "km": 9.2,
+    "website": null,
+    "addr": "655 West 8th Avenue",
+    "denomination": null
+   },
+   {
+    "osm": "way/292259770",
+    "name": "Masjid Omar Al-Farooq",
+    "lat": 49.2616216,
+    "lon": -123.0705718,
+    "km": 11.2,
+    "website": "https://www.masjidomar.ca/",
+    "addr": "1659 East 10th Avenue, Vancouver, V5N 1X6",
+    "denomination": null
+   },
+   {
+    "osm": "node/8694180472",
+    "name": "The Ismaili Centre Burnaby",
+    "lat": 49.2541224,
+    "lon": -123.0138211,
+    "km": 14.1,
+    "website": "https://the.ismaili/ismailicentres/the-ismaili-centre-burnaby",
+    "addr": "4010 Canada Way",
+    "denomination": "ismaili"
+   },
+   {
+    "osm": "node/13773122501",
+    "name": "Abu Bakr Siddiq Islamic Centre Brentwood",
+    "lat": 49.2648531,
+    "lon": -123.0173893,
+    "km": 14.4,
+    "website": "https://asicbrentwood.ca/",
+    "addr": "3989 Henning Drive",
+    "denomination": null
+   },
+   {
+    "osm": "node/11647718246",
+    "name": null,
+    "lat": 49.3223691,
+    "lon": -123.1129587,
+    "km": 15.2,
+    "website": "https://northvanmasjid.ca",
+    "addr": "1398 West 15th Street",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/494034593",
+    "name": "Masjid Al-Salaam",
+    "lat": 49.2399955,
+    "lon": -122.9641091,
+    "km": 16.8,
+    "website": "https://www.bcmaburnaby.org/",
+    "addr": "5060 Canada Way, Burnaby",
+    "denomination": null
+   },
+   {
+    "osm": "way/551587254",
+    "name": "Ismaili Jamatkhana",
+    "lat": 49.2486747,
+    "lon": -122.9672459,
+    "km": 16.9,
+    "website": null,
+    "addr": "6556 Sprott Street",
+    "denomination": null
+   },
+   {
+    "osm": "way/551587255",
+    "name": "Ismaili Jamatkhana",
+    "lat": 49.2492855,
+    "lon": -122.9673001,
+    "km": 16.9,
+    "website": null,
+    "addr": "6556 Sprott Street",
+    "denomination": null
+   },
+   {
+    "osm": "way/550569008",
+    "name": "Baitur Rahman Mosque",
+    "lat": 49.152624,
+    "lon": -122.9578042,
+    "km": 17.1,
+    "website": "https://www.vancouvermosque.ca/",
+    "addr": "9570 River Road, Delta, V4G1B5",
+    "denomination": "ahmadiyya"
+   },
+   {
+    "osm": "way/456253681",
+    "name": "Surrey Jami'a Mosque",
+    "lat": 49.1342216,
+    "lon": -122.8786528,
+    "km": 23.2,
+    "website": "https://org.thebcma.com/surreydelta",
+    "addr": "12407 72 Avenue",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/390955636",
+    "name": null,
+    "lat": 49.1812932,
+    "lon": -122.8475503,
+    "km": 24.5,
+    "website": null,
+    "addr": "13526 98A Avenue",
+    "denomination": null
+   }
+  ]
+ },
+ "SYD": {
+  "airport": {
+   "lat": -33.9461,
+   "lon": 151.177
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "node/3318094580",
+    "name": "Al Hijrah Mosque",
+    "lat": -33.9254371,
+    "lon": 151.159321,
+    "km": 2.8,
+    "website": "https://cide.org.au",
+    "addr": "45 Station Street, 2044",
+    "denomination": null
+   },
+   {
+    "osm": "way/1458020764",
+    "name": "Masjid Darul Imaan",
+    "lat": -33.9368449,
+    "lon": 151.1492871,
+    "km": 2.8,
+    "website": "https://imaan.com.au",
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/548322850",
+    "name": "Al Zahra Mosque",
+    "lat": -33.9321674,
+    "lon": 151.149087,
+    "km": 3,
+    "website": null,
+    "addr": null,
+    "denomination": "shia"
+   },
+   {
+    "osm": "way/539878161",
+    "name": "Erskineville Mosque",
+    "lat": -33.8988506,
+    "lon": 151.1845313,
+    "km": 5.3,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/890529416",
+    "name": "Zetland Mosque",
+    "lat": -33.9043322,
+    "lon": 151.2055788,
+    "km": 5.3,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/7871916571",
+    "name": "Islamic Society of UNSW",
+    "lat": -33.9163195,
+    "lon": 151.2261814,
+    "km": 5.6,
+    "website": "https://isoc-unsw.org.au/",
+    "addr": "Anzac Parade",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/1851026582",
+    "name": "Redfern Mosque",
+    "lat": -33.8903628,
+    "lon": 151.2094765,
+    "km": 6.9,
+    "website": "https://ris.org.au/",
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/587377328",
+    "name": "King Faisal Mosque",
+    "lat": -33.8818779,
+    "lon": 151.210618,
+    "km": 7.8,
+    "website": "https://www.islamicsocietynsw.org.au/",
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/1190951588",
+    "name": "Ashfield Mosque",
+    "lat": -33.8912219,
+    "lon": 151.1251309,
+    "km": 7.8,
+    "website": null,
+    "addr": "27 Holden Street, 2131",
+    "denomination": null
+   },
+   {
+    "osm": "way/1126413889",
+    "name": "Lakemba Mosque",
+    "lat": -33.9124713,
+    "lon": 151.0741041,
+    "km": 10.2,
+    "website": "https://www.lma.org.au/",
+    "addr": "65-67 Wangee Road, 2195",
+    "denomination": null
+   },
+   {
+    "osm": "way/764490647",
+    "name": "Punchbowl Mosque",
+    "lat": -33.9271839,
+    "lon": 151.0574031,
+    "km": 11.2,
+    "website": "https://aim.org.au/",
+    "addr": "25-33 Matthews Street, 2196",
+    "denomination": null
+   },
+   {
+    "osm": "node/256009669",
+    "name": "Al Amanah",
+    "lat": -33.9164673,
+    "lon": 151.0282113,
+    "km": 14.1,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/916497512",
+    "name": "Artarmon Mosque",
+    "lat": -33.8099801,
+    "lon": 151.1868712,
+    "km": 15.2,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/156808623",
+    "name": "Auburn Gallipoli Mosque",
+    "lat": -33.8522129,
+    "lon": 151.0360336,
+    "km": 16.7,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/1530953807",
+    "name": "Omar Mosque",
+    "lat": -33.8549187,
+    "lon": 151.0303249,
+    "km": 16.9,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   }
+  ]
+ },
+ "MEL": {
+  "airport": {
+   "lat": -37.6707,
+   "lon": 144.8379
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/242562000",
+    "name": "Meadow Heights Mosque",
+    "lat": -37.6519595,
+    "lon": 144.9206129,
+    "km": 7.6,
+    "website": null,
+    "addr": null,
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/748724107",
+    "name": "Mosque",
+    "lat": -37.6338566,
+    "lon": 144.9166015,
+    "km": 8,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/1068898804",
+    "name": "Panjtan Centre",
+    "lat": -37.7415837,
+    "lon": 144.7925449,
+    "km": 8.8,
+    "website": null,
+    "addr": "21-23 Adelaide Street, 3021",
+    "denomination": null
+   },
+   {
+    "osm": "way/242710637",
+    "name": "Broadmeadows Mosque (Cami)",
+    "lat": -37.668516,
+    "lon": 144.9415932,
+    "km": 9.1,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/1170477550",
+    "name": "Deer Park Mosque",
+    "lat": -37.7473004,
+    "lon": 144.7780613,
+    "km": 10,
+    "website": "https://abicdp.org/",
+    "addr": null,
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/1433570091",
+    "name": "Campbellfield Mosque",
+    "lat": -37.672438,
+    "lon": 144.9670767,
+    "km": 11.4,
+    "website": null,
+    "addr": "46-48 Mason Street",
+    "denomination": null
+   },
+   {
+    "osm": "way/282486880",
+    "name": "Imam Ali Islamic Centre",
+    "lat": -37.6979782,
+    "lon": 144.9650548,
+    "km": 11.6,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/290774556",
+    "name": null,
+    "lat": -37.7715862,
+    "lon": 144.8012514,
+    "km": 11.7,
+    "website": null,
+    "addr": "618 Ballarat Road, 3022",
+    "denomination": null
+   },
+   {
+    "osm": "way/1200979609",
+    "name": "Muslim chapel",
+    "lat": -37.7176564,
+    "lon": 144.9567338,
+    "km": 11.7,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/774464775",
+    "name": "Fawkner Mosque",
+    "lat": -37.7049486,
+    "lon": 144.9721818,
+    "km": 12.4,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/1394522710",
+    "name": "Fawkner Mosque",
+    "lat": -37.7049231,
+    "lon": 144.9721593,
+    "km": 12.4,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/626179263",
+    "name": "Ahlulbait Mosque",
+    "lat": -37.7069563,
+    "lon": 144.982933,
+    "km": 13.4,
+    "website": "https://www.shia.com.au",
+    "addr": "223 Broadhurst Avenue",
+    "denomination": "shia"
+   },
+   {
+    "osm": "way/615193480",
+    "name": "Maidstone Mosque",
+    "lat": -37.7878118,
+    "lon": 144.879373,
+    "km": 13.5,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/694629037",
+    "name": "Australia Light Foundation Mosque and Community Centre",
+    "lat": -37.7978144,
+    "lon": 144.8406935,
+    "km": 14.1,
+    "website": null,
+    "addr": "291 Sunshine Road",
+    "denomination": null
+   },
+   {
+    "osm": "node/10542405635",
+    "name": "ICMG Brunswick",
+    "lat": -37.7619145,
+    "lon": 144.9631497,
+    "km": 15,
+    "website": "https://www.icmg.org.au/branches/brunswick/",
+    "addr": "660 Sydney Road, 3056",
+    "denomination": null
+   }
+  ]
+ },
+ "YYZ": {
+  "airport": {
+   "lat": 43.6759,
+   "lon": -79.6294
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/34749303",
+    "name": "Malton Islamic Centre",
+    "lat": 43.7075165,
+    "lon": -79.6310944,
+    "km": 3.5,
+    "website": "https://www.maltonislamiccentre.com/",
+    "addr": "6836 Professional Court, Mississauga, L4V 1X6",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/311209215",
+    "name": "Malton Masjid",
+    "lat": 43.7063905,
+    "lon": -79.6444861,
+    "km": 3.6,
+    "website": "https://maltonmasjid.ad-din.site/",
+    "addr": "7097 Airport Road, Mississauga, L4T2G7",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/34550567",
+    "name": "Baitul Hamd Mosque",
+    "lat": 43.6373731,
+    "lon": -79.6369498,
+    "km": 4.3,
+    "website": null,
+    "addr": "1194 Matheson Boulevard East, Mississauga, L4W 1Y2",
+    "denomination": "ahmadiyya"
+   },
+   {
+    "osm": "way/34550870",
+    "name": "Anatolia Islamic Centre",
+    "lat": 43.6332267,
+    "lon": -79.6324889,
+    "km": 4.8,
+    "website": "http://www.anatoliacentre.ca/",
+    "addr": "5280 Maingate Drive, Mississauga, L4W 1G5",
+    "denomination": null
+   },
+   {
+    "osm": "way/34204832",
+    "name": "Jame Masjid",
+    "lat": 43.6322732,
+    "lon": -79.6578696,
+    "km": 5.4,
+    "website": "https://ipcontario.com/",
+    "addr": "5761 Coopers Avenue",
+    "denomination": null
+   },
+   {
+    "osm": "node/3507050675",
+    "name": "Islamic Forum of Canada",
+    "lat": 43.6920921,
+    "lon": -79.6962402,
+    "km": 5.7,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "relation/1395514",
+    "name": "Bab ul Ilm - Bani Hashim Society",
+    "lat": 43.6250053,
+    "lon": -79.6319295,
+    "km": 5.7,
+    "website": null,
+    "addr": null,
+    "denomination": "shia"
+   },
+   {
+    "osm": "node/10278276945",
+    "name": "Naqshbandi Sufi Toronto",
+    "lat": 43.7117703,
+    "lon": -79.6890563,
+    "km": 6.2,
+    "website": null,
+    "addr": "129 East Drive",
+    "denomination": null
+   },
+   {
+    "osm": "way/34204564",
+    "name": "Al Huda Institute Canada",
+    "lat": 43.6249079,
+    "lon": -79.665951,
+    "km": 6.4,
+    "website": "https://alhudainstitute.ca/",
+    "addr": "5671 McAdam Road, Mississauga, L4Z 1N9",
+    "denomination": null
+   },
+   {
+    "osm": "way/58849209",
+    "name": "Dar Al-Hijrah Islamic Center",
+    "lat": 43.7133519,
+    "lon": -79.5685136,
+    "km": 6.4,
+    "website": null,
+    "addr": "2050 Kipling Avenue, Etobicoke",
+    "denomination": null
+   },
+   {
+    "osm": "way/32707332",
+    "name": "Ummah Nabawiah Masjid",
+    "lat": 43.7149002,
+    "lon": -79.5692053,
+    "km": 6.5,
+    "website": null,
+    "addr": "2074 Kipling Avenue",
+    "denomination": null
+   },
+   {
+    "osm": "node/5155817234",
+    "name": "Masjid Adam",
+    "lat": 43.6250456,
+    "lon": -79.5871898,
+    "km": 6.6,
+    "website": "https://www.masjidadam.com/",
+    "addr": "1759 Bloor Street, Mississauga, L4X 1S7",
+    "denomination": null
+   },
+   {
+    "osm": "way/242780311",
+    "name": "Masumeen Islamic Centre",
+    "lat": 43.6674141,
+    "lon": -79.7116013,
+    "km": 6.7,
+    "website": "https://jaffari.org/",
+    "addr": "7580 Kennedy Road South, Brampton, L6W 0A1",
+    "denomination": null
+   },
+   {
+    "osm": "node/9972630089",
+    "name": "Rexdale Jame Masjid",
+    "lat": 43.7358347,
+    "lon": -79.6008166,
+    "km": 7,
+    "website": "http://rexdalemasjid.ca/",
+    "addr": "127 Westmore Drive, Etobicoke, M9V 3Y6",
+    "denomination": null
+   },
+   {
+    "osm": "way/33729099",
+    "name": "Sayeda Khadija Centre",
+    "lat": 43.6504787,
+    "lon": -79.7085726,
+    "km": 7,
+    "website": "https://www.sayedakhadijacentre.com/",
+    "addr": "7150 Edwards Boulevard, Mississauga, L5S 1Z1",
+    "denomination": null
+   }
+  ]
+ },
+ "MUC": {
+  "airport": {
+   "lat": 48.3538,
+   "lon": 11.7861
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "node/3274212806",
+    "name": "Hallbergmoos Camii",
+    "lat": 48.3215436,
+    "lon": 11.764981,
+    "km": 3.9,
+    "website": null,
+    "addr": "47 Birkenweg, Hallbergmoos, 85399",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/8808263608",
+    "name": "Yeni Merkez Cami",
+    "lat": 48.3990697,
+    "lon": 11.7376858,
+    "km": 6.2,
+    "website": null,
+    "addr": "3 Wippenhauser Straße, Freising, 85354",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/8321200801",
+    "name": "Ditib Mevlana Camii",
+    "lat": 48.3124797,
+    "lon": 11.89346,
+    "km": 9.2,
+    "website": "https://www.ditiberding.com/",
+    "addr": "4 Robert-Bosch-Straße, Erding, 85435",
+    "denomination": null
+   },
+   {
+    "osm": "way/205367274",
+    "name": "Al-Mahdi-Moschee",
+    "lat": 48.3225563,
+    "lon": 11.6597501,
+    "km": 10,
+    "website": null,
+    "addr": "7 Massenhausener Straße, Neufahrn bei Freising, 85375",
+    "denomination": "ahmadiyya"
+   },
+   {
+    "osm": "node/3547798646",
+    "name": "Neufahrner Kulturverein für Integration und Bildung e.V.",
+    "lat": 48.3106077,
+    "lon": 11.6647798,
+    "km": 10.2,
+    "website": null,
+    "addr": "25 Dietersheimer Straße, Neufahrn, 85375",
+    "denomination": null
+   },
+   {
+    "osm": "node/8394960509",
+    "name": "Hicret Camii Moschee",
+    "lat": 48.3076559,
+    "lon": 11.9067811,
+    "km": 10.3,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/13019742131",
+    "name": "IGMG Mimar Sinan Moschee",
+    "lat": 48.3039657,
+    "lon": 11.6174032,
+    "km": 13.6,
+    "website": "https://www.igmg.org/gebetskalender?stadt=Eching_(DE)&id=20051",
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/2399760919",
+    "name": "Moosburg Horet Camii",
+    "lat": 48.4700097,
+    "lon": 11.9383386,
+    "km": 17.1,
+    "website": null,
+    "addr": "9 Steinbockstraße, Moosburg a.d. Isar, 85368",
+    "denomination": null
+   },
+   {
+    "osm": "node/2581701991",
+    "name": "Moosburg Mevlana Camii",
+    "lat": 48.48148,
+    "lon": 11.943542,
+    "km": 18.3,
+    "website": "http://www.moosburgmevlanacamii.de/?q=mevlana-camii-moosburg-iletisim",
+    "addr": "6 Riesengebirgstraße, Moosburg a.d. Isar, 85368",
+    "denomination": null
+   },
+   {
+    "osm": "node/12849560026",
+    "name": "DITIB Fatih Moschee Unterschleißheim",
+    "lat": 48.2824553,
+    "lon": 11.5561015,
+    "km": 18.8,
+    "website": "https://ditib-unterschleissheim.de/",
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/130363966",
+    "name": "Ulu Camii",
+    "lat": 48.1922792,
+    "lon": 11.8608451,
+    "km": 18.8,
+    "website": null,
+    "addr": "42 Bahnhofstraße, Markt Schwaben, 85570",
+    "denomination": null
+   },
+   {
+    "osm": "node/221616058",
+    "name": "Islamisches Zentrum München",
+    "lat": 48.210352,
+    "lon": 11.6340966,
+    "km": 19.5,
+    "website": "https://islamisches-zentrum-muenchen.de",
+    "addr": "1 Wallnerstraße, München, 80939",
+    "denomination": null
+   },
+   {
+    "osm": "way/116789453",
+    "name": "Mirac Camii",
+    "lat": 48.2019914,
+    "lon": 11.5868077,
+    "km": 22.4,
+    "website": null,
+    "addr": "3b Heidemannstraße, München, 80939",
+    "denomination": null
+   },
+   {
+    "osm": "way/632164164",
+    "name": "Hasenbergl Camii",
+    "lat": 48.2081657,
+    "lon": 11.5622806,
+    "km": 23.2,
+    "website": null,
+    "addr": "443 Schleißheimer Straße, 80935",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/676956179",
+    "name": "Deutsch-Afghanische Begegnungsstätte",
+    "lat": 48.2033188,
+    "lon": 11.5444805,
+    "km": 24.5,
+    "website": null,
+    "addr": "6 Tagetesstraße, München, 80935",
+    "denomination": null
+   }
+  ]
+ },
+ "FRA": {
+  "airport": {
+   "lat": 50.0267,
+   "lon": 8.5584
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "node/11937261172",
+    "name": null,
+    "lat": 50.0469303,
+    "lon": 8.5715616,
+    "km": 2.4,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/14185630809",
+    "name": "Muslimischer Gebetsraum",
+    "lat": 50.0504249,
+    "lon": 8.5720852,
+    "km": 2.8,
+    "website": null,
+    "addr": null,
+    "denomination": "nondenominational"
+   },
+   {
+    "osm": "node/3053283215",
+    "name": "Fevzi Cakmak Camii",
+    "lat": 50.0582897,
+    "lon": 8.5366192,
+    "km": 3.8,
+    "website": null,
+    "addr": "85 Mörfelder Straße",
+    "denomination": null
+   },
+   {
+    "osm": "way/660144109",
+    "name": "Subhan Moschee",
+    "lat": 49.9874597,
+    "lon": 8.5772052,
+    "km": 4.6,
+    "website": null,
+    "addr": "37 Industriestraße, Mörfelden-Walldorf, 64546",
+    "denomination": "ahmadiyya"
+   },
+   {
+    "osm": "node/5174969247",
+    "name": "IGMG Kelsterbach e.V.",
+    "lat": 50.0660624,
+    "lon": 8.5298023,
+    "km": 4.8,
+    "website": null,
+    "addr": "8 Bergstraße, Kelsterbach, 65451",
+    "denomination": null
+   },
+   {
+    "osm": "node/5174975973",
+    "name": "Marokkanischer Gemeindeverein Hattersheim e. V.",
+    "lat": 50.0733962,
+    "lon": 8.5019725,
+    "km": 6.6,
+    "website": null,
+    "addr": "2 Schützenstraße",
+    "denomination": null
+   },
+   {
+    "osm": "way/375939632",
+    "name": "Mimar Sinan",
+    "lat": 49.9677326,
+    "lon": 8.5636591,
+    "km": 6.6,
+    "website": "http://camii.org/",
+    "addr": "12 Am Berg, Mörfelden-Walldorf, 64546",
+    "denomination": null
+   },
+   {
+    "osm": "way/1356045691",
+    "name": "Fatih Moschee",
+    "lat": 50.0702122,
+    "lon": 8.4929225,
+    "km": 6.7,
+    "website": null,
+    "addr": "1 Vogelweidestraße, Hattersheim am Main, 65795",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/1416631306",
+    "name": "Bait-ul-Qayyum Moschee",
+    "lat": 50.0159513,
+    "lon": 8.4617899,
+    "km": 7,
+    "website": null,
+    "addr": "Raunheim, 65479",
+    "denomination": "ahmadiyya"
+   },
+   {
+    "osm": "node/3067887908",
+    "name": "Moschee Assadaka",
+    "lat": 50.0149108,
+    "lon": 8.4519067,
+    "km": 7.7,
+    "website": null,
+    "addr": "65479",
+    "denomination": null
+   },
+   {
+    "osm": "node/1720226797",
+    "name": "Hazrat Fatima Moschee",
+    "lat": 50.0921681,
+    "lon": 8.6008519,
+    "km": 7.9,
+    "website": null,
+    "addr": null,
+    "denomination": "shia"
+   },
+   {
+    "osm": "node/1719589694",
+    "name": "Markaz Islamisches Zentrum Frankfurt",
+    "lat": 50.094634,
+    "lon": 8.602632,
+    "km": 8.2,
+    "website": null,
+    "addr": null,
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/3042021177",
+    "name": "Islamisches Zentrum Frankfurt e.V.",
+    "lat": 50.0950002,
+    "lon": 8.6014973,
+    "km": 8.2,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/3053294033",
+    "name": "Höchst Camii",
+    "lat": 50.1003841,
+    "lon": 8.5480325,
+    "km": 8.2,
+    "website": "http://www.atib-hoechst.com/",
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/1720226795",
+    "name": "Bilal-Moschee",
+    "lat": 50.098649,
+    "lon": 8.5949963,
+    "km": 8.4,
+    "website": null,
+    "addr": null,
+    "denomination": "sunni"
+   }
+  ]
+ },
+ "SFO": {
+  "airport": {
+   "lat": 37.6198,
+   "lon": -122.3748
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/273163284",
+    "name": "Islamic Center of San Francisco",
+    "lat": 37.7347308,
+    "lon": -122.4166813,
+    "km": 13.3,
+    "website": "https://www.icofsf.org/",
+    "addr": "400 Crescent Avenue, San Francisco, 94110",
+    "denomination": null
+   },
+   {
+    "osm": "way/93677010",
+    "name": "Yaseen Foundation",
+    "lat": 37.5226739,
+    "lon": -122.2745003,
+    "km": 14,
+    "website": "https://yaseen.org/",
+    "addr": "621 Masonic Way, Belmont, 94002",
+    "denomination": null
+   },
+   {
+    "osm": "way/32864985",
+    "name": "Islamic Society of San Francisco",
+    "lat": 37.7814413,
+    "lon": -122.4118068,
+    "km": 18.3,
+    "website": "https://islamsf.org/",
+    "addr": "20 Jones Street",
+    "denomination": null
+   },
+   {
+    "osm": "way/942674800",
+    "name": "Alsabeel Masjid Noor Al Islam",
+    "lat": 37.7824382,
+    "lon": -122.4120676,
+    "km": 18.4,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/148428441",
+    "name": "Al Tawheed Mosque",
+    "lat": 37.7874343,
+    "lon": -122.4206115,
+    "km": 19.1,
+    "website": null,
+    "addr": "1227 Sutter Street",
+    "denomination": null
+   },
+   {
+    "osm": "way/462266622",
+    "name": "Islamic Center of Alameda",
+    "lat": 37.7733761,
+    "lon": -122.270209,
+    "km": 19.4,
+    "website": "https://icabayarea.org/",
+    "addr": "901 Santa Clara Avenue, Alameda, 94501",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/347095196",
+    "name": "As-Salam Mosque",
+    "lat": 37.8030002,
+    "lon": -122.2852014,
+    "km": 21.8,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/32829570",
+    "name": "Islamic Cultural Center of Northern California",
+    "lat": 37.8023404,
+    "lon": -122.2640805,
+    "km": 22.5,
+    "website": "https://iccnc.org/",
+    "addr": "1453 Madison Street",
+    "denomination": null
+   },
+   {
+    "osm": "way/397125289",
+    "name": "Oakland Islamic Center",
+    "lat": 37.8198018,
+    "lon": -122.2677563,
+    "km": 24.2,
+    "website": "https://oaklandislamiccenter.org/",
+    "addr": "515 31st Street, Oakland, 94609",
+    "denomination": null
+   }
+  ]
+ },
+ "EWR": {
+  "airport": {
+   "lat": 40.6894,
+   "lon": -74.1705
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/415257443",
+    "name": "Islamic Center of Newark",
+    "lat": 40.7348476,
+    "lon": -74.1737912,
+    "km": 5.1,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/424418421",
+    "name": null,
+    "lat": 40.7297496,
+    "lon": -74.2129234,
+    "km": 5.7,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/418812254",
+    "name": "Noor Al-Islam Society",
+    "lat": 40.6380141,
+    "lon": -74.1619309,
+    "km": 5.8,
+    "website": null,
+    "addr": null,
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/357721272",
+    "name": "Muslim Community Center of Union County (MCCUC)",
+    "lat": 40.6728438,
+    "lon": -74.2442538,
+    "km": 6.5,
+    "website": null,
+    "addr": "964 Magie Avenue, Elizabeth, 07208",
+    "denomination": null
+   },
+   {
+    "osm": "way/447256078",
+    "name": "NIA Masjid & Community Center",
+    "lat": 40.7585682,
+    "lon": -74.1892171,
+    "km": 7.9,
+    "website": "https://www.niamasjid.org/",
+    "addr": "231 Roseville Avenue, Newark, 07107",
+    "denomination": null
+   },
+   {
+    "osm": "way/1327844466",
+    "name": null,
+    "lat": 40.7651915,
+    "lon": -74.1953834,
+    "km": 8.7,
+    "website": null,
+    "addr": "224 North 18th Street, East Orange, 07017",
+    "denomination": null
+   },
+   {
+    "osm": "node/11468169222",
+    "name": "Masjid Al-Wadood",
+    "lat": 40.6096773,
+    "lon": -74.147402,
+    "km": 9.1,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/244171946",
+    "name": "Albanian Islamic Cultural Center",
+    "lat": 40.6347521,
+    "lon": -74.086084,
+    "km": 9.4,
+    "website": null,
+    "addr": "307 Victory Boulevard, 10301",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/418812766",
+    "name": "Masjid Al-Ihsan",
+    "lat": 40.6398052,
+    "lon": -74.0776046,
+    "km": 9.6,
+    "website": null,
+    "addr": null,
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/411202377",
+    "name": "Al-Tawheed Islamic Center",
+    "lat": 40.7331815,
+    "lon": -74.0717844,
+    "km": 9.6,
+    "website": null,
+    "addr": "984 West Side Avenue, Jersey City, 07306",
+    "denomination": null
+   },
+   {
+    "osm": "node/418810385",
+    "name": "Staten Island Islamic Masjid",
+    "lat": 40.6352241,
+    "lon": -74.076386,
+    "km": 10,
+    "website": null,
+    "addr": null,
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/3580663895",
+    "name": "Masjid Al-Salam Islamic Education and Information Center",
+    "lat": 40.731597,
+    "lon": -74.0663759,
+    "km": 10,
+    "website": null,
+    "addr": "John F. Kennedy Boulevard",
+    "denomination": null
+   },
+   {
+    "osm": "way/1185711461",
+    "name": "Muslim Federation of NJ",
+    "lat": 40.7227603,
+    "lon": -74.0600819,
+    "km": 10,
+    "website": "https://www.mfnj.net",
+    "addr": "530 Montgomery Street, Jersey City, 07302",
+    "denomination": null
+   },
+   {
+    "osm": "node/418811774",
+    "name": "Muslim Majlis of Staten Island",
+    "lat": 40.6111875,
+    "lon": -74.0874469,
+    "km": 11.2,
+    "website": null,
+    "addr": null,
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/405514732",
+    "name": null,
+    "lat": 40.7184096,
+    "lon": -74.0432466,
+    "km": 11.2,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   }
+  ]
+ },
+ "IAH": {
+  "airport": {
+   "lat": 29.9844,
+   "lon": -95.3414
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/1412305433",
+    "name": "Baitus Samee Mosque",
+    "lat": 29.9646368,
+    "lon": -95.4408293,
+    "km": 9.8,
+    "website": null,
+    "addr": "1333 Spears Road, Houston, 77067",
+    "denomination": "ahmadiyya"
+   },
+   {
+    "osm": "way/655037002",
+    "name": null,
+    "lat": 30.0090993,
+    "lon": -95.5598974,
+    "km": 21.2,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/260789761",
+    "name": "Islamic Da'wah Center",
+    "lat": 29.762962,
+    "lon": -95.3605815,
+    "km": 24.7,
+    "website": null,
+    "addr": "201 Travis Street, Houston",
+    "denomination": null
+   }
+  ]
+ },
+ "BOS": {
+  "airport": {
+   "lat": 42.362,
+   "lon": -71.0079
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/29795740",
+    "name": "Islamic Society of Boston",
+    "lat": 42.3702733,
+    "lon": -71.1000727,
+    "km": 7.6,
+    "website": "https://isbcc.org/getting-here/#x-section-2",
+    "addr": "204 Prospect Street, Cambridge, 02139",
+    "denomination": null
+   },
+   {
+    "osm": "node/5567734724",
+    "name": "Islamic Society of Boston Cultural Center",
+    "lat": 42.3309021,
+    "lon": -71.0933788,
+    "km": 7.8,
+    "website": null,
+    "addr": "100 Malcolm X Boulevard, Roxbury, 02120",
+    "denomination": null
+   },
+   {
+    "osm": "way/29930238",
+    "name": "Arabic Jumaa Mosque",
+    "lat": 42.3517072,
+    "lon": -71.1343998,
+    "km": 10.5,
+    "website": "https://arabic-jumaa-mosque-boston.yolasite.com/",
+    "addr": "41 Quint Avenue",
+    "denomination": null
+   },
+   {
+    "osm": "node/9826872529",
+    "name": "Allston Brighton Islamic Center",
+    "lat": 42.3544876,
+    "lon": -71.1378352,
+    "km": 10.7,
+    "website": "http://zamongajumath.org/",
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/2700413735",
+    "name": "Islamic Center of Rindge Ave",
+    "lat": 42.3937907,
+    "lon": -71.1390291,
+    "km": 11.3,
+    "website": null,
+    "addr": "388 Rindge Avenue, Cambridge, 02140",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/29589475",
+    "name": "Yusuf Mosque",
+    "lat": 42.3408864,
+    "lon": -71.1545465,
+    "km": 12.3,
+    "website": null,
+    "addr": "186 Chestnut Hill Avenue, Brighton, 02135",
+    "denomination": null
+   },
+   {
+    "osm": "way/214376690",
+    "name": "North Shore Islamic Center",
+    "lat": 42.472739,
+    "lon": -70.9316001,
+    "km": 13.8,
+    "website": null,
+    "addr": "130;132 Essex Street",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/216432464",
+    "name": "Waltham Islamic Society",
+    "lat": 42.3776524,
+    "lon": -71.2350462,
+    "km": 18.7,
+    "website": null,
+    "addr": "16 Park Place, Waltham, 02452",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/2700417831",
+    "name": "Islamic Center of Burlington",
+    "lat": 42.4877506,
+    "lon": -71.2138006,
+    "km": 21.9,
+    "website": "https://icburlington.org/",
+    "addr": "130 Lexington Street, Burlington, 01803",
+    "denomination": "sunni"
+   }
+  ]
+ },
+ "MSP": {
+  "airport": {
+   "lat": 44.8801,
+   "lon": -93.2217
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/93122458",
+    "name": "Dar Al Farooq Islamic Center",
+    "lat": 44.8548177,
+    "lon": -93.2645099,
+    "km": 4.4,
+    "website": "https://daralfarooq.com/",
+    "addr": "8201 Park Avenue South, Bloomington, 55420",
+    "denomination": null
+   },
+   {
+    "osm": "way/513816243",
+    "name": "Abubakar As-Saddique Islamic Center",
+    "lat": 44.9508757,
+    "lon": -93.2569517,
+    "km": 8.3,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/2169668486",
+    "name": "Rawdah Mosque (Somali Cultural Institute)",
+    "lat": 44.9557389,
+    "lon": -93.2365569,
+    "km": 8.5,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/66794536",
+    "name": "Mercy Center Masjid Alrahma",
+    "lat": 44.9540959,
+    "lon": -93.2520817,
+    "km": 8.6,
+    "website": null,
+    "addr": "2647 Bloomington Avenue, Minneapolis, 55407",
+    "denomination": null
+   },
+   {
+    "osm": "way/111350196",
+    "name": "Tawfiq Islamic Center",
+    "lat": 44.9587473,
+    "lon": -93.2422673,
+    "km": 8.9,
+    "website": null,
+    "addr": "2400 Minnehaha Avenue, Minneapolis, 55404",
+    "denomination": null
+   },
+   {
+    "osm": "node/7196444434",
+    "name": "Masjid Da'wah",
+    "lat": 44.9594667,
+    "lon": -93.1779408,
+    "km": 9.5,
+    "website": null,
+    "addr": "605 Fairview Avenue North, Saint Paul, 55104",
+    "denomination": null
+   },
+   {
+    "osm": "way/202907462",
+    "name": "The Islamic Institute of Minnesota - Burnsville Mosque",
+    "lat": 44.7849573,
+    "lon": -93.2555888,
+    "km": 10.9,
+    "website": "https://islamicinstituteofmn.com/burnsville.html",
+    "addr": "1350 Riverwood Drive, 55337",
+    "denomination": null
+   },
+   {
+    "osm": "way/141641922",
+    "name": "Towhid Islamic Community Center",
+    "lat": 44.9542326,
+    "lon": -93.1257866,
+    "km": 11.2,
+    "website": null,
+    "addr": "430 Dale Street",
+    "denomination": null
+   },
+   {
+    "osm": "way/141645541",
+    "name": "Minnesota Da’wah Institute",
+    "lat": 44.9554754,
+    "lon": -93.1203238,
+    "km": 11.6,
+    "website": "http://mndawah.net",
+    "addr": "478 University Avenue, 55103",
+    "denomination": null
+   },
+   {
+    "osm": "way/157034038",
+    "name": "Dar Al-Farooq",
+    "lat": 44.9872684,
+    "lon": -93.2288796,
+    "km": 11.9,
+    "website": null,
+    "addr": "983 Southeast 17th Avenue, Minneapolis, 55414",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/988133089",
+    "name": "Masjid al Furqaan",
+    "lat": 44.9806545,
+    "lon": -93.3002897,
+    "km": 12.8,
+    "website": null,
+    "addr": "1525 Glenwood Avenue, Minneapolis, 55405",
+    "denomination": null
+   },
+   {
+    "osm": "way/131280916",
+    "name": "Islamic Community of Bosniacs in Minnesota",
+    "lat": 44.9985106,
+    "lon": -93.2544874,
+    "km": 13.4,
+    "website": null,
+    "addr": "668 Northeast Broadway Street",
+    "denomination": null
+   },
+   {
+    "osm": "way/313727189",
+    "name": "Masjid An-Nur",
+    "lat": 44.9972252,
+    "lon": -93.2883703,
+    "km": 14,
+    "website": "https://masjidannur.org/",
+    "addr": "1729 North Lyndale Avenue, Minneapolis, 55411",
+    "denomination": null
+   },
+   {
+    "osm": "way/947996183",
+    "name": "Islamic Community Center of Minnesota",
+    "lat": 45.0028506,
+    "lon": -93.2658239,
+    "km": 14.1,
+    "website": null,
+    "addr": "1429 Northeast 2nd Street, Minneapolis, 55413",
+    "denomination": null
+   },
+   {
+    "osm": "way/116781742",
+    "name": "Darul Mustafa Center",
+    "lat": 45.0061387,
+    "lon": -93.2561051,
+    "km": 14.3,
+    "website": "https://darulmustafa.org/",
+    "addr": "1723 Northeast Adams Street, Minneapolis, 55413",
+    "denomination": null
+   }
+  ]
+ },
+ "FLL": {
+  "airport": {
+   "lat": 26.0726,
+   "lon": -80.1527
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/827955769",
+    "name": "Muhammad Mosque 82",
+    "lat": 26.1296354,
+    "lon": -80.1558943,
+    "km": 6.4,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/528547038",
+    "name": "Bait-un-Naseer Mosque",
+    "lat": 25.993546,
+    "lon": -80.1511714,
+    "km": 8.8,
+    "website": null,
+    "addr": "208 Northwest 7th Court, Hallandale Beach, 33009",
+    "denomination": "ahmadiyya"
+   }
+  ]
+ },
+ "LGA": {
+  "airport": {
+   "lat": 40.7772,
+   "lon": -73.8726
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/281393397",
+    "name": "Al Madni Masjid",
+    "lat": 40.7654354,
+    "lon": -73.8803228,
+    "km": 1.5,
+    "website": null,
+    "addr": "24-04 89th Street, East Elmhurst, 11369",
+    "denomination": null
+   },
+   {
+    "osm": "way/615652676",
+    "name": null,
+    "lat": 40.7738796,
+    "lon": -73.8974663,
+    "km": 2.1,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/5891692258",
+    "name": "Majid Tiba",
+    "lat": 40.7647483,
+    "lon": -73.905315,
+    "km": 3.1,
+    "website": null,
+    "addr": "25-01 48th Street",
+    "denomination": null
+   },
+   {
+    "osm": "node/2570187584",
+    "name": "Masjid al Taufiq",
+    "lat": 40.7468855,
+    "lon": -73.8793177,
+    "km": 3.4,
+    "website": null,
+    "addr": "41-02 Forley Street, 11373",
+    "denomination": null
+   },
+   {
+    "osm": "node/4204715198",
+    "name": null,
+    "lat": 40.7683905,
+    "lon": -73.911567,
+    "km": 3.4,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/284683811",
+    "name": "Masjid Alfalah",
+    "lat": 40.7472243,
+    "lon": -73.8638591,
+    "km": 3.4,
+    "website": null,
+    "addr": "42-12 National Street, 11368",
+    "denomination": null
+   },
+   {
+    "osm": "node/4477543020",
+    "name": "Masjid Dar-ul Furqan",
+    "lat": 40.7503951,
+    "lon": -73.8940379,
+    "km": 3.5,
+    "website": null,
+    "addr": null,
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/5891693971",
+    "name": "Majid",
+    "lat": 40.7552963,
+    "lon": -73.9040665,
+    "km": 3.6,
+    "website": null,
+    "addr": "32-13 57th Street",
+    "denomination": null
+   },
+   {
+    "osm": "node/5891694701",
+    "name": "Masjid al-Hikmah",
+    "lat": 40.7583509,
+    "lon": -73.9103293,
+    "km": 3.8,
+    "website": "https://www.masjidalhikmahnewyork.org/",
+    "addr": "48-01 31st Avenue, 11103",
+    "denomination": null
+   },
+   {
+    "osm": "node/9661679167",
+    "name": "Islamic Center of Jackson Heights",
+    "lat": 40.7464072,
+    "lon": -73.8940781,
+    "km": 3.9,
+    "website": null,
+    "addr": "7120 Roosevelt Avenue, Woodside, 11372",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/5891703233",
+    "name": "Majid Fatima",
+    "lat": 40.7500945,
+    "lon": -73.9045663,
+    "km": 4,
+    "website": null,
+    "addr": "57-18 37th Avenue",
+    "denomination": null
+   },
+   {
+    "osm": "node/6250836568",
+    "name": "Shahjalal Masjid",
+    "lat": 40.768726,
+    "lon": -73.9193541,
+    "km": 4,
+    "website": null,
+    "addr": "25-67 31st Street, Astoria, 11102",
+    "denomination": null
+   },
+   {
+    "osm": "node/6250836567",
+    "name": "Gawsiah Jame Masjid",
+    "lat": 40.7686036,
+    "lon": -73.9200494,
+    "km": 4.1,
+    "website": null,
+    "addr": "25-86 31st Street, Astoria, 11102",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/12758066115",
+    "name": "Woodside Baitul Jannah Masjid",
+    "lat": 40.7470533,
+    "lon": -73.9014014,
+    "km": 4.1,
+    "website": null,
+    "addr": "62-01 39th Avenue, Woodside, 11377",
+    "denomination": null
+   },
+   {
+    "osm": "node/8952387978",
+    "name": null,
+    "lat": 40.7430556,
+    "lon": -73.8955098,
+    "km": 4.3,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   }
+  ]
+ },
+ "PHL": {
+  "airport": {
+   "lat": 39.8719,
+   "lon": -75.2411
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "node/6887218390",
+    "name": "Masjid Ahlil Hadeeth",
+    "lat": 39.9236016,
+    "lon": -75.2375683,
+    "km": 5.8,
+    "website": "https://masjidahlilhadeeth.wordpress.com",
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/6959248910",
+    "name": "Masjid Ahlus-Sunnah Wal-Jammah",
+    "lat": 39.9249046,
+    "lon": -75.2292504,
+    "km": 6,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/3743203589",
+    "name": "House of Peace",
+    "lat": 39.8583433,
+    "lon": -75.1422615,
+    "km": 8.6,
+    "website": null,
+    "addr": "1420 Pilgrim Avenue, West Deptford, 08096",
+    "denomination": null
+   },
+   {
+    "osm": "way/1132264235",
+    "name": "Masjid Mujahideen",
+    "lat": 39.9551135,
+    "lon": -75.241952,
+    "km": 9.3,
+    "website": null,
+    "addr": "413 South 60th Street, Philadelphia, 19143",
+    "denomination": null
+   },
+   {
+    "osm": "way/948209178",
+    "name": null,
+    "lat": 39.9562857,
+    "lon": -75.2575419,
+    "km": 9.5,
+    "website": null,
+    "addr": "201 South 69th Street, Upper Darby",
+    "denomination": null
+   },
+   {
+    "osm": "way/567070798",
+    "name": "A.I.C. Islamic Center",
+    "lat": 39.9554733,
+    "lon": -75.2113489,
+    "km": 9.6,
+    "website": "https://www.aicp.org/",
+    "addr": "4431 Walnut Street, Philadelphia, 19104",
+    "denomination": null
+   },
+   {
+    "osm": "way/863864856",
+    "name": "Masjid Al-Jamia",
+    "lat": 39.9546354,
+    "lon": -75.2083851,
+    "km": 9.6,
+    "website": null,
+    "addr": "4228 Walnut Street, Philadelphia",
+    "denomination": null
+   },
+   {
+    "osm": "node/6944071029",
+    "name": "Turning Paige's Islamic Learning Center",
+    "lat": 39.9610248,
+    "lon": -75.2407538,
+    "km": 9.9,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/673941995",
+    "name": "United Muslim Movement",
+    "lat": 39.9407251,
+    "lon": -75.1680649,
+    "km": 9.9,
+    "website": "https://www.ummonline.org/",
+    "addr": "810 South 15th Street, Philadelphia, 19146",
+    "denomination": null
+   },
+   {
+    "osm": "node/5694876716",
+    "name": "Islamic Center of Chester",
+    "lat": 39.8504593,
+    "lon": -75.3617029,
+    "km": 10.6,
+    "website": null,
+    "addr": "14 East 7th Street, Chester, 19013",
+    "denomination": null
+   },
+   {
+    "osm": "way/1429422950",
+    "name": "Islamic Center of Delaware County",
+    "lat": 39.9659183,
+    "lon": -75.2993167,
+    "km": 11.6,
+    "website": null,
+    "addr": "2502 Township Line Road, Havertown, 19083",
+    "denomination": null
+   },
+   {
+    "osm": "node/7042943379",
+    "name": "Masjid Salaam",
+    "lat": 39.9740949,
+    "lon": -75.2066478,
+    "km": 11.7,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/5700951394",
+    "name": "Masjid As-Sabiqun",
+    "lat": 39.8499133,
+    "lon": -75.3759192,
+    "km": 11.8,
+    "website": null,
+    "addr": "1105 Concord Avenue, Chester, 19013",
+    "denomination": null
+   },
+   {
+    "osm": "node/5689230420",
+    "name": "Nation of Islam Chester Study Group",
+    "lat": 39.8398645,
+    "lon": -75.3753176,
+    "km": 12,
+    "website": null,
+    "addr": "1301 West 3rd Street, Chester, 19013",
+    "denomination": null
+   },
+   {
+    "osm": "node/5703557369",
+    "name": "Central Mosque",
+    "lat": 39.8429373,
+    "lon": -75.3825474,
+    "km": 12.5,
+    "website": null,
+    "addr": "1609 West 9th Street, Chester, 19013",
+    "denomination": null
+   }
+  ]
+ },
+ "SLC": {
+  "airport": {
+   "lat": 40.7889,
+   "lon": -111.9799
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/679250126",
+    "name": "Madina Masjid",
+    "lat": 40.7712147,
+    "lon": -111.9411333,
+    "km": 3.8,
+    "website": null,
+    "addr": "1773 West North Temple, Salt Lake City, 84116",
+    "denomination": null
+   },
+   {
+    "osm": "way/441542953",
+    "name": "Islamic Society of Bosniaks in Utah",
+    "lat": 40.7787982,
+    "lon": -111.9115561,
+    "km": 5.9,
+    "website": null,
+    "addr": "425 North 700 West, Salt Lake City, 84116",
+    "denomination": null
+   },
+   {
+    "osm": "way/357807245",
+    "name": "Khadeeja Islamic Center",
+    "lat": 40.7169839,
+    "lon": -111.9226277,
+    "km": 9.3,
+    "website": null,
+    "addr": "1019 West Parkway Avenue, West Valley City, 84119",
+    "denomination": null
+   },
+   {
+    "osm": "node/356682273",
+    "name": "Islamic Society of Utah",
+    "lat": 40.7532795,
+    "lon": -111.8716021,
+    "km": 9.9,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/471894549",
+    "name": "Muslim Community Center",
+    "lat": 40.6242614,
+    "lon": -111.8378297,
+    "km": 21.9,
+    "website": null,
+    "addr": "1888 East Fort Union Boulevard, Cottonwood Heights, 84121",
+    "denomination": null
+   },
+   {
+    "osm": "node/8079022397",
+    "name": null,
+    "lat": 40.5880443,
+    "lon": -111.9193516,
+    "km": 22.9,
+    "website": "https://www.utislamiccenter.org/",
+    "addr": "984 West 9000 South, West Jordan, 84119",
+    "denomination": null
+   }
+  ]
+ },
+ "BWI": {
+  "airport": {
+   "lat": 39.1754,
+   "lon": -76.6683
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/336353143",
+    "name": "Masjid Bilal",
+    "lat": 39.2365358,
+    "lon": -76.6102301,
+    "km": 8.4,
+    "website": null,
+    "addr": "3735 South Hanover Street, Baltimore, 21225",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/336431718",
+    "name": "Masjid Bait Allah",
+    "lat": 39.2853271,
+    "lon": -76.6399747,
+    "km": 12.5,
+    "website": "https://www.mbabaltimore.org/",
+    "addr": "200 South Calhoun Street, Baltimore, 21223",
+    "denomination": null
+   },
+   {
+    "osm": "way/336380962",
+    "name": "Masjid Us Salaam",
+    "lat": 39.2927037,
+    "lon": -76.619966,
+    "km": 13.7,
+    "website": null,
+    "addr": "240 North Howard Street, Baltimore, 21201",
+    "denomination": null
+   },
+   {
+    "osm": "way/183872639",
+    "name": "Faizan E Madinah Baltimore",
+    "lat": 39.2931764,
+    "lon": -76.7298279,
+    "km": 14.1,
+    "website": null,
+    "addr": "1109 Ingleside Avenue, Gwynn Oak, 21207",
+    "denomination": null
+   },
+   {
+    "osm": "way/255250397",
+    "name": "Masjid Ad Da'wah Ilat Tawheed",
+    "lat": 39.3018091,
+    "lon": -76.6483102,
+    "km": 14.2,
+    "website": null,
+    "addr": "1125 Appleton Street, Baltimore, 21217",
+    "denomination": null
+   },
+   {
+    "osm": "way/299314254",
+    "name": "Masjid Fatima",
+    "lat": 39.2858424,
+    "lon": -76.7551869,
+    "km": 14.4,
+    "website": null,
+    "addr": "1928 Powers Lane, Catonsville, 21228",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/336412033",
+    "name": "Masjid Ul-Haqq",
+    "lat": 39.3050179,
+    "lon": -76.6331315,
+    "km": 14.7,
+    "website": null,
+    "addr": "514 Islamic Way, Baltimore, 21217",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/336427993",
+    "name": "Masjid as-Saffat",
+    "lat": 39.3099908,
+    "lon": -76.6392857,
+    "km": 15.2,
+    "website": "https://www.wcmas.org/",
+    "addr": "1335 West North Avenue, Baltimore, 21217",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/12151036840",
+    "name": "Al-Madina Masjid",
+    "lat": 39.3074793,
+    "lon": -76.7346954,
+    "km": 15.8,
+    "website": null,
+    "addr": "1502 Woodlawn Drive, Woodlawn, 21207",
+    "denomination": null
+   },
+   {
+    "osm": "way/252993893",
+    "name": "Islamic Society of Baltimore",
+    "lat": 39.3034707,
+    "lon": -76.7480735,
+    "km": 15.8,
+    "website": "https://www.isb.org/",
+    "addr": "6631 Johnnycake Road, Windsor Mill, 21244",
+    "denomination": null
+   },
+   {
+    "osm": "way/336532297",
+    "name": "Hasbuna Allahu Islamic Center",
+    "lat": 39.3247212,
+    "lon": -76.6723092,
+    "km": 16.6,
+    "website": "https://haicbaltimore.org/",
+    "addr": "3306 Liberty Heights Avenue, Baltimore, 21215",
+    "denomination": null
+   },
+   {
+    "osm": "node/3032457704",
+    "name": "Masjid Al-Karam",
+    "lat": 39.3149046,
+    "lon": -76.7395561,
+    "km": 16.7,
+    "website": null,
+    "addr": "1724 Woodlawn Drive, Gwynn Oak, 21207",
+    "denomination": null
+   },
+   {
+    "osm": "way/338720275",
+    "name": "Muhammad Mosque Number Six",
+    "lat": 39.3269136,
+    "lon": -76.6828475,
+    "km": 16.9,
+    "website": "https://noibmore.org/",
+    "addr": "3306 Garrison Boulevard, Baltimore, 21216",
+    "denomination": "nation_of_islam"
+   },
+   {
+    "osm": "way/336579080",
+    "name": "Gwynn Oak Islamic Community",
+    "lat": 39.3343893,
+    "lon": -76.6936424,
+    "km": 17.8,
+    "website": "https://www.gicoak.org/",
+    "addr": "3723 Gwynn Oak Avenue, Baltimore, 21207",
+    "denomination": null
+   },
+   {
+    "osm": "way/299144344",
+    "name": "Masjid Zamzam Dundalk Community Center",
+    "lat": 39.2720899,
+    "lon": -76.4947523,
+    "km": 18.4,
+    "website": null,
+    "addr": "1501 Lynch Road, Dundalk, 21222",
+    "denomination": null
+   }
+  ]
+ },
+ "IAD": {
+  "airport": {
+   "lat": 38.9445,
+   "lon": -77.4558
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "node/13256250913",
+    "name": "Uyghur Islamic Center - Chantilly",
+    "lat": 38.8856258,
+    "lon": -77.4406422,
+    "km": 6.7,
+    "website": "https://uyghurislamiccenter.org/",
+    "addr": "14325 Willard Road, Chantilly, 20151",
+    "denomination": null
+   },
+   {
+    "osm": "way/678504953",
+    "name": "Mubarak Mosque",
+    "lat": 38.8803772,
+    "lon": -77.4365396,
+    "km": 7.3,
+    "website": null,
+    "addr": "4555 Ahmadiyya Drive, Chantilly, 20151",
+    "denomination": "ahmadiyya"
+   },
+   {
+    "osm": "way/225451717",
+    "name": "All Dulles Area Muslim Society Center",
+    "lat": 39.0065164,
+    "lon": -77.3792966,
+    "km": 9.6,
+    "website": "https://www.adamscenter.org",
+    "addr": "46903 Sugarland Road, Herndon, 20164",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/4768817778",
+    "name": null,
+    "lat": 38.9977395,
+    "lon": -77.3372429,
+    "km": 11.8,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/233342056",
+    "name": "Masjed Islamic Centre",
+    "lat": 38.8459498,
+    "lon": -77.341451,
+    "km": 14.8,
+    "website": null,
+    "addr": "4420 Shirley Gate Road, 22030",
+    "denomination": null
+   },
+   {
+    "osm": "node/13256233520",
+    "name": "Uyghur Islamic Center - Fairfax",
+    "lat": 38.8493203,
+    "lon": -77.302011,
+    "km": 17,
+    "website": "https://uyghurislamiccenter.org/",
+    "addr": "10355 Democracy Lane, Fairfax, 22030",
+    "denomination": null
+   },
+   {
+    "osm": "way/294598675",
+    "name": "McLean Islamic Center",
+    "lat": 38.9355992,
+    "lon": -77.2488139,
+    "km": 17.9,
+    "website": null,
+    "addr": "8800 Jarrett Valley Drive, 22182",
+    "denomination": null
+   },
+   {
+    "osm": "way/45759619",
+    "name": "Prince William Islamic Center",
+    "lat": 38.7601208,
+    "lon": -77.4641184,
+    "km": 20.5,
+    "website": null,
+    "addr": "9002 Mathis Avenue, Manassas, 20110",
+    "denomination": null
+   }
+  ]
+ },
+ "SAN": {
+  "airport": {
+   "lat": 32.7336,
+   "lon": -117.19
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "node/9333226913",
+    "name": "Masjidul Taqwa San Diego",
+    "lat": 32.7061023,
+    "lon": -117.138477,
+    "km": 5.7,
+    "website": "http://www.masjidultaqwasandiego.org/",
+    "addr": "2575 Imperial Avenue, San Diego, 92113",
+    "denomination": null
+   },
+   {
+    "osm": "node/358860296",
+    "name": "Muhammad Mosque Eight",
+    "lat": 32.7066577,
+    "lon": -117.1288173,
+    "km": 6.5,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/1035022847",
+    "name": "Masjid Al-Ansar",
+    "lat": 32.7498311,
+    "lon": -117.0883013,
+    "km": 9.7,
+    "website": null,
+    "addr": "4014 Winona Avenue, San Diego, 92105",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/1454283324",
+    "name": "Masjid An-Nur (Islamic Center Of Mid City)",
+    "lat": 32.7486932,
+    "lon": -117.087312,
+    "km": 9.7,
+    "website": null,
+    "addr": null,
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/1442629344",
+    "name": "Islamic Center of San Diego",
+    "lat": 32.8205876,
+    "lon": -117.1654603,
+    "km": 9.9,
+    "website": "https://icsd.org",
+    "addr": "7050 Eckstrom Avenue, San Diego, 92111",
+    "denomination": null
+   },
+   {
+    "osm": "node/358859977",
+    "name": "Al Rribat Al Aslami",
+    "lat": 32.7708073,
+    "lon": -117.043655,
+    "km": 14.3,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   }
+  ]
+ },
+ "TPA": {
+  "airport": {
+   "lat": 27.9755,
+   "lon": -82.5332
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/524312609",
+    "name": "IEC Masjid of Tampa",
+    "lat": 27.9771711,
+    "lon": -82.5179712,
+    "km": 1.5,
+    "website": null,
+    "addr": "4450 West Ohio Avenue, Tampa, 33614",
+    "denomination": null
+   },
+   {
+    "osm": "way/1201094761",
+    "name": "Masjid Omar Almokhtar",
+    "lat": 27.9470156,
+    "lon": -82.4731679,
+    "km": 6.7,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/10914246692",
+    "name": "Ismaili Jamatkhana",
+    "lat": 28.0631311,
+    "lon": -82.6481409,
+    "km": 14.9,
+    "website": null,
+    "addr": "14362 Carlson Circle, Tampa, 33626",
+    "denomination": "shia"
+   },
+   {
+    "osm": "way/1327351345",
+    "name": "Islamic Society of Tampa Bay Area",
+    "lat": 28.0111279,
+    "lon": -82.373767,
+    "km": 16.1,
+    "website": null,
+    "addr": "7326 East Sligh Avenue, Tampa, 33610",
+    "denomination": null
+   },
+   {
+    "osm": "node/358757331",
+    "name": "Bosnian Muslim Mosque",
+    "lat": 27.96734,
+    "lon": -82.749069,
+    "km": 21.2,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "relation/7556404",
+    "name": "Bosanski Mesdžid",
+    "lat": 27.8714831,
+    "lon": -82.7162254,
+    "km": 21.4,
+    "website": null,
+    "addr": "10999 60th Street, Pinellas County, 33782",
+    "denomination": null
+   },
+   {
+    "osm": "way/793295996",
+    "name": "Islamic Center of Brandon",
+    "lat": 27.9455054,
+    "lon": -82.298403,
+    "km": 23.3,
+    "website": null,
+    "addr": "1006 Victoria Street, Brandon",
+    "denomination": null
+   }
+  ]
+ },
+ "AUS": {
+  "airport": {
+   "lat": 30.1975,
+   "lon": -97.662
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/381791591",
+    "name": "Islamic Center of Greater Austin",
+    "lat": 30.2996687,
+    "lon": -97.6867872,
+    "km": 11.6,
+    "website": "https://austinmosque.org/",
+    "addr": "5110 Manor Road, Austin, 78723",
+    "denomination": null
+   },
+   {
+    "osm": "way/380922453",
+    "name": "Nueces Mosque",
+    "lat": 30.283198,
+    "lon": -97.744345,
+    "km": 12.4,
+    "website": "https://nuecesmosque.com/",
+    "addr": "1908 Nueces Street, Austin",
+    "denomination": null
+   },
+   {
+    "osm": "way/1088855597",
+    "name": "Al-Noor Mosque (MCC)",
+    "lat": 30.3427151,
+    "lon": -97.5634608,
+    "km": 18.7,
+    "website": "https://alnoormcc.org/",
+    "addr": "1300 Old Highway 20, Manor, 78653",
+    "denomination": null
+   },
+   {
+    "osm": "way/382819523",
+    "name": "North Austin Muslim Community Center",
+    "lat": 30.3903686,
+    "lon": -97.6840079,
+    "km": 21.5,
+    "website": "https://www.namcc.org/",
+    "addr": "11900 North Lamar Boulevard, Austin, 78753",
+    "denomination": null
+   },
+   {
+    "osm": "way/584726498",
+    "name": "Masjid Ibrahim",
+    "lat": 30.2482314,
+    "lon": -97.8921154,
+    "km": 22.8,
+    "website": "https://www.masjidibrahim.org/",
+    "addr": "8521 W TX 71, Austin, 78735",
+    "denomination": "sunni"
+   }
+  ]
+ },
+ "HNL": {
+  "airport": {
+   "lat": 21.3184,
+   "lon": -157.9257
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/155155850",
+    "name": "Muslim Association of Hawaii",
+    "lat": 21.3085134,
+    "lon": -157.8213766,
+    "km": 10.9,
+    "website": "https://www.iio.org/",
+    "addr": "1935 Aleo Place, 96822",
+    "denomination": null
+   }
+  ]
+ },
+ "MDW": {
+  "airport": {
+   "lat": 41.786,
+   "lon": -87.7524
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/1284233628",
+    "name": "Masjid Al-Istiqamah",
+    "lat": 41.7472597,
+    "lon": -87.7611991,
+    "km": 4.4,
+    "website": null,
+    "addr": "7950 South Central Avenue, Burbank, 60459",
+    "denomination": null
+   },
+   {
+    "osm": "way/163522306",
+    "name": "Masjid Al Muhajireen",
+    "lat": 41.7397941,
+    "lon": -87.7155605,
+    "km": 6,
+    "website": null,
+    "addr": "3777 West Columbus Avenue, Chicago, 60652",
+    "denomination": null
+   },
+   {
+    "osm": "way/235939778",
+    "name": "Hometown Mercy Mosque",
+    "lat": 41.7301192,
+    "lon": -87.7333826,
+    "km": 6.4,
+    "website": "https://hometownmercymosque.org/",
+    "addr": "8925 South Kostner Avenue, Hometown, 60456",
+    "denomination": null
+   },
+   {
+    "osm": "way/662825023",
+    "name": "Mosque Foundation",
+    "lat": 41.7228415,
+    "lon": -87.802971,
+    "km": 8.2,
+    "website": "https://www.mosquefoundation.org/",
+    "addr": "7360 West 93rd Street, Bridgeview, 60455",
+    "denomination": null
+   },
+   {
+    "osm": "way/414004498",
+    "name": "Al Sadiq Mosque",
+    "lat": 41.8132752,
+    "lon": -87.6249039,
+    "km": 11,
+    "website": "https://www.ahmadiyya.us/chapters/chicagoeast/42-",
+    "addr": "4448 South Wabash Avenue, Chicago, 60653",
+    "denomination": "ahmadiyya"
+   },
+   {
+    "osm": "node/13095370799",
+    "name": "Masjid Al Ihsan",
+    "lat": 41.8236977,
+    "lon": -87.6183976,
+    "km": 11.9,
+    "website": null,
+    "addr": "321 East Pershing Road, Chicago, 60653",
+    "denomination": null
+   },
+   {
+    "osm": "way/161176339",
+    "name": "Masjid Al-Faatir",
+    "lat": 41.8100364,
+    "lon": -87.5964276,
+    "km": 13.2,
+    "website": null,
+    "addr": "1200 East 47th Street, Chicago, 60653",
+    "denomination": null
+   },
+   {
+    "osm": "way/185057290",
+    "name": "Mosque Maryam",
+    "lat": 41.7609068,
+    "lon": -87.5850184,
+    "km": 14.2,
+    "website": "https://www.noi.org/",
+    "addr": "7351 South Stony Island Avenue, Chicago, 60649",
+    "denomination": "nation_of_islam"
+   },
+   {
+    "osm": "way/1359913156",
+    "name": "Palos Islamic Center",
+    "lat": 41.6668818,
+    "lon": -87.8166097,
+    "km": 14.3,
+    "website": "https://palosic.org/",
+    "addr": "12300 South 80th Avenue, Palos Park, 60464",
+    "denomination": null
+   },
+   {
+    "osm": "way/148043641",
+    "name": "Downtown Islamic Center",
+    "lat": 41.8786982,
+    "lon": -87.6272677,
+    "km": 14.6,
+    "website": "https://www.dtislamiccenter.org/",
+    "addr": "231 South State Street, Chicago, 60604",
+    "denomination": null
+   },
+   {
+    "osm": "node/354245734",
+    "name": "Mosque of Umar",
+    "lat": 41.6867432,
+    "lon": -87.6206672,
+    "km": 15.5,
+    "website": null,
+    "addr": "11407 South Michigan Avenue, Chicago, 60628",
+    "denomination": null
+   },
+   {
+    "osm": "way/163086840",
+    "name": "Islamic Community Center of Illinois (ICCI)",
+    "lat": 41.93801,
+    "lon": -87.7877443,
+    "km": 17.2,
+    "website": null,
+    "addr": "6435 West Belmont Avenue, Chicago, 60634",
+    "denomination": null
+   },
+   {
+    "osm": "way/497280668",
+    "name": "Anjuman-e-Saifee Chicago",
+    "lat": 41.7255269,
+    "lon": -87.9457946,
+    "km": 17.4,
+    "website": null,
+    "addr": "10S252 Kingery Highway, Willowbrook, 60527",
+    "denomination": null
+   },
+   {
+    "osm": "way/361648827",
+    "name": "Albanian-American Islamic Center",
+    "lat": 41.8890806,
+    "lon": -87.9141882,
+    "km": 17.6,
+    "website": "https://albanianamericanislamiccenter.com/",
+    "addr": "5825 Saint Charles Road, Berkeley, 60163",
+    "denomination": null
+   },
+   {
+    "osm": "way/1082213154",
+    "name": "Mecca Center",
+    "lat": 41.7239426,
+    "lon": -87.9479798,
+    "km": 17.6,
+    "website": "https://meccacenter.org/",
+    "addr": "16W560 91st Street, Willowbrook, 60627",
+    "denomination": null
+   }
+  ]
+ },
+ "CDG": {
+  "airport": {
+   "lat": 49.009,
+   "lon": 2.5541
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/146530620",
+    "name": "Mosquée de Villepinte",
+    "lat": 48.9521937,
+    "lon": 2.5503685,
+    "km": 6.3,
+    "website": null,
+    "addr": "Avenue Emile Dambel, Villepinte, 93420",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/140911983",
+    "name": null,
+    "lat": 48.9516617,
+    "lon": 2.5644982,
+    "km": 6.4,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/136810922",
+    "name": "Mosquée",
+    "lat": 48.954367,
+    "lon": 2.5020025,
+    "km": 7.2,
+    "website": null,
+    "addr": null,
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/721631472",
+    "name": "Mosquée Masjid Assalam",
+    "lat": 48.9525125,
+    "lon": 2.493647,
+    "km": 7.7,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/44460457",
+    "name": null,
+    "lat": 48.9499377,
+    "lon": 2.4966883,
+    "km": 7.8,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/810491922",
+    "name": null,
+    "lat": 49.0319529,
+    "lon": 2.450674,
+    "km": 8,
+    "website": null,
+    "addr": null,
+    "denomination": "shia"
+   },
+   {
+    "osm": "way/433227787",
+    "name": "Mosquée Othman Ibn Affan",
+    "lat": 48.9518086,
+    "lon": 2.6224215,
+    "km": 8.1,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/978721362",
+    "name": "El Rahma",
+    "lat": 48.9366518,
+    "lon": 2.5141889,
+    "km": 8.6,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/1374274985",
+    "name": null,
+    "lat": 49.0060536,
+    "lon": 2.4217144,
+    "km": 9.7,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/84285300",
+    "name": null,
+    "lat": 48.9450589,
+    "lon": 2.4525836,
+    "km": 10.3,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/262206031",
+    "name": null,
+    "lat": 48.9773956,
+    "lon": 2.4109248,
+    "km": 11,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/84291198",
+    "name": null,
+    "lat": 48.9222382,
+    "lon": 2.473457,
+    "km": 11.3,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/5302916125",
+    "name": "Mosquée Bilal",
+    "lat": 48.905211,
+    "lon": 2.5549454,
+    "km": 11.5,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/309830416",
+    "name": "AFMV Le Pavillon",
+    "lat": 49.0085298,
+    "lon": 2.3947059,
+    "km": 11.6,
+    "website": null,
+    "addr": "11 Rue d'Hérivaux, Villiers le bel, 95400",
+    "denomination": null
+   },
+   {
+    "osm": "way/269282834",
+    "name": "Mosquée Hamza",
+    "lat": 48.9792955,
+    "lon": 2.397239,
+    "km": 11.9,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   }
+  ]
+ },
+ "LGW": {
+  "airport": {
+   "lat": 51.1487,
+   "lon": -0.1857
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/424502143",
+    "name": "Langley Green Islamic Centre & Mosque",
+    "lat": 51.1310199,
+    "lon": -0.1864385,
+    "km": 2,
+    "website": null,
+    "addr": null,
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/424606819",
+    "name": "Noor Mosque",
+    "lat": 51.1264477,
+    "lon": -0.1926709,
+    "km": 2.5,
+    "website": "http://www.ahmadiyyamosques.info/2013/01/ahmadiyya-mosque-crawley-west-sussex-uk.html",
+    "addr": "Langley Drive, Crawley, RH11 7TF",
+    "denomination": "ahmadiyya"
+   },
+   {
+    "osm": "node/4894142621",
+    "name": "Gatwick Muslim Centre",
+    "lat": 51.1732336,
+    "lon": -0.1611853,
+    "km": 3.2,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/160046992",
+    "name": "Crawley Mosque",
+    "lat": 51.0975348,
+    "lon": -0.2138951,
+    "km": 6,
+    "website": null,
+    "addr": "RH11 9SE",
+    "denomination": null
+   },
+   {
+    "osm": "way/327160492",
+    "name": "Redhill Islamic Centre",
+    "lat": 51.2281938,
+    "lon": -0.1720894,
+    "km": 8.9,
+    "website": null,
+    "addr": "30 Earlswood Road, Redhill, RH1 6HW",
+    "denomination": null
+   },
+   {
+    "osm": "way/529632310",
+    "name": "Masjid Al Yaqeen",
+    "lat": 51.2419342,
+    "lon": -0.1704939,
+    "km": 10.4,
+    "website": "https://masjidalyaqeen.co.uk/",
+    "addr": "28 Warwick Road, Redhill, RH1 1BU",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/300007192",
+    "name": "Madina Mosque",
+    "lat": 51.0609241,
+    "lon": -0.3230504,
+    "km": 13.7,
+    "website": null,
+    "addr": "2 Park Terrace East, Horsham, RH13 5DN",
+    "denomination": null
+   },
+   {
+    "osm": "way/59019459",
+    "name": "Dorking Mosque",
+    "lat": 51.233993,
+    "lon": -0.3298314,
+    "km": 13.8,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/627015643",
+    "name": "Mid Sussex Islamic Centre And Masjid",
+    "lat": 50.991704,
+    "lon": -0.0996604,
+    "km": 18.5,
+    "website": null,
+    "addr": "19 Wivelsfield Road, Haywards Heath, RH16 4EF",
+    "denomination": null
+   },
+   {
+    "osm": "way/912392832",
+    "name": "Muslim Community Mosque",
+    "lat": 50.9572768,
+    "lon": -0.1380717,
+    "km": 21.5,
+    "website": null,
+    "addr": "130 Lower Church Road, Burgess Hill, RH15 9AB",
+    "denomination": null
+   },
+   {
+    "osm": "node/12999022001",
+    "name": "Epsom & Ewell Islamic Society",
+    "lat": 51.3388336,
+    "lon": -0.266812,
+    "km": 21.9,
+    "website": "https://eeis.co.uk/",
+    "addr": "113 Hook Road, Epsom",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/158346423",
+    "name": "Sutton Central Masjid",
+    "lat": 51.3624354,
+    "lon": -0.1883174,
+    "km": 23.8,
+    "website": null,
+    "addr": "25 Carshalton Road, Sutton, SM1 4LF",
+    "denomination": "sunni"
+   }
+  ]
+ },
+ "LHR": {
+  "airport": {
+   "lat": 51.4707,
+   "lon": -0.4599
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/1172473257",
+    "name": "Ashford & Staines Community Centre",
+    "lat": 51.4470205,
+    "lon": -0.4583592,
+    "km": 2.6,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/1172463833",
+    "name": "Heathrow Jamia Masjid",
+    "lat": 51.4811809,
+    "lon": -0.4154874,
+    "km": 3.3,
+    "website": "https://heathrowjamiamasjid.co.uk/",
+    "addr": null,
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/852636676",
+    "name": "Hayes Welfare Association & Abdulla Masjid",
+    "lat": 51.5013862,
+    "lon": -0.4405849,
+    "km": 3.7,
+    "website": null,
+    "addr": null,
+    "denomination": "anglican"
+   },
+   {
+    "osm": "way/965357893",
+    "name": "Masjid us Sunnah",
+    "lat": 51.4782978,
+    "lon": -0.4069979,
+    "km": 3.8,
+    "website": null,
+    "addr": null,
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/1172473704",
+    "name": "Feltham Hira Centre",
+    "lat": 51.4539735,
+    "lon": -0.4041653,
+    "km": 4.3,
+    "website": "https://hira.org.uk/",
+    "addr": "102 Hounslow Road, Feltham, TW14 0AX",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/23548668",
+    "name": "Feltham Masjid",
+    "lat": 51.4430645,
+    "lon": -0.4141668,
+    "km": 4.4,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/1172466808",
+    "name": "Jamia Masjid",
+    "lat": 51.5094998,
+    "lon": -0.4743603,
+    "km": 4.4,
+    "website": "https://www.jm-wd.org/",
+    "addr": null,
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/1172468596",
+    "name": "Al Falah Islamic Education Centre",
+    "lat": 51.5127263,
+    "lon": -0.4754278,
+    "km": 4.8,
+    "website": "https://www.alfalahcentre.org/",
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/706357193",
+    "name": "Quba Masjid & Islamic Centre",
+    "lat": 51.5086981,
+    "lon": -0.4228302,
+    "km": 4.9,
+    "website": "https://www.qubamasjid.com/",
+    "addr": "Golden Crescent, Hayes, UB3 1AQ",
+    "denomination": null
+   },
+   {
+    "osm": "way/1172465627",
+    "name": "Islamic Integration Community Centre",
+    "lat": 51.462731,
+    "lon": -0.3896985,
+    "km": 4.9,
+    "website": "https://iiccuk.org/",
+    "addr": "531 Staines Road, Hounslow, TW4 5DP",
+    "denomination": null
+   },
+   {
+    "osm": "node/10893575545",
+    "name": "Baitun Noor Mosque",
+    "lat": 51.4644185,
+    "lon": -0.3850911,
+    "km": 5.2,
+    "website": null,
+    "addr": "327 Martindale Road, Hounslow, TW4 7HG",
+    "denomination": "ahmadiyya"
+   },
+   {
+    "osm": "way/1100739794",
+    "name": "Baitul Aman Mosque",
+    "lat": 51.5233713,
+    "lon": -0.4660872,
+    "km": 5.9,
+    "website": "https://baitulamn.wordpress.com/",
+    "addr": "Royal Lane, Uxbridge, UB8 3QU",
+    "denomination": "ahmadiyya"
+   },
+   {
+    "osm": "way/1100747901",
+    "name": "Baitul Wahid Mosque",
+    "lat": 51.4307398,
+    "lon": -0.4028501,
+    "km": 5.9,
+    "website": null,
+    "addr": "Raleigh Way, Feltham, TW13 7NX",
+    "denomination": "ahmadiyya"
+   },
+   {
+    "osm": "way/10695654",
+    "name": "Hounslow Jamia Masjid & Islamic Centre",
+    "lat": 51.4591959,
+    "lon": -0.3749235,
+    "km": 6,
+    "website": "https://hounslowmasjid.co.uk/",
+    "addr": "367 Wellington Road South, TW4 5HU",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/324579668",
+    "name": "Central Jamia Mosque",
+    "lat": 51.4992687,
+    "lon": -0.3847758,
+    "km": 6.1,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   }
+  ]
+ },
+ "DCA": {
+  "airport": {
+   "lat": 38.8521,
+   "lon": -77.0377
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/452437834",
+    "name": "Baitul Mukarram Masjid",
+    "lat": 38.8495913,
+    "lon": -77.0905485,
+    "km": 4.6,
+    "website": null,
+    "addr": "2116 South Nelson Street, 22204",
+    "denomination": null
+   },
+   {
+    "osm": "way/67247033",
+    "name": "Masjid Muhammad",
+    "lat": 38.9103218,
+    "lon": -77.0158875,
+    "km": 6.7,
+    "website": "https://thenationsmosque.org/",
+    "addr": "1519 4th Street Northwest",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/358962220",
+    "name": "Muhammed Mosque",
+    "lat": 38.869851,
+    "lon": -76.960771,
+    "km": 6.9,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/66790109",
+    "name": "American Fazl Mosque",
+    "lat": 38.9155228,
+    "lon": -77.0482411,
+    "km": 7.1,
+    "website": null,
+    "addr": "2141 Leroy Place Northwest, Washington, 20008",
+    "denomination": "ahmadiyya"
+   },
+   {
+    "osm": "way/1564504595",
+    "name": "Islamic Mosque and Cultural Center",
+    "lat": 38.9170669,
+    "lon": -77.0567962,
+    "km": 7.4,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/236941362",
+    "name": "Dar Al-Hijrah Islamic Center",
+    "lat": 38.8613725,
+    "lon": -77.1466798,
+    "km": 9.5,
+    "website": null,
+    "addr": "3159 Row Street, Falls Church, 22044",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/4675301557",
+    "name": "As-Sabiqun",
+    "lat": 38.8863361,
+    "lon": -76.9364289,
+    "km": 9.6,
+    "website": null,
+    "addr": "4603 Benning Road, Washington, 20019",
+    "denomination": null
+   },
+   {
+    "osm": "node/9250987479",
+    "name": "Ali Khan Islamic Center",
+    "lat": 38.8500024,
+    "lon": -76.9230286,
+    "km": 9.9,
+    "website": null,
+    "addr": "4831 Silver Hill Road, Suitland, 20746",
+    "denomination": null
+   },
+   {
+    "osm": "way/70070852",
+    "name": "First Hijrah Muslim Community Center",
+    "lat": 38.9436358,
+    "lon": -77.0262388,
+    "km": 10.2,
+    "website": "http://firsthijrah.org",
+    "addr": "4324 Georgia Avenue Northwest, Washington, 20011-7122",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/4675269753",
+    "name": "Masjid Ahlul Quran Wal Hadeeth",
+    "lat": 38.9326931,
+    "lon": -76.979324,
+    "km": 10.3,
+    "website": "maqwh.com",
+    "addr": "3415 18th Street Northeast",
+    "denomination": null
+   },
+   {
+    "osm": "way/473409352",
+    "name": "Avondale Islamic Center",
+    "lat": 38.9462957,
+    "lon": -76.9771126,
+    "km": 11.7,
+    "website": null,
+    "addr": "4637 Eastern Avenue, Mount Rainier, 20712",
+    "denomination": null
+   },
+   {
+    "osm": "way/606455319",
+    "name": "Mustafa Center",
+    "lat": 38.8125174,
+    "lon": -77.1832794,
+    "km": 13.4,
+    "website": "https://www.mustafacenter.org/",
+    "addr": "6844 Braddock Road, Annandale, 22003",
+    "denomination": null
+   },
+   {
+    "osm": "way/220413040",
+    "name": "Darul Huda",
+    "lat": 38.779841,
+    "lon": -77.175831,
+    "km": 14.4,
+    "website": "https://darulhudausa.org/",
+    "addr": "6666 Commerce Street, Springfield, 22150",
+    "denomination": null
+   },
+   {
+    "osm": "way/110166864",
+    "name": "IMAAM Center",
+    "lat": 39.0042569,
+    "lon": -77.0374682,
+    "km": 16.9,
+    "website": "https://imaamcenter.org/",
+    "addr": "9100 Georgia Avenue, Silver Spring, 20910",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/135673011",
+    "name": "Imam Ali Center",
+    "lat": 38.7436594,
+    "lon": -77.1905865,
+    "km": 17.9,
+    "website": "https://imamalicenter.org/",
+    "addr": null,
+    "denomination": "shia"
+   }
+  ]
+ },
+ "BNA": {
+  "airport": {
+   "lat": 36.1245,
+   "lon": -86.6782
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/1322145944",
+    "name": "Al-Farooq Islamic Center",
+    "lat": 36.1083333,
+    "lon": -86.7303724,
+    "km": 5,
+    "website": "https://www.al-farooqcenter.org",
+    "addr": "67 Thompson Lane, Nashville, 37211",
+    "denomination": null
+   },
+   {
+    "osm": "way/628819098",
+    "name": "Al-Mahdi Islamic Center",
+    "lat": 36.1357141,
+    "lon": -86.761133,
+    "km": 7.6,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/638083992",
+    "name": "Islamic Center of Nashville",
+    "lat": 36.1242804,
+    "lon": -86.7899956,
+    "km": 10,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/914767710",
+    "name": "Mahmood Mosque",
+    "lat": 35.9836808,
+    "lon": -86.5169042,
+    "km": 21.3,
+    "website": "https://alislam.org/",
+    "addr": "101 Maple Street, Smyrna, 37167",
+    "denomination": "ahmadiyya"
+   }
+  ]
+ },
+ "AMS": {
+  "airport": {
+   "lat": 52.3086,
+   "lon": 4.7639
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/48620274",
+    "name": "Ar-Rahman",
+    "lat": 52.2957028,
+    "lon": 4.6887409,
+    "km": 5.3,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/275092636",
+    "name": "Rabitha Al Islamia",
+    "lat": 52.3580335,
+    "lon": 4.7867718,
+    "km": 5.7,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/2797469653",
+    "name": "Masjid Al Mohiuddin",
+    "lat": 52.3576937,
+    "lon": 4.794628,
+    "km": 5.8,
+    "website": null,
+    "addr": "32 Borrendammehof, Amsterdam, 1069ZH",
+    "denomination": null
+   },
+   {
+    "osm": "node/4421084892",
+    "name": "Faried-ul-Islam Moskee",
+    "lat": 52.3567403,
+    "lon": 4.7969033,
+    "km": 5.8,
+    "website": "http://www.faried-ul-islam.nl",
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/4421084893",
+    "name": "Masjid Euromoslim Amsterdam",
+    "lat": 52.3569671,
+    "lon": 4.7968051,
+    "km": 5.8,
+    "website": "https://www.euromoslim.org",
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/275094459",
+    "name": "Haci Bayram Camii Osdorp",
+    "lat": 52.3585142,
+    "lon": 4.7894507,
+    "km": 5.8,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/443374617",
+    "name": "Blauwe Moskee",
+    "lat": 52.3485267,
+    "lon": 4.8314881,
+    "km": 6.4,
+    "website": "https://www.blauwemoskee.nl",
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/275049030",
+    "name": "Cafer-i Sadik Moskee",
+    "lat": 52.3612895,
+    "lon": 4.8057152,
+    "km": 6.5,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/275048811",
+    "name": "Moskee Stichting Faried-Ul-Islam",
+    "lat": 52.363248,
+    "lon": 4.8000913,
+    "km": 6.6,
+    "website": null,
+    "addr": "2 Vrijburg, Amsterdam, 1068PR",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/173103472",
+    "name": "Moskee Suleymaniye",
+    "lat": 52.365151,
+    "lon": 4.800071,
+    "km": 6.8,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/900343843",
+    "name": "Moskee Al-Ihsane",
+    "lat": 52.376672,
+    "lon": 4.7988115,
+    "km": 7.9,
+    "website": null,
+    "addr": "32 Mendes da Costahof, Amsterdam, 1067ZN",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/146254499",
+    "name": "El Ouma",
+    "lat": 52.3635862,
+    "lon": 4.8391573,
+    "km": 8,
+    "website": "https://alihsane.nl/moskee-al-ouma",
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "node/13410982490",
+    "name": "Stichting Kümbet Moskee",
+    "lat": 52.3767249,
+    "lon": 4.8058705,
+    "km": 8.1,
+    "website": null,
+    "addr": "10 Nicolaas Ruychaverstraat, Amsterdam, 1067NC",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/5304905123",
+    "name": "Erdem Moskee",
+    "lat": 52.3793709,
+    "lon": 4.8069196,
+    "km": 8.4,
+    "website": null,
+    "addr": "82 Dr. H. Colijnstraat, Amsterdam, 1067CH",
+    "denomination": null
+   },
+   {
+    "osm": "way/57866320",
+    "name": "Moskee El-Hijra",
+    "lat": 52.3760658,
+    "lon": 4.8285064,
+    "km": 8.7,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   }
+  ]
+ },
+ "DTW": {
+  "airport": {
+   "lat": 42.2138,
+   "lon": -83.3538
+  },
+  "fetched": "2026-10-13",
+  "places": [
+   {
+    "osm": "way/827376088",
+    "name": null,
+    "lat": 42.1753615,
+    "lon": -83.2464082,
+    "km": 9.8,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/764061421",
+    "name": "Masjid Madinatul Ilm",
+    "lat": 42.2940183,
+    "lon": -83.4121588,
+    "km": 10.1,
+    "website": null,
+    "addr": "37775 Palmer Road, Westland, 48186",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/1499452509",
+    "name": "Altaqwa Islamic Center",
+    "lat": 42.31057,
+    "lon": -83.3369956,
+    "km": 10.8,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/654454281",
+    "name": "Muslim Community of Western Suburbs",
+    "lat": 42.2949872,
+    "lon": -83.4391904,
+    "km": 11.4,
+    "website": null,
+    "addr": "40440 Palmer Road, Canton, 48188",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/1276571375",
+    "name": "American Muslim Center",
+    "lat": 42.2910594,
+    "lon": -83.2483366,
+    "km": 12.2,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/314668227",
+    "name": "Islamic Institute of America",
+    "lat": 42.3259517,
+    "lon": -83.2982527,
+    "km": 13.3,
+    "website": "https://www.iiofa.org",
+    "addr": "26305 Ford Road",
+    "denomination": null
+   },
+   {
+    "osm": "way/559580128",
+    "name": "Islamic House of Wisdom",
+    "lat": 42.3397668,
+    "lon": -83.2617332,
+    "km": 15.9,
+    "website": null,
+    "addr": "22575 Ann Arbor Trail, Dearborn Heights, 48127",
+    "denomination": null
+   },
+   {
+    "osm": "way/227821937",
+    "name": "Islamic Center of America",
+    "lat": 42.3303454,
+    "lon": -83.229784,
+    "km": 16.5,
+    "website": null,
+    "addr": null,
+    "denomination": "shia"
+   },
+   {
+    "osm": "way/765466185",
+    "name": "Masjid Tawheed",
+    "lat": 42.3435913,
+    "lon": -83.2228296,
+    "km": 18,
+    "website": null,
+    "addr": "18640 West Warren Avenue, Detroit, 48228",
+    "denomination": null
+   },
+   {
+    "osm": "way/660359629",
+    "name": "Masjid Bilal Canton",
+    "lat": 42.3165925,
+    "lon": -83.5301074,
+    "km": 18.5,
+    "website": "https://www.masjidbilalcanton.org/",
+    "addr": "1525 North Ridge Road, Canton, 48187",
+    "denomination": "sunni"
+   },
+   {
+    "osm": "node/10754576061",
+    "name": "Masjid Al-Salam",
+    "lat": 42.3163864,
+    "lon": -83.1747939,
+    "km": 18.6,
+    "website": null,
+    "addr": null,
+    "denomination": "sunni"
+   },
+   {
+    "osm": "way/502987119",
+    "name": "Masjid Ibraham",
+    "lat": 42.2389606,
+    "lon": -83.579326,
+    "km": 18.8,
+    "website": "https://www.islamicfinder.org/world/view-place/406/",
+    "addr": "315 South Ford Boulevard, Ypsilanti, 48197",
+    "denomination": null
+   },
+   {
+    "osm": "node/4342156990",
+    "name": "Imam Ali Islamic Center",
+    "lat": 42.3434226,
+    "lon": -83.2012869,
+    "km": 19.1,
+    "website": null,
+    "addr": null,
+    "denomination": "shia"
+   },
+   {
+    "osm": "way/229468332",
+    "name": "Islamic Institute of Knowledge",
+    "lat": 42.3364368,
+    "lon": -83.1776794,
+    "km": 19.9,
+    "website": null,
+    "addr": null,
+    "denomination": null
+   },
+   {
+    "osm": "way/727337162",
+    "name": "Islamic Council of America",
+    "lat": 42.3418466,
+    "lon": -83.1771059,
+    "km": 20.3,
+    "website": null,
+    "addr": "6941 Schaefer Road, Dearborn",
+    "denomination": null
+   }
+  ]
+ }
+}

@@ -1,0 +1,132 @@
+---
+import PlacePhotos from '../../components/PlacePhotos.astro';
+import PlaceOverview from '../../components/PlaceOverview.astro';
+import VisitorArtwork from '../../components/VisitorArtwork.astro';
+import VisitInsights from '../../components/VisitInsights.astro';
+import DetailGuide from '../../components/DetailGuide.astro';
+import PlaceActions from '../../components/PlaceActions.astro';
+import Turnstile from '../../components/Turnstile.astro';
+import GuideTabNav from '../../components/GuideTabNav.astro';
+import CountryBadge from '../../components/CountryBadge.astro';
+import {GUIDE_COPY} from '../../data/guide-copy.js';
+import Base from '../../layouts/Base.astro';
+import Compass from '../../components/Compass.astro';
+import { L, fmtDate, host } from '../../lib/airports.js';
+import { UL } from '../../lib/universities.js';
+import { hospitals, hospAsks, hospMessage } from '../../lib/hospitals.js';
+
+export function getStaticPaths() { return hospitals.map((h) => ({ params: { slug: h.slug }, props: { h } })); }
+const { h } = Astro.props;
+const q = hospAsks(h);
+const pill = ([t, c]) => `<span class="pill ${c}">${t}</span>`;
+const g=GUIDE_COPY.en;
+const guideTabs=[{id:'room-details',label:g.rooms,icon:'pin'},{id:'direction',label:g.direction,icon:'qibla'},{id:'visitor-tools',label:g.help,icon:'help'}];
+---
+<Base title={`Prayer room and chaplaincy at ${h.name} | A Room to Pray`} description={`Where to pray at ${h.name}: ${h.spaces[0]?.loc}. Wuḍūʾ, space for women, Jumuʿah, how to ask for a chaplain, and qibla, with linked sources.`} nav="hospitals" noindex={h.hold}
+  jsonld={{ '@context': 'https://schema.org', '@type': 'Hospital', name: h.name, address: { '@type': 'PostalAddress', addressLocality: h.city, addressCountry: h.country }, geo: { '@type': 'GeoCoordinates', latitude: h.lat, longitude: h.lon } }}>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/hospitals/" data-directory-return={g.backToResults}>Hospitals</a><span aria-hidden="true">/</span><span>{h.country}</span><span aria-hidden="true">/</span><span aria-current="page">{h.short}</span></nav>
+    <div class="d-head">
+      <div class="d-code" aria-hidden="true" style="padding:12px"><svg width="56" height="56" aria-hidden="true"><use href="#i-care"/></svg></div>
+      <div class="d-title">
+        <h1>Prayer room at {h.name.split('/').map((part, i) => i ? <Fragment>/<wbr />{part}</Fragment> : part)}</h1>
+        <div class="d-meta">{h.hold && <span class="pill p-unk">Still checking</span>}<span>{h.city}</span><CountryBadge country={h.country}/>{h.group && <><span aria-hidden="true">·</span><span>{h.group}</span></>}<span aria-hidden="true">·</span><span>Sources accessed {fmtDate(h.checked)}</span></div>
+      </div>
+    </div>
+    <DetailGuide place={h} kind="Hospital" />
+    <PlaceActions place={h} kind="Hospital" />
+    <PlaceOverview place={h} kind="hospitals" />
+
+    <p class="byline" style="margin-top:12px"><span>Edited by <a href="/about/#editor">Hamza Abdul-Tawwaab</a></span><span>This page is about places to pray, not medical care. You can ask ward staff how to contact the chaplaincy.</span><span><a href="#report">Report a correction</a></span></p>
+    {h.hold && <p class="note" style="margin-top:12px">We’re still checking this hospital: the official information we found is thin. Ask ward staff or the chaplaincy before you go.</p>}
+    <div class="d-grid" data-guide-tabs>
+      <GuideTabNav tabs={guideTabs} label={g.overview}/>
+      <div class="d-main guide-panel" id="room-details">
+        {h.spaces.map((s, i) => (
+          <article class="card room" id={`room-${i + 1}`}>
+            <div class="room-top"><span class="room-number" aria-hidden="true">{String(i+1).padStart(2,'0')}</span><h2>{s.name}</h2><span class="tag">{s.type}</span></div>
+            <p class="where"><svg width="20" height="20" aria-hidden="true"><use href="#i-pin"/></svg><span>{s.loc}</span></p>
+            <dl class="facts">
+              <div class="fact-essential"><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-key"/></svg>Access</dt><dd>{s.access}</dd></div>
+              <div class="fact-essential"><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-clock"/></svg>Hours</dt><dd>{s.hours}</dd></div>
+              <div><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-water"/></svg>Wuḍūʾ</dt><dd set:html={pill(L.wudu[s.wudu])} /></div>
+              <div><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-screen"/></svg>Women</dt><dd set:html={pill(L.women[s.women])} /></div>
+              {s.jumuah && <div style="grid-column:1/-1"><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-community"/></svg>Jumuʿah</dt><dd>{s.jumuah}</dd></div>}
+            </dl>
+            {s.caution && <p class="extra">{s.caution}</p>}
+            {s.chapel && <p class="extra">This is an interfaith chapel shared with other faiths. Check its hours and any service times.</p>}
+            {s.extra && <p class="extra">{s.extra}</p>}
+            <div class="src"><span><svg width="16" height="16" aria-hidden="true"><use href="#i-source"/></svg>Source: <a href={s.src} rel="noopener">{host(s.src)}</a></span>
+              <span>Source accessed {fmtDate(s.checked)} · <span class={`badge ${UL.verified[String(s.verified)][1]}`}>{String(s.verified) === 'true' ? 'Official hospital page' : UL.verified[String(s.verified)][0].replace('university', 'hospital')}</span></span></div>
+          </article>
+        ))}
+        {h.chaplaincy && (
+          <section class="card room" aria-labelledby="chap-h">
+            <div class="room-top"><h2 id="chap-h">Asking for a chaplain</h2><span class="tag">{h.chaplain ? 'Muslim chaplain listed' : 'Chaplaincy'}</span></div>
+            <p>{h.chaplaincy.how_to_request || 'Ask ward staff to contact the chaplaincy.'}</p>
+            <p class="fine">Source: <a href={h.chaplaincy.source_url} rel="noopener">{host(h.chaplaincy.source_url)}</a>. Chaplains support patients, families and staff of every faith and none.</p>
+          </section>
+        )}
+        <PlacePhotos place={h} />
+      </div>
+      <section id="direction" class="guide-panel direction-panel">
+        <Compass qibla={h.qibla} label={h.short.length > 22 ? 'this hospital' : h.short} place="hospital" />
+
+      </section>
+      <div class="d-side guide-panel" id="visitor-tools">
+    <VisitInsights kind="hospitals" locale="en" placeUrl={h.url} compact />
+        {q.length > 0 && (
+          <aside class="card ask" aria-labelledby="ask-h">
+            <span class="eyebrow">Ask the hospital</span>
+            <h2 id="ask-h" style="font-size:1.25rem">Ask about prayer facilities</h2>
+            <ul>{q.map((x) => <li>{x.label}</li>)}</ul>
+            <label for="msg" class="fine">Suggested message. Edit it and send it yourself.</label>
+            <textarea id="msg">{hospMessage(h, q)}</textarea>
+            <div class="btns">
+              <button class="btn ghost" type="button" data-copy>Copy message</button><span id="copy-status" class="sr" role="status"></span>
+              {h.feedback_url && <a class="btn sign-btn" href={h.feedback_url} rel="noopener" data-ask={`hos-${h.slug}`}>Open the chaplaincy or contact page</a>}
+            </div>
+          </aside>
+        )}
+        <details class="card report-box" id="report">
+          <summary>Prayed here recently? Tell us</summary>
+          <p class="muted" style="font-size:.95rem;margin-top:8px">The editor checks every report before anything changes. Facilities only: no patient or staff names, health information, contact details or access codes. <a href="/about/#privacy">How we handle reports</a></p>
+          <form class="report" data-report={`hos-${h.slug}`} method="post" action="/api/report">
+            <input type="hidden" name="code" value={`hos-${h.slug}`}>
+            <label>What you found<select name="field" required><option>New room I found</option><option>Room moved or closed</option><option>Hours</option><option>Wuḍūʾ area</option><option>Space for women</option><option>Something else</option></select></label>
+            <label>When you were there<input name="seen" type="month" required></label>
+            <label class="full">Details<textarea name="details" rows="4" required minlength="10" maxlength="1500" placeholder="e.g. Main building, level 2, next to the chapel. Wuḍūʾ area inside."></textarea></label>
+            <label class="hp" aria-hidden="true">Leave empty<input name="website" tabindex="-1" autocomplete="off"></label>
+            <Turnstile />
+            <div class="full"><button class="btn" type="submit">Send report</button></div>
+          </form>
+          <div class="ok" hidden data-ok tabindex="-1"><svg width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg>Thanks. Your report is waiting for the editor to check it.</div>
+          <p class="err" hidden data-err role="alert">Your report didn’t send. Check your connection and try again; your text is still here.</p>
+        </details>
+        <VisitorArtwork scene="hospital" placement="supporting" purpose="visitor-preparation"/>
+      </div>
+    </div>
+  </div>
+</Base>
+<script>
+  if (location.hash === '#report') document.getElementById('report')?.setAttribute('open', '');
+  document.querySelector('a[href="#report"]')?.addEventListener('click', () => document.getElementById('report')?.setAttribute('open', ''));
+  document.querySelector('[data-copy]')?.addEventListener('click', async (e) => {
+    const t = document.getElementById('msg'), b = e.currentTarget;
+    try { await navigator.clipboard.writeText(t.value); b.textContent = 'Copied'; document.getElementById('copy-status').textContent = 'Message copied'; } catch { t.focus(); t.select(); b.textContent = 'Selected: copy it now'; }
+    setTimeout(() => (b.textContent = 'Copy message'), 2500);
+  });
+  const ask = document.querySelector('[data-ask]');
+  ask?.addEventListener('click', () => { navigator.sendBeacon?.('/api/ask', JSON.stringify({ code: ask.dataset.ask })); });
+  const form = document.querySelector('[data-report]');
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button'), ok = document.querySelector('[data-ok]'), err = document.querySelector('[data-err]');
+    btn.disabled = true; err.hidden = true;
+    try {
+      const r = await fetch('/api/report', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(Object.fromEntries(new FormData(form))) });
+      if (!r.ok) throw new Error(String(r.status));
+      form.hidden = true; ok.hidden = false; ok.focus();
+    } catch { err.hidden = false; btn.disabled = false; window.turnstile?.reset(form.querySelector('.cf-turnstile')); }
+  });
+</script>

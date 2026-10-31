@@ -1,0 +1,35 @@
+---
+import VisitorPicture from './VisitorPicture.astro';
+import { VISITOR_ART_REFERENCES, VISITOR_ART_COPY } from '../data/visitor-art.js';
+// Contextual artwork is kept outside factual room-photo galleries.
+const { scene, locale='en', placement='guide', title='', caption='', purpose='visit-context' }=Astro.props;
+if (!Object.hasOwn(VISITOR_ART_REFERENCES,scene)) throw new Error('Unknown visitor artwork: '+scene);
+const reference=VISITOR_ART_REFERENCES[scene];
+const copy=VISITOR_ART_COPY[locale]??VISITOR_ART_COPY.en;
+const imageWidth=placement==='supporting'?480:placement==='intro'?520:620;
+const sizes=`(max-width: 650px) 90vw, ${imageWidth}px`;
+---
+<figure class:list={['visitor-art',`visitor-art-${placement}`]} data-visitor-art={scene} data-art-purpose={purpose}>
+ <VisitorPicture {scene} {sizes} alt={copy.alt[scene]}/>
+ <figcaption>
+  <strong>{title || copy.titles[scene]}</strong>
+  {caption&&<span class="visitor-art-purpose">{caption}</span>}
+  <span>{copy.note}</span>
+  <span class="visitor-art-credit">{copy.reference} <a href={reference.url}><bdi>{reference.label}</bdi></a>{reference.author&&<> · <bdi>{reference.author}</bdi></>}.{reference.license&&<> {copy.adapted} <a href="https://creativecommons.org/licenses/by-sa/4.0/" lang="en" dir="ltr">CC BY-SA 4.0</a>.</>}</span>
+ </figcaption>
+</figure>
+<style>
+ .visitor-art { width:min(100%,var(--visitor-art-width,620px)); min-width:0; grid-column:1/-1; justify-self:start; margin:8px 0 0; overflow:hidden; border:1px solid var(--line); border-radius:6px; background:var(--surface); box-shadow:0 5px 18px #00000008; }
+ .visitor-art-story { --visitor-art-width:620px; margin-block:24px; }
+ .visitor-art-intro { --visitor-art-width:520px; margin-block:24px 0; }
+ .visitor-art-supporting { --visitor-art-width:480px; margin-block:20px; }
+ .visitor-art figcaption { display:grid; gap:5px; padding:15px 17px; text-align:start; color:var(--muted); font:400 .76rem/1.65 var(--f-body); }
+ .visitor-art strong { color:var(--ink); font-size:.9rem; font-weight:600; }
+ .visitor-art-purpose { color:var(--ink); max-width:65ch; }
+ .visitor-art-credit { font-size:.7rem; overflow-wrap:anywhere; }
+ .visitor-art a { color:inherit; text-decoration:underline; text-underline-offset:3px; }
+ .visitor-art a:focus-visible { outline:2px solid var(--focus,var(--ink)); outline-offset:3px; border-radius:2px; }
+ :global([dir=rtl]) .visitor-art figcaption { font-size:.9rem; line-height:1.8; }
+ :global([dir=rtl]) .visitor-art-credit { font-size:.8rem; }
+ @media print { .visitor-art { display:none; } }
+</style>

@@ -1,0 +1,7 @@
+---
+const { scene = 'sanctuary', class: className = '', compact = false } = Astro.props;
+const setting = ['airport', 'campus', 'hospital'].includes(scene) ? scene : null;
+const light = setting ? `var(--view-${setting}-light)` : "url('/art/immersive/room-day.webp')";
+const dark = setting ? `var(--view-${setting}-dark)` : "url('/art/immersive/room-night.webp')";
+---
+<div class:list={['concept-art', className, {compact}]} style={`--art-light:${light};--art-dark:${dark}`} aria-hidden="true"><slot /></div>

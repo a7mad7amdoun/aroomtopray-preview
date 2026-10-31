@@ -1,0 +1,48 @@
+---
+// Masajid near an airport, for Friday layovers. Data: src/data/masajid-near.json
+// (built by scripts/masajid/build.mjs; see src/data/MASAJID-NOTES.md). Renders nothing without data.
+import data from '../data/masajid-near.json';
+import { fmtDate, host } from '../lib/airports.js';
+
+interface Props { code: string }
+const { code } = Astro.props;
+const IATA = String(code || '').toUpperCase();
+const list = (data[IATA] || []).filter((m) => m.verified === true);
+const osm = (m) => `https://www.openstreetmap.org/?mlat=${m.lat}&mlon=${m.lon}#map=17/${m.lat}/${m.lon}`;
+const kmText = (k) => `${k < 10 ? k.toFixed(1) : Math.round(k)} km`;
+---
+{list.length > 0 && (
+  <section class="card masajid" aria-labelledby="masajid-h">
+    <div class="room-top"><h2 id="masajid-h">Masajid near {IATA}</h2><span class="tag">{`${list.length} ${list.length === 1 ? 'masjid' : 'masajid'}`}</span></div>
+    <p>On a Friday layover? These masajid hold Jumuʿah.</p>
+    <ul class="mq-list">
+      {list.map((m) => (
+        <li>
+          <div class="o-top"><b>{m.name}</b><span class="fine tnum">{kmText(m.km)} from the airport in a straight line</span></div>
+          <p class="mq-addr">{m.address}</p>
+          {m.caution && <p class="note">{m.caution}</p>}
+          {m.jumuah
+            ? <p><b>Jumuʿah:</b>{' '}{m.jumuah}{' '}<span class="fine">(as published on <a href={m.jumuah_src} rel="noopener">{host(m.jumuah_src)}</a>, read {fmtDate(m.jumuah_read)})</span></p>
+            : <p class="fine">Check the masjid’s website for Jumuʿah times.</p>}
+          <div class="mq-links">
+            <a class="btn ghost" href={m.src} rel="noopener">Website<span class="sr"> of {m.name}</span></a>
+            <a class="btn ghost" href={osm(m)} rel="noopener">Map<span class="sr"> of {m.name} on OpenStreetMap</span></a>
+          </div>
+          <p class="fine">Checked {fmtDate(m.checked)}</p>
+        </li>
+      ))}
+    </ul>
+    <p class="fine">Distances are straight lines from the airport, not driving distances; allow for traffic and the return through security. Times can change, especially in Ramadan and when clocks change, so please confirm with the masjid before you leave the airport. Map data © OpenStreetMap contributors.</p>
+  </section>
+)}
+
+<style>
+  .masajid { display: flex; flex-direction: column; gap: 14px }
+  .mq-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; border-top: 1px solid var(--line) }
+  .mq-list li { padding: 14px 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 6px }
+  .mq-addr { font-weight: 700 }
+  .mq-links { display: flex; flex-wrap: wrap; gap: 8px }
+  .mq-links .btn { min-height: 44px; padding: 0 14px; font-size: .95rem }
+  .masajid a:not(.btn) { color: var(--ink); font-weight: 700 }
+  @media (max-width: 480px) { .mq-links .btn { flex: 1 1 0 } }
+</style>

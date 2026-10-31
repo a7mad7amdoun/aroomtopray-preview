@@ -1,0 +1,185 @@
+---
+import PlacePhotos from '../../components/PlacePhotos.astro';
+import PlaceOverview from '../../components/PlaceOverview.astro';
+import VisitorArtwork from '../../components/VisitorArtwork.astro';
+import VisitInsights from '../../components/VisitInsights.astro';
+import DetailGuide from '../../components/DetailGuide.astro';
+import PlaceActions from '../../components/PlaceActions.astro';
+import Turnstile from '../../components/Turnstile.astro';
+import GuideTabNav from '../../components/GuideTabNav.astro';
+import CountryBadge from '../../components/CountryBadge.astro';
+import {GUIDE_COPY} from '../../data/guide-copy.js';
+import Base from '../../layouts/Base.astro';
+import Compass from '../../components/Compass.astro';
+import CheckIn from '../../components/CheckIn.astro';
+import MasajidNear from '../../components/MasajidNear.astro';
+import LetterKit from '../../components/LetterKit.astro';
+import { airports, L, dirName, fmtDate, host, asks, message, halal, halalClaim, halalNone, halalPolicy } from '../../lib/airports.js';
+
+export function getStaticPaths() {
+  return airports.map((a) => ({ params: { code: a.code }, props: { a } }));
+}
+const { a } = Astro.props;
+const q = asks(a);
+const near = a.km < 600;
+const pill = ([t, c]) => `<span class="pill ${c}">${t}</span>`;
+const title = a.status === 'pending' ? `${a.iata} prayer room: not checked yet | A Room to Pray` : `Prayer rooms at ${a.name} (${a.iata}) | A Room to Pray`;
+const firstLoc = a.spaces[0]?.loc;
+const description = a.status === 'room'
+  ? `Where to pray at ${a.name}: ${firstLoc}. Before or after security, wuḍūʾ, space for women and qibla (${Math.round(a.qibla)}°), with linked sources and check dates.`
+  : a.status === 'pending' ? `We haven’t checked prayer facilities at ${a.name} yet.`
+  : `No prayer room is listed on ${a.name}’s website. Qibla ${Math.round(a.qibla)}° from true north, and how to ask the airport for a room.`;
+const h = halal[a.code];
+const g=GUIDE_COPY.en;
+const guideTabs=[{id:'room-details',label:g.rooms,icon:'pin'},{id:'direction',label:g.direction,icon:'qibla'},{id:'visitor-tools',label:g.help,icon:'help'}];
+---
+<Base {title} {description} nav="airports" noindex={a.status === 'pending'} og={a.art ? `/og/${a.code}.jpg` : null}
+  jsonld={{ '@context': 'https://schema.org', '@type': 'Airport', name: a.name, iataCode: a.iata, address: { '@type': 'PostalAddress', addressLocality: a.city, addressCountry: a.country }, geo: { '@type': 'GeoCoordinates', latitude: a.lat, longitude: a.lon } }}>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/airports/" data-directory-return={g.backToResults}>Airports</a><span aria-hidden="true">/</span><span>{a.region}</span><span aria-hidden="true">/</span><span aria-current="page">{a.iata}</span></nav>
+    <div class="d-head">
+      <div class="d-code" aria-hidden="true">{a.iata}</div>
+      <div class="d-title">
+        <h1>Prayer rooms at {a.name.split('/').map((part, i) => i ? <Fragment>/<wbr />{part}</Fragment> : part)}</h1>
+        <div class="d-meta"><Fragment set:html={pill(L.status[a.status])} /><span>{a.city}</span><CountryBadge country={a.country}/>{a.checkedFmt && <><span aria-hidden="true">·</span><span>Sources checked {a.checkedFmt}</span></>}</div>
+      </div>
+    </div>
+    <DetailGuide place={a} kind="Airport" food={!!h} />
+    <PlaceActions place={a} kind="Airport" />
+    <PlaceOverview place={a} kind="airports" direction={dirName(a.qibla)} />
+
+    <p class="byline" style="margin-top:12px"><span>Edited by <a href="/about/#editor">Hamza Abdul-Tawwaab</a></span><span>Found a mistake? <a href="/contact/">Contact us</a> or use the report form on this page.</span></p>
+    {a.note && <p class="note place-access-note">{a.note}</p>}
+    <div class="d-grid" data-guide-tabs>
+      <GuideTabNav tabs={guideTabs} label={g.overview}/>
+      <div class="d-main guide-panel" id="room-details">
+        {a.status === 'pending' && (
+          <div class="none-panel"><span class="eyebrow">Not checked yet</span><h2>We haven’t checked {a.short} yet.</h2>
+            <p class="muted">It’s on our list. If you have prayed there recently, tell us where the room is below and we’ll confirm it with the airport.</p></div>
+        )}
+        {(a.status === 'none' || a.status === 'planned') && (
+          <div class="none-panel"><span class="eyebrow">{a.status === 'planned' ? 'Planned' : 'Not listed'}</span>
+            <h2>{a.status === 'planned' ? `A quiet room is planned at ${a.short}, but nothing is open yet.` : `No prayer or quiet room is listed on ${a.short}’s website as of ${a.checkedFmt}.`}</h2>
+            <p class="muted">That doesn’t always mean there isn’t one. If you know of a room, tell us below. If you’d like one, use the box on this page to ask the airport.</p>
+          </div>
+        )}
+        {a.spaces.map((s, i) => (
+          <article class="card room" id={`room-${i + 1}`}>
+            <div class="room-top"><span class="room-number" aria-hidden="true">{String(i+1).padStart(2,'0')}</span><h2>{s.name}</h2><span class="tag">{s.type}</span></div>
+            {s.loc.includes(';') ? (
+              <div><p class="where"><svg width="20" height="20" aria-hidden="true"><use href="#i-pin"/></svg><span>Locations</span></p>
+                <ul class="where-list">{s.loc.split(';').map((x) => x.trim()).filter(Boolean).map((x) => <li>{x[0].toUpperCase() + x.slice(1)}</li>)}</ul></div>
+            ) : <p class="where"><svg width="20" height="20" aria-hidden="true"><use href="#i-pin"/></svg><span>{s.loc}</span></p>}
+            <dl class="facts">
+              <div class="fact-essential"><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-security"/></svg>Security</dt><dd>{L.side[s.side]}</dd></div>
+              <div class="fact-essential"><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-clock"/></svg>Hours</dt><dd>{s.hours}</dd></div>
+              {s.access && <div class="fact-essential fact-access"><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-key"/></svg>Access</dt><dd>{s.access}</dd></div>}
+              <div><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-water"/></svg>Wuḍūʾ</dt><dd set:html={pill(L.wudu[s.wudu])} /></div>
+              <div><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-screen"/></svg>Women</dt><dd set:html={pill(L.women[s.women])} /></div>
+              {s.qibla_marker && <div><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-qibla"/></svg>Qibla marker</dt><dd>{s.qibla_marker}</dd></div>}
+              {s.jumuah && <div><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-community"/></svg>Group prayer</dt><dd>{s.jumuah}</dd></div>}
+            </dl>
+            {s.extra && <p class="extra">{s.extra}</p>}
+            <div class="src"><span><svg width="16" height="16" aria-hidden="true"><use href="#i-source"/></svg>Source: <a href={s.src} rel="noopener">{host(s.src)}</a></span>
+              <span>Source checked {fmtDate(s.checked) || 'date unavailable'} · <span class={`badge ${L.verified[String(s.verified)]?.[1] || 'b-unv'}`}>{L.verified[String(s.verified)]?.[0] || 'Not from the airport'}</span></span></div>
+          </article>
+        ))}
+
+        <PlacePhotos place={a} />
+
+        {a.spaces.length > 0 && <CheckIn code={a.code} iata={a.iata} spaces={a.spaces.map((s) => s.name)} />}
+
+        {h && (
+          <section class="card halal" aria-labelledby="halal-h">
+            <div class="room-top"><h2 id="halal-h">Halal food</h2><span class="tag">{h.outlets.length ? `${h.outlets.length} ${h.outlets.length === 1 ? 'outlet' : 'outlets'}` : halalPolicy(h) ? 'Outlets not checked yet' : 'No listing found'}</span></div>
+            {h.outlets.length > 0 ? (
+              <ul class="outlets">
+                {h.outlets.map((o) => (
+                  <li>
+                    <div class="o-top"><b>{o.name}</b><span class="fine">{o.terminal}{o.side !== 'unknown' && ` · ${L.side[o.side]}`}</span></div>
+                    <p>{halalClaim(o)}</p>
+                    {o.access && <p class="fine"><b>Access:</b> {o.access}</p>}
+                    <p class="fine">Source: <a href={o.source_url} rel="noopener">{host(o.source_url)}</a> · source read {fmtDate(o.accessed)}{o.verified === 'unverified' && <> · <span class="badge b-unv">Not verified by us</span></>}</p>
+                  </li>
+                ))}
+              </ul>
+            ) : <p>{halalNone(h)} <span class="fine">Sources read 13 Oct 2026.</span></p>}
+            <p class="fine">We list what each source says and when we checked it. We don’t certify food or give religious rulings. Please ask the outlet and look for a current certificate.</p>
+          </section>
+        )}
+        <MasajidNear code={a.code} />
+      </div>
+
+      <section id="direction" class="guide-panel direction-panel">
+        <Compass qibla={a.qibla} label={a.iata} near={near} place="airport" />
+        <p class="card plan-link fine">Changing planes here? The <a href="/planner/">layover planner</a> shows which prayers fall before, between and during your flights.</p>
+      </section>
+      <div class="d-side guide-panel" id="visitor-tools">
+    <VisitInsights kind="airports" locale="en" placeUrl={a.url} compact />
+        {q.length > 0 && (
+          <aside class="card ask" aria-labelledby="ask-h">
+            <span class="eyebrow">Ask {a.short}</span>
+            <h2 id="ask-h" style="font-size:1.25rem">Ask about prayer facilities</h2>
+            <ul>{q.map((x) => <li>{x.label}</li>)}</ul>
+            <label for="msg" class="fine">Suggested message. Edit it and send it yourself.</label>
+            <textarea id="msg">{message(a, q)}</textarea>
+            <div class="btns">
+              <button class="btn ghost" type="button" data-copy>Copy message</button><span id="copy-status" class="sr" role="status"></span>
+              {a.feedback ? <a class="btn sign-btn" href={a.feedback} rel="noopener" data-ask={a.code}>Open the airport’s feedback page</a> : <span class="fine">We haven’t found this airport’s feedback page yet.</span>}
+            </div>
+          </aside>
+        )}
+        {q.length === 0 && a.status !== 'pending' && (
+          <aside class="card ask"><span class="eyebrow">Facilities found</span><h2 style="font-size:1.2rem">Our sources list a prayer room, a wuḍūʾ area and a space for women at {a.iata}.</h2><p class="fine">If that changes, tell us and we’ll update the page.</p></aside>
+        )}
+        {a.status !== 'room' && a.status !== 'pending' && <LetterKit place={a.name} city={a.city} kind="airport" feedbackUrl={a.feedback || null} />}
+        <details class="card report-box">
+          <summary>Been through {a.iata} recently? Tell us</summary>
+          <p class="muted" style="font-size:.95rem;margin-top:8px">The editor checks every report against the airport before anything changes. Please don’t include your name or contact details. <a href="/about/#privacy">How we handle reports</a></p>
+          <form class="report" data-report={a.code} method="post" action="/api/report">
+            <input type="hidden" name="code" value={a.code}>
+            <label>What you found<select name="field" required><option>New room I found</option><option>Room moved or closed</option><option>Hours</option><option>Wuḍūʾ area</option><option>Space for women</option><option>Something else</option></select></label>
+            <label>When you were there<input name="seen" type="month" required></label>
+            <label class="full">Details<textarea name="details" rows="4" required minlength="10" maxlength="1500" placeholder="e.g. Terminal 2, after security, next to Gate B12. Small foot basin inside."></textarea></label>
+            <label class="hp" aria-hidden="true">Leave empty<input name="website" tabindex="-1" autocomplete="off"></label>
+            <Turnstile />
+            <div class="full"><button class="btn" type="submit">Send report</button></div>
+          </form>
+          <div class="ok" hidden data-ok tabindex="-1"><svg width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg>Thanks. Your report is waiting for an editor to check it.</div>
+          <p class="err" hidden data-err role="alert">Your report didn’t send. Check your connection and try again; your text is still here.</p>
+        </details>
+        <VisitorArtwork scene="airport" placement="supporting" purpose="visitor-preparation"/>
+      </div>
+    </div>
+  </div>
+</Base>
+<script>
+  document.querySelector('[data-copy]')?.addEventListener('click', async (e) => {
+    const t = document.getElementById('msg'), b = e.currentTarget;
+    try { await navigator.clipboard.writeText(t.value); b.textContent = 'Copied'; document.getElementById('copy-status').textContent = 'Message copied'; }
+    catch { t.focus(); t.select(); b.textContent = 'Selected: copy it now'; }
+    setTimeout(() => (b.textContent = 'Copy message'), 2500);
+  });
+  const ask = document.querySelector('[data-ask]');
+  ask?.addEventListener('click', () => {
+    navigator.sendBeacon?.('/api/ask', JSON.stringify({ code: ask.dataset.ask }));
+  });
+  const form = document.querySelector('[data-report]');
+  // Result of a no-JavaScript form post (the server redirects back with ?report=...).
+  const state = new URLSearchParams(location.search).get('report');
+  if (state && form) {
+    form.closest('details').open = true;
+    if (state === 'sent') { form.hidden = true; document.querySelector('[data-ok]').hidden = false; }
+    else document.querySelector('[data-err]').hidden = false;
+  }
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button'), ok = document.querySelector('[data-ok]'), err = document.querySelector('[data-err]');
+    btn.disabled = true; err.hidden = true;
+    try {
+      const r = await fetch('/api/report', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ code: form.dataset.report, ...Object.fromEntries(new FormData(form)) }) });
+      if (!r.ok) throw new Error(String(r.status));
+      form.hidden = true; ok.hidden = false; ok.focus();
+    } catch { err.hidden = false; btn.disabled = false; window.turnstile?.reset(form.querySelector('.cf-turnstile')); }
+  });
+</script>

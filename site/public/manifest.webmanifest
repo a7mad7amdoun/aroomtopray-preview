@@ -1,0 +1,2 @@
+{ "name": "A Room to Pray", "short_name": "Room to Pray", "start_url": "/", "display": "browser", "background_color": "#E9EDF1", "theme_color": "#FFC629",
+  "icons": [{ "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }, { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }] }

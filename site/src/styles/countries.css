@@ -1,0 +1,15 @@
+/* Self-hosted SVG flags retain their symbols and colors in both appearances. */
+img.country-flag { display:inline-block; width:28px; height:21px; flex:none; object-fit:contain; vertical-align:middle; border-radius:2px; background:#fff; box-shadow:0 0 0 1px #10203026; filter:none; }
+.country-badge-compact img.country-flag,.place-search-meta img.country-flag { width:24px; height:18px; }
+.country-card h3>span { min-width:0; overflow-wrap:anywhere; }
+.country-card h3>small { flex:none; }
+.country-coverage-note { font-size:.85rem; color:var(--muted); line-height:1.6; }
+.country-scope { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-bottom:12px; font-size:.85rem; }
+.country-scope select { max-width:100%; min-height:44px; border:1px solid var(--line); border-radius:6px; padding:8px 12px; background:var(--surface); color:var(--ink); font:inherit; }
+.place-search-results .place-search-meta,.atlas-country-line { display:flex; align-items:center; gap:8px; }
+.place-search-meta>span { min-width:0; }
+.prayer-board-place img.board-flag { width:24px; height:18px; }
+.lrow .code img.country-flag { margin-bottom:3px; }
+.lrow .nm .place-photo-badge { display:inline-flex; width:fit-content; margin-top:6px; padding:2px 7px; color:var(--ink); background:var(--surface-2); border:1px solid var(--line); border-radius:3px; font-size:.7rem; font-weight:600; line-height:1.5; }
+:root[data-theme=dark] img.country-flag { box-shadow:0 0 0 1px #ffffff40; }
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) img.country-flag { box-shadow:0 0 0 1px #ffffff40; }}

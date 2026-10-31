@@ -1,0 +1,42 @@
+---
+import { photosForPlace, photoSrcset } from '../lib/place-photos.js';
+import { PHOTO_COPY } from '../data/photo-copy.js';
+import { localizedPath } from '../lib/i18n.js';
+
+// One named example from this directory, never a generic image for every listing.
+const { place, locale='en' } = Astro.props;
+const photo = place && photosForPlace(place.url)[0];
+const t = PHOTO_COPY[locale] || PHOTO_COPY.en;
+const date = photo && new Intl.DateTimeFormat(locale, {year:'numeric',month:'short',timeZone:'UTC'}).format(new Date(`${photo.dateTaken}T12:00:00Z`));
+---
+{photo && <figure class="directory-photo" data-photo-example={place.url}>
+ <a class="directory-photo-link" href={`${localizedPath(place.url,locale)}#place-photos`}>
+  <span class="directory-photo-image"><img src={photo.images[0].src} srcset={photoSrcset(photo)} sizes="(max-width: 600px) 112px, 220px" width={photo.width} height={photo.height} alt={photo.alt[locale] || photo.alt.en} loading="lazy" decoding="async" /></span>
+  <span class="directory-photo-caption"><span class="directory-photo-kind"><svg width="14" height="14" aria-hidden="true"><use href="#i-photo"/></svg>{t.kinds[photo.kind]}</span><strong><bdi>{place.short || place.name}</bdi><svg class="directional-icon" width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></strong><span class="directory-photo-date">{t.captured} · <time datetime={photo.dateTaken}>{date}</time></span></span>
+ </a>
+ <figcaption>© <bdi>{photo.author}</bdi> · <a href={photo.sourceUrl} target="_blank" rel="noopener noreferrer">{photo.license.name}<span class="sr"> · {t.original}</span></a></figcaption>
+</figure>}
+<style>
+ .directory-photo { margin:0; min-width:0; align-self:center; padding:7px; border:1px solid var(--line); border-radius:7px; background:var(--surface); box-shadow:0 2px 4px #0f1c2e09,0 12px 28px #0f1c2e0d; }
+ .directory-photo-link { display:grid; grid-template-columns:112px minmax(0,1fr); align-items:center; gap:12px; color:var(--ink); text-decoration:none; border-radius:3px; }
+ .directory-photo-image { display:grid; align-items:center; min-width:0; background:var(--surface-2); border-radius:3px; overflow:hidden; }
+ img { display:block; width:100%; height:auto; max-height:160px; object-fit:contain; filter:none; }
+ .directory-photo-caption { display:grid; min-width:0; gap:7px; padding:5px 4px; }
+ .directory-photo-kind { display:flex; align-items:center; gap:6px; color:var(--muted); font-size:.73rem; line-height:1.4; }
+ .directory-photo-kind svg { flex:none; }
+ strong { display:flex; gap:8px; align-items:center; justify-content:space-between; font:600 .95rem/1.35 var(--f-display); }
+ strong bdi { min-width:0; overflow-wrap:anywhere; }
+ strong svg { flex:none; }
+ .directory-photo-date,figcaption { color:var(--muted); font-size:.73rem; line-height:1.5; }
+ figcaption { padding:8px 4px 2px; border-top:1px solid var(--line); margin-top:7px; }
+ figcaption a { text-underline-offset:3px; }
+ .directory-photo-link:hover strong { text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; }
+ a:focus-visible { outline:3px solid var(--focus); outline-offset:4px; }
+ @container prayer-guide (min-width:680px) {
+  .directory-photo-link { grid-template-columns:1fr; gap:2px; }
+  .directory-photo-caption { padding:10px 4px 4px; }
+ }
+ @container prayer-guide (max-width:360px) { .directory-photo-link { grid-template-columns:84px minmax(0,1fr); gap:10px; } }
+ :global(html[lang=ar]) strong { font-family:var(--f-body); line-height:1.6; }
+ @media print { .directory-photo { box-shadow:none; break-inside:avoid; } }
+</style>

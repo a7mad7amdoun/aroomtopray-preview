@@ -1,0 +1,740 @@
+[
+ {
+  "slug": "henry-ford-hospital",
+  "name": "Henry Ford Hospital",
+  "system": "Henry Ford Health",
+  "city": "Detroit",
+  "country": "United States",
+  "lat": 42.367,
+  "lon": -83.0843,
+  "spaces": [
+   {
+    "name": "Cynthia & Edsel B. Ford III Interfaith Chapel",
+    "location": "H Building, first floor, between the Main Lobby and the West Pavilion",
+    "access": "Patients, visitors and staff",
+    "hours": "24/7",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "interfaith chapel",
+    "jumuah": "unknown",
+    "source_url": "https://www.henryford.com/locations/henry-ford-hospital/visitors/support",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "yes",
+   "how_to_request": "Ask your nurse or call the Spiritual Care Department, (313) 916-2860. Henry Ford Health says, system-wide, that its chaplains include Imams; the hospital page does not name a Muslim chaplain.",
+   "source_url": "https://www.henryford.com/visitors/expect/spiritual"
+  },
+  "feedback_url": "https://www.henryford.com/locations/henry-ford-hospital/visitors/support",
+  "notes": "Muslim-chaplain \"yes\" rests on a Henry Ford Health system-level statement (\"Our teams ... include ... Imams\"), not a hospital-specific listing. No Muslim prayer room or Jumuah is listed. Coordinates: Wikidata Q3145166 (P625), hospital-level point."
+ },
+ {
+  "slug": "corewell-health-dearborn",
+  "name": "Corewell Health Dearborn Hospital (formerly Beaumont Dearborn)",
+  "system": "Corewell Health",
+  "city": "Dearborn",
+  "country": "United States",
+  "lat": 42.2904,
+  "lon": -83.2144,
+  "spaces": [
+   {
+    "name": "Hospital chapel",
+    "location": "unknown (Corewell says to ask your care team)",
+    "access": "Anyone in need of prayer or a quiet space",
+    "hours": "Always open",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "chapel",
+    "jumuah": "unknown",
+    "source_url": "https://corewellhealth.org/patient-and-visitor/spiritual-care",
+    "source_type": "official system-wide page (not Dearborn-specific); fetched via r.jina.ai",
+    "verified": "official-indirect",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Ask your care team. Corewell says chaplains can help with religious rituals and that Qur'ans are available on request.",
+   "source_url": "https://corewellhealth.org/patient-and-visitor/spiritual-care"
+  },
+  "feedback_url": "https://corewellhealth.org/patient-and-visitor/spiritual-care",
+  "notes": "Only a system-wide statement (\"Each Corewell Health hospital has a chapel ... always open\") was found; the Dearborn location page does not mention the chapel. beaumont.org returned 403. Thin entry. Coordinates: Wikidata Q30280963 (\"healthcare organization in Dearborn\"), hospital-level point."
+ },
+ {
+  "slug": "nyu-langone-tisch",
+  "name": "NYU Langone Tisch Hospital",
+  "system": "NYU Langone Health",
+  "city": "New York",
+  "country": "United States",
+  "lat": 40.7426,
+  "lon": -73.9738,
+  "spaces": [
+   {
+    "name": "Tisch Meditation Room",
+    "location": "Tisch Hospital, on the blue pathway beyond the Tisch elevators (first floor, per the Bikur Cholim note)",
+    "access": "Patients and guests",
+    "hours": "24/7",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "meditation room",
+    "jumuah": "unknown",
+    "source_url": "https://nyulangone.org/patient-family-support/spiritual-care-services-for-adults/prayer-meditation-spaces",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "yes",
+   "how_to_request": "Tisch Hospital and Kimmel Pavilion: call 212-263-5903. Qur'ans and Zamzam water are listed as available on request.",
+   "source_url": "https://nyulangone.org/patient-family-support/spiritual-care-services-for-adults"
+  },
+  "feedback_url": "https://nyulangone.org/patient-family-support/spiritual-care-services-for-adults",
+  "notes": "NYU Langone says its team \"includes Catholic priests, imams, and rabbis\" (system-level; no named imam for Tisch). The Muslim prayer room NYU lists is at NYU Langone Hospital-Brooklyn, not Tisch. Coordinates: Wikidata Q61931035 (P625)."
+ },
+ {
+  "slug": "nyp-weill-cornell",
+  "name": "NewYork-Presbyterian/Weill Cornell Medical Center",
+  "system": "NewYork-Presbyterian",
+  "city": "New York",
+  "country": "United States",
+  "lat": 40.7647,
+  "lon": -73.954,
+  "spaces": [
+   {
+    "name": "Leland Eggleston Cofer Memorial Chapel",
+    "location": "First-floor lobby of the main entrance, 525 East 68th Street",
+    "access": "People of all faiths",
+    "hours": "24 hours daily",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "interfaith chapel",
+    "jumuah": "unknown (service schedule posted in the chapel vestibule)",
+    "source_url": "https://www.nyp.org/patient-guides/weill-cornell-during-your-stay/for-your-care",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "yes",
+   "how_to_request": "Ask a member of staff or call Pastoral Care, (212) 746-6971 (Mon-Fri 9am-5pm); an on-call chaplain is available 24/7. Email requests: pastoralcare@nyp.org (answered weekdays 9-5).",
+   "source_url": "https://www.nyp.org/pastoral-care/staff-bios/weill-cornell-pastoral-care"
+  },
+  "feedback_url": "https://www.nyp.org/pastoral-care/contact-a-chaplain",
+  "notes": "NYP's Weill Cornell staff bios list a Muslim and multi-faith chaplain. Other NYP campuses publish more Muslim provision: NYP Queens holds Jumuah on Friday afternoon in its first-floor chapels (nyp.org/pastoral-care/chapel-services); Brooklyn Methodist has a Muslim prayer room in Wesley House (search snippet). A search snippet says Columbia's Pauline A. Hartford Chapel has a Muslim prayer room by the altar, which was not confirmed on an official page. Coordinates: Wikidata Q7013596 (P625)."
+ },
+ {
+  "slug": "northwestern-memorial",
+  "name": "Northwestern Memorial Hospital",
+  "system": "Northwestern Medicine",
+  "city": "Chicago",
+  "country": "United States",
+  "lat": 41.8947,
+  "lon": -87.6219,
+  "spaces": [
+   {
+    "name": "Feinberg Chapel",
+    "location": "Feinberg Pavilion, second floor, 251 East Huron Street",
+    "access": "Patients and visitors",
+    "hours": "24 hours a day",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "nondenominational chapel",
+    "jumuah": "unknown (interfaith services Sundays 10:00 am and Fridays 12:30 pm; not described as Jumuah)",
+    "source_url": "https://www.nm.org/locations/northwestern-memorial-hospital-feinberg-pavilion",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   },
+   {
+    "name": "Mathews Interfaith Chapel",
+    "location": "Prentice Women's Hospital, third floor",
+    "access": "Patients and visitors",
+    "hours": "24 hours",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "interfaith chapel",
+    "jumuah": "unknown",
+    "source_url": "https://www.nm.org/locations/northwestern-memorial-hospital-galter-pavilion",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Pastoral Services, 312.926.2028 (listed on the Galter Pavilion page).",
+   "source_url": "https://www.nm.org/locations/northwestern-memorial-hospital-galter-pavilion"
+  },
+  "feedback_url": "https://www.nm.org/locations/northwestern-memorial-hospital-feinberg-pavilion",
+  "notes": "A search snippet showed an NM job posting for a per-diem \"Chaplain Specialist - Imam\"; the posting now returns 404, so it is not evidence of a current chaplain. The old nm.org chaplaincy URL returns \"page unavailable\". Coordinates: Wikidata Q7060339 (P625)."
+ },
+ {
+  "slug": "ui-health",
+  "name": "University of Illinois Hospital (UI Health)",
+  "system": "UI Health",
+  "city": "Chicago",
+  "country": "United States",
+  "lat": 41.8697,
+  "lon": -87.6705,
+  "spaces": [
+   {
+    "name": "Contemplation (Chapel/Meditation) Room",
+    "location": "Hospital Atrium, second floor",
+    "access": "Patients, families and staff",
+    "hours": "24 hours a day",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "contemplation room",
+    "jumuah": "unknown",
+    "source_url": "https://hospital.uillinois.edu/patients-and-visitors/patient-information/spiritual-care",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Call Spiritual Care, 312.996.0296, at any time, or ask any member of the medical team. Chaplains can help contact your own religious community.",
+   "source_url": "https://hospital.uillinois.edu/patients-and-visitors/patient-information/spiritual-care"
+  },
+  "feedback_url": "https://hospital.uillinois.edu/patients-and-visitors/patient-information/spiritual-care",
+  "notes": "The room is \"reserved exclusively for quiet reflections and prayer\"; no group meetings, eating, sleeping or phone calls. Coordinates: Wikidata Q137669904 (P625)."
+ },
+ {
+  "slug": "houston-methodist-tmc",
+  "name": "Houston Methodist Hospital (Texas Medical Center)",
+  "system": "Houston Methodist",
+  "city": "Houston",
+  "country": "United States",
+  "lat": 29.7101,
+  "lon": -95.3998,
+  "spaces": [
+   {
+    "name": "Muslim Prayer Center",
+    "location": "Fondren-Brown Building, first floor",
+    "access": "unknown",
+    "hours": "24 hours a day; prayer times posted by the Center doors",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "jumuah": "unknown",
+    "source_url": "https://www.houstonmethodist.org/locations/texas-medical-center/for-patients/spiritual-care-education/",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   },
+   {
+    "name": "Wiess Memorial Chapel",
+    "location": "Dunn Tower, first floor",
+    "access": "unknown",
+    "hours": "24 hours a day",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "chapel",
+    "jumuah": "unknown",
+    "source_url": "https://www.houstonmethodist.org/locations/texas-medical-center/for-patients/spiritual-care-education/",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Call 713.441.2381 (Mon-Fri 8am-4:30pm); after hours call 713.441.2201 and ask for the chaplain on call. A chaplain is in house 24 hours. Prayer requests: text PRAYER to 45991.",
+   "source_url": "https://www.houstonmethodist.org/locations/texas-medical-center/for-patients/spiritual-care-education/"
+  },
+  "feedback_url": "https://www.houstonmethodist.org/locations/texas-medical-center/for-patients/spiritual-care-education/",
+  "notes": "One of only a few US hospitals in the pilot with a dedicated Muslim prayer space on its own page. Department is \"staffed by clergy representing many different denominations\"; no Muslim chaplain named. Coordinates: Wikidata Q7751188 (P625)."
+ },
+ {
+  "slug": "memorial-hermann-tmc",
+  "name": "Memorial Hermann-Texas Medical Center",
+  "system": "Memorial Hermann Health System",
+  "city": "Houston",
+  "country": "United States",
+  "lat": 29.7133,
+  "lon": -95.3959,
+  "spaces": [
+   {
+    "name": "Muslim Prayer Room (inside the Dunn Chapel)",
+    "location": "Inside the Dunn Chapel, Hermann Pavilion Atrium (listed as ground floor for the chapel and 1st floor for the prayer room)",
+    "access": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "jumuah": "unknown",
+    "source_url": "https://memorialhermann.org/locations/texas-medical-center/patients-visitors/visitor-information",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   },
+   {
+    "name": "Sterling Prayer & Meditation Room",
+    "location": "Robertson Pavilion, 1st floor, across from the Hermann Cafe",
+    "access": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "prayer and meditation room",
+    "jumuah": "unknown",
+    "source_url": "https://memorialhermann.org/locations/texas-medical-center/patients-visitors/visitor-information",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Chaplain Services, (713) 704-4160; from the in-room white phone dial 4.4160. Available 24 hours a day.",
+   "source_url": "https://memorialhermann.org/locations/texas-medical-center/patients-visitors/during-your-stay"
+  },
+  "feedback_url": "https://memorialhermann.org/locations/texas-medical-center/patients-visitors/visitor-information",
+  "notes": "Hours not stated. The visitor page carries a 2019 published-time stamp, so recheck. Floor wording conflicts (ground vs 1st floor). Coordinates: Wikidata Q6815447 (P625)."
+ },
+ {
+  "slug": "parkland-memorial",
+  "name": "Parkland Memorial Hospital",
+  "system": "Parkland Health",
+  "city": "Dallas",
+  "country": "United States",
+  "lat": 32.8111,
+  "lon": -96.8383,
+  "spaces": [
+   {
+    "name": "Parkland Chapel",
+    "location": "First floor, 5200 Harry Hines Blvd.",
+    "access": "Everyone, regardless of faith and background",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "non-denominational chapel",
+    "jumuah": "unknown",
+    "source_url": "https://www.parklandhealth.org/spiritual-care",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Ask Parkland staff or call Spiritual Care, 214-590-8512. \"A chaplain is always available.\"",
+   "source_url": "https://www.parklandhealth.org/spiritual-care"
+  },
+  "feedback_url": "https://www.parklandhealth.org/spiritual-care",
+  "notes": "Chapel hours not stated. Parkland says its chaplains \"represent different religious traditions\" without naming them. Coordinates: Wikidata Q3896131 (P625)."
+ },
+ {
+  "slug": "cedars-sinai",
+  "name": "Cedars-Sinai Medical Center",
+  "system": "Cedars-Sinai",
+  "city": "Los Angeles",
+  "country": "United States",
+  "lat": 34.0752,
+  "lon": -118.3807,
+  "spaces": [
+   {
+    "name": "Cedars-Sinai Chapel",
+    "location": "Plaza Level, between the North and South towers (Spiritual Care offices next door)",
+    "access": "Patients, visitors and employees",
+    "hours": "24 hours a day",
+    "wudu": "unknown (tayammum kits available from a chaplain)",
+    "women": "unknown",
+    "type": "interfaith chapel",
+    "jumuah": "Weekly in the chapel, also shown on Cedars-Sinai TV Channel 50; UCLA DGSOM lists Fridays 1:15-1:45 pm",
+    "source_url": "https://www.cedars-sinai.org/programs/support-services/services/spiritual-care/services.html",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "yes",
+   "how_to_request": "Ask your nurse or call 310-423-5550 (Mon-Fri 8am-5pm PT); urgent need outside office hours: 310-423-5180.",
+   "source_url": "https://www.cedars-sinai.org/programs/support-services/services/spiritual-care/team.html"
+  },
+  "feedback_url": "https://www.cedars-sinai.org/programs/support-services/services/spiritual-care/services.html",
+  "notes": "Prayer rugs, scarves, Qur'ans and Islamic literature in the chapel; qibla marked by a picture. Team page lists a Per Diem Muslim Chaplain. Jumuah time comes from the UCLA medical school prayer-spaces page, not Cedars itself. Old /patients-visitors/spiritual-care/ URLs redirect or 404. Coordinates: Wikidata Q1052562 (P625)."
+ },
+ {
+  "slug": "ronald-reagan-ucla",
+  "name": "Ronald Reagan UCLA Medical Center",
+  "system": "UCLA Health",
+  "city": "Los Angeles",
+  "country": "United States",
+  "lat": 34.0664,
+  "lon": -118.446,
+  "spaces": [
+   {
+    "name": "Interfaith Meditation Room/Chapel",
+    "location": "Room 1109, first floor, just inside the front entrance",
+    "access": "unknown",
+    "hours": "24 hours a day",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "interfaith meditation room",
+    "jumuah": "unknown",
+    "source_url": "https://www.uclahealth.org/patient-resources/support-information/spiritual-care",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "8:30am-5pm call the Spiritual Care Office, 310-825-7484; after hours ask your nurse to page the on-call chaplain. Chaplains can contact a leader of a particular faith on request.",
+   "source_url": "https://www.uclahealth.org/patient-resources/support-information/spiritual-care"
+  },
+  "feedback_url": "https://www.uclahealth.org/patient-resources/support-information/spiritual-care",
+  "notes": "UCLA medical school says prayer rugs and privacy screens are available in the Meditation Room/Chapel, and dates and water are provided at sunset in Ramadan in the Dining Commons (medschool.ucla.edu prayer-spaces page, via r.jina.ai). Coordinates: Wikidata Q2169282 (P625)."
+ },
+ {
+  "slug": "johns-hopkins-hospital",
+  "name": "The Johns Hopkins Hospital",
+  "system": "Johns Hopkins Medicine",
+  "city": "Baltimore",
+  "country": "United States",
+  "lat": 39.2974,
+  "lon": -76.5924,
+  "spaces": [
+   {
+    "name": "Bunting Family Interfaith Chapel",
+    "location": "Zayed Building, Main Level (entrance in Bloomberg Building)",
+    "access": "unknown",
+    "hours": "At all times",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "interfaith chapel",
+    "jumuah": "Fridays 12:30-1:00 pm and 1:30-2:00 pm",
+    "source_url": "https://www.hopkinsmedicine.org/the-johns-hopkins-hospital/patients-visitors/spiritual-services",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   },
+   {
+    "name": "Weinberg Meditation Room",
+    "location": "Weinberg Lobby, 1st floor",
+    "access": "unknown",
+    "hours": "At all times",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "meditation room",
+    "jumuah": "unknown",
+    "source_url": "https://www.hopkinsmedicine.org/the-johns-hopkins-hospital/patients-visitors/spiritual-services",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   },
+   {
+    "name": "Viragh Meditation Room",
+    "location": "Viragh Building, Main Level",
+    "access": "unknown",
+    "hours": "At all times",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "meditation room",
+    "jumuah": "unknown",
+    "source_url": "https://www.hopkinsmedicine.org/the-johns-hopkins-hospital/patients-visitors/spiritual-services",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Urgent: 410-955-4331. Messages: 410-955-5842 (Mon-Fri 8am-5pm). Or ask your nurse. A chaplain is on campus 24/7.",
+   "source_url": "https://www.hopkinsmedicine.org/the-johns-hopkins-hospital/patients-visitors/spiritual-services"
+  },
+  "feedback_url": "https://www.hopkinsmedicine.org/the-johns-hopkins-hospital/patients-visitors/spiritual-services",
+  "notes": "Official Jumuah with two sittings. The page names Jewish, Episcopal and Catholic-priest chaplains but no Muslim chaplain; a 2018 annual report (search snippet only) named imams supporting Muslim patients. Coordinates: Wikidata Q1472068 (P625); Q6268023 is a subway station of the same name and was rejected."
+ },
+ {
+  "slug": "inova-fairfax",
+  "name": "Inova Fairfax Hospital",
+  "system": "Inova Health",
+  "city": "Falls Church (Fairfax County), Virginia",
+  "country": "United States",
+  "lat": 38.8574,
+  "lon": -77.2285,
+  "spaces": [
+   {
+    "name": "Interfaith Chapel",
+    "location": "First floor of the North Tower (follow signs across the hall from the main tower gift shop)",
+    "access": "unknown",
+    "hours": "24/7",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "interfaith chapel",
+    "jumuah": "unknown",
+    "source_url": "https://www.inova.org/spiritual-care-services",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Call 703-776-3767; chaplains are available Mon-Fri 8:30am-4:30pm, and a healthcare team member can reach the on-call chaplain for urgent needs.",
+   "source_url": "https://www.inova.org/spiritual-care-services"
+  },
+  "feedback_url": "https://www.inova.org/spiritual-care-services",
+  "notes": "The Fairfax campus spiritual-care page returned 403 (r.jina.ai and direct); a search snippet says it lists prayer rugs. Coordinates: OSM way 516393904 (Nominatim). Wikidata Q6036707 gives 38.1915,-77.2276, about 74 km south of the hospital, so it was not used."
+ },
+ {
+  "slug": "hennepin-healthcare",
+  "name": "Hennepin Healthcare (HCMC)",
+  "system": "Hennepin Healthcare",
+  "city": "Minneapolis",
+  "country": "United States",
+  "lat": 44.9725,
+  "lon": -93.2619,
+  "spaces": [
+   {
+    "name": "Spiritual Center",
+    "location": "Red Building, Level 2 Skyway, next to Medical Library Services",
+    "access": "Patients, families and employees",
+    "hours": "24 hours a day",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "multi-faith",
+    "jumuah": "unknown",
+    "source_url": "https://hennepinhealthcare.org/patient-resources/support-services/spiritual-care-and-grief",
+    "source_type": "official page; Wayback Machine snapshot 2025-12-23 (live site 403)",
+    "verified": "official-indirect",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Ask your nurse or physician to page the on-call chaplain (Mon-Fri 8am-11pm, Sat-Sun 8:30am-9pm), or leave a message at 612-873-2260.",
+   "source_url": "https://hennepinhealthcare.org/patient-resources/support-services/spiritual-care-and-grief"
+  },
+  "feedback_url": "https://hennepinhealthcare.org/patient-resources/support-services/spiritual-care-and-grief",
+  "notes": "A Hennepin blog post dated 13 May 2022 (Wayback) describes two part-time Muslim Spiritual Care Advisors via Open Path Resources and qibla stickers in Emergency Department rooms; whether this continues in 2026 is not confirmed. Coordinates: Wikidata Q5714832 (P625)."
+ },
+ {
+  "slug": "toronto-general",
+  "name": "Toronto General Hospital",
+  "system": "University Health Network (UHN)",
+  "city": "Toronto",
+  "country": "Canada",
+  "lat": 43.659,
+  "lon": -79.3885,
+  "spaces": [
+   {
+    "name": "Muslim Prayer Room",
+    "location": "Gerrard Wing, 1st floor, Room 557",
+    "access": "unknown",
+    "hours": "unknown (UHN lists 6am-10pm for its Centres for Spiritual Reflection)",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "jumuah": "unknown",
+    "source_url": "https://uhn.ca/PatientsFamilies/Patient_Services/Spiritual_Care/Pages/spiritual_care_centres.aspx",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   },
+   {
+    "name": "Centre for Spiritual Reflection",
+    "location": "Norman Urquhart Wing, 1st floor, beside the Patient & Family Library, Room 1NU-000",
+    "access": "unknown",
+    "hours": "6:00 am-10:00 pm daily",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "multi-faith",
+    "jumuah": "unknown",
+    "source_url": "https://uhn.ca/PatientsFamilies/Patient_Services/Spiritual_Care/Pages/spiritual_care_centres.aspx",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Ask a staff member or volunteer to contact a spiritual care practitioner; urgent referrals via the on-call pager 416 719 1234; non-urgent: administrative line 416 597 3014.",
+   "source_url": "https://uhn.ca/PatientsFamilies/Patient_Services/Spiritual_Care/Pages/hours_contact.aspx"
+  },
+  "feedback_url": "https://uhn.ca/PatientsFamilies/Patient_Services/Spiritual_Care/Pages/hours_contact.aspx",
+  "notes": "UHN also lists a Muslim Prayer Room at Toronto Western (4FP 108). Room 557 on a \"1st floor\" reads oddly; recheck. Coordinates: Wikidata Q2444359 (P625)."
+ },
+ {
+  "slug": "sunnybrook",
+  "name": "Sunnybrook Health Sciences Centre (Bayview Campus)",
+  "system": "Sunnybrook",
+  "city": "Toronto",
+  "country": "Canada",
+  "lat": 43.7227,
+  "lon": -79.3747,
+  "spaces": [
+   {
+    "name": "Muslim Prayer Room (Musallah)",
+    "location": "E-Wing, ground floor, across from the Synagogue",
+    "access": "unknown",
+    "hours": "Always open; prayer held every day",
+    "wudu": "yes",
+    "women": "unknown",
+    "type": "musalla",
+    "jumuah": "Fridays 1:30 pm in the Blythwood Room (EG15/17) unless otherwise posted",
+    "source_url": "https://sunnybrook.ca/departments/spiritual-care/",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   },
+   {
+    "name": "Chapel",
+    "location": "E-Wing, ground floor",
+    "access": "Patients, visitors and staff of all religious traditions",
+    "hours": "Always open",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "chapel",
+    "jumuah": "unknown",
+    "source_url": "https://sunnybrook.ca/departments/spiritual-care/",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Ask your nurse or call 416-480-4244 and ask for a spiritual care practitioner (available 24 hours). Sunnybrook says it can help access an Imam on request.",
+   "source_url": "https://sunnybrook.ca/departments/spiritual-care/"
+  },
+  "feedback_url": "https://sunnybrook.ca/departments/spiritual-care/",
+  "notes": "Wudu facilities are \"across the hall in the Chapel area, ECG05\". A search snippet from a now-404 Odette page mentioned a women's prayer section; not confirmed, so women stays unknown. Old ?page= URLs redirect or 404. Coordinates: Wikidata Q7640789 (P625)."
+ },
+ {
+  "slug": "humber-river",
+  "name": "Hennick Humber Hospital (formerly Humber River Health), Wilson site",
+  "system": "Hennick Humber Hospital",
+  "city": "Toronto",
+  "country": "Canada",
+  "lat": 43.7244,
+  "lon": -79.4896,
+  "spaces": [
+   {
+    "name": "Chapel and quiet rooms (Wilson site)",
+    "location": "Ground floor along Main Street",
+    "access": "unknown",
+    "hours": "Open at all times",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "chapel",
+    "jumuah": "unknown",
+    "source_url": "https://www.hrh.ca/patients-visitors/spiritual-care/",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Ask any member of your health care team, or call Chaplain Services, 416 242-1000 x82800.",
+   "source_url": "https://www.hrh.ca/patients-visitors/spiritual-care/"
+  },
+  "feedback_url": "https://www.hrh.ca/patients-visitors/spiritual-care/",
+  "notes": "The hospital's site now uses the name \"Hennick Humber Hospital\" (logo uploaded 2026-03). Finch site: Level 0; Church site: \"coming soon\". No Muslim-specific provision listed. Coordinates: Wikidata Q5939824 (P625)."
+ },
+ {
+  "slug": "montreal-general",
+  "name": "Montreal General Hospital (MUHC)",
+  "system": "McGill University Health Centre",
+  "city": "Montreal",
+  "country": "Canada",
+  "lat": 45.4969,
+  "lon": -73.5891,
+  "spaces": [
+   {
+    "name": "Prayer and meditation room",
+    "location": "unknown (spiritual care office: Room D6.165)",
+    "access": "unknown",
+    "hours": "24/7",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "prayer and meditation room",
+    "jumuah": "unknown",
+    "source_url": "https://muhc.ca/node/46474",
+    "source_type": "official page; US-side fetcher (WebFetch)",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Request professional spiritual care (staff available 8am-8pm daily; 8am-4pm weekends and holidays; emergencies after hours). Staff can contact representatives of diverse religious denominations.",
+   "source_url": "https://muhc.ca/node/46474"
+  },
+  "feedback_url": "https://muhc.ca/node/46474",
+  "notes": "MUHC says \"In all MUHC facilities, a prayer and meditation room is open 24/7\" but gives no room for the MGH one. Staff \"do not represent any church or religious institution in particular\". Thin entry. Coordinates: Wikidata Q3145340 (P625)."
+ },
+ {
+  "slug": "vancouver-general",
+  "name": "Vancouver General Hospital",
+  "system": "Vancouver Coastal Health",
+  "city": "Vancouver",
+  "country": "Canada",
+  "lat": 49.2612,
+  "lon": -123.123,
+  "spaces": [
+   {
+    "name": "Multi-faith sacred space room",
+    "location": "Leon Judah Blackmore Pavilion, ground floor",
+    "access": "Signs on the door show whether it is in use",
+    "hours": "Available at any time",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "multi-faith",
+    "jumuah": "unknown",
+    "source_url": "https://www.vch.ca/en/location-service/sacred-spaces-and-gathering-places-vancouver-general-hospital",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Non-urgent spiritual care (604) 875-4151; urgent (604) 612-6858; hospital staff may refer by telephone. Service runs 24/7.",
+   "source_url": "https://www.vch.ca/en/location-service/spiritual-health-vancouver-general-hospital"
+  },
+  "feedback_url": "https://www.vch.ca/en/location-service/spiritual-health-vancouver-general-hospital",
+  "notes": "Holds about 20-30 people; fans fitted for smudging. A search snippet placed the room in the Centennial Pavilion; the live official page says Leon Judah Blackmore Pavilion. Coordinates: Wikidata Q7914187 (P625)."
+ },
+ {
+  "slug": "ottawa-hospital-civic",
+  "name": "The Ottawa Hospital, Civic Campus",
+  "system": "The Ottawa Hospital",
+  "city": "Ottawa",
+  "country": "Canada",
+  "lat": 45.3928,
+  "lon": -75.7211,
+  "spaces": [
+   {
+    "name": "Prayer room",
+    "location": "Main floor, near the B elevators",
+    "access": "unknown",
+    "hours": "24/7",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "prayer room",
+    "jumuah": "Muslim prayers Fridays 1 pm (General and Civic campuses)",
+    "source_url": "https://www.ottawahospital.on.ca/en/departments-and-services/spiritual-care",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Talk to your care team or call Spiritual Care Services - Civic Campus, 613-798-5555 ext. 14587 (practitioners Mon-Fri 8am-4pm). Community clergy and faith representatives can be requested.",
+   "source_url": "https://www.ottawahospital.on.ca/en/departments-and-services/spiritual-care"
+  },
+  "feedback_url": "https://www.ottawahospital.on.ca/en/departments-and-services/spiritual-care",
+  "notes": "Civic practitioners listed on the page do not include a Muslim chaplain; Muslim needs are met via requestable community faith representatives. Coordinates: Wikidata Q35571769 (P625, Civic campus item)."
+ }
+]

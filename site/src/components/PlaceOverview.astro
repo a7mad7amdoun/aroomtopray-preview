@@ -1,0 +1,59 @@
+---
+import { getCopy, formatCount } from '../lib/i18n.js';
+import { PRESENTATION_COPY } from '../data/presentation-copy.js';
+const { place, kind, locale='en', direction='' } = Astro.props;
+const t=getCopy(locale), p=PRESENTATION_COPY[locale] || PRESENTATION_COPY.en;
+const airport=kind==='airports', pending=airport && place.status==='pending';
+const count=place.spaces.length;
+const roomValue=airport && place.status!=='room' ? t.status[place.status] : formatCount(count,locale);
+const tone={yes:'p-yes',partial:'p-part',partition:'p-part',no:'p-no',unknown:'p-unk'};
+const fields=[
+ {key:'rooms',icon:'mark',label:airport && place.status!=='room'?t.common.prayerRooms:t.common.listings,value:roomValue},
+ {key:'wudu',icon:'water',label:t.common.wudu,value:pending?t.status.pending:t.amenities.wudu[place.wudu] || t.common.notStated,tone:pending?'p-unk':tone[place.wudu] || 'p-unk'},
+ {key:'women',icon:'screen',label:t.common.women,value:pending?t.status.pending:t.amenities.women[place.women] || t.common.notStated,tone:pending?'p-unk':tone[place.women] || 'p-unk'},
+ {key:'qibla',icon:'qibla',label:t.common.qibla,value:Number.isFinite(place.qibla)?`${new Intl.NumberFormat(locale,{maximumFractionDigits:1}).format(place.qibla)}°`:t.common.notStated},
+];
+---
+<section class="place-overview" aria-labelledby="place-overview-title">
+ <h2 id="place-overview-title">{t.detail.facilities}</h2>
+ <dl class="overview-facts">
+  {fields.map(field=><div class={`overview-fact overview-${field.key}`} data-overview-fact={field.key}>
+   <dt><svg width="20" height="20" aria-hidden="true"><use href={`#i-${field.icon}`}/></svg>{field.label}</dt>
+   <dd>{field.tone ? <span class={`pill ${field.tone}`}>{field.value}</span> : <span class:list={['overview-value',{'overview-number':field.key==='qibla'||field.key==='rooms'&&(!airport||place.status==='room')}]}><bdi>{field.value}</bdi></span>}
+    {field.key==='qibla'&&<span class="overview-bearing">{direction && <bdi>{direction} · </bdi>}{t.detail.qiblaFixed}</span>}
+   </dd>
+  </div>)}
+ </dl>
+ {kind==='hospitals' && <p class="overview-chaplain"><svg width="19" height="19" aria-hidden="true"><use href="#i-community"/></svg><span><strong>{p.chaplain}</strong> · {place.chaplain?p.listed:t.common.notStated}</span>{place.chaplaincy&&<a href="#chap-h">{t.detail.contactTeam}<span aria-hidden="true"> ↓</span></a>}</p>}
+ {(count>1 || pending || place.wudu==='unknown' || place.women==='unknown')&&<p class="overview-scope"><svg width="16" height="16" aria-hidden="true"><use href="#i-info"/></svg><span>{count>1 && p.scope} {(pending || place.wudu==='unknown' || place.women==='unknown')&&t.detail.safety}</span></p>}
+</section>
+<style>
+ .place-overview { margin-block:24px 18px; min-width:0; }
+ h2 { font:600 1rem/1.5 var(--f-display); margin:0 0 12px; }
+ .overview-facts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); margin:0; border:1px solid var(--line); border-radius:5px; overflow:hidden; background:color-mix(in srgb,var(--surface-2) 56%,transparent); }
+ .overview-fact { min-width:0; padding:16px; border-inline-end:1px solid var(--line); }
+ .overview-fact:nth-child(2n) { border-inline-end:0; }
+ .overview-fact:nth-child(-n+2) { border-bottom:1px solid var(--line); }
+ dt { display:flex; align-items:center; gap:8px; font-size:.84rem; color:var(--muted); line-height:1.5; }
+ dt svg { flex:none; color:var(--ink); }
+ dd { margin:12px 0 0; display:grid; justify-items:start; gap:7px; }
+ .overview-value { font:600 1rem/1.4 var(--f-display); overflow-wrap:anywhere; }
+ .overview-number { font-size:1.6rem; font-variant-numeric:tabular-nums; line-height:1.2; }
+ .overview-bearing { font-size:.73rem; line-height:1.5; color:var(--muted); }
+ .overview-fact .pill { max-width:100%; white-space:normal; font-size:.8rem; line-height:1.5; }
+ .overview-chaplain { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:0; padding:12px 0; border-bottom:1px solid var(--line); font-size:.86rem; }
+ .overview-chaplain svg { flex:none; }
+ .overview-chaplain a { margin-inline-start:auto; display:inline-flex; align-items:center; gap:6px; min-height:44px; text-underline-offset:4px; }
+ .overview-scope { display:flex; align-items:flex-start; gap:8px; margin:10px 0 0; color:var(--muted); font-size:.8rem; line-height:1.6; }
+ .overview-scope svg { flex:none; margin-top:3px; }
+ @container prayer-guide (min-width:680px) {
+  .overview-facts { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .overview-fact:nth-child(-n+2) { border-bottom:0; }
+  .overview-fact:nth-child(2) { border-inline-end:1px solid var(--line); }
+ }
+ @container prayer-guide (max-width:360px) { .overview-fact { padding:12px; } dt { gap:6px; font-size:.8rem; } }
+ :global(html[dir=rtl]) .overview-bearing { font-size:.85rem; line-height:1.7; }
+ :global(html[dir=rtl]) dt { font-size:.95rem; }
+ a:focus-visible { outline:3px solid var(--focus); outline-offset:3px; }
+ @media print { .place-overview { break-inside:avoid; } }
+</style>

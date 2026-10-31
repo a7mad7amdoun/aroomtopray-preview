@@ -1,0 +1,28 @@
+---
+import { airports, byCode, checked } from '../lib/airports.js';
+import { getCopy, localizedPath, formatCount } from '../lib/i18n.js';
+import CountryFlag from './CountryFlag.astro';
+import { countryName } from '../lib/countries.js';
+import { IDENTITY_COPY } from '../data/identity-copy.js';
+const {locale='en'}=Astro.props, c=IDENTITY_COPY[locale], t=getCopy(locale);
+// Fixed examples, never labelled popular, recommended or live availability.
+const examples=['ist','lhr','iah','las'].map(code=>byCode[code]);
+---
+<section class="prayer-board" aria-labelledby="prayer-board-title">
+ <a class="prayer-board-sign" href={localizedPath('/airports/?mode=list',locale)}>
+  <svg width="30" height="30" aria-hidden="true"><use href="#i-mark"/></svg>
+  <h2 id="prayer-board-title">{c.boardTitle}</h2><svg class="directional-icon" width="19" height="19" aria-hidden="true"><use href="#i-arrow"/></svg>
+ </a>
+ <p class="prayer-board-intro">{c.boardIntro}</p>
+ <div class="prayer-board-columns" aria-hidden="true"><span>{c.airport}</span><span>{c.room}</span><span>{c.wudu}</span><span>{c.women}</span></div>
+ <ul class="prayer-board-rows">
+  {examples.map(a=><li><a href={localizedPath(a.url,locale)}>
+   <span class="prayer-board-place"><bdi>{a.iata}</bdi><span dir="auto">{a.city}</span><span class="sr">{countryName(a.country,locale)} · {a.name}</span><CountryFlag country={a.country} class="board-flag"/></span>
+   <span class="prayer-board-fact" data-status={a.status}><span class="board-field-name">{c.room}</span><span>{t.status[a.status]}</span></span>
+   <span class="prayer-board-fact"><span class="board-field-name">{c.wudu}</span><span>{t.amenities.wudu[a.wudu]}</span></span>
+   <span class="prayer-board-fact"><span class="board-field-name">{c.women}</span><span>{t.amenities.women[a.women]}</span></span>
+  </a></li>)}
+ </ul>
+ <div class="prayer-board-footer"><span><b>{formatCount(checked.length,locale)}</b> {c.checked} <span aria-hidden="true">·</span> <b>{formatCount(airports.length-checked.length,locale)}</b> {c.pending}</span><a href={localizedPath('/airports/?mode=list',locale)}>{c.allAirports}<svg class="directional-icon" width="19" height="19" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+ <p class="prayer-board-note">{c.summaryNote}</p>
+</section>

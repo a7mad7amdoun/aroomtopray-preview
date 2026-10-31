@@ -1,0 +1,15 @@
+/* Shared visitor collection. The complete composition stays visible at every width. */
+.destination-cards .destination-image { display:block; width:100%; height:auto; min-height:0; aspect-ratio:16/9; background:none; align-self:center; }
+.destination-art-caption { margin-top:10px; color:var(--muted); font:400 .75rem/1.6 var(--f-body); }
+.destination-art-caption a { color:inherit; text-decoration:underline; text-underline-offset:3px; margin-inline-start:.35em; }
+.destination-art-caption a:focus-visible { outline:2px solid var(--focus,var(--ink)); outline-offset:3px; }
+.room-main .section-intro>.visitor-art { margin-top:24px; margin-bottom:0; }
+.saved-empty .visitor-art { margin:8px auto 0; }
+.guide[data-guide-article]>.visitor-art:first-child { margin-top:0; }
+.room-main .d-side>.visitor-art { grid-column:1/-1; }
+@container prayer-guide (max-width:620px) {
+ .destination-cards .destination-card { grid-template-columns:minmax(104px,38%) minmax(0,1fr); }
+ .destination-cards .destination-image { height:auto; min-height:0; grid-row:1/3; }
+}
+:root[dir=rtl] .destination-art-caption { font-size:.9rem; line-height:1.8; }
+@media print { .destination-art-caption,.visitor-picture { display:none!important; } }

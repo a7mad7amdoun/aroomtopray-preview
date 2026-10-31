@@ -1,0 +1,161 @@
+[
+ {
+  "iata": "AMS",
+  "name": "Amsterdam Airport Schiphol",
+  "city": "Amsterdam",
+  "country": "NL",
+  "region": "Europe",
+  "lat": 52.308601,
+  "lon": 4.76389,
+  "qibla_deg": 125.4,
+  "distance_km": 4557,
+  "spaces": [
+   {
+    "name": "Meditation Centre",
+    "location": "Lounge 2, after security, on the way to gates D1-D57, E, F, G and H",
+    "side": "airside",
+    "hours": "24/7",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "multi-faith room (meditation centre)",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.schiphol.nl/en/at-schiphol/services/meditation-centre/",
+    "verified": "verified"
+   }
+  ],
+  "feedback_url": "unknown",
+  "notes": "Non-denominational interfaith space; Sunday 11am church service; chaplains. Read via search snippet (fetch failed). 18 Oct 2026: official page read via r.jina.ai: \"Lounge 2, after security, on your way to gates D1-D57, E, F, G and H\"; it no longer mentions the second floor or Frames Café.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "ZRH",
+  "name": "Zürich Airport",
+  "city": "Zurich",
+  "country": "CH",
+  "region": "Europe",
+  "lat": 47.458056,
+  "lon": 8.548056,
+  "qibla_deg": 125.1,
+  "distance_km": 4024,
+  "spaces": [
+   {
+    "name": "Prayer room",
+    "location": "Gates D Passenger Area (run by the airport church, Flughafenkirche)",
+    "side": "airside",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "multi-faith room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.flughafen-zuerich.ch/en/passengers/shopping-and-enjoy/services/all-services/prayer-room",
+    "verified": "verified"
+   }
+  ],
+  "feedback_url": "https://www.flughafen-zuerich.ch/en/passengers/general/terms/contact",
+  "notes": "r.jina.ai returned cookie text only; details via search snippet. 18 Oct 2026: official page read via r.jina.ai gives \"Gates D Passenger Area\"; it no longer mentions the Transit Hotel or books and prayer rugs.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "AUH",
+  "name": "Zayed International Airport",
+  "city": "Abu Dhabi",
+  "country": "AE",
+  "region": "Middle East",
+  "lat": 24.440966,
+  "lon": 54.649237,
+  "qibla_deg": 260.5,
+  "distance_km": 1554,
+  "spaces": [
+   {
+    "name": "Male and female prayer rooms",
+    "location": "Throughout the terminal, clearly signposted; prayer-time screens",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "yes (separate male and female ablution facilities next to the prayer rooms)",
+    "women": "yes",
+    "type": "musalla",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.zayedinternationalairport.ae/en/plan-and-prepare/key-auh-services-and-facilities/prayer-rooms",
+    "verified": "verified"
+   },
+   {
+    "name": "Multi-Faith Prayer Rooms",
+    "location": "Terminal (location not stated)",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "multi-faith room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://web.archive.org/web/20260328014432/https://www.zayedinternationalairport.ae/en/flights-and-check-in/connecting-at-auh/things-to-do-at-auh",
+    "verified": "verified-archive"
+   }
+  ],
+  "feedback_url": "https://www.zayedinternationalairport.ae/en/general/feedback",
+  "notes": "Official site returned 403 (Cloudflare) to direct, r.jina.ai and WebFetch; the PrayerRooms URL from search now 404s. A multi-faith room opened in old Terminal 3 in Aug 2021 (https://aviationweek.com/air-transport/airports-networks/abu-dhabi-international-airport-opens-multi-faith-prayer-room); Terminal A replaced the old terminals in Nov 2023 (secondary). Feedback URL taken from the archived official page. 18 Oct 2026: prayer-room page moved; the new page says \"Separate male and female ablution facilities are available adjacent to the prayer rooms\". It does not say the rooms themselves are separate for women.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "AKL",
+  "name": "Auckland International Airport",
+  "city": "Auckland",
+  "country": "NZ",
+  "region": "Oceania",
+  "lat": -37.01199,
+  "lon": 174.786331,
+  "qibla_deg": 261.0,
+  "distance_km": 15364,
+  "spaces": [
+   {
+    "name": "International terminal prayer room",
+    "location": "Shown on 2025-2026 terminal maps (ground floor; first floor near Pier B)",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.aucklandairport.co.nz/content/dam/aia/files/airport-map-pdfs/2026/Int'l%20terminal%20ground%20floor%20map%2026.3.26.pdf",
+    "verified": "verified-snippet"
+   },
+   {
+    "name": "Non-denominational chapel",
+    "location": "See airport maps",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "chapel",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.aucklandairport.co.nz/information/terminal-services-and-facilities",
+    "verified": "verified-snippet"
+   },
+   {
+    "name": "Prayer mat (domestic terminal)",
+    "location": "Domestic terminal, first floor",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "prayer mat",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.aucklandairport.co.nz/information/terminal-services-and-facilities",
+    "verified": "verified-archive"
+   }
+  ],
+  "feedback_url": "unknown",
+  "notes": "Official services page lists 'Worship' (r.jina.ai). Prayer-port: 'first floor, domestic terminal' (traveller, 24 Aug 2026). 18 Oct 2026: the Wayback capture (4 Oct 2025) of the official services page says \"The prayer mat is on the first floor, domestic terminal.\"",
+  "research_status": "researched",
+  "accessed": "2026-10-13"
+ }
+]

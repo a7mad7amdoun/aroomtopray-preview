@@ -1,0 +1,64 @@
+---
+// Shared shell for the travel guides. The underscore keeps Astro from routing this file.
+import Base from '../../layouts/Base.astro';
+import EditorialArtwork from '../../components/EditorialArtwork.astro';
+import { guides, REVIEWED, WRITTEN } from '../../data/travel/guides.js';
+
+interface Src { label: string; note?: string; href?: string }
+interface Props { slug: string; title: string; description: string; lede: string; sources: Src[] }
+const { slug, title, description, lede, sources } = Astro.props;
+const others = guides.filter((g) => g.slug !== slug);
+---
+<Base title={`${title} | Travel guides | A Room to Pray`} description={description} nav="travel" noindex={!REVIEWED}>
+  <header class="wrap"><div class="prose guide guide-opening">
+      <span class="eyebrow"><a href="/travel/">Praying while travelling</a></span>
+      <h1 style="font-size:clamp(2rem,4.4vw,3rem)">{title}</h1>
+      {!REVIEWED && <p class="note" role="note"><b>Awaiting review by our editor.</b> This guide is a draft. It reports what the sources and the four Sunni schools say, and it hasn’t yet been checked by our editor, Hamza Abdul-Tawwaab.</p>}
+      <p class="lede">{lede}</p>
+    </div></header>
+  <div class="wrap guide-layout">
+    <aside class="guide-contents" data-guide-contents hidden><nav aria-label="In this guide"><h2>In this guide</h2><ol></ol></nav><a href="/travel/">← All travel guides</a></aside>
+    <article class="prose guide" data-guide-article>
+      <EditorialArtwork/>
+      <slot />
+      <h2>Your own situation</h2>
+      <p>This page reports what the sources and the schools say. It is not a fatwā. Where scholars differ, we say so, and we don’t choose for you. For your own case, ask your local scholar or imam.</p>
+      <section class="sources" aria-labelledby="sources-h">
+        <h2 id="sources-h">Sources</h2>
+        <ol>
+          {sources.map((s) => (
+            <li>{s.href ? <a href={s.href}>{s.label}</a> : <b>{s.label}</b>}{s.note && <span class="muted">: {s.note}</span>}</li>
+          ))}
+        </ol>
+        <p class="fine">Ḥadīth numbers follow sunnah.com. Classical works are cited by volume and page (or page) of the printed edition named in each source, with a link to that page on al-Maktabah al-Shāmilah. Written {WRITTEN}. Spotted a mistake? <a href="/contact/">Tell us</a>.</p>
+      </section>
+      <nav class="more" aria-label="More travel guides">
+        <h2>More travel guides</h2>
+        <ul>
+          {others.map((g) => <li><a href={`/travel/${g.slug}/`}>{g.title}</a> <span class="muted">{g.short}</span></li>)}
+        </ul>
+      </nav>
+    </article>
+  </div>
+</Base>
+<script>import '../../scripts/guide-contents.js';</script>
+<style is:global>
+  .guide .lede { font-size: 1.1rem; color: var(--muted) }
+  .guide h3 { margin-top: 6px }
+  .guide ul, .guide ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; max-width: 65ch }
+  .guide .cite { font-size: .88rem; color: var(--muted) }
+  .guide .say { border-left: 3px solid var(--sign); padding-left: 14px; font-weight: 700 }
+  .guide .sources { border-top: 2px solid var(--ink); margin-top: 18px; padding-top: 4px; display: flex; flex-direction: column; gap: 12px }
+  .guide .sources ol { font-size: .93rem }
+  .guide .more ul { list-style: none; padding: 0 }
+  .guide .more li { display: flex; flex-direction: column; gap: 2px }
+  .schools { width: 100%; border-collapse: collapse; font-size: .93rem; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden }
+  .schools th, .schools td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line) }
+  .schools thead th { font-family: var(--f-mono); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 400 }
+  .schools tbody th { font-weight: 700; white-space: nowrap }
+  .table-scroll { overflow-x: auto; max-width: 100% }
+  .table-scroll:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px }
+  @media (max-width: 640px) {
+    .schools { min-width: 560px }
+  }
+</style>

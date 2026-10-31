@@ -1,0 +1,354 @@
+[
+ {
+  "iata": "HOF",
+  "name": "Al-Ahsa International Airport",
+  "city": "Hofuf",
+  "country": "SA",
+  "region": "Middle East",
+  "lat": 25.285299,
+  "lon": 49.485199,
+  "qibla_deg": 248.4,
+  "distance_km": 1075,
+  "spaces": [
+   {
+    "name": "Musalla (prayer area)",
+    "location": "Location not stated",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://gaca.gov.sa/-/media/Files/PDF/Reports/2023-ATQS-Report-HOF.pdf",
+    "verified": "verified-archive"
+   }
+  ],
+  "feedback_url": "https://daco.sa/",
+  "notes": "GACA (General Authority of Civil Aviation) official 'Comprehensive Airport Service Quality Evaluation' report for 2023 (نتائج برنامج التقييم الشامل لجودة خدمات المطار), read as a Wayback capture (web.archive.org/web/20260120045855) of https://gaca.gov.sa/-/media/Files/PDF/Reports/2023-ATQS-Report-HOF.pdf. In the 'airport facilities and services quality' results table, category 12 'المصلى' (the musalla) is scored 26% in 2023 (34% in 2022), while category 16 'فندق المطار' (airport hotel) is marked N/A; a scored category implies the musalla exists and was assessed. The report does not give its location (terminal, before/after security), hours, wudu or women's space. Operator: Dammam Airports Company (DACO); daco.sa/about/ says operation of Al-Ahsa International Airport was assigned to Dammam Airports on 1 May 2021 and also lists Al-Qaisumah International Airport. DACO's site has no airport-services page for this airport. Feedback: the 'Contact Us & Feedback' form on daco.sa opens as an on-page dialog (no separate URL). Not visually verified. A 2024 GACA report for HOF is archived but image-only; not read.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "ULH",
+  "name": "Al-Ula International Airport",
+  "city": "Al-Ula",
+  "country": "SA",
+  "region": "Middle East",
+  "lat": 26.483634,
+  "lon": 38.117048,
+  "qibla_deg": 162.5,
+  "distance_km": 589,
+  "spaces": [
+   {
+    "name": "Musalla (prayer area)",
+    "location": "Location not stated",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://gaca.gov.sa/-/media/Files/PDF/Reports/2024-ATQS-Report-ULH.pdf?as=0&hash=F0B689CB3109B9AB53448E278EC57A28",
+    "verified": "verified-archive"
+   }
+  ],
+  "feedback_url": "https://www.cluster2airports.sa/contact",
+  "notes": "GACA (General Authority of Civil Aviation) official 'Comprehensive Airport Service Quality Evaluation' report for 2024 (نتائج برنامج التقييم الشامل لجودة خدمات المطار), read as a Wayback capture (web.archive.org/web/20251008225026) of https://gaca.gov.sa/-/media/Files/PDF/Reports/2024-ATQS-Report-ULH.pdf?as=0&hash=F0B689CB3109B9AB53448E278EC57A28. In the 'airport facilities and services quality' results table, category 12 'المصلى' (the musalla) is scored 21% in 2024 (27% in 2023), while category 16 'فندق المطار' (airport hotel) is marked N/A; a scored category implies the musalla exists and was assessed. The report does not give its location (terminal, before/after security), hours, wudu or women's space. Operator: Cluster2 Airports (تجمع مطارات الثاني), per Argaam/CAPA listings (secondary); its site is a JavaScript app and did not render via r.jina.ai. Not visually verified. The 2024 report is image-only; the table was read from a rendered page image (page 19). The 2022 report (ATQS2022/Al-Ula-Airport-2022.pdf, text) also scores 'المصلى' 24% in 2022 (13% in 2021).",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "HAS",
+  "name": "Hail International Airport",
+  "city": "Hail",
+  "country": "SA",
+  "region": "Middle East",
+  "lat": 27.437901,
+  "lon": 41.686298,
+  "qibla_deg": 196.1,
+  "distance_km": 695,
+  "spaces": [
+   {
+    "name": "Musalla (prayer area)",
+    "location": "Location not stated",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://gaca.gov.sa/-/media/Files/PDF/Reports/2023-ATQS-Report-HAS.pdf",
+    "verified": "verified-archive"
+   }
+  ],
+  "feedback_url": "https://www.cluster2airports.sa/contact",
+  "notes": "GACA (General Authority of Civil Aviation) official 'Comprehensive Airport Service Quality Evaluation' report for 2023 (نتائج برنامج التقييم الشامل لجودة خدمات المطار), read as a Wayback capture (web.archive.org/web/20260120045758) of https://gaca.gov.sa/-/media/Files/PDF/Reports/2023-ATQS-Report-HAS.pdf. In the 'airport facilities and services quality' results table, category 12 'المصلى' (the musalla) is scored 25% in 2023 (23% in 2022), while category 16 'فندق المطار' (airport hotel) is marked N/A; a scored category implies the musalla exists and was assessed. The report does not give its location (terminal, before/after security), hours, wudu or women's space. Operator: Cluster2 Airports (تجمع مطارات الثاني), per Argaam/CAPA listings (secondary); its site is a JavaScript app and did not render via r.jina.ai. Not visually verified. Report title: مطار حائل (Hail Airport).",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "NUM",
+  "name": "Neom Bay Airport",
+  "city": "Sharma",
+  "country": "SA",
+  "region": "Middle East",
+  "lat": 27.924261,
+  "lon": 35.29358,
+  "qibla_deg": 146.7,
+  "distance_km": 856,
+  "spaces": [
+   {
+    "name": "Musalla (prayer area)",
+    "location": "Location not stated",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://gaca.gov.sa/-/media/Files/PDF/Reports/2024-ATQS-Report-NUM.pdf?as=0&hash=B7BF291057456CE98765D728ADDECF3F",
+    "verified": "verified-archive"
+   }
+  ],
+  "feedback_url": "https://www.cluster2airports.sa/contact",
+  "notes": "GACA (General Authority of Civil Aviation) official 'Comprehensive Airport Service Quality Evaluation' report for 2024 (نتائج برنامج التقييم الشامل لجودة خدمات المطار), read as a Wayback capture (web.archive.org/web/20251007235644) of https://gaca.gov.sa/-/media/Files/PDF/Reports/2024-ATQS-Report-NUM.pdf?as=0&hash=B7BF291057456CE98765D728ADDECF3F. In the 'airport facilities and services quality' results table, category 12 'المصلى' (the musalla) is scored 38% in 2024 (no 2023 score), while category 16 'فندق المطار' (airport hotel) is marked N/A; a scored category implies the musalla exists and was assessed. The report does not give its location (terminal, before/after security), hours, wudu or women's space. Operator: Cluster2 Airports (تجمع مطارات الثاني), per Argaam/CAPA listings (secondary); its site is a JavaScript app and did not render via r.jina.ai. Not visually verified. Report title: مطار خليج نيوم الدولي (NEOM Bay International Airport). The report is image-only; the table was read from a rendered page image (page 19).",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "AQI",
+  "name": "Qaisumah–Hafar Al-Batin International Airport",
+  "city": "Qaisumah",
+  "country": "SA",
+  "region": "Middle East",
+  "lat": 28.335726,
+  "lon": 46.127108,
+  "qibla_deg": 221,
+  "distance_km": 997,
+  "spaces": [
+   {
+    "name": "Musalla (prayer area)",
+    "location": "Location not stated",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.gaca.gov.sa/-/media/Files/PDF/Reports/2023-ATQS-Report-AQI.pdf",
+    "verified": "verified-archive"
+   }
+  ],
+  "feedback_url": "https://daco.sa/",
+  "notes": "GACA (General Authority of Civil Aviation) official 'Comprehensive Airport Service Quality Evaluation' report for 2023 (نتائج برنامج التقييم الشامل لجودة خدمات المطار), read as a Wayback capture (web.archive.org/web/20251019141334) of https://www.gaca.gov.sa/-/media/Files/PDF/Reports/2023-ATQS-Report-AQI.pdf. In the 'airport facilities and services quality' results table, category 12 'المصلى' (the musalla) is scored 26% in 2023 (23% in 2022), while category 16 'فندق المطار' (airport hotel) is marked N/A; a scored category implies the musalla exists and was assessed. The report does not give its location (terminal, before/after security), hours, wudu or women's space. Operator: Dammam Airports Company (DACO); daco.sa/about/ says lists 'AL-QAISUMAH INTERNATIONAL AIRPORT' among its airports (alongside KFIA and Al-Ahsa). DACO's site has no airport-services page for this airport. Feedback: the 'Contact Us & Feedback' form on daco.sa opens as an on-page dialog (no separate URL). Not visually verified. Report title: مطار القيصومة (Qaisumah Airport).",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "AJF",
+  "name": "Al-Jawf International Airport",
+  "city": "Al-Jawf",
+  "country": "SA",
+  "region": "Middle East",
+  "lat": 29.783301,
+  "lon": 40.100905,
+  "qibla_deg": 181.8,
+  "distance_km": 930,
+  "spaces": [
+   {
+    "name": "Musalla (prayer area)",
+    "location": "Location not stated",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.gaca.gov.sa/-/media/Files/PDF/Reports/2023-ATQS-Report-AJF.pdf",
+    "verified": "verified-archive"
+   }
+  ],
+  "feedback_url": "https://www.cluster2airports.sa/contact",
+  "notes": "GACA (General Authority of Civil Aviation) official 'Comprehensive Airport Service Quality Evaluation' report for 2023 (نتائج برنامج التقييم الشامل لجودة خدمات المطار), read as a Wayback capture (web.archive.org/web/20251019141256) of https://www.gaca.gov.sa/-/media/Files/PDF/Reports/2023-ATQS-Report-AJF.pdf. In the 'airport facilities and services quality' results table, category 12 'المصلى' (the musalla) is scored 28% in 2023 (27% in 2022), while category 16 'فندق المطار' (airport hotel) is marked N/A; a scored category implies the musalla exists and was assessed. The report does not give its location (terminal, before/after security), hours, wudu or women's space. Operator: Cluster2 Airports (تجمع مطارات الثاني), per Argaam/CAPA listings (secondary); its site is a JavaScript app and did not render via r.jina.ai. Not visually verified. Report title: مطار الجوف (Al-Jawf Airport).",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "RSI",
+  "name": "Red Sea International Airport",
+  "city": "Hanak",
+  "country": "SA",
+  "region": "Middle East",
+  "lat": 25.627975,
+  "lon": 37.088914,
+  "qibla_deg": 148.6,
+  "distance_km": 545,
+  "spaces": [
+   {
+    "name": "Musalla (prayer area)",
+    "location": "Location not stated",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://gaca.gov.sa/-/media/Files/PDF/Reports/2024-ATQS-Report-RSI.pdf?as=0&hash=A99BF8C0D796FF7480044C4F27151EE4",
+    "verified": "verified-archive"
+   }
+  ],
+  "feedback_url": "unknown",
+  "notes": "GACA (General Authority of Civil Aviation) official 'Comprehensive Airport Service Quality Evaluation' report for 2024 (نتائج برنامج التقييم الشامل لجودة خدمات المطار), read as a Wayback capture (web.archive.org/web/20251008000604) of https://gaca.gov.sa/-/media/Files/PDF/Reports/2024-ATQS-Report-RSI.pdf?as=0&hash=A99BF8C0D796FF7480044C4F27151EE4. In the 'airport facilities and services quality' results table, category 12 'المصلى' (the musalla) is scored 20% in 2024 (no 2023 score), while category 16 'فندق المطار' (airport hotel) is marked N/A; a scored category implies the musalla exists and was assessed. The report does not give its location (terminal, before/after security), hours, wudu or women's space. Operator: not confirmed from an official page (reported as daa International for Red Sea Global); no official airport website found (redseaairport.com and rsi-airport.com are parked domains), so no feedback URL. Not visually verified. Report title: مطار البحر الأحمر الدولي (Red Sea International Airport). The report is image-only; the table was read from a rendered page image (page 19).",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "DWC",
+  "name": "Al Maktoum International Airport",
+  "city": "Dubai(Jebel Ali)",
+  "country": "AE",
+  "region": "Middle East",
+  "lat": 24.896171,
+  "lon": 55.16235,
+  "qibla_deg": 259.3,
+  "distance_km": 1614,
+  "spaces": [
+   {
+    "name": "Prayer rooms",
+    "location": "Location not stated",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.flydubai.com/en/destinations/airports/al-maktoum-international-airport",
+    "verified": "unverified"
+   }
+  ],
+  "feedback_url": "https://dwc.dubaiairports.ae/feedback",
+  "notes": "flydubai (Dubai government-owned airline, sister company of the operator Dubai Airports) airport page for Al Maktoum International lists 'Prayer rooms' in its airport facilities list (alongside 'Marhaba (a dedicated concierge service for departing and arriving passengers)' and 'Medical centre'), read via r.jina.ai. The operator's own DWC site (dwc.dubaiairports.ae: home, /experiences/services, /experiences/relax-refresh, /dwc-faqs) says nothing about prayer rooms (silence, not evidence). No location, side, hours, wudu or women's space given. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "RKT",
+  "name": "Ras Al Khaimah International Airport",
+  "city": "Ras Al Khaimah",
+  "country": "AE",
+  "region": "Middle East",
+  "lat": 25.613501,
+  "lon": 55.938801,
+  "qibla_deg": 257.5,
+  "distance_km": 1706,
+  "spaces": [
+   {
+    "name": "Prayer room (Arrival terminal)",
+    "location": "Arrival terminal",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.rakairport.com/facilities",
+    "verified": "verified"
+   },
+   {
+    "name": "Prayer room (Departure terminal)",
+    "location": "Departure terminal",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.rakairport.com/facilities",
+    "verified": "verified"
+   },
+   {
+    "name": "Mosque near Departure Parking",
+    "location": "Near the Departure Parking, outside the terminal",
+    "side": "landside",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "mosque",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.rakairport.com/facilities",
+    "verified": "verified"
+   }
+  ],
+  "feedback_url": "https://www.rakairport.com/contact",
+  "notes": "Official RAK Airport 'Facilities & Services' page, read via r.jina.ai: '### Prayer Room — Prayer rooms are available in both the Arrival and Departure terminals, with a mosque near the Departure Parking.' The page does not say whether the terminal rooms are before or after security, nor hours, wudu or women's space. The mosque near the parking is outside the terminal (landside). The same page says the Business Lounge (Premiere class, up to 30 passengers) 'offers facilities such as a mosque, free Wi-Fi and TV' (lounge-only; not listed as a separate space). The airport map page (rakairport.com/map) also lists 'Prayer Rooms'. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "SLL",
+  "name": "Salalah International Airport",
+  "city": "Salalah",
+  "country": "OM",
+  "region": "Middle East",
+  "lat": 17.0387,
+  "lon": 54.091301,
+  "qibla_deg": 290.3,
+  "distance_km": 1574,
+  "spaces": [
+   {
+    "name": "Prayer room (Level 0 / apron level)",
+    "location": "Level 0 (apron level), next to the escalator, signposted",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "yes (facilities for ablution)",
+    "women": "yes (prayer rooms for both men and women)",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.salalahairport.co.om/en/content/prayer-room-and-rest-rooms",
+    "verified": "verified"
+   },
+   {
+    "name": "Prayer room facing gate 1B",
+    "location": "Departure zone, facing gate 1B",
+    "side": "airside (INFERENCE: gate area)",
+    "hours": "unknown",
+    "wudu": "yes (facilities for ablution)",
+    "women": "yes (prayer rooms for both men and women)",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.salalahairport.co.om/en/content/prayer-room-and-rest-rooms",
+    "verified": "verified"
+   },
+   {
+    "name": "Prayer room facing gate 4B",
+    "location": "Departure zone, facing gate 4B",
+    "side": "airside (INFERENCE: gate area)",
+    "hours": "unknown",
+    "wudu": "yes (facilities for ablution)",
+    "women": "yes (prayer rooms for both men and women)",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.salalahairport.co.om/en/content/prayer-room-and-rest-rooms",
+    "verified": "verified"
+   }
+  ],
+  "feedback_url": "https://www.salalahairport.co.om/en/feedback",
+  "notes": "Official Salalah Airport (Oman Airports) 'Prayer Rooms' page, read via WebFetch: 'There are a number of prayer rooms for both men and women at the airport with facilities for ablution.' 'In level 0 or apron level, the prayer room is located next to the escalator and clearly visible with a signpost.' 'In the departure zone, there are two: one is facing gate 1B and the other facing gate 4B.' The page does not say before/after security or give hours; the two gate-facing rooms are inferred to be airside. The men/women and ablution statement is made for the prayer rooms in general, not per room. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ }
+]

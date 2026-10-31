@@ -1,0 +1,118 @@
+[
+ {
+  "iata": "SHJ",
+  "name": "Sharjah International Airport",
+  "city": "Sharjah",
+  "country": "AE",
+  "region": "Middle East",
+  "lat": 25.3286,
+  "lon": 55.5172,
+  "qibla_deg": 258.1,
+  "distance_km": 1658,
+  "spaces": [
+   {
+    "name": "Male and female prayer rooms (arrivals)",
+    "location": "Transit area of the arrivals hall",
+    "side": "airside",
+    "hours": "24 hours",
+    "wudu": "yes (washing facilities next to both rooms)",
+    "women": "yes",
+    "type": "musalla",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.sharjahairport.ae/en/traveller/airport-facilities/facilities/prayer-room/",
+    "verified": "verified-archive"
+   },
+   {
+    "name": "Male and female prayer rooms (departures)",
+    "location": "Ground floor of the Departures Terminal",
+    "side": "unknown",
+    "hours": "24 hours",
+    "wudu": "yes (washing facilities next to both rooms)",
+    "women": "yes",
+    "type": "musalla",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.sharjahairport.ae/en/traveller/airport-facilities/facilities/prayer-room/",
+    "verified": "verified-archive"
+   }
+  ],
+  "feedback_url": "unknown",
+  "notes": "Read via r.jina.ai (direct request timed out). 'Transit area' read as airside (INFERENCE). 18 Oct 2026: sharjahairport.ae refused all connections; hours and washing facilities read from the Wayback capture of 18 Apr 2026 (https://web.archive.org/web/20260418203305/https://www.sharjahairport.ae/en/traveller/airport-facilities/facilities/prayer-room/), which also says the rooms are wheelchair accessible.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "YYZ",
+  "name": "Toronto Pearson International Airport",
+  "city": "Toronto",
+  "country": "CA",
+  "region": "North America",
+  "lat": 43.675935,
+  "lon": -79.629421,
+  "qibla_deg": 54.4,
+  "distance_km": 10511,
+  "spaces": [
+   {
+    "name": "Terminal 1 chapel (Aviation Interfaith Ministry)",
+    "location": "Terminal 1, before security, Level 1 Arrivals",
+    "side": "landside",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "interfaith chapel",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.torontopearson.com/en/while-you-are-here/toronto-airport-services/prayer-room-t1-before-arrivals",
+    "verified": "verified"
+   },
+   {
+    "name": "Terminal 3 chapel",
+    "location": "Terminal 3, before security, Level 1 Arrivals",
+    "side": "landside",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "interfaith chapel",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.torontopearson.com/en/while-you-are-here/toronto-airport-services/prayer-room-t3-before-arrivals",
+    "verified": "verified-archive"
+   }
+  ],
+  "feedback_url": "https://www.torontopearson.com/en/contact-us",
+  "notes": "Only Christian services are listed. T3 page is old (about 2,129 days per search index). 18 Oct 2026: the live T3 page is behind a captcha; an Aug 2026 Wayback capture of it reads \"Before security — Level 1 Arrivals\".",
+  "research_status": "researched",
+  "accessed": "2026-10-13"
+ },
+ {
+  "iata": "MUX",
+  "name": "Multan International Airport",
+  "city": "Multan",
+  "country": "PK",
+  "region": "Asia",
+  "lat": 30.203199,
+  "lon": 71.419098,
+  "qibla_deg": 260.3,
+  "distance_km": 3297,
+  "spaces": [
+   {
+    "name": "Prayer rooms and ablution areas (unlocated)",
+    "location": "Not stated (\"throughout the airport\")",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "yes (\"ablution areas/rooms are available\")",
+    "women": "yes (\"for women and men\")",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://paawebadmin.paa.gov.pk/api/v1/Content/WebPortalsMenus?_Search=Multan&ApiKey=123456789_API",
+    "verified": "verified"
+   }
+  ],
+  "feedback_url": "unknown",
+  "notes": "18 Oct 2026: the PAA airport portal loads its text from the data feed cited; for Multan its \"Prayer Rooms\" section reads \"Muslim prayer rooms and ablution areas/rooms are available throughout the airport for women and men\". No location is given. The old page URL (paa.gov.pk/airport/multan) returns 404 when opened directly.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ }
+]

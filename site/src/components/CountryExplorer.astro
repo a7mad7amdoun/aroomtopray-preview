@@ -1,0 +1,42 @@
+---
+import {airports} from '../lib/airports.js';
+import {universities} from '../lib/universities.js';
+import {hospitals} from '../lib/hospitals.js';
+import CountryFlag from './CountryFlag.astro';
+import {COUNTRY_CODES,countryCode,countryName,countrySearchText} from '../lib/countries.js';
+import {getCopy,localizedPath,formatCount} from '../lib/i18n.js';
+import {GUIDE_COPY} from '../data/guide-copy.js';
+const {locale='en'}=Astro.props,t=getCopy(locale),g=GUIDE_COPY[locale];
+const kinds=['airports','universities','hospitals'],icons=['airport','campus','care'];
+const coverage={
+ en:{all:'All countries and territories',covered:'With places in this guide',scope:'Show',empty:'No places listed here yet.',summary:'{covered} covered · {all} countries and territories'},
+ fr:{all:'Tous les pays et territoires',covered:'Avec des lieux dans ce guide',scope:'Afficher',empty:'Aucun lieu répertorié ici pour le moment.',summary:'{covered} couverts · {all} pays et territoires'},
+ ar:{all:'جميع البلدان والأقاليم',covered:'بلدان فيها أماكن مدرجة',scope:'عرض',empty:'لا توجد أماكن مدرجة هنا حتى الآن.',summary:'{covered} مشمولة بالدليل · {all} بلداً وإقليماً'},
+ es:{all:'Todos los países y territorios',covered:'Con lugares en esta guía',scope:'Mostrar',empty:'Aún no hay lugares registrados aquí.',summary:'{covered} con cobertura · {all} países y territorios'},
+}[locale];
+const countries=new Map(COUNTRY_CODES.map(code=>[code,{code,name:countryName(code,locale),counts:[0,0,0]}]));
+[airports,universities,hospitals].forEach((places,i)=>places.forEach(p=>{
+ const code=countryCode(p.country);
+ if(!countries.has(code))throw new Error('Unknown country in directory: '+p.country);
+ countries.get(code).counts[i]++;
+}));
+const rows=[...countries.values()].sort((a,b)=>a.name.localeCompare(b.name,locale));
+const covered=rows.filter(row=>row.counts.some(Boolean)).length;
+const resultTemplate={en:'{count} of {total} countries and territories',fr:'{count} sur {total} pays et territoires',ar:'عرض {count} من {total} بلدًا وإقليمًا',es:'{count} de {total} países y territorios'}[locale];
+---
+<section class="country-explorer" data-country-explorer data-locale={locale} data-result-template={resultTemplate}>
+ <header class="panel-heading"><span class="guide-kicker"><svg width="18" height="18" aria-hidden="true"><use href="#i-globe"/></svg>{coverage.summary.replace('{covered}',formatCount(covered,locale)).replace('{all}',formatCount(rows.length,locale))}</span><h2>{g.countryIntro}</h2></header>
+ <label class="country-scope" data-country-scope-control hidden><span>{coverage.scope}</span><select data-country-scope><option value="covered">{coverage.covered}</option><option value="all">{coverage.all}</option></select></label>
+ <label class="country-search"><svg width="20" height="20" aria-hidden="true"><use href="#i-search"/></svg><span class="sr">{g.countrySearch}</span><input type="search" placeholder={g.countrySearch} maxlength="160" data-country-search /></label>
+ <div class="country-results-status"><p class="country-search-status fine" data-country-status role="status" aria-atomic="true"></p><button class="clear" type="button" data-country-clear hidden>{t.common.clear}</button></div>
+ <div class="country-grid">{rows.map(row=><article class="country-card" data-country-card data-country-covered={row.counts.some(Boolean)} data-country-text={countrySearchText(row.code)} hidden={!row.counts.some(Boolean)}><h3><CountryFlag country={row.code}/><span>{row.name}</span><small>{row.code}</small></h3><div>{row.counts.map((count,i)=>count>0&&<a href={`${localizedPath('/'+kinds[i]+'/',locale)}?country=${row.code}&mode=list`}><svg width="17" height="17" aria-hidden="true"><use href={`#i-${icons[i]}`}/></svg><span>{t.nav[kinds[i]]}</span><b>{formatCount(count,locale)}</b><span aria-hidden="true">↗</span></a>)}</div>{!row.counts.some(Boolean)&&<p class="country-coverage-note">{coverage.empty}</p>}</article>)}</div>
+ <p data-country-empty hidden>{g.noCountries}</p>
+</section>
+<script>
+ import '../scripts/country-explorer.js';
+</script>
+<style>
+ .country-results-status { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:4px 12px; min-height:44px; }
+ .country-results-status p { margin:0; padding:0; }
+ .country-results-status button { min-height:44px; padding:8px 10px; }
+</style>

@@ -1,0 +1,212 @@
+[
+ {
+  "iata": "DSS",
+  "name": "Blaise Diagne International Airport",
+  "city": "Dakar",
+  "country": "SN",
+  "region": "Africa",
+  "lat": 14.670878,
+  "lon": -17.072829,
+  "qibla_deg": 73.9,
+  "distance_km": 6032,
+  "spaces": [
+   {
+    "name": "Grande Mosquée de l'AIBD",
+    "location": "On the airport site (exact position not stated)",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "mosque",
+    "qibla_marker": "unknown",
+    "jumuah": "Friday prayer was held at the mosque before March 2020; current status not confirmed",
+    "source_url": "https://senego.com/covid-19-suspension-des-prieres-du-vendredi-a-la-grande-mosquee-de-laibd_1059666.html",
+    "verified": "unverified"
+   }
+  ],
+  "feedback_url": "https://www.dakaraeroport.com/en/contact",
+  "notes": "Secondary only (news). Senego, 18 Mar 2020 (read 18 Oct 2026): 'Les prières du vendredi à la Grande Mosquée de l'aéroport international Blaise Diagne ont suspendues mardi... jusqu'à nouvel ordre' (Covid-19); quotes Babacar Pouye, 'imam Ratib de la Mosquée de AIBD', and mentions the mosque's management committee. Unclear: exact location (landside/airside), hours, wuḍūʾ, women's space, and whether Friday prayer has resumed. dakaraeroport.com was read in Oct 2026 (see earlier wave) and does not list it. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "CCJ",
+  "name": "Calicut International Airport",
+  "city": "Calicut",
+  "country": "IN",
+  "region": "Asia",
+  "lat": 11.135996,
+  "lon": 75.955152,
+  "qibla_deg": 291.2,
+  "distance_km": 4011,
+  "spaces": [
+   {
+    "name": "Prayer rooms",
+    "location": "New international arrival terminal (opened 2019; exact position not stated)",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://onmanorama.com/news/kerala/2019/02/25/new-arrival-terminal-at-karipur-airport-opened.html",
+    "verified": "unverified"
+   }
+  ],
+  "feedback_url": "https://www.aai.aero/airports/contact-us/calicut",
+  "notes": "Secondary only (news, 2019). Onmanorama (read 18 Oct 2026) on the new international arrival block: 'The new terminal, which will be operational by the third week of March, also houses special lounge, executive lounge for VIP travellers, prayer rooms and visitors' gallery.' The AAI conveniences page (read via r.jina.ai 13 Oct 2026) does not list a prayer room. Unclear: whether the rooms are before or after immigration, hours, wuḍūʾ, women's space; whether departures has a room. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "ZNZ",
+  "name": "Abeid Amani Karume International Airport",
+  "city": "Zanzibar",
+  "country": "TZ",
+  "region": "Africa",
+  "lat": -6.22202,
+  "lon": 39.224899,
+  "qibla_deg": 1.2,
+  "distance_km": 3075,
+  "spaces": [
+   {
+    "name": "Prayer area",
+    "location": "Terminal III (exact position not stated)",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "prayer area",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://constructionreviewonline.com/2020/10/zanzibar-abeid-amani-karume-international-airport-terminal-3-construction-completed/",
+    "verified": "unverified"
+   }
+  ],
+  "feedback_url": "https://zaa.go.tz/index.php/contact-us/",
+  "notes": "Secondary only (trade news, 1 Oct 2020, before Terminal III opened). Construction Review (read 18 Oct 2026): 'The Abeid Amani Karume International Airport construction of terminal III has other passenger support facilities including a waiting lounge, parking area for cars, a prayer area, duty-free shops, a smoking area and a VIP lounge among others.' zaa.go.tz has no facilities section. Unclear: position (landside/airside), hours, wuḍūʾ, women's space, and whether it is in use. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "TAS",
+  "name": "Tashkent International Airport",
+  "city": "Tashkent",
+  "country": "UZ",
+  "region": "Asia",
+  "lat": 41.2579,
+  "lon": 69.281197,
+  "qibla_deg": 240.4,
+  "distance_km": 3532,
+  "spaces": [
+   {
+    "name": "Prayer room",
+    "location": "International lobby B8 (per islom.uz, 2019)",
+    "side": "unknown",
+    "hours": "24 hours (per kun.uz, 2019)",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://kun.uz/en/news/2019/01/07/uzbekistans-all-international-airports-and-railway-stations-will-offer-passengers-the-use-of-a-prayer-room",
+    "verified": "unverified"
+   }
+  ],
+  "feedback_url": "unknown",
+  "notes": "Secondary only. kun.uz, 7 Jan 2019 (read 18 Oct 2026): 'a 24-hour prayer room appeared at the International Airport named after Islam Karimov in Tashkent in November 2017'; a decree required 'ablution spaces for use and other facilities for praying by June 1, 2019' at international airports. islom.uz, 10 Sep 2019 (https://www.islom.uz/article/55, now 404; read via Wayback capture of 19 Sep 2019): 'The prayer room, which is still used by Muslim passengers, is located at the airport's international airport lobby B8.' Official sites tashkent-airport.uz / uzairports.uz returned 404 or no response. Unclear: which terminal today, side of security, wuḍūʾ actually provided, women's space. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "SJJ",
+  "name": "Sarajevo International Airport",
+  "city": "Sarajevo",
+  "country": "BA",
+  "region": "Europe",
+  "lat": 43.8246,
+  "lon": 18.331499,
+  "qibla_deg": 134.6,
+  "distance_km": 3182,
+  "spaces": [
+   {
+    "name": "Prayer room",
+    "location": "Terminal B, first floor, before passport control and customs",
+    "side": "landside",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "multi-faith prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://sarajevo.travel/en/text/sarajevo-airport/5",
+    "verified": "unverified"
+   }
+  ],
+  "feedback_url": "https://sarajevo-airport.ba/Kontakt",
+  "notes": "Secondary (Sarajevo Canton tourism board, sarajevo.travel; read 18 Oct 2026): 'The prayer room is located on the first floor of Terminal B, before passport control and customs. The room has been equipped to meet the needs of visitors of various faiths.' The airport's own site (sarajevo-airport.ba FAQ and general pages, read 13 Oct 2026) does not mention it. Unclear: hours, wuḍūʾ, women's space; whether anything exists airside. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "LIS",
+  "name": "Lisbon Humberto Delgado Airport",
+  "city": "Lisbon",
+  "country": "PT",
+  "region": "Europe",
+  "lat": 38.7813,
+  "lon": -9.13592,
+  "qibla_deg": 98,
+  "distance_km": 5021,
+  "spaces": [
+   {
+    "name": "Multi-faith prayer room",
+    "location": "Location not stated",
+    "side": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "multi-faith prayer room",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://wmoworld.org/?p=7086",
+    "verified": "unverified"
+   }
+  ],
+  "feedback_url": "unknown",
+  "notes": "Secondary only (World Muslim Organisation Europe Chapter article, posted 22 Jun 2022; read 18 Oct 2026): 'A multi-faith prayer room at Lisbon airport in Portugal' ... 'the recent developments and inauguration of the prayer room' credited to the Islamic Community of Lisbon, the Islamic Community of Odivelas and Groundforce (TAP handling). No terminal, location or hours given. lisbonairport.pt (ANA) is behind an Incapsula challenge; a Wayback capture of its Convenience services page and its services menu (Essential Services: APP ANA, Baggage, Convenience, Family, Financial, Free Wi-Fi, Health, Reduced mobility, Services for animals, Travel and tourism, VAT refund) has no prayer or multi-faith entry. Feedback is an in-site 'Suggestions and complaints' form (no standalone URL). Unclear: location, side of security, whether it is public or staff-oriented, hours, wuḍūʾ, women's space. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ },
+ {
+  "iata": "LIN",
+  "name": "Milano Linate Airport",
+  "city": "Milan (Segrate)",
+  "country": "IT",
+  "region": "Europe",
+  "lat": 45.445099,
+  "lon": 9.27674,
+  "qibla_deg": 123.7,
+  "distance_km": 3852,
+  "spaces": [
+   {
+    "name": "Chapel",
+    "location": "First Floor - Check-In, Groups Area",
+    "side": "landside (INFERENCE: check-in area)",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "chapel",
+    "qibla_marker": "unknown",
+    "jumuah": "unknown",
+    "source_url": "https://www.milanolinate-airport.com/en/airport/other-services",
+    "verified": "verified-archive"
+   }
+  ],
+  "feedback_url": "https://www.milanolinate-airport.com/en/assistance/write-us",
+  "notes": "Official SEA page 'Other services' (https://www.milanolinate-airport.com/en/airport/other-services), read via Wayback capture of 18 Apr 2024 on 18 Oct 2026 (live site rejects automated requests): 'CHAPEL Tel. (+39) 0274852222 First Floor - Check-In, Groups Area'. No prayer room or multi-faith room is listed; the chapel is presumably Catholic (not stated). Side inferred from 'Check-In'. Unclear: hours, whether Muslims may pray there, wuḍūʾ, women's space. Not visually verified.",
+  "research_status": "researched",
+  "accessed": "2026-10-18"
+ }
+]

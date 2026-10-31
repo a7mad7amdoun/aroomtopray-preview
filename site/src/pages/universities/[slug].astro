@@ -1,0 +1,134 @@
+---
+import PlacePhotos from '../../components/PlacePhotos.astro';
+import PlaceOverview from '../../components/PlaceOverview.astro';
+import VisitorArtwork from '../../components/VisitorArtwork.astro';
+import VisitInsights from '../../components/VisitInsights.astro';
+import DetailGuide from '../../components/DetailGuide.astro';
+import PlaceActions from '../../components/PlaceActions.astro';
+import Turnstile from '../../components/Turnstile.astro';
+import GuideTabNav from '../../components/GuideTabNav.astro';
+import CountryBadge from '../../components/CountryBadge.astro';
+import {GUIDE_COPY} from '../../data/guide-copy.js';
+import Base from '../../layouts/Base.astro';
+import Compass from '../../components/Compass.astro';
+import { L, dirName, fmtDate, host } from '../../lib/airports.js';
+import { universities, UL, uniAsks, uniMessage } from '../../lib/universities.js';
+
+export function getStaticPaths() {
+  return universities.map((u) => ({ params: { slug: u.slug }, props: { u } }));
+}
+const { u } = Astro.props;
+const q = uniAsks(u);
+// Open the report box when someone follows the #report link.
+const pill = ([t, c]) => `<span class="pill ${c}">${t}</span>`;
+const title = `Prayer rooms at ${u.name} | A Room to Pray`;
+const description = `Where to pray at ${u.name}: ${u.spaces[0]?.loc}. Access, wuḍūʾ, space for women, Jumuʿah and qibla (${Math.round(u.qibla)}°), with linked sources and check dates.`;
+const g=GUIDE_COPY.en;
+const guideTabs=[{id:'room-details',label:g.rooms,icon:'pin'},{id:'direction',label:g.direction,icon:'qibla'},{id:'visitor-tools',label:g.help,icon:'help'}];
+---
+<Base {title} {description} nav="universities"
+  jsonld={{ '@context': 'https://schema.org', '@type': 'CollegeOrUniversity', name: u.name, address: { '@type': 'PostalAddress', addressLocality: u.city, addressCountry: u.country }, geo: { '@type': 'GeoCoordinates', latitude: u.lat, longitude: u.lon } }}>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/universities/" data-directory-return={g.backToResults}>Universities</a><span aria-hidden="true">/</span><span>{u.country}</span><span aria-hidden="true">/</span><span aria-current="page">{u.short}</span></nav>
+    <div class="d-head">
+      <div class="d-code" aria-hidden="true" style="padding:12px"><svg width="56" height="56" aria-hidden="true"><use href="#i-campus"/></svg></div>
+      <div class="d-title">
+        <h1>Prayer rooms at {u.name.split('/').map((part, i) => i ? <Fragment>/<wbr />{part}</Fragment> : part)}</h1>
+        <div class="d-meta"><span>{u.city}</span><CountryBadge country={u.country}/><span aria-hidden="true">·</span><span>Sources checked {fmtDate(u.checked)}</span></div>
+      </div>
+    </div>
+    <DetailGuide place={u} kind="University" />
+    <PlaceActions place={u} kind="University" />
+    <PlaceOverview place={u} kind="universities" direction={dirName(u.qibla)} />
+
+    <p class="byline" style="margin-top:12px"><span>Edited by <a href="/about/#editor">Hamza Abdul-Tawwaab</a></span><span>Most campus rooms are for students and staff; check access before you visit.</span><span><a href="#report">Report a correction</a></span></p>
+    {u.conflict && <p class="note" style="margin-top:12px">Some details differ between the university’s own pages, or may be out of date. Confirm times and room numbers with the university or the Islamic society before you go.</p>}
+    {u.thin && <p class="note" style="margin-top:12px">Limited information: we found only one official listing here. Confirm the location and access with the university or the Islamic society.</p>}
+    <div class="d-grid" data-guide-tabs>
+      <GuideTabNav tabs={guideTabs} label={g.overview}/>
+      <div class="d-main guide-panel" id="room-details">
+        {u.spaces.map((s, i) => (
+          <article class="card room" id={`room-${i + 1}`}>
+            <div class="room-top"><span class="room-number" aria-hidden="true">{String(i+1).padStart(2,'0')}</span><h2>{s.name}</h2><span class="tag">{s.type}</span></div>
+            <p class="where"><svg width="20" height="20" aria-hidden="true"><use href="#i-pin"/></svg><span>{s.loc}</span></p>
+            <dl class="facts">
+              <div class="fact-essential"><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-key"/></svg>Access</dt><dd>{s.access}</dd></div>
+              <div class="fact-essential"><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-clock"/></svg>Hours</dt><dd>{s.hours}</dd></div>
+              <div><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-water"/></svg>Wuḍūʾ</dt><dd set:html={pill(L.wudu[s.wudu])} /></div>
+              <div><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-screen"/></svg>Women</dt><dd set:html={pill(L.women[s.women])} /></div>
+              {s.jumuah && <div style="grid-column:1/-1"><dt><svg width="17" height="17" aria-hidden="true"><use href="#i-community"/></svg>Jumuʿah</dt><dd>{s.jumuah}</dd></div>}
+            </dl>
+            {s.caution && <p class="extra">{s.caution}</p>}
+            <div class="src"><span><svg width="16" height="16" aria-hidden="true"><use href="#i-source"/></svg>Source: <a href={s.src} rel="noopener">{host(s.src)}</a></span>
+              <span>Source accessed {fmtDate(s.checked)} · <span class={`badge ${UL.verified[String(s.verified)][1]}`}>{UL.verified[String(s.verified)][0]}</span></span></div>
+          </article>
+        ))}
+        {u.spaces.some((s) => s.jumuah) && <p class="note">Jumuʿah times on campus often change each term and are usually run by the student Islamic society. Check its latest notice.</p>}
+        <PlacePhotos place={u} />
+      </div>
+      <section id="direction" class="guide-panel direction-panel">
+        <Compass qibla={u.qibla} label={u.short} place="campus" />
+
+      </section>
+      <div class="d-side guide-panel" id="visitor-tools">
+    <VisitInsights kind="universities" locale="en" placeUrl={u.url} compact />
+        {q.length > 0 ? (
+          <aside class="card ask" aria-labelledby="ask-h">
+            <span class="eyebrow">Ask the university</span>
+            <h2 id="ask-h" style="font-size:1.25rem">Ask about prayer facilities</h2>
+            <ul>{q.map((x) => <li>{x.label}</li>)}</ul>
+            <label for="msg" class="fine">Suggested message. Edit it and send it yourself.</label>
+            <textarea id="msg">{uniMessage(u, q)}</textarea>
+            <div class="btns">
+              <button class="btn ghost" type="button" data-copy>Copy message</button><span id="copy-status" class="sr" role="status"></span>
+              {u.feedback_url && !/^unknown$/i.test(u.feedback_url) && <a class="btn sign-btn" href={u.feedback_url} rel="noopener" data-ask={`uni-${u.slug}`}>Open the university’s faith or contact page</a>}
+            </div>
+          </aside>
+        ) : (
+          <aside class="card ask"><span class="eyebrow">Facilities found</span><h2 style="font-size:1.2rem">Our sources list a wuḍūʾ area and a space for women at {u.short}.</h2><p class="fine">If that changes, tell us and we’ll update the page.</p></aside>
+        )}
+        <details class="card report-box" id="report">
+          <summary>Pray on this campus? Tell us</summary>
+          <p class="muted" style="font-size:.95rem;margin-top:8px">The editor checks every report before anything changes. Please don’t include your name or contact details, or any room access codes. <a href="/about/#privacy">How we handle reports</a></p>
+          <form class="report" data-report={`uni-${u.slug}`} method="post" action="/api/report">
+            <input type="hidden" name="code" value={`uni-${u.slug}`}>
+            <label>What you found<select name="field" required><option>New room I found</option><option>Room moved or closed</option><option>Hours</option><option>Wuḍūʾ area</option><option>Space for women</option><option>Something else</option></select></label>
+            <label>When you were there<input name="seen" type="month" required></label>
+            <label class="full">Details<textarea name="details" rows="4" required minlength="10" maxlength="1500" placeholder="e.g. Student Union, 2nd floor, room 2.14. Wuḍūʾ area next door."></textarea></label>
+            <label class="hp" aria-hidden="true">Leave empty<input name="website" tabindex="-1" autocomplete="off"></label>
+            <Turnstile />
+            <div class="full"><button class="btn" type="submit">Send report</button></div>
+          </form>
+          <div class="ok" hidden data-ok tabindex="-1"><svg width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg>Thanks. Your report is waiting for the editor to check it.</div>
+          <p class="err" hidden data-err role="alert">Your report didn’t send. Check your connection and try again; your text is still here.</p>
+        </details>
+        <VisitorArtwork scene="campus" placement="supporting" purpose="visitor-preparation"/>
+      </div>
+    </div>
+  </div>
+</Base>
+<script>
+  document.querySelector('[data-copy]')?.addEventListener('click', async (e) => {
+    const t = document.getElementById('msg'), b = e.currentTarget;
+    try { await navigator.clipboard.writeText(t.value); b.textContent = 'Copied'; document.getElementById('copy-status').textContent = 'Message copied'; }
+    catch { t.focus(); t.select(); b.textContent = 'Selected: copy it now'; }
+    setTimeout(() => (b.textContent = 'Copy message'), 2500);
+  });
+  const ask = document.querySelector('[data-ask]');
+  ask?.addEventListener('click', () => { navigator.sendBeacon?.('/api/ask', JSON.stringify({ code: ask.dataset.ask })); });
+  const form = document.querySelector('[data-report]');
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button'), ok = document.querySelector('[data-ok]'), err = document.querySelector('[data-err]');
+    btn.disabled = true; err.hidden = true;
+    try {
+      const r = await fetch('/api/report', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(Object.fromEntries(new FormData(form))) });
+      if (!r.ok) throw new Error(String(r.status));
+      form.hidden = true; ok.hidden = false; ok.focus();
+    } catch { err.hidden = false; btn.disabled = false; window.turnstile?.reset(form.querySelector('.cf-turnstile')); }
+  });
+</script>
+<script>
+  if (location.hash === '#report') document.getElementById('report')?.setAttribute('open', '');
+  document.querySelector('a[href="#report"]')?.addEventListener('click', () => document.getElementById('report')?.setAttribute('open', ''));
+</script>

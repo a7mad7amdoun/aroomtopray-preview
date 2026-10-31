@@ -1,0 +1,60 @@
+---
+// Airport search with suggestions (ARIA combobox). Works as a plain form without JS: it submits to /airports/?q=.
+import { airports, L } from '../lib/airports.js';
+import { getCopy, localizedPath, translateTerm } from '../lib/i18n.js';
+const { id = 'q', locale = 'en' } = Astro.props;
+const t = getCopy(locale);
+const path = localizedPath('/airports/', locale);
+const feedbackCopy = {en: {empty:'No airports match. Try a city, country or three-letter airport code.', results:'suggestions. Use the arrow keys to choose, then Enter.'},fr:{empty:'Aucun aéroport trouvé. Essayez une ville, un pays ou un code de trois lettres.',results:'suggestions. Utilisez les flèches puis Entrée.'},ar:{empty:'لم نجد مطاراً مطابقاً. جرّب المدينة أو البلد أو رمز المطار من ثلاثة أحرف.',results:'اقتراحات. استخدم مفاتيح الأسهم للاختيار ثم اضغط Enter.'},es:{empty:'No se encontraron aeropuertos. Prueba una ciudad, país o código de tres letras.',results:'sugerencias. Usa las flechas y después Intro.'}}[locale];
+const index = airports.map((a) => [a.code, a.short, a.city, translateTerm(a.country, locale), a.name, t.status[a.status], L.status[a.status][1], a.country]);
+---
+<form class="search" action={path} method="get" role="search" data-search data-directory-path={path}>
+  <label for={id} class="sr">{t.home.searchLabel}</label>
+  <svg class="ico" width="22" height="22" aria-hidden="true"><use href="#i-search"/></svg>
+  <input id={id} name="q" type="search" placeholder={t.home.searchPlaceholder} autocomplete="off"
+    role="combobox" aria-expanded="false" aria-controls={`${id}-list`} aria-autocomplete="list">
+  <button type="submit" class="search-submit" aria-label={t.home.searchLabel}><span aria-hidden="true">→</span></button>
+  <p class="search-feedback" data-search-feedback role="status" hidden></p>
+  <span class="sr" data-search-count role="status" aria-live="polite"></span>
+  <ul class="suggest" id={`${id}-list`} role="listbox" aria-label={t.home.searchLabel} hidden></ul>
+  <script type="application/json" data-search-copy set:html={JSON.stringify(feedbackCopy)} />
+  <script type="application/json" data-index set:html={JSON.stringify(index)} />
+</form>
+<script>
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+  document.querySelectorAll('[data-search]').forEach((form) => {
+    const input = form.querySelector('input'), list = form.querySelector('[role=listbox]');
+    const feedback = form.querySelector('[data-search-feedback]'), count = form.querySelector('[data-search-count]');
+    const index = JSON.parse(form.querySelector('[data-index]').textContent);
+    const copy = JSON.parse(form.querySelector('[data-search-copy]').textContent);
+    const path = form.dataset.directoryPath;
+    let items = [], hl = -1;
+    const fold = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+    const close = () => { feedback.hidden = true; count.textContent = ''; hl = -1; items = []; list.hidden = true; input.setAttribute('aria-expanded', 'false'); input.removeAttribute('aria-activedescendant'); };
+    const draw = () => {
+      const q = fold(input.value.trim());
+      items = q ? index.filter((a) => [...a.slice(0, 5), a[7]].some((v) => fold(v).includes(q)))
+        .sort((a, b) => (b[0] === q) - (a[0] === q)).slice(0, 7) : [];
+      feedback.hidden = true;
+      if (!items.length) {
+        close();
+        if (q) { feedback.textContent = copy.empty; feedback.hidden = false; }
+        return;
+      }
+      count.textContent = `${items.length} ${copy.results}`;
+      list.innerHTML = items.map((a, i) => `<li role="option" id="${list.id}-${i}" aria-selected="${i === hl}"><a href="${path}${a[0]}/" tabindex="-1"><span class="code">${a[0].toUpperCase()}</span><span>${esc(a[1])}<br><span class="muted" style="font-size:.85rem">${esc(a[2])}, ${esc(a[3])}</span></span><span class="pill ${a[6]}">${esc(a[5])}</span></a></li>`).join('');
+      list.hidden = false; input.setAttribute('aria-expanded', 'true');
+      if (hl >= 0) { input.setAttribute('aria-activedescendant', `${list.id}-${hl}`); document.getElementById(`${list.id}-${hl}`)?.scrollIntoView({ block: 'nearest' }); } else input.removeAttribute('aria-activedescendant');
+    };
+    input.addEventListener('input', () => { hl = -1; draw(); });
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' && items.length) { hl = Math.min(hl + 1, items.length - 1); draw(); e.preventDefault(); }
+      else if (e.key === 'ArrowUp' && items.length) { hl = Math.max(hl - 1, 0); draw(); e.preventDefault(); }
+      else if (e.key === 'Escape') close();
+    });
+    form.addEventListener('submit', (e) => { const exact = items.find((x) => x[0] === input.value.trim().toLowerCase()); const a = !list.hidden && hl >= 0 ? items[hl] : exact || (!list.hidden && items.length === 1 ? items[0] : null); if (a) { e.preventDefault(); location.href = `${path}${a[0]}/`; } });
+    input.addEventListener('focus', () => { hl = -1; draw(); });
+    form.addEventListener('focusout', (e) => { if (!form.contains(e.relatedTarget)) close(); });
+    document.addEventListener('click', (e) => { if (!form.contains(e.target)) close(); });
+  });
+</script>

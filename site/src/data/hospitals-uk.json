@@ -1,0 +1,942 @@
+[
+ {
+  "slug": "royal-london-hospital",
+  "name": "The Royal London Hospital (Whitechapel)",
+  "trust": "Barts Health NHS Trust",
+  "city": "London",
+  "country": "United Kingdom",
+  "lat": 51.518,
+  "lon": -0.0588,
+  "spaces": [
+   {
+    "name": "Muslim Prayer Rooms",
+    "location": "Second floor, Lift 5 (with the chaplaincy offices, The Sanctuary and the Jewish Community Room); toilets on the ground floor",
+    "access": "unknown",
+    "hours": "unknown",
+    "wudu": "yes",
+    "women": "separate",
+    "type": "musalla",
+    "jumuah": "Fridays 12:30pm and 1:05pm (winter); 1:10pm and 1:50pm (summer), in the prayer rooms",
+    "source_url": "https://www.bartshealth.nhs.uk/chaplaincy",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "24-hour service. Ask ward staff to contact the chaplaincy; the on-call chaplain can be contacted via switchboard 020 7377 7000.",
+   "source_url": "https://www.bartshealth.nhs.uk/chaplaincy"
+  },
+  "feedback_url": "https://www.bartshealth.nhs.uk/chaplaincy",
+  "notes": "Trust page notes that for Ramadan 2026 the female prayer space was temporarily moved to the 2nd floor Yarrow Room (check it has moved back). The team page lists chaplains by name only, without faith roles, so Muslim chaplain status is not stated. Coordinates: Wikidata Q7374421 (P625), hospital-level point, not the prayer room."
+ },
+ {
+  "slug": "newham-university-hospital",
+  "name": "Newham University Hospital",
+  "trust": "Barts Health NHS Trust",
+  "city": "London",
+  "country": "United Kingdom",
+  "lat": 51.523,
+  "lon": 0.036,
+  "spaces": [
+   {
+    "name": "Multi-Faith Prayer Room",
+    "location": "First floor, Zone 12, immediately above the West Entrance",
+    "access": "Patients, staff and visitors",
+    "hours": "unknown",
+    "wudu": "yes",
+    "women": "unknown",
+    "type": "multi-faith",
+    "jumuah": "Fridays 12:40pm and 1:00pm (winter); 1:15pm and 1:35pm (summer)",
+    "source_url": "https://www.bartshealth.nhs.uk/chaplaincy",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "24-hour service. Ask ward staff; on-call chaplain via switchboard 020 7377 7000. Newham chaplaincy telephone: 020 7363 8053.",
+   "source_url": "https://www.bartshealth.nhs.uk/chaplaincy"
+  },
+  "feedback_url": "https://www.bartshealth.nhs.uk/chaplaincy",
+  "notes": "Coordinates: Wikidata Q7018154 (P625), hospital-level point, low precision (3 decimals)."
+ },
+ {
+  "slug": "whipps-cross-hospital",
+  "name": "Whipps Cross Hospital",
+  "trust": "Barts Health NHS Trust",
+  "city": "London",
+  "country": "United Kingdom",
+  "lat": 51.5799,
+  "lon": 0.0035,
+  "spaces": [
+   {
+    "name": "Muslim Prayer Room (The Retreat)",
+    "location": "First floor, The Retreat: take the stairs near Junction 5, go through the door on the left at the top; the Muslim Prayer Room is through the second door (the Chapel and Quiet Area are through the first)",
+    "access": "Patients, visitors and staff",
+    "hours": "unknown",
+    "wudu": "yes",
+    "women": "unknown",
+    "type": "musalla",
+    "jumuah": "Fridays 1:00pm (winter) and 1:15pm (summer), in the Muslim Prayer Room",
+    "source_url": "https://www.bartshealth.nhs.uk/chaplaincy",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "24-hour service. Ask ward staff; on-call chaplain via switchboard 020 7377 7000. Whipps Cross chaplaincy telephone: 020 8535 6988.",
+   "source_url": "https://www.bartshealth.nhs.uk/chaplaincy"
+  },
+  "feedback_url": "https://www.bartshealth.nhs.uk/chaplaincy",
+  "notes": "Added beyond the requested list (same trust page, large East London catchment). Coordinates: OpenStreetMap node 469790109 via Nominatim."
+ },
+ {
+  "slug": "st-thomas-hospital",
+  "name": "St Thomas' Hospital",
+  "trust": "Guy's and St Thomas' NHS Foundation Trust",
+  "city": "London",
+  "country": "United Kingdom",
+  "lat": 51.4991,
+  "lon": -0.1189,
+  "spaces": [
+   {
+    "name": "Multi faith prayer room",
+    "location": "Ground floor, South Wing, St Thomas' Hospital, Westminster Bridge Road, London SE1 7EH",
+    "access": "Patients and relatives during the patient's stay, and staff only ('due to limited space'); ask ward staff for access",
+    "hours": "Open daily",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "multi-faith",
+    "jumuah": "Muslim Friday prayers here at 1pm",
+    "source_url": "https://www.guysandstthomas.nhs.uk/our-services/spiritual-care/religious-services",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   },
+   {
+    "name": "St Thomas' Chapel",
+    "location": "1st floor, South Wing",
+    "access": "Patients and relatives during the patient's stay, and staff only",
+    "hours": "Every day, 7am to 8pm (quiet prayer and reflection)",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "chapel",
+    "jumuah": "unknown",
+    "source_url": "https://www.guysandstthomas.nhs.uk/our-services/spiritual-care",
+    "source_type": "official page; US-side fetcher (WebFetch), quoted",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "yes",
+   "how_to_request": "Ask ward staff, or for urgent access call the hospital switchboard on 020 7188 7188 and ask to speak to the on duty chaplain. Service runs 24 hours a day, 7 days a week.",
+   "source_url": "https://www.guysandstthomas.nhs.uk/our-services/spiritual-care"
+  },
+  "feedback_url": "https://www.guysandstthomas.nhs.uk/our-services/spiritual-care",
+  "notes": "The spiritual care page (last updated February 2026) lists two Muslim chaplains by name and role; names are not repeated here. King's College London pages give other St Thomas' Jumu'ah venues for KCL staff and students (Governors Hall / Dunhill Fitness Centre); not hospital-run. Coordinates: Wikidata Q1143779 (P625)."
+ },
+ {
+  "slug": "kings-college-hospital",
+  "name": "King's College Hospital (Denmark Hill)",
+  "trust": "King's College Hospital NHS Foundation Trust",
+  "city": "London",
+  "country": "United Kingdom",
+  "lat": 51.4687,
+  "lon": -0.0922,
+  "spaces": [
+   {
+    "name": "Muslim Prayer Room",
+    "location": "Lower ground floor, Hambleden Wing",
+    "access": "Open to all patients, visitors and staff",
+    "hours": "Open each day",
+    "wudu": "yes",
+    "women": "unknown",
+    "type": "musalla",
+    "jumuah": "unknown",
+    "source_url": "https://www.kch.nhs.uk/wp-content/uploads/2023/01/Chaplaincy-4pp-A5-May-2025.pdf",
+    "source_type": "official leaflet PDF (PL420.8, May 2025); fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   },
+   {
+    "name": "St Luke's Chapel and The Sanctuary (multi-faith spaces)",
+    "location": "First floor, Cheyne Wing",
+    "access": "Open to everyone, whatever your faith or belief",
+    "hours": "Open each day",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "multi-faith",
+    "jumuah": "unknown",
+    "source_url": "https://www.kch.nhs.uk/wp-content/uploads/2023/01/Chaplaincy-4pp-A5-May-2025.pdf",
+    "source_type": "official leaflet PDF (PL420.8, May 2025); fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Ask the nurses or doctors caring for you; or call ext 33522 from inside the hospital or 020 3299 3522 from outside. 24-hour service: in an emergency ward staff contact the on-call chaplain via the main switchboard.",
+   "source_url": "https://www.kch.nhs.uk/wp-content/uploads/2023/01/Chaplaincy-4pp-A5-May-2025.pdf"
+  },
+  "feedback_url": "https://www.kch.nhs.uk/wp-content/uploads/2023/01/Chaplaincy-4pp-A5-May-2025.pdf",
+  "notes": "Leaflet review date was July 2026, now passed. Leaflet does not say whether a Muslim chaplain is on the team. KCL's separate Denmark Hill Muslim rooms (Main Building, Weston Education Centre) are for KCL staff and students, not hospital visitors. Coordinates: Wikidata Q1742181 (P625)."
+ },
+ {
+  "slug": "st-marys-hospital-paddington",
+  "name": "St Mary's Hospital (Paddington)",
+  "trust": "Imperial College Healthcare NHS Trust",
+  "city": "London",
+  "country": "United Kingdom",
+  "lat": 51.5172,
+  "lon": -0.1731,
+  "spaces": [
+   {
+    "name": "Muslim prayer room",
+    "location": "Ground floor, Clarence building: enter the Cambridge building via the Norfolk Place entrance, turn left, prayer rooms at the end of the corridor on the left",
+    "access": "Patients and staff",
+    "hours": "11:00 to 19:00, Monday to Friday; outside these hours contact security",
+    "wudu": "yes",
+    "women": "partition",
+    "type": "musalla",
+    "jumuah": "Held on Fridays (Muslim prayer room and multi-faith room combined); contact the chaplaincy for timings",
+    "source_url": "https://www.imperial.nhs.uk/our-locations/st-marys-hospital/facilities",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   },
+   {
+    "name": "Multi-faith room",
+    "location": "Next to the Muslim prayer room, separated by a sliding partition",
+    "access": "Staff and patients; used by Muslim women for their prayers",
+    "hours": "11:00 to 19:00, Monday to Friday; outside these hours contact security",
+    "wudu": "yes",
+    "women": "partition",
+    "type": "multi-faith",
+    "jumuah": "Used for Jumu'ah with the partition removed; on Fridays 12pm to 2pm the nearby 'Sitting Room' is made available for women",
+    "source_url": "https://www.imperial.nhs.uk/our-locations/st-marys-hospital/facilities",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Chaplaincy 020 3312 1508 (09.00 to 17.00, Monday to Friday). Outside these hours call switchboard on 020 3311 1234 and ask for the on-call Chaplain.",
+   "source_url": "https://www.imperial.nhs.uk/our-locations/st-marys-hospital/facilities"
+  },
+  "feedback_url": "https://www.imperial.nhs.uk/our-locations/st-marys-hospital/facilities",
+  "notes": "Separate ablution facilities for men and for women are stated for the Muslim prayer room. The trust's general chaplaincy URL found in search returned 'page not found'. Coordinates: Wikidata Q3495342 (P625)."
+ },
+ {
+  "slug": "northwick-park-hospital",
+  "name": "Northwick Park Hospital",
+  "trust": "London North West University Healthcare NHS Trust",
+  "city": "Harrow, London",
+  "country": "United Kingdom",
+  "lat": 51.576,
+  "lon": -0.322,
+  "spaces": [
+   {
+    "name": "Prayer room",
+    "location": "Opposite the physiotherapy department, off the main corridor",
+    "access": "unknown (keyed access not described; ask staff out of hours)",
+    "hours": "Daily 10am to 5pm; ask a member of staff for access out of hours or contact security during unsocial hours",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "multi-faith",
+    "jumuah": "unknown",
+    "source_url": "https://lnwh.nhs.uk/chaplaincy",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   },
+   {
+    "name": "Multi-faith centre",
+    "location": "Off the main corridor, next to the X-ray department",
+    "access": "unknown",
+    "hours": "unknown",
+    "wudu": "yes",
+    "women": "unknown",
+    "type": "multi-faith",
+    "jumuah": "Muslim Friday prayers weekly in the centre; times on the noticeboard outside the prayer room",
+    "source_url": "https://lnwh.nhs.uk/chaplaincy",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Non-urgent: email LNWH-tr.chaplaincy@nhs.net or call 020 8967 5130 (voicemail monitored Mon-Fri 9am-4pm). Urgent: call switchboard 020 8864 3232 and ask for the on-call chaplain.",
+   "source_url": "https://lnwh.nhs.uk/chaplaincy"
+  },
+  "feedback_url": "https://lnwh.nhs.uk/chaplaincy",
+  "notes": "Ablution facilities are on the ground floor of the multi-faith centre. Trust page says chaplains come 'from a range of faiths' but does not name a Muslim chaplain. A search snippet gave 8am-8pm hours and a keypad; the page read on 13 Oct 2026 says 10am-5pm. Trust news describes rebuilding the chapel as a multi-faith centre (not read in full). Coordinates: Wikidata Q7060443 (P625), low precision."
+ },
+ {
+  "slug": "royal-free-hospital",
+  "name": "Royal Free Hospital (Hampstead)",
+  "trust": "Royal Free London NHS Foundation Trust",
+  "city": "London",
+  "country": "United Kingdom",
+  "lat": 51.5531,
+  "lon": -0.1654,
+  "spaces": [
+   {
+    "name": "Muslim Prayer Room",
+    "location": "Lower ground floor (with the Chapel and Shabbat Room)",
+    "access": "Everyone is welcome (trust wording for its chapels and multi-faith spaces)",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "jumuah": "Every Friday from 1pm 'at all three hospital chapels' (trust wording)",
+    "source_url": "https://www.royalfree.nhs.uk/patients-visitors/advice-and-support/chaplaincy-multi-faith",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "yes",
+   "how_to_request": "Ask the nurse to call the chaplaincy-spiritual care team, or call 020 7830 2742, ext 33096.",
+   "source_url": "https://www.royalfree.nhs.uk/patients-visitors/advice-and-support/chaplaincy-multi-faith"
+  },
+  "feedback_url": "https://www.royalfree.nhs.uk/patients-visitors/advice-and-support/chaplaincy-multi-faith",
+  "notes": "Added beyond the requested list. Trust says it has Muslim (Imam and female Muslim) chaplains. Whether 'chapels' in the Jumu'ah line means the Muslim Prayer Room is not stated. Coordinates: Wikidata Q7374196 (P625)."
+ },
+ {
+  "slug": "queen-elizabeth-hospital-birmingham",
+  "name": "Queen Elizabeth Hospital Birmingham",
+  "trust": "University Hospitals Birmingham NHS Foundation Trust",
+  "city": "Birmingham",
+  "country": "United Kingdom",
+  "lat": 52.4517,
+  "lon": -1.9431,
+  "spaces": [
+   {
+    "name": "Prayer rooms, Faith and Community Centre",
+    "location": "Level 1, near the Main Entrance (Faith and Community Centre: chapel, prayer rooms, quiet corner)",
+    "access": "Staff, patients and visitors; everyone welcome regardless of faith",
+    "hours": "Open and lit day and night; quiet corner open 24/7",
+    "wudu": "yes",
+    "women": "separate",
+    "type": "musalla",
+    "jumuah": "Contact the chaplaincy for up-to-date Jumu'ah times",
+    "source_url": "https://www.uhb.nhs.uk/services/chaplaincy/chapels-and-prayer-rooms/",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "yes",
+   "how_to_request": "Bedside religious and pastoral care from Muslim Chaplains on request. Urgent: on-call Chaplain via switchboard 0121 371 2000. Routine: 0121 371 4574 (leave a message) or Chaplaincy@uhb.nhs.uk.",
+   "source_url": "https://www.uhb.nhs.uk/services/chaplaincy/contact-the-chaplaincy-team/"
+  },
+  "feedback_url": "https://www.uhb.nhs.uk/services/chaplaincy/contact-the-chaplaincy-team/",
+  "notes": "Male and female wudu facilities stated ('separate' refers to wudu; whether the prayer rooms themselves are separate is not stated). Pages last reviewed 5 Sep 2024. Coordinates: Wikidata Q7270344 (P625)."
+ },
+ {
+  "slug": "heartlands-hospital",
+  "name": "Heartlands Hospital (Bordesley Green)",
+  "trust": "University Hospitals Birmingham NHS Foundation Trust",
+  "city": "Birmingham",
+  "country": "United Kingdom",
+  "lat": 52.4786,
+  "lon": -1.8298,
+  "spaces": [
+   {
+    "name": "Prayer rooms in the faith centre",
+    "location": "Location not stated on trust pages",
+    "access": "Services open to all patients, staff and visitors",
+    "hours": "Open throughout the week",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "jumuah": "Every Friday: first prayer 12:30, second 13:00, third 13:30",
+    "source_url": "https://www.uhb.nhs.uk/services/chaplaincy/hospital-prayers-services-and-masses/",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "yes",
+   "how_to_request": "Bedside religious and pastoral care from Muslim Chaplains on request. Urgent: on-call Chaplain via switchboard 0121 424 2000. Routine: 0121 424 1369 (leave a message) or Chaplaincy@uhb.nhs.uk.",
+   "source_url": "https://www.uhb.nhs.uk/services/chaplaincy/contact-the-chaplaincy-team/"
+  },
+  "feedback_url": "https://www.uhb.nhs.uk/services/chaplaincy/contact-the-chaplaincy-team/",
+  "notes": "Room location, wudu and women's space not found. Coordinates: Wikidata Q30279830 (P625)."
+ },
+ {
+  "slug": "midland-metropolitan-university-hospital",
+  "name": "Midland Metropolitan University Hospital (Smethwick)",
+  "trust": "Sandwell and West Birmingham NHS Trust",
+  "city": "Smethwick",
+  "country": "United Kingdom",
+  "lat": 52.4911,
+  "lon": -1.9497,
+  "spaces": [
+   {
+    "name": "Spiritual Care Centre",
+    "location": "Level 5",
+    "access": "Patients, visitors and staff",
+    "hours": "7am to 10pm; outside these hours a member of staff will accompany you",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "multi-faith",
+    "jumuah": "Friday prayers, Jummah at 1pm",
+    "source_url": "https://www.swbh.nhs.uk/?p=2032",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "yes",
+   "how_to_request": "Ring 0121 553 1831 and ask the operator for the on call faith specific chaplain; non-urgent: leave a message. Midland Met chaplaincy office 0121 507 4916/4981; swbh.chaplaincy@nhs.net.",
+   "source_url": "https://www.swbh.nhs.uk/?p=2032"
+  },
+  "feedback_url": "https://www.swbh.nhs.uk/?p=2032",
+  "notes": "Added beyond the requested list (opened Oct 2024; large Muslim catchment in Sandwell/west Birmingham). Trust lists an Imam (Muslim Chaplain) and a female Muslim chaplain. Coordinates: OpenStreetMap way 386726040 via Nominatim."
+ },
+ {
+  "slug": "bradford-royal-infirmary",
+  "name": "Bradford Royal Infirmary",
+  "trust": "Bradford Teaching Hospitals NHS Foundation Trust",
+  "city": "Bradford",
+  "country": "United Kingdom",
+  "lat": 53.8058,
+  "lon": -1.7944,
+  "spaces": [
+   {
+    "name": "Public Muslim Prayer Room",
+    "location": "Opposite the Chapel in the main building (Chapel: Level 1, turn right from the Duckworth Lane entrance)",
+    "access": "Visitors",
+    "hours": "Open during the day",
+    "wudu": "yes",
+    "women": "partition",
+    "type": "musalla",
+    "jumuah": "Times of Friday (Jumma) prayers are posted at the location",
+    "source_url": "https://sparc.bradfordhospitals.nhs.uk/",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   },
+   {
+    "name": "Main / Staff Muslim Prayer Room",
+    "location": "Level 0, access from the front car park on Duckworth Lane (building adjacent to A&E)",
+    "access": "Staff at all times; patients or visitors escorted by staff (swipe card needed)",
+    "hours": "At all times (staff)",
+    "wudu": "yes",
+    "women": "separate",
+    "type": "musalla",
+    "jumuah": "Times of Friday (Jumma) prayers are posted at the location",
+    "source_url": "https://sparc.bradfordhospitals.nhs.uk/?p=551",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   },
+   {
+    "name": "Prayer/Quiet Room",
+    "location": "Level 1: turn right from the Duckworth Lane entrance, then left; just after the vending machine",
+    "access": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "multi-faith",
+    "jumuah": "unknown",
+    "source_url": "https://sparc.bradfordhospitals.nhs.uk/",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "SPaRC team 01274 36 5819 or SPaRCteam@bthft.nhs.uk (weekdays 8am-4pm); on-call contact through Switchboard.",
+   "source_url": "https://sparc.bradfordhospitals.nhs.uk/about/"
+  },
+  "feedback_url": "https://sparc.bradfordhospitals.nhs.uk/about/",
+  "notes": "INFERENCE: the congregation page's swipe-card 'main Muslim Prayer Room' (separate men's and women's rooms, ablution) and the locations page's 'Staff Muslim Prayer Room' (Level 0) are treated as the same room; confirm. The visitor room is shared male/female space with a curtain and shared ablution outside the room. The core team is listed by first name/name without faith roles. Coordinates: Wikidata Q4954744 (P625)."
+ },
+ {
+  "slug": "leeds-general-infirmary",
+  "name": "Leeds General Infirmary",
+  "trust": "Leeds Teaching Hospitals NHS Trust",
+  "city": "Leeds",
+  "country": "United Kingdom",
+  "lat": 53.8021,
+  "lon": -1.5508,
+  "spaces": [
+   {
+    "name": "Brotherton Wing Muslim Prayer Room",
+    "location": "Floor B, Brotherton Wing: enter the Brotherton Wing Main Entrance, turn left, take lift No. 22 to Floor B, turn left and go through 2 sets of double doors; room on the right",
+    "access": "unknown; keycode to enter, details from the chaplain",
+    "hours": "Open 24hrs",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "jumuah": "unknown",
+    "source_url": "https://www.accessable.co.uk/leeds-teaching-hospitals-nhs-trust/leeds-general-infirmary/access-guides/brotherton-wing-muslim-prayer-room",
+    "source_type": "AccessAble access guide (trust-specific listing); fetched via r.jina.ai",
+    "verified": "secondary",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "yes",
+   "how_to_request": "Emergency: nursing staff contact the on-call chaplain through the switchboard. LGI chaplaincy office (0113) 392 2914; leedsth-tr.chaplaincy@nhs.net.",
+   "source_url": "https://flipbooks.leedsth.nhs.uk/LN005283.pdf"
+  },
+  "feedback_url": "https://flipbooks.leedsth.nhs.uk/LN005283.pdf",
+  "notes": "AccessAble guide surveyed August 2022. Trust leaflet (published 09/2026) says prayer and quiet rooms are open to everyone 24 hours a day and the team includes Muslim carers/chaplains, but does not list Muslim room locations. A 'Clarendon Wing - Prayer Room' AccessAble guide exists (not read). Coordinates: Wikidata Q1245797 (P625)."
+ },
+ {
+  "slug": "st-jamess-university-hospital-leeds",
+  "name": "St James's University Hospital",
+  "trust": "Leeds Teaching Hospitals NHS Trust",
+  "city": "Leeds",
+  "country": "United Kingdom",
+  "lat": 53.8081,
+  "lon": -1.5186,
+  "spaces": [
+   {
+    "name": "Multi Faith/Quiet Room",
+    "location": "Level 2, Gledhow Wing: enter via the Gledhow Wing entrance, turn right past reception, bear left along the walkway to the seating area, bear right; room ahead (keypad on door)",
+    "access": "unknown (keypad entry)",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "multi-faith",
+    "jumuah": "unknown",
+    "source_url": "https://www.accessable.co.uk/leeds-teaching-hospitals-nhs-trust/st-james-s-university-hospital/access-guides/multi-faith-quiet-room",
+    "source_type": "AccessAble access guide (trust-specific listing); fetched via r.jina.ai",
+    "verified": "secondary",
+    "accessed": "2026-10-13"
+   },
+   {
+    "name": "Bexley Wing modern space",
+    "location": "Level 1, Bexley Wing",
+    "access": "Everyone (trust leaflet, for its prayer and quiet rooms)",
+    "hours": "24 hours a day (trust leaflet, for its prayer and quiet rooms)",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "multi-faith",
+    "jumuah": "unknown",
+    "source_url": "https://flipbooks.leedsth.nhs.uk/LN005283.pdf",
+    "source_type": "official leaflet PDF (LN005283, 09/2026); fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "yes",
+   "how_to_request": "Emergency: nursing staff contact the on-call chaplain through the switchboard. St James's chaplaincy office (0113) 206 5935; leedsth-tr.chaplaincy@nhs.net.",
+   "source_url": "https://flipbooks.leedsth.nhs.uk/LN005283.pdf"
+  },
+  "feedback_url": "https://flipbooks.leedsth.nhs.uk/LN005283.pdf",
+  "notes": "No Muslim-specific room at St James's was found in official or AccessAble sources. Coordinates: Wikidata Q7593476 (P625)."
+ },
+ {
+  "slug": "manchester-royal-infirmary",
+  "name": "Manchester Royal Infirmary",
+  "trust": "Manchester University NHS Foundation Trust",
+  "city": "Manchester",
+  "country": "United Kingdom",
+  "lat": 53.4622,
+  "lon": -2.2264,
+  "spaces": [
+   {
+    "name": "Multifaith Centre",
+    "location": "Near Entrance 2, next to Costa Coffee, opposite the PALS office",
+    "access": "unknown",
+    "hours": "Quiet room inside the centre 8am-4pm; centre hours not stated",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "multi-faith",
+    "jumuah": "Jumu'ah 12:15-12:45pm and 1:00-1:30pm (winter, GMT); 1:00-1:30pm and 1:40-2:10pm (summer, BST). Daily Zuhr at 1pm (adjusted seasonally)",
+    "source_url": "https://mft.nhs.uk/mri/patients-visitors/chaplaincy-service/",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Ask ward staff, or call the Chaplaincy Service 0161 276 8792 (8am-4pm Mon-Fri; voicemail otherwise) or chaplain@mft.nhs.uk. Out-of-hours and emergency support via the hospital switchboard 0300 330 9444.",
+   "source_url": "https://mft.nhs.uk/mri/patients-visitors/chaplaincy-service/"
+  },
+  "feedback_url": "https://mft.nhs.uk/mri/patients-visitors/chaplaincy-service/",
+  "notes": "A search snippet of MFT job adverts mentions a Jumuah Imam and a Muslim Chaplain post; the adverts were not read, so the field stays 'unknown'. Ward spiritual care boxes include Quran cubes. Coordinates: Wikidata Q3285348 (P625)."
+ },
+ {
+  "slug": "salford-royal-hospital",
+  "name": "Salford Royal Hospital",
+  "trust": "Northern Care Alliance NHS Foundation Trust",
+  "city": "Salford",
+  "country": "United Kingdom",
+  "lat": 53.4882,
+  "lon": -2.3233,
+  "spaces": [
+   {
+    "name": "Prayer Room (Muslim space), Chaplaincy and Spiritual Care Centre",
+    "location": "Level 3, Hope Building",
+    "access": "Patients, staff and visitors of all beliefs",
+    "hours": "Centre open 24 hours a day",
+    "wudu": "yes",
+    "women": "unknown",
+    "type": "musalla",
+    "jumuah": "Muslim Friday prayers led by a member of staff in the Prayer Room; see the noticeboard outside the room",
+    "source_url": "https://northerncarealliance.nhs.uk/patient-information/chaplaincy",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Ask ward staff to page the chaplain (urgent). Non-urgent: Salford Royal site office 0161 206 5167. Chaplaincy available 24/7.",
+   "source_url": "https://northerncarealliance.nhs.uk/patient-information/chaplaincy"
+  },
+  "feedback_url": "https://northerncarealliance.nhs.uk/patient-information/chaplaincy",
+  "notes": "Added beyond the requested list (same trust page as Oldham). Page last updated 14 February 2023 and still mentions social distancing, so may be stale. Coordinates: Wikidata Q50575528 (P625)."
+ },
+ {
+  "slug": "royal-oldham-hospital",
+  "name": "The Royal Oldham Hospital",
+  "trust": "Northern Care Alliance NHS Foundation Trust",
+  "city": "Oldham",
+  "country": "United Kingdom",
+  "lat": 53.5528,
+  "lon": -2.1227,
+  "spaces": [
+   {
+    "name": "Prayer Room (refurbished and extended, May 2025)",
+    "location": "Level -1 of the Sheepfoot Lane Building: follow signs from the main hospital, or from outside enter the door nearest Lucy Pugh outpatients and turn left down the corridor",
+    "access": "Colleagues, patients and members of the public; primarily for Muslim use, people of other faiths welcome",
+    "hours": "Open seven days a week",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "jumuah": "unknown",
+    "source_url": "https://www.northerncarealliance.nhs.uk/nca-news/new-prayer-room-opens-royal-oldham",
+    "source_type": "official news item (7 May 2025); fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Urgent: ask ward staff to page the chaplain, or ring switchboard 0161 624 0420 and ask for the Chaplain. Non-urgent: Royal Oldham site office 0161 627 8796. Available 24/7.",
+   "source_url": "https://northerncarealliance.nhs.uk/patient-information/chaplaincy"
+  },
+  "feedback_url": "https://northerncarealliance.nhs.uk/patient-information/chaplaincy",
+  "notes": "CONFLICT: the trust chaplaincy page (last updated 14 Feb 2023) places the Prayer Room 'in D Block near the Garden Entrance', open 24 hours, with a dedicated space for women, and says Friday prayers are led by a named chaplain and staff. The 7 May 2025 news item gives the Sheepfoot Lane location; treat the news item as newer. Whether the women's space survived the refurbishment is not stated. Coordinates: Wikidata Q7374640 (P625)."
+ },
+ {
+  "slug": "royal-blackburn-teaching-hospital",
+  "name": "Royal Blackburn Teaching Hospital",
+  "trust": "East Lancashire Hospitals NHS Trust",
+  "city": "Blackburn",
+  "country": "United Kingdom",
+  "lat": 53.7362,
+  "lon": -2.4615,
+  "spaces": [
+   {
+    "name": "Mosque / Muslim prayer rooms, Spiritual Care Centre",
+    "location": "Level 3, Spiritual Care Centre (opposite Ward C14), with the Chapel and Quiet Room",
+    "access": "unknown",
+    "hours": "Open 24/7",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "jumuah": "Every Friday; times vary with the calendar and are advertised outside the rooms",
+    "source_url": "https://elht.nhs.uk/services/chaplaincy",
+    "source_type": "official page; fetched via r.jina.ai",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "yes",
+   "how_to_request": "Ask a member of staff, or call the Chaplaincy Team on 01254 733632 or 01254 733001, or via the hospital switchboard on 01254 263555, or chaplains@elht.nhs.uk. 24-hour service.",
+   "source_url": "https://elht.nhs.uk/services/chaplaincy"
+  },
+  "feedback_url": "https://elht.nhs.uk/services/chaplaincy",
+  "notes": "Trust page says there are Muslim chaplains. Direct and Wayback fetches were blocked (403 / bot challenge); read via r.jina.ai. Trust news offers a 360-degree virtual tour of the prayer room (not viewed). Coordinates: Wikidata Q30281700 (P625)."
+ },
+ {
+  "slug": "leicester-royal-infirmary",
+  "name": "Leicester Royal Infirmary",
+  "trust": "University Hospitals of Leicester NHS Trust",
+  "city": "Leicester",
+  "country": "United Kingdom",
+  "lat": 52.6261,
+  "lon": -1.1358,
+  "spaces": [
+   {
+    "name": "Prayer rooms (with the Chapel)",
+    "location": "Ground floor (level 0), Balmoral building, next to the lifts",
+    "access": "Patients, visitors and staff; people of all faiths, beliefs and worldviews",
+    "hours": "Open at all times (24 hours a day)",
+    "wudu": "yes",
+    "women": "unknown",
+    "type": "musalla",
+    "jumuah": "Friday Juma Khutba followed by Salaat, in the prayer rooms (time not stated)",
+    "source_url": "https://www.uhleicester.nhs.uk/patients-visitors/support/chaplaincy/chapels-and-prayer-rooms/",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "yes",
+   "how_to_request": "Ask any member of hospital staff to refer you, or call the LRI chaplaincy on 0116 258 5487. Urgent, day or night: ask nursing staff to contact the on-call chaplain.",
+   "source_url": "https://www.uhleicester.nhs.uk/patients-visitors/support/chaplaincy/"
+  },
+  "feedback_url": "https://www.uhleicester.nhs.uk/patients-visitors/support/chaplaincy/",
+  "notes": "A Leicester Hospitals Charity appeal describes plans for a new Spiritual Care Centre at LRI (status not confirmed). Coordinates: Wikidata Q6519220 (P625)."
+ },
+ {
+  "slug": "luton-and-dunstable-university-hospital",
+  "name": "Luton and Dunstable University Hospital",
+  "trust": "Bedfordshire Hospitals NHS Foundation Trust",
+  "city": "Luton",
+  "country": "United Kingdom",
+  "lat": 51.894,
+  "lon": -0.474,
+  "spaces": [
+   {
+    "name": "Sacred Space Prayer Room (Muslim prayer space)",
+    "location": "On Lewsey Road, in a portacabin",
+    "access": "Men and women (screens/dividers); code to enter, requested from Security",
+    "hours": "Prayer and worship areas 'always usually open' (trust wording)",
+    "wudu": "unknown",
+    "women": "partition",
+    "type": "musalla",
+    "jumuah": "unknown",
+    "source_url": "https://www.bedfordshirehospitals.nhs.uk/patients-visitors/chaplaincy-service/",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   },
+   {
+    "name": "Chapel of St Barnabas",
+    "location": "Second floor, Medical Block (Sacred Space and carpeted area; prayer mats provided)",
+    "access": "Open to all for prayer, worship and quiet reflection",
+    "hours": "'Always usually open' (trust wording)",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "chapel",
+    "jumuah": "unknown",
+    "source_url": "https://www.bedfordshirehospitals.nhs.uk/patients-visitors/chaplaincy-service/",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Chaplaincy Centre (second floor, Medical Block, weekdays 08.00-16.00): 01582 497370 or chaplaincy@ldh.nhs.uk. Urgent or out of hours: ask the staff to bleep 745; in an emergency they will ask the switchboard to contact the Duty Chaplain.",
+   "source_url": "https://www.bedfordshirehospitals.nhs.uk/patients-visitors/chaplaincy-service/"
+  },
+  "feedback_url": "https://www.bedfordshirehospitals.nhs.uk/patients-visitors/chaplaincy-service/",
+  "notes": "Trust says faith representatives from the major faith communities can be contacted via the Chaplaincy Office, but does not name a Muslim chaplain. The ablutions area mentioned on the page is at Bedford Hospital's Faith and Belief Room, not L&D. Coordinates: Wikidata Q6705902 (P625), low precision."
+ },
+ {
+  "slug": "northern-general-hospital-sheffield",
+  "name": "Northern General Hospital",
+  "trust": "Sheffield Teaching Hospitals NHS Foundation Trust",
+  "city": "Sheffield",
+  "country": "United Kingdom",
+  "lat": 53.4108,
+  "lon": -1.4583,
+  "spaces": [
+   {
+    "name": "Muslim prayer rooms",
+    "location": "Chesterman (D level) and Vickers (E level)",
+    "access": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "jumuah": "unknown",
+    "source_url": "https://web.archive.org/web/20241011091804/https://www.sth.nhs.uk/patients/inpatient-guide/services-available",
+    "source_type": "official page via Wayback Machine (11 Oct 2024 capture; live URL now 404)",
+    "verified": "official-indirect",
+    "accessed": "2026-10-13"
+   },
+   {
+    "name": "Multi-faith room",
+    "location": "Robert Hadfield Wing, Level A0",
+    "access": "unknown",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "multi-faith",
+    "jumuah": "unknown",
+    "source_url": "https://web.archive.org/web/20241011091804/https://www.sth.nhs.uk/patients/inpatient-guide/services-available",
+    "source_type": "official page via Wayback Machine (11 Oct 2024 capture; live URL now 404)",
+    "verified": "official-indirect",
+    "accessed": "2026-10-13"
+   },
+   {
+    "name": "Prayer Room (AccessAble)",
+    "location": "Level D, Firth Wing: enter via Huntsman Building Entrance 3, past main reception to a bank of 2 lifts, lift to level D, turn left; room at the end of the corridor",
+    "access": "unknown",
+    "hours": "unknown",
+    "wudu": "yes",
+    "women": "unknown",
+    "type": "musalla",
+    "jumuah": "unknown",
+    "source_url": "https://www.accessable.co.uk/sheffield-teaching-hospitals-nhs-foundation-trust/northern-general-hospital/access-guides/prayer-room-sheffield",
+    "source_type": "AccessAble access guide (trust-specific listing); fetched via r.jina.ai",
+    "verified": "secondary",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Ask staff on your ward to call the chaplains, or call the Northern Campus chaplaincy on 0114 27 15485.",
+   "source_url": "https://web.archive.org/web/20241011091804/https://www.sth.nhs.uk/patients/inpatient-guide/services-available"
+  },
+  "feedback_url": "https://web.archive.org/web/20241011091804/https://www.sth.nhs.uk/patients/inpatient-guide/services-available",
+  "notes": "AccessAble records a foot washing facility in the toilet next to the Firth Wing prayer room; 'wudu: yes' rests on that guide only. The Firth Wing room may be the same as one of the trust-listed rooms (not confirmed). The live trust inpatient-guide URL returned 404 on 13 Oct 2026. Coordinates: Wikidata Q7058368 (P625)."
+ },
+ {
+  "slug": "university-hospital-coventry",
+  "name": "University Hospital Coventry",
+  "trust": "University Hospitals Coventry and Warwickshire NHS Trust",
+  "city": "Coventry",
+  "country": "United Kingdom",
+  "lat": 52.4212,
+  "lon": -1.4378,
+  "spaces": [
+   {
+    "name": "Faith Centre",
+    "location": "Location not stated on the trust page (six individual prayer rooms, a quiet room, main chapel and garden)",
+    "access": "Staff and patients; 'all are welcome'",
+    "hours": "unknown",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "multi-faith",
+    "jumuah": "Jumu'ah 1.30pm (summer) and 1.15pm (winter); the same page also lists 'Friday Prayer (Jumu'ah) - Fridays in the Main Chapel (1.30pm)'",
+    "source_url": "https://www.uhcw.nhs.uk/patients-and-visitors/spiritual-care/",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Not stated on the trust's spiritual care page.",
+   "source_url": "https://www.uhcw.nhs.uk/patients-and-visitors/spiritual-care/"
+  },
+  "feedback_url": "https://www.uhcw.nhs.uk/patients-and-visitors/spiritual-care/",
+  "notes": "Team of 16 chaplains 'from a wide breadth of cultural and faith backgrounds'; a Muslim chaplain is not named. Faith Centre location not found in official or secondary sources. Coordinates: Wikidata Q7894765 (P625)."
+ },
+ {
+  "slug": "queens-medical-centre-nottingham",
+  "name": "Queen's Medical Centre",
+  "trust": "Nottingham University Hospitals NHS Trust",
+  "city": "Nottingham",
+  "country": "United Kingdom",
+  "lat": 52.9436,
+  "lon": -1.1857,
+  "spaces": [
+   {
+    "name": "Muslim prayer rooms, Multifaith Centre",
+    "location": "D Floor, East Block (Multifaith Centre with Chapel, Gurdwara, Mandir and Synagogue)",
+    "access": "unknown",
+    "hours": "unknown",
+    "wudu": "yes",
+    "women": "unknown",
+    "type": "musalla",
+    "jumuah": "D Floor East Block Prayer Room. Summer: khutbah 13:15 / jamah 13:30 and khutbah 13:45 / jamah 14:00. Winter Nov-Jan: 12:45/13:00 and 13:15/13:30. Feb-Mar: 13:00/13:15 and 13:30/13:45",
+    "source_url": "https://www.nuh.nhs.uk/healthcare-chaplaincy",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Call 0115 924 9924 ext. 83799 (Monday-Sunday 8.30am-4.30pm) or nuhnt.contactachaplain@nhs.net. Out of hours: on-call chaplain via the switchboard.",
+   "source_url": "https://www.nuh.nhs.uk/healthcare-chaplaincy"
+  },
+  "feedback_url": "https://www.nuh.nhs.uk/healthcare-chaplaincy",
+  "notes": "Rooms are plural ('Muslim prayer rooms'); women's provision is not stated. Coordinates: Wikidata Q7270030 (P625)."
+ },
+ {
+  "slug": "university-hospital-of-wales",
+  "name": "University Hospital of Wales (Heath, Cardiff)",
+  "trust": "Cardiff and Vale University Health Board",
+  "city": "Cardiff",
+  "country": "United Kingdom",
+  "lat": 51.507,
+  "lon": -3.19,
+  "spaces": [
+   {
+    "name": "Muslim worship area",
+    "location": "Location not stated on health board page",
+    "access": "Muslim staff and visitors (Friday prayer); chapels and prayer rooms open to anyone",
+    "hours": "Chapels and prayer rooms open 24/7",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "musalla",
+    "jumuah": "Friday congregational prayer takes place in the Muslim worship areas at UHW (time not stated)",
+    "source_url": "https://cavuhb.nhs.wales/staff-information/staff-benefits/support-networks/chaplaincy/",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "yes",
+   "how_to_request": "Chaplaincy team 02921 843230 or spiritual.careteam@wales.nhs.uk.",
+   "source_url": "https://cavuhb.nhs.wales/staff-information/staff-benefits/support-networks/chaplaincy/"
+  },
+  "feedback_url": "https://cavuhb.nhs.wales/staff-information/staff-benefits/support-networks/chaplaincy/",
+  "notes": "Health board lists two Muslim chaplains by name and role. The page sits in the staff-information section. A Cardiff University residence-life snippet places a 'mosque' on level B5; that page now returns 404 and is not used. The board has also put prayer mats on some UHW wards (news item). Coordinates: Wikidata Q7894777 (P625), low precision."
+ },
+ {
+  "slug": "queen-elizabeth-university-hospital-glasgow",
+  "name": "Queen Elizabeth University Hospital",
+  "trust": "NHS Greater Glasgow and Clyde",
+  "city": "Glasgow",
+  "country": "United Kingdom",
+  "lat": 55.8622,
+  "lon": -4.3411,
+  "spaces": [
+   {
+    "name": "QEUH Sanctuary",
+    "location": "First floor, next to the Bute lifts/stairwell; or take the escalator from the main entrance, turn left and follow signs",
+    "access": "Everyone (neutral, non-religious space)",
+    "hours": "Any time of day or night",
+    "wudu": "unknown",
+    "women": "unknown",
+    "type": "multi-faith",
+    "jumuah": "unknown",
+    "source_url": "https://www.nhsggc.scot/hospitals-services/services-a-to-z/spiritual-care-and-chaplaincy-service/nhsggc-sanctuaries/",
+    "source_type": "official page; fetched directly",
+    "verified": "official-read",
+    "accessed": "2026-10-13"
+   }
+  ],
+  "chaplaincy": {
+   "muslim_chaplain": "unknown",
+   "how_to_request": "Chaplains' offices are in the sanctuary area: 0141 452 3220 / 3221. Chaplains on site Mon-Fri 9am-5pm; urgent referrals only weekdays 5pm-10pm and weekends/public holidays 9am-10pm (2024-25 annual report).",
+   "source_url": "https://www.nhsggc.scot/hospitals-services/services-a-to-z/spiritual-care-and-chaplaincy-service/nhsggc-sanctuaries/"
+  },
+  "feedback_url": "https://www.nhsggc.scot/hospitals-services/services-a-to-z/spiritual-care-and-chaplaincy-service/nhsggc-sanctuaries/",
+  "notes": "A University of Glasgow chaplaincy page says the QEUH Sanctuary has 'an ablutions room'; the health board page does not, so wudu stays 'unknown'. No Muslim-specific room, Jumu'ah or Muslim chaplain found on NHSGGC pages. Coordinates: Wikidata Q20027879 (P625)."
+ }
+]

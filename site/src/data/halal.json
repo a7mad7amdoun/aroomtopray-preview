@@ -1,0 +1,777 @@
+[
+ {
+  "iata": "LHR",
+  "outlets": [
+   {
+    "name": "Globe",
+    "terminal": "See the airport's restaurant listing",
+    "side": "unknown",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://www.heathrow.com/content/dam/heathrow/web/common/documents/at-the-airport/restaurants-a-z/Globe-main-menu-dec-25.pdf",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Menu (Dec 2025) hosted on heathrow.com says 'All our chicken is halal.' The same menu includes bacon dishes.",
+    "claim": "The restaurant’s menu on Heathrow’s website says “All our chicken is halal.” The same menu includes bacon dishes, so ask about your order."
+   }
+  ],
+  "airport_note": "No outlet with a halal claim was found on the official airport site or a certifier list on 13 Oct 2026. Ask at the airport information desk or the outlet. heathrow.com was searched site-wide for \"halal\" and returned no restaurant claim; pages read (e.g. wagamama, Harris + Hoole) do not mention halal. Third-party guides naming Heathrow outlets (HalalTrip) are undated and unverified."
+ },
+ {
+  "iata": "LGW",
+  "outlets": [
+   {
+    "name": "Nando's",
+    "terminal": "South Terminal",
+    "side": "airside",
+    "halal": "some items",
+    "certifier": "Not named. Nando's says its halal chicken is 'authorised by leading Halal Food Authorities' and is pre-stunned.",
+    "source_url": "https://www.nandos.co.uk/halal",
+    "source_type": "outlet's own site",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Listed on Nando's halal page as 'Gatwick - South Terminal' (airside). Gatwick's breakfast page also says 'Halal chicken available' (https://www.gatwickairport.com/restaurant-directory/breakfast.html). Halal applies to chicken only; the restaurant serves other items. Pre-stunned chicken is not accepted by some Muslims (HMC standard)."
+   }
+  ],
+  "airport_note": "One outlet with a verified halal-chicken claim. Ask the outlet."
+ },
+ {
+  "iata": "MAN",
+  "outlets": [
+   {
+    "name": "Wrapchic",
+    "terminal": "Terminal 2",
+    "side": "landside",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://www.manchesterairport.co.uk/at-the-airport/restaurants/wrapchic/",
+    "source_type": "official airport dining page",
+    "verified": "unverified",
+    "accessed": "2026-10-13",
+    "notes": "The page says 'Find us in Terminal 2 Arrivals'. Its text does not say halal; only the photo description mentions a 'Halal' sign on the storefront. Manchester's restaurants page has a Halal filter, but its results could not be read (JavaScript).",
+    "claim": "A photo description on the airport’s website mentions a halal sign at this outlet. We haven’t verified the current menu."
+   }
+  ],
+  "airport_note": "The official restaurants page offers a Halal dietary filter (https://www.manchesterairport.co.uk/at-the-airport/restaurants/); its outlet list could not be read on 13 Oct 2026. Ask the outlet."
+ },
+ {
+  "iata": "BHX",
+  "outlets": [
+   {
+    "name": "Popeyes",
+    "terminal": "Main terminal (departures lounge)",
+    "side": "airside",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://www.birminghamairport.co.uk/latest-news/first-popeyes-r-uk-airport-restaurant-lands-in-birmingham/",
+    "source_type": "news",
+    "verified": "verified-archive",
+    "accessed": "2026-10-13",
+    "notes": "Airport news release of 27 Jun 2025, read from the Wayback capture of 11 Jul 2025 (live site returned a bot check): 'All of Popeyes chicken is halal'. Located 'airside within the airport's departures lounge'. Certifier not named."
+   }
+  ],
+  "airport_note": "The Chaiiwala page (Wayback capture of 15 Aug 2025) does not mention halal. Ask the outlet."
+ },
+ {
+  "iata": "CDG",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site or a certifier list on 13 Oct 2026. Ask at the airport information desk or the outlet. The ADP site is JavaScript-rendered and no halal listing was found by site-restricted search."
+ },
+ {
+  "iata": "AMS",
+  "outlets": [],
+  "airport_note": "Schiphol says 'Gluten-free, kosher, halal and dairy free options are available on demand. Please ask the serving staff at mentioned outlets' and suggests searching its site for 'halal' (https://www.schiphol.nl/en/at-schiphol/gluten-free-options-at-the-airport/, read via r.jina.ai browser mode). No named halal outlet was confirmed."
+ },
+ {
+  "iata": "FRA",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site or a certifier list on 13 Oct 2026. Ask at the airport information desk or the outlet. The airport shop sells halal-labelled Haribo sweets (https://shop.frankfurt-airport.com/en-US/product/haribo-starmix-450-g-halal_3b19728000409cfd, search snippet only). HalalTrip says Turkish outlets exist but their halal status is not certified (unverified review site)."
+ },
+ {
+  "iata": "MUC",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site or a certifier list on 13 Oct 2026. Ask at the airport information desk or the outlet. A 2011 news item said Terminal 1 Module C food services had halal menu selections (https://www.asiatraveltips.com/news11/255-MunichAirport.shtml, search snippet, unverified and stale)."
+ },
+ {
+  "iata": "MAD",
+  "outlets": [
+   {
+    "name": "Aena VIP lounges (e.g. Neptuno, T4S)",
+    "terminal": "T4 and others",
+    "side": "airside",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://www.aena.es/en/madrid-barajas-adolfo-suarez/vip-services/vip-lounge/neptuno-vip-lounge.html",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Lounge page lists 'Kosher and halal' among services; Aena's VIP site lists 'Kosher and Halal food' (https://serviciosvip.aena.es/vip/en/salas-vip). Paid or eligible-passenger access only; not a public restaurant.",
+    "access": "Paid or eligible-passenger lounge access only; Neptuno needs a T4S boarding pass.",
+    "claim": "Aena lists “Kosher and Halal food” among the lounge services."
+   }
+  ],
+  "airport_note": "No public restaurant with a halal claim was found. Halal food is listed in Aena VIP lounges (paid access). Ask the outlet."
+ },
+ {
+  "iata": "BCN",
+  "outlets": [],
+  "airport_note": "No public restaurant with a halal claim was found. Aena's Joan Miró VIP lounge page lists kosher and halal options (https://www.aena.es/en/josep-tarradellas-barcelona-el-prat/vip-services/vip-lounges/joan-miro-vip-lounge.html, search snippet only; paid access). Ask the outlet."
+ },
+ {
+  "iata": "FCO",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site or a certifier list on 13 Oct 2026. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "JFK",
+  "outlets": [
+   {
+    "name": "Eat & Go Istanbul",
+    "terminal": "Terminal 1 (Gate 5)",
+    "side": "airside",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://www.jfkairport.com/dine-shop-relax/food?filterGroups=Halal",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Listed under the official Halal filter: 'a deli dishing out halal food, panini, baklava, and pizza...'. Terminal 1 is being replaced by the New Terminal One, so check that it is still open."
+   },
+   {
+    "name": "The Halal Guys",
+    "terminal": "Terminal 5 (near Gate 525)",
+    "side": "airside",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://www.jfkairport.com/dine-shop-relax/food?filterGroups=Halal",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Listed under the official Halal filter: serves 'American halal' platters and sandwiches. The page does not say the whole menu is halal or name a certifier."
+   }
+  ],
+  "airport_note": "The Port Authority site has a Halal filter; two outlets listed on 13 Oct 2026. Ask the outlet."
+ },
+ {
+  "iata": "LAX",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site or a certifier list on 13 Oct 2026. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "ORD",
+  "outlets": [],
+  "airport_note": "No halal claim on the official flychicago.com dining pages. Chicago's concession RFP asks bidders to offer kosher and halal items 'where feasible' (https://www.flychicago.com/ORDerUp/assets/documents/ORD%20Concessions%20Request%20for%20Proposal/Information%20About%20Each%20Package/F+B%20Packages/F+B%20Package%209.pdf, snippet)."
+ },
+ {
+  "iata": "ATL",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site or a certifier list on 13 Oct 2026. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "DFW",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site or a certifier list on 13 Oct 2026. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "IAH",
+  "outlets": [
+   {
+    "name": "Velvet Taco",
+    "terminal": "Terminal D-West (near Gate D-1)",
+    "side": "airside",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://www.fly2houston.com/airport-business/newsroom/articles/item/velvet-taco-opens-at-bush-airport/",
+    "source_type": "news",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Houston Airports newsroom, 7 Jan 2026: 'The menu also includes halal-friendly selections'. 'Halal-friendly' is not a certification; the outlet also serves margaritas."
+   }
+  ],
+  "airport_note": "One outlet with an official halal-friendly claim. Ask the outlet."
+ },
+ {
+  "iata": "SFO",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site or a certifier list on 13 Oct 2026. Ask at the airport information desk or the outlet. flysfo.com blocks the search tool used, so coverage is weaker here."
+ },
+ {
+  "iata": "SEA",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site or a certifier list on 13 Oct 2026. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "IAD",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site or a certifier list on 13 Oct 2026. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "EWR",
+  "outlets": [],
+  "airport_note": "The official Halal filter (https://www.newarkairport.com/dine-shop-relax/food?filterGroups=Halal) returned no outlets on 13 Oct 2026. Ask the outlet."
+ },
+ {
+  "iata": "BOS",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site or a certifier list on 13 Oct 2026. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "MIA",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site or a certifier list on 13 Oct 2026. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "YYZ",
+  "outlets": [
+   {
+    "name": "Paramount Fine Foods",
+    "terminal": "Terminal 3 (near Gate C36)",
+    "side": "airside",
+    "halal": "whole menu",
+    "certifier": "Halal Monitoring Authority (HMA)",
+    "source_url": "https://hmacanada.org/hma-certified-restaurants/paramount-fine-foods-t3-airport/",
+    "source_type": "certifier list",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "HMA: 'All meals prepared at this outlet are HMA Certified.' Pearson's page (https://www.torontopearson.com/en/while-you-are-here/toronto-airport-restaurants/paramount-fine-foods-t3) says menu items 'feature Ontario-certified halal grass-fed meat' and places it 'After security (CAN/INTL)'. An HMA URL for a Terminal 1 Paramount resolves to a generic page, so a T1 outlet is not listed.",
+    "access": "After security, Canada and international departures only."
+   },
+   {
+    "name": "Cibo Express Gourmet Market",
+    "terminal": "Terminal 1 (near Gate F61, US departures)",
+    "side": "airside",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://www.torontopearson.com/en/while-you-are-here/toronto-airport-restaurants/cibo-express-gourmet-market",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Packaged food: 'Gluten-free, halal, kosher and vegan options.'",
+    "claim": "The airport lists “Gluten-free, halal, kosher and vegan options” among its packaged food."
+   }
+  ],
+  "airport_note": "A search snippet claimed halal meat at Subway, Smashburger and Wahlburgers; their official pages read on 13 Oct 2026 do not say so, so they are not listed."
+ },
+ {
+  "iata": "YVR",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site or a certifier list on 13 Oct 2026. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "YUL",
+  "outlets": [
+   {
+    "name": "Paramount",
+    "terminal": "Departures level, public area (in front of Security Checkpoint A)",
+    "side": "landside",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://yulsatisfaction.admtl.com/hc/en-ca/articles/360005534317-Where-can-I-find-halal-meals-at-YUL",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Airport FAQ: 'offers a breakfast menu as well as vegan, vegetarian, gluten-free, and halal options'. Open 24 hours per the FAQ."
+   },
+   {
+    "name": "Poulet Rouge",
+    "terminal": "Departures level, public area",
+    "side": "landside",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://yulsatisfaction.admtl.com/hc/en-ca/articles/360005534317-Where-can-I-find-halal-meals-at-YUL",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Airport FAQ: 'offers a wide range of nutritious halal bowls'. It does not say every item is halal."
+   }
+  ],
+  "airport_note": "Both halal outlets named by the airport are before security. Ask the outlet."
+ },
+ {
+  "iata": "SYD",
+  "outlets": [
+   {
+    "name": "1915 Halal Lanzhou Beef Noodle",
+    "terminal": "T2 Domestic food court",
+    "side": "airside",
+    "halal": "whole menu",
+    "certifier": "Not stated",
+    "source_url": "https://www.sydneyairport.com.au/eat/1915-lanzhou-beef-noodles-t2-domestic/",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Tagged Halal; 'dedicated to authentic, Halal ingredients'; 'T2 Domestic food court after security'. No certifier named."
+   }
+  ],
+  "airport_note": "Sahara Grill (T1) does not mention halal on its official page, so it is not listed. Ask the outlet."
+ },
+ {
+  "iata": "MEL",
+  "outlets": [
+   {
+    "name": "Nooodles",
+    "terminal": "Not stated (page says \"Nooodles Gallery\")",
+    "side": "unknown",
+    "halal": "whole menu",
+    "certifier": "Not stated",
+    "source_url": "https://www.melbourneairport.com.au/eat/nooodles",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Read with the US-side WebFetch (r.jina.ai was served a tracker page): 'Also pork free and halal!'. Terminal and side were behind a JavaScript link."
+   },
+   {
+    "name": "Mezze Za Za",
+    "terminal": "Not stated",
+    "side": "unknown",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://www.melbourneairport.com.au/eat/mezze-za-za",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Only a \"Halal\" tag on the official page; no sentence about what is halal. Location behind a JavaScript link."
+   }
+  ],
+  "airport_note": "Ask the outlet."
+ },
+ {
+  "iata": "HKG",
+  "outlets": [
+   {
+    "name": "SAFFRON",
+    "terminal": "Terminal 1, Arrivals Hall (L5)",
+    "side": "landside",
+    "halal": "whole menu",
+    "certifier": "Not named",
+    "source_url": "https://www.hongkongairport.com/en/shop-dine/dining/saffron",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "'Fully Halal-certified and using 100% Halal meats'. Non-restricted area, 06:00-00:00."
+   },
+   {
+    "name": "OldTown White Coffee",
+    "terminal": "Terminal 1, food court near Gates 40-80 (L6)",
+    "side": "airside",
+    "halal": "whole menu",
+    "certifier": "Not named",
+    "source_url": "https://www.hongkongairport.com/en/shop-dine/dining/oldtown-white-coffee",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "'This is a Halal-certified restaurant'. Restricted area, 07:00-23:00."
+   },
+   {
+    "name": "Emmer Pizza, Bar & Cafe",
+    "terminal": "Terminal 1, after Departures (North), L7",
+    "side": "airside",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://www.hongkongairport.com/en/shop-dine/dining/emmer-pizza-bar-cafe",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Tagged Halal on the airport's halal page, but the description does not say what is halal and it serves cocktails.",
+    "claim": "The airport tags this outlet “Halal”. The items covered aren’t specified, and it also serves cocktails."
+   }
+  ],
+  "airport_note": "HKIA has an official halal page listing restaurants and shops with halal food (https://www.hongkongairport.com/en/shop-dine/highlights-promotions/halal). Shops on it (packaged snacks) are not listed here. Ask the outlet."
+ },
+ {
+  "iata": "NRT",
+  "outlets": [
+   {
+    "name": "Kineya Mugimaru (Homemade Udon)",
+    "terminal": "Terminal 1, Central Bldg 5F",
+    "side": "unknown",
+    "halal": "whole menu",
+    "certifier": "Not stated now; 2014 airport release said certification was to come from Malaysia Halal Consultation & Training Agency (MHCT)",
+    "source_url": "https://www.narita-airport.jp/en/shop/shop-search/t1cb05_t00003/",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "'This restaurant's kitchen is halal certified.' Location from the 2014 NAA release (https://www.narita-airport.jp/files/75e7456e17f6d4e8c78fb0e36dafd099e0c8bbd6a862653fa23d59c22489a90e), which also says alcohol is stored apart from the halal kitchen."
+   },
+   {
+    "name": "LA TOQUE",
+    "terminal": "Terminal 2",
+    "side": "unknown",
+    "halal": "whole menu",
+    "certifier": "Not stated",
+    "source_url": "https://www.narita-airport.jp/en/shop/shop-search/t2mn04_t0004m/",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "'This restaurant's kitchen is halal certified.' Japanese curry. Floor and side not shown in the text read."
+   },
+   {
+    "name": "SOJIBOU",
+    "terminal": "Terminal 2, Main Bldg 4F",
+    "side": "landside",
+    "halal": "whole menu",
+    "certifier": "Not stated",
+    "source_url": "https://www.narita-airport.jp/en/shop/shop-search/t2mn04_t000a1/",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "'Halal certified for the peace of mind of our Muslim customers.' 'Before Security Check'."
+   }
+  ],
+  "airport_note": "Narita tags halal outlets in its restaurant search. Certifier names are not shown on current outlet pages. Ask the outlet."
+ },
+ {
+  "iata": "HND",
+  "outlets": [
+   {
+    "name": "Kebab Studio (takeout only)",
+    "terminal": "Terminal 3, 4F EDO KOJI",
+    "side": "landside",
+    "halal": "whole menu",
+    "certifier": "Not named",
+    "source_url": "https://tokyo-haneda.com/en/shop_and_dine/detail/tenant_00002.html",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "'We also have Halal certification so that Muslims can eat with peace of mind.' 'Before security check'. Produced by Mrs Istanbul."
+   },
+   {
+    "name": "Honolu Premier Air HANEDA",
+    "terminal": "Terminal 3, 4F EDO KOJI",
+    "side": "landside",
+    "halal": "some items",
+    "certifier": "Not stated for this branch",
+    "source_url": "https://tokyo-haneda.com/en/shop_and_dine/detail/tenant_100112.html",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "'Halal/vegan menu available.' The brand has 'numerous halal-certified locations'; this branch's certification is not stated. Before security."
+   },
+   {
+    "name": "Mrs Istanbul",
+    "terminal": "Terminal 2, 3F Terrace Restaurant",
+    "side": "landside",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://tokyo-haneda.com/en/shop_and_dine/detail/tenant_00202.html",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Tagged 'Halal compatible' and 'With alcohol'. Before security."
+   },
+   {
+    "name": "Vending machine: Haneda original matcha baumkuchen (near Gate 70)",
+    "terminal": "Terminal 2, 2F International Departure Area",
+    "side": "airside",
+    "halal": "some items",
+    "certifier": "Not named",
+    "source_url": "https://tokyo-haneda.com/en/shop_and_dine/detail/tenant_100121.html",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Packaged sweet labelled \"[Halal Certified]\". A product, not a meal. After security."
+   }
+  ],
+  "airport_note": "Haneda's 'Halal and Vegetarian' list (https://tokyo-haneda.com/en/shop_and_dine/halal.html) mixes halal and vegetarian, so only outlets whose own page mentions halal are listed. Ask the outlet."
+ },
+ {
+  "iata": "KIX",
+  "outlets": [
+   {
+    "name": "Kineya Mugimaru (Homemade Udon)",
+    "terminal": "Terminal 1, 2F",
+    "side": "landside",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://www.kansai-airport.or.jp/en/dine/d075",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "'Muslim-friendly, and offers Halal menu items.' 'Before security'. A 2015-era Groovy Japan article said 'All Our Food is Halal' (https://groovyjapan.com/en/halkineya, unverified); the airport's current wording is narrower."
+   }
+  ],
+  "airport_note": "KIX FAQ: 'There are halal-certified restaurants and restaurants that offer menus without pork or alcohol' (https://www.kansai-airport.or.jp/en/faq/1461). Its filtered list returned 'No results found' and direct requests were blocked (Akamai) on 13 Oct 2026. Ask the outlet."
+ },
+ {
+  "iata": "ICN",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site or a certifier list on 13 Oct 2026. Ask at the airport information desk or the outlet. Travel blogs claim halal restaurants in both terminals but name none; Korea Muslim Federation listings found had no airport entry."
+ },
+ {
+  "iata": "PVG",
+  "outlets": [
+   {
+    "name": "Huixiang Maike (Muslim restaurant)",
+    "terminal": "Not stated",
+    "side": "unknown",
+    "halal": "whole menu",
+    "certifier": "Not stated",
+    "source_url": "https://www.shanghaiairport.com/ensh/xwg/info_itemid_29305.html",
+    "source_type": "news",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Airport group news item (c. 2017, cites 2016 traffic) names 'Muslim restaurant Huixiang Maike'. Stale: terminal and current status unknown."
+   }
+  ],
+  "airport_note": "Only a stale official mention was found. Ask the outlet."
+ },
+ {
+  "iata": "SIN",
+  "outlets": [
+   {
+    "name": "Heavenly Wang",
+    "terminal": "T1/T2/T3 public areas and T1/T3/T4 transit areas",
+    "side": "both",
+    "halal": "whole menu",
+    "certifier": "Not named on the page (Singapore certifier is MUIS)",
+    "source_url": "https://www.changiairport.com/en/dine-and-shop/dining-directory/dine-detail.heavenly-wang.html",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "'a halal-certified Asian café'. Public: T3 L1 #01-25, T1 L2 #02-04, T2 L1 #01-09A. Transit: T3 L2 #02-K1, T4 L2 #02-80, T1 L2 #02-K09."
+   },
+   {
+    "name": "Ichikokudo Hokkaido Ramen",
+    "terminal": "Terminal 3, Basement 2 (#B2-58)",
+    "side": "landside",
+    "halal": "whole menu",
+    "certifier": "Not stated",
+    "source_url": "https://www.ichikokudo.com/about",
+    "source_type": "outlet's own site",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "'this Halal Japanese ramen restaurant'. The article is undated and carries COVID-era notices, so it may be stale.",
+    "claim": "The ramen chain describes this as a halal Japanese ramen restaurant."
+   },
+   {
+    "name": "Elfuego by COLLIN'S",
+    "terminal": "Jewel Changi Airport, Canopy Park",
+    "side": "landside",
+    "halal": "whole menu",
+    "certifier": "Not stated",
+    "source_url": "https://nowboarding.changiairport.com/discover-changi/eateries-in-changi-aiport-and-jewel.html",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "December 2025 Changi article: 'a halal European fine dining experience'.",
+    "claim": "Changi Airport describes it as “a halal European fine dining experience”."
+   }
+  ],
+  "airport_note": "Changi says there are 'over 36 halal-certified F&B options across Changi Airport and Jewel' (undated article). Singapore certification is by MUIS; check the MUIS directory (https://halal.muis.gov.sg/halal/establishments) or the certificate on display. Ask the outlet."
+ },
+ {
+  "iata": "BKK",
+  "outlets": [
+   {
+    "name": "Miracle Lounge",
+    "terminal": "Concourses A, C, D, F, G (3rd floor)",
+    "side": "airside",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://suvarnabhumi.airportthai.co.th/service/facility/detail/1220",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Lists 'Halal food corner (available at select branches)'; which branches is not stated. Premium-class lounge access only.",
+    "access": "Premium-class lounge access only; the halal corner is at some branches, not stated which."
+   }
+  ],
+  "airport_note": "No public restaurant with a halal claim was found on the official site; Magic Food Point pages do not mention halal. Thailand certifier is the Central Islamic Council of Thailand (not researched for airport outlets). Ask the outlet."
+ },
+ {
+  "iata": "ZRH",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site or a certifier list on 13 Oct 2026. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "VIE",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site or a certifier list on 13 Oct 2026. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "CPH",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site or a certifier list on 13 Oct 2026. Ask at the airport information desk or the outlet. A 2018 CPH Connect magazine PDF mentions a halal dish of the day at one restaurant (https://www.cph.dk/4aeca9/globalassets/9.-cph-business/4.-airport-sales/connect-magazine/2018/connect-4_2018_english_lq.pdf, snippet; stale)."
+ },
+ {
+  "iata": "ARN",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site or a certifier list on 13 Oct 2026. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "DUB",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site or a certifier list on 13 Oct 2026. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "ALA",
+  "outlets": [],
+  "airport_note": "Muslim-majority country: halal is widely the default, but non-halal food and alcohol can be sold, so it is not guaranteed. No airport-specific policy was researched. Ask the outlet."
+ },
+ {
+  "iata": "ALG",
+  "outlets": [],
+  "airport_note": "Muslim-majority country: halal is widely the default, but non-halal food and alcohol can be sold, so it is not guaranteed. No airport-specific policy was researched. Ask the outlet."
+ },
+ {
+  "iata": "AMM",
+  "outlets": [],
+  "airport_note": "Muslim-majority country: halal is widely the default, but non-halal food and alcohol can be sold, so it is not guaranteed. No airport-specific policy was researched. Ask the outlet."
+ },
+ {
+  "iata": "AUH",
+  "outlets": [],
+  "airport_note": "Muslim-majority: halal is widely the default. Non-halal food is regulated, not banned: Dubai requires a permit to sell pork and enforces rules on handling it (Gulf News, 2013: https://gulfnews.com/uae/government/tough-penalties-for-flouting-rules-on-pork-sales-1.1141799). GCC halal food standard: GSO 2055-1. Ask the outlet."
+ },
+ {
+  "iata": "AYT",
+  "outlets": [],
+  "airport_note": "Muslim-majority: halal is widely the default, but certification is voluntary and alcohol is sold. Türkiye's Halal Accreditation Agency (HAK, Law 7060, 2017) accredits halal certifiers (USDA GAIN report: https://gain.fas.usda.gov/Recent%20GAIN%20Publications/Turkey%20Established%20a%20Halal%20Accreditation%20Authority%20_Ankara_Turkey_12-20-2017.pdf, snippet). Ask the outlet."
+ },
+ {
+  "iata": "BAH",
+  "outlets": [],
+  "airport_note": "Muslim-majority GCC state: halal is the default. GCC halal food standard: GSO 2055-1. Non-halal food and alcohol can be sold under licence in some outlets. Ask the outlet."
+ },
+ {
+  "iata": "CAI",
+  "outlets": [],
+  "airport_note": "Muslim-majority country: halal is widely the default, but non-halal food and alcohol can be sold, so it is not guaranteed. No airport-specific policy was researched. Ask the outlet."
+ },
+ {
+  "iata": "CGK",
+  "outlets": [],
+  "airport_note": "Muslim-majority country: halal is widely the default, but non-halal food and alcohol can be sold, so it is not guaranteed. No airport-specific policy was researched. Ask the outlet."
+ },
+ {
+  "iata": "CMN",
+  "outlets": [],
+  "airport_note": "Muslim-majority country: halal is widely the default, but non-halal food and alcohol can be sold, so it is not guaranteed. No airport-specific policy was researched. Ask the outlet."
+ },
+ {
+  "iata": "DAC",
+  "outlets": [],
+  "airport_note": "Muslim-majority country: halal is widely the default, but non-halal food and alcohol can be sold, so it is not guaranteed. No airport-specific policy was researched. Ask the outlet."
+ },
+ {
+  "iata": "DMM",
+  "outlets": [],
+  "airport_note": "Muslim-majority: halal is the default. SFDA requires halal certificates from Saudi Halal Center-recognised bodies for imported meat and poultry (SGS summary, 2024: https://www.sgs.com/en-lb/news/2024/01/new-categories-added-for-halal-certification-of-food-in-saudi-arabia, snippet). GCC standard: GSO 2055-1. Ask the outlet."
+ },
+ {
+  "iata": "DOH",
+  "outlets": [],
+  "airport_note": "Muslim-majority GCC state: halal is the default. GCC halal food standard: GSO 2055-1. Non-halal food and alcohol can be sold under licence in some outlets. Ask the outlet."
+ },
+ {
+  "iata": "DPS",
+  "outlets": [],
+  "airport_note": "Muslim-majority country: halal is widely the default, but non-halal food and alcohol can be sold, so it is not guaranteed. No airport-specific policy was researched. Ask the outlet."
+ },
+ {
+  "iata": "DXB",
+  "outlets": [],
+  "airport_note": "Muslim-majority: halal is widely the default. Non-halal food is regulated, not banned: Dubai requires a permit to sell pork and enforces rules on handling it (Gulf News, 2013: https://gulfnews.com/uae/government/tough-penalties-for-flouting-rules-on-pork-sales-1.1141799). GCC halal food standard: GSO 2055-1. Ask the outlet."
+ },
+ {
+  "iata": "GYD",
+  "outlets": [],
+  "airport_note": "Muslim-majority country: halal is widely the default, but non-halal food and alcohol can be sold, so it is not guaranteed. No airport-specific policy was researched. Ask the outlet."
+ },
+ {
+  "iata": "IKA",
+  "outlets": [],
+  "airport_note": "Muslim-majority country: halal is widely the default, but non-halal food and alcohol can be sold, so it is not guaranteed. No airport-specific policy was researched. Ask the outlet."
+ },
+ {
+  "iata": "ISB",
+  "outlets": [],
+  "airport_note": "Muslim-majority country: halal is widely the default, but non-halal food and alcohol can be sold, so it is not guaranteed. No airport-specific policy was researched. Ask the outlet."
+ },
+ {
+  "iata": "IST",
+  "outlets": [],
+  "airport_note": "Muslim-majority: halal is widely the default, but certification is voluntary and alcohol is sold. Türkiye's Halal Accreditation Agency (HAK, Law 7060, 2017) accredits halal certifiers (USDA GAIN report: https://gain.fas.usda.gov/Recent%20GAIN%20Publications/Turkey%20Established%20a%20Halal%20Accreditation%20Authority%20_Ankara_Turkey_12-20-2017.pdf, snippet). Ask the outlet."
+ },
+ {
+  "iata": "JED",
+  "outlets": [],
+  "airport_note": "Muslim-majority: halal is the default. SFDA requires halal certificates from Saudi Halal Center-recognised bodies for imported meat and poultry (SGS summary, 2024: https://www.sgs.com/en-lb/news/2024/01/new-categories-added-for-halal-certification-of-food-in-saudi-arabia, snippet). GCC standard: GSO 2055-1. Ask the outlet."
+ },
+ {
+  "iata": "KHI",
+  "outlets": [],
+  "airport_note": "Muslim-majority country: halal is widely the default, but non-halal food and alcohol can be sold, so it is not guaranteed. No airport-specific policy was researched. Ask the outlet."
+ },
+ {
+  "iata": "KUL",
+  "outlets": [],
+  "airport_note": "Muslim-majority country: halal is widely the default, but non-halal food and alcohol can be sold, so it is not guaranteed. No airport-specific policy was researched. Ask the outlet."
+ },
+ {
+  "iata": "KWI",
+  "outlets": [],
+  "airport_note": "Muslim-majority GCC state: halal is the default. GCC halal food standard: GSO 2055-1. Non-halal food and alcohol can be sold under licence in some outlets. Ask the outlet."
+ },
+ {
+  "iata": "LHE",
+  "outlets": [],
+  "airport_note": "Muslim-majority country: halal is widely the default, but non-halal food and alcohol can be sold, so it is not guaranteed. No airport-specific policy was researched. Ask the outlet."
+ },
+ {
+  "iata": "MCT",
+  "outlets": [],
+  "airport_note": "Muslim-majority GCC state: halal is the default. GCC halal food standard: GSO 2055-1. Non-halal food and alcohol can be sold under licence in some outlets. Ask the outlet."
+ },
+ {
+  "iata": "MED",
+  "outlets": [],
+  "airport_note": "Muslim-majority: halal is the default. SFDA requires halal certificates from Saudi Halal Center-recognised bodies for imported meat and poultry (SGS summary, 2024: https://www.sgs.com/en-lb/news/2024/01/new-categories-added-for-halal-certification-of-food-in-saudi-arabia, snippet). GCC standard: GSO 2055-1. Ask the outlet."
+ },
+ {
+  "iata": "PEN",
+  "outlets": [],
+  "airport_note": "Muslim-majority country: halal is widely the default, but non-halal food and alcohol can be sold, so it is not guaranteed. No airport-specific policy was researched. Ask the outlet."
+ },
+ {
+  "iata": "RAK",
+  "outlets": [],
+  "airport_note": "Muslim-majority country: halal is widely the default, but non-halal food and alcohol can be sold, so it is not guaranteed. No airport-specific policy was researched. Ask the outlet."
+ },
+ {
+  "iata": "RUH",
+  "outlets": [],
+  "airport_note": "Muslim-majority: halal is the default. SFDA requires halal certificates from Saudi Halal Center-recognised bodies for imported meat and poultry (SGS summary, 2024: https://www.sgs.com/en-lb/news/2024/01/new-categories-added-for-halal-certification-of-food-in-saudi-arabia, snippet). GCC standard: GSO 2055-1. Ask the outlet."
+ },
+ {
+  "iata": "SAW",
+  "outlets": [],
+  "airport_note": "Muslim-majority: halal is widely the default, but certification is voluntary and alcohol is sold. Türkiye's Halal Accreditation Agency (HAK, Law 7060, 2017) accredits halal certifiers (USDA GAIN report: https://gain.fas.usda.gov/Recent%20GAIN%20Publications/Turkey%20Established%20a%20Halal%20Accreditation%20Authority%20_Ankara_Turkey_12-20-2017.pdf, snippet). Ask the outlet."
+ },
+ {
+  "iata": "SHJ",
+  "outlets": [],
+  "airport_note": "Muslim-majority: halal is widely the default. Non-halal food is regulated, not banned: Dubai requires a permit to sell pork and enforces rules on handling it (Gulf News, 2013: https://gulfnews.com/uae/government/tough-penalties-for-flouting-rules-on-pork-sales-1.1141799). GCC halal food standard: GSO 2055-1. Ask the outlet."
+ },
+ {
+  "iata": "SUB",
+  "outlets": [],
+  "airport_note": "Muslim-majority country: halal is widely the default, but non-halal food and alcohol can be sold, so it is not guaranteed. No airport-specific policy was researched. Ask the outlet."
+ },
+ {
+  "iata": "TAS",
+  "outlets": [],
+  "airport_note": "Muslim-majority country: halal is widely the default, but non-halal food and alcohol can be sold, so it is not guaranteed. No airport-specific policy was researched. Ask the outlet."
+ },
+ {
+  "iata": "TIF",
+  "outlets": [],
+  "airport_note": "Muslim-majority: halal is the default. SFDA requires halal certificates from Saudi Halal Center-recognised bodies for imported meat and poultry (SGS summary, 2024: https://www.sgs.com/en-lb/news/2024/01/new-categories-added-for-halal-certification-of-food-in-saudi-arabia, snippet). GCC standard: GSO 2055-1. Ask the outlet."
+ },
+ {
+  "iata": "TUN",
+  "outlets": [],
+  "airport_note": "Muslim-majority country: halal is widely the default, but non-halal food and alcohol can be sold, so it is not guaranteed. No airport-specific policy was researched. Ask the outlet."
+ }
+]

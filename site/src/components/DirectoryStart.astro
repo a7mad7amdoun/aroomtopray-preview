@@ -1,0 +1,26 @@
+---
+const { kind } = Astro.props;
+const choices = {
+  airports: [
+    ['gate', 'On a layover', 'Rooms after security', 'airside'],
+    ['water', 'Prepare for prayer', 'Rooms with a wuḍūʾ area', 'wudu'],
+    ['screen', 'Find some privacy', 'A separate space or partition', 'women'],
+  ],
+  universities: [
+    ['pin', 'Visiting a campus', 'Rooms listed as open to visitors', 'open'],
+    ['water', 'Prepare for prayer', 'Rooms with a wuḍūʾ area', 'wudu'],
+    ['clock', 'Friday on campus', 'Places with Jumuʿah listed', 'jumuah'],
+  ],
+  hospitals: [
+    ['mark', 'Find a musalla', 'Muslim prayer rooms', 'musalla'],
+    ['water', 'Prepare for prayer', 'Rooms with a wuḍūʾ area', 'wudu'],
+    ['screen', 'Find some privacy', 'A separate space or partition', 'women'],
+  ],
+}[kind];
+---
+<section class="directory-start wrap" aria-label="Ways to explore">
+  <div class="section-kicker"><span class="eyebrow">Start with what matters to you</span><a href="#browse">Or browse everything ↓</a></div>
+  <div class="need-links">
+    {choices.map(([icon, title, text, filter]) => <a href={`/${kind}/?f=${filter}#browse`}><svg width="28" height="28" aria-hidden="true"><use href={`#i-${icon}`} /></svg><span><b>{title}</b><small>{text}</small></span><span aria-hidden="true">↗</span></a>)}
+  </div>
+</section>

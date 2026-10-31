@@ -1,0 +1,23 @@
+---
+import { photosForPlace } from '../lib/place-photos.js';
+const { place, kind, food = false } = Astro.props;
+const airport = kind === 'Airport';
+const copy = airport
+  ? place.status === 'pending' ? 'This airport has not been checked yet. Treat this page as a starting point and ask the airport about current facilities.'
+  : place.status === 'none' || place.status === 'planned' ? 'A room is not confirmed as available here. Read the current status below, then use the airport’s contact details to ask about your visit.'
+  : 'Check the terminal and security side first, then the hours and facilities for your chosen room. Keep the directions with you for your journey.'
+  : kind === 'University' ? 'Check the building, opening hours and who can enter. Campus access can be limited to students and staff, so confirm before visiting.'
+  : place.hold ? 'This hospital is still being checked. Ask ward staff or the chaplaincy to confirm the room and access before you go.'
+  : 'Start with the room’s location and access. Ward staff or the chaplaincy can help you find your way when you arrive.';
+---
+<section class="visit-intro" aria-labelledby="visit-intro-title">
+  <div class="visit-intro-copy"><span class="icon-tile"><svg width="28" height="28" aria-hidden="true"><use href="#i-pin" /></svg></span><div><h2 id="visit-intro-title">Before you go.</h2><p>{copy}</p></div></div>
+  <nav class="page-jumps" aria-label="On this page">
+    <a href="#room-details">{place.spaces.length ? 'Locations & access' : 'Current status'} <span aria-hidden="true">↓</span></a>
+    <a href="#qibla">Qibla direction <span aria-hidden="true">↓</span></a>
+    {photosForPlace(place.url).length > 0 && <a href="#place-photos"><svg width="17" height="17" aria-hidden="true"><use href="#i-photo"/></svg>Photographs <span aria-hidden="true">↓</span></a>}
+    {food && <a href="#halal-h">Food listings <span aria-hidden="true">↓</span></a>}
+    {kind === 'Hospital' && place.chaplaincy && <a href="#chap-h">Chaplaincy <span aria-hidden="true">↓</span></a>}
+  </nav>
+  {place.spaces.length > 1 && <details class="room-picker"><summary>Choose a room or location <span>{place.spaces.length} listings</span></summary><ol>{place.spaces.map((s, i) => <li><a href={`#room-${i + 1}`}><span class="tnum">{String(i + 1).padStart(2, '0')}</span><span class="room-picker-copy"><strong>{s.name}</strong><small>{s.loc}</small></span><span aria-hidden="true">↗</span></a></li>)}</ol></details>}
+</section>

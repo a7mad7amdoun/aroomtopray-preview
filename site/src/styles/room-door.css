@@ -1,0 +1,398 @@
+/* Registered room composition: architecture, doorway and controls share a coordinate system.
+   Portrait aperture: (130,197)–(490,988) on 1122×1402.
+   Compact aperture: (145,145)–(457,766) on 1448×1086.
+   Keep the aspect ratio: independently resizing the door breaks the architectural alignment. */
+:root {
+ --room-portrait-light:image-set(url('/art/room-v2/portrait-light-640.webp') 1x,url('/art/room-v2/portrait-light-1122.webp') 2x);
+ --room-portrait-dark:image-set(url('/art/room-v2/portrait-dark-640.webp') 1x,url('/art/room-v2/portrait-dark-1122.webp') 2x);
+ --room-compact-light:image-set(url('/art/room-v2/compact-light-640.webp') 1x,url('/art/room-v2/compact-light-1448.webp') 2x);
+ --room-compact-dark:image-set(url('/art/room-v2/compact-dark-640.webp') 1x,url('/art/room-v2/compact-dark-1448.webp') 2x);
+ --room-portrait:var(--room-portrait-light); --room-compact:var(--room-compact-light);
+ --bg:#eeece5; --guide-radius:6px; --room-ambient:#c9b08a26;
+}
+:root[data-theme=dark] { --room-portrait:var(--room-portrait-dark); --room-compact:var(--room-compact-dark); --bg:#0a111c; --room-ambient:#bd874212; }
+@media(prefers-color-scheme:dark) { :root:not([data-theme=light]) {
+ --room-portrait:var(--room-portrait-dark); --room-compact:var(--room-compact-dark); --bg:#0a111c; --room-ambient:#bd874212;
+}}
+body.immersive-site { background:radial-gradient(ellipse at 20% 120px,var(--room-ambient),transparent 900px),var(--bg); }
+.room-layout {
+ display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.2fr); gap:24px;
+ align-items:start; width:min(1600px,calc(100% - 48px)); margin:24px auto 32px; direction:ltr;
+}
+.room-layout>.room-main {
+ position:relative; width:100%; max-width:none; min-width:0; margin:0; padding:32px;
+ border:1px solid var(--line); border-radius:6px; background:var(--guide-surface);
+ box-shadow:inset 0 1px var(--guide-highlight),0 2px 3px #00000003,0 16px 48px #07101b05; backdrop-filter:none;
+}
+html[dir=rtl] .room-layout>.room-main { direction:rtl; }
+.immersive-site .site-footer { width:min(1600px,calc(100% - 48px)); margin:0 auto; }
+.room-header .wrap { width:min(1600px,calc(100% - 48px)); max-width:none; padding:12px 0; }
+.room-header .room-restore-button {
+ flex:none; min-height:44px; background:var(--sign); color:var(--sign-ink);
+ border-color:var(--sign); white-space:nowrap;
+}
+.room-header .room-restore-button:hover { background:#efb91e; border-color:#efb91e; }
+#prayer-room { scroll-margin-top:110px; }
+@media(max-width:1000px) {
+ .room-header .primary-navigation { display:none; }
+ .room-header .menu-destinations { display:grid; }
+ .room-header .wrap { gap:12px; }
+ .room-header .room-restore-button { margin-inline-start:auto; }
+}
+@media(max-width:600px) {
+ .room-header .wrap { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:8px 12px; }
+ .room-header .brand { grid-column:1; grid-row:1; }
+ .room-header .site-menu { grid-column:2; grid-row:1; }
+ .room-header .room-restore-button { grid-column:1/-1; grid-row:2; justify-self:stretch; margin:0; min-height:36px; padding-block:6px; }
+ #prayer-room { scroll-margin-top:140px; }
+ html { scroll-padding-top:140px; }
+}
+.room-environment {
+ position:relative; inset:auto; width:100%; height:auto; min-height:0; z-index:1;
+ align-self:start; pointer-events:none; min-width:0;
+}
+.room-architecture {
+ position:relative; inset:auto; width:100%; height:auto; min-height:0; margin:0;
+ aspect-ratio:1122 / 1402; border-radius:5px; isolation:isolate;
+}
+:root .room-environment .room-wall {
+ position:absolute; inset:0; border-radius:5px;
+ background-image:var(--room-portrait); background-size:cover; background-position:center; background-repeat:no-repeat;
+ box-shadow:inset 0 0 0 1px #07101b14;
+}
+.room-environment .room-wall::after { display:none; }
+.door-surround {
+ position:absolute; left:11.586%; top:14.051%; bottom:auto; width:32.086%; height:56.419%;
+ min-height:0; max-height:none; transform:none; perspective:none;
+}
+.door-frame {
+ perspective:1800px; perspective-origin:0% 50%; transform-style:preserve-3d;
+ border:0; background:transparent; box-shadow:none;
+}
+.door-frame::before,.door-frame::after { display:none; }
+.door-outside { transform:none; box-shadow:inset 5px 3px 12px #0005; }
+/* Keep the plane, campus and reception visible in the tall architectural aperture. */
+.door-outside.outside-airport { background-position:65% center; }
+.door-outside.outside-campus { background-position:70% center; }
+.door-outside.outside-hospital { background-position:65% center; }
+.door-outside::after {
+ content:''; position:absolute; inset:0; pointer-events:none;
+ background:linear-gradient(90deg,#07101b40,transparent 16%),linear-gradient(#07101b35,transparent 15%);
+}
+.room-environment {
+ --door-angle:0deg;
+ --door-motion:820ms cubic-bezier(.22,.61,.36,1);
+ --door-veneer-shade:rgba(174,114,46,.48);
+ --door-trim:#9b713f;
+ --door-reveal:#6f4e2a;
+ --door-hardware:#5f625c;
+ --notice-paper:#f7f6f0;
+ --notice-care-paper:#edf0ef;
+}
+:root[data-theme=dark] .room-environment {
+ --door-veneer-shade:rgba(99,62,29,.72);
+ --door-trim:#73502c;
+ --door-reveal:#3e2919;
+ --door-hardware:#b7b7a9;
+ --notice-paper:#e1ded4;
+ --notice-care-paper:#dae0de;
+}
+@media(prefers-color-scheme:dark) { :root:not([data-theme=light]) .room-environment {
+ --door-veneer-shade:rgba(99,62,29,.72);
+ --door-trim:#73502c;
+ --door-reveal:#3e2919;
+ --door-hardware:#b7b7a9;
+ --notice-paper:#e1ded4;
+ --notice-care-paper:#dae0de;
+}}
+.door-leaf {
+ border:1px solid var(--door-reveal); transform-origin:0% 50%;
+ transform:translateZ(3px) rotateY(var(--door-angle));
+ transition:transform var(--door-motion); animation:none; background:none;
+ box-shadow:inset 1px 0 #ffffff24,inset -1px 0 #0003,1px 1px 3px #0004;
+}
+.door-skin {
+ position:absolute; inset:0;
+ /* A real opening, not a second photograph attached to the swinging leaf. */
+ clip-path:polygon(evenodd,0 0,100% 0,100% 100%,0 100%,0 0,16% 7%,16% 45%,84% 45%,84% 7%,16% 7%,0 0);
+ background:linear-gradient(90deg,#0000000b,transparent 15%,transparent 90%,#00000009),
+  linear-gradient(var(--door-veneer-shade),var(--door-veneer-shade)),url('/art/materials/oak-veneer-v1.webp') center / cover;
+ background-blend-mode:multiply,multiply,normal;
+}
+.door-skin::after { content:''; position:absolute; inset:0; background:#07101b; opacity:0; transition:opacity var(--door-motion); }
+.room-environment[data-door-state=open] { --door-angle:-72deg; }
+[data-door-state=open] .door-skin::after { opacity:.12; }
+.door-leaf::before {
+ content:''; position:absolute; left:100%; top:-1px; bottom:-1px; width:7px;
+ transform-origin:left center; transform:rotateY(90deg); pointer-events:none;
+ background:var(--door-trim); border-inline:1px solid var(--door-reveal);
+}
+.door-window {
+ left:16%; width:68%; top:7%; height:38%; transform:translateZ(2px);
+ border:3px solid var(--door-reveal); border-radius:1px; background:transparent;
+ box-shadow:0 1px 0 #ffffff30,inset 1px 1px 4px #0005;
+}
+.window-reflection {
+ background:linear-gradient(118deg,#ffffff14,transparent 38%,#ffffff0c 39%,transparent 62%);
+ background-size:150% 100%; background-position:0% center;
+ box-shadow:inset 0 0 5px #0003; transition:background-position var(--door-motion);
+}
+[data-door-state=open] .window-reflection { background-position:100% center; }
+
+/* The room name stays on the lintel, readable even while the leaf is moving. */
+.door-room-sign {
+ position:absolute; top:-10%; left:2%; width:96%; min-height:24px; padding:4px 6px;
+ display:flex; align-items:center; justify-content:center; gap:6px;
+ color:#ffcf41; background:#111b2a; border:1px solid #ffcf4140;
+ box-shadow:0 2px 4px #0003; transform:none; border-radius:1px;
+}
+.door-room-sign b { font:600 clamp(.65rem,.8vw,.85rem)/1.3 var(--f-display); letter-spacing:0; }
+.door-room-sign svg { width:15px; height:15px; flex:none; }
+.door-handle {
+ top:59%; right:5%; width:5px; height:27px; border:0; border-radius:2px;
+ transform:translateZ(6px); background:linear-gradient(90deg,#424949,#ddd9cb 48%,#747a78); box-shadow:1px 1px 2px #0003;
+}
+.door-handle::after {
+ right:1px; top:9px; width:16px; height:3px; border:0; border-radius:2px;
+ background:linear-gradient(#e4dfd1,#858b88 55%,#414844); box-shadow:0 1px 2px #0003;
+}
+.door-kickplate {
+ left:5%; width:90%; bottom:2%; height:8%; border:1px solid #7d7f7c33;
+ background:linear-gradient(100deg,#bfc2ba30,#d0d0c540,#70757425); transform:translateZ(2px);
+}
+.door-hinge { position:absolute; left:-3px; width:4px; height:17px; background:var(--door-hardware); border-radius:1px; transform:translateZ(3px); }
+.door-hinge-top { top:13%; }
+.door-hinge-bottom { bottom:13%; }
+.door-floor-light,.door-swing-shadow {
+ position:absolute; pointer-events:none; top:100%; left:0; width:100%; height:20%; transform-origin:left top;
+ transition:opacity var(--door-motion),transform var(--door-motion);
+}
+.door-floor-light { opacity:0; background:linear-gradient(#f4f3e926,transparent); transform:scaleX(.08); }
+.door-swing-shadow { opacity:0; background:linear-gradient(#0a111c38,transparent); filter:blur(3px); transform:skewX(-22deg) scaleX(.1); }
+[data-door-state=open] .door-floor-light { opacity:.35; transform:scaleX(1); }
+[data-door-state=open] .door-swing-shadow { opacity:.6; transform:skewX(-22deg) scaleX(.3); }
+
+/* Three actual links, mounted beside the door: stable targets in every door state. */
+.room-wayfinding {
+ position:absolute; left:53%; right:6%; top:18%; width:auto; max-width:none; max-height:none;
+ margin:0; padding:0; overflow:visible; pointer-events:auto; text-align:start;
+}
+.room-wayfinding-label { margin:0 0 12px; color:var(--ink); font:600 .8rem/1.45 var(--f-body); }
+.door-notices { position:static; width:auto; display:grid; gap:10px; transform:none; }
+.door-notice {
+ display:block; min-height:68px; padding:13px 11px;
+ border:1px solid #c5c3b8; border-radius:2px; background:var(--notice-paper); color:#111b2a;
+ box-shadow:0 1px 2px #00000020; transform:none;
+ transition:border-color 160ms ease,box-shadow 160ms ease;
+}
+.door-notice-title { display:grid; grid-template-columns:17px minmax(0,1fr) 13px; align-items:center; gap:7px; }
+.door-notice-title>b { font:650 .9rem/1.3 var(--f-display); letter-spacing:-.015em; overflow-wrap:break-word; hyphens:auto; }
+.door-notice-title>svg { display:block; width:17px; height:17px; }
+.door-notice-title>.notice-arrow { width:13px; height:13px; transition:transform 160ms ease; }
+.door-notice-count { display:flex; align-items:center; justify-content:space-between; gap:8px; margin:6px 0 0; padding-inline-start:24px; font:400 .75rem/1.35 var(--f-body); }
+.door-current-dot { display:none; width:6px; height:6px; border-radius:50%; background:currentColor; flex:none; }
+.door-notice[aria-current=location] { border-color:#111b2a; box-shadow:inset 0 -2px #111b2a,0 1px 2px #0002; }
+.door-notice[aria-current=location] .door-current-dot { display:block; }
+.door-notice-return { display:block; padding-top:7px; margin-top:9px; border-top:1px solid #111b2a40; font:400 .75rem/1.4 var(--f-body); }
+.door-notice-airports { background:#ffc629; color:#14171c; border-color:#d2a220; }
+.door-notice-universities { border-top:2px solid #162235; }
+.door-notice-universities::before { display:none; }
+.door-notice-hospitals { background:var(--notice-care-paper); border-color:#aeb6b9; }
+.door-notice-hospitals .door-notice-title>svg:first-child { padding:1px; outline:1px solid #aeb6b9; outline-offset:2px; }
+.door-notice:is(:hover,:focus-visible) { transform:none; border-color:#111b2a; box-shadow:0 3px 8px #00000025; }
+.door-notice:is(:hover,:focus-visible) .notice-arrow { transform:translateX(2px); }
+.door-notice:focus-visible { outline:3px solid var(--focus); outline-offset:4px; }
+
+.door-notice-airports { background:#111b2a; color:#ffcf41; border-color:#566074; border-top:3px solid #ffc629; }
+.door-notice-airports[aria-current=location] { border-color:#ffcf41; box-shadow:inset 0 -2px #ffcf41,0 2px 4px #0003; }
+.door-notice { box-shadow:0 2px 3px #0002,0 5px 10px #0000000d; }
+.door-notice-universities { border-top:3px solid #162235; }
+.door-notice-hospitals { border-top:3px solid #6f858d; }
+/* The mat and threshold stay clear. Utilities are a quiet rail below the room. */
+.room-utilities {
+ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:10px 12px; align-items:center;
+ padding:14px 0 0; pointer-events:auto;
+}
+.room-location { position:static; width:auto; margin:0; display:flex; align-items:center; justify-content:flex-start; gap:12px; text-align:start; }
+.door-control {
+ display:flex; align-items:center; justify-content:center; gap:7px; min-height:44px; max-width:175px;
+ padding:9px 12px; border:1px solid var(--line); border-radius:4px; background:var(--surface); color:var(--ink);
+ font:400 .8rem/1.4 var(--f-body); cursor:pointer; pointer-events:auto; white-space:normal;
+}
+.door-control svg { flex:none; }
+.door-control:hover { border-color:var(--ink); }
+.door-control:focus-visible,.light-switch:focus-visible,.room-focus-button:focus-visible,.room-restore-button:focus-visible { outline:3px solid var(--focus); outline-offset:4px; }
+.room-light { position:static; width:auto; display:flex; flex-direction:row; align-items:center; gap:8px; }
+.light-switch { width:44px; height:54px; flex:none; justify-content:center; padding:6px; background:var(--switch); border:1px solid var(--door-reveal); border-radius:3px; box-shadow:0 2px 3px #0002,inset 0 1px #ffffff50; }
+.switch-rocker { width:25px; height:38px; color:var(--ink); transform:perspective(80px) rotateX(-4deg); }
+.light-switch[aria-pressed=false] .switch-rocker { transform:perspective(80px) rotateX(4deg); color:#ffe1a0; }
+.switch-rocker svg { width:13px; height:13px; }
+.room-light>small { font:400 .75rem/1.4 var(--f-body); color:var(--muted); }
+.room-art-note { position:static; grid-column:1/-1; max-width:none; margin:0; color:var(--muted); opacity:1; font:400 .73rem/1.5 var(--f-body); }
+.room-focus-button,.room-restore-button {
+ display:flex; align-items:center; justify-content:center; gap:8px; min-height:44px;
+ padding:9px 11px; border:1px solid var(--field); border-radius:4px;
+ background:color-mix(in srgb,var(--surface) 88%,transparent); color:var(--ink);
+ font:400 .81rem/1.35 var(--f-body); cursor:pointer;
+}
+.room-focus-button { width:100%; margin-top:12px; }
+.room-focus-button>svg,.room-restore-button>svg { flex:none; }
+.room-focus-button:hover,.room-restore-button:hover { background:var(--surface); border-color:var(--ink); }
+.room-focus-toolbar { align-items:center; justify-content:space-between; gap:14px; padding-bottom:16px; margin-bottom:22px; border-bottom:1px solid var(--line); color:var(--muted); font:.85rem/1.4 var(--f-body); }
+html[data-room-focus=true] .room-environment { display:none; }
+html[data-room-focus=true] .room-focus-toolbar:not([hidden]) { display:flex; }
+@media screen {
+ html[data-room-focus=true] .room-main,html[data-room-focus=true] .immersive-site .site-footer {
+  width:min(var(--room-reading),calc(100% - 48px)); max-width:none; margin-inline:auto;
+ }
+ html[data-room-focus=true] .room-main { margin-top:28px; }
+}
+
+.room-utilities .room-focus-button { width:auto; margin:0; font-size:.78rem; }
+html[data-room-focus=true] .room-layout { display:block; width:min(940px,calc(100% - 48px)); }
+html[data-room-focus=true] .room-layout>.room-main { width:100%; margin:0; }
+html[dir=rtl] .door-notice-title>b,html[dir=rtl] .door-room-sign b { font-family:var(--f-arabic); font-size:1.1rem; letter-spacing:0; }
+html[dir=rtl] .door-notice-count,html[dir=rtl] .door-notice-return,html[dir=rtl] .door-control { font-family:var(--f-arabic); font-size:.95rem; }
+html[dir=rtl] .notice-arrow { rotate:180deg; }
+@media(min-width:1001px) and (min-height:1000px) { .room-environment { position:sticky; top:102px; } }
+@media(min-width:1001px) and (max-width:1200px) {
+ .room-layout { gap:20px; width:calc(100% - 40px); }
+ .room-layout>.room-main { padding:24px; }
+ .door-notice { padding:10px 8px; min-height:62px; }
+ .door-notice-title { gap:5px; grid-template-columns:15px minmax(0,1fr) 12px; }
+ .door-notice-title>b { font-size:.83rem; }
+ .door-notice-count { padding-inline-start:20px; }
+ .room-light>small { display:none; }
+}
+/* Dedicated compact artwork, not a cropped or stretched portrait. */
+@media(max-width:1000px) {
+ .room-layout { grid-template-columns:1fr; width:min(780px,calc(100% - 32px)); gap:22px; margin-block:20px 28px; }
+ .room-environment { position:relative; inset:auto; height:auto; min-height:0; }
+ .room-architecture { width:100%; height:auto; min-height:0; aspect-ratio:4 / 3; }
+ :root .room-environment .room-wall { background-image:var(--room-compact); }
+ .door-surround { left:10.014%; top:13.352%; width:21.547%; height:57.182%; min-height:0; }
+ .room-wayfinding { left:43%; right:7%; top:15%; margin:0; padding:0; }
+ .door-room-sign { top:-8.5%; padding:3px; min-height:20px; gap:4px; }
+ .door-room-sign b { font-size:clamp(.6rem,1.5vw,.9rem); }
+ .door-room-sign svg { width:12px; height:12px; }
+ .door-notice { min-height:54px; padding:10px 12px; }
+ .room-layout>.room-main { padding:28px; }
+ .immersive-site .site-footer { width:min(780px,calc(100% - 32px)); }
+ html[dir=rtl] .door-room-sign b { font-size:.85rem; }
+}
+@media(min-width:601px) and (max-width:1000px) {
+ /* Tablet: avoid a full-height scene pushing the guide below the first screen. */
+ .room-environment { display:grid; grid-template-columns:minmax(0,1fr) 164px; align-items:center; gap:18px; }
+ .room-utilities { display:flex; flex-direction:column; align-items:stretch; padding:0; gap:14px; }
+ .room-location { flex-wrap:wrap; justify-content:space-between; }
+ .room-light>small { display:none; }
+ .door-control { max-width:none; flex:1; }
+ .room-utilities .room-focus-button { justify-content:flex-start; }
+ .room-wayfinding-label { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); }
+ .room-wayfinding { top:10%; left:41%; right:5%; }
+ .door-notices { gap:6px; }
+ .door-notice { padding:7px 9px; min-height:48px; }
+ .door-notice-title>b { font-size:.84rem; }
+ .door-notice-count { margin-top:3px; font-size:.72rem; line-height:1.2; }
+ html[dir=rtl] .door-notice-title>b { font-size:1rem; line-height:1.25; }
+ html[dir=rtl] .door-notice-count { font-size:.75rem; line-height:1.1; }
+ html[dir=rtl] .door-notice { padding-block:5px; }
+ .door-notice-return { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+}
+@media(max-width:600px) {
+ .room-layout { width:calc(100% - 24px); margin-top:12px; gap:18px; }
+ .room-header .wrap { width:calc(100% - 24px); }
+ .room-layout>.room-main { padding:23px 19px; }
+ .room-wayfinding { left:41%; right:5%; top:10%; }
+ .room-wayfinding-label { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); }
+ .door-notices { gap:6px; }
+ .door-notice { min-height:44px; padding:5px 9px; }
+ .door-notice-title { grid-template-columns:15px minmax(0,1fr) 12px; gap:6px; }
+ .door-notice-title>b { font-size:.84rem; line-height:1.2; }
+ .door-notice-title>svg { width:15px; height:15px; }
+ .door-notice-count { font-size:.69rem; line-height:1.2; margin-top:3px; padding-inline-start:21px; }
+ .door-notice-return { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+ .door-room-sign { min-height:17px; top:-8.5%; }
+ .door-room-sign svg { display:none; }
+ .room-light>small { display:none; }
+ .room-utilities { gap:9px; padding-top:10px; }
+ .room-location { gap:9px; }
+ .door-control { padding:8px; font-size:.76rem; }
+ .room-utilities .room-focus-button { padding:8px; font-size:.76rem; }
+ .room-utilities .room-focus-button svg { width:15px; }
+ .room-art-note { font-size:.69rem; }
+ html[dir=rtl] .door-notice-title>b { font-size:1rem; line-height:1.25; }
+ html[dir=rtl] .door-notice-count { font-size:.75rem; line-height:1.1; }
+ html[dir=rtl] .door-room-sign b { font-size:.65rem; }
+ html[data-room-focus=true] .room-layout { width:calc(100% - 24px); }
+}
+@media(max-width:380px) {
+ .room-wayfinding { top:6%; }
+ .door-notices { gap:4px; }
+ .door-notice { padding:6px 8px; }
+ .door-notice-count { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+ .room-utilities { grid-template-columns:1fr; }
+ .room-utilities .room-focus-button { justify-self:start; }
+ .room-location { justify-content:space-between; }
+ .room-light>small { display:block; }
+}
+/* The actual doorway is one stable native button, outside the moving 3D leaf.
+   Its caption makes the action visible; the whole aperture is a touch target. */
+.room-environment .door-control {
+ position:absolute; inset:0; z-index:4; width:100%; height:100%; max-width:none;
+ min-width:44px; min-height:44px; margin:0; padding:0; border:0; border-radius:0;
+ background:transparent; box-shadow:none; display:block; text-align:center;
+ -webkit-tap-highlight-color:transparent;
+}
+.door-action-caption {
+ position:absolute; bottom:10px; left:50%; transform:translateX(-50%);
+ display:flex; align-items:center; justify-content:center; gap:6px;
+ width:max-content; max-width:calc(100% - 12px); min-height:34px; padding:6px 10px;
+ border:1px solid #f0d98975; border-radius:3px; background:#111b2af5; color:#fff5d7;
+ box-shadow:0 2px 6px #0003; font:500 .76rem/1.35 var(--f-body);
+ transition:background 160ms ease,border-color 160ms ease; text-wrap:balance;
+}
+.door-action-caption svg { flex:none; width:16px; height:16px; }
+.door-control:is(:hover,:focus-visible) .door-action-caption { background:#ffc629; color:#111b2a; border-color:#ffc629; }
+.door-control:active .door-action-caption { background:#efd08a; color:#111b2a; }
+.door-icon-open,.light-icon-moon { display:none; }
+[data-door-state=open] .door-icon-open,.light-switch[aria-pressed=false] .light-icon-moon { display:block; }
+[data-door-state=open] .door-icon-closed,.light-switch[aria-pressed=false] .light-icon-sun { display:none; }
+.door-notice[data-previewed] { outline:2px solid #bc942d; outline-offset:3px; }
+.door-notice-airports:is(:hover,:focus-visible) { border-color:#ffcf41; }
+.room-scene-caption {
+ grid-column:1/-1; display:flex; align-items:center; gap:8px; margin:0;
+ color:var(--muted); font:400 .78rem/1.5 var(--f-body);
+}
+.room-scene-caption svg { flex:none; color:var(--ink); }
+.room-scene-caption b { color:var(--ink); font-weight:600; }
+.room-utilities { gap:8px 12px; }
+.room-light>small { display:block; }
+.room-main .src>span:first-child { display:flex; flex-wrap:wrap; align-items:center; gap:5px; }
+.room-main .src svg { flex:none; }
+.lrow .nm .place-photo-badge { align-items:center; gap:5px; }
+.place-photo-badge svg { flex:none; }
+.prayer-board-sign>svg:last-child,.prayer-board-footer>a>svg { flex:none; }
+.prayer-board-footer>a { display:inline-flex; align-items:center; gap:6px; }
+html[dir=rtl] .door-action-caption,html[dir=rtl] .room-scene-caption { font-family:var(--f-arabic); font-size:.95rem; }
+@media(max-width:1000px) {
+ .door-action-caption { padding:5px; font-size:.68rem; gap:4px; bottom:6px; }
+ .door-action-caption svg { width:13px; height:13px; }
+}
+@media(min-width:601px) and (max-width:1000px) {
+ .room-location { justify-content:flex-start; }
+}
+@media(max-width:600px) {
+ .door-action-caption { display:block; min-height:0; font-size:.63rem; }
+ .door-action-caption svg { display:none!important; }
+ html[dir=rtl] .door-action-caption { font-size:.75rem; }
+ .room-scene-caption { font-size:.74rem; }
+ .room-light>small { font-size:.72rem; }
+ .room-utilities { grid-template-columns:1fr auto; }
+ .room-utilities .room-focus-button { justify-self:end; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .door-action-caption { transition:none; }
+ .door-leaf,.door-skin::after,.window-reflection,.door-notice,.notice-arrow,.door-floor-light,.door-swing-shadow,.switch-rocker { transition:none!important; animation:none!important; }
+}
+@media print { .room-environment,.room-focus-toolbar { display:none!important; } .room-layout { display:block; width:100%; margin:0; } .room-layout>.room-main { padding:0; border:0; box-shadow:none; } }

@@ -1,0 +1,123 @@
+---
+import SectionIntro from '../../components/SectionIntro.astro';
+import Base from '../../layouts/Base.astro';
+import { airports, L } from '../../lib/airports.js';
+import { METHODS, ASR } from '../../lib/prayer-times.js';
+
+// Compact index for the client: code, short name, city, country, listing label, pill class, lat, lon.
+const index = airports.map((a) => [a.code, a.short, a.city, a.country, L.status[a.status][0], L.status[a.status][1], a.lat, a.lon]);
+---
+<Base title="Layover prayer planner | A Room to Pray" description="Enter up to three flights and see which of the five prayers begin before you fly, on your layover and in the air, with the prayer room listing for each airport." nav="planner">
+  <SectionIntro eyebrow="The layover planner" title="A calmer journey starts with a little planning." description="See which prayers begin before you fly, during a connection and while you’re in the air. Add your flights to build an estimated timeline, with prayer room information for each airport." art="/art/hero-day.webp" label="Departure · Connection · Arrival" href="#pl-form" action="Plan my journey" />
+  <div class="wrap pl">
+    <ol class="pl-intro-steps" aria-label="How to use the planner"><li><span>01</span><div><b>Add your flights</b><p>Use the dates and local times on your itinerary.</p></div></li><li><span>02</span><div><b>Choose your settings</b><p>Select the calculation method and ʿAṣr convention.</p></div></li><li><span>03</span><div><b>Explore your timeline</b><p>See estimated prayer windows and airport rooms.</p></div></li></ol>
+    <noscript><p class="note">The planner works out prayer times in your browser, so it needs JavaScript. You can still <a href="/airports/">browse the airport directory</a>.</p></noscript>
+
+    <div class="pl-grid">
+      <form class="pl-form card" id="pl-form" novalidate>
+        <div class="pl-example note" id="pl-example" hidden>
+          <p><b>Example itinerary:</b> New York JFK → London Heathrow → Dubai. These flight times are made up to show how the planner works; they aren’t a real schedule.</p>
+          <button type="button" class="btn ghost" id="pl-blank">Start with my own flights</button>
+          <a class="pl-jump" href="#pl-out-h">Skip to the example timeline</a>
+        </div>
+
+        <div id="pl-legs" class="stack" style="gap:18px"></div>
+        <button type="button" class="btn ghost" id="pl-add">Add a connecting flight</button>
+
+        <fieldset class="pl-set">
+          <legend>Settings</legend>
+          <label>Calculation method
+            <select id="pl-method">
+              {Object.entries(METHODS).map(([k, m]) => <option value={k}>{m.name}</option>)}
+            </select>
+          </label>
+          <ul class="fine pl-notes">{Object.values(METHODS).map((m) => <li>{m.name}: {m.note}</li>)}</ul>
+          <label>ʿAṣr time
+            <select id="pl-asr">
+              {Object.entries(ASR).map(([k, m]) => <option value={k}>{m.name}</option>)}
+            </select>
+          </label>
+          <ul class="fine pl-notes">{Object.values(ASR).map((m) => <li>{m.name}: {m.note}</li>)}</ul>
+          <label>Time at the airport before your first flight
+            <select id="pl-before">
+              <option value="1">1 hour</option>
+              <option value="2">2 hours</option>
+              <option value="3" selected>3 hours</option>
+              <option value="4">4 hours</option>
+            </select>
+          </label>
+        </fieldset>
+        <a class="btn pl-see" href="#pl-out-h">See your prayer timeline</a>
+        <p class="fine">Nothing you enter leaves this browser. Your last plan is kept on this device only.</p>
+      </form>
+
+      <section class="pl-out" aria-labelledby="pl-out-h">
+        <h2 id="pl-out-h">Your prayer timeline</h2>
+        <p class="note pl-est"><b>Estimates.</b> These times come from astronomical formulas for each airport’s position, not from a mosque timetable. Please confirm locally: prayer rooms often post times, and a local mosque can confirm.</p>
+        <p class="sr" role="status" id="pl-status"></p>
+        <div id="pl-errors" class="err" hidden></div>
+        <ol class="pl-tl" id="pl-tl"></ol>
+        <p class="pl-qasr fine" id="pl-qasr" hidden>The four schools differ on shortening and combining while travelling. <a href="/travel/shortening-and-combining/">Read about shortening and combining</a>.</p>
+      </section>
+    </div>
+  </div>
+  <script type="application/json" id="pl-data" set:html={JSON.stringify(index)} />
+</Base>
+
+<script>
+  import '../../scripts/planner.js';
+</script>
+
+<style is:global>
+  .pl { padding-bottom: 72px }
+  .pl .dir-head { padding-bottom: 20px }
+  .pl .lede { font-size: 1.08rem }
+  .pl-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: start }
+  @media (min-width: 1000px) { .pl-grid { grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr) } }
+  .pl-form { display: flex; flex-direction: column; gap: 18px; padding: clamp(16px, 4vw, 24px) }
+  .pl-example { display: flex; flex-direction: column; gap: 10px; border-left: 4px solid var(--sign) }
+  .pl-leg, .pl-set { border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin: 0; min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px }
+  .pl-leg legend, .pl-set legend { font-family: var(--f-display); font-weight: 750; font-stretch: 108%; font-size: 1.05rem; padding: 0 6px }
+  .pl-end { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; min-width: 0 }
+  .pl-end h3 { font-family: var(--f-mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600 }
+  .pl-when { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px }
+  .pl label { display: flex; flex-direction: column; gap: 6px; font-weight: 700; font-size: .92rem; min-width: 0 }
+  .pl input, .pl select { font: inherit; font-size: 1rem; font-weight: 400; padding: 10px 12px; min-height: 48px; border-radius: 9px; border: 1px solid var(--field); background: var(--surface); color: var(--ink); min-width: 0; width: 100% }
+  .pl input[aria-invalid="true"] { border: 2px solid var(--alert) }
+  .pl-ap { position: relative }
+  .pl-ap .suggest li { list-style: none }
+  .pl-ap .suggest .opt { display: grid; grid-template-columns: 3.2rem minmax(0, 1fr); gap: 10px; align-items: center; padding: 8px 10px; border-radius: 8px; min-height: 48px; cursor: pointer }
+  .pl-ap .suggest [aria-selected="true"] .opt, .pl-ap .suggest .opt:hover { background: var(--surface-2) }
+  .pl-ap .suggest .code { font-family: var(--f-mono); font-weight: 600 }
+  .pl-ap .hint { font-weight: 400; font-size: .84rem; color: var(--muted) }
+  .pl-leg .rm { justify-self: start }
+  .pl-out { display: flex; flex-direction: column; gap: 14px; min-width: 0 }
+  .pl-out h2 { font-size: clamp(1.4rem, 3vw, 1.9rem) }
+  .pl-tl { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; border-left: 3px solid var(--line); margin-left: 10px }
+  .pl-ph { position: relative; padding: 0 0 22px 22px }
+  .pl-ph::before { content: ""; position: absolute; left: -11px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--surface); border: 3px solid var(--ink) }
+  .pl-ph.air::before { border-color: var(--field); border-style: dashed }
+  .pl-ph .k { font-family: var(--f-mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted) }
+  .pl-ph h3 { font-size: 1.12rem; margin: 2px 0 4px }
+  .pl-ph .win { color: var(--muted); font-size: .9rem }
+  .pl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin-top: 10px; display: flex; flex-direction: column; gap: 10px }
+  .pl-ph.air .pl-card { background: var(--surface-2); border-style: dashed }
+  .pl-pr { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column }
+  .pl-pr li { display: grid; grid-template-columns: 5.6rem minmax(0, 1fr); gap: 4px 10px; padding: 8px 0; border-bottom: 1px solid var(--line); align-items: baseline }
+  .pl-pr li:last-child { border-bottom: 0 }
+  .pl-pr .n { font-weight: 700 }
+  .pl-pr .t { font-family: var(--f-mono); font-size: .92rem }
+  .pl-pr .t small { font-family: var(--f-body); color: var(--muted); font-size: .82rem }
+  .pl-none { color: var(--muted); font-size: .93rem }
+  .pl-room { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font-size: .92rem }
+  .pl-room a { font-weight: 700; min-height: 44px; display: inline-flex; align-items: center }
+  .pl-air-note { font-size: .9rem; color: var(--muted) }
+  .pl-air-note a, .pl-qasr a, .pl-est a { color: var(--ink); font-weight: 700 }
+  .pl-qasr { border-left: 3px solid var(--sign); padding-left: 12px }
+  .pl-qasr a, .pl-air-note a { display: inline-block; padding-block: 12px; margin-block: -12px }
+  .pl-jump { font-weight: 700; min-height: 44px; display: inline-flex; align-items: center }
+  @media (min-width: 1000px) { .pl-jump { display: none } }
+  .pl-notes { margin: -4px 0 4px; padding-left: 18px; display: grid; gap: 2px }
+  .pl-see { display: none; justify-content: center }
+  @media (max-width: 900px) { .pl-see { display: flex } }
+</style>

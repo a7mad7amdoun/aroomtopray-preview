@@ -1,0 +1,84 @@
+---
+// Community letter kit: a ready-to-adapt letter for masajid, Muslim student associations and community groups.
+// It asks; it never states what the place has or lacks. Usage:
+// <LetterKit place="Example International Airport" city="Example City" kind="airport" feedbackUrl="https://…" />
+interface Props { place: string; city?: string; kind?: 'airport' | 'university' | 'hospital'; feedbackUrl?: string | null }
+const { place, city = '', kind = 'airport', feedbackUrl = null } = Astro.props;
+
+const K = {
+  airport: { people: 'travellers and airport staff', near: 'close to the gates, ideally after security', us: 'Many of our members travel through' },
+  university: { people: 'students, staff and visitors', near: 'in a central building that is easy to reach between classes', us: 'Many of our members study, work or visit at' },
+  hospital: { people: 'patients, families and staff', near: 'close to the wards and open at all hours', us: 'Many of our members are patients, visitors or staff at' },
+}[kind] || null;
+const k = K ?? { people: 'visitors and staff', near: 'easy to reach', us: 'Many of our members visit' };
+const where = city ? `${place} in ${city}` : place;
+
+const letter = [
+  `Dear ${place} team,`,
+  ``,
+  `We are writing on behalf of [name of your masjid, Muslim student association or community group]. ${k.us} ${where}.`,
+  ``,
+  `Could you tell us whether ${place} has a quiet room for prayer and reflection, and if so, where it is? If there isn't one yet, we would like to ask you to consider providing:`,
+  ``,
+  `- a quiet room open to people of all faiths and none, ${k.near};`,
+  `- a place for ablution (washing before prayer) next to it, such as a low basin with a seat;`,
+  `- a space where women can pray privately, such as a partition or a second room, with step-free access.`,
+  ``,
+  `If these already exist, it would help a great deal to list them on your website and signs, with their location and opening hours.`,
+  ``,
+  `A space like this serves ${k.people} of many faiths, takes little room, and helps people pray quietly and privately. We would be glad to share what has worked elsewhere, or to meet if that is useful.`,
+  ``,
+  `Thank you for considering this.`,
+  ``,
+  `[Your name]`,
+  `[Role, organisation]`,
+  `[Email or phone]`,
+].join('\n');
+const uid = `lk-${Math.random().toString(36).slice(2, 8)}`;
+---
+<section class="lk card" aria-labelledby={`${uid}-h`} data-letterkit>
+  <span class="eyebrow">For masajid, MSAs and community groups</span>
+  <h2 id={`${uid}-h`}>Write to {place} as a group.</h2>
+  <p class="muted">A letter from a local group can help. Edit the words in brackets, add anything local you know first-hand, and send it through {feedbackUrl ? `the ${kind}’s own feedback page` : 'its official contact channel'} or by post.</p>
+  <label class="lk-label" for={`${uid}-t`}>Letter (you can edit it here)</label>
+  <textarea id={`${uid}-t`} rows="14" spellcheck="true" data-lk-text>{letter}</textarea>
+  <div class="lk-btns">
+    <button class="btn" type="button" data-lk-copy>Copy letter</button>
+    {feedbackUrl && <a class="btn ghost" href={feedbackUrl} rel="noopener" target="_blank">Open {place}’s feedback page</a>}
+    <span class="sr" role="status" data-lk-status></span>
+  </div>
+  <p class="fine">We don’t send anything for you and don’t see what you write. Please keep it polite and only state what you know yourself. <a href="/rooms-won/">See rooms that have opened after people asked</a>.</p>
+</section>
+
+<style>
+  .lk { display: flex; flex-direction: column; gap: 12px; border-top: 6px solid var(--sign) }
+  .lk h2 { margin: 0; font-size: clamp(1.25rem, 3vw, 1.6rem); overflow-wrap: anywhere }
+  .lk p { margin: 0 }
+  .lk-label { font-weight: 700; font-size: .95rem }
+  .lk textarea { font: inherit; font-size: 1rem; line-height: 1.5; width: 100%; min-height: 300px; padding: 12px; border-radius: 10px; border: 1px solid var(--field); background: var(--surface-2); color: var(--ink); resize: vertical; box-sizing: border-box }
+  .lk-btns { display: flex; flex-direction: column; gap: 10px }
+  .lk-btns .btn { min-height: 48px; width: 100%; text-align: center }
+  @media (min-width: 560px) { .lk-btns { flex-direction: row; flex-wrap: wrap } .lk-btns .btn { width: auto } }
+</style>
+
+<script>
+  document.querySelectorAll('[data-letterkit]').forEach((kit) => {
+    const btn = kit.querySelector('[data-lk-copy]');
+    const text = kit.querySelector('[data-lk-text]');
+    const status = kit.querySelector('[data-lk-status]');
+    if (!btn || !text) return;
+    btn.addEventListener('click', async () => {
+      const say = (m) => { btn.textContent = m; if (status) status.textContent = m; };
+      try {
+        if (!navigator.clipboard?.writeText) throw new Error('no clipboard');
+        await navigator.clipboard.writeText(text.value);
+        say('Copied');
+      } catch {
+        // Clipboard blocked or unavailable: select the text so the visitor can copy it themselves.
+        text.focus(); text.select(); text.setSelectionRange?.(0, text.value.length);
+        say('Selected: copy it now');
+      }
+      setTimeout(() => { btn.textContent = 'Copy letter'; }, 4000);
+    });
+  });
+</script>

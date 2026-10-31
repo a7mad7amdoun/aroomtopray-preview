@@ -1,0 +1,77 @@
+---
+import { insightsFor } from '../data/visit-insights.js';
+
+interface Props {
+  kind?: 'airports' | 'universities' | 'hospitals';
+  locale?: string;
+  placeUrl?: string;
+  compact?: boolean;
+}
+
+const { kind, locale: requestedLocale = 'en', placeUrl, compact = false } = Astro.props;
+const locale = ['en', 'fr', 'ar', 'es'].includes(requestedLocale) ? requestedLocale : 'en';
+const labels = {
+  en: { eyebrow: 'Before you go', title: 'Useful details, checked at the source.', source: 'Official source', checked: 'Source checked', details: 'See place details' },
+  fr: { eyebrow: 'Avant votre visite', title: 'Des détails utiles, vérifiés à la source.', source: 'Source officielle', checked: 'Source consultée le', details: 'Voir la fiche du lieu' },
+  ar: { eyebrow: 'قبل أن تذهب', title: 'تفاصيل مفيدة، تحقّقنا منها من المصدر.', source: 'المصدر الرسمي', checked: 'تاريخ مراجعة المصدر', details: 'عرض تفاصيل المكان' },
+  es: { eyebrow: 'Antes de ir', title: 'Detalles útiles, comprobados en la fuente.', source: 'Fuente oficial', checked: 'Fuente consultada el', details: 'Ver detalles del lugar' },
+}[locale];
+
+const unlocalizedPath = (path: string) => `${path.replace(/^\/(en|fr|ar|es)(?=\/)/, '').replace(/\/+$/, '') || ''}/`;
+const localizedPath = (path: string) => locale === 'en' ? path : `/${locale}${path}`;
+const entries = insightsFor(kind, locale).filter((entry) => !placeUrl || entry.url === unlocalizedPath(placeUrl));
+const headingId = `visit-insights-${kind || 'all'}-${placeUrl ? unlocalizedPath(placeUrl).replace(/\W/g, '-') : 'overview'}-${locale}`;
+const formatDate = (date: string) => new Intl.DateTimeFormat(locale === 'en' ? 'en-GB' : locale, { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${date}T12:00:00Z`));
+---
+{entries.length > 0 && (
+  <section class:list={['visit-insights', { 'is-compact': compact }]} aria-labelledby={headingId} lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+    <header class="insight-heading">
+      <span class="eyebrow">{labels.eyebrow}</span>
+      <h2 id={headingId}>{labels.title}</h2>
+    </header>
+    <div class="insight-grid">
+      {entries.map((entry) => (
+        <article class="insight-card" data-source={new URL(entry.source.url).hostname} data-checked={entry.accessed}>
+          <p class="insight-place"><bdi lang="en">{entry.place}</bdi></p>
+          <h3>{entry.title}</h3>
+          <ul class="insight-facts">{entry.facts.map((fact) => <li>{fact}</li>)}</ul>
+          <p class="insight-caveat">{entry.caveat}</p>
+          <div class="insight-source">
+            <a href={entry.source.url}>{labels.source}<span class="insight-source-name"><bdi lang="en">{entry.source.title}</bdi></span></a>
+            <span>{labels.checked} <time datetime={entry.accessed}>{formatDate(entry.accessed)}</time></span>
+          </div>
+          <div class="insight-actions">
+            <a class="insight-action" href={entry.actionUrl}>{entry.action} <span aria-hidden="true">↗</span></a>
+            {!placeUrl && <a href={localizedPath(entry.url)}>{labels.details} <span aria-hidden="true">{locale === 'ar' ? '←' : '→'}</span></a>}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .visit-insights { margin-block: clamp(2.5rem, 5vw, 4.5rem); }
+  .insight-heading { max-width: 52rem; margin-block-end: 1.5rem; }
+  .insight-heading h2 { margin: .45rem 0 0; text-wrap: balance; }
+  .insight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); gap: 1.1rem; }
+  .insight-card { min-width: 0; display: flex; flex-direction: column; padding: clamp(1.15rem, 2.5vw, 1.6rem); border: 1px solid var(--line); border-block-start: 3px solid var(--sign); border-radius: 1rem; background: var(--surface); color: var(--ink); }
+  .insight-place { margin: 0 0 .6rem; color: var(--muted); font-size: .85rem; font-weight: 700; }
+  .insight-card h3 { margin: 0 0 1rem; font-size: 1.3rem; line-height: 1.2; text-wrap: balance; }
+  .insight-facts { margin: 0; padding-inline-start: 1.1rem; line-height: 1.5; }
+  .insight-facts li + li { margin-block-start: .45rem; }
+  .insight-caveat { margin: 1rem 0; padding-inline-start: .75rem; border-inline-start: 2px solid var(--line); color: var(--muted); font-size: .9rem; line-height: 1.5; }
+  .insight-source { display: grid; gap: .45rem; margin-block-start: auto; padding-block-start: .9rem; border-block-start: 1px solid var(--line); color: var(--muted); font-size: .78rem; line-height: 1.45; }
+  .insight-source a { color: var(--ink); text-decoration-thickness: 1px; text-underline-offset: .18em; }
+  .insight-source-name { display: block; margin-block-start: .15rem; overflow-wrap: anywhere; font-size: .73rem; }
+  .insight-actions { display: flex; flex-wrap: wrap; gap: .65rem 1.15rem; padding-block-start: 1rem; font-size: .85rem; }
+  .insight-actions a { display: inline-flex; gap: .5rem; align-items: baseline; color: var(--ink); text-underline-offset: .2em; }
+  .insight-action { font-weight: 700; }
+  .is-compact { margin-block: 1.75rem; }
+  .is-compact .insight-heading h2 { font-size: 1.45rem; }
+  .is-compact .insight-card { border-radius: .75rem; }
+  @media print {
+    .insight-card { break-inside: avoid; background: #fff; color: #111; border-color: #bbb; }
+    .insight-source, .insight-caveat, .insight-place { color: #333; }
+  }
+</style>

@@ -1,0 +1,13 @@
+---
+const { label } = Astro.props;
+---
+<div class="browse-heading" id="browse">
+  <div><span class="eyebrow">The directory</span><h2>Explore {label}.</h2></div>
+  <div class="browse-tools" data-browse-tools hidden>
+    <label>Sort by <select data-directory-sort><option value="default">Directory order</option><option value="name">Name A–Z</option><option value="location">City A–Z</option></select></label>
+    <div class="seg" role="group" aria-label="Results layout">
+      <button type="button" data-directory-view="list" aria-pressed="true"><span aria-hidden="true">☰</span> List</button>
+      <button type="button" data-directory-view="cards" aria-pressed="false"><span aria-hidden="true">▦</span> Cards</button>
+    </div>
+  </div>
+</div>

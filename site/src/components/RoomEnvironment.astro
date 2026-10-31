@@ -1,0 +1,73 @@
+---
+import { getCopy, localizedPath } from '../lib/i18n.js';
+import { ROOM_COPY } from '../data/room-copy.js';
+import { DOOR_COPY } from '../data/door-copy.js';
+import { airports } from '../lib/airports.js';
+import { universities } from '../lib/universities.js';
+import { hospitals } from '../lib/hospitals.js';
+const { kind='home', locale='en' }=Astro.props;
+const t=getCopy(locale), r=ROOM_COPY[locale], d=DOOR_COPY[locale];
+const settings={airports:'airport', universities:'campus', hospitals:'hospital'};
+const open=kind in settings;
+const outside=settings[kind] || 'airport';
+const doors=[['airports','airport'],['universities','campus'],['hospitals','care']];
+const counts={airports:airports.length,universities:universities.length,hospitals:hospitals.length};
+const number=new Intl.NumberFormat(locale);
+---
+<div id="prayer-room" class:list={['room-environment', {'room-door-open':open}]} data-room-preview={outside} data-room-setting={kind} data-door-state={open?'open':'closed'}>
+  <div class="room-architecture" dir="ltr">
+    <div class="room-wall" aria-hidden="true"></div>
+    <div class="door-surround">
+          <span class="door-room-sign" dir={locale==='ar'?'rtl':'ltr'}><svg width="20" height="20" aria-hidden="true"><use href="#i-mark"/></svg><b>{r.room}</b></span>
+      <div class="door-frame" id="room-doorway">
+        <div class={`door-outside outside-${outside}`} role="img" aria-label={`${r.inside} ${d.outside}${t.nav[open ? kind : 'airports']}`}>
+          {(open ? [outside] : ['airport','campus','hospital']).map(scene=><span class={`door-scene door-scene-${scene}`} aria-hidden="true"></span>)}
+        </div>
+        <span class="door-floor-light" aria-hidden="true"></span>
+        <span class="door-swing-shadow" aria-hidden="true"></span>
+        <div class="door-leaf" aria-hidden="true">
+          <span class="door-skin"></span>
+          <div class="door-window"><span class="window-reflection"></span></div>
+          <span class="door-handle" aria-hidden="true"></span>
+          <span class="door-kickplate" aria-hidden="true"></span>
+          <span class="door-hinge door-hinge-top"></span><span class="door-hinge door-hinge-bottom"></span>
+        </div>
+
+      </div>
+        <button class="door-control" dir={locale==='ar'?'rtl':'ltr'} type="button" hidden data-door-toggle data-open-label={d.open} data-close-label={d.close} aria-controls="room-doorway" aria-expanded={String(open)}>
+          <span class="door-action-caption"><svg class="door-icon-closed" width="17" height="17" aria-hidden="true"><use href="#i-door-closed"/></svg><svg class="door-icon-open" width="17" height="17" aria-hidden="true"><use href="#i-door-open"/></svg>
+          <span data-door-toggle-label>{open?d.close:d.open}</span></span>
+        </button>
+    </div>
+  </div>
+  <div class="room-console">
+    <aside class="room-wayfinding" dir={locale==='ar'?'rtl':'ltr'} aria-labelledby="room-wayfinding-label">
+      <p class="room-wayfinding-label" id="room-wayfinding-label">{d.destinations}</p>
+      <nav class="door-notices" aria-labelledby="room-wayfinding-label">
+        {doors.map(([category,icon])=><a href={localizedPath(`/${category}/`,locale)} class={`door-notice door-notice-${category}`} data-door-destination={category} data-door-preview={settings[category]} data-scene-name={t.nav[category]} data-scene-icon={icon} data-scene-label={`${r.inside} ${d.outside}${t.nav[category]}`} data-return-label={d.return} aria-current={kind===category?'location':undefined}>
+          <span class="door-notice-title"><svg width="18" height="18" aria-hidden="true"><use href={`#i-${icon}`}/></svg><b>{t.nav[category]}</b><svg class="notice-arrow" width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          <span class="door-notice-count"><span>{number.format(counts[category])} {r.places}</span><span class="door-current-dot" aria-hidden="true"></span></span>
+          {kind===category&&<span class="sr">{d.current}</span>}
+          <span class="door-notice-return" data-door-return-label hidden></span>
+        </a>)}
+      </nav>
+    </aside>
+  <div class="room-utilities" dir={locale==='ar'?'rtl':'ltr'}>
+      <div class="room-location" dir={locale==='ar'?'rtl':'ltr'}>
+
+        <div class="room-light" hidden data-room-light-control>
+          <button type="button" class="light-switch" data-room-light aria-describedby="room-light-state" aria-label={r.light} aria-pressed="true" title={r.light}><span class="switch-rocker" aria-hidden="true"><svg class="light-icon-sun" width="17" height="17"><use href="#i-sun"/></svg><svg class="light-icon-moon" width="17" height="17"><use href="#i-moon"/></svg></span></button>
+          <small id="room-light-state" data-room-light-state data-light={r.on} data-dark={r.off}></small>
+          <span class="sr" data-room-light-status role="status"></span>
+        </div>
+      </div>
+      <button class="room-focus-button" type="button" hidden data-room-focus-enter aria-controls="main"><svg width="17" height="17" aria-hidden="true"><use href="#i-focus"/></svg><span>{d.focus}</span></button>
+      <p class="room-scene-caption"><svg width="17" height="17" aria-hidden="true"><use data-room-scene-icon href={`#i-${doors.find(([category])=>category===kind)?.[1]||'airport'}`}/></svg><span>{d.outside}<b data-room-scene-name>{t.nav[open?kind:'airports']}</b></span></p>
+      <p class="room-art-note">{r.scene}</p>
+  </div>
+  </div>
+</div>
+<script>
+ import '../scripts/room-door.js';
+ import '../scripts/room-focus.js';
+</script>

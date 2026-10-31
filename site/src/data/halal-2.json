@@ -1,0 +1,308 @@
+[
+ {
+  "iata": "MAN",
+  "outlets": [
+   {
+    "name": "Archie's",
+    "terminal": "Departure Lounge (terminal not stated)",
+    "side": "airside",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://www.manchesterairport.co.uk/at-the-airport/restaurants/archies/",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Tagged 'Halal' (with 'Vegetarian') in the airport's own restaurant listing data behind the Halal filter on https://www.manchesterairport.co.uk/at-the-airport/restaurants/ (raw page read directly, 13 Oct 2026). The outlet page itself does not use the word halal; it says 'Head to the Departure Lounge to find this iconic restaurant.' No certifier and no statement that the whole menu is halal.",
+    "claim": "Manchester Airport’s restaurant directory tags this outlet “Halal”. It does not say the whole menu is halal or name a certifier."
+   },
+   {
+    "name": "Great Northern Market",
+    "terminal": "Terminal 2 Departure Lounge",
+    "side": "airside",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://www.manchesterairport.co.uk/at-the-airport/restaurants/great-northern-market/",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Tagged 'Halal' (with Vegetarian, Vegan, Gluten Free) in the airport's restaurant listing data behind the Halal filter. Page: 'Find us in the Terminal 2 Departure Lounge, after security.' The page text describes 'butter chicken, smash burgers, Neapolitan pizza and more, plus a curated drinks selection'; it does not say which items are halal.",
+    "claim": "Manchester Airport’s restaurant directory tags this food hall “Halal”. It does not say which items are halal or name a certifier; drinks are served."
+   }
+  ],
+  "airport_note": "Round 2 (13 Oct 2026): the Halal filter's data on the official restaurants page (https://www.manchesterairport.co.uk/at-the-airport/restaurants/) was read from the raw page. Of 25 listed outlets, only Archie's and Great Northern Market carry the 'Halal' tag. Wrapchic (Terminal 2 Arrivals), listed in round 1 as unverified, is NOT tagged Halal in that data; its page mentions halal only in a photo description ('displaying a \"Halal\" sign'), so it has been removed. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "KIX",
+  "outlets": [
+   {
+    "name": "Kineya Mugimaru (Homemade Udon)",
+    "terminal": "Terminal 1, 2F",
+    "side": "landside",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://www.kansai-airport.or.jp/en/dine/d075",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Page (read via r.jina.ai, 13 Oct 2026) is tagged 'Halal' and says: 'This restaurant is also Muslim-friendly, and offers Halal menu items.' Location: 'Terminal 1 / 2F / Before security'. A 2015-era Groovy Japan article said 'All Our Food is Halal' (https://groovyjapan.com/en/halkineya, unverified); the airport's current wording is narrower."
+   },
+   {
+    "name": "KIX LOUNGE",
+    "terminal": "Terminal 1 Building International Gate Area Center",
+    "side": "airside",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://www.kansai-airport.or.jp/en/service/business/kixlounge",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Lounge page lists 'Halal food' under 'Food and Beverage Service (Buffet)', alongside 'Alcoholic beverages'. Location: 'Terminal 1 Building International Gate Area Center'. 'For conditions of use and further information, contact your airline.' Not a public restaurant.",
+    "claim": "The airport lists “Halal food” in this lounge’s buffet. Alcohol is also served. No certifier is named.",
+    "access": "Lounge access only; conditions set by the airline."
+   }
+  ],
+  "airport_note": "KIX FAQ: 'There are halal-certified restaurants and restaurants that offer menus without pork or alcohol' (https://www.kansai-airport.or.jp/en/faq/1461). Round 2 (13 Oct 2026): the halal-filtered list linked from that FAQ, read in r.jina.ai browser mode, still returns 'No results found.' All 39 restaurant pages linked from the dining directory (https://www.kansai-airport.or.jp/en/shop-and-dine/dine) were read; only Kineya Mugimaru (d075) is tagged or described as halal. Several others list pork dishes. No named certifier was found. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "DEN",
+  "outlets": [],
+  "airport_note": "Not checked in round 2: flydenver.com returned HTTP 403 to direct requests and r.jina.ai was redirected to an ad tracker; WebFetch also returned 403. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. No halal claim was verified on 13 Oct 2026, so this means 'not checked', not 'none exists'. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "DEL",
+  "outlets": [],
+  "airport_note": "The official Eat & Dine page (https://www.newdelhiairport.in/eat-and-dine/) and FAQ page (https://www.newdelhiairport.in/faqs) were read on 13 Oct 2026 and do not mention halal. The dining page content was thin (largely script-rendered), so outlets were not checked one by one; this means 'none found', not 'none exists'. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "CAN",
+  "outlets": [],
+  "airport_note": "Not checked in round 2: the official site (gbiac.net) returned almost no readable content to r.jina.ai. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. No halal claim was verified on 13 Oct 2026, so this means 'not checked', not 'none exists'. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "PEK",
+  "outlets": [],
+  "airport_note": "Not checked in round 2: the English official site path tried (bcia.com.cn/en/) returned a 404 page. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. No halal claim was verified on 13 Oct 2026, so this means 'not checked', not 'none exists'. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "SZX",
+  "outlets": [],
+  "airport_note": "Not checked in round 2: szairport.com could not be loaded by r.jina.ai (navigation error). The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. No halal claim was verified on 13 Oct 2026, so this means 'not checked', not 'none exists'. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "LAS",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site on 13 Oct 2026. The official dining directory was read (https://www.harryreidairport.com/dine-shop-and-more?category=dining) and does not mention halal; individual outlet pages were not all opened, so this means 'none found', not 'none exists'. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "CLT",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site on 13 Oct 2026. The official dining directory was read (https://www.cltairport.com/shop-dine-and-relax/) and does not mention halal; individual outlet pages were not all opened, so this means 'none found', not 'none exists'. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "MCO",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site on 13 Oct 2026. The official dining directory was read (https://flymco.com/shops-restaurants-services/) and does not mention halal; individual outlet pages were not all opened, so this means 'none found', not 'none exists'. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "CKG",
+  "outlets": [],
+  "airport_note": "Not checked in round 2: cqa.cn returned HTTP 405. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. No halal claim was verified on 13 Oct 2026, so this means 'not checked', not 'none exists'. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "BOM",
+  "outlets": [],
+  "airport_note": "Not checked in round 2: csmia.adaniairports.com could not be read (connection failure direct; r.jina.ai error). The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. No halal claim was verified on 13 Oct 2026, so this means 'not checked', not 'none exists'. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "TFU",
+  "outlets": [],
+  "airport_note": "Not checked in round 2: only the Chengdu airport group home page (cdairport.com, Chinese) was read; no dining directory was located without search. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. No halal claim was verified on 13 Oct 2026, so this means 'not checked', not 'none exists'. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "PKX",
+  "outlets": [],
+  "airport_note": "Not checked in round 2: bdia.com.cn/en/ returned almost no readable content. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. No halal claim was verified on 13 Oct 2026, so this means 'not checked', not 'none exists'. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "PHX",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site on 13 Oct 2026. The official dining directory was read (https://www.skyharbor.com/at-the-airport/food-drink/) and does not mention halal; individual outlet pages were not all opened, so this means 'none found', not 'none exists'. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "MNL",
+  "outlets": [],
+  "airport_note": "The New NAIA dining page (https://www.newnaia.com.ph/discover/dining) was read on 13 Oct 2026 and does not mention halal, but its content was thin (script-rendered), so outlets were not checked; this means 'none found', not 'none exists'. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "SHA",
+  "outlets": [],
+  "airport_note": "Not checked in round 2: only the Shanghai Airport Group English home page was read; no Hongqiao dining directory was located without search. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. No halal claim was verified on 13 Oct 2026, so this means 'not checked', not 'none exists'. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "BOG",
+  "outlets": [],
+  "airport_note": "Not checked in round 2: eldorado.aero English pages (home, services) were read but no dining directory was located; neither mentions halal. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. No halal claim was verified on 13 Oct 2026, so this means 'not checked', not 'none exists'. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "MEX",
+  "outlets": [],
+  "airport_note": "Not checked in round 2: the AICM services page (https://www.aicm.com.mx/en/servicios) was read and does not mention halal; no dining directory was located. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. No halal claim was verified on 13 Oct 2026, so this means 'not checked', not 'none exists'. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "GRU",
+  "outlets": [],
+  "airport_note": "The official restaurants page (https://www.gru.com.br/en/passenger/discover-gru/food/restaurants) was read on 13 Oct 2026; its readable content was thin and does not mention halal. This means 'none found', not 'none exists'. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "SGN",
+  "outlets": [],
+  "airport_note": "Not checked in round 2: the official airport site was not reached; tansonnhatairport.vn is a third-party travel blog and was not used. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. No halal claim was verified on 13 Oct 2026, so this means 'not checked', not 'none exists'. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "SVO",
+  "outlets": [],
+  "airport_note": "Not checked in round 2: the Sheremetyevo services page (https://www.svo.aero/en/services) was read and does not mention halal; the restaurant directory was not located. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. No halal claim was verified on 13 Oct 2026, so this means 'not checked', not 'none exists'. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "XIY",
+  "outlets": [],
+  "airport_note": "Not checked in round 2: xxia.com could not be loaded by r.jina.ai (navigation error). The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. No halal claim was verified on 13 Oct 2026, so this means 'not checked', not 'none exists'. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "KMG",
+  "outlets": [],
+  "airport_note": "Not checked in round 2: only the Yunnan airport group home page (ynairport.com, Chinese) was read; no Kunming dining directory was located without search. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. No halal claim was verified on 13 Oct 2026, so this means 'not checked', not 'none exists'. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "HGH",
+  "outlets": [],
+  "airport_note": "Not checked in round 2: only the Hangzhou airport home page (hzairport.com, Chinese) was read; no dining directory was located without search. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. No halal claim was verified on 13 Oct 2026, so this means 'not checked', not 'none exists'. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "MSP",
+  "outlets": [],
+  "airport_note": "The official Eat, Shop & Relax directory (https://www.mspairport.com/airport/eat-shop-relax) was read via WebFetch on 13 Oct 2026. It does not mention halal and has no dietary filter (categories are Full Service, Quick Serve, Coffee, Bar, Grab-and-Go). Outlet pages were not opened one by one, so this means 'none found', not 'none exists'. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "FLL",
+  "outlets": [],
+  "airport_note": "The official Broward County airport shops and dining page (https://www.broward.org/Airport/Passengers/Pages/ShopsDiningServices.aspx) was read on 13 Oct 2026 and does not mention halal; its readable content was thin. This means 'none found', not 'none exists'. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "LGA",
+  "outlets": [
+   {
+    "name": "Mezze",
+    "terminal": "Terminal B, Level 1",
+    "side": "unknown",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://www.laguardiaairport.com/dine-shop-relax/food?filterGroups=Halal",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "The only result under the official Halal filter ('Showing 1-1 of 1 results'; read in r.jina.ai browser mode, 13 Oct 2026). Description: 'Modern fast-casual Mediterranean on the go.' The listing does not use the word halal in its text, name a certifier or say the whole menu is halal. The LGA FAQ says: 'Yes, both Halal and Kosher dining options are available.' Airport Improvement described Mezze as halal-certified (https://airportimprovement.com/article/laguardias-terminal-b-expands-dining-options-with-mezze/), not re-read in round 2. Before/after security is not stated.",
+    "claim": "LaGuardia’s official Halal filter lists this outlet. The listing does not name a certifier or say the whole menu is halal."
+   }
+  ],
+  "airport_note": "The Port Authority site has a Halal filter; one outlet was listed on 13 Oct 2026. The FAQ says 'Yes, both Halal and Kosher dining options are available.' Ask the outlet."
+ },
+ {
+  "iata": "ORY",
+  "outlets": [],
+  "airport_note": "Not checked in round 2: the Paris Aéroport bars and restaurants page (https://www.parisaeroport.fr/en/passengers/at-the-airport/bars-restaurants) is script-rendered; its readable text does not mention halal and lists no outlets. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. No halal claim was verified on 13 Oct 2026, so this means 'not checked', not 'none exists'. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "DTW",
+  "outlets": [
+   {
+    "name": "Berry's Halal Jerky",
+    "terminal": "McNamara Terminal (Gate A20 and International Arrivals)",
+    "side": "unknown",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://www.metroairport.com/terminals/maps/McNamara-Terminal?asset=404",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "Listed in the official DTW dining directory (https://www.metroairport.com/at-dtw/services-amenities/dining) as 'Berry's Halal Jerky'. Its map entry lists 'Gate International Arrivals' and 'Gate A20' and the categories 'Dine', '24/7 Vending' and 'Halal'. It appears to be a vending point, not a restaurant (INFERENCE from the '24/7 Vending' category). The halal claim is in the product name and category only; no certifier is named.",
+    "claim": "Detroit Metro Airport lists this jerky vending point under “Halal”. No certifier is named."
+   }
+  ],
+  "airport_note": "The official dining directory (https://www.metroairport.com/at-dtw/services-amenities/dining) was read on 13 Oct 2026; Berry's Halal Jerky is the only entry that mentions halal. Ask the outlet."
+ },
+ {
+  "iata": "PHL",
+  "outlets": [
+   {
+    "name": "PKS Kosher Market",
+    "terminal": "Terminal E, Upper Level",
+    "side": "airside",
+    "halal": "some items",
+    "certifier": "Not stated",
+    "source_url": "https://www.phlfoodandshops.com/directory/pks-kosher-market/",
+    "source_type": "official airport dining page",
+    "verified": "verified",
+    "accessed": "2026-10-13",
+    "notes": "PHL Food & Shops (the airport's concessions site) says: 'This market includes both kosher and halal meals and snacks along with items that meet a wide spectrum of dietary needs'. Location: 'Terminal E – Upper Level', '• After Security'. It also says 'A selection of kosher-certified snacks, candy and beverages are also available'; no halal certifier is named.",
+    "claim": "The airport’s food and shops site says this grab-and-go market “includes both kosher and halal meals and snacks”. No halal certifier is named."
+   }
+  ],
+  "airport_note": "One outlet with a halal claim on the airport's concessions site (13 Oct 2026). The main dining directory (https://www.phlfoodandshops.com/directory/?_directory_filter=dine) does not mention halal. Ask the outlet."
+ },
+ {
+  "iata": "MXP",
+  "outlets": [],
+  "airport_note": "Not checked in round 2: milanomalpensa-airport.com rejected both direct and r.jina.ai requests ('Request Rejected'). The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. No halal claim was verified on 13 Oct 2026, so this means 'not checked', not 'none exists'. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "BWI",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site on 13 Oct 2026. The official dining directory was read (https://bwiairport.com/at-bwi/things-to-do/food-drink/) and does not mention halal; individual outlet pages were not all opened, so this means 'none found', not 'none exists'. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "SLC",
+  "outlets": [],
+  "airport_note": "Not checked in round 2: the dining URL tried on slcairport.com returned 'Page not found' and the home page links no dining directory in readable text. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. No halal claim was verified on 13 Oct 2026, so this means 'not checked', not 'none exists'. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "DCA",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site on 13 Oct 2026. The official dining directory was read (https://www.flyreagan.com/shopping-dining-advanced-directory) and does not mention halal; individual outlet pages were not all opened, so this means 'none found', not 'none exists'. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "SAN",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site on 13 Oct 2026. The official dining directory was read (https://www.san.org/shop-dine/) and does not mention halal; individual outlet pages were not all opened, so this means 'none found', not 'none exists'. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "TPA",
+  "outlets": [],
+  "airport_note": "The official shop and dine page (https://www.tampaairport.com/shop-dine) was read on 13 Oct 2026 and does not mention halal; its readable content was thin. This means 'none found', not 'none exists'. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "BNA",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site on 13 Oct 2026. The official dining directory was read (https://flynashville.com/dining-search) and does not mention halal; individual outlet pages were not all opened, so this means 'none found', not 'none exists'. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "BRU",
+  "outlets": [],
+  "airport_note": "Not checked in round 2: brusselsairport.be blocked direct requests (HTTP 403); the eat-and-drink URL read via r.jina.ai returned the generic homepage, which does not mention halal. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. No halal claim was verified on 13 Oct 2026, so this means 'not checked', not 'none exists'. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "AUS",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site on 13 Oct 2026. The official dining directory was read (https://www.flyaustin.com/shop-and-dine-aus) and does not mention halal; individual outlet pages were not all opened, so this means 'none found', not 'none exists'. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "MDW",
+  "outlets": [],
+  "airport_note": "The official Midway shop and dine page (https://www.flychicago.com/midway/eatshopmore/Pages/default.aspx) was read on 13 Oct 2026 and does not mention halal; its readable content was thin. This means 'none found', not 'none exists'. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. Ask at the airport information desk or the outlet."
+ },
+ {
+  "iata": "HNL",
+  "outlets": [],
+  "airport_note": "No outlet with a halal claim was found on the official airport site on 13 Oct 2026. The official dining directory was read (https://airports.hawaii.gov/hnl/shop-dine/shops-restaurants/) and does not mention halal; individual outlet pages were not all opened, so this means 'none found', not 'none exists'. The web-search budget for this session ran out before site-restricted searches could be run, so only pages reachable by direct URL were read. Ask at the airport information desk or the outlet."
+ }
+]

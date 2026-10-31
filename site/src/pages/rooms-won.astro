@@ -1,0 +1,105 @@
+---
+import SectionIntro from '../components/SectionIntro.astro';
+import Base from '../layouts/Base.astro';
+import raw from '../data/rooms-won.json';
+import { host } from '../lib/airports.js';
+
+// Newest first. Year-only dates ("2014") sort before any month of that year.
+const key = (d) => (d.length === 4 ? `${d}-00` : d);
+const entries = [...raw].sort((a, b) => key(b.date).localeCompare(key(a.date)));
+const KINDS = [['airport', 'Airports'], ['university', 'Universities'], ['hospital', 'Hospitals']];
+const count = (k) => entries.filter((e) => e.kind === k).length;
+const countries = new Set(entries.map((e) => e.country)).size;
+const asked = entries.filter((e) => e.advocacy).length;
+const years = [...new Set(entries.map((e) => e.date.slice(0, 4)))];
+const label = { airport: 'Airport', university: 'University', hospital: 'Hospital' };
+---
+<Base title="Rooms won: prayer rooms opened and improved | A Room to Pray" description={`${entries.length} dated, sourced cases of airports, universities and hospitals opening or improving prayer and multi-faith rooms, in ${countries} countries.`} nav="rooms-won">
+  <SectionIntro eyebrow="Rooms won · The public record" title="Small requests. Meaningful places." description={`${entries.length} sourced examples of airports, universities and hospitals opening or improving a space for prayer, across ${countries} countries. A record of what can change.`} art="/art/gate.webp" label="Making room for more people" href="#rooms-record" action="Explore the stories"><p class="fine">In {asked} cases, the source says people asked for the room. Where a source doesn’t say so, we don’t either.</p></SectionIntro>
+  <div class="wrap" id="rooms-record">
+    <div class="controls" data-rw-controls hidden>
+      <div class="seg" role="group" aria-label="Show">
+        <button type="button" aria-pressed="true" data-kind="all">All <span class="tnum">{entries.length}</span></button>
+        {KINDS.map(([k, t]) => <button type="button" aria-pressed="false" data-kind={k}>{t} <span class="tnum">{count(k)}</span></button>)}
+      </div>
+      <p class="sr" role="status" data-rw-status></p>
+    </div>
+
+    <ol class="rw-list" data-rw-list>
+      {entries.map((e, i) => (
+        <li class="rw-item" data-kind={e.kind}>
+          {(i === 0 || entries[i - 1].date.slice(0, 4) !== e.date.slice(0, 4)) && <span class="rw-year" aria-hidden="true">{e.date.slice(0, 4)}</span>}
+          <article class="rw-card">
+            <div class="rw-meta">
+              <time datetime={e.date}>{e.dateLabel}</time>
+              <span class="tag">{label[e.kind]}</span>
+              {e.advocacy && <span class="pill p-yes">People asked</span>}
+            </div>
+            <h2>{e.place}</h2>
+            <p class="rw-where">{e.city}, {e.country}</p>
+            <p>{e.change}</p>
+            {e.advocacyNote && <p class="fine">{e.advocacyNote}</p>}
+            <p class="src">
+              <span>Source: <a href={e.source.url} rel="noopener" target="_blank">{e.source.title}</a> ({e.source.publisher || host(e.source.url)})</span>
+              {e.archive && <a href={e.archive} rel="noopener" target="_blank">Archived copy</a>}
+            </p>
+          </article>
+        </li>
+      ))}
+    </ol>
+
+    <div class="rw-foot stack">
+      <h2>Know of one we missed?</h2>
+      <p class="muted">If a room opened or improved near you and there’s a public source (a news story, a press release, an official page), send it to us. We add it once we’ve read the source.</p>
+      <p><a class="btn" href="/contact/">Tell us</a></p>
+      <p class="fine">Covering {years.at(-1)} to {years[0]}. This is a record of public sources, not a complete history. “People asked” means the source itself says students, staff, chaplains or faith groups asked for the room. No room listed where you travel? <a href="/#ask">Ask for one</a>.</p>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .rw-head { max-width: 70ch; display: flex; flex-direction: column; gap: 12px; padding-block: 40px 8px }
+  .rw-head h1 { font-size: clamp(2rem, 4.4vw, 3rem) }
+  .rw-head .lede { font-size: 1.15rem }
+  .rw-list { list-style: none; margin: 0; padding: 8px 0 0; display: flex; flex-direction: column; gap: 14px; max-width: 820px }
+  .rw-item { display: flex; flex-direction: column; gap: 8px }
+  .rw-item[hidden] { display: none }
+  .rw-year { font-family: var(--f-mono); font-weight: 600; font-size: .9rem; letter-spacing: .08em; color: var(--muted); padding-top: 14px; border-top: 2px solid var(--line) }
+  .rw-card { background: var(--surface); border: 1px solid var(--line); border-left: 6px solid var(--sign); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 8px }
+  .rw-card h2 { font-size: 1.2rem; line-height: 1.25; margin: 0; overflow-wrap: anywhere }
+  .rw-card p { margin: 0 }
+  .rw-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px }
+  .rw-meta time { font-family: var(--f-mono); font-weight: 600; font-size: .88rem }
+  .rw-where { color: var(--muted); font-size: .95rem }
+  .rw-card .src a { overflow-wrap: anywhere }
+  .rw-foot { max-width: 70ch; padding-block: 36px 80px }
+  .rw-foot h2 { font-size: 1.5rem }
+  @media (min-width: 700px) { .rw-card { padding: 20px 22px } }
+</style>
+
+<script>
+  const controls = document.querySelector('[data-rw-controls]');
+  const items = [...document.querySelectorAll('.rw-item')];
+  const status = document.querySelector('[data-rw-status]');
+  if (controls) {
+    controls.hidden = false; // Filters need JS; without it the full list shows.
+    const buttons = [...controls.querySelectorAll('[data-kind]')];
+    buttons.forEach((b) => b.addEventListener('click', () => {
+      const k = b.dataset.kind;
+      buttons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      let shown = 0;
+      items.forEach((li) => { const on = k === 'all' || li.dataset.kind === k; li.hidden = !on; if (on) shown++; });
+      // Year labels belong to the first entry of each year, so show a year only on the first visible entry for it.
+      let last = '';
+      items.forEach((li) => {
+        const y = li.querySelector('time')?.getAttribute('datetime')?.slice(0, 4) || '';
+        let tag = li.querySelector('.rw-year');
+        if (!li.hidden && y !== last) {
+          if (!tag) { tag = document.createElement('span'); tag.className = 'rw-year'; tag.setAttribute('aria-hidden', 'true'); li.prepend(tag); }
+          tag.textContent = y; tag.hidden = false; last = y;
+        } else if (tag) tag.hidden = true;
+      });
+      if (status) status.textContent = `Showing ${shown} ${shown === 1 ? 'entry' : 'entries'}`;
+    }));
+  }
+</script>

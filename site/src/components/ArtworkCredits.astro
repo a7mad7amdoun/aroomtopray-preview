@@ -1,0 +1,19 @@
+---
+import { VISITOR_ART_REFERENCES } from '../data/visitor-art.js';
+---
+<section class="artwork-credits" id="artwork" aria-labelledby="artwork-title">
+ <h2 id="artwork-title">About the artwork</h2>
+ <p>The airport traveler, university student and hospital visitors are fictional people in AI-generated illustrations. They show the kinds of everyday journeys this guide supports. They are not photographs of listed rooms, instructions for prayer, or evidence of a place’s facilities or access.</p>
+ <p>The compositions use real architectural photographs as references for materials, furniture and scale. Each has a daylight and evening version. The references do not imply an institutional affiliation.</p>
+ <ul>{Object.entries(VISITOR_ART_REFERENCES).map(([scene,reference])=><li><strong>{scene==='airport'?'Airport':scene==='campus'?'University':'Hospital'}:</strong> <a href={reference.url}>{reference.label}</a>{reference.author&&<> · {reference.author}</>}.{reference.license&&<> The generated adaptations change the people, composition and lighting and are shared under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> where copyright applies.</>}{scene==='campus'&&<> The university photograph informed ordinary architectural details; it is not reproduced in the website.</>}</li>)}</ul>
+ <p>The prayer-room background is a separate AI-generated architectural illustration, with matching daylight and evening panoramas spanning the desktop room, plus a compact composition for smaller screens. Its oak doorway, prayer mat and bench create the room experience; they do not depict a verified prayer facility.</p>
+ <p>Use each listing’s text, official source links and visitor photographs for information about the actual location.</p>
+ <h3>Real place photographs</h3>
+ <p>Listing photographs are separate from the illustrations. Each has a photographer credit, capture date, original source and reuse licence. Prayer-room signs, room interiors and building exteriors are labelled by purpose. Historical photographs do not confirm current access or facilities. The copies are resized and converted to WebP without AI editing, retouching or recoloring. <a href="/photos/places/CREDITS.json">Photograph credits and licences</a>.</p>
+ <h3>Countries and flags</h3>
+ <p>The browser includes 250 countries and territories: the ISO 3166-1 set and Kosovo (XK). A country’s appearance in the browser does not mean this guide already lists a room there. Flags are self-hosted SVGs from <a href="https://github.com/lipis/flag-icons">flag-icons 7.6.0</a>, under the <a href="/flags/LICENSE.txt">MIT licence</a>. Country names use the interface language and flags keep their original colors in both appearances.</p>
+</section>
+<style>
+ .artwork-credits { scroll-margin-top:6rem; border-top:1px solid var(--line); margin-top:32px; padding-top:8px; }
+ .artwork-credits li+li { margin-top:12px; }
+</style>

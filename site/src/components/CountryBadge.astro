@@ -1,0 +1,6 @@
+---
+import CountryFlag from './CountryFlag.astro';
+import {countryCode,countryName} from '../lib/countries.js';
+const {country,locale='en',compact=false}=Astro.props;
+---
+<span class:list={['country-badge',{'country-badge-compact':compact}]}><CountryFlag {country}/><span>{compact ? countryCode(country) : countryName(country,locale)}</span></span>

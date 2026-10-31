@@ -1,0 +1,19 @@
+---
+import HomePage from '../../components/HomePage.astro';
+import DirectoryPage from '../../components/DirectoryPage.astro';
+import LocalizedPlace from '../../components/LocalizedPlace.astro';
+import VisitPage from '../../components/VisitPage.astro';
+import { airports } from '../../lib/airports.js';
+import { universities } from '../../lib/universities.js';
+import { hospitals } from '../../lib/hospitals.js';
+export function getStaticPaths(){
+ return ['fr','ar','es'].flatMap(locale=>[
+  {params:{lang:locale,path:undefined},props:{locale,type:'home'}},
+  {params:{lang:locale,path:'visit'},props:{locale,type:'visit'}},
+  ...['airports','universities','hospitals'].map(kind=>({params:{lang:locale,path:kind},props:{locale,type:'directory',kind}})),
+  ...[['airports',airports],['universities',universities],['hospitals',hospitals]].flatMap(([kind,places])=>places.map(place=>({params:{lang:locale,path:place.url.replace(/^\/|\/$/g,'')},props:{locale,type:'place',kind,place}})))
+ ]);
+}
+const {locale,type,kind,place}=Astro.props;
+---
+{type==='home'?<HomePage {locale}/>:type==='directory'?<DirectoryPage {locale} {kind}/>:type==='visit'?<VisitPage {locale}/>:<LocalizedPlace {locale} {kind} {place}/>}

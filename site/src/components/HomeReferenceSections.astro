@@ -1,0 +1,128 @@
+---
+import Base from '../layouts/Base.astro';
+import Mark from '../components/Mark.astro';
+import { universities } from '../lib/universities.js';
+import { hospitals } from '../lib/hospitals.js';
+import Search from '../components/Search.astro';
+import { airports, byCode, checked } from '../lib/airports.js';
+
+const listings = checked.reduce((n, a) => n + a.spaces.length, 0);
+const wudu = checked.filter((a) => a.wudu === 'yes').length;
+const women = checked.filter((a) => a.women === 'yes' || a.women === 'partition').length;
+const countries = new Set(checked.map((a) => a.country)).size;
+
+const BOARD = ['ist', 'jed', 'lhr', 'iah', 'doh', 'las', 'sin'].map((c) => byCode[c]);
+const boardRow = (a) => ({
+  room: a.status === 'room' ? 'LISTED' : a.status === 'none' ? 'ASK' : a.status === 'seating' ? 'SEATING' : a.status === 'planned' ? 'PLANNED' : '—',
+  wudu: { yes: 'YES', partial: 'SOME', no: 'NO', unknown: '—' }[a.wudu],
+  women: { yes: 'YES', partition: 'SCREEN', no: 'NO', unknown: '—' }[a.women],
+});
+const askList = airports.filter((a) => ['none', 'seating', 'planned'].includes(a.status));
+const askOther = askList.filter((a) => a.status !== 'none');
+const askNone = ['Americas', 'Europe', 'Middle East & Africa', 'Asia & Oceania']
+  .map((r) => [r, askList.filter((a) => a.status === 'none' && a.region === r)])
+  .filter(([, l]) => l.length);
+// "Bordeaux (Mérignac)" → "Bordeaux", "Basel/Mulhouse" → "Basel": tiles only have room for the city.
+const town = (a) => a.city.split(/\s*[/(]/)[0];
+const w = { yes: 0, partition: 0, no: 0, unknown: 0 };
+checked.forEach((a) => w[a.women]++);
+const pct = (n) => `${((n / checked.length) * 100).toFixed(2)}%`;
+const segs = [['yes', 'Separate space', 'var(--go)'], ['partition', 'Partition', 'var(--warn)'], ['no', 'Shared space only', 'var(--alert)'], ['unknown', 'Not stated', 'var(--line)']];
+---
+  <section class="block">
+    <div class="wrap split">
+      <div class="stack">
+        <span class="eyebrow">Every airport page</span>
+        <h2>The six things you need before you land.</h2>
+        <p class="muted">Most airport websites hide the prayer room under “services”, with no word on security or wuḍūʾ. We put the same six answers on every page, with a link to the source and the date we checked it.</p>
+        <p><a class="btn" href="/airports/iah/">See an example: Houston IAH</a></p>
+      </div>
+      <div class="fields">
+        <div class="field"><svg width="28" height="28" aria-hidden="true"><use href="#i-pin"/></svg><div><h3>Where it is</h3><p>Terminal, gate, level and a landmark you can spot.</p></div></div>
+        <div class="field"><svg width="28" height="28" aria-hidden="true"><use href="#i-gate"/></svg><div><h3>Before or after security</h3><p>So you know if you can pray on a layover without leaving.</p></div></div>
+        <div class="field"><svg width="28" height="28" aria-hidden="true"><use href="#i-clock"/></svg><div><h3>Opening hours</h3><p>Some rooms close at night. We say so when the airport does.</p></div></div>
+        <div class="field"><svg width="28" height="28" aria-hidden="true"><use href="#i-water"/></svg><div><h3>Wuḍūʾ</h3><p>A washing area or foot basin, or “not stated” when the airport is silent.</p></div></div>
+        <div class="field"><svg width="28" height="28" aria-hidden="true"><use href="#i-screen"/></svg><div><h3>Space for women</h3><p>A separate room, a partition, or shared space only.</p></div></div>
+        <div class="field"><svg width="28" height="28" aria-hidden="true"><use href="#i-qibla"/></svg><div><h3>Qibla</h3><p>The bearing from true north, and whether the room has a marker.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="block" id="ask">
+    <div class="wrap">
+      <div class="ask-home">
+        <div class="ask-copy">
+          <div class="stack">
+          <span class="eyebrow">Ask for a room</span>
+          <h2>No room listed? Ask the airport.</h2>
+          <p class="muted">Airports have added rooms after travellers and faith groups asked. Seattle reopened its room in 2017 (<a href="https://northwestdharma.org/airsit/">Northwest Dharma</a>) and Houston opened a washing room in 2024 (<a href="https://www.fly2houston.com/airport-business/newsroom/press-releases/item/houston-airports-refines-international-passenger-experience-with-new-ritual-washing-and-prayer-spaces-at-bush-airport/">Houston Airports</a>). <a href="/rooms-won/">See every room added or improved</a>.</p>
+          </div>
+          <div class="stack">
+          <ol class="ask-steps">
+            <li><b>Open the airport’s page</b><span>Pick an airport from the list.</span></li>
+            <li><b>Copy the message</b><span>A short, polite note asking about a prayer room, wuḍūʾ and space for women.</span></li>
+            <li><b>Send it yourself</b><span>We link to the airport’s own feedback page.</span></li>
+          </ol>
+          <p class="fine">We never send anything in your name and don’t collect your details. We only count how many visitors opened the feedback page.</p>
+          </div>
+        </div>
+        <details class="ask-expand" data-print-expand><summary>Find an airport to ask <span>{askList.length} airports ↓</span></summary><div class="stack ask-pick">
+          <div class="ask-head">
+          <p class="ask-count"><b class="tnum">{askList.length}</b> airports list no prayer room on their website</p>
+          {askOther.length > 0 && (
+            <ul class="ask-other">
+              {askOther.map((a) => (
+                <li><a href={a.url}><span class="code">{a.iata}</span><span class="nm">{town(a)}</span><span class="what">{a.status === 'seating' ? 'Quiet seating only' : 'Room planned, not open yet'}</span></a></li>
+              ))}
+            </ul>
+          )}
+          </div>
+          {askNone.map(([r, l]) => (
+            <div class="ask-region">
+              <h3 class="eyebrow">{r} <span class="muted">· {l.length}</span></h3>
+              <ul class="ask-tiles">
+                {l.map((a) => <li><a href={a.url} title={`${a.short}: no prayer or quiet room listed`}><span class="code">{a.iata}</span><span class="nm">{town(a)}</span></a></li>)}
+              </ul>
+            </div>
+          ))}
+        </div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap split">
+      <div class="stack">
+        <span class="eyebrow">Women’s spaces</span>
+        <h2>Women’s privacy is often undocumented.</h2>
+        <p class="muted">Many airports don’t say whether women have a private place to pray. We track it on every page, and the message to the airport asks about it when it isn’t stated.</p>
+      </div>
+      <div class="stack" style="justify-content:center">
+        <div class="bar" role="img" aria-label={segs.map(([k, t]) => `${t}: ${w[k]}`).join(', ')}>
+          {segs.map(([k, , c]) => <i style={`width:${pct(w[k])};background:${c}`}></i>)}
+        </div>
+        <div class="legend">
+          {segs.map(([k, t, c]) => <span><i style={`background:${c}`}></i>{t} <b class="tnum" style="color:var(--ink)">{w[k]}</b></span>)}
+          <span>of {checked.length} airports checked</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="block" id="how">
+    <div class="wrap stack" style="gap:28px">
+      <div class="stack">
+        <span class="eyebrow">How we check</span>
+        <h2>Official sources, with dates.</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>The airport’s own page</h3><p>Each fact starts from the airport’s website or an official release, linked on the listing. Anything from elsewhere is marked “Not from the airport”.</p></div>
+        <div class="step"><h3>A date on every source</h3><p>Each listing shows when we last checked its source.</p></div>
+        <div class="step"><h3>Traveller reports, reviewed</h3><p>Reports wait for an editor to check them against the airport. Nothing goes live on its own.</p></div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,15 @@
+---
+import EditorialArtwork from './EditorialArtwork.astro';
+interface Props { eyebrow: string; title: string; description: string; art: string; label: string; href?: string; action?: string }
+const { eyebrow, title, description, href, action } = Astro.props;
+---
+<section class="section-intro wrap">
+  <div class="section-intro-copy">
+    <span class="eyebrow">{eyebrow}</span>
+    <h1>{title}</h1>
+    <p class="lede">{description}</p>
+    <slot />
+    {href && <a class="btn sign-btn" href={href}>{action} <span aria-hidden="true">↘</span></a>}
+  </div>
+  <EditorialArtwork placement="intro"/>
+</section>

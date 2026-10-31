@@ -1,0 +1,26 @@
+---
+// Fixed qibla diagram: north at the top, needle at the great-circle bearing to the Kaʿbah.
+import { dirName } from '../lib/airports.js';
+const { qibla, label, near = false, place = 'airport' } = Astro.props;
+const ticks = Array.from({ length: 36 }, (_, i) => i * 10);
+const R = Math.PI / 180;
+---
+<div class="card compass" id="qibla">
+  <svg viewBox="0 0 240 240" role="img" aria-label={`Qibla ${qibla.toFixed(1)} degrees from true north`}>
+    <circle cx="120" cy="120" r="112" fill="var(--surface-2)" stroke="var(--line)" stroke-width="2"/>
+    {ticks.map((i) => { const long = i % 90 === 0, r1 = long ? 92 : 98; return <line x1={120 + Math.sin(i * R) * r1} y1={120 - Math.cos(i * R) * r1} x2={120 + Math.sin(i * R) * 106} y2={120 - Math.cos(i * R) * 106} stroke={long ? 'var(--ink)' : 'var(--muted)'} stroke-width={long ? 2.5 : 1.2}/>; })}
+    <text x="120" y="50" text-anchor="middle" font-family="var(--f-mono)" font-size="18" font-weight="600" fill="var(--ink)">N</text>
+    <g transform={`rotate(${qibla} 120 120)`}>
+      <path d="M120 30 L131 120 L120 112 L109 120 Z" fill="var(--sign)" stroke="var(--sign-ink)" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M120 210 L128 120 L120 128 L112 120 Z" fill="var(--line)"/>
+      <rect x="112" y="14" width="16" height="16" rx="1.5" fill="var(--ink)"/><rect x="112" y="19" width="16" height="3" fill="var(--sign)"/>
+    </g>
+    <circle cx="120" cy="120" r="6" fill="var(--ink)"/>
+  </svg>
+  <div class="stack" style="gap:6px">
+    <span class="eyebrow">Qibla from {label}</span>
+    <div class="big">{qibla.toFixed(1)}°</div>
+    <div><b>{dirName(qibla)}</b> from true north</div>
+    <p class="fine">Fixed diagram: north is at the top. It doesn’t follow your phone. {near ? `You are close to Makkah, so the direction changes across the ${place}: use the room’s marker.` : 'If the room has a qibla marker, use it.'}</p>
+  </div>
+</div>
