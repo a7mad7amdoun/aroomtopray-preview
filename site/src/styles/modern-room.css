@@ -152,10 +152,10 @@ html[dir=rtl] .room-main .guide-tabs>:is(a,button) { font-size:1rem; line-height
 }
 /* Quiet wayfinding on the closed pane; the full scene lives beyond the door.
    This moves with the leaf, leaving the existing outside view stationary. */
-.room-environment { --window-paper:#e5e8df; --window-ink:#283748; }
-:root[data-theme=dark] .room-environment { --window-paper:#203042; --window-ink:#ede8d8; }
+.room-environment { --window-paper:#f1ecdf; --window-ink:#293c4e; --window-tone:#d8e0dd; --window-soft:#a8b9b4; --window-gold:#dcba66; }
+:root[data-theme=dark] .room-environment { --window-paper:#26384a; --window-ink:#d6dfdd; --window-tone:#152536; --window-soft:#526b73; --window-gold:#d2ae61; }
 @media(prefers-color-scheme:dark) {
- :root:not([data-theme=light]) .room-environment { --window-paper:#203042; --window-ink:#ede8d8; }
+ :root:not([data-theme=light]) .room-environment { --window-paper:#26384a; --window-ink:#d6dfdd; --window-tone:#152536; --window-soft:#526b73; --window-gold:#d2ae61; }
 }
 .window-wayfinding {
  position:absolute; inset:0; display:grid; place-items:center;
@@ -163,12 +163,17 @@ html[dir=rtl] .room-main .guide-tabs>:is(a,button) { font-size:1rem; line-height
  color:var(--window-ink); box-shadow:inset 0 0 14px #07101b14;
  opacity:1; transition:opacity 240ms ease; pointer-events:none;
 }
-.window-symbol { grid-area:1/1; width:42%; height:auto; opacity:0; transition:opacity 180ms ease; }
-[data-room-preview=airport] .window-symbol-airport,
-[data-room-preview=campus] .window-symbol-campus,
-[data-room-preview=hospital] .window-symbol-hospital { opacity:1; }
-.window-wayfinding-rule { position:absolute; bottom:18%; left:39%; width:22%; height:2px; background:#cda333; }
+.window-illustration { position:absolute; inset:0; width:100%; height:100%; opacity:0; transition:opacity 240ms ease; }
+.window-paper { fill:var(--window-paper); }
+.window-tone { fill:var(--window-tone); }
+.window-soft { fill:var(--window-soft); }
+.window-solid { fill:var(--window-ink); }
+.window-gold { fill:var(--window-gold); }
+.window-line { fill:none; stroke:var(--window-ink); stroke-width:1.15; stroke-linecap:round; stroke-linejoin:round; opacity:.7; }
+[data-room-preview=airport] .window-illustration-airport,
+[data-room-preview=campus] .window-illustration-campus,
+[data-room-preview=hospital] .window-illustration-hospital { opacity:1; }
 [data-door-state=open] .window-wayfinding { opacity:0; }
 @media(prefers-reduced-motion:reduce) {
- .window-wayfinding,.window-symbol { transition:none; }
+ .window-wayfinding,.window-illustration { transition:none; }
 }

@@ -2,6 +2,7 @@
 import { getCopy, localizedPath } from '../lib/i18n.js';
 import { ROOM_COPY } from '../data/room-copy.js';
 import { DOOR_COPY } from '../data/door-copy.js';
+import WindowArtwork from './WindowArtwork.astro';
 import { airports } from '../lib/airports.js';
 import { universities } from '../lib/universities.js';
 import { hospitals } from '../lib/hospitals.js';
@@ -28,10 +29,7 @@ const number=new Intl.NumberFormat(locale);
         <div class="door-leaf" aria-hidden="true">
           <span class="door-skin"></span>
           <div class="door-window">
-            <span class="window-wayfinding">
-              {doors.map(([category,icon])=><svg class={`window-symbol window-symbol-${settings[category]}`} viewBox="0 0 24 24" aria-hidden="true"><use href={`#i-${icon}`}/></svg>)}
-              <span class="window-wayfinding-rule"></span>
-            </span>
+            <WindowArtwork />
             <span class="window-reflection"></span>
           </div>
           <span class="door-handle" aria-hidden="true"></span>
