@@ -150,26 +150,26 @@ html[dir=rtl] .room-main .guide-tabs>:is(a,button) { font-size:1rem; line-height
  .room-layout>.room-main { border:0; border-radius:0; box-shadow:none; }
  .room-main .guide-panel { animation:none!important; transform:none!important; opacity:1!important; }
 }
-/* Quiet wayfinding on the closed pane; the full scene lives beyond the door.
-   This moves with the leaf, leaving the existing outside view stationary. */
-.room-environment { --window-paper:#f1ecdf; --window-ink:#293c4e; --window-tone:#d8e0dd; --window-soft:#a8b9b4; --window-gold:#dcba66; }
-:root[data-theme=dark] .room-environment { --window-paper:#26384a; --window-ink:#d6dfdd; --window-tone:#152536; --window-soft:#526b73; --window-gold:#d2ae61; }
+/* Etched-glass artwork stays on the leaf; the destination remains behind it. */
+.room-environment { --window-paper:#e5dfd3; --window-art-light:1; --window-glass-tint:#e7dfcd0c; }
+:root[data-theme=dark] .room-environment { --window-paper:#172331; --window-art-light:.72; --window-glass-tint:#172b4526; }
 @media(prefers-color-scheme:dark) {
- :root:not([data-theme=light]) .room-environment { --window-paper:#26384a; --window-ink:#d6dfdd; --window-tone:#152536; --window-soft:#526b73; --window-gold:#d2ae61; }
+ :root:not([data-theme=light]) .room-environment { --window-paper:#172331; --window-art-light:.72; --window-glass-tint:#172b4526; }
 }
 .window-wayfinding {
- position:absolute; inset:0; display:grid; place-items:center;
- background:linear-gradient(145deg,#ffffff16,transparent 65%),var(--window-paper);
- color:var(--window-ink); box-shadow:inset 0 0 14px #07101b14;
- opacity:1; transition:opacity 240ms ease; pointer-events:none;
+ position:absolute; inset:0; overflow:hidden; background:var(--window-paper);
+ opacity:1; transition:opacity 320ms ease; pointer-events:none;
 }
-.window-illustration { position:absolute; inset:0; width:100%; height:100%; opacity:0; transition:opacity 240ms ease; }
-.window-paper { fill:var(--window-paper); }
-.window-tone { fill:var(--window-tone); }
-.window-soft { fill:var(--window-soft); }
-.window-solid { fill:var(--window-ink); }
-.window-gold { fill:var(--window-gold); }
-.window-line { fill:none; stroke:var(--window-ink); stroke-width:1.15; stroke-linecap:round; stroke-linejoin:round; opacity:.7; }
+.window-wayfinding::after {
+ content:''; position:absolute; inset:0;
+ background:linear-gradient(115deg,#fff2,transparent 35%,#ffffff08 64%,transparent 65%),var(--window-glass-tint);
+ box-shadow:inset 0 0 10px #07101b36,inset 1px 1px 2px #fff2;
+}
+.window-illustration {
+ position:absolute; inset:0; display:block; width:100%; height:100%; max-width:none;
+ object-fit:cover; object-position:center; opacity:0;
+ filter:brightness(var(--window-art-light)); transition:opacity 280ms ease;
+}
 [data-room-preview=airport] .window-illustration-airport,
 [data-room-preview=campus] .window-illustration-campus,
 [data-room-preview=hospital] .window-illustration-hospital { opacity:1; }

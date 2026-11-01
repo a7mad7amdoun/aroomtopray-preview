@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-01",
+  "method": "Built-in image_gen tool",
+  "purpose": "Decorative imagined window artworks; not photographs or documentation of named facilities.",
+  "assets": [
+    {
+      "scene": "airport",
+      "prompt": "Use case: stylized-concept. Create one portrait 3:4 architectural glass artwork asset for a small glazed window in a real oak prayer-room door. Edge-to-edge artwork only, NO door, frame, mockup, lettering, logos, symbols or border. Creative direction: refined museum-quality etched and sandblasted glass, layered translucent planes and extremely subtle fine grain, believable architectural perspective, restrained composition with generous breathing room, poetic and tactile rather than flat vector clip art or cartoon. Silvery ivory, warm limestone, deep blue-grey, only one small restrained amber accent. Soft overcast light, gentle depth, muted contrast, realistic glass diffusion. It must remain legible as a tiny 120px wide image. No busy details, no people, no sun disc, no giant icon, no outline illustration, no garish gradients. The result should feel like an architect commissioned a custom glass panel. Subject: a quiet airport departure lounge suggested by two slender window mullions and a softly receding runway horizon; a small believable aircraft parked in the middle distance, natural side view, no dramatic flying silhouette. A single amber wayfinding light far away. Beautiful subtle shadows and reflections, foreground mostly quiet.",
+      "files": [
+        "site/public/art/window-glass/airport-v2-360.webp",
+        "site/public/art/window-glass/airport-v2-720.webp"
+      ]
+    },
+    {
+      "scene": "campus",
+      "prompt": "Use case: stylized-concept. Create one portrait 3:4 architectural glass artwork asset for a small glazed window in a real oak prayer-room door. Edge-to-edge artwork only, NO door, frame, mockup, lettering, logos, symbols or border. Creative direction: refined museum-quality etched and sandblasted glass, layered translucent planes and extremely subtle fine grain, believable architectural perspective, restrained composition with generous breathing room, poetic and tactile rather than flat vector clip art or cartoon. Silvery ivory, warm limestone, deep blue-grey, only one small restrained amber accent. Soft overcast light, gentle depth, muted contrast, realistic glass diffusion. It must remain legible as a tiny 120px wide image. No busy details, no people, no sun disc, no giant icon, no outline illustration, no garish gradients. The result should feel like an architect commissioned a custom glass panel. Subject: a quiet university cloister courtyard, three tall limestone arches receding in perspective with a subtle mature tree beyond, a small warm amber light under the far arch. Sophisticated real architectural proportions, restrained foliage, airy negative space, an inviting path leading through.",
+      "files": [
+        "site/public/art/window-glass/campus-v2-360.webp",
+        "site/public/art/window-glass/campus-v2-720.webp"
+      ]
+    },
+    {
+      "scene": "hospital",
+      "prompt": "Use case: stylized-concept. Create one portrait 3:4 architectural glass artwork asset for a small glazed window in a real oak prayer-room door. Edge-to-edge artwork only, NO door, frame, mockup, lettering, logos, symbols or border. Creative direction: refined museum-quality etched and sandblasted glass, layered translucent planes and extremely subtle fine grain, believable architectural perspective, restrained composition with generous breathing room, poetic and tactile rather than flat vector clip art or cartoon. Silvery ivory, warm limestone, deep blue-grey, only one small restrained amber accent. Soft overcast light, gentle depth, muted contrast, realistic glass diffusion. It must remain legible as a tiny 120px wide image. No busy details, no people, no sun disc, no giant icon, no outline illustration, no garish gradients. The result should feel like an architect commissioned a custom glass panel. Subject: a calm contemporary hospital passage with warm stone surfaces and a recessed interior courtyard window at its far end, one delicate indoor tree seen through the glass, a discreet waiting bench in the middle distance, one small amber wall light. Perspective gentle and natural, spaces generous. No cross icons, medical equipment or clinical signage.",
+      "files": [
+        "site/public/art/window-glass/hospital-v2-360.webp",
+        "site/public/art/window-glass/hospital-v2-720.webp"
+      ]
+    }
+  ]
+}

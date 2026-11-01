@@ -29,7 +29,7 @@ const number=new Intl.NumberFormat(locale);
         <div class="door-leaf" aria-hidden="true">
           <span class="door-skin"></span>
           <div class="door-window">
-            <WindowArtwork />
+            <WindowArtwork scenes={open ? [outside] : ['airport','campus','hospital']} />
             <span class="window-reflection"></span>
           </div>
           <span class="door-handle" aria-hidden="true"></span>
