@@ -1,0 +1,248 @@
+{
+  "reviewedOn": "2026-11-02",
+  "apiUrl": "https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url%7Csize%7Cextmetadata&titles=File%3AMen%27s+prayer+room+at+the+Hamad+International+Airport.jpg%7CFile%3AWomen%27s+prayer+room+at+the+Hamad+International+Airport.jpg",
+  "records": [
+    {
+      "id": "doha-mens-prayer-room",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/53/Men%27s_prayer_room_at_the_Hamad_International_Airport.jpg",
+      "downloadedBytes": 4102492,
+      "sha256": "ba8222625e74aec1f74d0677afa85165861d4c5b1dba274fa04970cd619c84d7",
+      "metadata": {
+        "pageid": 137557119,
+        "ns": 6,
+        "title": "File:Men's prayer room at the Hamad International Airport.jpg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "size": 4102492,
+            "width": 8000,
+            "height": 4500,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Men%27s_prayer_room_at_the_Hamad_International_Airport.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Men%27s_prayer_room_at_the_Hamad_International_Airport.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=137557119",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2023-09-14 03:25:06",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Men's prayer room at the Hamad International Airport",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Islam in Qatar|Interior of Hamad International Airport|Ablution in Islam|Self-published work|No women allowed signs|Prayer rooms in Qatar|Islamic prayer rooms",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Prayer room for Muslim men with ablution facilities at the Hamad International Airport, Doha, Qatar",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2023-08-22 00:33:43",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Igallards7\" title=\"User:Igallards7\">José Ignacio Gallardo</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC BY-SA 4.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Attribution-Share Alike 4.0",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "true",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc-by-sa-4.0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ]
+      },
+      "registeredId": "doha-mens-prayer-sign",
+      "kind": "sign",
+      "pixelReview": "Visually inspected original. Entrance and ablution signs in Arabic and English; prayer-room interior not shown. No current room condition claim.",
+      "sourceDescriptionChecked": true,
+      "licenseChecked": true,
+      "derivatives": [
+        {
+          "src": "/photos/places/doha-mens-prayer-sign-480.webp",
+          "width": 480
+        },
+        {
+          "src": "/photos/places/doha-mens-prayer-sign-960.webp",
+          "width": 960
+        },
+        {
+          "src": "/photos/places/doha-mens-prayer-sign-1440.webp",
+          "width": 1440
+        },
+        {
+          "src": "/photos/places/doha-mens-prayer-sign-1920.webp",
+          "width": 1920
+        }
+      ],
+      "processing": "Full composition retained. Downsampled and converted to WebP, no upscale or generative editing; EXIF omitted."
+    },
+    {
+      "id": "doha-womens-prayer-room",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Women%27s_prayer_room_at_the_Hamad_International_Airport.jpg",
+      "downloadedBytes": 4710848,
+      "sha256": "f5505556e15db912902a5a8f34d9d5fffc6faaa1620b82e68a5b4417cdbbb85a",
+      "metadata": {
+        "pageid": 137557120,
+        "ns": 6,
+        "title": "File:Women's prayer room at the Hamad International Airport.jpg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "size": 4710848,
+            "width": 8000,
+            "height": 4500,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/5/57/Women%27s_prayer_room_at_the_Hamad_International_Airport.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Women%27s_prayer_room_at_the_Hamad_International_Airport.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=137557120",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2023-09-14 03:25:06",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Women's prayer room at the Hamad International Airport",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Islam in Qatar|Interior of Hamad International Airport|Ablution in Islam|Self-published work|Female symbols|Males do not enter signs|Prayer rooms in Qatar|Islamic prayer rooms",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Prayer room for Muslim women with ablution facilities at the Hamad International Airport, Doha, Qatar",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2023-08-22 00:33:03",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Igallards7\" title=\"User:Igallards7\">José Ignacio Gallardo</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC BY-SA 4.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Attribution-Share Alike 4.0",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "true",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc-by-sa-4.0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ]
+      },
+      "registeredId": "doha-womens-prayer-sign",
+      "kind": "sign",
+      "pixelReview": "Visually inspected original. Entrance and ablution signs in Arabic and English; prayer-room interior not shown. No current room condition claim.",
+      "sourceDescriptionChecked": true,
+      "licenseChecked": true,
+      "derivatives": [
+        {
+          "src": "/photos/places/doha-womens-prayer-sign-480.webp",
+          "width": 480
+        },
+        {
+          "src": "/photos/places/doha-womens-prayer-sign-960.webp",
+          "width": 960
+        },
+        {
+          "src": "/photos/places/doha-womens-prayer-sign-1440.webp",
+          "width": 1440
+        },
+        {
+          "src": "/photos/places/doha-womens-prayer-sign-1920.webp",
+          "width": 1920
+        }
+      ],
+      "processing": "Full composition retained. Downsampled and converted to WebP, no upscale or generative editing; EXIF omitted."
+    }
+  ]
+}

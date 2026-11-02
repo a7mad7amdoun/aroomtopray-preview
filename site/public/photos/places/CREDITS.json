@@ -248,5 +248,113 @@
         "width": 1440
       }
     ]
+  },
+  {
+    "id": "doha-mens-prayer-sign",
+    "placeUrl": "/airports/doh/",
+    "kind": "sign",
+    "caption": {
+      "en": "Entrance signs for the men’s prayer room and ablution area at Hamad International Airport, Doha, photographed on 22 August 2023. The prayer-room interior is not shown.",
+      "fr": "Panneaux à l’entrée de la salle de prière et de l’espace d’ablutions pour hommes à l’aéroport international Hamad de Doha, photographiés le 22 août 2023. L’intérieur de la salle de prière n’est pas visible.",
+      "ar": "لافتتا مدخل مصلّى الرجال ومنطقة الوضوء في مطار حمد الدولي بالدوحة، صُوّرتا في ٢٢ أغسطس ٢٠٢٣. لا تظهر الصورة داخل المصلّى.",
+      "es": "Señales de entrada a la sala de oración y a la zona de abluciones para hombres del aeropuerto internacional Hamad, en Doha, fotografiadas el 22 de agosto de 2023. No se muestra el interior de la sala."
+    },
+    "alt": {
+      "en": "Black Arabic and English signs for the men’s prayer room and ablution area beside a textured glass door.",
+      "fr": "Panneaux noirs en arabe et en anglais pour la salle de prière et les ablutions des hommes, près d’une porte en verre texturé.",
+      "ar": "لافتتان سوداوان بالعربية والإنجليزية لمصلّى الرجال والوضوء بجانب باب من الزجاج المزخرف.",
+      "es": "Señales negras en árabe e inglés de la sala de oración y las abluciones para hombres junto a una puerta de vidrio texturizado."
+    },
+    "sourceTitle": "Men's prayer room at the Hamad International Airport.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Men%27s_prayer_room_at_the_Hamad_International_Airport.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/53/Men%27s_prayer_room_at_the_Hamad_International_Airport.jpg",
+    "commonsPageId": 137557119,
+    "author": "José Ignacio Gallardo",
+    "dateTaken": "2023-08-22",
+    "license": {
+      "name": "CC BY-SA 4.0",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "review": {
+      "status": "accepted",
+      "sourceReviewedOn": "2026-11-02",
+      "identityBasis": "Commons identifies Hamad International Airport, Doha, Qatar. Original pixels visually inspected: prayer-room and ablution entrance signs are visible; the prayer-room interior is not shown. Historical signage does not verify current access or facilities.",
+      "rights": "Attribution and ShareAlike retained; resize and format conversion only. No crop, retouching or generative editing."
+    },
+    "originalSha256": "ba8222625e74aec1f74d0677afa85165861d4c5b1dba274fa04970cd619c84d7",
+    "width": 8000,
+    "height": 4500,
+    "images": [
+      {
+        "src": "/photos/places/doha-mens-prayer-sign-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/photos/places/doha-mens-prayer-sign-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/photos/places/doha-mens-prayer-sign-1440.webp",
+        "width": 1440
+      },
+      {
+        "src": "/photos/places/doha-mens-prayer-sign-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  {
+    "id": "doha-womens-prayer-sign",
+    "placeUrl": "/airports/doh/",
+    "kind": "sign",
+    "caption": {
+      "en": "Entrance signs for the women’s prayer room and ablution area at Hamad International Airport, Doha, photographed on 22 August 2023. The prayer-room interior is not shown.",
+      "fr": "Panneaux à l’entrée de la salle de prière et de l’espace d’ablutions pour femmes à l’aéroport international Hamad de Doha, photographiés le 22 août 2023. L’intérieur de la salle de prière n’est pas visible.",
+      "ar": "لافتتا مدخل مصلّى النساء ومنطقة الوضوء في مطار حمد الدولي بالدوحة، صُوّرتا في ٢٢ أغسطس ٢٠٢٣. لا تظهر الصورة داخل المصلّى.",
+      "es": "Señales de entrada a la sala de oración y a la zona de abluciones para mujeres del aeropuerto internacional Hamad, en Doha, fotografiadas el 22 de agosto de 2023. No se muestra el interior de la sala."
+    },
+    "alt": {
+      "en": "Arabic and English signs for the women’s prayer room and ablution area, with textured glass and a red fire alarm on the wall.",
+      "fr": "Panneaux en arabe et en anglais pour la salle de prière et les ablutions des femmes, avec du verre texturé et une alarme incendie rouge sur le mur.",
+      "ar": "لافتتان بالعربية والإنجليزية لمصلّى النساء والوضوء، مع زجاج مزخرف وجهاز إنذار حريق أحمر على الجدار.",
+      "es": "Señales en árabe e inglés de la sala de oración y las abluciones para mujeres, con vidrio texturizado y una alarma de incendios roja en la pared."
+    },
+    "sourceTitle": "Women's prayer room at the Hamad International Airport.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Women%27s_prayer_room_at_the_Hamad_International_Airport.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Women%27s_prayer_room_at_the_Hamad_International_Airport.jpg",
+    "commonsPageId": 137557120,
+    "author": "José Ignacio Gallardo",
+    "dateTaken": "2023-08-22",
+    "license": {
+      "name": "CC BY-SA 4.0",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "review": {
+      "status": "accepted",
+      "sourceReviewedOn": "2026-11-02",
+      "identityBasis": "Commons identifies Hamad International Airport, Doha, Qatar. Original pixels visually inspected: prayer-room and ablution entrance signs are visible; the prayer-room interior is not shown. Historical signage does not verify current access or facilities.",
+      "rights": "Attribution and ShareAlike retained; resize and format conversion only. No crop, retouching or generative editing."
+    },
+    "originalSha256": "f5505556e15db912902a5a8f34d9d5fffc6faaa1620b82e68a5b4417cdbbb85a",
+    "width": 8000,
+    "height": 4500,
+    "images": [
+      {
+        "src": "/photos/places/doha-womens-prayer-sign-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/photos/places/doha-womens-prayer-sign-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/photos/places/doha-womens-prayer-sign-1440.webp",
+        "width": 1440
+      },
+      {
+        "src": "/photos/places/doha-womens-prayer-sign-1920.webp",
+        "width": 1920
+      }
+    ]
   }
 ]

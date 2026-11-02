@@ -1,0 +1,74 @@
+---
+import { FIELD_NOTE_COPY, quietFieldNote } from '../data/quiet-field-notes.js';
+interface Props {
+  kind: 'airports' | 'universities' | 'hospitals';
+  locale?: string;
+  id?: string;
+}
+const { kind, locale: requestedLocale = 'en', id } = Astro.props;
+const locale = ['en', 'fr', 'ar', 'es'].includes(requestedLocale) ? requestedLocale : 'en';
+const note = quietFieldNote(kind, locale);
+const labels = FIELD_NOTE_COPY[locale];
+const headingId = id || `official-field-note-${kind}-${locale}`;
+---
+{note && <aside class="official-field-note" data-official-field-note={kind} aria-labelledby={headingId} lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+  <div class="field-note-copy">
+    <p class="field-note-eyebrow"><svg width="19" height="19" aria-hidden="true"><use href={`#i-${note.icon}`}/></svg>{labels.eyebrow}</p>
+    <h3 id={headingId}>{note.title}</h3>
+    <p class="field-note-institution">{note.institution}</p>
+    <p class="field-note-text">{note.text}</p>
+    {note.email && <a class="field-note-email" href={`mailto:${note.email}`} aria-label={`${labels.email}: ${note.email}`}><bdi>{note.email}</bdi></a>}
+  </div>
+  <div class="field-note-source">
+    <span>{labels.source}</span>
+    <a href={note.sourceUrl} aria-label={`${labels.read} · ${note.sourceName}`}>
+      <span>{labels.read}<small><bdi lang="en">{note.sourceName}</bdi></small></span>
+      <svg width="19" height="19" aria-hidden="true"><use href="#i-arrow"/></svg>
+    </a>
+  </div>
+</aside>}
+<style>
+  .official-field-note {
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(170px,.35fr);
+    gap:24px 36px;
+    align-items:center;
+    margin-block:28px;
+    padding:24px 0;
+    border-block:1px solid var(--line);
+    color:var(--ink);
+    font-family:var(--f-body);
+  }
+  .field-note-copy { min-width:0; }
+  .field-note-eyebrow { display:flex; align-items:center; gap:8px; margin:0 0 10px; font-size:.76rem; font-weight:600; color:var(--muted); }
+  .field-note-eyebrow svg { flex:none; color:var(--ink); }
+  h3 { margin:0 0 8px; font-size:1.2rem; line-height:1.3; font-weight:600; }
+  .field-note-institution { margin:0 0 10px; font-size:.82rem; font-weight:600; line-height:1.5; }
+  .field-note-text { max-width:68ch; margin:0; color:var(--muted); font-size:.93rem; line-height:1.7; }
+  .field-note-email { display:inline-block; margin-top:10px; padding-block:4px; font-size:.84rem; overflow-wrap:anywhere; text-underline-offset:4px; }
+  .field-note-source { min-width:0; padding-inline-start:24px; border-inline-start:1px solid var(--line); }
+  .field-note-source>span { display:block; margin-bottom:8px; font-size:.72rem; color:var(--muted); line-height:1.6; }
+  .field-note-source>a { display:flex; align-items:start; gap:14px; min-height:44px; padding-block:6px; font-size:.85rem; font-weight:600; line-height:1.5; text-decoration:none; }
+  .field-note-source>a>span { flex:1; min-width:0; }
+  .field-note-source small { display:block; margin-top:4px; font-size:.73rem; font-weight:400; color:var(--muted); overflow-wrap:anywhere; }
+  .field-note-source svg { flex:none; margin-top:1px; }
+  a { color:var(--ink); }
+  a:hover { text-decoration:underline; text-underline-offset:4px; }
+  a:focus-visible { outline:3px solid var(--focus); outline-offset:4px; }
+  [dir=rtl] h3 { line-height:1.6; letter-spacing:0; }
+  [dir=rtl] .field-note-text { line-height:1.85; }
+  [dir=rtl] .field-note-source svg { transform:rotate(180deg); }
+  @container prayer-guide (max-width:700px) {
+    .official-field-note { grid-template-columns:1fr; gap:18px; }
+    .field-note-source { padding-inline-start:0; border-inline-start:0; }
+    .field-note-source>a { max-width:30rem; }
+  }
+  @media(max-width:700px) {
+    .official-field-note { grid-template-columns:1fr; gap:18px; }
+    .field-note-source { padding-inline-start:0; border-inline-start:0; }
+    .field-note-source>a { max-width:30rem; }
+  }
+  @media print {
+    .official-field-note { break-inside:avoid; }
+  }
+</style>

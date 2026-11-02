@@ -10,6 +10,7 @@ test('curated images have exact existing place identities, credits, dates and re
  const queue=JSON.parse(readFileSync(new URL('../../research/PHOTO-RESEARCH.json',import.meta.url)));
  assert.equal(queue.places.length,536);
  assert.equal(new Set(queue.places.map(p=>p.id)).size,536);
+ assert.equal(new Set(PLACE_PHOTOS.map(photo=>photo.id)).size,PLACE_PHOTOS.length,'each photograph has its own stable identity');
  for(const photo of PLACE_PHOTOS){
   assert.ok(queue.places.some(place=>place.placeUrl===photo.placeUrl));
   assert.ok(photo.author && !/[<>]/.test(photo.author));
@@ -19,7 +20,8 @@ test('curated images have exact existing place identities, credits, dates and re
   assert.match(photo.license.url,/^https:\/\/creativecommons\.org\/licenses\/by-sa\/(?:3|4)\.0\/$/);
   assert.ok(['room','sign','exterior'].includes(photo.kind));
   for(const locale of ['en','fr','ar','es']){assert.ok(photo.alt[locale].length>20);assert.ok(photo.caption[locale].length>20);}
-  assert.deepEqual(photosForPlace(photo.placeUrl).map(p=>p.id),[photo.id]);
+  const expected=PLACE_PHOTOS.filter(candidate=>candidate.placeUrl===photo.placeUrl&&candidate.review.status==='accepted').map(candidate=>candidate.id);
+  assert.deepEqual(photosForPlace(photo.placeUrl).map(p=>p.id),expected,'return every accepted photograph for the exact place');
  }
  assert.deepEqual(photosForPlace('/airports/jfk/'),[],'never borrow a different airport image');
  assert.deepEqual(photosForPlace('/hospitals/not-listed/'),[]);
@@ -53,12 +55,30 @@ test('photo references preserve existing sources without unsafe links or duplica
 
 test('research queue keeps missing room photographs visible even when an exterior is available',()=>{
  const {places}=JSON.parse(readFileSync(new URL('../../research/PHOTO-RESEARCH.json',import.meta.url)));
- assert.equal(places.filter(p=>p.status==='sourced-room-photo').length,2);
  assert.equal(places.find(p=>p.placeUrl==='/universities/university-of-warwick/').status,'context-photo-only');
  assert.equal(places.find(p=>p.placeUrl==='/airports/lhr/').status,'sourced-sign-photo');
- assert.equal(places.filter(p=>p.status==='needs-research').length,531);
  for(const place of places){
+  const photos=photosForPlace(place.placeUrl);
+  const expectedStatus=photos.some(photo=>photo.kind==='room')?'sourced-room-photo':photos.some(photo=>photo.kind==='sign')?'sourced-sign-photo':photos.length?'context-photo-only':'needs-research';
+  assert.equal(place.status,expectedStatus,`queue accurately describes available evidence for ${place.placeUrl}`);
+  assert.deepEqual(place.acceptedPhotoIds,photos.map(photo=>photo.id));
   assert.match(place.countryCode,/^[A-Z]{2}$/);
   for(const value of Object.values(place.searchLinks))assert.equal(new URL(value).searchParams.get('type'),'image');
  }
+});
+
+test('Doha photographs remain historical entrance signage, not evidence of a room interior',()=>{
+ const photos=photosForPlace('/airports/doh/');
+ assert.deepEqual(photos.map(photo=>photo.id),['doha-mens-prayer-sign','doha-womens-prayer-sign']);
+ for(const photo of photos){
+  assert.equal(photo.kind,'sign');
+  assert.equal(photo.dateTaken,'2023-08-22');
+  assert.equal(photo.author,'José Ignacio Gallardo');
+  assert.equal(photo.license.name,'CC BY-SA 4.0');
+  assert.match(photo.caption.en,/interior is not shown/);
+ }
+ const {places}=JSON.parse(readFileSync(new URL('../../research/PHOTO-RESEARCH.json',import.meta.url)));
+ assert.equal(places.find(place=>place.placeUrl==='/airports/doh/').status,'sourced-sign-photo');
+ const credits=JSON.parse(readFileSync(new URL('../public/photos/places/CREDITS.json',import.meta.url)));
+ assert.deepEqual(credits.filter(photo=>photo.placeUrl==='/airports/doh/'),photos,'published derivatives retain full credits and reuse terms');
 });

@@ -3120,7 +3120,7 @@
       "countryCode": "QA",
       "latitude": 25.2731,
       "longitude": 51.6081,
-      "status": "needs-research",
+      "status": "sourced-sign-photo",
       "existingSourceLinks": [
         "https://dohahamadairport.com/airport-guide/facilities-services/prayer-rooms",
         "https://dohahamadairport.com/contact_list"
@@ -3136,7 +3136,10 @@
         "entrance": "https://commons.wikimedia.org/w/index.php?search=Hamad+International+Airport+Doha+Qatar+prayer+room+entrance+sign&title=Special%3AMediaSearch&type=image",
         "access": "https://commons.wikimedia.org/w/index.php?search=Hamad+International+Airport+Doha+Qatar+chaplaincy+prayer+facilities+access&title=Special%3AMediaSearch&type=image"
       },
-      "acceptedPhotoIds": []
+      "acceptedPhotoIds": [
+        "doha-mens-prayer-sign",
+        "doha-womens-prayer-sign"
+      ]
     },
     {
       "id": "airports/dps",

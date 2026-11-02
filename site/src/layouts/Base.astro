@@ -42,7 +42,9 @@ const local = path => navigationPath(path, locale);
 const canonical = new URL(Astro.url.pathname, SITE).href;
 const ogImage = new URL(og || '/og/default.jpg', SITE).href;
 const isHome = Astro.url.pathname.replace(/^\/(fr|ar|es)/,'').replace(/\/$/,'') === '';
-const searchTarget = isHome ? '#place-search-input' : ['airports','universities','hospitals'].includes(nav) && Astro.url.pathname.replace(/^\/(fr|ar|es)/,'').replace(/\/$/,'') === `/${nav}` ? '#q-dir' : `${localizedPath('/',locale)}#place-search-input`;
+const isDirectory = ['airports','universities','hospitals'].includes(nav) && Astro.url.pathname.replace(/^\/(fr|ar|es)/,'').replace(/\/$/,'') === `/${nav}`;
+const presentation = isHome ? 'home' : isDirectory ? 'directory' : roomKind !== 'home' ? 'detail' : 'support';
+const searchTarget = isHome ? '#place-search-input' : isDirectory ? '#q-dir' : `${localizedPath('/',locale)}#place-search-input`;
 ---
 <!doctype html>
 <html lang={locale} dir={localeMeta(locale).dir} data-sector={nav || 'home'}>
@@ -99,7 +101,7 @@ const searchTarget = isHome ? '#place-search-input' : ['airports','universities'
   <div class="room-layout">
   <script>import '../scripts/navigation.js';</script>
   <main id="main" class="room-main" tabindex="-1">
-    <RoomEnvironment kind={roomKind} {locale}><slot name="arrival" /></RoomEnvironment>
+    <RoomEnvironment kind={roomKind} {locale} {presentation}><slot name="arrival" /></RoomEnvironment>
     <div id="guide-content" class="guide-content">
     <slot name="welcome" />
     <slot />

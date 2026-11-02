@@ -1,0 +1,240 @@
+{
+  "researchDate": "2026-11-02",
+  "scope": "Read-only source and content research for the quiet-threshold design; no place records or historical source-check dates changed.",
+  "methods": {
+    "liveHtml": "web source extraction and direct curl HTTP fetch",
+    "liveCss": "direct curl HTTP fetch; exact variables and font definitions extracted",
+    "officialGuidance": "Official primary pages opened with web tool; concise editorial paraphrases",
+    "visualReview": false,
+    "photographPixelReview": false
+  },
+  "hamzaIdentity": {
+    "homepage": "https://aroomtopray.com/",
+    "cssUrl": "https://aroomtopray.com/_astro/about.C41yr70D.css",
+    "cssSha256": "906fddd8f44e44157c998761f2ca446880c2a3fb74dc44b6bf56e33e60d6cff5",
+    "dark": {
+      "background": "#0A111C",
+      "surface": "#111B2A",
+      "surface2": "#162235",
+      "text": "#E7ECF2",
+      "muted": "#A3B0C2",
+      "border": "#26354B",
+      "field": "#5F708A",
+      "yellow": "#FFC629",
+      "yellowInk": "#14171C",
+      "board": "#060B13",
+      "boardCell": "#0F1724",
+      "boardInk": "#F3F5F8",
+      "boardDim": "#8C9BB0",
+      "focus": "#86ADFF"
+    },
+    "light": {
+      "background": "#E9EDF1",
+      "surface": "#FFFFFF",
+      "surface2": "#F4F6F9",
+      "text": "#0F1C2E",
+      "muted": "#4E5B6E",
+      "border": "#D3DAE3",
+      "field": "#6B788B",
+      "yellow": "#FFC629",
+      "yellowInk": "#14171C",
+      "board": "#16202E",
+      "boardCell": "#1E2A3B",
+      "boardInk": "#F3F5F8",
+      "boardDim": "#9AA8BB",
+      "focus": "#1F5FD6"
+    },
+    "fonts": {
+      "display": "Archivo Variable",
+      "body": "Atkinson Hyperlegible",
+      "board": "JetBrains Mono",
+      "arabic": "Noto Naskh Arabic"
+    },
+    "sign": {
+      "englishWeight": 800,
+      "englishStretch": "125%",
+      "brandWeight": 800,
+      "brandStretch": "120%",
+      "arabicWeight": 600,
+      "composition": "Yellow panel, navy square pictogram, bilingual sign text, directional arrow; tight broad display type paired with clear tabular information."
+    },
+    "sourceDeclarations": [
+      ":root{--bg: #E9EDF1;--surface: #FFFFFF;--surface-2: #F4F6F9;--ink: #0F1C2E;--muted: #4E5B6E;--line: #D3DAE3;--field: #6B788B;--sign: #FFC629;--sign-ink: #14171C;--board: #16202E;--board-ink: #F3F5F8;--board-dim: #9AA8BB;--board-cell: #1E2A3B;--go: #0A7552;--go-bg: #DCF1E7;--warn: #8F430B;--warn-bg: #FBEADB;--alert: #B42318;--alert-bg: #FCE4E1;--mute-bg: #E3E8EF;--focus: #1F5FD6;--f-display: \"Archivo Variable\", \"Arial Narrow\", system-ui, sans-serif;--f-body: \"Atkinson Hyperlegible\", system-ui, -apple-system, \"Segoe UI\", sans-serif;--f-mono: \"JetBrains Mono\", ui-monospace, \"SFMono-Regular\", Menlo, monospace;--f-arabic: \"Noto Naskh Arabic\", \"Geeza Pro\", \"Arabic Typesetting\", serif;--r: 10px;--gutter: clamp(16px, 4vw, 40px);--max: 1180px;--hero: url(/art/hero-day.webp);--hero-m: url(/art/hero-day-m.webp);color-scheme:light}",
+      ":root:not([data-theme=light]){--bg: #0A111C;--surface: #111B2A;--surface-2: #162235;--ink: #E7ECF2;--muted: #A3B0C2;--line: #26354B;--field: #5F708A;--board: #060B13;--board-ink: #F3F5F8;--board-dim: #8C9BB0;--board-cell: #0F1724;--go: #4CCB9D;--go-bg: #0F3326;--warn: #F2A766;--warn-bg: #3A2210;--alert: #FF8A7A;--alert-bg: #3D1712;--mute-bg: #1B2738;--focus: #86ADFF;--hero: url(/art/hero-night.webp);--hero-m: url(/art/hero-night-m.webp);color-scheme:dark}",
+      ":root[data-theme=dark]{--bg: #0A111C;--surface: #111B2A;--surface-2: #162235;--ink: #E7ECF2;--muted: #A3B0C2;--line: #26354B;--field: #5F708A;--board: #060B13;--board-ink: #F3F5F8;--board-dim: #8C9BB0;--board-cell: #0F1724;--go: #4CCB9D;--go-bg: #0F3326;--warn: #F2A766;--warn-bg: #3A2210;--alert: #FF8A7A;--alert-bg: #3D1712;--mute-bg: #1B2738;--focus: #86ADFF;--hero: url(/art/hero-night.webp);--hero-m: url(/art/hero-night-m.webp);color-scheme:dark}"
+    ],
+    "strongFeatures": [
+      "Airport search works by airport, city and IATA code.",
+      "Security side, room location, hours, wudu, women’s space and qibla appear consistently with sources and dates.",
+      "A compact airport board makes status and facilities comparable.",
+      "Unknowns remain explicit rather than appearing confirmed.",
+      "Visitors can copy an enquiry and follow the institution’s own feedback link; messages are sent by the visitor.",
+      "Planner, travel guidance and documented improvements provide useful follow-through."
+    ],
+    "blendRecommendation": "Retain navy/yellow wayfinding, trustworthy tabular facts and visitor-owned actions. Use Archivo consistently for the new interface and preserve Noto Naskh Arabic. Make the room the setting for a single clear search and arrival journey; do not reproduce every typeface merely because the original uses it."
+  },
+  "duplicationReview": {
+    "inspected": [
+      "site/src/data/visit-insights.js",
+      "site/src/data/travel/guides.js",
+      "site/src/data/place-photos.js",
+      "site/src/data/airports.json",
+      "site/src/data/universities.json",
+      "site/src/data/hospitals-uk.json",
+      "site/src/data/hospitals-na.json"
+    ],
+    "existingInsights": [
+      "Heathrow maps/wudu/borrowing items",
+      "Manchester T3 security side/lift",
+      "UCL Pharmacy B34 card/lift/no ablution",
+      "Edinburgh New College hours/booking priority",
+      "St Thomas bedside resources/access restriction",
+      "King’s College Hospital Muslim support"
+    ],
+    "preserve": "Do not duplicate these cards, silently update original room verification dates, or infer universal access from the examples below."
+  },
+  "guidance": [
+    {
+      "id": "melbourne-help-finding-room",
+      "category": "airports",
+      "place": "Melbourne Airport",
+      "placeUrl": "/airports/mel/",
+      "title": "Ask a terminal ambassador for directions",
+      "text": "Melbourne Airport directs unsure travellers to its Experience Ambassadors. The chaplaincy office is on Level 2 in Terminal 2; its phone is monitored around the clock.",
+      "actionLabel": "Read the airport’s arrival advice",
+      "actionUrl": "https://www.melbourneairport.com.au/find-support-from-melbourne-airports-chaplaincy",
+      "phone": "+61 3 9297 1488",
+      "source": {
+        "title": "Melbourne Airport — Find support from the airport chaplaincy",
+        "url": "https://www.melbourneairport.com.au/find-support-from-melbourne-airports-chaplaincy",
+        "type": "official airport page",
+        "published": "2026-04-30",
+        "assessment": "Full page opened; relevant sections are the chaplaincy location and Experience Ambassadors paragraph."
+      },
+      "gap": "The existing MEL record has two room locations and hours, but no human wayfinding fallback.",
+      "caveat": "A continuously monitored phone does not mean the office is staffed continuously. This is Melbourne-specific advice."
+    },
+    {
+      "id": "bristol-activate-ucard",
+      "category": "universities",
+      "place": "University of Bristol — Woodland Prayer Rooms",
+      "placeUrl": null,
+      "title": "Arrange card access before an evening visit",
+      "text": "For 24-hour access to the prayer rooms at 21 Woodland Road, Bristol asks users to email the Multifaith Chaplaincy to activate their Ucard.",
+      "actionLabel": "Check campus access instructions",
+      "actionUrl": "https://www.bristol.ac.uk/multifaith-chaplaincy/places-to-worship/",
+      "email": "multifaith-chaplaincy@bristol.ac.uk",
+      "source": {
+        "title": "University of Bristol — Places to Worship",
+        "url": "https://www.bristol.ac.uk/multifaith-chaplaincy/places-to-worship/",
+        "type": "official university page",
+        "assessment": "Full page opened; Woodland Prayer Rooms section explicitly specifies Ucard activation."
+      },
+      "gap": "Useful distinction between published opening hours and an access card that must first be enabled; not in current VisitInsights.",
+      "caveat": "This page describes facilities for university students and staff. Do not imply public access or create a new directory record from this tip alone."
+    },
+    {
+      "id": "ucl-shared-room-etiquette",
+      "category": "universities",
+      "place": "UCL Great Ormond Street Institute of Child Health",
+      "placeUrl": "/universities/ucl/",
+      "title": "Keep shared rooms available for prayer",
+      "text": "GOS ICH’s G01 prayer room at 30 Guilford Street is not bookable. Its guidance asks users to use the shoe shelves, avoid phones and laptops inside, and take personal belongings away.",
+      "actionLabel": "Read this room’s guidance",
+      "actionUrl": "https://www.ucl.ac.uk/population-health-sciences/child-health/about/equality-diversity-and-inclusion/quiet-rooms",
+      "source": {
+        "title": "UCL GOS ICH — Quiet rooms",
+        "url": "https://www.ucl.ac.uk/population-health-sciences/child-health/about/equality-diversity-and-inclusion/quiet-rooms",
+        "type": "official university department page",
+        "assessment": "Full page opened; room identity, booking policy, users and rules all explicit."
+      },
+      "gap": "Different room and purpose from existing UCL Pharmacy insight; adds shared-space etiquette and no-booking distinction.",
+      "caveat": "Applies specifically to these GOS ICH rooms, not every UCL room. The page welcomes staff, students and visitors but does not detail building-entry procedure."
+    },
+    {
+      "id": "ashford-st-peters-locked-door",
+      "category": "hospitals",
+      "place": "Ashford Hospital and St Peter’s Hospital, Surrey",
+      "placeUrl": null,
+      "title": "A locked door may have a staffed access route",
+      "text": "Both centres list daily opening from 08:00 to 18:00. The Trust says security staff can unlock them outside those hours when needed.",
+      "actionLabel": "Check the hospital’s access guidance",
+      "actionUrl": "https://ashfordstpeters.nhs.uk/our-multi-faith-centres",
+      "source": {
+        "title": "Ashford and St Peter’s Hospitals NHS Foundation Trust — Our Multi-Faith Centres",
+        "url": "https://ashfordstpeters.nhs.uk/our-multi-faith-centres",
+        "type": "official NHS Trust page",
+        "pageUpdated": "2026-03-27",
+        "assessment": "Full page opened; both centres have explicit hours and security-unlocking statement."
+      },
+      "gap": "Practical after-hours route beyond a bare closed/open label; absent from current hospital records and VisitInsights.",
+      "caveat": "Do not label the rooms unconditionally open 24/7. Security assistance is an access process, not a guaranteed immediate entry time. Do not create new records from this tip alone."
+    },
+    {
+      "id": "zagreb-shared-access",
+      "category": "airports",
+      "place": "Zagreb Airport",
+      "placeUrl": null,
+      "title": "Shared spaces cannot always be reserved",
+      "text": "Zagreb’s airport prayer room is shared across faiths. Its official guidance says no group may reserve it or take exclusive use, and links to the airport map for its position.",
+      "actionLabel": "Read the airport’s room guidance",
+      "actionUrl": "https://www.zag.aero/en/passengers/at-the-airport/facilities-services/prayer-room/116",
+      "source": {
+        "title": "Zagreb Airport — The Prayer Room",
+        "url": "https://www.zag.aero/en/passengers/at-the-airport/facilities-services/prayer-room/116",
+        "type": "official airport page",
+        "assessment": "Full page opened; reservation restrictions and map link explicit."
+      },
+      "gap": "Clarifies shared-room expectations without inventing room-specific services; absent from current VisitInsights.",
+      "caveat": "This rule is specific to Zagreb. The source does not state hours, security side, wudu provision or separate spaces; leave these unknown."
+    }
+  ],
+  "photographCandidates": [
+    {
+      "title": "Men's prayer room at the Hamad International Airport.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Men's_prayer_room_at_the_Hamad_International_Airport.jpg",
+      "placeUrl": "/airports/doh/",
+      "author": "José Ignacio Gallardo",
+      "dateTaken": "2023-08-22",
+      "dimensions": [
+        8000,
+        4500
+      ],
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "review": "Commons metadata and license read; pixels not inspected; candidate only, not downloaded or added.",
+      "use": "Potential large authentic historical Doha image. Verify actual visible subject before choosing caption; preserve author/date/license and disclose resizing."
+    },
+    {
+      "title": "Women's prayer room at the Hamad International Airport.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Women's_prayer_room_at_the_Hamad_International_Airport.jpg",
+      "placeUrl": "/airports/doh/",
+      "author": "José Ignacio Gallardo",
+      "dateTaken": "2023-08-22",
+      "dimensions": [
+        8000,
+        4500
+      ],
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "review": "Commons metadata and license read; pixels not inspected; candidate only, not downloaded or added.",
+      "use": "Companion historical Doha image. Do not infer current layout or institutional endorsement from the photo."
+    }
+  ],
+  "notRecommended": [
+    {
+      "source": "https://www.york.ac.uk/about/campus/quiet-place/",
+      "reason": "Useful official search extract about reception keycodes, but full-page web open returned403. Do not label fully inspected; prefer the fully opened Bristol example."
+    },
+    {
+      "source": "University and hospital prayer-room image searches",
+      "reason": "No new directly relevant Commons candidate with verified location and license emerged in the targeted search. Retain existing reviewed Warwick and St Thomas photos; do not fill gaps with mislabelled generic interiors."
+    }
+  ],
+  "uiRecommendations": [
+    "Use one short next-action card near access information, sourced to the exact institution: ask an ambassador, activate a card, or contact security. Keep it separate from formal room records.",
+    "Show conditional after-hours access distinctly from ordinary hours. Never convert an on-request access statement into an unconditional 24-hour badge.",
+    "Keep historical photo date and location visible; use authentic photos for place evidence and labelled generated artwork only for the room concept.",
+    "Use a coherent arrival sequence: locate the room, confirm eligibility/security side, check hours and facilities, then open the official map or instructions. This is presentation guidance, not a new factual rule."
+  ]
+}

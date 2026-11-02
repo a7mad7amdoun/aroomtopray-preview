@@ -1,0 +1,55 @@
+{
+  "title": "Quiet Threshold — art direction and final prompts",
+  "mode": "Built-in image generation (image_gen)",
+  "purpose": "Fictional architectural room and destination illustrations. These images do not document listed institutions or verified prayer rooms. Actual place photography is separately credited in site/public/photos/places/CREDITS.json.",
+  "masterBrief": "research/quiet-threshold-master-prompt.md",
+  "assets": [
+    {
+      "key": "room-light",
+      "originalGeneratedFile": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-db9c4347-892b-47c0-ba51-57e9fb61aa33.png",
+      "finalWebpFiles": [
+        "site/public/art/quiet-threshold/room-light-640.webp",
+        "site/public/art/quiet-threshold/room-light-1122.webp"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset type: photorealistic architectural website hero, portrait format. Completely refine the room's aesthetic into an exquisitely simple contemporary prayer room, a quiet sanctuary in a busy public building. Use the attached image as an EXACT CAMERA AND DOOR APERTURE REGISTRATION reference: keep the camera straight-on, the rectangular doorway and the opening's four inner edges in exactly the same normalized positions, keep the same image proportions and room/floor junction. Door aperture inside edges are x=130..490, y=197..988 on a 1122x1402 reference. Do not add a door leaf: that opening must remain empty because a real interactive door is composited in the website. Redesign materials and quiet atmosphere: chalky warm limestone plaster, pale washed oak frame with refined thin edges, subtle mineral grain, travertine-toned floor slabs instead of busy wood grain, a simple deep midnight-navy woven prayer mat with one thin golden edge and very restrained mihrab outline in the lower right foreground, a low minimal pale-oak bench at extreme right edge. Late-afternoon real sunlight from the right creates one beautifully soft architectural shadow; honest tactile surfaces, atmospheric depth, expensive architectural magazine photography, slight film grain, no exaggerated CGI gloss. Preserve the rectilinear opening, its exact dimensions, and the blank room beyond. Everything feels peaceful, believable and purposeful. No people, no lettering, no symbols on walls, no generated signage, no ornament, no domes, no overt luxury objects, no plants blocking the doorway. Portrait image, sharp full-resolution detail, calm editorial treatment."
+    },
+    {
+      "key": "room-dark",
+      "originalGeneratedFile": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-0affa9ab-48e8-4a02-b36a-6068c0166ddd.png",
+      "finalWebpFiles": [
+        "site/public/art/quiet-threshold/room-dark-640.webp",
+        "site/public/art/quiet-threshold/room-dark-1122.webp"
+      ],
+      "prompt": "Use case: lighting-weather. Create the DARK MODE / EVENING version of this exact photorealistic architectural prayer room. Preserve the entire camera, geometry, proportions, all edges, doorway inner aperture, floor, bench, navy prayer mat and every object in precisely the same locations. Do not add a door leaf or alter the opening. Change only material palette and illumination: walls become matte deep blue charcoal/navy (#111B2A family) with still visible mineral texture, the oak frame remains warm naturally detailed, the floor is quiet warm taupe stone, the prayer mat keeps its subdued golden border. Beautiful soft warm indirect light from the right, safe tranquil room at blue hour, not a black or ominous scene. All the room's architectural details and the interior of the doorway remain legible, with readable midtones and rich restrained shadows. Premium editorial interior photography. Do not invent lamps in the frame; light sources are off-frame. No people, no text, no signage, no logo. Same portrait image dimensions and exact composition as reference."
+    },
+    {
+      "key": "airport",
+      "originalGeneratedFile": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-cfc0d9fa-3ef4-492f-85e0-5cfe22e4f80b.png",
+      "finalWebpFiles": [
+        "site/public/art/quiet-threshold/airport-768.webp",
+        "site/public/art/quiet-threshold/airport-1536.webp"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: landscape editorial illustration for a premium public prayer-room directory. A spacious contemporary international airport concourse with tall glass windows, a passenger aircraft outside, a few tiny anonymous travellers with rolling luggage painted loosely, a simple blank dark-navy airport sign hanging above, and at the left a small warmly lit quiet prayer-room doorway. The contrast is between movement in the concourse and stillness at that open door. No actual airport or brand. Style: thoughtful hand-drawn architectural travel journal, precise graphite and fine-pen contours combined with soft opaque gouache washes on warm ivory paper, subtle visible pigment and paper fibers, natural architectural perspective and excellent drawing. Color family restricted to limestone cream, navy blue, warm charcoal, muted ochre yellow and restrained sage greenery. Rich but airy, sophisticated magazine illustration, carefully composed large shapes with authentic small details, abundant breathable light. Eye-level three-quarter view, horizontal 3:2 composition. Objects look observed rather than synthetic; no cute characters, no isometric toy-world, no vector icon style, no inflated3D, no gradients or floating blobs. No readable text or logos or watermark. Art fills the frame with natural paper edges; not framed, not a poster mockup. The artwork illustrates a setting and must not claim to depict a real listed place."
+    },
+    {
+      "key": "campus",
+      "originalGeneratedFile": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-a9b937fd-8f65-4164-bc37-895d9f7ce857.png",
+      "finalWebpFiles": [
+        "site/public/art/quiet-threshold/campus-768.webp",
+        "site/public/art/quiet-threshold/campus-1536.webp"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: landscape editorial illustration for a premium public prayer-room directory. A beautiful everyday university quadrangle, a limestone academic building and contemporary glass library, broadleaf trees, bicycles and a few tiny loosely painted students walking between lectures; a warmly lit quiet prayer-room doorway is visible at the left ground floor. A simple blank paper noticeboard beside the entrance. No identifiable university or branded crest. Style: thoughtful hand-drawn architectural travel journal, precise graphite and fine-pen contours combined with soft opaque gouache washes on warm ivory paper, subtle visible pigment and paper fibers, natural architectural perspective and excellent drawing. Color family restricted to limestone cream, navy blue, warm charcoal, muted ochre yellow and restrained sage greenery. Rich but airy, sophisticated magazine illustration, carefully composed large shapes with authentic small details, abundant breathable light. Eye-level three-quarter view, horizontal 3:2 composition. Objects look observed rather than synthetic; no cute characters, no isometric toy-world, no vector icon style, no inflated3D, no gradients or floating blobs. No readable text or logos or watermark. Art fills the frame with natural paper edges; not framed, not a poster mockup. The artwork illustrates a setting and must not claim to depict a real listed place."
+    },
+    {
+      "key": "hospital",
+      "originalGeneratedFile": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-a4ac2308-c164-4a0b-b608-feab34a68e20.png",
+      "finalWebpFiles": [
+        "site/public/art/quiet-threshold/hospital-768.webp",
+        "site/public/art/quiet-threshold/hospital-1536.webp"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: landscape editorial illustration for a premium public prayer-room directory. A calm contemporary hospital interior opening to a courtyard garden, pale stone, natural light, muted navy reception desk and understated seating; a small warmly lit quiet prayer-room doorway at left, a few tiny anonymous visitors with soft motion blur. The feeling is compassionate and restful, never clinical drama. No medical treatments, no illness, no patients in beds, no identifiable institution. Style: thoughtful hand-drawn architectural travel journal, precise graphite and fine-pen contours combined with soft opaque gouache washes on warm ivory paper, subtle visible pigment and paper fibers, natural architectural perspective and excellent drawing. Color family restricted to limestone cream, navy blue, warm charcoal, muted ochre yellow and restrained sage greenery. Rich but airy, sophisticated magazine illustration, carefully composed large shapes with authentic small details, abundant breathable light. Eye-level three-quarter view, horizontal 3:2 composition. Objects look observed rather than synthetic; no cute characters, no isometric toy-world, no vector icon style, no inflated3D, no gradients or floating blobs. No readable text or logos or watermark. Art fills the frame with natural paper edges; not framed, not a poster mockup. The artwork illustrates a setting and must not claim to depict a real listed place.",
+      "refinementPrompt": "Use case: precise-object-edit. Refine this editorial gouache-and-pen illustration so the building is unmistakably a HOSPITAL RECEPTION, while remaining quiet and welcoming. Keep the exact prayer-room doorway at left, the scene composition, beautiful hand-drawn texture, warm ivory/navy/ochre palette, and courtyard. Replace the lounge furniture in the right foreground with two tasteful rows of normal hospital waiting seats (pale oak seats, navy upholstery, simple metal legs), and remove the living-room coffee table and throw blanket. The reception desk should have one small clear medical-cross symbol in white on a navy panel, no text. Behind the desk include a small queue-number display with no readable characters and a clean frosted-glass corridor entrance, not a hotel concierge setting. No patients in distress, medical procedures or visible illness. The entire image remains sophisticated architectural gouache illustration, compassionate, ordinary, grounded and visibly a healthcare setting. No logos, letters, readable text or watermark.",
+      "refinementReference": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-82c96539-887c-472f-99fa-a28c4024f04c.png"
+    }
+  ]
+}

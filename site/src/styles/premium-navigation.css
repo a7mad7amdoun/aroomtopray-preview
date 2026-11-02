@@ -1,22 +1,22 @@
-/* A single navy wayfinding bar connects the room, directories and visitor tools. */
-.top.room-header { position:sticky; top:0; z-index:30; background:#111b2a; color:#f8f5ed; border:0; border-bottom:3px solid var(--sign); box-shadow:none; backdrop-filter:none; }
-.top.room-header>.wrap { display:flex; align-items:center; width:min(var(--layout-width),calc(100% - 2 * var(--layout-gutter))); max-width:none; min-height:98px; margin:auto; padding:18px 0; gap:24px; }
-.top.room-header .brand { display:flex; flex:none; gap:14px; font-family:"Archivo Variable",system-ui,sans-serif; font-size:clamp(1.3rem,1.8vw,1.8rem); font-weight:600; font-stretch:100%; line-height:1.15; letter-spacing:-.045em; color:#f8f5ed; }
-.top.room-header .brand>svg { width:52px; height:52px; flex:none; border-radius:8px; box-shadow:none; filter:none; }
+/* Quiet Threshold: the original sign language, with a spacious editorial masthead. */
+.top.room-header { position:sticky; top:0; z-index:30; background:var(--bg); color:var(--ink); border:0; border-top:4px solid var(--sign); border-bottom:1px solid var(--line); box-shadow:none; backdrop-filter:none; }
+.top.room-header>.wrap { display:flex; align-items:center; width:min(var(--layout-width),calc(100% - 2 * var(--layout-gutter))); max-width:none; min-height:104px; margin:auto; padding:18px 0; gap:24px; }
+.top.room-header .brand { display:flex; flex:none; gap:14px; font-family:"Archivo Variable",system-ui,sans-serif; font-size:clamp(1.3rem,1.8vw,1.85rem); font-weight:750; font-stretch:110%; line-height:1.15; letter-spacing:-.045em; color:var(--ink); }
+.top.room-header .brand>svg { width:56px; height:56px; flex:none; border-radius:3px; box-shadow:none; filter:none; }
 .top.room-header .brand>span { display:grid; gap:6px; }
-.top.room-header .brand small { font-family:var(--f-body); font-size:.68rem; font-weight:400; line-height:1.4; color:#bbc5d2; text-transform:none; letter-spacing:.01em; }
+.top.room-header .brand small { font-family:var(--f-body); font-size:.68rem; font-weight:400; line-height:1.4; color:var(--muted); text-transform:none; letter-spacing:.01em; }
 .top.room-header .primary-navigation { display:flex; margin-inline:auto; padding:0; gap:4px; border:0; background:none; }
-.top.room-header .primary-navigation>a { display:flex; align-items:center; min-height:46px; padding:10px 14px; font:500 .88rem/1.4 var(--f-body); gap:8px; border:0; border-radius:5px; background:transparent; color:#d4dce7; box-shadow:none; }
+.top.room-header .primary-navigation>a { display:flex; align-items:center; min-height:46px; padding:10px 14px; font:500 .88rem/1.4 var(--f-body); gap:8px; border:0; border-radius:3px; background:transparent; color:var(--muted); box-shadow:none; }
 .top.room-header .primary-navigation>a>svg { width:18px; height:18px; flex:none; }
-.top.room-header .primary-navigation>a:hover { background:#233047; color:#fff; }
+.top.room-header .primary-navigation>a:hover { background:var(--surface-2); color:var(--ink); }
 .top.room-header .primary-navigation>a[aria-current] { color:var(--sign); background:#233047; box-shadow:none; }
 .top.room-header .primary-navigation>a::after { display:none; }
-.top.room-header .header-search { display:flex; align-items:center; justify-content:center; gap:10px; min-height:46px; padding:11px 16px; margin-inline-start:auto; border-radius:5px; background:var(--sign); color:var(--sign-ink); text-decoration:none; font:600 .83rem/1.4 var(--f-body); }
+.top.room-header .header-search { display:flex; align-items:center; justify-content:center; gap:10px; min-height:46px; padding:11px 16px; margin-inline-start:auto; border-radius:3px; background:var(--sign); color:var(--sign-ink); text-decoration:none; font:600 .83rem/1.4 var(--f-body); }
 .top.room-header .header-search svg { flex:none; }
 .top.room-header .header-search:hover { background:#ffdb70; }
 .top.room-header .site-menu { flex:none; position:relative; }
-.top.room-header .site-menu>summary { min-width:84px; min-height:46px; padding:10px 14px; gap:12px; background:transparent; color:#f8f5ed; border:1px solid #465266; border-radius:5px; font:500 .88rem/1.4 var(--f-body); }
-.top.room-header .site-menu>summary:hover,.top.room-header .site-menu[open]>summary { background:#233047; border-color:#718097; }
+.top.room-header .site-menu>summary { min-width:84px; min-height:46px; padding:10px 14px; gap:12px; background:transparent; color:var(--ink); border:1px solid var(--line); border-radius:3px; font:500 .88rem/1.4 var(--f-body); }
+.top.room-header .site-menu>summary:hover,.top.room-header .site-menu[open]>summary { background:var(--surface-2); border-color:var(--field); }
 .top.room-header .menu-glyph { width:18px; gap:5px; flex:none; }
 .top.room-header .menu-glyph i { width:18px; height:1.5px; background:currentColor; transition:transform 180ms ease; transform-origin:center; }
 .top.room-header .site-menu[open] .menu-glyph i:first-child { transform:translateY(3.25px) rotate(45deg); }
@@ -35,7 +35,7 @@
 .top.room-header .appearance-select { min-height:48px; background:var(--surface-2); border:1px solid var(--line); border-radius:6px; }
 .top.room-header .appearance-select select { min-height:48px; font-size:.95rem; }
 .top.room-header .appearance-label { font-size:.8rem; }
-.top.room-header :is(a,summary,button):focus-visible { outline:3px solid var(--sign); outline-offset:4px; }
+.top.room-header :is(a,summary,button):focus-visible { outline:3px solid var(--focus); outline-offset:4px; }
 .top.room-header .site-menu-panel :is(a,button,select):focus-visible { outline-color:var(--focus); }
 html { scroll-padding-top:120px; }
 #main,#prayer-room,#guide-content,#place-search-input,#q-dir { scroll-margin-top:12px; }
