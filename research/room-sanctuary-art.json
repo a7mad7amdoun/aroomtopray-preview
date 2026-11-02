@@ -1,0 +1,38 @@
+{
+  "title": "A Room to Pray — sculpted sanctuary background",
+  "mode": "Built-in image generation (image_gen)",
+  "artDirection": "A wide limestone prayer room, with a rounded plaster recess, a working timber doorway, slatted daylight, built-in seating and a navy prayer mat clear of the threshold. Matched blue-hour illumination preserves the same architecture. The room remains illustrative, not evidence of a listed facility.",
+  "sourceOfGuideInformation": "https://aroomtopray.com/",
+  "registration": {
+    "sourceWidth": 1774,
+    "sourceHeight": 887,
+    "aperture": {
+      "left": 400,
+      "top": 221,
+      "right": 676,
+      "bottom": 686
+    },
+    "mobile": "A fixed 2:1 scene with height clamp(360px,72vw,480px), centered on the aperture when the viewport is narrow. Copy flows independently above it. No stretched geometry or camera animation."
+  },
+  "assets": [
+    {
+      "key": "day",
+      "prompt": "Use case: stylized-concept.\nAsset type: full-width premium architectural website background, landscape exactly 2:1. High resolution, ideally 2560 by 1280.\nCreate a new, exceptional contemporary prayer-room interior viewed from inside. This is an intimate, beautifully designed refuge from busy airports, hospitals and campuses. Quiet architectural editorial photography, convincing real materials, careful lens perspective; not a game environment or fantasy mosque.\n\nArt direction: warm chalk-white lime plaster, honed pale limestone, smoked pale oak, a muted midnight-blue prayer mat. Sculptural simplicity, excellent craft, very few objects. A deeply recessed rectangular doorway sits inside a generous softly rounded rectangular plaster niche. The niche has rounded top corners, NOT an ornate arch. Soft natural light comes from a tall recessed window at the far left with slender wooden slats; delicate light and shadows across the left wall and foreground. One discreet low built-in stone bench under that far-left window. A single beautifully woven navy prayer mat rests at the lower-left side, offset from the doorway so it does not obstruct the walking path. The mat has one extremely restrained warm ochre border, no lettering. The right wall has a gentle curved junction near the far right edge. Atmospheric, clear, spacious, calm, elevated, physically believable.\n\nVery important composition for the working website:\n- Front-on main wall with straight verticals and a horizontal lintel. Do not tilt the room.\n- EMPTY rectangular doorway inner opening approximately x=17% to 35% of full image width and y=16% to 80% of image height. Dark warm neutral empty passage inside this opening. NO DOOR LEAF, no handle, no second visible door: the application supplies its real moving door. Thin natural smoked-oak inner jamb, surrounded by the deep rounded plaster recess. Beautiful dimensional reveal and grounded threshold. Keep the opening genuinely rectangular.\n- The entire right half x=48% to 95%, y=12% to 78% is a quiet luminous chalk-ivory wall reserved for interface text. No furnishings, lettering, plants, windows, strong shadows, bright stripes or ornament in this reading area. It must feel like real architecture, not a flat blank poster.\n- Wall/floor junction approximately y=80%. Floor is matte pale limestone, not glossy marble, with delicate soft daylight and subtle real perspective.\n- The left-side niche, slatted light and prayer mat create the identity. The calm right wall gives everything breathing room.\n- A fine ceiling shadow gap, restrained and largely unlit in daylight, ties the room together. No orange LED strips.\n\nFull-bleed photograph-like architectural artwork, crisp fine material detail without noisy texture, balanced natural exposure. No people, no text, logos, signage, UI, watermarks, calligraphy, ornate patterns, floating objects or abstract symbols. No dramatic fog, no heavy vignette, no overdecorated hotel look. The result should feel deeply peaceful, tactile and designed, a place where someone can quietly pray.",
+      "generatedFile": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-844a9864-1883-4604-a316-417bf065ee3e.png",
+      "savedFiles": [
+        "site/public/art/room-sanctuary/day-1024.webp",
+        "site/public/art/room-sanctuary/day-1774.webp"
+      ]
+    },
+    {
+      "key": "night",
+      "prompt": "Use case: lighting-weather.\nAsset type: precisely registered evening version of this panoramic prayer-room background.\nEdit only lighting and color. Preserve every pixel's architecture and composition: the recessed rounded plaster niche, rectangular empty doorway, slender oak jambs, slatted window and bench at left, prayer mat, floor line, camera, empty right wall and 2:1 dimensions. Do not add a door leaf.\n\nMake a deeply calm evening room. Right wall is matte smoky midnight navy in the #111b2a family, with subtly visible plaster and gentle tonal depth, never black. The niche and floor retain warmer quiet stone midtones. Window at left admits cool blue-hour light, with slats clearly visible. A very restrained concealed warm cove along the top shadow gap softly grazes the niche and the left wall. The timber jamb stays natural and softly lit. Prayer mat and stone floor remain readable. No orange light strips, neon, glow effects, spotlight cones or new lighting fixtures. Beautiful balanced architectural photography, quiet refuge, soft sophisticated illumination. Keep doorway coordinates and all edges EXACTLY unchanged. No people, text, symbols or additional objects.",
+      "reference": "The final day image; preserve architecture and camera, change only palette and illumination.",
+      "generatedFile": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-e50e20a9-e528-4b73-96ed-3a3fd5247318.png",
+      "savedFiles": [
+        "site/public/art/room-sanctuary/night-1024.webp",
+        "site/public/art/room-sanctuary/night-1774.webp"
+      ]
+    }
+  ]
+}
