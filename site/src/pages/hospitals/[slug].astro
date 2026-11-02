@@ -24,21 +24,25 @@ const guideTabs=[{id:'room-details',label:g.rooms,icon:'pin'},{id:'direction',la
 ---
 <Base title={`Prayer room and chaplaincy at ${h.name} | A Room to Pray`} description={`Where to pray at ${h.name}: ${h.spaces[0]?.loc}. Wuḍūʾ, space for women, Jumuʿah, how to ask for a chaplain, and qibla, with linked sources.`} nav="hospitals" noindex={h.hold}
   jsonld={{ '@context': 'https://schema.org', '@type': 'Hospital', name: h.name, address: { '@type': 'PostalAddress', addressLocality: h.city, addressCountry: h.country }, geo: { '@type': 'GeoCoordinates', latitude: h.lat, longitude: h.lon } }}>
-  <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="/hospitals/" data-directory-return={g.backToResults}>Hospitals</a><span aria-hidden="true">/</span><span>{h.country}</span><span aria-hidden="true">/</span><span aria-current="page">{h.short}</span></nav>
-    <div class="d-head">
-      <div class="d-code" aria-hidden="true" style="padding:12px"><svg width="56" height="56" aria-hidden="true"><use href="#i-care"/></svg></div>
-      <div class="d-title">
-        <h1>Prayer room at {h.name.split('/').map((part, i) => i ? <Fragment>/<wbr />{part}</Fragment> : part)}</h1>
-        <div class="d-meta">{h.hold && <span class="pill p-unk">Still checking</span>}<span>{h.city}</span><CountryBadge country={h.country}/>{h.group && <><span aria-hidden="true">·</span><span>{h.group}</span></>}<span aria-hidden="true">·</span><span>Sources accessed {fmtDate(h.checked)}</span></div>
+  <Fragment slot="arrival">
+    <div class="place-arrival">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/hospitals/" data-directory-return={g.backToResults}>Hospitals</a><span aria-hidden="true">/</span><span>{h.country}</span><span aria-hidden="true">/</span><span aria-current="page">{h.short}</span></nav>
+      <div class="d-head">
+        <div class="d-code" aria-hidden="true" style="padding:12px"><svg width="56" height="56" aria-hidden="true"><use href="#i-care"/></svg></div>
+        <div class="d-title">
+          <h1>Prayer room at {h.name.split('/').map((part, i) => i ? <Fragment>/<wbr />{part}</Fragment> : part)}</h1>
+          <div class="d-meta">{h.hold && <span class="pill p-unk">Still checking</span>}<span>{h.city}</span><CountryBadge country={h.country}/>{h.group && <><span aria-hidden="true">·</span><span>{h.group}</span></>}<span aria-hidden="true">·</span><span>Sources accessed {fmtDate(h.checked)}</span></div>
+        </div>
       </div>
     </div>
+  </Fragment>
+  <div class="wrap">
     <DetailGuide place={h} kind="Hospital" />
-    <PlaceActions place={h} kind="Hospital" />
     <PlaceOverview place={h} kind="hospitals" />
+    {h.hold && <p class="note" style="margin-top:12px">We’re still checking this hospital: the official information we found is thin. Ask ward staff or the chaplaincy before you go.</p>}
+    <PlaceActions place={h} kind="Hospital" />
 
     <p class="byline" style="margin-top:12px"><span>Edited by <a href="/about/#editor">Hamza Abdul-Tawwaab</a></span><span>This page is about places to pray, not medical care. You can ask ward staff how to contact the chaplaincy.</span><span><a href="#report">Report a correction</a></span></p>
-    {h.hold && <p class="note" style="margin-top:12px">We’re still checking this hospital: the official information we found is thin. Ask ward staff or the chaplaincy before you go.</p>}
     <div class="d-grid" data-guide-tabs>
       <GuideTabNav tabs={guideTabs} label={g.overview}/>
       <div class="d-main guide-panel" id="room-details">

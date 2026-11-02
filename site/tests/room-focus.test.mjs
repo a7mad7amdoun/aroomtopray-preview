@@ -1,35 +1,116 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { initRoomFocus, ROOM_FOCUS_KEY } from '../src/scripts/room-focus.js';
-function fixture({saved,blocked=false}={}) {
- let focus=null,scrolled=null;
- const storage=new Map(saved===undefined?[]:[[ROOM_FOCUS_KEY,String(saved)]]);
- const element=name=>({hidden:true,dataset:{},attributes:new Map(),listeners:{},setAttribute(k,v){this.attributes.set(k,v)},getAttribute(k){return this.attributes.get(k)},addEventListener(event,fn){this.listeners[event]=fn},click(){this.listeners.click()},focus(){focus=name},scrollIntoView(options){scrolled={name,options}}});
- const root=element('root'),enter=element('enter'),exit=element('exit'),switcher=element('switcher'),main=element('main'),room=element('room'),door=element('door');
- const browser=element('browser');
- Object.defineProperty(browser,'sessionStorage',{get(){if(blocked)throw new Error('Storage unavailable');return {getItem:key=>storage.get(key)||null,setItem:(key,value)=>storage.set(key,value)}}});
- const doc={documentElement:root,querySelector:selector=>({'[data-room-view-switch]':switcher,'[data-room-focus-enter]':enter,'[data-room-focus-exit]':exit,'#main':main,'#prayer-room':room,'[data-door-toggle]':door})[selector]};
- initRoomFocus(doc,browser);
- return {root,enter,exit,switcher,main,room,browser,storage,get focus(){return focus},get scrolled(){return scrolled}};
+
+function fixture({ saved, legacy, focused, blocked, hasRoom = true } = {}) {
+  const storage = new Map([
+    ['aroomtopray.theme.v1', 'dark'],
+    ['aroomtopray.saved-places.v1', '["/airports/lhr/"]'],
+    ['directory-query', 'London'],
+  ]);
+  if (saved !== undefined) storage.set(ROOM_FOCUS_KEY, String(saved));
+  if (legacy !== undefined) storage.set('aroomtopray.focus.v1', String(legacy));
+  const root = { dataset: { theme: 'dark' } };
+  if (focused !== undefined) root.dataset.roomFocus = String(focused);
+  const room = { hidden: true, dataset: { doorState: 'closed', roomPreview: 'campus' } };
+  const main = {
+    hidden: false,
+    innerHTML: '<section id="find-place">Unchanged guide</section>',
+    dataset: { query: 'London', country: 'GB', mode: 'map', page: '2' },
+  };
+  const browser = {
+    listeners: {},
+    location: { pathname: '/airports/', search: '?q=London&country=GB&mode=map&page=2', hash: '#browse' },
+    addEventListener(event, listener) { this.listeners[event] = listener; },
+  };
+  Object.defineProperty(browser, 'sessionStorage', {
+    get() {
+      if (blocked === 'access') throw new Error('Storage access denied');
+      return {
+        removeItem(key) {
+          if (blocked === 'remove') throw new Error('Storage write denied');
+          storage.delete(key);
+        },
+      };
+    },
+  });
+  const queried = [];
+  const doc = {
+    documentElement: root,
+    querySelector(selector) {
+      queried.push(selector);
+      if (selector !== '#prayer-room') throw new Error(`Unexpected obsolete control query: ${selector}`);
+      return hasRoom ? room : null;
+    },
+  };
+  const originalMain = structuredClone(main);
+  const originalLocation = structuredClone(browser.location);
+  // Focus and scrolling APIs are deliberately absent: migration must not need them.
+  initRoomFocus(doc, browser);
+  return { root, room, main, browser, storage, queried, doc, originalMain, originalLocation };
 }
-test('room is the default and both view choices are available without focus theft',()=>{
- const f=fixture();assert.equal(f.root.dataset.roomFocus,'false');assert.equal(f.switcher.hidden,false);assert.equal(f.room.hidden,false);assert.equal(f.exit.getAttribute('aria-pressed'),'true');assert.equal(f.enter.getAttribute('aria-pressed'),'false');assert.equal(f.focus,null);
+
+test('the unified page keeps the room visible without requiring former mode controls', () => {
+  const f = fixture();
+  assert.equal(f.room.hidden, false);
+  assert.equal(Object.hasOwn(f.root.dataset, 'roomFocus'), false);
+  assert.deepEqual(f.queried, ['#prayer-room']);
 });
-test('guide hides the room and puts keyboard focus in the unchanged guide',()=>{
- const f=fixture();f.main.dataset.query='London';f.enter.click();assert.equal(f.root.dataset.roomFocus,'true');assert.equal(f.room.hidden,true);assert.equal(f.focus,'main');assert.equal(f.scrolled.name,'main');assert.equal(f.main.dataset.query,'London');assert.equal(f.enter.getAttribute('aria-pressed'),'true');assert.equal(f.exit.getAttribute('aria-pressed'),'false');assert.equal(f.storage.get(ROOM_FOCUS_KEY),'true');
+
+test('both stored mode choices and stale root state are retired', () => {
+  for (const saved of [true, false]) {
+    const f = fixture({ saved, legacy: true, focused: true });
+    assert.equal(f.room.hidden, false);
+    assert.equal(Object.hasOwn(f.root.dataset, 'roomFocus'), false);
+    assert.equal(f.storage.has(ROOM_FOCUS_KEY), false);
+    assert.equal(f.storage.has('aroomtopray.focus.v1'), false);
+  }
 });
-test('room restores the doorway and saves the explicit room choice',()=>{
- const f=fixture({saved:true});f.exit.click();assert.equal(f.root.dataset.roomFocus,'false');assert.equal(f.room.hidden,false);assert.equal(f.focus,'door');assert.equal(f.scrolled.name,'room');assert.equal(f.scrolled.options.behavior,'instant');assert.equal(f.storage.get(ROOM_FOCUS_KEY),'false');
+
+test('page restoration clears a stale hidden room without changing its selected scene or door', () => {
+  const f = fixture();
+  f.root.dataset.roomFocus = 'true';
+  f.room.hidden = true;
+  f.room.dataset.doorState = 'open';
+  f.storage.set(ROOM_FOCUS_KEY, 'true');
+  f.browser.listeners.pageshow();
+  assert.equal(f.room.hidden, false);
+  assert.equal(Object.hasOwn(f.root.dataset, 'roomFocus'), false);
+  assert.equal(f.storage.has(ROOM_FOCUS_KEY), false);
+  assert.deepEqual(f.room.dataset, { doorState: 'open', roomPreview: 'campus' });
 });
-test('the current session preference is restored on another page without moving focus',()=>{
- for(const saved of [true,false]) {const f=fixture({saved});assert.equal(f.root.dataset.roomFocus,String(saved));assert.equal(f.room.hidden,saved);assert.equal(f.focus,null);assert.equal(f.switcher.hidden,false);}
+
+test('blocked storage cannot prevent unified visibility on init or page restoration', () => {
+  for (const blocked of ['access', 'remove']) {
+    const f = fixture({ saved: true, focused: true, blocked });
+    assert.equal(f.room.hidden, false);
+    assert.equal(Object.hasOwn(f.root.dataset, 'roomFocus'), false);
+    f.root.dataset.roomFocus = 'true';
+    f.room.hidden = true;
+    f.browser.listeners.pageshow();
+    assert.equal(f.room.hidden, false);
+    assert.equal(Object.hasOwn(f.root.dataset, 'roomFocus'), false);
+  }
 });
-test('back-forward cache uses the latest session choice and keeps controls synchronized',()=>{
- const f=fixture();f.storage.set(ROOM_FOCUS_KEY,'true');f.browser.listeners.pageshow();assert.equal(f.root.dataset.roomFocus,'true');assert.equal(f.enter.getAttribute('aria-pressed'),'true');assert.equal(f.room.hidden,true);assert.equal(f.focus,null);
+
+test('migration leaves search, filters, location, content, theme, and saved places intact', () => {
+  const f = fixture({ saved: true, focused: true });
+  assert.deepEqual(f.main, f.originalMain);
+  assert.deepEqual(f.browser.location, f.originalLocation);
+  f.browser.listeners.pageshow();
+  assert.deepEqual(f.main, f.originalMain);
+  assert.deepEqual(f.browser.location, f.originalLocation);
+  assert.deepEqual(f.root.dataset, { theme: 'dark' });
+  assert.deepEqual([...f.storage], [
+    ['aroomtopray.theme.v1', 'dark'],
+    ['aroomtopray.saved-places.v1', '["/airports/lhr/"]'],
+    ['directory-query', 'London'],
+  ]);
 });
-test('blocked storage still allows both modes and page restoration',()=>{
- const f=fixture({blocked:true});f.enter.click();f.browser.listeners.pageshow();assert.equal(f.root.dataset.roomFocus,'true');assert.equal(f.room.hidden,true);f.exit.click();assert.equal(f.root.dataset.roomFocus,'false');assert.equal(f.room.hidden,false);
-});
-test('old v1 behavior does not control the new explicit experience switch',()=>{
- assert.equal(ROOM_FOCUS_KEY,'aroomtopray.focus.v2');
+
+test('pages without a room still clear the obsolete preference safely', () => {
+  const f = fixture({ saved: true, focused: true, hasRoom: false });
+  assert.equal(f.storage.has(ROOM_FOCUS_KEY), false);
+  assert.equal(Object.hasOwn(f.root.dataset, 'roomFocus'), false);
+  assert.doesNotThrow(() => f.browser.listeners.pageshow());
 });

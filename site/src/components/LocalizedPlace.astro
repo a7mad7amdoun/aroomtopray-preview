@@ -133,20 +133,28 @@ const roomStatus = airport ? common.status[place.status] : place.hold ? common.c
 const amenity = (group, key) => common.amenities[group][key] || common.amenities[group].unknown;
 ---
 <Base {title} description={`${t.title} ${place.name}. ${intro}`} nav={kind} {noindex} og={airport && place.art ? `/og/${place.code}.jpg` : null}>
-  <div class={`wrap localized-place sector-${kind}`}>
-    <nav class="crumbs" aria-label={t.breadcrumb}>
-      <a href={localizedPath('/', locale)}>{t.home}</a><span aria-hidden="true">/</span>
-      <a href={localizedPath(`/${kind}/`, locale)} data-directory-return={g.backToResults}>{t[kind]}</a><span aria-hidden="true">/</span>
-      <span aria-current="page" lang="en" dir="ltr">{place.iata || place.short}</span>
-    </nav>
-    <div class="d-head">
-      <div class="d-code" aria-hidden="true">{airport ? place.iata : <svg width="56" height="56" aria-hidden="true"><use href={university?'#i-campus':'#i-care'}/></svg>}</div>
-      <div class="d-title">
-        <p class="eyebrow">{t[kind]}</p>
-        <h1>{t.title} <bdi lang="en">{place.name}</bdi></h1>
-        <div class="d-meta"><span class={`pill ${airport ? L.status[place.status][1] : place.hold ? 'p-unk' : 'p-yes'}`}>{roomStatus}</span><bdi lang="en">{place.city}</bdi><CountryBadge country={place.country} {locale}/>{place.group && <bdi lang="en">{place.group}</bdi>}<span>{t.checked} {date(place.checked)}</span></div>
+  <Fragment slot="arrival">
+    <div class="place-arrival">
+      <nav class="crumbs" aria-label={t.breadcrumb}>
+        <a href={localizedPath('/', locale)}>{t.home}</a><span aria-hidden="true">/</span>
+        <a href={localizedPath(`/${kind}/`, locale)} data-directory-return={g.backToResults}>{t[kind]}</a><span aria-hidden="true">/</span>
+        <span aria-current="page" lang="en" dir="ltr">{place.iata || place.short}</span>
+      </nav>
+      <div class="d-head">
+        <div class="d-code" aria-hidden="true">{airport ? place.iata : <svg width="56" height="56" aria-hidden="true"><use href={university?'#i-campus':'#i-care'}/></svg>}</div>
+        <div class="d-title">
+          <p class="eyebrow">{t[kind]}</p>
+          <h1>{t.title} <bdi lang="en">{place.name}</bdi></h1>
+          <div class="d-meta"><span class={`pill ${airport ? L.status[place.status][1] : place.hold ? 'p-unk' : 'p-yes'}`}>{roomStatus}</span><bdi lang="en">{place.city}</bdi><CountryBadge country={place.country} {locale}/>{place.group && <bdi lang="en">{place.group}</bdi>}<span>{t.checked} {date(place.checked)}</span></div>
+        </div>
       </div>
     </div>
+  </Fragment>
+  <div class={`wrap localized-place sector-${kind}`}>
+    <PlaceOverview {place} {kind} {locale} />
+    {warnings.map(warning => <p class="note localized-warning">{warning}</p>)}
+    {place.note && <p class="note localized-warning" lang="en" dir="ltr">{place.note}</p>}
+    {kind === 'hospitals' && <p class="fine localized-summary-note">{t.hospitalScope}</p>}
     <section class="visit-intro" aria-labelledby="visit-intro-title">
       <div class="visit-intro-copy"><span class="icon-tile"><svg width="28" height="28" aria-hidden="true"><use href="#i-pin" /></svg></span><div><h2 id="visit-intro-title">{t.before}</h2><p>{intro}</p></div></div>
       <nav class="page-jumps" aria-label={t.onPage}><a href="#room-details">{t.details} <span aria-hidden="true">↓</span></a><a href="#qibla">{t.qibla} <span aria-hidden="true">↓</span></a>{photosForPlace(place.url).length>0&&<a href="#place-photos"><svg width="17" height="17" aria-hidden="true"><use href="#i-photo"/></svg>{PHOTO_COPY[locale].title}<span aria-hidden="true">↓</span></a>}{place.chaplaincy && <a href="#chap-h">{t.chaplaincy} <span aria-hidden="true">↓</span></a>}</nav>
@@ -154,10 +162,6 @@ const amenity = (group, key) => common.amenities[group][key] || common.amenities
     </section>
     <PlaceActions {place} kind={noteKind} />
     <aside class="translation-notice note"><p>{t.sourceNotice}</p><a href={place.url} hreflang="en">{t.original} <span aria-hidden="true">↗</span></a></aside>
-    <PlaceOverview {place} {kind} {locale} />
-    {warnings.map(warning => <p class="note localized-warning">{warning}</p>)}
-    {place.note && <p class="note localized-warning" lang="en" dir="ltr">{place.note}</p>}
-    {kind === 'hospitals' && <p class="fine localized-summary-note">{t.hospitalScope}</p>}
     {firstRoom && <ol class="visit-steps" aria-label={t.before}>
       <li><span class="eyebrow">01 · {t.locate}</span><strong><bdi lang="en">{firstRoom.name}</bdi></strong><span lang="en" dir="ltr">{firstRoom.loc}</span></li>
       <li><span class="eyebrow">02 · {t.enter}</span><strong>{airport ? t.security : t.access}</strong><span lang={airport ? undefined : attrs(firstRoom.access).lang} dir={airport ? undefined : attrs(firstRoom.access).dir}>{airport ? amenity('side', firstRoom.side) : term(firstRoom.access)}</span></li>

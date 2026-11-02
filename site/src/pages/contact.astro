@@ -4,11 +4,13 @@ import Base from '../layouts/Base.astro';
 import EditorialArtwork from '../components/EditorialArtwork.astro';
 ---
 <Base title="Contact A Room to Pray" description="Corrections, airport updates, press and other questions for A Room to Pray." nav="contact">
+  <Fragment slot="arrival"><header class="support-arrival">
+      <span class="eyebrow">Contact</span>
+      <h1>Write to the editor.</h1>
+      <p>Messages go to Hamza Abdul-Tawwaab, the editor. For a change to one airport, the report form on that airport’s page is quickest. Airports, chaplaincies and journalists are welcome to write here.</p>
+  </header></Fragment>
   <div class="wrap">
     <div class="prose">
-      <span class="eyebrow">Contact</span>
-      <h1 style="font-size:clamp(2rem,4.4vw,3rem)">Write to the editor.</h1>
-      <p>Messages go to Hamza Abdul-Tawwaab, the editor. For a change to one airport, the report form on that airport’s page is quickest. Airports, chaplaincies and journalists are welcome to write here.</p>
       <form class="contact-form" method="post" action="/api/contact" data-contact>
         <label>What it’s about<select name="topic" required><option>A correction</option><option>I work at an airport or chaplaincy</option><option>Press</option><option>Something else</option></select></label>
         <label>Your message<textarea name="message" rows="6" required minlength="10" maxlength="3000"></textarea></label>

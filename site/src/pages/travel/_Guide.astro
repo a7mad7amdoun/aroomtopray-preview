@@ -10,12 +10,12 @@ const { slug, title, description, lede, sources } = Astro.props;
 const others = guides.filter((g) => g.slug !== slug);
 ---
 <Base title={`${title} | Travel guides | A Room to Pray`} description={description} nav="travel" noindex={!REVIEWED}>
-  <header class="wrap"><div class="prose guide guide-opening">
-      <span class="eyebrow"><a href="/travel/">Praying while travelling</a></span>
-      <h1 style="font-size:clamp(2rem,4.4vw,3rem)">{title}</h1>
-      {!REVIEWED && <p class="note" role="note"><b>Awaiting review by our editor.</b> This guide is a draft. It reports what the sources and the four Sunni schools say, and it hasn’t yet been checked by our editor, Hamza Abdul-Tawwaab.</p>}
-      <p class="lede">{lede}</p>
-    </div></header>
+  <Fragment slot="arrival"><header class="support-arrival">
+    <span class="eyebrow"><a href="/travel/">Praying while travelling</a></span>
+    <h1>{title}</h1>
+    <p class="lede">{lede}</p>
+  </header></Fragment>
+  {!REVIEWED && <div class="wrap"><p class="note" role="note"><b>Awaiting review by our editor.</b> This guide is a draft. It reports what the sources and the four Sunni schools say, and it hasn’t yet been checked by our editor, Hamza Abdul-Tawwaab.</p></div>}
   <div class="wrap guide-layout">
     <aside class="guide-contents" data-guide-contents hidden><nav aria-label="In this guide"><h2>In this guide</h2><ol></ol></nav><a href="/travel/">← All travel guides</a></aside>
     <article class="prose guide" data-guide-article>

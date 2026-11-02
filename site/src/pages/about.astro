@@ -5,11 +5,13 @@ import ArtworkCredits from '../components/ArtworkCredits.astro';
 import { checked } from '../lib/airports.js';
 ---
 <Base title="About A Room to Pray" description="Who runs A Room to Pray, how we check airport prayer rooms, and what we do with data." nav="about">
+  <Fragment slot="arrival"><header class="support-arrival">
+      <span class="eyebrow">About</span>
+      <h1>A free guide to praying at airports.</h1>
+      <p>A Room to Pray lists prayer rooms at airports around the world: where they are, whether they’re before or after security, whether there is somewhere to make wuḍūʾ, whether women have a private space, and which way the qibla is. It covers {checked.length} airports so far, and we add more every month.</p>
+  </header></Fragment>
   <div class="wrap">
     <article class="prose">
-      <span class="eyebrow">About</span>
-      <h1 style="font-size:clamp(2rem,4.4vw,3rem)">A free guide to praying at airports.</h1>
-      <p>A Room to Pray lists prayer rooms at airports around the world: where they are, whether they’re before or after security, whether there is somewhere to make wuḍūʾ, whether women have a private space, and which way the qibla is. It covers {checked.length} airports so far, and we add more every month.</p>
       <p>It is published by Inheriting Islam LLC, the publisher of <a href="https://lifeistemporary.com/">Life Is Temporary</a> and <a href="https://firstadhan.com/">First Adhān</a>. It is independent: no airport runs it or pays for it. There are no ads and nothing to buy.</p>
 
       <EditorialArtwork/>

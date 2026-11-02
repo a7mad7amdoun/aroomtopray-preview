@@ -1,10 +1,15 @@
 ---
-import SectionIntro from '../../components/SectionIntro.astro';
+import EditorialArtwork from '../../components/EditorialArtwork.astro';
 import Base from '../../layouts/Base.astro';
 import { guides, REVIEWED } from '../../data/travel/guides.js';
 ---
 <Base title="How to pray while travelling | A Room to Pray" description="Short, sourced guides to praying on a plane, wuḍūʾ and tayammum at the airport, shortening and combining, and praying in public." nav="travel" noindex={!REVIEWED}>
-  <SectionIntro eyebrow="Praying while travelling" title="Go prepared. Travel with a little more clarity." description="Short, sourced guides for the questions that come up on a journey: praying in the air, making wuḍūʾ, and finding a quiet place in a busy terminal." art="/art/gate.webp" label="Practical questions. Sourced explanations." href="#travel-topics" action="Explore the guides" />
+  <Fragment slot="arrival"><header class="support-arrival">
+    <span class="eyebrow">Praying while travelling</span>
+    <h1>Go prepared. Travel with a little more clarity.</h1>
+    <p class="lede">Short, sourced guides for the questions that come up on a journey: praying in the air, making wuḍūʾ, and finding a quiet place in a busy terminal.</p>
+    <a class="btn sign-btn" href="#travel-topics">Explore the guides <svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </header></Fragment>
   <div class="wrap">
     <div class="travel-context"><p>These guides report what the Qurʾān, the Sunnah and the four Sunni schools say, including where they differ. We don’t give fatwās. For your own situation, ask your local scholar.</p>{!REVIEWED && <p class="note" role="note"><b>Awaiting review by our editor.</b> These guides are drafts and haven’t yet been checked by Hamza Abdul-Tawwaab.</p>}</div>
     <div class="section-heading" id="travel-topics"><div><span class="eyebrow">One question at a time</span><h2>What would you like to understand?</h2></div></div>
@@ -19,6 +24,7 @@ import { guides, REVIEWED } from '../../data/travel/guides.js';
     </ul>
     <p class="fine" style="margin:0 0 64px">Looking for a room? <a href="/airports/">Find a prayer room at the airport</a>.</p>
   </div>
+  <div class="wrap"><EditorialArtwork placement="supporting"/></div>
 </Base>
 <style>
   .travel-cards { list-style: none; margin: 0 0 32px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 16px }

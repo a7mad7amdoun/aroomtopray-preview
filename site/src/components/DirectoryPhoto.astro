@@ -11,27 +11,29 @@ const date = photo && new Intl.DateTimeFormat(locale, {year:'numeric',month:'sho
 ---
 {photo && <figure class="directory-photo" data-photo-example={place.url}>
  <a class="directory-photo-link" href={`${localizedPath(place.url,locale)}#place-photos`}>
-  <span class="directory-photo-image"><img src={photo.images.at(-1).src} srcset={photoSrcset(photo)} sizes="(max-width: 1000px) calc(100vw - 100px), 520px" width={photo.width} height={photo.height} alt={photo.alt[locale] || photo.alt.en} loading="lazy" decoding="async" /></span>
+  <span class="directory-photo-image"><img src={photo.images.at(-1).src} srcset={photoSrcset(photo)} sizes="(max-width: 760px) calc(100vw - 64px), (max-width: 1100px) 42vw, 520px" width={photo.width} height={photo.height} alt={photo.alt[locale] || photo.alt.en} loading="lazy" decoding="async" /></span>
   <span class="directory-photo-caption"><span class="directory-photo-kind"><svg width="14" height="14" aria-hidden="true"><use href="#i-photo"/></svg>{t.kinds[photo.kind]}</span><strong><bdi>{place.short || place.name}</bdi><svg class="directional-icon" width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></strong><span class="directory-photo-date">{t.captured} · <time datetime={photo.dateTaken}>{date}</time></span></span>
  </a>
  <figcaption>© <bdi>{photo.author}</bdi> · <a href={photo.sourceUrl} target="_blank" rel="noopener noreferrer">{photo.license.name}<span class="sr"> · {t.original}</span></a></figcaption>
 </figure>}
 <style>
- .directory-photo { margin:0; min-width:0; align-self:center; padding:0; overflow:hidden; border:1px solid var(--line); border-radius:12px; background:var(--surface); box-shadow:none; }
+ .directory-photo { margin:0; min-width:0; align-self:center; padding:10px 10px 0; overflow:hidden; border:1px solid var(--line); border-radius:16px; background:var(--surface); box-shadow:none; }
  .directory-photo-link { display:grid; grid-template-columns:1fr; align-items:center; gap:0; color:var(--ink); text-decoration:none; border-radius:3px; }
- .directory-photo-image { display:grid; align-items:center; min-width:0; background:var(--surface-2); border-radius:0; overflow:hidden; aspect-ratio:4/3; }
+ .directory-photo-image { display:grid; align-items:center; min-width:0; background:var(--surface-2); border-radius:9px; overflow:hidden; aspect-ratio:4/3; }
  img { display:block; width:100%; height:100%; max-height:380px; object-fit:contain; filter:none; }
- .directory-photo-caption { display:grid; min-width:0; gap:7px; padding:16px 20px; }
+ .directory-photo-caption { display:grid; min-width:0; gap:8px; padding:18px 12px 16px; }
  .directory-photo-kind { display:flex; align-items:center; gap:6px; color:var(--muted); font-size:.73rem; line-height:1.4; }
  .directory-photo-kind svg { flex:none; }
- strong { display:flex; gap:8px; align-items:center; justify-content:space-between; font:600 .95rem/1.35 var(--f-display); }
+ strong { display:flex; gap:8px; align-items:center; justify-content:space-between; font:600 1.08rem/1.4 var(--f-display); letter-spacing:-.02em; }
  strong bdi { min-width:0; overflow-wrap:anywhere; }
- strong svg { flex:none; }
+ strong svg { flex:none; width:30px; height:30px; padding:6px; border-radius:50%; background:var(--surface-2); }
  .directory-photo-date,figcaption { color:var(--muted); font-size:.73rem; line-height:1.5; }
- figcaption { padding:12px 20px; border-top:1px solid var(--line); margin-top:0; }
+ figcaption { padding:12px; border-top:1px solid var(--line); margin-top:0; }
  figcaption a { text-underline-offset:3px; }
  .directory-photo-link:hover strong { text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; }
- a:focus-visible { outline:3px solid var(--focus); outline-offset:4px; }
- :global(html[lang=ar]) strong { font-family:var(--f-body); line-height:1.6; }
+ .directory-photo-link:hover strong svg { background:var(--sign); color:var(--sign-ink); }
+ .directory-photo-link:focus-visible { outline:3px solid var(--focus); outline-offset:-3px; }
+ figcaption a:focus-visible { outline:3px solid var(--focus); outline-offset:3px; }
+ :global(html[lang=ar]) strong { font-family:var(--f-body); line-height:1.6; letter-spacing:0; }
  @media print { .directory-photo { box-shadow:none; break-inside:avoid; } }
 </style>

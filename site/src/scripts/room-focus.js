@@ -1,34 +1,23 @@
-// Session preference: both choices always remain visible in the header.
+// Room and guide now form one page. Retire saved preferences from both older layouts.
 export const ROOM_FOCUS_KEY = 'aroomtopray.focus.v2';
+const LEGACY_ROOM_FOCUS_KEY = 'aroomtopray.focus.v1';
+
 export function initRoomFocus(doc = document, browser = window) {
-  const root = doc.documentElement;
-  const switcher = doc.querySelector('[data-room-view-switch]');
-  const enter = doc.querySelector('[data-room-focus-enter]');
-  const exit = doc.querySelector('[data-room-focus-exit]');
-  const main = doc.querySelector('#main');
-  const room = doc.querySelector('#prayer-room');
-  const door = doc.querySelector('[data-door-toggle]');
-  if (!switcher || !enter || !exit || !main || !room) return;
-  const read = () => {
-    try { const value=browser.sessionStorage.getItem(ROOM_FOCUS_KEY); if(value==='true'||value==='false')return value==='true'; } catch {}
-    return root.dataset.roomFocus==='true';
+  const restoreUnifiedPage = () => {
+    delete doc.documentElement.dataset.roomFocus;
+    const room = doc.querySelector('#prayer-room');
+    if (room) room.hidden = false;
+    try {
+      browser.sessionStorage.removeItem(ROOM_FOCUS_KEY);
+      browser.sessionStorage.removeItem(LEGACY_ROOM_FOCUS_KEY);
+    } catch {
+      // The complete page remains available when browser storage is blocked.
+    }
   };
-  const update = (focused, interact = false) => {
-    root.dataset.roomFocus=String(focused);
-    enter.setAttribute('aria-pressed',String(focused));
-    exit.setAttribute('aria-pressed',String(!focused));
-    room.hidden=focused;
-    if (!interact) return;
-    try { browser.sessionStorage.setItem(ROOM_FOCUS_KEY,String(focused)); } catch {}
-    const target=focused?main:(door||exit);
-    target.focus({preventScroll:true});
-    (focused?main:room).scrollIntoView({block:'start',behavior:'instant'});
-  };
-  switcher.hidden=false;
-  enter.addEventListener('click',()=>update(true,true));
-  exit.addEventListener('click',()=>update(false,true));
-  // bfcache restores the latest choice from this tab, without stealing focus.
-  browser.addEventListener('pageshow',()=>update(read()));
-  update(read());
+  // A cached page may still carry the former hidden-room state. Do not move focus,
+  // scroll, or touch the guide's search, filters, tabs, or saved places.
+  browser.addEventListener('pageshow', restoreUnifiedPage);
+  restoreUnifiedPage();
 }
-if(typeof document!=='undefined') initRoomFocus();
+
+if (typeof document !== 'undefined') initRoomFocus();

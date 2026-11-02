@@ -1,5 +1,5 @@
 ---
-import SectionIntro from '../components/SectionIntro.astro';
+import EditorialArtwork from '../components/EditorialArtwork.astro';
 import Base from '../layouts/Base.astro';
 import raw from '../data/rooms-won.json';
 import { host } from '../lib/airports.js';
@@ -15,8 +15,14 @@ const years = [...new Set(entries.map((e) => e.date.slice(0, 4)))];
 const label = { airport: 'Airport', university: 'University', hospital: 'Hospital' };
 ---
 <Base title="Rooms won: prayer rooms opened and improved | A Room to Pray" description={`${entries.length} dated, sourced cases of airports, universities and hospitals opening or improving prayer and multi-faith rooms, in ${countries} countries.`} nav="rooms-won">
-  <SectionIntro eyebrow="Rooms won · The public record" title="Small requests. Meaningful places." description={`${entries.length} sourced examples of airports, universities and hospitals opening or improving a space for prayer, across ${countries} countries. A record of what can change.`} art="/art/gate.webp" label="Making room for more people" href="#rooms-record" action="Explore the stories"><p class="fine">In {asked} cases, the source says people asked for the room. Where a source doesn’t say so, we don’t either.</p></SectionIntro>
+  <Fragment slot="arrival"><header class="support-arrival">
+    <span class="eyebrow">Rooms won · The public record</span>
+    <h1>Small requests. Meaningful places.</h1>
+    <p class="lede">{entries.length} sourced examples of airports, universities and hospitals opening or improving a space for prayer, across {countries} countries. A record of what can change.</p>
+    <a class="btn sign-btn" href="#rooms-record">Explore the stories <svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </header></Fragment>
   <div class="wrap" id="rooms-record">
+    <p class="fine">In {asked} cases, the source says people asked for the room. Where a source doesn’t say so, we don’t either.</p>
     <div class="controls" data-rw-controls hidden>
       <div class="seg" role="group" aria-label="Show">
         <button type="button" aria-pressed="true" data-kind="all">All <span class="tnum">{entries.length}</span></button>
@@ -55,6 +61,7 @@ const label = { airport: 'Airport', university: 'University', hospital: 'Hospita
       <p class="fine">Covering {years.at(-1)} to {years[0]}. This is a record of public sources, not a complete history. “People asked” means the source itself says students, staff, chaplains or faith groups asked for the room. No room listed where you travel? <a href="/#ask">Ask for one</a>.</p>
     </div>
   </div>
+  <div class="wrap"><EditorialArtwork placement="supporting"/></div>
 </Base>
 
 <style>

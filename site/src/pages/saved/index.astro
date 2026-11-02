@@ -3,12 +3,12 @@ import Base from '../../layouts/Base.astro';
 import EditorialArtwork from '../../components/EditorialArtwork.astro';
 ---
 <Base title="Your saved places | A Room to Pray" description="Keep prayer-room listings together, compare facilities and print directions for your visit." nav="saved" noindex={true}>
-  <div class="wrap saved-page">
+  <Fragment slot="arrival"><header class="support-arrival">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Saved places</span></nav>
-    <div class="saved-intro">
-      <div class="stack"><span class="eyebrow">Ready for your next stop</span><h1>Your places.<br>Your peace of mind.</h1><p class="lede">Keep the places you need together. Compare the essentials, then take the directions with you.</p></div>
+      <span class="eyebrow">Ready for your next stop</span><h1>Your places.<br>Your peace of mind.</h1><p class="lede">Keep the places you need together. Compare the essentials, then take the directions with you.</p>
+  </header></Fragment>
+  <div class="wrap saved-page">
       <aside class="saved-privacy"><span class="eyebrow">On this device only</span><p>No account needed. Your saved list stays in this browser. Opening listings still needs a connection; copy or print your notes before travelling.</p><a href="/about/#saved-privacy">How saved places work</a></aside>
-    </div>
     <noscript><p class="note">Saved places needs JavaScript to read this browser’s list. All directories and individual room details remain available.</p></noscript>
     <div class="saved-toolbar" data-saved-tools hidden><span class="eyebrow" data-saved-total></span><div class="btns"><button class="btn sign-btn" type="button" data-copy-saved>Copy all notes</button><button class="btn ghost" type="button" data-print hidden>Print travel notes</button><a href="/airports/" class="text-action">Add another place →</a></div></div>
     <p class="saved-status" data-saved-status role="status" aria-live="polite"></p>

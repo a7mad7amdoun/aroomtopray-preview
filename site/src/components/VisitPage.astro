@@ -10,7 +10,10 @@ const visitTabs=kinds.map((kind,i)=>({id:`panel-${kind}`,label:t.nav[kind],icon:
 const labels={en:{choose:'Where are you going?',check:'Your preparation checklist',count:'steps checked',note:'A personal checklist for this visit. Nothing is saved or sent.'},fr:{choose:'Où allez-vous ?',check:'Votre liste de préparation',count:'étapes cochées',note:'Une liste pour cette visite. Rien n’est enregistré ni envoyé.'},ar:{choose:'إلى أين تتجه؟',check:'قائمة الاستعداد للزيارة',count:'خطوات مكتملة',note:'قائمة شخصية لهذه الزيارة. لا يتم حفظ أي شيء أو إرساله.'},es:{choose:'¿Adónde vas?',check:'Tu lista de preparación',count:'pasos marcados',note:'Una lista para esta visita. No se guarda ni se envía nada.'}}[locale];
 ---
 <Base title={`${t.home.stepsEyebrow} | A Room to Pray`} description={t.home.sourceText}>
-  <div class="wrap visit-page"><header class="visit-heading"><span class="wayfinding-label"><svg width="23" height="23" aria-hidden="true"><use href="#i-gate"/></svg>{t.home.stepsEyebrow}<span aria-hidden="true">→</span></span><h1>{t.home.stepsTitle}</h1><p>{t.home.exploreDescription}</p></header>
+  <Fragment slot="arrival">
+    <header class="visit-heading"><span class="wayfinding-label"><svg width="23" height="23" aria-hidden="true"><use href="#i-gate"/></svg>{t.home.stepsEyebrow}<span aria-hidden="true">→</span></span><h1>{t.home.stepsTitle}</h1><p>{t.home.exploreDescription}</p></header>
+  </Fragment>
+  <div class="wrap visit-page">
     <div class="visit-directions" data-guide-tabs>
     <GuideTabNav tabs={visitTabs} label={labels.choose}/>
     {kinds.map((kind,i)=><section class={`visit-panel guide-panel sector-${kind}`} id={`panel-${kind}`} data-visit-panel={kind} aria-labelledby={`panel-heading-${kind}`}><div class="visit-instructions"><h2 id={`panel-heading-${kind}`}>{t.directories[kind].wayfindingTitle}</h2><ol>{t.directories[kind].steps.map((s,j)=><li><span class="path-stop">{j+1}</span><div><h3>{s.title}</h3><p>{s.text}</p></div></li>)}</ol><p class="note">{t.directories[kind].note}</p><a class="btn sign-btn" href={localizedPath(`/${kind}/`,locale)}>{t.directories[kind].action} →</a><VisitorArtwork scene={['airport','campus','hospital'][i]} {locale}/></div></section>)}

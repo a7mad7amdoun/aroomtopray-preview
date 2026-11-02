@@ -1,5 +1,5 @@
 ---
-import SectionIntro from '../../components/SectionIntro.astro';
+import EditorialArtwork from '../../components/EditorialArtwork.astro';
 import Base from '../../layouts/Base.astro';
 import { airports, L } from '../../lib/airports.js';
 import { METHODS, ASR } from '../../lib/prayer-times.js';
@@ -8,7 +8,12 @@ import { METHODS, ASR } from '../../lib/prayer-times.js';
 const index = airports.map((a) => [a.code, a.short, a.city, a.country, L.status[a.status][0], L.status[a.status][1], a.lat, a.lon]);
 ---
 <Base title="Layover prayer planner | A Room to Pray" description="Enter up to three flights and see which of the five prayers begin before you fly, on your layover and in the air, with the prayer room listing for each airport." nav="planner">
-  <SectionIntro eyebrow="The layover planner" title="A calmer journey starts with a little planning." description="See which prayers begin before you fly, during a connection and while you’re in the air. Add your flights to build an estimated timeline, with prayer room information for each airport." art="/art/hero-day.webp" label="Departure · Connection · Arrival" href="#pl-form" action="Plan my journey" />
+  <Fragment slot="arrival"><header class="support-arrival">
+    <span class="eyebrow">The layover planner</span>
+    <h1>A calmer journey starts with a little planning.</h1>
+    <p class="lede">See which prayers begin before you fly, during a connection and while you’re in the air. Add your flights to build an estimated timeline, with prayer room information for each airport.</p>
+    <a class="btn sign-btn" href="#pl-form">Plan my journey <svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </header></Fragment>
   <div class="wrap pl">
     <ol class="pl-intro-steps" aria-label="How to use the planner"><li><span>01</span><div><b>Add your flights</b><p>Use the dates and local times on your itinerary.</p></div></li><li><span>02</span><div><b>Choose your settings</b><p>Select the calculation method and ʿAṣr convention.</p></div></li><li><span>03</span><div><b>Explore your timeline</b><p>See estimated prayer windows and airport rooms.</p></div></li></ol>
     <noscript><p class="note">The planner works out prayer times in your browser, so it needs JavaScript. You can still <a href="/airports/">browse the airport directory</a>.</p></noscript>
@@ -62,6 +67,7 @@ const index = airports.map((a) => [a.code, a.short, a.city, a.country, L.status[
     </div>
   </div>
   <script type="application/json" id="pl-data" set:html={JSON.stringify(index)} />
+  <div class="wrap"><EditorialArtwork placement="supporting"/></div>
 </Base>
 
 <script>

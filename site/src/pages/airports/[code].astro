@@ -35,21 +35,25 @@ const guideTabs=[{id:'room-details',label:g.rooms,icon:'pin'},{id:'direction',la
 ---
 <Base {title} {description} nav="airports" noindex={a.status === 'pending'} og={a.art ? `/og/${a.code}.jpg` : null}
   jsonld={{ '@context': 'https://schema.org', '@type': 'Airport', name: a.name, iataCode: a.iata, address: { '@type': 'PostalAddress', addressLocality: a.city, addressCountry: a.country }, geo: { '@type': 'GeoCoordinates', latitude: a.lat, longitude: a.lon } }}>
-  <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="/airports/" data-directory-return={g.backToResults}>Airports</a><span aria-hidden="true">/</span><span>{a.region}</span><span aria-hidden="true">/</span><span aria-current="page">{a.iata}</span></nav>
-    <div class="d-head">
-      <div class="d-code" aria-hidden="true">{a.iata}</div>
-      <div class="d-title">
-        <h1>Prayer rooms at {a.name.split('/').map((part, i) => i ? <Fragment>/<wbr />{part}</Fragment> : part)}</h1>
-        <div class="d-meta"><Fragment set:html={pill(L.status[a.status])} /><span>{a.city}</span><CountryBadge country={a.country}/>{a.checkedFmt && <><span aria-hidden="true">·</span><span>Sources checked {a.checkedFmt}</span></>}</div>
+  <Fragment slot="arrival">
+    <div class="place-arrival">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/airports/" data-directory-return={g.backToResults}>Airports</a><span aria-hidden="true">/</span><span>{a.region}</span><span aria-hidden="true">/</span><span aria-current="page">{a.iata}</span></nav>
+      <div class="d-head">
+        <div class="d-code" aria-hidden="true">{a.iata}</div>
+        <div class="d-title">
+          <h1>Prayer rooms at {a.name.split('/').map((part, i) => i ? <Fragment>/<wbr />{part}</Fragment> : part)}</h1>
+          <div class="d-meta"><Fragment set:html={pill(L.status[a.status])} /><span>{a.city}</span><CountryBadge country={a.country}/>{a.checkedFmt && <><span aria-hidden="true">·</span><span>Sources checked {a.checkedFmt}</span></>}</div>
+        </div>
       </div>
     </div>
+  </Fragment>
+  <div class="wrap">
     <DetailGuide place={a} kind="Airport" food={!!h} />
-    <PlaceActions place={a} kind="Airport" />
     <PlaceOverview place={a} kind="airports" direction={dirName(a.qibla)} />
+    {a.note && <p class="note place-access-note">{a.note}</p>}
+    <PlaceActions place={a} kind="Airport" />
 
     <p class="byline" style="margin-top:12px"><span>Edited by <a href="/about/#editor">Hamza Abdul-Tawwaab</a></span><span>Found a mistake? <a href="/contact/">Contact us</a> or use the report form on this page.</span></p>
-    {a.note && <p class="note place-access-note">{a.note}</p>}
     <div class="d-grid" data-guide-tabs>
       <GuideTabNav tabs={guideTabs} label={g.overview}/>
       <div class="d-main guide-panel" id="room-details">

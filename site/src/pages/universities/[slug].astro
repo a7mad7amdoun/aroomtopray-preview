@@ -28,22 +28,26 @@ const guideTabs=[{id:'room-details',label:g.rooms,icon:'pin'},{id:'direction',la
 ---
 <Base {title} {description} nav="universities"
   jsonld={{ '@context': 'https://schema.org', '@type': 'CollegeOrUniversity', name: u.name, address: { '@type': 'PostalAddress', addressLocality: u.city, addressCountry: u.country }, geo: { '@type': 'GeoCoordinates', latitude: u.lat, longitude: u.lon } }}>
-  <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="/universities/" data-directory-return={g.backToResults}>Universities</a><span aria-hidden="true">/</span><span>{u.country}</span><span aria-hidden="true">/</span><span aria-current="page">{u.short}</span></nav>
-    <div class="d-head">
-      <div class="d-code" aria-hidden="true" style="padding:12px"><svg width="56" height="56" aria-hidden="true"><use href="#i-campus"/></svg></div>
-      <div class="d-title">
-        <h1>Prayer rooms at {u.name.split('/').map((part, i) => i ? <Fragment>/<wbr />{part}</Fragment> : part)}</h1>
-        <div class="d-meta"><span>{u.city}</span><CountryBadge country={u.country}/><span aria-hidden="true">·</span><span>Sources checked {fmtDate(u.checked)}</span></div>
+  <Fragment slot="arrival">
+    <div class="place-arrival">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/universities/" data-directory-return={g.backToResults}>Universities</a><span aria-hidden="true">/</span><span>{u.country}</span><span aria-hidden="true">/</span><span aria-current="page">{u.short}</span></nav>
+      <div class="d-head">
+        <div class="d-code" aria-hidden="true" style="padding:12px"><svg width="56" height="56" aria-hidden="true"><use href="#i-campus"/></svg></div>
+        <div class="d-title">
+          <h1>Prayer rooms at {u.name.split('/').map((part, i) => i ? <Fragment>/<wbr />{part}</Fragment> : part)}</h1>
+          <div class="d-meta"><span>{u.city}</span><CountryBadge country={u.country}/><span aria-hidden="true">·</span><span>Sources checked {fmtDate(u.checked)}</span></div>
+        </div>
       </div>
     </div>
+  </Fragment>
+  <div class="wrap">
     <DetailGuide place={u} kind="University" />
-    <PlaceActions place={u} kind="University" />
     <PlaceOverview place={u} kind="universities" direction={dirName(u.qibla)} />
-
-    <p class="byline" style="margin-top:12px"><span>Edited by <a href="/about/#editor">Hamza Abdul-Tawwaab</a></span><span>Most campus rooms are for students and staff; check access before you visit.</span><span><a href="#report">Report a correction</a></span></p>
     {u.conflict && <p class="note" style="margin-top:12px">Some details differ between the university’s own pages, or may be out of date. Confirm times and room numbers with the university or the Islamic society before you go.</p>}
     {u.thin && <p class="note" style="margin-top:12px">Limited information: we found only one official listing here. Confirm the location and access with the university or the Islamic society.</p>}
+    <PlaceActions place={u} kind="University" />
+
+    <p class="byline" style="margin-top:12px"><span>Edited by <a href="/about/#editor">Hamza Abdul-Tawwaab</a></span><span>Most campus rooms are for students and staff; check access before you visit.</span><span><a href="#report">Report a correction</a></span></p>
     <div class="d-grid" data-guide-tabs>
       <GuideTabNav tabs={guideTabs} label={g.overview}/>
       <div class="d-main guide-panel" id="room-details">

@@ -26,15 +26,13 @@ const photoExampleUrl={airports:'/airports/lhr/',universities:'/universities/uni
 const photoExample=rows.find(place=>place.url===photoExampleUrl);
 ---
 <Base title={`${t.nav[kind]} · ${t.common.prayerRooms} | A Room to Pray`} description={c.description} nav={kind}>
-  <div class="wrap room-directory">
+  <Fragment slot="arrival">
     <header class="room-directory-intro">
       <div class="directory-intro-copy">
       <span class="room-eyebrow"><span></span>{w.directory}</span>
       <div class="directory-title-line"><span class="category-emblem"><svg width="28" height="28" aria-hidden="true"><use href={`#i-${icon}`}/></svg></span><h1>{w.titles[kind]}</h1></div><p>{c.description}</p>
       </div>
-      <DirectoryPhoto place={photoExample} {locale}/>
     </header>
-    <section class="directory-workspace" id="browse" aria-label={t.common.browse}>
       <div class="controls" data-directory={kind} data-directory-label={c.placesLabel} data-locale={locale}>
         <div class="directory-fields">
           <div class="directory-search-field"><label for="q-dir">{r.search}</label><div class="directory-search-row"><svg width="22" height="22" aria-hidden="true"><use href="#i-search"/></svg><input id="q-dir" type="search" placeholder={c.searchPlaceholder} autocomplete="off" maxlength="160" /></div></div>
@@ -48,6 +46,9 @@ const photoExample=rows.find(place=>place.url===photoExampleUrl);
         <ul class="active-filters" data-active-filters data-remove-label={t.common.clear} aria-label={t.common.filters} hidden></ul>
         <span class="fine" data-filter-status role="status"></span>
       </div>
+  </Fragment>
+  <div class="wrap room-directory">
+    <section class="directory-workspace" id="browse" aria-label={t.common.browse}>
       <nav class="guide-tabs directory-mode-tabs" hidden data-directory-mode-controls aria-label={g.overview} role="tablist"><button type="button" id="tab-directory-list" data-directory-mode="list" role="tab" aria-selected="true" aria-controls="directory-list-panel"><svg width="19" height="19" aria-hidden="true"><use href="#i-list"/></svg><span>{g.browse}</span></button>{kind==='airports'&&<button type="button" id="tab-directory-map" data-directory-mode="map" role="tab" aria-selected="false" aria-controls="directory-map-panel"><svg width="19" height="19" aria-hidden="true"><use href="#i-globe"/></svg><span>{g.map}</span></button>}<button type="button" id="tab-directory-guide" data-directory-mode="guide" role="tab" aria-selected="false" aria-controls="directory-guidance-panel"><svg width="19" height="19" aria-hidden="true"><use href="#i-book"/></svg><span>{g.notes}</span></button></nav>
       <div class="results-toolbar"><h2>{r.results}</h2><div class="browse-tools" data-browse-tools hidden><label class="sr" for="directory-sort">{t.common.sort}</label><select id="directory-sort" data-directory-sort aria-label={t.common.sort}><option value="default">{t.common.recommended}</option><option value="name">{t.common.sortName}</option><option value="location">{t.common.sortLocation}</option></select><div class="seg directory-layout-choice" role="group" aria-label={t.common.view}><button type="button" data-directory-view="list" aria-pressed="true" aria-label={t.common.list} title={t.common.list}><svg width="19" height="19" aria-hidden="true"><use href="#i-list"/></svg></button><button type="button" data-directory-view="cards" aria-pressed="false" aria-label={t.common.cards} title={t.common.cards}><svg width="19" height="19" aria-hidden="true"><use href="#i-grid"/></svg></button></div></div></div>
       {kind==='airports'&&<div id="directory-map-panel" data-directory-map hidden aria-labelledby="tab-directory-map"><AirportMap {locale}/></div>}
@@ -58,7 +59,7 @@ const photoExample=rows.find(place=>place.url===photoExampleUrl);
     </div>
         <nav class="directory-pagination" data-directory-pagination hidden aria-label={r.page}><button type="button" data-page-previous>{r.previous}</button><span data-page-status data-label={r.page} data-of={r.of} role="status"></span><button type="button" data-page-next>{r.next}</button></nav>
       </div>
-      <div id="directory-guidance-panel" data-directory-guidance-panel aria-labelledby="tab-directory-guide"><header class="panel-heading"><span class="guide-kicker">{g.notes}</span><h2>{c.wayfindingTitle}</h2></header><ol class="room-three-steps">{c.steps.map((step,i)=><li><span class="step-symbol"><svg width="23" height="23" aria-hidden="true"><use href={`#i-${['pin','key','water'][i]}`}/></svg></span><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol><p class="note">{c.note}</p><VisitInsights {kind} {locale} compact /><VisitorArtwork scene={{airports:'airport',universities:'campus',hospitals:'hospital'}[kind]} {locale}/></div>
+      <div id="directory-guidance-panel" data-directory-guidance-panel aria-labelledby="tab-directory-guide"><header class="panel-heading"><span class="guide-kicker">{g.notes}</span><h2>{c.wayfindingTitle}</h2></header><ol class="room-three-steps">{c.steps.map((step,i)=><li><span class="step-symbol"><svg width="23" height="23" aria-hidden="true"><use href={`#i-${['pin','key','water'][i]}`}/></svg></span><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol><p class="note">{c.note}</p><DirectoryPhoto place={photoExample} {locale}/><VisitInsights {kind} {locale} compact /><VisitorArtwork scene={{airports:'airport',universities:'campus',hospitals:'hospital'}[kind]} {locale}/></div>
     </section>
 
   </div>

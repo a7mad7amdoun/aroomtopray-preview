@@ -239,18 +239,7 @@ html[dir=rtl] .room-layout>.room-main { direction:rtl; }
 .room-focus-button>svg,.room-restore-button>svg { flex:none; }
 .room-focus-button:hover,.room-restore-button:hover { background:var(--surface); border-color:var(--ink); }
 .room-focus-toolbar { align-items:center; justify-content:space-between; gap:14px; padding-bottom:16px; margin-bottom:22px; border-bottom:1px solid var(--line); color:var(--muted); font:.85rem/1.4 var(--f-body); }
-html[data-room-focus=true] .room-environment { display:none; }
-html[data-room-focus=true] .room-focus-toolbar:not([hidden]) { display:flex; }
-@media screen {
- html[data-room-focus=true] .room-main,html[data-room-focus=true] .immersive-site .site-footer {
-  width:min(var(--room-reading),calc(100% - 48px)); max-width:none; margin-inline:auto;
- }
- html[data-room-focus=true] .room-main { margin-top:28px; }
-}
-
 .room-utilities .room-focus-button { width:auto; margin:0; font-size:.78rem; }
-html[data-room-focus=true] .room-layout { display:block; width:min(940px,calc(100% - 48px)); }
-html[data-room-focus=true] .room-layout>.room-main { width:100%; margin:0; }
 html[dir=rtl] .door-notice-title>b,html[dir=rtl] .door-room-sign b { font-family:var(--f-arabic); font-size:1.1rem; letter-spacing:0; }
 html[dir=rtl] .door-notice-count,html[dir=rtl] .door-notice-return,html[dir=rtl] .door-control { font-family:var(--f-arabic); font-size:.95rem; }
 html[dir=rtl] .notice-arrow { rotate:180deg; }
@@ -324,7 +313,6 @@ html[dir=rtl] .notice-arrow { rotate:180deg; }
  html[dir=rtl] .door-notice-title>b { font-size:1rem; line-height:1.25; }
  html[dir=rtl] .door-notice-count { font-size:.75rem; line-height:1.1; }
  html[dir=rtl] .door-room-sign b { font-size:.65rem; }
- html[data-room-focus=true] .room-layout { width:calc(100% - 24px); }
 }
 @media(max-width:380px) {
  .room-wayfinding { top:6%; }

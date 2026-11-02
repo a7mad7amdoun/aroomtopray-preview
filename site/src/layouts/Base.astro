@@ -41,12 +41,14 @@ const languageLinks = LOCALES.map(l => ({ code: l.code, label: l.nativeName, hre
 const local = path => navigationPath(path, locale);
 const canonical = new URL(Astro.url.pathname, SITE).href;
 const ogImage = new URL(og || '/og/default.jpg', SITE).href;
+const isHome = Astro.url.pathname.replace(/^\/(fr|ar|es)/,'').replace(/\/$/,'') === '';
+const searchTarget = isHome ? '#place-search-input' : ['airports','universities','hospitals'].includes(nav) && Astro.url.pathname.replace(/^\/(fr|ar|es)/,'').replace(/\/$/,'') === `/${nav}` ? '#q-dir' : `${localizedPath('/',locale)}#place-search-input`;
 ---
 <!doctype html>
 <html lang={locale} dir={localeMeta(locale).dir} data-sector={nav || 'home'}>
 <head>
   <meta charset="utf-8">
-  <script is:inline>document.documentElement.classList.add('js'); try { const theme = localStorage.getItem('aroomtopray.theme.v1'); if (theme === 'light' || theme === 'dark') document.documentElement.setAttribute('data-theme', theme); } catch {} try { if (sessionStorage.getItem('aroomtopray.focus.v2') === 'true') document.documentElement.dataset.roomFocus = 'true'; } catch {}</script>
+  <script is:inline>document.documentElement.classList.add('js'); try { const theme = localStorage.getItem('aroomtopray.theme.v1'); if (theme === 'light' || theme === 'dark') document.documentElement.setAttribute('data-theme', theme); } catch {} try { sessionStorage.removeItem('aroomtopray.focus.v2'); sessionStorage.removeItem('aroomtopray.focus.v1'); } catch {}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>{title}</title>
   <meta name="description" content={description}>
@@ -78,10 +80,7 @@ const ogImage = new URL(og || '/og/default.jpg', SITE).href;
       <nav class="primary-navigation" aria-label={t.footer.directories}>
         {(['airports','universities','hospitals'] as const).map(kind=><a href={local(`/${kind}/`)} aria-current={nav===kind?'page':undefined}><svg width="19" height="19" aria-hidden="true"><use href={`#i-${{airports:'airport',universities:'campus',hospitals:'care'}[kind]}`}/></svg>{t.nav[kind]}</a>)}
       </nav>
-      <div class="room-view-switch" role="group" aria-label={view.label} hidden data-room-view-switch>
-        <button type="button" data-room-focus-exit aria-pressed="true" aria-controls="prayer-room" title={view.roomHint}><svg width="18" height="18" aria-hidden="true"><use href="#i-door-open"/></svg>{view.room}</button>
-        <button type="button" data-room-focus-enter aria-pressed="false" aria-controls="main" title={view.guideHint}><svg width="18" height="18" aria-hidden="true"><use href="#i-search"/></svg>{view.guide}</button>
-      </div>
+      <a class="header-search" href={searchTarget}><svg width="19" height="19" aria-hidden="true"><use href="#i-search"/></svg><span>{r.search}</span></a>
       <details class="site-menu" data-site-menu>
         <summary><span>{r.menu}</span><span class="menu-glyph" aria-hidden="true"><i></i><i></i></span></summary>
         <div class="site-menu-panel">
@@ -98,12 +97,13 @@ const ogImage = new URL(og || '/og/default.jpg', SITE).href;
     </div>
   </header>
   <div class="room-layout">
-  <RoomEnvironment kind={roomKind} {locale}/>
   <script>import '../scripts/navigation.js';</script>
   <main id="main" class="room-main" tabindex="-1">
+    <RoomEnvironment kind={roomKind} {locale}><slot name="arrival" /></RoomEnvironment>
+    <div id="guide-content" class="guide-content">
     <slot name="welcome" />
     <slot />
-
+    </div>
   </main>
   </div>
   <footer class="site-footer">

@@ -17,12 +17,12 @@ const date = value => new Intl.DateTimeFormat(locale,{day:'numeric',month:'long'
     <span class="photo-enlarge" data-photo-hint hidden><svg width="17" height="17" aria-hidden="true"><use href="#i-focus"/></svg>{v.enlarge}</span>
    </a>
    <figcaption>
-    <span class="photo-kind">{t.kinds[photo.kind]}</span>
+    <div class="photo-description"><span class="photo-kind">{t.kinds[photo.kind]}</span>
     <p>{photo.caption[locale] || photo.caption.en}</p>
     {photo.kind==='exterior'&&<p class="photo-caveat">{t.context}</p>}
-    <p class="photo-date">{t.captured} <time datetime={photo.dateTaken}>{date(photo.dateTaken)}</time></p>
+    </div><div class="photo-metadata"><p class="photo-date">{t.captured} <time datetime={photo.dateTaken}>{date(photo.dateTaken)}</time></p>
     <div class="photo-credit"><span>© <bdi>{photo.author}</bdi></span><a href={photo.sourceUrl} target="_blank" rel="noopener noreferrer">{t.original} ↗</a><a href={photo.license.url} target="_blank" rel="license noopener noreferrer">{photo.license.name}</a></div>
-    <small class="photo-processing">{t.changes}</small>
+    <small class="photo-processing">{t.changes}</small></div>
    </figcaption>
   </figure>)}</div>
  </>}
@@ -40,23 +40,27 @@ const date = value => new Intl.DateTimeFormat(locale,{day:'numeric',month:'long'
  .place-photos { margin-block:20px; min-width:0; scroll-margin-top:7rem; }
  .place-photos.has-photos { padding-block:24px 8px; border-top:1px solid var(--line); }
  header { display:flex; align-items:flex-start; gap:14px; margin-bottom:22px; }
- .photo-heading-icon { display:grid; place-items:center; width:44px; height:44px; flex:none; color:var(--sign-ink); background:var(--sign); border-radius:4px; }
+ .photo-heading-icon { display:grid; place-items:center; width:44px; height:44px; flex:none; color:var(--ink); background:var(--surface-2); border:1px solid var(--line); border-radius:10px; }
  h2 { margin:5px 0 10px; font-size:clamp(1.25rem,2vw,1.6rem); line-height:1.25; }
  .photo-caveat { color:var(--muted); font-size:.88rem; line-height:1.65; max-width:70ch; }
  .place-photo-grid { display:grid; gap:24px; margin-bottom:20px; }
- figure { display:grid; gap:20px; margin:0; min-width:0; padding:0; overflow:hidden; border:1px solid var(--line); border-radius:12px; background:color-mix(in srgb,var(--surface) 78%,transparent); box-shadow:none; }
+ figure { display:grid; gap:0; margin:0; min-width:0; padding:0; overflow:hidden; border:1px solid var(--line); border-radius:16px; background:var(--surface); box-shadow:none; }
  .place-photo-image { display:grid; align-items:center; align-self:start; border:0; background:var(--surface-2); border-radius:0; overflow:hidden; }
  .place-photo-image img { display:block; width:100%; height:auto; max-height:680px; object-fit:contain; filter:none; }
  .place-photo-image[role=button] { cursor:zoom-in; text-decoration:none; }
  .photo-enlarge { display:flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:8px 12px; border-top:1px solid var(--line); color:var(--ink); font:600 .8rem/1.4 var(--f-body); }
  .photo-enlarge svg { flex:none; }
  .place-photo-image[role=button]:hover .photo-enlarge { background:var(--sign); color:var(--sign-ink); }
- figcaption { min-width:0; padding:0 24px 24px; max-width:78ch; } figcaption p { margin:10px 0; line-height:1.6; }
- .photo-kind { color:var(--ink); font-size:.75rem; font-weight:700; padding:4px 8px; background:var(--surface-2); border:1px solid var(--line); border-radius:3px; }
+ figcaption { display:grid; gap:20px; min-width:0; padding:24px; } figcaption p { margin:10px 0; line-height:1.6; }
+ .photo-description,.photo-metadata { min-width:0; }
+ .photo-description>p { max-width:62ch; }
+ .photo-metadata { padding-top:16px; border-top:1px solid var(--line); }
+ .photo-metadata>.photo-date { margin-top:0; }
+ .photo-kind { color:var(--ink); font-size:.75rem; font-weight:700; padding:4px 8px; background:var(--surface-2); border:1px solid var(--line); border-radius:5px; }
  .photo-date,.photo-credit,.photo-processing { font-size:.8rem; color:var(--muted); line-height:1.65; }
  .photo-credit { display:flex; flex-wrap:wrap; gap:4px 14px; }.photo-credit a { text-underline-offset:3px; }
  .photo-processing { display:block; margin-top:6px; }
- .photo-research { border:1px solid var(--line); background:var(--surface); border-radius:6px; padding:0 16px; }
+ .photo-research { border:1px solid var(--line); background:var(--surface); border-radius:12px; padding:0 16px; }
  .has-photos .photo-research { background:var(--surface-2); }
  summary { cursor:pointer; min-height:52px; padding-block:14px; font-weight:600; line-height:1.5; }
  summary svg { vertical-align:middle; margin-inline:8px; } summary span { vertical-align:middle; }
@@ -68,5 +72,10 @@ const date = value => new Intl.DateTimeFormat(locale,{day:'numeric',month:'long'
  li { font-size:.82rem; overflow-wrap:anywhere; } li a { display:inline-block; padding-block:8px; }
  a:focus-visible,summary:focus-visible { outline:3px solid var(--focus); outline-offset:4px; }
  :global(html[lang=ar]) h2 { line-height:1.65; } :global(html[lang=ar]) .photo-caveat { line-height:1.9; }
+ @container prayer-guide (min-width:760px) {
+  figcaption { grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); gap:28px; }
+  .photo-metadata { padding:0; padding-inline-start:24px; border-top:0; border-inline-start:1px solid var(--line); }
+ }
+ @container prayer-guide (max-width:440px) { figcaption { padding:20px 16px; } header { gap:10px; } }
  @media print { figure { break-inside:avoid; box-shadow:none; } }
 </style>
