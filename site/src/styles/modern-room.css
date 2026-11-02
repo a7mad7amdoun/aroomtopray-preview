@@ -1,7 +1,7 @@
 /* Modern room refinement: one warm palette, calm surfaces and deliberate accents.
    Door geometry remains registered to the existing architectural photographs. */
 :root {
- --surface:#faf8f2; --surface-2:#eeece5; --ink:#142033; --muted:#586274;
+ --bg:#f1efe8; --surface:#faf8f2; --surface-2:#eeece5; --ink:#142033; --muted:#586274;
  --line:#d8d8d0; --field:#7b8593; --focus:#355c86;
  --room-reading-surface:rgba(250,248,242,.97); --room-reading-edge:#d8d3c6;
  --quiet-shadow:0 2px 5px #14203305,0 18px 60px #1420330d;
@@ -9,13 +9,13 @@
  --guide-radius:12px;
 }
 :root[data-theme=dark] {
- --surface:#111b2a; --surface-2:#1a2739; --ink:#edf0f4; --muted:#b1bdcd;
+ --bg:#0b1320; --surface:#111b2a; --surface-2:#1a2739; --ink:#edf0f4; --muted:#b1bdcd;
  --line:#344154; --field:#8291a5; --focus:#f4cd5e;
  --room-reading-surface:rgba(17,27,42,.97); --room-reading-edge:#3a4453;
  --quiet-shadow:0 2px 5px #0002,0 18px 60px #0003;
 }
 @media(prefers-color-scheme:dark) { :root:not([data-theme=light]) {
- --surface:#111b2a; --surface-2:#1a2739; --ink:#edf0f4; --muted:#b1bdcd;
+ --bg:#0b1320; --surface:#111b2a; --surface-2:#1a2739; --ink:#edf0f4; --muted:#b1bdcd;
  --line:#344154; --field:#8291a5; --focus:#f4cd5e;
  --room-reading-surface:rgba(17,27,42,.97); --room-reading-edge:#3a4453;
  --quiet-shadow:0 2px 5px #0002,0 18px 60px #0003;
@@ -107,13 +107,6 @@
 .immersive-site .site-footer { border-radius:16px; color:var(--muted); }
 .immersive-site .site-footer .brand { color:var(--ink); }
 
-@media(min-width:1100px) and (min-height:700px) and (min-aspect-ratio:3/2) {
- .immersive-site:has(.review-preview-notice) .room-environment { --room-stage-top:max(calc((100svh - var(--room-stage-height)) * .5),calc(126px - var(--room-stage-height) * .1)); }
- html:not([data-room-focus=true]) .room-layout>.room-main { padding:clamp(28px,2.7vw,44px); margin-top:28px; }
- html:not([data-room-focus=true]) .immersive-site .site-footer { border-radius:16px; }
- .room-environment .door-notice { min-height:80px; padding:16px; }
- .room-environment .room-utilities { margin-top:22px; }
-}
 @container prayer-guide (max-width:400px) {
  .room-main .guide-tabs { gap:10px; }
  .room-main .guide-tabs>:is(a,button) { gap:6px; font-size:.81rem; padding-inline:0; }

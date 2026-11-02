@@ -6,8 +6,7 @@ const { scene, locale='en', placement='guide', title='', caption='', purpose='vi
 if (!Object.hasOwn(VISITOR_ART_REFERENCES,scene)) throw new Error('Unknown visitor artwork: '+scene);
 const reference=VISITOR_ART_REFERENCES[scene];
 const copy=VISITOR_ART_COPY[locale]??VISITOR_ART_COPY.en;
-const imageWidth=placement==='supporting'?480:placement==='intro'?520:620;
-const sizes=`(max-width: 650px) 90vw, ${imageWidth}px`;
+const sizes="(max-width: 1200px) 90vw, 1040px";
 ---
 <figure class:list={['visitor-art',`visitor-art-${placement}`]} data-visitor-art={scene} data-art-purpose={purpose}>
  <VisitorPicture {scene} {sizes} alt={copy.alt[scene]}/>

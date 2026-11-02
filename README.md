@@ -30,4 +30,13 @@ node site/scripts/prepare-github-preview.mjs site/dist docs /aroomtopray-preview
 
 Commit the refreshed snapshot to this repository. GitHub Pages serves `main` → `/docs`. Keep this preview separate from Hamza’s production deployment.
 
-Verified before publication: full build, 112 unit tests, 24 mounted-URL interaction scenarios across English/French/Arabic/Spanish, local artwork/assets and internal-link checks. Browser-rendered visual review was unavailable in the local execution environment.
+Verified before publication: full build, 113 unit tests, 48 mounted-URL interaction and page-structure scenarios across English/French/Arabic/Spanish, local artwork/assets and internal-link checks. Browser-rendered visual review was unavailable in the local execution environment.
+
+
+## November 2 structural refinement
+
+The header offers Room and Guide views. Room is the default; an explicit choice is remembered for this browser tab with `aroomtopray-preview.focus.v2` in session storage. The two views share the same guide DOM, so switching does not reset search, filters, tabs, map selection or visitor tools. Room view places the full architectural scene above the centered guide; Guide view hides the scene and starts at the information. Both choices remain available in the header.
+
+The interface uses Archivo for Latin text and Noto Naskh Arabic for Arabic, with a shared ivory/navy/yellow palette. Branding, SVG country flags and existing photo galleries are larger. Photographs use their highest existing responsive sources; the content, dates, licenses and distinction between real photographs and illustrative scenes are retained. Layout changes do not add photographic coverage or synthesize details in documentary images.
+
+The design was checked through the production build, tests, offline DOM scenarios and asset/link validation. Browser-rendered visual inspection remains unavailable; responsive CSS and theme rules have not been verified through screenshots.

@@ -333,7 +333,7 @@ html[dir=rtl] .return-to-results::before { content:"→"; }
 /* Do not mirror architecture or Latin logos when reading Arabic. */
 [dir=rtl] .room-main .facts>div { padding:16px 0; }
 [dir=rtl] .room-main .visit-intro { border-radius:7px 0 0 7px; }
-[dir=rtl] .room-main [lang=en] { font-family:"Atkinson Hyperlegible",system-ui,sans-serif; }
+[dir=rtl] .room-main [lang=en] { font-family:"Archivo Variable",system-ui,sans-serif; }
 [dir=rtl] .room-main :is(h1,h2,h3) [lang=en] { font-family:"Archivo Variable",system-ui,sans-serif; line-height:1.4; }
 html[dir=rtl] .room-main :is(h1,h2,h3) { letter-spacing:0; line-height:1.5; }
 html[dir=rtl] .room-main :is(p,dd,li) { line-height:1.85; }

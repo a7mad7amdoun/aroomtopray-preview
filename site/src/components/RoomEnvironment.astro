@@ -1,13 +1,14 @@
 ---
 import { getCopy, localizedPath } from '../lib/i18n.js';
 import { ROOM_COPY } from '../data/room-copy.js';
+import { VIEW_COPY } from '../data/view-copy.js';
 import { DOOR_COPY } from '../data/door-copy.js';
 import WindowArtwork from './WindowArtwork.astro';
 import { airports } from '../lib/airports.js';
 import { universities } from '../lib/universities.js';
 import { hospitals } from '../lib/hospitals.js';
 const { kind='home', locale='en' }=Astro.props;
-const t=getCopy(locale), r=ROOM_COPY[locale], d=DOOR_COPY[locale];
+const t=getCopy(locale), r=ROOM_COPY[locale], d=DOOR_COPY[locale], view=VIEW_COPY[locale];
 const settings={airports:'airport', universities:'campus', hospitals:'hospital'};
 const open=kind in settings;
 const outside=settings[kind] || 'airport';
@@ -45,6 +46,7 @@ const number=new Intl.NumberFormat(locale);
     </div>
   </div>
   <div class="room-console">
+    <div class="room-welcome" dir={locale==='ar'?'rtl':'ltr'}><p>{r.title}<br/><span>{r.line}</span></p></div>
     <aside class="room-wayfinding" dir={locale==='ar'?'rtl':'ltr'} aria-labelledby="room-wayfinding-label">
       <p class="room-wayfinding-label" id="room-wayfinding-label">{d.destinations}</p>
       <nav class="door-notices" aria-labelledby="room-wayfinding-label">
@@ -65,7 +67,7 @@ const number=new Intl.NumberFormat(locale);
           <span class="sr" data-room-light-status role="status"></span>
         </div>
       </div>
-      <button class="room-focus-button" type="button" hidden data-room-focus-enter aria-controls="main"><svg width="17" height="17" aria-hidden="true"><use href="#i-focus"/></svg><span>{d.focus}</span></button>
+      <a class="room-guide-jump" href="#main"><span>{view.jump}</span><svg width="19" height="19" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       <p class="room-scene-caption"><svg width="17" height="17" aria-hidden="true"><use data-room-scene-icon href={`#i-${doors.find(([category])=>category===kind)?.[1]||'airport'}`}/></svg><span>{d.outside}<b data-room-scene-name>{t.nav[open?kind:'airports']}</b></span></p>
       <p class="room-art-note">{r.scene}</p>
   </div>

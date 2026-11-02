@@ -3,4 +3,4 @@ import {countryFlagUrl} from '../lib/countries.js';
 const {country,class:className=''}=Astro.props;
 const src=countryFlagUrl(country);
 ---
-{src&&<img class:list={['country-flag',className]} {src} width="28" height="21" alt="" aria-hidden="true" loading="lazy" decoding="async"/>}
+{src&&<img class:list={['country-flag',className]} {src} width="40" height="30" alt="" aria-hidden="true" loading="lazy" decoding="async"/>}

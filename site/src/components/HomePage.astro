@@ -18,7 +18,7 @@ const tabs=[{id:'find-place',label:g.find,icon:'search'},{id:'countries',label:g
 ---
 <Base title={`${r.title} ${r.line} | A Room to Pray`} description={t.home.description}>
  <div class="wrap guide-home" data-guide-tabs>
-  <header class="room-home-intro"><span class="room-eyebrow"><span></span>{g.guide}</span><h1 id="home-title">{r.title}<br/><span>{r.line}</span></h1><p class="room-introduction">{r.information}</p></header>
+  <header class="room-home-intro"><span class="room-eyebrow"><span></span>{g.guide}</span><h1 id="home-title">{r.search}</h1><p class="room-introduction">{r.information}</p></header>
   <GuideTabNav {tabs} label={g.overview}/>
   <section id="find-place" class="guide-panel">
    <PlaceSearch {locale}/>

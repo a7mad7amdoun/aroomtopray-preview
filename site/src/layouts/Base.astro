@@ -1,9 +1,5 @@
 ---
 import '@fontsource-variable/archivo/wdth.css';
-import '@fontsource/atkinson-hyperlegible/400.css';
-import '@fontsource/atkinson-hyperlegible/700.css';
-import '@fontsource/jetbrains-mono/400.css';
-import '@fontsource/jetbrains-mono/600.css';
 import '@fontsource/noto-naskh-arabic/600.css';
 import '@fontsource/noto-naskh-arabic/400.css';
 import '../styles/global.css';
@@ -16,14 +12,14 @@ import '../styles/room-artwork.css';
 import '../styles/editorial-art.css';
 import '../styles/countries.css';
 import '../styles/room-door.css';
-import '../styles/premium-navigation.css';
-import '../styles/room-spatial.css';
 import '../styles/information-design.css';
 import '../styles/modern-room.css';
+import '../styles/room-spatial.css';
+import '../styles/premium-navigation.css';
 import AppearanceControls from '../components/AppearanceControls.astro';
 import RoomEnvironment from '../components/RoomEnvironment.astro';
 import { ROOM_COPY } from '../data/room-copy.js';
-import { DOOR_COPY } from '../data/door-copy.js';
+import { VIEW_COPY } from '../data/view-copy.js';
 import { WAYFINDING_COPY } from '../data/wayfinding-copy.js';
 import { LOCALES, getCopy, localeFromPath, localeMeta, localizedPath } from '../lib/i18n.js';
 import { hasLocalizedRoute, languageTarget, navigationPath } from '../lib/localized-routes.js';
@@ -38,7 +34,7 @@ const locale = localeFromPath(Astro.url.pathname);
 const t = getCopy(locale);
 const w = WAYFINDING_COPY[locale];
 const r = ROOM_COPY[locale];
-const door = DOOR_COPY[locale];
+const view = VIEW_COPY[locale];
 const visitHash = ['airports','universities','hospitals'].includes(nav) ? `#panel-${nav}` : '';
 const roomKind = ['airports','universities','hospitals'].includes(nav) ? nav : 'home';
 const languageLinks = LOCALES.map(l => ({ code: l.code, label: l.nativeName, href: languageTarget(Astro.url.pathname, l.code) }));
@@ -50,7 +46,7 @@ const ogImage = new URL(og || '/og/default.jpg', SITE).href;
 <html lang={locale} dir={localeMeta(locale).dir} data-sector={nav || 'home'}>
 <head>
   <meta charset="utf-8">
-  <script is:inline>document.documentElement.classList.add('js'); try { const theme = localStorage.getItem('aroomtopray.theme.v1'); if (theme === 'light' || theme === 'dark') document.documentElement.setAttribute('data-theme', theme); } catch {} try { sessionStorage.removeItem('aroomtopray.focus.v1'); } catch {}</script>
+  <script is:inline>document.documentElement.classList.add('js'); try { const theme = localStorage.getItem('aroomtopray.theme.v1'); if (theme === 'light' || theme === 'dark') document.documentElement.setAttribute('data-theme', theme); } catch {} try { if (sessionStorage.getItem('aroomtopray.focus.v2') === 'true') document.documentElement.dataset.roomFocus = 'true'; } catch {}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>{title}</title>
   <meta name="description" content={description}>
@@ -78,21 +74,25 @@ const ogImage = new URL(og || '/og/default.jpg', SITE).href;
   <Icons />
   <header class="top room-header">
     <div class="wrap">
-      <a class="brand" href={localizedPath('/',locale)} aria-label={`A Room to Pray · ${t.nav.home}`}><Mark size={35}/><span>A Room to Pray<small>{w.directory}</small></span></a>
+      <a class="brand" href={localizedPath('/',locale)} aria-label={`A Room to Pray · ${t.nav.home}`}><Mark size={52}/><span>A Room to Pray<small>{w.directory}</small></span></a>
       <nav class="primary-navigation" aria-label={t.footer.directories}>
         {(['airports','universities','hospitals'] as const).map(kind=><a href={local(`/${kind}/`)} aria-current={nav===kind?'page':undefined}><svg width="19" height="19" aria-hidden="true"><use href={`#i-${{airports:'airport',universities:'campus',hospitals:'care'}[kind]}`}/></svg>{t.nav[kind]}</a>)}
       </nav>
-      <button class="room-restore-button" type="button" hidden aria-controls="prayer-room" data-room-focus-exit><svg width="16" height="16" aria-hidden="true"><use href="#i-door-open"/></svg>{door.restore}</button>
+      <div class="room-view-switch" role="group" aria-label={view.label} hidden data-room-view-switch>
+        <button type="button" data-room-focus-exit aria-pressed="true" aria-controls="prayer-room" title={view.roomHint}><svg width="18" height="18" aria-hidden="true"><use href="#i-door-open"/></svg>{view.room}</button>
+        <button type="button" data-room-focus-enter aria-pressed="false" aria-controls="main" title={view.guideHint}><svg width="18" height="18" aria-hidden="true"><use href="#i-search"/></svg>{view.guide}</button>
+      </div>
       <details class="site-menu" data-site-menu>
         <summary><span>{r.menu}</span><span class="menu-glyph" aria-hidden="true"><i></i><i></i></span></summary>
         <div class="site-menu-panel">
           <nav class="menu-destinations" aria-label={t.footer.directories}>{(['airports','universities','hospitals'] as const).map(kind=><a href={local(`/${kind}/`)} aria-current={nav===kind?'page':undefined}><svg width="20" height="20" aria-hidden="true"><use href={`#i-${{airports:'airport',universities:'campus',hospitals:'care'}[kind]}`}/></svg>{t.nav[kind]} <svg class="menu-destination-arrow directional-icon" width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a>)}</nav>
+          <p class="menu-section-label">{view.tools}</p>
           <nav class="menu-tools" aria-label={t.footer.prepare}>
-            <a href={local('/visit/')+visitHash}>{r.details}</a>
-            <a class="saved-nav" href="/saved/">{t.nav.saved}{locale!=='en'&&<small class="source-language">EN</small>}<span class="saved-count" data-saved-count hidden></span></a>
-            {(['planner','travel','rooms-won','about','contact'] as const).map((path,i)=><a href={`/${path}/`}>{[t.nav.planner,t.nav.travel,t.nav.roomsWon,t.nav.about,t.nav.contact][i]}{locale!=='en'&&<small class="source-language">EN</small>}</a>)}
+            <a href={local('/visit/')+visitHash}><svg width="18" height="18" aria-hidden="true"><use href="#i-book"/></svg>{r.details}</a>
+            <a class="saved-nav" href="/saved/"><svg width="18" height="18" aria-hidden="true"><use href="#i-save"/></svg>{t.nav.saved}{locale!=='en'&&<small class="source-language">EN</small>}<span class="saved-count" data-saved-count hidden></span></a>
+            {(['planner','travel','rooms-won','about','contact'] as const).map((path,i)=><a href={`/${path}/`}><svg width="18" height="18" aria-hidden="true"><use href={`#i-${['list','globe','check','info','help'][i]}`}/></svg>{[t.nav.planner,t.nav.travel,t.nav.roomsWon,t.nav.about,t.nav.contact][i]}{locale!=='en'&&<small class="source-language">EN</small>}</a>)}
           </nav>
-          <div class="menu-preferences"><AppearanceControls {locale} {languageLinks}/></div>
+          <div class="menu-preferences"><p class="menu-section-label">{view.settings}</p><AppearanceControls {locale} {languageLinks}/></div>
         </div>
       </details>
     </div>
@@ -101,10 +101,6 @@ const ogImage = new URL(og || '/og/default.jpg', SITE).href;
   <RoomEnvironment kind={roomKind} {locale}/>
   <script>import '../scripts/navigation.js';</script>
   <main id="main" class="room-main" tabindex="-1">
-    <div class="room-focus-toolbar" hidden data-room-focus-toolbar>
-      <span>{door.focused}</span>
-
-    </div>
     <slot name="welcome" />
     <slot />
 

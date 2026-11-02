@@ -4,8 +4,8 @@
   --sign: #FFC629; --sign-ink: #14171C; --board: #16202E; --board-ink: #F3F5F8; --board-dim: #9AA8BB; --board-cell: #1E2A3B;
   --go: #0A7552; --go-bg: #DCF1E7; --warn: #8F430B; --warn-bg: #FBEADB; --alert: #B42318; --alert-bg: #FCE4E1; --mute-bg: #E3E8EF; --focus: #1F5FD6;
   --f-display: "Archivo Variable", "Arial Narrow", system-ui, sans-serif;
-  --f-body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --f-body: "Archivo Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: var(--f-body);
   --f-arabic: "Noto Naskh Arabic", "Geeza Pro", "Arabic Typesetting", serif;
   --r: 10px; --gutter: clamp(16px, 4vw, 40px); --max: 1180px;
   --hero: url(/art/hero-day.webp); --hero-m: url(/art/hero-day-m.webp);

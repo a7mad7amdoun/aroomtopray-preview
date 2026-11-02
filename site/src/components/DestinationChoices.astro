@@ -22,7 +22,7 @@ const choices=[
 <nav class="destination-choices" aria-label={t.footer.directories}>
  {choices.map(({kind,icon,count,url,place,photo})=><figure class="destination-choice" data-destination-kind={kind}>
   <a class="destination-choice-link" href={localizedPath(`/${kind}/`,locale)}>
-   <span class="destination-choice-photo"><img src={photo.images[0].src} srcset={photoSrcset(photo)} sizes="(max-width: 600px) 104px, 280px" width={photo.width} height={photo.height} alt={photo.alt[locale]} loading="lazy" decoding="async"/></span>
+   <span class="destination-choice-photo"><img src={photo.images.at(-1).src} srcset={photoSrcset(photo)} sizes="(max-width: 760px) calc(100vw - 100px), 360px" width={photo.width} height={photo.height} alt={photo.alt[locale]} loading="lazy" decoding="async"/></span>
    <span class="destination-choice-copy"><span class="destination-choice-title"><svg width="23" height="23" aria-hidden="true"><use href={`#i-${icon}`}/></svg><strong>{t.nav[kind]}</strong><svg class="directional-icon" width="17" height="17" aria-hidden="true"><use href="#i-arrow"/></svg></span><span class="destination-choice-count">{formatCount(count,locale)} {r.places}</span></span>
   </a>
   <figcaption><span>{copy.example}: <a href={`${localizedPath(url,locale)}#place-photos`}>{place}</a></span><span>{p.kinds[photo.kind]} · <time datetime={photo.dateTaken}>{new Intl.DateTimeFormat(locale,{year:'numeric',timeZone:'UTC'}).format(new Date(`${photo.dateTaken}T12:00:00Z`))}</time></span></figcaption>
@@ -35,18 +35,18 @@ const choices=[
  <p>{p.changes}</p>
 </details>
 <style>
- .destination-choices { display:grid; grid-template-columns:1fr; gap:14px; margin-top:26px; }
+ .destination-choices { display:grid; grid-template-columns:1fr; gap:24px; margin-top:36px; }
  .destination-choice { margin:0; min-width:0; overflow:hidden; border:1px solid var(--line); border-radius:14px; background:var(--surface); transition:border-color 180ms ease,box-shadow 180ms ease; }
- .destination-choice-link { display:grid; grid-template-columns:minmax(0,1fr) 144px; align-items:center; padding:10px; gap:8px; color:var(--ink); text-decoration:none; }
- .destination-choice-photo { display:grid; place-items:center; width:100%; aspect-ratio:4/3; overflow:hidden; border-radius:9px; background:var(--surface-2); order:2; }
+ .destination-choice-link { display:grid; grid-template-columns:1fr; align-items:start; padding:0; gap:0; color:var(--ink); text-decoration:none; }
+ .destination-choice-photo { display:grid; place-items:center; width:100%; aspect-ratio:4/3; overflow:hidden; border-radius:0; background:var(--surface-2); order:0; }
  img { display:block; width:100%; height:100%; object-fit:contain; filter:none; }
- .destination-choice-copy { display:grid; gap:12px; min-width:0; padding:12px 10px; order:1; }
+ .destination-choice-copy { display:grid; gap:12px; min-width:0; padding:22px 20px 12px; order:1; }
  .destination-choice-title { display:flex; align-items:center; gap:9px; }
  .destination-choice-title svg { flex:none; }
  .destination-choice-title svg:last-child { margin-inline-start:auto; width:28px; height:28px; padding:5px; border-radius:50%; background:var(--surface-2); transition:background-color 180ms,color 180ms; }
  strong { font:600 1.08rem/1.4 var(--f-display); letter-spacing:-.025em; overflow-wrap:anywhere; }
  .destination-choice-count { padding-inline-start:32px; font-size:.8rem; color:var(--muted); }
- figcaption { display:flex; justify-content:space-between; flex-wrap:wrap; gap:3px 14px; padding:10px 16px 12px; border-top:0; font-size:.72rem; line-height:1.5; color:var(--muted); }
+ figcaption { display:flex; justify-content:space-between; flex-wrap:wrap; gap:3px 14px; padding:8px 20px 20px; border-top:0; font-size:.78rem; line-height:1.5; color:var(--muted); }
  figcaption a { color:inherit; text-decoration:underline; text-underline-offset:3px; }
  .destination-choice:has(a:hover) { border-color:var(--field); box-shadow:0 6px 18px #00000008; }
  .destination-choice-link:hover .destination-choice-title svg:last-child { background:var(--sign); color:var(--sign-ink); }
@@ -64,19 +64,12 @@ const choices=[
  a:focus-visible,summary:focus-visible { outline:3px solid var(--focus); outline-offset:3px; }
  @container prayer-guide (min-width:680px) {
   .destination-choices { grid-template-columns:repeat(3,minmax(0,1fr)); }
-  .destination-choice-link { grid-template-columns:1fr; gap:0; }
-  .destination-choice-photo { order:0; }
-  .destination-choice-copy { padding:17px 14px; }
-  figcaption { min-height:76px; align-content:start; }
+  figcaption { min-height:92px; align-content:start; }
  }
  @container prayer-guide (max-width:360px) {
-  .destination-choice-link { grid-template-columns:minmax(0,1fr) 96px; gap:2px; padding:7px; }
-  .destination-choice-copy { padding:10px 6px; gap:7px; }
-  .destination-choice-title { gap:6px; }
-  .destination-choice-title svg:first-child { width:18px; }
-  .destination-choice-title svg:last-child { display:none; }
-  strong { font-size:.92rem; }
-  .destination-choice-count { padding-inline-start:24px; }
+  .destination-choice-title { gap:8px; }
+  .destination-choice-copy { padding:18px 16px 8px; }
+  figcaption { padding-inline:16px; }
  }
  :global(html[dir=rtl]) strong { letter-spacing:0; font-family:var(--f-arabic); line-height:1.6; font-size:1.15rem; }
  :global(html[dir=rtl]) figcaption { font-size:.85rem; line-height:1.7; }
