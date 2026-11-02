@@ -2,7 +2,7 @@ import { browseQuery, returnToDirectory } from '../lib/directory-context.js';
 
 // The moving leaf is decorative. Wayfinding and controls stay on the wall.
 export function initRoomDoor(room, browser = window) {
-  if (!room) return;
+  if (!room || room.dataset.doorReady === 'true') return;
   const control = room.querySelector('[data-door-toggle]');
   const label = room.querySelector('[data-door-toggle-label]');
   const outside = room.querySelector('.door-outside');
@@ -59,8 +59,14 @@ export function initRoomDoor(room, browser = window) {
     link.addEventListener('pointerdown', syncContext);
     link.addEventListener('click', syncContext);
     browser.addEventListener('pageshow', syncContext);
+    browser.addEventListener('popstate', syncContext);
+    // These events are dispatched on document by the directory and atlas.
+    // Keep copied/open-in-new-tab links current before the next pointer action.
+    room.ownerDocument?.addEventListener('directory:updated', syncContext);
+    room.ownerDocument?.addEventListener('atlas:selection', syncContext);
   });
   // Restored pages keep their current state; no timers or delayed redirects.
   browser.addEventListener('pageshow', () => setOpen(room.dataset.doorState === 'open'));
+  room.dataset.doorReady = 'true';
 }
 if (typeof document !== 'undefined') initRoomDoor(document.querySelector('.room-environment'));

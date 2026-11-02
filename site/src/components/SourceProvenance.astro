@@ -1,0 +1,37 @@
+---
+import { originalDirectorySource, SOURCE_PROVENANCE_COPY } from '../data/source-provenance.js';
+
+interface Props {
+  path?: string;
+  locale?: string;
+}
+const { path = Astro.url.pathname, locale: requestedLocale = 'en' } = Astro.props;
+const locale = ['en', 'fr', 'ar', 'es'].includes(requestedLocale) ? requestedLocale : 'en';
+const source = originalDirectorySource(path);
+const copy = SOURCE_PROVENANCE_COPY[locale];
+---
+{source && <aside class="source-provenance" data-source-provenance={source.kind} lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} aria-label={copy.label}>
+  <div>
+    <p class="source-provenance-label">{copy.label}</p>
+    <p class="source-provenance-detail">{copy[source.kind]}</p>
+  </div>
+  <a href={source.url} hreflang="en">
+    <span>{source.kind === 'listing' ? copy.openListing : copy.openDirectory}{locale !== 'en' && <small>{copy.english}</small>}</span>
+    <span aria-hidden="true">↗</span>
+  </a>
+</aside>}
+<style>
+  .source-provenance { display:flex; align-items:center; justify-content:space-between; gap:18px 32px; padding-block:20px; border-block:1px solid var(--line); color:var(--ink); font-family:var(--f-body); }
+  .source-provenance>div { min-width:0; }
+  .source-provenance-label { margin:0 0 5px; font-size:.78rem; font-weight:600; line-height:1.5; }
+  .source-provenance-detail { margin:0; max-width:75ch; color:var(--muted); font-size:.8rem; line-height:1.65; }
+  a { display:flex; flex-shrink:0; align-items:center; gap:14px; min-height:44px; max-width:22rem; padding-block:8px; color:var(--ink); font-size:.8rem; font-weight:600; line-height:1.5; text-decoration:underline; text-underline-offset:4px; }
+  a>span:first-child { min-width:0; }
+  a>span[aria-hidden] { flex:none; font-size:1.05rem; }
+  a small { display:block; font-size:.7rem; font-weight:400; color:var(--muted); }
+  a:hover { color:var(--muted); }
+  a:focus-visible { outline:3px solid var(--focus); outline-offset:4px; }
+  [dir=rtl] .source-provenance-detail { line-height:1.9; }
+  @media(max-width:700px) { .source-provenance { align-items:flex-start; flex-direction:column; gap:8px; } a { max-width:100%; } }
+  @container prayer-guide (max-width:700px) { .source-provenance { align-items:flex-start; flex-direction:column; gap:8px; } a { max-width:100%; } }
+</style>

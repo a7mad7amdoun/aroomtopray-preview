@@ -1,46 +1,46 @@
-// Institution-specific arrival guidance, kept separate from place records and their check dates.
-// Primary sources were inspected for this addition; no rule below applies to every institution.
+// Institution-specific details drawn from Hamza’s original listings.
+// These highlights do not change the records’ dates or their primary-source citations.
 export const FIELD_NOTE_COPY = {
-  en: { eyebrow: 'A useful detail', source: 'From official guidance', read: 'Read the guidance', email: 'Chaplaincy email' },
-  fr: { eyebrow: 'Un détail utile', source: 'Selon les informations officielles', read: 'Lire les informations', email: 'Courriel de l’aumônerie' },
-  ar: { eyebrow: 'تفصيل مفيد', source: 'من الإرشادات الرسمية', read: 'اقرأ الإرشادات', email: 'بريد فريق الرعاية الروحية' },
-  es: { eyebrow: 'Un detalle útil', source: 'Según la información oficial', read: 'Leer la información', email: 'Correo de capellanía' },
+  en: { eyebrow: 'A useful detail', source: 'From Hamza’s directory', read: 'Read the original listing', email: 'Chaplaincy email' },
+  fr: { eyebrow: 'Un détail utile', source: 'D’après l’annuaire de Hamza', read: 'Lire la fiche d’origine', email: 'Courriel de l’aumônerie' },
+  ar: { eyebrow: 'تفصيل مفيد', source: 'من دليل حمزة', read: 'اقرأ الصفحة الأصلية', email: 'بريد فريق الرعاية الروحية' },
+  es: { eyebrow: 'Un detalle útil', source: 'Del directorio de Hamza', read: 'Leer la ficha original', email: 'Correo de capellanía' },
 };
 
 export const QUIET_FIELD_NOTES = {
   airports: {
-    id: 'melbourne-ambassadors',
-    icon: 'help',
-    sourceUrl: 'https://www.melbourneairport.com.au/find-support-from-melbourne-airports-chaplaincy',
-    sourceName: 'Melbourne Airport',
+    id: 'melbourne-security-sides',
+    icon: 'pin',
+    sourceUrl: 'https://aroomtopray.com/airports/mel/',
+    sourceName: 'A Room to Pray',
     copy: {
       en: {
         institution: 'Melbourne Airport',
-        title: 'Someone to point the way',
-        text: 'If you cannot find your way to a prayer room, Melbourne Airport recommends asking an Experience Ambassador in the terminals for directions.',
+        title: 'Choose the right side of security',
+        text: 'The directory lists two 24-hour prayer rooms: one before security on the ground floor between T2 and T3, and one after security in T2, opposite Cafe Sol.',
       },
       fr: {
         institution: 'Aéroport de Melbourne',
-        title: 'Une personne pour vous orienter',
-        text: 'Si vous ne trouvez pas la salle de prière, l’aéroport de Melbourne recommande de demander votre chemin à un membre de l’équipe « Experience Ambassadors » dans les terminaux.',
+        title: 'Repérez le bon côté du contrôle',
+        text: 'L’annuaire répertorie deux salles de prière ouvertes 24 h/24 : l’une avant le contrôle de sécurité, au rez-de-chaussée entre les terminaux T2 et T3, et l’autre après le contrôle, dans le T2, en face du Cafe Sol.',
       },
       ar: {
         institution: 'مطار ملبورن',
-        title: 'مَن يساعدك في الوصول',
-        text: 'إذا لم تعرف طريق غرفة الصلاة، يوصي مطار ملبورن بطلب الإرشاد من أحد أفراد فريق «Experience Ambassadors» في مباني الركاب.',
+        title: 'حدّد موقع الغرفة من التفتيش الأمني',
+        text: 'يسرد الدليل غرفتين للصلاة مفتوحتين على مدار الساعة: واحدة قبل التفتيش الأمني في الطابق الأرضي بين مبنيَي T2 وT3، وأخرى بعد التفتيش في T2 مقابل Cafe Sol.',
       },
       es: {
         institution: 'Aeropuerto de Melbourne',
-        title: 'Alguien que te indique el camino',
-        text: 'Si no encuentras la sala de oración, el aeropuerto de Melbourne recomienda pedir indicaciones a un miembro del equipo «Experience Ambassadors» en las terminales.',
+        title: 'Antes o después del control de seguridad',
+        text: 'El directorio recoge dos salas de oración abiertas las 24 horas: una antes del control de seguridad, en la planta baja entre T2 y T3, y otra después del control, en T2, frente a Cafe Sol.',
       },
     },
   },
   universities: {
     id: 'bristol-ucard',
     icon: 'key',
-    sourceUrl: 'https://www.bristol.ac.uk/multifaith-chaplaincy/places-to-worship/',
-    sourceName: 'University of Bristol',
+    sourceUrl: 'https://aroomtopray.com/universities/university-of-bristol/',
+    sourceName: 'A Room to Pray',
     email: 'multifaith-chaplaincy@bristol.ac.uk',
     copy: {
       en: {
@@ -66,30 +66,30 @@ export const QUIET_FIELD_NOTES = {
     },
   },
   hospitals: {
-    id: 'ashford-st-peters-after-hours',
-    icon: 'clock',
-    sourceUrl: 'https://ashfordstpeters.nhs.uk/our-multi-faith-centres',
-    sourceName: 'Ashford and St Peter’s Hospitals NHS Foundation Trust',
+    id: 'st-thomas-access',
+    icon: 'key',
+    sourceUrl: 'https://aroomtopray.com/hospitals/st-thomas-hospital/',
+    sourceName: 'A Room to Pray',
     copy: {
       en: {
-        institution: 'Ashford Hospital & St Peter’s Hospital · Surrey',
-        title: 'Access outside opening hours',
-        text: 'Both Multi-Faith Centres open daily from 08:00 to 18:00. Outside those hours, the Trust says security staff can unlock them when needed.',
+        institution: 'St Thomas’ Hospital · London',
+        title: 'Check who can use the room',
+        text: 'The directory lists the multi-faith room for patients, their relatives during the patient’s stay, and staff only because space is limited. Ask ward staff for access.',
       },
       fr: {
-        institution: 'Hôpitaux Ashford et St Peter’s · Surrey',
-        title: 'Accès en dehors des horaires d’ouverture',
-        text: 'Les deux centres multiconfessionnels ouvrent chaque jour de 8 h à 18 h. En dehors de ces horaires, l’établissement indique que le personnel de sécurité peut les ouvrir si nécessaire.',
+        institution: 'Hôpital St Thomas’ · Londres',
+        title: 'Vérifiez les conditions d’accès',
+        text: 'L’annuaire indique que la salle multiconfessionnelle est réservée aux patients, à leurs proches pendant leur séjour et au personnel, faute de place. Demandez l’accès au personnel du service.',
       },
       ar: {
-        institution: 'مستشفيا آشفورد وسانت بيترز · سَري',
-        title: 'الدخول خارج ساعات العمل',
-        text: 'يفتح المركزان متعددا الأديان يومياً من الثامنة صباحاً إلى السادسة مساءً. وتوضح المؤسسة أن موظفي الأمن يستطيعون فتحهما خارج هذه الساعات عند الحاجة.',
+        institution: 'مستشفى سانت توماس · لندن',
+        title: 'تأكّد ممن يحق لهم استخدام الغرفة',
+        text: 'يوضح الدليل أن الغرفة متعددة الأديان مخصّصة للمرضى وأقاربهم خلال إقامة المريض والموظفين فقط، بسبب محدودية المساحة. اطلب الدخول من موظفي الجناح.',
       },
       es: {
-        institution: 'Hospitales Ashford y St Peter’s · Surrey',
-        title: 'Acceso fuera del horario de apertura',
-        text: 'Ambos centros multiconfesionales abren todos los días de 08:00 a 18:00. Fuera de ese horario, la entidad indica que el personal de seguridad puede abrirlos cuando sea necesario.',
+        institution: 'Hospital St Thomas’ · Londres',
+        title: 'Comprueba quién puede acceder',
+        text: 'El directorio indica que la sala multiconfesional está reservada a pacientes, familiares durante la estancia del paciente y personal, por falta de espacio. Pide acceso al personal de la planta.',
       },
     },
   },

@@ -19,7 +19,8 @@ function element(classes = []) {
   };
 }
 function fixture(kind='home', route='/fr/', search='') {
-  const room=element(),control=element(),label=element(),notices=element(),browser=element(),sceneName=element(),sceneIcon=element();
+  const room=element(),control=element(),label=element(),notices=element(),browser=element(),document=element(),sceneName=element(),sceneIcon=element();
+  room.ownerDocument=document;
   browser.location=new URL(`https://local.test${route}${search}`);
   const scene=kind==='home'?'airport':({airports:'airport',universities:'campus',hospitals:'hospital'})[kind];
   const outside=element([`outside-${scene}`]);
@@ -36,7 +37,7 @@ function fixture(kind='home', route='/fr/', search='') {
   })[selector];
   room.querySelectorAll=()=>links;
   initRoomDoor(room,browser);
-  return {room,control,label,notices,links,outside,browser,sceneName,sceneIcon};
+  return {room,control,label,notices,links,outside,browser,document,sceneName,sceneIcon};
 }
 
 test('home starts closed with readable notices and a translated open control',()=>{
@@ -65,6 +66,14 @@ test('reversing rapidly never queues navigation or forces a stale animation stat
   for(let i=0;i<20;i++) f.control.emit('click');
   assert.equal(f.room.dataset.doorState,'closed');
   f.control.emit('click');assert.equal(f.room.dataset.doorState,'open');
+});
+test('reinitializing preserves the chosen preview and binds only one reversible toggle',()=>{
+  const f=fixture();f.links[1].emit('focus');f.control.emit('click');
+  initRoomDoor(f.room,f.browser);
+  assert.equal(f.room.dataset.doorState,'open');assert.equal(f.room.dataset.roomPreview,'campus');
+  f.control.emit('click');assert.equal(f.room.dataset.doorState,'closed');assert.equal(f.label.textContent,'Ouvrir la porte');
+  f.control.emit('click');assert.equal(f.room.dataset.doorState,'open');assert.equal(f.label.textContent,'Fermer la porte');
+  assert.equal(f.outside.classList.contains('outside-campus'),true);
 });
 test('all notice links navigate immediately, including keyboard and modified activations',()=>{
   const f=fixture();
@@ -98,6 +107,28 @@ test('changes to directory filters are picked up when a notice is activated',()=
   assert.equal(f.links[0].emit('click',{ctrlKey:true}).defaultPrevented,false);
   assert.equal(f.links[0].getAttribute('href'),'/fr/airports/?country=MA&mode=map');
   assert.equal(f.links[0].returnLabel.hidden,true);
+});
+test('directory and atlas document events proactively update the current destination only',()=>{
+  const f=fixture('airports','/fr/airports/','?country=GB');
+  // A second init must not capture the already enriched href as its base path.
+  initRoomDoor(f.room,f.browser);
+  f.browser.location.search='?q=London&country=GB&f=wudu&sort=name&mode=map&page=2';
+  f.document.emit('directory:updated');
+  assert.equal(f.links[0].getAttribute('href'),'/fr/airports/?q=London&country=GB&f=wudu&mode=map&sort=name&page=2');
+  f.browser.location.search+='&airport=lhr';f.document.emit('atlas:selection');
+  assert.equal(f.links[0].getAttribute('href'),'/fr/airports/?q=London&country=GB&f=wudu&mode=map&sort=name&page=2&airport=lhr');
+  assert.equal(f.links[1].getAttribute('href'),'/fr/universities/');assert.equal(f.links[2].getAttribute('href'),'/fr/hospitals/');
+  assert.equal(f.room.dataset.doorState,'open');assert.equal(f.links[0].returnLabel.hidden,true);
+  assert.equal(f.links[0].emit('click',{metaKey:true}).defaultPrevented,false);
+});
+test('history changes refresh the detail return link and label without changing the door',()=>{
+  const f=fixture('airports','/fr/airports/lhr/','?browse='+encodeURIComponent('country=GB&mode=map&airport=lhr'));
+  f.control.emit('click');
+  f.browser.location.search='?browse='+encodeURIComponent('country=FR&mode=list&page=2');f.browser.emit('popstate');
+  assert.equal(f.links[0].getAttribute('href'),'/fr/airports/?country=FR&mode=list&page=2');assert.equal(f.links[0].returnLabel.hidden,false);
+  f.browser.location.search='';f.browser.emit('popstate');
+  assert.equal(f.links[0].getAttribute('href'),'/fr/airports/');assert.equal(f.links[0].returnLabel.hidden,true);assert.equal(f.links[0].returnLabel.textContent,'');
+  assert.equal(f.room.dataset.doorState,'closed');assert.equal(f.control.getAttribute('aria-expanded'),'false');
 });
 
 

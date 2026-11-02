@@ -18,8 +18,10 @@ const counts={airports:airports.length,universities:universities.length,hospital
 const number=new Intl.NumberFormat(locale);
 ---
 <div id="prayer-room" class:list={['room-environment', {'room-door-open':open}]} data-room-presentation={presentation} data-room-preview={outside} data-room-setting={kind} data-door-state={open?'open':'closed'}>
+ <div class="room-stage">
   <div class="room-arrival-copy" dir={locale==='ar'?'rtl':'ltr'}><slot /><div class="arrival-actions"><ReceptionCard {locale} id="room-reception"/><a class="arrival-guide-link" href="#guide-content">{q.guide}<svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a></div></div>
   <div class="room-architecture" dir="ltr">
+   <div class="room-canvas">
     <div class="room-wall" aria-hidden="true"></div>
     <div class="door-surround">
           <span class="door-room-sign" dir={locale==='ar'?'rtl':'ltr'}><svg width="20" height="20" aria-hidden="true"><use href="#i-mark"/></svg><b>{r.room}</b></span>
@@ -54,8 +56,10 @@ const number=new Intl.NumberFormat(locale);
           <span class="sr" data-room-light-status role="status"></span>
         </div>
       </div>
+   </div>
     <p class="room-art-note">{r.scene}</p>
   </div>
+ </div>
   <div class="room-console">
     <aside class="room-wayfinding" dir={locale==='ar'?'rtl':'ltr'} aria-labelledby="room-wayfinding-label">
       <header class="room-destinations-heading"><div><p class="room-wayfinding-label" id="room-wayfinding-label">{q.settings}</p>{presentation==='home'&&<h2>{q.choose}</h2>}</div>{presentation==='home'&&<span class="room-illustration-label">{q.illustration}</span>}</header>

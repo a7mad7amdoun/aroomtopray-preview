@@ -1,0 +1,87 @@
+{
+  "purpose": "Reconcile source attribution against Hamza’s actual directory without replacing baseline records or changing their verification dates.",
+  "method": {
+    "directoryLinks": "Read via direct HTTPS source for all three category pages and compared with every local record URL.",
+    "representativeDetails": "Read direct HTML source for Melbourne, Bristol, King’s College Hospital and St Thomas’ Hospital.",
+    "scopeLimit": "This is source and route reconciliation, not a new verification of every room’s current conditions.",
+    "rendering": "No browser rendering was used."
+  },
+  "directories": [
+    {
+      "url": "https://aroomtopray.com/airports/",
+      "liveListingLinks": 414,
+      "localRecords": 414,
+      "missingLocalRoutes": [],
+      "extraLocalRoutes": []
+    },
+    {
+      "url": "https://aroomtopray.com/universities/",
+      "liveListingLinks": 77,
+      "localRecords": 77,
+      "missingLocalRoutes": [],
+      "extraLocalRoutes": []
+    },
+    {
+      "url": "https://aroomtopray.com/hospitals/",
+      "liveListingLinks": 45,
+      "localRecords": 45,
+      "missingLocalRoutes": [],
+      "extraLocalRoutes": []
+    }
+  ],
+  "countCautions": [
+    "The homepage’s 366-airport count excludes pending airports; it must not replace the directory’s 414-airport total.",
+    "The hospital directory has 32 checked and 13 still checking; all 45 records are retained."
+  ],
+  "representativeListings": [
+    {
+      "url": "https://aroomtopray.com/airports/mel/",
+      "facts": "Two round-the-clock spaces are listed, one before security between T2/T3 at ground level, the other beyond security in T2 opposite Cafe Sol.",
+      "primarySources": [
+        "https://www.melbourneairport.com.au/the-chaplaincy"
+      ],
+      "previousExtraTip": "Experience Ambassador wayfinding does not appear on Hamza’s MEL listing. The independent airport article supports it, but the displayed field note now uses the two rooms from Hamza’s listing instead."
+    },
+    {
+      "url": "https://aroomtopray.com/universities/university-of-bristol/",
+      "facts": "Woodland Prayer Rooms at 21 Woodland Road require Ucard activation via chaplaincy email for all-hours access.",
+      "primarySources": [
+        "https://www.bristol.ac.uk/multifaith-chaplaincy/places-to-worship/"
+      ],
+      "researchCorrection": "The earlier quiet-threshold research incorrectly described Bristol as absent after looking only in universities.json. It exists in universities-2.json and on Hamza’s live directory; the Ucard advice was already present in both."
+    },
+    {
+      "url": "https://aroomtopray.com/hospitals/st-thomas-hospital/",
+      "facts": "Limited capacity restricts the multi-faith room to patients, relatives during the patient’s stay, and staff. Access is through ward staff.",
+      "primarySources": [
+        "https://www.guysandstthomas.nhs.uk/our-services/spiritual-care",
+        "https://www.guysandstthomas.nhs.uk/our-services/spiritual-care/religious-services"
+      ],
+      "previousExtraTip": "Ashford/St Peter’s is not listed in Hamza’s hospital directory. Its independently sourced security-unlock example is replaced in the displayed field note by this St Thomas’ access restriction."
+    },
+    {
+      "url": "https://aroomtopray.com/hospitals/kings-college-hospital/",
+      "facts": "Hamza’s listing does not confirm a Muslim chaplain. The preview’s existing adapter uses a separately attributed VisitInsights source that does.",
+      "primarySources": [
+        "https://www.kch.nhs.uk/wp-content/uploads/2023/01/Chaplaincy-4pp-A5-May-2025.pdf"
+      ],
+      "attributionCaution": "Do not imply the preview’s independent Muslim-support overlay or other supplemental research was copied from Hamza or freshly verified as part of this task."
+    }
+  ],
+  "preservedStrengths": [
+    "Specific location and access details remain beside primary citations.",
+    "Unknown, not listed, pending and checked records remain distinct.",
+    "Original source-check dates are retained.",
+    "Existing qibla, nearby-masjid, halal-source, planner, visitor-report and photo tools are kept.",
+    "Hamza’s directory remains identified as independent of the listed institutions."
+  ],
+  "implementation": {
+    "component": "site/src/components/SourceProvenance.astro",
+    "copyAndRouteHelper": "site/src/data/source-provenance.js",
+    "observedRoutes": "site/src/data/original-listing-paths.js",
+    "displayedFieldNotes": "site/src/data/quiet-field-notes.js",
+    "tests": "site/tests/source-provenance.test.mjs",
+    "integration": "Render SourceProvenance once with the current Astro pathname and locale below the guide. It links only home/category or actual observed listing paths, strips language prefixes and search fragments, and labels originals as English in translated interfaces.",
+    "separation": "The attribution states that additional guidance and artwork have separate credits. Field-note highlights now cite exact original directory listings; institutional links remain in existing place records. No check date is added."
+  }
+}

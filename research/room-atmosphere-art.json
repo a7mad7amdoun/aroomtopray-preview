@@ -1,0 +1,39 @@
+{
+  "title": "A Room to Pray — continuous room background",
+  "mode": "Built-in image generation (image_gen)",
+  "artDirection": "One panoramic architectural room with a registered working doorway. Pale oak and ivory daylight; warm ambient navy evening. Artwork is illustrative, not a verified location. Room geometry is independent from text length and filter expansion.",
+  "sourceOfGuideInformation": "https://aroomtopray.com/",
+  "registration": {
+    "sourceWidth": 1774,
+    "sourceHeight": 887,
+    "aperture": {
+      "left": 279,
+      "top": 153,
+      "right": 589,
+      "bottom": 708
+    },
+    "mobile": "Show a closer crop of the same 2:1 canvas. Canvas height varies smoothly from320 to440 CSS pixels, with width always exactly twice its height. The scene is cropped by the viewport without stretching or moving the door relative to the artwork."
+  },
+  "assets": [
+    {
+      "key": "day",
+      "prompt": "Use case: precise-object-edit.\nAsset type: high-resolution panoramic architectural website background, approximately 2:1 landscape, preferably 2560×1280.\nInput: the attached prayer room is a material and atmosphere reference. Recompose it into a much more beautiful, expansive architectural scene rather than a narrow portrait.\n\nCreate an extraordinarily calm, believable contemporary prayer room photographed straight-on, from inside the room. Warm ivory mineral plaster, exquisitely detailed natural pale oak, quiet travertine floor, daylight, real fine-grained material texture, premium architectural editorial photography with natural optics. No glossy CGI.\n\nComposition is critical for a working website:\n- A large, perfectly rectangular EMPTY door aperture occupies the left quarter. Inner opening approximately x=11% to 28% of image width, y=14% to 79% of image height. Vertical edges perfectly upright, horizontal lintel. The opening has an elegant restrained pale-oak frame and a deep architectural reveal. NO DOOR LEAF: the website supplies the moving door. Inside the opening is a dim plain empty passage; do not show another door.\n- The back wall continues across the entire width. The RIGHT HALF from x=48% to 94%, y=12% to 74% is luminous warm IVORY, very calm and largely empty, with minimal fine plaster texture. This is negative space for navy interface text; no objects, strong patterns, dramatic contrast, shafts of light, fixtures or shadows in that reading zone.\n- At the far LEFT edge, a slim vertical recessed daylight opening and a little view of a sidewall give the room depth. Soft light brushes the door frame and floor.\n- The wall/floor junction sits around y=79%. The floor has a grounded perspective and gentle reflected daylight.\n- On the lower LEFT foreground, beneath/in front of the door but not blocking it, show a beautiful understated woven navy prayer rug with only one very thin ochre border and a small restrained mihrab outline. Keep the rug fully identifiable, not sprawling across the entire floor.\n- At the far right bottom edge, a low simple oak bench may be partly visible, leaving the copy zone empty.\n- A subtle continuous wall shadow and restrained cove glow make the architecture feel physically connected. No theatrical spotlights.\n\nGive a feeling of peace inside a crowded world: serene, precise, warm, human, beautifully finished. Visual sophistication comes from architecture, proportions, lighting and material detail. No people, no posters, no text, no logos, no extra icons, no plants blocking space, no domes, no ornate decoration, no generated interface. Full-bleed 2:1 image, crisp high detail.",
+      "reference": "site/public/art/quiet-threshold/room-light-1122.webp",
+      "generatedFile": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-5aa5c373-9cd9-4d3b-ab85-812e1666cd91.png",
+      "savedFiles": [
+        "site/public/art/room-atmosphere/day-1024.webp",
+        "site/public/art/room-atmosphere/day-1774.webp"
+      ]
+    },
+    {
+      "key": "night",
+      "prompt": "Use case: lighting-weather.\nAsset type: exact registered evening version of the attached panoramic prayer-room website background.\nChange only the palette and illumination. Keep the entire geometry, camera, every object's position, floor junction, window and doorway pixel-registered to the reference. Keep the empty rectangular door aperture at exactly the same coordinates; do not add a door leaf. Keep the same 2:1 landscape proportions.\n\nTurn this into an exquisitely calm blue-hour prayer room. The plaster wall becomes deep matte midnight navy in the #111B2A family, with natural fine mineral texture and gently legible midtones. The right half is quiet, evenly toned navy for pale interface text, never black. Preserve the natural oak door frame with soft warm illumination, the taupe stone floor and woven navy prayer mat with its fine ochre border. The slender window at far left shows subdued blue evening outdoors. The existing thin ceiling cove gives a very soft continuous warm light, no overexposed orange stripe. Soft ambient warm reflected light provides beautiful floor texture and architectural depth. Quiet, safe, peaceful, physically believable premium editorial architectural photography. No new objects, lamps, people, text, symbols, logos, changes in framing or perspective. All surfaces remain readable, shadows restrained. Same exact dimensions and composition as the input.",
+      "reference": "day generated image",
+      "generatedFile": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-ad04476f-fe86-4237-95ba-325168365f5d.png",
+      "savedFiles": [
+        "site/public/art/room-atmosphere/night-1024.webp",
+        "site/public/art/room-atmosphere/night-1774.webp"
+      ]
+    }
+  ]
+}
