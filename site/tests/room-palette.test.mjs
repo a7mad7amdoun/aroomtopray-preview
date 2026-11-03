@@ -80,3 +80,41 @@ test('reading surfaces are opaque in both modes and airport scope explicitly est
   assert.match(block, /color:\s*var\(--ink\);/, 'Local --ink alone does not change an inherited CSS color');
   assert.match(block, /color-scheme:\s*dark;/, 'Native controls must follow the local navy panel');
 });
+
+// These symbols used to inherit an !important foreground from the older guide
+// stylesheet, defeating the later yellow-tile pairing in dark mode. Inspect the
+// real declarations in import order so token-only checks cannot miss it again.
+test('practical-step symbols retain contrast after the legacy stylesheet cascade', () => {
+  const base = readFileSync(new URL('../src/layouts/Base.astro', import.meta.url), 'utf8');
+  const styleFiles = [...base.matchAll(/import '\.\.\/styles\/([^']+\.css)'/g)].map(match => match[1]);
+  const matching = new Map([
+    ['.room-three-steps li>span', 12],
+    ['.step-symbol', 10],
+    ['.room-main .step-symbol', 20],
+    ['.room-main .room-three-steps .step-symbol', 30],
+  ]);
+  const winners = new Map();
+  let order = 0;
+  for (const file of styleFiles) {
+    const sheet = readFileSync(new URL(`../src/styles/${file}`, import.meta.url), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
+    for (const [, selectors, body] of sheet.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
+      for (const selector of selectors.split(',').map(value => value.trim())) {
+        if (!matching.has(selector)) continue;
+        for (const [, property, value, important] of body.matchAll(/(?:^|;)\s*(color|background)\s*:\s*([^;!]+)\s*(!important)?\s*(?=;|$)/g)) {
+          const candidate = { value: value.trim(), priority: (important ? 10000 : 0) + matching.get(selector), order: ++order };
+          const current = winners.get(property);
+          if (!current || candidate.priority > current.priority || (candidate.priority === current.priority && candidate.order > current.order)) winners.set(property, candidate);
+        }
+      }
+    }
+  }
+  const resolve = (property, palette) => {
+    const value = winners.get(property)?.value;
+    assert.ok(value, `Missing effective step-symbol ${property}`);
+    return value.replace(/var\((--[a-z-]+)\)/g, (_, token) => palette[token]);
+  };
+  for (const [name, palette] of Object.entries({ light, dark, systemDark })) {
+    const result = ratio(resolve('color', palette), resolve('background', palette));
+    assert.ok(result >= 3, `${name}: effective step-symbol contrast is ${result.toFixed(2)}:1`);
+  }
+});

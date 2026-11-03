@@ -35,7 +35,14 @@ export function initRoomCycle(room, browser, links, preview) {
   schedule();
  };
  control.hidden=false;
- control.addEventListener('click',()=>{userPaused=!userPaused;updateControl(true);});
+ control.addEventListener('click',()=>{
+  userPaused=!userPaused;
+  // Resuming is an explicit request, including while the button still has
+  // keyboard focus or the pointer remains over it. Subsequent interaction
+  // with the guide or destination notices can pause the tour again.
+  if(!userPaused){hovered=false;focused=false;}
+  updateControl(true);
+ });
  interaction.addEventListener('pointerenter',()=>{hovered=true;clear();});
  interaction.addEventListener('pointerleave',()=>{hovered=false;schedule();});
  room.addEventListener('focusin',()=>{focused=true;clear();});

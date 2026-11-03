@@ -40,6 +40,23 @@ test('explicit pause survives visibility, hover and page restoration until resum
  assert.equal(f.timers.size,0);assert.equal(f.room.dataset.roomCycle,'paused');
  f.control.emit('click');assert.equal(f.timers.size,1);assert.equal(f.status.textContent,'Playing');
 });
+test('explicit resume starts while its button retains focus and pointer hover',()=>{
+ const f=fixture({scoped:true});
+ f.interaction.emit('pointerenter');f.room.emit('focusin');
+ f.control.emit('click');assert.equal(f.timers.size,0);
+ f.control.emit('click');assert.equal(f.label.textContent,'Pause views');assert.equal(f.timers.size,1);
+ f.tick();assert.deepEqual(f.seen,['campus']);
+ // Returning to another control still protects the visitor's interaction.
+ f.room.emit('focusin');assert.equal(f.timers.size,0);
+ f.room.emit('focusout',{relatedTarget:null});assert.equal(f.timers.size,1);
+ f.interaction.emit('pointerleave');f.interaction.emit('pointerenter');assert.equal(f.timers.size,0);
+});
+test('reduced-motion visitors can explicitly resume from the focused control',()=>{
+ const f=fixture({reduced:true,scoped:true});
+ f.room.emit('focusin');f.interaction.emit('pointerenter');
+ f.control.emit('click');assert.equal(f.timers.size,1);f.tick();assert.deepEqual(f.seen,['campus']);
+ f.media.emit('change',{matches:true});assert.equal(f.timers.size,0);
+});
 test('reduced-motion and data-saving preferences require explicit opt-in',()=>{
  for(const options of [{reduced:true},{saveData:true}]){
   const f=fixture(options);assert.equal(f.timers.size,0);assert.equal(f.control.dataset.paused,'true');

@@ -1,0 +1,32 @@
+A ROOM TO PRAY — REPAIR THE IMPLEMENTATION, PRESERVE THE IDEA
+Applied repair prompt · 3 November 2026
+
+Work only on Ahmed's A Room to Pray preview. The current prayer room, realistic left doorway, outside destination scenes, ivory/navy/yellow identity, shared typography and information guide are the established direction. Repair their implementation. Do not substitute another design, delete useful content or start again. Hamza's production website is read-only. The only authorized publication target is Ahmed's existing GitHub Pages preview.
+
+Start with evidence. Audit the actual cascade, DOM and interaction state, not just the last stylesheet. The site has accumulated multiple generations of styles, so a local declaration can appear correct while an earlier selector or !important rule still wins. Follow selectors through every imported stylesheet; check the actual component class names and how they interact with older components. Separate verified source findings from visual assumptions. Fix the cause where practical instead of stacking decorative overrides.
+
+Confirmed repair priorities:
+
+1. Restore the navigation's intended typography and proportions. Its links currently reuse the destination-link class from older image cards. The card selector styles every child span as a 32px yellow circle, including the navigation's text label. Give the navigation a specific class name and prevent this cross-component styling. Keep three clearly labelled primary destinations, meaningful emblems, correct selected state, language/appearance preferences, search and visitor tools. Preserve native menu and keyboard semantics. Use Hamza's yellow for purposeful signs and selected emblems, not an accidental background behind every label.
+
+2. Resolve effective theme contrast. The practical-step symbols are meant to be dark on yellow. An earlier !important text color makes them ivory on yellow in dark mode. Remove that stale override and verify the actual cascade, not only palette tokens. Preserve the established readable light, dark, system and local navy-board palettes. Inspect labels, icons, focus states, status symbols and links. Keep symbols accompanied by text.
+
+3. Fit the architecture to its available height. The current cover-like canvas can crop the bottom of the door and prayer-room floor in short desktop windows, and over-enlarge the door in tall ones. Keep the exact two-to-one image ratio and normalized door registration. Fit the complete canvas within available desktop width and height; let the existing neutral edge gradient continue the background where needed. The room should remain a calm spatial reference rather than dictate the reading column's dimensions. Preserve the mobile architectural glimpse and provide a compact short-screen treatment. The prayer mat must keep facing the solid wall; do not change room artwork or place a door/object ahead of the mat.
+
+4. Bring useful information closer on laptop screens. Three destination notices currently become one long column even when the reading area is roughly 1,090px wide. Use parallel cards where each can remain readable; reserve stacked photo-and-text rows for genuinely narrow reading widths. Preserve every destination description, listing count and image credit. Keep information width stable and do not animate text or form geometry.
+
+5. Restore destination emblems on small layouts. An old tablet rule hides all notice symbols. Explicitly preserve the airport, university and hospital emblems on non-home pages, while retaining the intentional photo-led home card design. Avoid adding ornamental symbols that duplicate meaning.
+
+6. Make Resume views honor an explicit action. Clicking Resume must start the scene tour even while that same control retains focus or hover. A later interaction with search, forms or notices must still pause the background appropriately. Explicit Pause, reduced-motion changes, a closed door, hidden document and page departure must continue to stop it. Keep one timer and never delay real navigation to play an animation.
+
+7. Preserve Arabic reading comfort. Ensure the intended Arabic body size and line height survive the later general body rule. Keep the established Arabic font, natural spacing, zero artificial tracking and correct reading direction. Maintain the physical left doorway while the reading content flows right to left. Do not blindly enlarge every fixed-size label.
+
+8. Correct print behavior after the wrapper change. Remove decorative arrival actions and coverage from printed guides, retain actual place information and sources, and keep the architecture out of print. Replace stale selectors that assume the old parent-child order. Do not hide the main content by restoring an obsolete room rule.
+
+Keep the repair bounded. Preserve all place records, source links, checked dates, uncertainty, institutional access restrictions, flags, translations, maps and visitor tools. Do not relabel a listing as a verified prayer room. Preserve search/filter/history context and every existing route. Do not include separate unfinished map work in this release.
+
+Implementation method: work in an isolated checkout, keep edits in the existing component/style/controller owners, remove stale conflicting declarations where possible and avoid a new catch-all stylesheet. Record regressions with focused checks that exercise the actual collision or behavior. Test all current controls, exported route mounting, noindex/submission restrictions, Arabic direction and data preservation. Build all localized routes using PUBLIC_REVIEW_PREVIEW=true and PUBLIC_PREVIEW_BASE=/aroomtopray-preview before exporting docs.
+
+An existing explicit browser URL policy block prevents rendered inspection in this session. Do not bypass it through another browser, screenshot pipeline or rendering engine. Use source/cascade analysis, unit tests, offline DOM checks and ordinary HTTP checks honestly. These do not establish pixel-perfect visual rendering. Report this limit to Ahmed, along with the specific repaired issues.
+
+Finish the work: retain this prompt and a validation record, publish only the authorized GitHub preview after checks pass, verify its exact deployment and served files, and provide one fresh link. Describe concrete changes and remaining review limits. Do not claim that all conceivable defects are gone or that an unavailable model or visual check was used.

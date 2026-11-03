@@ -106,3 +106,20 @@ test('restored pages do not leave focus hidden in the menu and initialization is
   assert.equal(f.document.emit('keydown', { key: 'Escape' }).defaultPrevented, false);
   assert.equal(f.document.activeElement, f.outside);
 });
+
+// The old destination-card arrow uses a 32px yellow circle on direct child
+// spans. A shared class once made every masthead label inherit that styling.
+test('masthead labels do not match legacy destination-card circle selectors', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const header = await readFile(new URL('../src/components/HeaderNavigation.astro', import.meta.url), 'utf8');
+  const legacy = await readFile(new URL('../src/styles/experience.css', import.meta.url), 'utf8');
+  const navigation = header.match(/<nav class="primary-navigation"[\s\S]*?<\/nav>/)?.[0];
+  assert.ok(navigation, 'The three primary destinations remain in a named navigation');
+  const linkClasses = navigation.match(/<a class="([^"]+)"/)?.[1].split(/\s+/) || [];
+  const circularChildRules = [...legacy.matchAll(/\.([\w-]+)\s*>\s*span\s*\{([^{}]*)\}/g)]
+    .filter(([, , declarations]) => /border-radius:\s*50%/.test(declarations) && /width:\s*32px/.test(declarations));
+  assert.ok(circularChildRules.length, 'The legacy card treatment remains available for its original content');
+  for (const [, ancestorClass] of circularChildRules) {
+    assert.ok(!linkClasses.includes(ancestorClass), `Header labels must not inherit .${ancestorClass}>span circle dimensions`);
+  }
+});

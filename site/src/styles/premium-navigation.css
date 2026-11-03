@@ -35,7 +35,8 @@
  color:var(--ink); font:580 .94rem/1.4 var(--f-body); white-space:nowrap;
  transition:background-color 180ms ease,border-color 180ms ease,box-shadow 180ms ease;
 }
-.top.room-header .destination-emblem { display:grid; place-items:center; width:30px; height:30px; flex:none; border-radius:5px; color:var(--muted); transition:background-color 180ms ease,color 180ms ease; }
+.top.room-header .primary-destination-label { min-width:0; font:inherit; line-height:inherit; }
+.top.room-header .destination-emblem { display:grid; place-items:center; width:30px; height:30px; flex:none; border-radius:5px; background:transparent; color:var(--muted); transition:background-color 180ms ease,color 180ms ease; }
 .top.room-header .destination-emblem>svg { display:block; width:21px; height:21px; }
 .top.room-header .primary-navigation>a::after {
  content:none; display:none;

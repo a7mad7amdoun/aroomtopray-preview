@@ -34,8 +34,8 @@ const tools = [
       <Mark size={52}/><span><bdi>A Room to Pray</bdi><small>{wayfinding.directory}</small></span>
     </a>
     <nav class="primary-navigation" aria-label={t.footer.directories}>
-      {destinations.map(({ kind, icon }) => <a class="destination-link" href={local(`/${kind}/`)} aria-current={nav === kind ? 'page' : undefined}>
-        <span class="destination-emblem" aria-hidden="true"><svg width="21" height="21"><use href={`#i-${icon}`}/></svg></span><span>{t.nav[kind]}</span>
+      {destinations.map(({ kind, icon }) => <a class="primary-destination-link" href={local(`/${kind}/`)} aria-current={nav === kind ? 'page' : undefined}>
+        <span class="destination-emblem" aria-hidden="true"><svg width="21" height="21"><use href={`#i-${icon}`}/></svg></span><span class="primary-destination-label">{t.nav[kind]}</span>
       </a>)}
     </nav>
     <a class="header-search" href={searchTarget}><svg width="19" height="19" aria-hidden="true"><use href="#i-search"/></svg><span>{room.search}</span></a>

@@ -138,7 +138,7 @@ html[dir=rtl] .menu-destinations>a[aria-current] { box-shadow:inset -3px 0 var(-
 .room-three-steps { gap:18px; margin:24px 0; }
 .room-three-steps h3 { font-size:1rem; }
 .room-three-steps p { font-size:.9rem; }
-.step-symbol { display:grid!important; place-items:center; width:42px; height:42px; background:var(--surface-2); color:var(--ink)!important; border-radius:9px; }
+.step-symbol { display:grid!important; place-items:center; width:42px; height:42px; background:var(--surface-2); color:var(--ink); border-radius:9px; }
 .room-disclosure { margin-top:20px; }
 .room-disclosure>summary { font-size:.9rem; min-height:52px; }
 .room-disclosure[open] { background:var(--surface); border-radius:8px; }

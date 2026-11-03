@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-03",
+  "basisCommit": "251efaea27198e03dcbf63fdcbe18b0dde5767c2",
+  "purpose": "Repair confirmed CSS cascade, geometry and interaction defects without replacing the room identity.",
+  "fixes": [
+    "Isolated header link and label classes from legacy picture-card yellow-circle styling.",
+    "Restored dark-on-yellow practical-step symbols in dark mode by removing a conflicting color priority.",
+    "Fitted desktop room geometry to available height and width; retained aligned door/artwork coordinates and compact short-screen treatment.",
+    "Kept destination cards parallel at normal laptop reading widths; preserved narrow-screen stacked rows.",
+    "Restored non-home destination emblems on tablet and phone layouts.",
+    "Made explicit Resume views start even while its control retains focus or hover; later interaction still pauses.",
+    "Restored intended Arabic body size and line height.",
+    "Corrected print selectors for the new wrapper and removed decorative arrival actions/coverage from printed guides."
+  ],
+  "validation": {
+    "unitTestsPassed": 176,
+    "unitFailures": 0,
+    "builtPages": 2177,
+    "mountedAssetsChecked": 80,
+    "brokenLocalLinks": 0,
+    "localizedStructureScenarios": 24,
+    "localizedRoomScenarios": 24,
+    "localizedSearchMenuVisitScenarios": 12,
+    "localizedDirectoryScenarios": 12,
+    "localizedReceptionScenarios": 12,
+    "preservedContentRoutes": 24,
+    "sourceStylesheetsParsed": 20,
+    "sourceGeometryCases": 8,
+    "renderedVisualInspection": false
+  },
+  "preservation": [
+    "All existing place data, sources, translations, country data and artwork unchanged.",
+    "Guide, arrival and console text and links retained in 24 representative localized routes.",
+    "Eleven unrelated pending map files excluded from the release."
+  ],
+  "limits": [
+    "Existing explicit browser URL policy block prevents rendered visual verification; no alternate renderer or screenshot workaround used.",
+    "Geometry cases use CSS arithmetic and representative header measurements, not actual browser layout."
+  ],
+  "publication": "Ahmed GitHub Pages preview only; Hamza production untouched; preview submissions disabled.",
+  "prompt": "research/repair-prompt-2026-11-03.txt"
+}
