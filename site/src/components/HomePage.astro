@@ -5,7 +5,6 @@ import { airports, byCode } from '../lib/airports.js';
 import { universities } from '../lib/universities.js';
 import { hospitals } from '../lib/hospitals.js';
 import { QUIET_COPY } from '../data/quiet-copy.js';
-import { ARRIVAL_COPY } from '../data/arrival-copy.js';
 import DestinationChoices from './DestinationChoices.astro';
 import PlaceSearch from './PlaceSearch.astro';
 import PrayerRoomBoard from './PrayerRoomBoard.astro';
@@ -19,27 +18,23 @@ import { getCopy, localizedPath } from '../lib/i18n.js';
 import { ROOM_COPY } from '../data/room-copy.js';
 import { GUIDE_COPY } from '../data/guide-copy.js';
 const { locale='en' }=Astro.props, t=getCopy(locale), r=ROOM_COPY[locale],g=GUIDE_COPY[locale];
-const identity=IDENTITY_COPY[locale], q=QUIET_COPY[locale], a=ARRIVAL_COPY[locale];
+const identity=IDENTITY_COPY[locale], q=QUIET_COPY[locale];
 const allPlaces=[...airports,...universities,...hospitals];
 const coverage=new Set(allPlaces.map(place=>place.country)).size;
 const number=new Intl.NumberFormat(locale);
 const tabs=[{id:'find-place',label:g.find,icon:'search'},{id:'countries',label:g.countryTab,icon:'globe'},{id:'your-visit',label:g.prepare,icon:'book'}];
 ---
-<Base title={`${a.headline.join(' ')} | A Room to Pray`} description={t.home.description}>
+<Base title={`${r.title} ${r.line} | A Room to Pray`} description={t.home.description}>
  <Fragment slot="arrival">
-  <header class="arrival-home-intro"><span class="arrival-kicker">{a.eyebrow}</span><h1 id="home-title">{a.headline[0]}<br/><span>{a.headline[1]}</span></h1><p class="arrival-introduction">{a.intro}</p></header>
-  <div class="arrival-search-desk">
+  <header class="room-home-intro"><span class="room-eyebrow"><span></span>{g.guide}</span><h1 id="home-title">{r.title}<br/><span>{r.line}</span></h1><p class="room-introduction">{q.intro}</p></header>
   <PlaceSearch {locale}/>
-  <p class="arrival-search-hint">{a.searchHint}</p>
-  </div>
   <p class="arrival-coverage"><span><b>{number.format(allPlaces.length)}</b> {q.listed}</span><span><b>{number.format(coverage)}</b> {q.countries}</span></p>
  </Fragment>
- <section class="arrival-principles" aria-labelledby="arrival-principles-title"><header><span class="arrival-kicker">{a.proofIntro}</span><h2 id="arrival-principles-title">{a.proofTitle}</h2></header><div class="arrival-principles-grid">{a.pillars.map(p=><div><svg width="24" height="24" aria-hidden="true"><use href={`#i-${p.icon}`}/></svg><h3>{p.title}</h3><p>{p.text}</p></div>)}</div></section>
  <div class="wrap guide-home" data-guide-tabs>
   <GuideTabNav {tabs} label={g.overview}/>
   <section id="find-place" class="guide-panel">
-<header class="discovery-heading"><div><span class="guide-kicker">{a.boardEyebrow}</span><h2>{a.boardTitle}</h2></div><p>{a.boardIntro}</p></header>
-   <div class="arrival-departures"><PrayerRoomBoard {locale}/><div class="arrival-photo-feature"><span class="arrival-kicker">{a.photoTitle}</span><DirectoryPhoto place={byCode.doh} {locale}/></div></div>
+<header class="discovery-heading"><div><span class="guide-kicker">{q.boardKicker}</span><h2>{q.boardTitle}</h2></div><p>{q.boardIntro}</p></header>
+   <div class="home-departures"><PrayerRoomBoard {locale}/><DirectoryPhoto place={byCode.doh} {locale}/></div>
    <details class="room-disclosure home-photo-library" data-print-expand><summary><span><svg width="19" height="19" aria-hidden="true"><use href="#i-photo"/></svg>{q.photos}</span><span aria-hidden="true">+</span></summary><DestinationChoices {locale}/></details>
    <div class="room-promise room-source-promise"><svg width="19" height="19" aria-hidden="true"><use href="#i-check"/></svg><div><p>{identity.promise}</p><a href="#guide-principles-title">{identity.how}<span aria-hidden="true"> →</span></a></div></div>
   </section>

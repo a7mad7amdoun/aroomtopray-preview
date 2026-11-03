@@ -1,6 +1,5 @@
 import { readSaved } from '../lib/saved-places.js';
 import { returnToDirectory } from '../lib/directory-context.js';
-import { initArrivalNavigation } from '../lib/arrival-navigation.js';
 document.querySelectorAll('[data-directory-return]').forEach(link => {
   const target = returnToDirectory(link.getAttribute('href'), location.search);
   if (target) {
@@ -17,7 +16,6 @@ const currentDestination=document.querySelector('.primary-navigation a[aria-curr
 menu?.querySelectorAll('.menu-destinations>a').forEach(link=>{
   if(link.getAttribute('href')===currentDestination)link.setAttribute('aria-current','page');
 });
-initArrivalNavigation(document, window);
 const closeMenu=()=>{if(menu)menu.open=false;};
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&menu?.open){closeMenu();menu.querySelector('summary').focus();}});
 document.addEventListener('click',event=>{if(menu&&!menu.contains(event.target))closeMenu();});
