@@ -30,7 +30,7 @@ const tabs=[{id:'find-place',label:g.find,icon:'search'},{id:'countries',label:g
  <Fragment slot="arrival">
   <header class="room-home-intro"><span class="room-eyebrow"><span></span>{atmosphere.welcome}</span><h1 id="home-title">{r.title}<br/><span>{r.line}</span></h1><p class="room-introduction">{atmosphere.intro}</p></header>
   <PlaceSearch {locale}/>
-  <p class="arrival-coverage"><span><b>{number.format(allPlaces.length)}</b> {q.listed}</span><span><b>{number.format(coverage)}</b> {q.countries}</span></p>
+  <dl class="arrival-coverage"><div><dt>{q.listed}</dt><dd>{number.format(allPlaces.length)}</dd></div><div><dt>{q.countries}</dt><dd>{number.format(coverage)}</dd></div></dl>
  </Fragment>
  <div class="wrap guide-home" data-guide-tabs>
   <GuideTabNav {tabs} label={g.overview}/>

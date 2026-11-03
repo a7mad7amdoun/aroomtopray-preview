@@ -16,15 +16,15 @@
 .room-main .room-top h2 { margin:0; text-wrap:pretty; }
 .room-main .room-top h2>.eyebrow { display:block; font-size:.76rem; font-weight:400; margin-bottom:5px; color:var(--muted); }
 .room-main .room-number { min-width:32px; height:32px; border-radius:3px; background:var(--surface-2); }
-.room-main .room .where { align-items:flex-start; padding:14px 0 16px; margin:0; font-weight:600; }
+.room-main .room .where { align-items:flex-start; padding:12px 0 16px; margin:0; font-size:1.12rem; font-weight:600; line-height:1.6; }
 .room-main .room .where>svg { color:var(--ink); }
 .room-main .room .where-list { margin-bottom:16px; }
 .room-main .room .facts { gap:0 20px; }
 .room-main .room .facts>div { padding-block:14px; }
 .room-main .room .facts>.fact-essential { background:color-mix(in srgb,var(--surface-2) 76%,transparent); border:1px solid var(--line); border-inline-start:3px solid var(--sign); border-radius:4px; padding:12px 14px; margin-bottom:14px; }
-.room-main .room .fact-essential dd { font-weight:600; font-size:.98rem; }
+.room-main .room .fact-essential dd { font-weight:650; font-size:1.15rem; line-height:1.5; }
 .room-main .room .facts>.fact-access { grid-column:1/-1; }
-.room-main .room .facts dt { font-size:.82rem; margin-bottom:6px; }
+.room-main .room .facts dt { font-size:.9rem; margin-bottom:6px; }
 .room-main .room .facts dd { margin:0; overflow-wrap:anywhere; }
 .room-main .room .extra { margin-block:12px 0; padding:12px 14px; background:color-mix(in srgb,var(--surface-2) 60%,transparent); border-inline-start:2px solid var(--line); border-radius:3px; line-height:1.65; }
 .room-main .room .src { gap:8px 16px; margin-top:16px; padding-top:14px; font-size:.78rem; }

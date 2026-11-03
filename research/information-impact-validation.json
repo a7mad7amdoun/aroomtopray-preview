@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-03",
+  "purpose": "Use space more effectively and give practical information greater visual impact without replacing the room identity.",
+  "changes": [
+    "Wider arrival panel and shared content area; smaller outer and nested padding.",
+    "Coverage totals presented as large semantic facts with the existing listed-place caveat.",
+    "Destination photographs paired with bold names and listing counts in compact horizontal cards.",
+    "Room canvas and doorway keep their original 2:1 geometry; the reduced mobile room saves 100px at phone widths.",
+    "Wide directory rows align identity and facility facts side by side; compact layouts stack naturally.",
+    "Larger room availability, location, access and opening-hours information, with uncertainty and source details retained."
+  ],
+  "preserved": [
+    "All place records, source links, translations and country data",
+    "Existing room artwork, door behavior, theme switch and category views",
+    "Search, filters, maps, tabs, saved places and visitor tools"
+  ],
+  "validation": {
+    "unitTests": 151,
+    "unitFailures": 0,
+    "builtPages": 2177,
+    "brokenLocalLinks": 0,
+    "localizedStructureCases": 24,
+    "localizedInteractiveCases": 24,
+    "informationChecks": [
+      "en",
+      "fr",
+      "ar",
+      "es"
+    ],
+    "exportedCssParsed": true,
+    "renderedBrowserInspection": false
+  },
+  "limitations": [
+    "Existing explicit browser URL policy block remains; no alternative rendering workaround used. Layout reviewed in source and offline DOM, not rendered pixels."
+  ],
+  "deployment": "Only the authorized a7mad7amdoun/aroomtopray-preview GitHub Pages site. Unrelated pending map work remains outside the release."
+}
