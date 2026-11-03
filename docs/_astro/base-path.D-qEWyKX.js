@@ -1,0 +1,1 @@
+const i="/aroomtopray-preview".replace(/\/$/,"");function e(r,t=i){return t&&(r===t||r.startsWith(t+"/"))?r.slice(t.length)||"/":r}function n(r,t=i){return!t||typeof r!="string"||!r.startsWith("/")||r.startsWith("//")?r:e(r,t)===r?t+r:r}export{n as a,i as p,e as w};

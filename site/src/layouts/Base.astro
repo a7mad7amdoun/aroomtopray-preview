@@ -5,19 +5,13 @@ import '@fontsource/noto-naskh-arabic/400.css';
 import '../styles/global.css';
 import '../styles/improvements.css';
 import '../styles/experience.css';
-import '../styles/sanctuary.css';
-import '../styles/immersive-room.css';
-import '../styles/room-guide.css';
-import '../styles/room-artwork.css';
 import '../styles/editorial-art.css';
 import '../styles/countries.css';
-import '../styles/room-door.css';
 import '../styles/information-design.css';
-import '../styles/modern-room.css';
-import '../styles/room-spatial.css';
-import '../styles/premium-navigation.css';
+import '../styles/guide-ui.css';
+import '../styles/arrival.css';
 import AppearanceControls from '../components/AppearanceControls.astro';
-import RoomEnvironment from '../components/RoomEnvironment.astro';
+import ArrivalExperience from '../components/ArrivalExperience.astro';
 import SourceProvenance from '../components/SourceProvenance.astro';
 import { ROOM_COPY } from '../data/room-copy.js';
 import { VIEW_COPY } from '../data/view-copy.js';
@@ -73,11 +67,11 @@ const searchTarget = isHome ? '#place-search-input' : isDirectory ? '#q-dir' : `
   <meta name="twitter:card" content="summary_large_image">
   {jsonld && <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />}
 </head>
-<body class="immersive-site">
+<body class="arrival-site">
   {reviewPreview && <aside class="review-preview-notice" style="padding:7px 16px;text-align:center;font-size:12px;background:#111b2a;color:#f7f6f0;position:relative;z-index:5" aria-label="Review preview">{{en:'Design preview for Hamza · Forms, check-ins and uploads are disabled.',fr:'Aperçu pour Hamza · Formulaires, signalements de présence et envois désactivés.',ar:'معاينة التصميم لحمزة · النماذج وتسجيل الزيارات ورفع الصور معطّلة.',es:'Vista previa para Hamza · Formularios, registros de visitas y cargas desactivados.'}[locale]}</aside>}
   <a class="skip" href="#main">{t.nav.skip}</a>
   <Icons />
-  <header class="top room-header">
+  <header class="top arrival-header">
     <div class="wrap">
       <a class="brand" href={localizedPath('/',locale)} aria-label={`A Room to Pray · ${t.nav.home}`}><Mark size={52}/><span>A Room to Pray<small>{w.directory}</small></span></a>
       <nav class="primary-navigation" aria-label={t.footer.directories}>
@@ -99,10 +93,10 @@ const searchTarget = isHome ? '#place-search-input' : isDirectory ? '#q-dir' : `
       </details>
     </div>
   </header>
-  <div class="room-layout">
+  <div class="arrival-layout">
   <script>import '../scripts/navigation.js';</script>
   <main id="main" class="room-main" tabindex="-1">
-    <RoomEnvironment kind={roomKind} {locale} {presentation}><slot name="arrival" /></RoomEnvironment>
+    <ArrivalExperience kind={roomKind} {locale} {presentation}><slot name="arrival" /></ArrivalExperience>
     <div id="guide-content" class="guide-content">
     <slot name="welcome" />
     <slot />

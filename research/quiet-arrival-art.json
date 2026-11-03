@@ -1,0 +1,34 @@
+{
+  "title": "Quiet Arrival — conceptual threshold artwork",
+  "mode": "Built-in image generation (image_gen)",
+  "disclosure": "Imagined settings, not photographs of listed rooms. All location data and real photos remain separately sourced.",
+  "assets": [
+    {
+      "key": "airport",
+      "prompt": "Use case: photorealistic-natural. Asset type: premium editorial website artwork, portrait 3:4, high detail. An imagined contemporary prayer room with a fully open real rectangular doorway looking out toward a public place. Photograph from inside the tranquil room, eye level, exquisite architectural composition, foreground in focus and public world softly defocused. Near foreground has a small portion of a navy woven prayer mat, pale honed stone floor, warm textured off-white walls and a beautiful dark oak doorway. One soft band of natural light crosses the threshold. The doorway is open naturally into the side of the shot, no impossible perspective. Restraint, humane scale, tactile materials, a believable contemporary refuge, luxury of space and light rather than ostentatious decoration. Rich midnight navy and warm ivory, very subtle brass details. Keep the threshold in the middle, with generous room around it and a clear straight sightline into the setting outside. No text, signage, UI, watermarks, logos or symbols. No ornate mosque, no floating shapes, no glowing magic, no dreamy haze. Natural optics and careful editorial photography. Conceptual scene, no recognizable institution.\nBeyond the doorway is a beautiful modern airport concourse with very tall glass windows, a distant parked airplane visible through them, and a couple of tiny unidentifiable travelers far in the distance. Crisp architectural details; airport context unmistakable yet peaceful and unobtrusive.",
+      "generatedFile": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-029c0eea-1ec5-4c58-b9a7-4a7a348f9b9c.png",
+      "savedFiles": [
+        "site/public/art/quiet-arrival/airport-720.webp",
+        "site/public/art/quiet-arrival/airport-1086.webp"
+      ]
+    },
+    {
+      "key": "campus",
+      "prompt": "Use case: photorealistic-natural. Asset type: premium editorial website artwork, portrait 3:4, high detail. An imagined contemporary prayer room with a fully open real rectangular doorway looking out toward a public place. Photograph from inside the tranquil room, eye level, exquisite architectural composition, foreground in focus and public world softly defocused. Near foreground has a small portion of a navy woven prayer mat, pale honed stone floor, warm textured off-white walls and a beautiful dark oak doorway. One soft band of natural light crosses the threshold. The doorway is open naturally into the side of the shot, no impossible perspective. Restraint, humane scale, tactile materials, a believable contemporary refuge, luxury of space and light rather than ostentatious decoration. Rich midnight navy and warm ivory, very subtle brass details. Keep the threshold in the middle, with generous room around it and a clear straight sightline into the setting outside. No text, signage, UI, watermarks, logos or symbols. No ornate mosque, no floating shapes, no glowing magic, no dreamy haze. Natural optics and careful editorial photography. Conceptual scene, no recognizable institution.\nBeyond the doorway is a sunlit university cloister and courtyard: limestone columns, an academic brick building, trees, a bicycle rack, two tiny distant unidentifiable students. University context unmistakable yet peaceful. Inside is the same quiet contemporary prayer-room material palette.",
+      "generatedFile": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-10c8a2d4-fd36-4b4c-a191-23f1c8d517c6.png",
+      "savedFiles": [
+        "site/public/art/quiet-arrival/campus-720.webp",
+        "site/public/art/quiet-arrival/campus-1086.webp"
+      ]
+    },
+    {
+      "key": "hospital",
+      "prompt": "Use case: photorealistic-natural. Asset type: premium editorial website artwork, portrait 3:4, high detail. An imagined contemporary prayer room with a fully open real rectangular doorway looking out toward a public place. Photograph from inside the tranquil room, eye level, exquisite architectural composition, foreground in focus and public world softly defocused. Near foreground has a small portion of a navy woven prayer mat, pale honed stone floor, warm textured off-white walls and a beautiful dark oak doorway. One soft band of natural light crosses the threshold. The doorway is open naturally into the side of the shot, no impossible perspective. Restraint, humane scale, tactile materials, a believable contemporary refuge, luxury of space and light rather than ostentatious decoration. Rich midnight navy and warm ivory, very subtle brass details. Keep the threshold in the middle, with generous room around it and a clear straight sightline into the setting outside. No text, signage, UI, watermarks, logos or symbols. No ornate mosque, no floating shapes, no glowing magic, no dreamy haze. Natural optics and careful editorial photography. Conceptual scene, no recognizable institution.\nBeyond the doorway is a beautifully calm contemporary hospital corridor, pale walls, a discreet unattended reception counter, blue privacy glass and waiting chairs. Healthcare context clear through practical architecture, no medical equipment, no suffering, no patients close to camera. Soft daylight and realistic textures.",
+      "generatedFile": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-56919e4b-01c6-4f85-a3fe-5e5d1c5fcacf.png",
+      "savedFiles": [
+        "site/public/art/quiet-arrival/hospital-720.webp",
+        "site/public/art/quiet-arrival/hospital-1086.webp"
+      ]
+    }
+  ]
+}
