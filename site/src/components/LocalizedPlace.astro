@@ -210,7 +210,7 @@ const amenity = (group, key) => common.amenities[group][key] || common.amenities
       </section>
       <aside id="visitor-tools" class="d-side guide-panel">
         <VisitInsights {kind} {locale} placeUrl={place.url} compact />
-        <section class="card stack"><h2>{t.original}</h2><p>{t.originalHelp}</p><a class="btn sign-btn" href={place.url} hreflang="en">{t.original} <span aria-hidden="true">↗</span></a><a class="fine" href={`${place.url}${airport ? '' : '#report'}`} hreflang="en">{t.correction}</a></section>
+        <section class="card stack"><h2>{t.original}</h2><p>{t.originalHelp}</p><a class="btn sign-btn" href={place.url} hreflang="en">{t.original} <span aria-hidden="true">↗</span></a><a class="fine" href={`${place.url}#report`} hreflang="en">{t.correction}</a></section>
         <VisitorArtwork scene={airport ? 'airport' : university ? 'campus' : 'hospital'} {locale} placement="supporting" purpose="visitor-preparation"/>
       </aside>
     </div>

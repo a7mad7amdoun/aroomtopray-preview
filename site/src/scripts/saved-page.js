@@ -60,4 +60,5 @@ $('[data-reset-saved]').addEventListener('click', async () => {
   catch { status.textContent = 'Browser storage is blocked. Enable it to use saved places, or copy details from individual listings.'; }
 });
 window.addEventListener('storage', () => { status.textContent = ''; render(); });
+window.addEventListener('pageshow', event => { if (event.persisted) { status.textContent = ''; render(); } });
 render();

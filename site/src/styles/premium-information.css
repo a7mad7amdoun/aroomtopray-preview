@@ -1,0 +1,148 @@
+/* One reading system for every guide. The room and its moving hardware are
+   independent; these information surfaces stay still and use paired colours. */
+:root {
+  --guide-copy:1.0625rem;
+  --guide-label:.9375rem;
+  --guide-meta:.875rem;
+  --guide-section-space:clamp(24px,3vw,36px);
+  --guide-card-inset:clamp(20px,2.3vw,28px);
+}
+body.immersive-site { font-size:17px; }
+.room-main { color:var(--ink); }
+.room-main :is(.panel-heading,.discovery-heading,.insight-heading) { margin-block-end:24px; }
+.room-main :is(.panel-heading h2,.discovery-heading h2,.results-toolbar h2,.visit-heading h2) {
+  font-family:var(--f-display); font-size:clamp(1.5rem,2.3vw,1.875rem);
+  font-weight:650; font-stretch:100%; line-height:1.25; letter-spacing:-.025em;
+}
+.room-main :is(.room-introduction,.directory-intro-copy>p,.visit-heading>p,.support-arrival>p) {
+  font-size:1.125rem; line-height:1.65; max-width:55ch;
+}
+.room-main .room-arrival-copy :is(.room-introduction,.directory-intro-copy>p,.visit-heading>p,.support-arrival>p) {
+  font-size:1.125rem; line-height:1.65;
+}
+.room-main :is(.guide-kicker,.room-eyebrow) { font-size:var(--guide-label); line-height:1.5; letter-spacing:.015em; }
+.room-main :is(.prose,.visit-panel) { font-size:var(--guide-copy); line-height:1.75; }
+.room-main .prose { max-width:72ch; }
+.room-main .prose :is(p,li) { max-width:68ch; }
+.room-main :is(.prose,.visit-panel) h2 { font-size:1.65rem; line-height:1.3; }
+.room-main :is(.prose,.visit-panel) h3 { font-size:1.25rem; line-height:1.4; }
+
+/* Tab labels have room to wrap, rather than shrinking or hiding information. */
+.room-main .guide-tabs { gap:6px; padding:6px; margin-block-end:var(--guide-section-space); }
+.room-main .guide-tabs>:is(a,button) {
+  min-height:54px; padding:12px; gap:9px; font-size:1rem; line-height:1.45;
+  color:var(--muted); border:1px solid transparent; border-radius:6px;
+}
+.room-main .guide-tabs>:is(a,button)>span { overflow-wrap:anywhere; }
+.room-main .guide-tabs>:is(a,button)>svg { width:20px; height:20px; flex:none; }
+.room-main .guide-tabs>:is(a,button):hover { color:var(--ink); background:var(--surface-2); }
+.room-main .guide-tabs>:is(a,button)[aria-selected=true] {
+  color:var(--ink); background:var(--surface-2); border-color:var(--line); font-weight:650;
+}
+.room-main .guide-tabs>:is(a,button)::after { inset-inline:12px; height:3px; bottom:3px; transition:none; }
+.room-main .guide-tabs>:is(a,button):focus-visible { outline:3px solid var(--focus); outline-offset:2px; }
+
+/* Search, country and filter labels share a readable scale and hit area. */
+.room-main :is(.place-search>label,.directory-search-field>label,.directory-country,.country-scope) {
+  font-size:1rem; font-weight:600; line-height:1.5;
+}
+.room-main .room-arrival-copy .place-search>label { font-size:1rem; }
+.room-main :is(.place-search-field input,.directory-search-row input[type=search],.country-search input,.directory-country select) {
+  font-size:var(--guide-copy); line-height:1.5;
+}
+.room-main :is(.directory-search-meta,.directory-workspace .count,.directory-pagination>span,.directory-search-meta .clear) {
+  font-size:var(--guide-meta); line-height:1.5;
+}
+.room-main :is(.filter-panel .chip,.filter-panel .seg button,.active-filters button,.directory-refine>summary,.results-toolbar select,.directory-pagination button) {
+  font-size:var(--guide-label); min-height:46px;
+}
+.room-main .directory-workspace .controls { padding:var(--guide-card-inset); gap:16px; }
+.room-main .directory-fields { gap:20px; }
+.room-main .results-toolbar { gap:16px; margin-block:28px 18px; }
+.room-main .results-toolbar .browse-tools>label { font-size:var(--guide-meta); }
+#guide-content .directory-workspace .directory-result.lrow { padding-block:24px; }
+#guide-content .directory-workspace .directory-result .nm>b { font-size:1.1875rem; font-weight:650; line-height:1.4; }
+#guide-content .directory-workspace .directory-result .result-location { font-size:var(--guide-label); line-height:1.55; }
+#guide-content .directory-workspace .directory-result .result-fact .result-fact-label { font-size:var(--guide-meta); line-height:1.5; }
+#guide-content .directory-workspace .directory-result .result-fact .result-fact-value { font-size:var(--guide-copy); line-height:1.5; }
+#guide-content .directory-workspace .directory-result .result-photo-note { font-size:var(--guide-meta); }
+#guide-content .directory-workspace .list[data-view=cards] { gap:16px; align-items:stretch; }
+#guide-content .directory-workspace .list[data-view=cards] .directory-result.lrow { padding:22px; border-radius:9px; }
+#guide-content .directory-workspace .directory-result .pill { font-size:var(--guide-meta); line-height:1.5; }
+
+/* Country emblems retain their real artwork and proportions at a useful size. */
+.room-main img.country-flag { width:32px; height:24px; border-radius:2px; }
+.room-main .country-card h3 img.country-flag { width:40px; height:30px; }
+.room-main .country-card { padding:22px; }
+.room-main .country-card h3 { gap:12px; font-size:1.125rem; line-height:1.45; }
+.room-main .country-card h3>small { font-size:var(--guide-meta); }
+.room-main .country-card a { padding-block:8px; gap:10px; min-height:48px; font-size:1rem; }
+.room-main .country-badge { font-size:var(--guide-label); }
+.room-main .country-coverage-note { font-size:var(--guide-label); }
+.room-main .place-search-results li b { font-size:var(--guide-copy); }
+.room-main .place-search-results li span { font-size:var(--guide-label); line-height:1.5; }
+.room-main .place-search-results .place-search-meta { gap:10px; }
+
+/* Practical facts get the strongest hierarchy; provenance stays legible.
+   The guide ID intentionally outranks Astro-scoped component type rules. */
+.room-main :is(.card,.room) { padding:var(--guide-card-inset); border-radius:10px; background:var(--surface); }
+.room-main .room-top h2 { font-size:1.375rem; font-weight:650; line-height:1.35; }
+.room-main .room-top h2>.eyebrow { font-size:var(--guide-meta); line-height:1.5; }
+.room-main .room .where { font-size:1.1875rem; line-height:1.6; }
+.room-main .room .facts { column-gap:28px; }
+.room-main .room .facts dt { font-size:var(--guide-label); line-height:1.5; gap:9px; }
+.room-main .room .facts dt>svg { width:19px; height:19px; }
+.room-main .room .facts dd { font-size:var(--guide-copy); line-height:1.65; }
+.room-main .room .fact-essential dd { font-size:1.1875rem; font-weight:650; }
+.room-main .room .facts>.fact-essential { padding:16px 18px; border-radius:7px; }
+.room-main .room .extra { font-size:1rem; line-height:1.65; padding:16px 18px; }
+.room-main .room .src { font-size:var(--guide-meta); line-height:1.6; margin-top:20px; padding-top:16px; }
+.room-main .room .src .badge { font-size:inherit; }
+.room-main .summary .k { font-size:var(--guide-label); line-height:1.5; }
+.room-main .summary .v { font-size:1.0625rem; line-height:1.5; }
+.room-main .summary .pill { font-size:var(--guide-meta); }
+.room-main :is(.page-jumps a,.room-picker summary,.place-actions button,.place-actions .text-action) { font-size:var(--guide-label); min-height:46px; }
+.room-main .room-picker-copy strong { font-size:1rem; line-height:1.5; }
+.room-main .room-picker-copy small { font-size:var(--guide-label); line-height:1.6; }
+.room-main :is(.note,.translation-notice,.visit-intro p,.room-three-steps p,.guide-principles p,.guide-contribution p) { font-size:var(--guide-copy); line-height:1.65; }
+.room-main :is(.room-three-steps h3,.guide-principles h3) { font-size:1.125rem; line-height:1.4; }
+.room-main .room-disclosure>summary { min-height:56px; padding-block:14px; font-size:1rem; line-height:1.5; }
+.room-main :is(.room-source-promise,.byline,.d-meta,.crumbs) { font-size:var(--guide-meta); line-height:1.6; }
+#guide-content :is(.field-note-text,.insight-card>p) { font-size:var(--guide-copy); line-height:1.7; }
+#guide-content :is(.field-note-eyebrow,.field-note-institution,.field-note-source>a,.insight-place,.insight-actions) { font-size:var(--guide-label); line-height:1.55; }
+#guide-content :is(.field-note-source>span,.field-note-source small,.insight-source,.insight-source-name) { font-size:var(--guide-meta); line-height:1.6; }
+#guide-content .insight-caveat { font-size:1rem; line-height:1.6; }
+.room-main :is(.btn,.insight-action,.field-note-source>a) { min-height:46px; }
+.room-main :is(.btn,.chip,.page-jumps a,.room-picker a,.country-card a,.directory-result,.room-disclosure>summary):focus-visible {
+  outline:3px solid var(--focus); outline-offset:3px;
+}
+
+@container prayer-guide (max-width:600px) {
+  .room-main .guide-tabs { gap:3px; padding:4px; }
+  .room-main .guide-tabs>:is(a,button) { padding:10px 5px; gap:6px; font-size:.9375rem; }
+  .room-main .directory-fields { grid-template-columns:1fr; gap:16px; }
+  .room-main .results-toolbar { align-items:start; flex-wrap:wrap; }
+  #guide-content .directory-workspace .list[data-view=cards] { grid-template-columns:1fr; }
+  .room-main .room .facts { grid-template-columns:1fr; }
+  .room-main .country-grid { grid-template-columns:1fr; }
+}
+@container prayer-guide (max-width:360px) {
+  .room-main .guide-tabs>:is(a,button) { flex-direction:column; justify-content:start; gap:5px; }
+  #guide-content .directory-workspace .directory-result.lrow { padding-block:20px; }
+  #guide-content .directory-workspace .list[data-view=cards] .directory-result.lrow { padding:18px; }
+  .room-main .country-card { padding:18px; }
+}
+html[dir=rtl] body.immersive-site { font-size:18px; }
+html[dir=rtl] .room-main { --guide-copy:1.125rem; --guide-label:1rem; --guide-meta:.9375rem; }
+html[dir=rtl] .room-main :is(.panel-heading h2,.discovery-heading h2,.results-toolbar h2,.visit-heading h2,.room-top h2,.country-card h3) { letter-spacing:0; line-height:1.6; }
+html[dir=rtl] .room-main :is(.guide-kicker,.room-eyebrow) { letter-spacing:0; }
+html[dir=rtl] .room-main .guide-tabs>:is(a,button) { font-size:1.0625rem; line-height:1.6; }
+html[dir=rtl] #guide-content :is(.room .facts dd,.directory-result .result-fact .result-fact-value,.directory-result .nm>b) { line-height:1.7; }
+html[dir=rtl] #guide-content :is(.field-note-text,.insight-card>p) { line-height:1.85; }
+@media print {
+  body.immersive-site,html[dir=rtl] body.immersive-site { font-size:11pt; }
+  .room-main,html[dir=rtl] .room-main { --guide-copy:11pt; --guide-label:10pt; --guide-meta:9pt; }
+  .room-main :is(.card,.room) { padding:14pt; box-shadow:none; background:#fff; }
+  .room-main .guide-tabs { box-shadow:none; }
+  .room-main :is(.country-grid,.directory-workspace .list[data-view=cards]) { grid-template-columns:1fr 1fr; }
+}

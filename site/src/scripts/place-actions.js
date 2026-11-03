@@ -24,5 +24,6 @@ if (area) {
     } catch (error) { status.textContent = error.message.includes('24') ? messages.limit : messages.failed; }
   });
   copy.addEventListener('click', () => copyText(formatPlaceNotes(notes), status, area));
-  window.addEventListener('storage', update); update();
+  window.addEventListener('storage', update);
+  window.addEventListener('pageshow', update); update();
 }

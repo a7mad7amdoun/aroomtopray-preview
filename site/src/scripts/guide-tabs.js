@@ -1,47 +1,99 @@
-import {tabIndexForKey,panelIndexForTarget} from '../lib/guide-navigation.js';
+import { tabIndexForKey, panelIndexForTarget } from '../lib/guide-navigation.js';
+
+const initialized = new WeakSet();
+const nativeIntent = event => event.defaultPrevented || event.button > 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
+
 // Progressive enhancement: without JavaScript every section and anchor remains available.
-for (const root of document.querySelectorAll('[data-guide-tabs]')) {
- const nav=[...root.querySelectorAll('[data-guide-tablist]')].find(el=>el.closest('[data-guide-tabs]')===root);
- if(!nav)continue;
- const tabs=[...nav.querySelectorAll('[data-guide-tab]')];
- const panels=tabs.map(tab=>document.getElementById(tab.dataset.guideTab));
- if(panels.some(panel=>!panel||!root.contains(panel)))continue;
- let active=0;
- root.dataset.guideEnhanced='true';nav.setAttribute('role','tablist');
- tabs.forEach((tab,i)=>{tab.setAttribute('role','tab');tab.setAttribute('aria-controls',panels[i].id);panels[i].setAttribute('role','tabpanel');panels[i].setAttribute('aria-labelledby',tab.id);panels[i].tabIndex=0;});
- function select(index,{focus=false,write=false}={}) {
-  active=index;
-  tabs.forEach((tab,i)=>{tab.setAttribute('aria-selected',String(i===index));tab.tabIndex=i===index?0:-1;panels[i].hidden=i!==index;});
-  if(focus)tabs[index].focus();
-  if(write && location.hash!=='#'+panels[index].id)history.pushState({},'',location.pathname+location.search+'#'+panels[index].id);
-  root.dispatchEvent(new CustomEvent('guide:change',{detail:{panel:panels[index].id}}));
+export function initGuideTabs(root, browser = globalThis.window) {
+ if (!root || !browser || initialized.has(root)) return false;
+ const doc = root.ownerDocument;
+ const nav = [...root.querySelectorAll('[data-guide-tablist]')].find(el => el.closest('[data-guide-tabs]') === root);
+ if (!nav) return false;
+ const tabs = [...nav.querySelectorAll('[data-guide-tab]')];
+ const panels = tabs.map(tab => doc.getElementById(tab.dataset.guideTab));
+ if (!tabs.length || panels.some(panel => !panel || !root.contains(panel))) return false;
+ initialized.add(root);
+ let active = 0;
+ root.dataset.guideEnhanced = 'true';
+ nav.setAttribute('role', 'tablist');
+ tabs.forEach((tab, i) => {
+  tab.setAttribute('role', 'tab');
+  tab.setAttribute('aria-controls', panels[i].id);
+  panels[i].setAttribute('role', 'tabpanel');
+  panels[i].setAttribute('aria-labelledby', tab.id);
+  panels[i].tabIndex = 0;
+ });
+ function select(index, { focus = false, write = false } = {}) {
+  // A history change must not leave keyboard focus in information we just hid.
+  const hidesFocus = panels.some((panel, i) => i !== index && panel.contains(doc.activeElement));
+  active = index;
+  tabs.forEach((tab, i) => {
+   tab.setAttribute('aria-selected', String(i === index));
+   tab.tabIndex = i === index ? 0 : -1;
+   panels[i].hidden = i !== index;
+  });
+  if (focus || hidesFocus) tabs[index].focus({ preventScroll: true });
+  if (write && browser.location.hash !== '#' + panels[index].id) {
+   // Tabs remain usable if a privacy setting or history quota refuses the write.
+   try {
+    browser.history.pushState(browser.history.state, '', browser.location.pathname + browser.location.search + '#' + panels[index].id);
+   } catch {}
+  }
+  root.dispatchEvent(new browser.CustomEvent('guide:change', { detail: { panel: panels[index].id } }));
  }
- function revealHash(scroll=false) {
-  let id;try{id=decodeURIComponent(location.hash.slice(1));}catch{return;}
-  const target=document.getElementById(id);
-  const index=panelIndexForTarget(panels,target);
-  if(index<0)return;
+ function revealHash(scroll = false) {
+  let id;
+  try { id = decodeURIComponent(browser.location.hash.slice(1)); } catch { return; }
+  const target = doc.getElementById(id);
+  const index = panelIndexForTarget(panels, target);
+  if (index < 0) return;
   select(index);
-  for(let node=target;node&&node!==root;node=node.parentElement)if(node.tagName==='DETAILS')node.open=true;
-  if(scroll)requestAnimationFrame(()=>target.scrollIntoView({block:'start',behavior:'instant'}));
+  for (let node = target; node && node !== root; node = node.parentElement) {
+   if (node.tagName === 'DETAILS') node.open = true;
+  }
+  if (scroll) browser.requestAnimationFrame(() => {
+   // Ignore a queued scroll if another tab was chosen before the frame arrived.
+   if (!panels[index].hidden) target.scrollIntoView({ block: 'start', behavior: 'instant' });
+  });
  }
- tabs.forEach((tab,i)=>{
-  tab.addEventListener('click',event=>{if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();select(i,{write:true});});
-  tab.addEventListener('keydown',event=>{
-   if(event.key===' '){event.preventDefault();select(i,{write:true});return;}
-   const rtl=getComputedStyle(nav).direction==='rtl';
-   const next=tabIndexForKey(event.key,i,tabs.length,rtl);
-   if(next!==null){event.preventDefault();select(next,{focus:true,write:true});}
+ function defaultPanel() {
+  const reportPanel = new URLSearchParams(browser.location.search).has('report')
+   ? panels.findIndex(panel => panel.querySelector('[data-report]')) : -1;
+  return reportPanel >= 0 ? reportPanel : 0;
+ }
+ tabs.forEach((tab, i) => {
+  tab.addEventListener('click', event => {
+   if (nativeIntent(event)) return;
+   event.preventDefault();
+   select(i, { write: true });
+  });
+  tab.addEventListener('keydown', event => {
+   // Alt+Left remains browser Back; modified shortcuts and IME input stay native.
+   if (nativeIntent(event) || event.isComposing) return;
+   if (event.key === ' ') { event.preventDefault(); select(i, { write: true }); return; }
+   const rtl = browser.getComputedStyle(nav).direction === 'rtl';
+   const next = tabIndexForKey(event.key, i, tabs.length, rtl);
+   if (next !== null) { event.preventDefault(); select(next, { focus: true, write: true }); }
   });
  });
- document.addEventListener('click',event=>{
-  const link=event.target.closest('a[href^="#"]');
-  if(link&&!link.hasAttribute('data-guide-tab'))setTimeout(()=>revealHash(true),0);
+ doc.addEventListener('click', event => {
+  if (nativeIntent(event)) return;
+  const link = event.target.closest?.('a[href^="#"]');
+  if (!link || link.hasAttribute('data-guide-tab') || link.hasAttribute('download') || (link.target && link.target !== '_self')) return;
+  browser.setTimeout(() => revealHash(true), 0);
  });
- window.addEventListener('hashchange',()=>revealHash(true));
- window.addEventListener('popstate',()=>{if(!location.hash)select(0);else revealHash();});
- window.addEventListener('beforeprint',()=>panels.forEach(panel=>panel.hidden=false));
- window.addEventListener('afterprint',()=>select(active));
- const reportPanel=new URLSearchParams(location.search).has('report')?panels.findIndex(panel=>panel.querySelector('[data-report]')):-1;
- select(reportPanel>=0?reportPanel:0);revealHash(Boolean(location.hash));
+ browser.addEventListener('hashchange', () => revealHash(true));
+ browser.addEventListener('popstate', () => {
+  if (!browser.location.hash) select(defaultPanel());
+  else revealHash();
+ });
+ browser.addEventListener('beforeprint', () => panels.forEach(panel => panel.hidden = false));
+ browser.addEventListener('afterprint', () => select(active));
+ select(defaultPanel());
+ revealHash(Boolean(browser.location.hash));
+ return true;
+}
+
+if (typeof document !== 'undefined' && typeof window !== 'undefined') {
+ document.querySelectorAll('[data-guide-tabs]').forEach(root => initGuideTabs(root, window));
 }

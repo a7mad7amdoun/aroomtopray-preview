@@ -74,6 +74,151 @@ export const visitInsights = [
       es: { title: 'Pide apoyo musulmán', facts: ['El hospital confirma capellanes musulmanes. Para apoyo espiritual: 020 3299 3522.'], caveat: 'No se confirma su disponibilidad a todas horas.', action: 'Contactar con capellanía' },
     },
   },
+  {
+    "id": "heathrow-duty-chaplain",
+    "kind": "airports",
+    "slug": "lhr",
+    "place": "London Heathrow",
+    "url": "/airports/lhr/",
+    "accessed": "2026-11-03",
+    "source": {
+      "title": "Heathrow — Multi Faith Chaplaincy",
+      "url": "https://www.heathrow.com/at-the-airport/terminal-facilities/heathrow-multi-faith-chaplaincy"
+    },
+    "actionUrl": "https://www.heathrow.com/at-the-airport/terminal-facilities/heathrow-multi-faith-chaplaincy",
+    "copy": {
+      "en": {
+        "title": "Ask for a chaplain",
+        "facts": [
+          "For urgent support, use the telephone number displayed in a prayer room and ask for the Duty Chaplain."
+        ],
+        "caveat": "Prayer or religious rites depend on availability.",
+        "action": "See chaplaincy support"
+      },
+      "fr": {
+        "title": "Demander un aumônier",
+        "facts": [
+          "Pour une aide urgente, appelez le numéro affiché dans une salle de prière et demandez le « Duty Chaplain »."
+        ],
+        "caveat": "La prière accompagnée et les rites religieux dépendent des disponibilités.",
+        "action": "Consulter l’aumônerie"
+      },
+      "ar": {
+        "title": "اطلب الدعم الروحي",
+        "facts": [
+          "للدعم العاجل، اتصل بالرقم المعلّق في غرفة الصلاة واطلب المرشد الروحي المناوب «Duty Chaplain»."
+        ],
+        "caveat": "تُقدَّم الصلاة أو الشعائر الدينية حسب التوافر.",
+        "action": "عرض خدمات الرعاية الروحية"
+      },
+      "es": {
+        "title": "Pedir apoyo de capellanía",
+        "facts": [
+          "Para ayuda urgente, llama al número indicado en una sala de oración y pide hablar con el « Duty Chaplain »."
+        ],
+        "caveat": "La oración acompañada y los ritos dependen de la disponibilidad.",
+        "action": "Ver apoyo de capellanía"
+      }
+    }
+  },
+  {
+    "id": "bristol-quiet-alternatives",
+    "kind": "universities",
+    "slug": "university-of-bristol",
+    "place": "University of Bristol",
+    "url": "/universities/university-of-bristol/",
+    "accessed": "2026-11-03",
+    "source": {
+      "title": "University of Bristol — Places to Worship",
+      "url": "https://www.bristol.ac.uk/multifaith-chaplaincy/places-to-worship/"
+    },
+    "actionUrl": "https://www.bristol.ac.uk/multifaith-chaplaincy/places-to-worship/",
+    "copy": {
+      "en": {
+        "title": "More quiet spaces on campus",
+        "facts": [
+          "The Quiet Room at 1 Woodland Road opens weekdays 11:00–15:00.",
+          "The Students’ Union multifaith space is on the 4th floor of the Richmond Building, 08:00–23:00."
+        ],
+        "caveat": "Listed for university students and staff of all faiths and beliefs.",
+        "action": "See all campus spaces"
+      },
+      "fr": {
+        "title": "D’autres espaces calmes sur le campus",
+        "facts": [
+          "La Quiet Room au 1 Woodland Road ouvre en semaine de 11 h à 15 h.",
+          "L’espace multiconfessionnel du Students’ Union se trouve au 4e étage du Richmond Building, de 8 h à 23 h."
+        ],
+        "caveat": "Espaces destinés aux étudiants et au personnel, de toutes confessions et convictions.",
+        "action": "Voir les espaces du campus"
+      },
+      "ar": {
+        "title": "مساحات هادئة أخرى في الحرم",
+        "facts": [
+          "تفتح الغرفة الهادئة في 1 Woodland Road خلال أيام الأسبوع من 11:00 إلى 15:00.",
+          "تقع المساحة متعددة الأديان لاتحاد الطلاب في الطابق الرابع من Richmond Building، وتفتح من 08:00 إلى 23:00."
+        ],
+        "caveat": "مخصّصة لطلاب الجامعة وموظفيها من جميع الأديان والمعتقدات.",
+        "action": "عرض مساحات الحرم"
+      },
+      "es": {
+        "title": "Más espacios tranquilos en el campus",
+        "facts": [
+          "La Quiet Room en 1 Woodland Road abre entre semana de 11:00 a 15:00.",
+          "El espacio multiconfesional del Students’ Union está en la 4.ª planta del Richmond Building y abre de 08:00 a 23:00."
+        ],
+        "caveat": "Para estudiantes y personal de la universidad de todas las creencias.",
+        "action": "Ver espacios del campus"
+      }
+    }
+  },
+  {
+    "id": "st-thomas-share-belief",
+    "kind": "hospitals",
+    "slug": "st-thomas-hospital",
+    "place": "St Thomas’ Hospital",
+    "url": "/hospitals/st-thomas-hospital/",
+    "accessed": "2026-11-03",
+    "source": {
+      "title": "Guy’s and St Thomas’ — Spiritual care",
+      "url": "https://www.guysandstthomas.nhs.uk/our-services/spiritual-care"
+    },
+    "actionUrl": "https://www.guysandstthomas.nhs.uk/our-services/spiritual-care",
+    "copy": {
+      "en": {
+        "title": "Tell staff what support you need",
+        "facts": [
+          "You can register your faith or belief when giving your arrival contact details, or tell your nurse."
+        ],
+        "caveat": "Prayer rooms remain for patients, relatives during their stay, and staff only.",
+        "action": "Read spiritual care guidance"
+      },
+      "fr": {
+        "title": "Précisez le soutien dont vous avez besoin",
+        "facts": [
+          "Vous pouvez indiquer votre religion ou conviction lors de l’enregistrement de vos coordonnées à l’arrivée, ou en parler au personnel infirmier."
+        ],
+        "caveat": "Salles de prière réservées aux patients, à leurs proches pendant le séjour et au personnel.",
+        "action": "Lire les conseils de l’aumônerie"
+      },
+      "ar": {
+        "title": "أخبر الموظفين بالدعم الذي تحتاجه",
+        "facts": [
+          "يمكنك تسجيل دينك أو معتقدك عند تقديم بيانات التواصل لدى وصولك، أو إخبار طاقم التمريض."
+        ],
+        "caveat": "تبقى غرف الصلاة مخصّصة للمرضى وذويهم أثناء الإقامة والموظفين فقط.",
+        "action": "اقرأ إرشادات الرعاية الروحية"
+      },
+      "es": {
+        "title": "Indica qué apoyo necesitas",
+        "facts": [
+          "Puedes registrar tu religión o creencia al facilitar tus datos de contacto al llegar, o decírselo al personal de enfermería."
+        ],
+        "caveat": "Las salas siguen reservadas a pacientes, familiares durante su estancia y personal.",
+        "action": "Leer orientación espiritual"
+      }
+    }
+  },
 ];
 
 export function insightsFor(kind, locale = 'en') {

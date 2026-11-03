@@ -1,0 +1,460 @@
+{
+  "date": "2026-11-03",
+  "scope": "Source research for the A Room to Pray premium refinement. Research only; no production writes or room verification-date changes.",
+  "method": {
+    "freshReads": [
+      "https://aroomtopray.com/",
+      "https://aroomtopray.com/airports/",
+      "https://aroomtopray.com/universities/",
+      "https://aroomtopray.com/hospitals/",
+      "https://aroomtopray.com/airports/lhr/"
+    ],
+    "localCoverage": "Compared every record in airports.json, universities.json, universities-2.json, hospitals-uk.json and hospitals-na.json with the previously observed original-listing-paths registry, and all four language build routes.",
+    "limits": [
+      "Direct HTTP returned 403 for the original site; web reading supplied current category totals and a detailed Heathrow listing.",
+      "The web extractor truncated the large airport directory. Current totals corroborate the previous exact route registry, but do not prove that every live detail field is unchanged.",
+      "Sitemap could not be retrieved. Bristol and St Thomas detail fetches were unavailable through the web reader.",
+      "Pinterest search surfaced actual pins and a board, but their full pages returned 403. Visual-specific observations are not claimed.",
+      "New Commons file pages and licensing were read, but direct original asset requests returned 403. New photographs remain candidates pending pixel review.",
+      "No browser rendering or visual-motion verification was performed."
+    ]
+  },
+  "hamzaCoverage": {
+    "airports": {
+      "records": 414,
+      "recordedOriginalListingPaths": 414,
+      "missingOriginalPaths": [],
+      "extraPaths": [],
+      "missingEnglishBuildPages": [],
+      "missingTranslatedPages": []
+    },
+    "universities": {
+      "records": 77,
+      "recordedOriginalListingPaths": 77,
+      "missingOriginalPaths": [],
+      "extraPaths": [],
+      "missingEnglishBuildPages": [],
+      "missingTranslatedPages": []
+    },
+    "hospitals": {
+      "records": 45,
+      "recordedOriginalListingPaths": 45,
+      "missingOriginalPaths": [],
+      "extraPaths": [],
+      "missingEnglishBuildPages": [],
+      "missingTranslatedPages": []
+    }
+  },
+  "currentDeclaredCounts": {
+    "airports": 414,
+    "universities": 77,
+    "hospitals": 45,
+    "hospitalChecked": 32,
+    "hospitalPending": 13,
+    "homepageAirports": 366,
+    "note": "The366 homepage figure is a narrower checked subset and must not replace the full 414-airport directory."
+  },
+  "representativeDetail": {
+    "url": "https://aroomtopray.com/airports/lhr/",
+    "agreement": [
+      "Four terminal group listings: T2,T3,T4,T5.",
+      "T2 airside; T3, T4, T5 both sides.",
+      "Room hours and women facilities unspecified.",
+      "Wudu unspecified for T2; stated for T3,T4,T5.",
+      "Qibla 118.6 degrees.",
+      "One halal outlet and two nearby masajid are present as additional information."
+    ],
+    "scope": "Compared with local source records; no fresh verification date assigned."
+  },
+  "identity": {
+    "basis": "Previously saved direct stylesheet extraction in research/quiet-threshold-research.json, corroborated by current live information hierarchy.",
+    "dark": {
+      "background": "#0A111C",
+      "surface": "#111B2A",
+      "text": "#E7ECF2",
+      "muted": "#A3B0C2",
+      "yellow": "#FFC629",
+      "yellowInk": "#14171C"
+    },
+    "originalType": [
+      "Archivo Variable",
+      "Atkinson Hyperlegible",
+      "JetBrains Mono",
+      "Noto Naskh Arabic"
+    ],
+    "application": "Retain the preview’s unified Archivo/Noto direction, navy/ivory/yellow, broad recognizable lettering, explicit status and aligned readable facts. Improve scale and structure rather than introduce category-specific typefaces."
+  },
+  "pinterestResearch": [
+    {
+      "title": "Environmental Graphic / Wayfinding",
+      "url": "https://id.pinterest.com/aingrn/environmental-graphic-wayfinding/",
+      "evidence": "Indexed Pinterest board, 27 ideas; full page 403.",
+      "designInference": "Use one coherent sign family: same icon footprint, same label alignment and a predictable hierarchy.",
+      "reuse": "Reference only; no image reuse license established."
+    },
+    {
+      "title": "Future of Waiting Areas — Changi Airport Singapore",
+      "url": "https://es.pinterest.com/pin/future-of-waiting-areas--173388654384411437/",
+      "evidence": "Indexed Pinterest pin; full page 403.",
+      "designInference": "Calm airport architecture can establish place without becoming a moving decoration behind reading. Preserve an unobstructed architectural opening and a stable information plane.",
+      "reuse": "Reference only; no image reuse license established."
+    },
+    {
+      "title": "Premium brand identity design for healthcare brand",
+      "url": "https://in.pinterest.com/pin/premium-brand-identity-design-for-healthcare-brand-in-2025--799037158925613160/",
+      "evidence": "Indexed Pinterest pin; full page 403.",
+      "designInference": "Consistent typography and generous clear labels matter more than extra glossy badges. Hospital support should read as calm service information.",
+      "reuse": "Reference only; no image reuse license established."
+    },
+    {
+      "title": "Lattice wall detail with accent lighting, warm whites and stone",
+      "url": "https://ca.pinterest.com/pin/292171094580460711/",
+      "evidence": "Indexed Pinterest pin title; pixels not reviewed.",
+      "designInference": "Restrained material cues and a single plausible light direction can add depth; avoid luminous rings and multiple competing glow effects.",
+      "reuse": "Reference only; no image reuse license established."
+    }
+  ],
+  "additions": [
+    {
+      "id": "heathrow-duty-chaplain",
+      "kind": "airports",
+      "slug": "lhr",
+      "place": "London Heathrow",
+      "url": "/airports/lhr/",
+      "accessed": "2026-11-03",
+      "source": {
+        "title": "Heathrow — Multi Faith Chaplaincy",
+        "url": "https://www.heathrow.com/at-the-airport/terminal-facilities/heathrow-multi-faith-chaplaincy"
+      },
+      "actionUrl": "https://www.heathrow.com/at-the-airport/terminal-facilities/heathrow-multi-faith-chaplaincy",
+      "gap": "Adds practical support contact instructions absent from current room data and visit insights. Does not change room access, hours or verification dates.",
+      "copy": {
+        "en": {
+          "title": "Ask for a chaplain",
+          "facts": [
+            "For urgent support, use the telephone number displayed in a prayer room and ask for the Duty Chaplain."
+          ],
+          "caveat": "Prayer or religious rites depend on availability.",
+          "action": "See chaplaincy support"
+        },
+        "fr": {
+          "title": "Demander un aumônier",
+          "facts": [
+            "Pour une aide urgente, appelez le numéro affiché dans une salle de prière et demandez le « Duty Chaplain »."
+          ],
+          "caveat": "La prière accompagnée et les rites religieux dépendent des disponibilités.",
+          "action": "Consulter l’aumônerie"
+        },
+        "ar": {
+          "title": "اطلب الدعم الروحي",
+          "facts": [
+            "للدعم العاجل، اتصل بالرقم المعلّق في غرفة الصلاة واطلب المرشد الروحي المناوب «Duty Chaplain»."
+          ],
+          "caveat": "تُقدَّم الصلاة أو الشعائر الدينية حسب التوافر.",
+          "action": "عرض خدمات الرعاية الروحية"
+        },
+        "es": {
+          "title": "Pedir apoyo de capellanía",
+          "facts": [
+            "Para ayuda urgente, llama al número indicado en una sala de oración y pide hablar con el « Duty Chaplain »."
+          ],
+          "caveat": "La oración acompañada y los ritos dependen de la disponibilidad.",
+          "action": "Ver apoyo de capellanía"
+        }
+      }
+    },
+    {
+      "id": "bristol-quiet-alternatives",
+      "kind": "universities",
+      "slug": "university-of-bristol",
+      "place": "University of Bristol",
+      "url": "/universities/university-of-bristol/",
+      "accessed": "2026-11-03",
+      "source": {
+        "title": "University of Bristol — Places to Worship",
+        "url": "https://www.bristol.ac.uk/multifaith-chaplaincy/places-to-worship/"
+      },
+      "actionUrl": "https://www.bristol.ac.uk/multifaith-chaplaincy/places-to-worship/",
+      "gap": "The existing Bristol record retains four dedicated Muslim prayer spaces. These are additional quiet/multifaith options, not replacements and not claims about ablution facilities.",
+      "copy": {
+        "en": {
+          "title": "More quiet spaces on campus",
+          "facts": [
+            "The Quiet Room at 1 Woodland Road opens weekdays 11:00–15:00.",
+            "The Students’ Union multifaith space is on the 4th floor of the Richmond Building, 08:00–23:00."
+          ],
+          "caveat": "Listed for university students and staff of all faiths and beliefs.",
+          "action": "See all campus spaces"
+        },
+        "fr": {
+          "title": "D’autres espaces calmes sur le campus",
+          "facts": [
+            "La Quiet Room au 1 Woodland Road ouvre en semaine de 11 h à 15 h.",
+            "L’espace multiconfessionnel du Students’ Union se trouve au 4e étage du Richmond Building, de 8 h à 23 h."
+          ],
+          "caveat": "Espaces destinés aux étudiants et au personnel, de toutes confessions et convictions.",
+          "action": "Voir les espaces du campus"
+        },
+        "ar": {
+          "title": "مساحات هادئة أخرى في الحرم",
+          "facts": [
+            "تفتح الغرفة الهادئة في 1 Woodland Road خلال أيام الأسبوع من 11:00 إلى 15:00.",
+            "تقع المساحة متعددة الأديان لاتحاد الطلاب في الطابق الرابع من Richmond Building، وتفتح من 08:00 إلى 23:00."
+          ],
+          "caveat": "مخصّصة لطلاب الجامعة وموظفيها من جميع الأديان والمعتقدات.",
+          "action": "عرض مساحات الحرم"
+        },
+        "es": {
+          "title": "Más espacios tranquilos en el campus",
+          "facts": [
+            "La Quiet Room en 1 Woodland Road abre entre semana de 11:00 a 15:00.",
+            "El espacio multiconfesional del Students’ Union está en la 4.ª planta del Richmond Building y abre de 08:00 a 23:00."
+          ],
+          "caveat": "Para estudiantes y personal de la universidad de todas las creencias.",
+          "action": "Ver espacios del campus"
+        }
+      }
+    },
+    {
+      "id": "st-thomas-share-belief",
+      "kind": "hospitals",
+      "slug": "st-thomas-hospital",
+      "place": "St Thomas’ Hospital",
+      "url": "/hospitals/st-thomas-hospital/",
+      "accessed": "2026-11-03",
+      "source": {
+        "title": "Guy’s and St Thomas’ — Spiritual care",
+        "url": "https://www.guysandstthomas.nhs.uk/our-services/spiritual-care"
+      },
+      "actionUrl": "https://www.guysandstthomas.nhs.uk/our-services/spiritual-care",
+      "gap": "Extends the existing bedside support insight with an arrival action. Keep existing restricted-access caveat and prayer-mat/Quran information.",
+      "copy": {
+        "en": {
+          "title": "Tell staff what support you need",
+          "facts": [
+            "You can register your faith or belief when giving your arrival contact details, or tell your nurse."
+          ],
+          "caveat": "Prayer rooms remain for patients, relatives during their stay, and staff only.",
+          "action": "Read spiritual care guidance"
+        },
+        "fr": {
+          "title": "Précisez le soutien dont vous avez besoin",
+          "facts": [
+            "Vous pouvez indiquer votre religion ou conviction lors de l’enregistrement de vos coordonnées à l’arrivée, ou en parler au personnel infirmier."
+          ],
+          "caveat": "Salles de prière réservées aux patients, à leurs proches pendant le séjour et au personnel.",
+          "action": "Lire les conseils de l’aumônerie"
+        },
+        "ar": {
+          "title": "أخبر الموظفين بالدعم الذي تحتاجه",
+          "facts": [
+            "يمكنك تسجيل دينك أو معتقدك عند تقديم بيانات التواصل لدى وصولك، أو إخبار طاقم التمريض."
+          ],
+          "caveat": "تبقى غرف الصلاة مخصّصة للمرضى وذويهم أثناء الإقامة والموظفين فقط.",
+          "action": "اقرأ إرشادات الرعاية الروحية"
+        },
+        "es": {
+          "title": "Indica qué apoyo necesitas",
+          "facts": [
+            "Puedes registrar tu religión o creencia al facilitar tus datos de contacto al llegar, o decírselo al personal de enfermería."
+          ],
+          "caveat": "Las salas siguen reservadas a pacientes, familiares durante su estancia y personal.",
+          "action": "Leer orientación espiritual"
+        }
+      }
+    }
+  ],
+  "photoCandidates": [
+    {
+      "id": "taoyuan-t1-prayer-room",
+      "placeUrl": "/airports/tpe/",
+      "kind": "room",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Muslim_Prayer_Room_-_Taoyuan_International_Airport_Terminal_1.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Muslim_Prayer_Room_-_Taoyuan_International_Airport_Terminal_1.JPG",
+      "author": "Chongkian",
+      "dateTaken": "2013-04-07",
+      "license": {
+        "name": "CC BY-SA 3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      "width": 1984,
+      "height": 1488,
+      "caption": "Muslim prayer room in Taiwan Taoyuan Airport Terminal 1, photographed in April 2013.",
+      "caution": "Historical photo, not evidence of current facilities. Preserve the date in all captions. Pixel review pending; source description does not substitute for visual inspection."
+    },
+    {
+      "id": "bristol-campus-buildings",
+      "placeUrl": "/universities/university-of-bristol/",
+      "kind": "exterior",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Merchant-Venturers-Building.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Merchant-Venturers-Building.jpg",
+      "author": "Ben Mills / Benjah-bmm27",
+      "dateTaken": "2009-04-20",
+      "license": {
+        "name": "Public domain dedication by the author",
+        "url": "https://commons.wikimedia.org/wiki/File:Merchant-Venturers-Building.jpg#file"
+      },
+      "width": 3008,
+      "height": 2000,
+      "caption": "Merchant Venturers Building and Wills Memorial Building at the University of Bristol, photographed in April 2009.",
+      "caution": "Campus context only; not the prayer-room location. Pixel review pending."
+    },
+    {
+      "id": "kings-hospital-exterior",
+      "placeUrl": "/hospitals/kings-college-hospital/",
+      "kind": "exterior",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:King%27s_College_Hospital1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/24/King%27s_College_Hospital1.jpg",
+      "author": "KiloCharlieLima",
+      "dateTaken": "2015-10-14",
+      "license": {
+        "name": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "width": 3264,
+      "height": 2448,
+      "caption": "King’s College Hospital, London, photographed in October 2015.",
+      "caution": "Hospital exterior only; no claim that this shows the prayer room or its current entrance. Pixel review pending."
+    }
+  ],
+  "photoDecision": "Retain the seven already reviewed local photographs now; do not publish these three new candidates until original pixels can be inspected. New factual guidance is supported independently by official institutional text.",
+  "baselineHashes": {
+    "site/src/data/airports.json": "777f68fc2c5ec86c70ba8ed4c672a66c7eabcb71fbd62bf698599930a9b82a4a",
+    "site/src/data/universities.json": "6e83877a0cd25267f04a8f52dbb6630b0ce7716c7300cf0fc76a55eea829d13b",
+    "site/src/data/universities-2.json": "a247e09589789c51f711153a22bed4b88dc6708080f5c58ed4ec60984452673c",
+    "site/src/data/hospitals-uk.json": "2df52e85a93a0fd94c6f395fce680bea64a8d333334fd5f11c5e441d03f5a2dc",
+    "site/src/data/hospitals-na.json": "050347ad6d3a1ad5ba576d74fc33921115e1acf517b4a1cf228f238c697aef31",
+    "site/src/data/halal.json": "5ee4475add40c2735ba32ff75359eac9ef8a641606099507b18c47914d75ba95",
+    "site/src/data/halal-2.json": "8bb87af1074875575c65c58fc48aa374db265d9d505979a9c67b98bd9151a5a4",
+    "site/src/data/masajid-near.json": "8f759d8a8628fdb3faaed0ee51cb5a301de5a22bbea18480d3c9349c2913459d",
+    "site/src/data/rooms-won.json": "a0c659395804b86c8d284124bba9d971b7fb42682490d8057387d628947afbef",
+    "site/src/data/original-listing-paths.js": "1431f6fae4454f71fd28a5e3011456387af9e07e92ca1de96932a573194cbcb1"
+  },
+  "freshAirportSample": {
+    "source": "https://aroomtopray.com/airports/",
+    "extractedCodes": 119,
+    "missingLocally": [],
+    "codes": [
+      "ABQ",
+      "ADB",
+      "ADD",
+      "ADL",
+      "AGP",
+      "AHB",
+      "AJF",
+      "AKL",
+      "ALA",
+      "ALB",
+      "ALG",
+      "AMD",
+      "AMM",
+      "AMS",
+      "ANC",
+      "AQI",
+      "ARN",
+      "ATH",
+      "ATL",
+      "AUH",
+      "AYT",
+      "BAH",
+      "BCN",
+      "BER",
+      "BEY",
+      "BFS",
+      "BGY",
+      "BHM",
+      "BHX",
+      "BJV",
+      "BKK",
+      "BLR",
+      "BNA",
+      "BNE",
+      "BOG",
+      "BOM",
+      "BOS",
+      "BRE",
+      "BRS",
+      "BRU",
+      "BUD",
+      "BUF",
+      "BWN",
+      "CAG",
+      "CAI",
+      "CCJ",
+      "CDG",
+      "CGK",
+      "CGN",
+      "CHC",
+      "CLE",
+      "CLT",
+      "CMH",
+      "CNX",
+      "COK",
+      "COV",
+      "CPH",
+      "CPT",
+      "CTS",
+      "CVG",
+      "CWL",
+      "DAC",
+      "DAL",
+      "DCA",
+      "DEL",
+      "DEN",
+      "DFW",
+      "DJE",
+      "DLM",
+      "DMM",
+      "DOH",
+      "DPS",
+      "DSS",
+      "DTW",
+      "DUB",
+      "DUR",
+      "DUS",
+      "DWC",
+      "DXB",
+      "EBL",
+      "EDI",
+      "EIN",
+      "ELQ",
+      "EMA",
+      "ESB",
+      "EWR",
+      "FCO",
+      "FKB",
+      "FMO",
+      "FRA",
+      "FUK",
+      "GAN",
+      "GLA",
+      "GOT",
+      "GVA",
+      "GWD",
+      "GYD",
+      "HAJ",
+      "HAN",
+      "HAQ",
+      "HAS",
+      "HEL",
+      "HKG",
+      "HKT",
+      "HND",
+      "HOF",
+      "HOU",
+      "HYD",
+      "IAD",
+      "IAH",
+      "ICN",
+      "IKA",
+      "IND",
+      "ISB",
+      "IST",
+      "JAX",
+      "JED",
+      "JFK",
+      "JNB"
+    ],
+    "scope": "Distinct codes visible in the current web-reader output before truncation; a partial fresh identity check, not a complete room-field comparison."
+  }
+}

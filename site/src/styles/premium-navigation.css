@@ -1,6 +1,6 @@
 /* One wayfinding masthead: a clear identity, three destinations, then tools.
    Opaque surfaces keep the room's changing light out of navigation text. */
-:root { --masthead-height:94px; }
+:root { --masthead-height:104px; }
 .top.room-header {
  position:sticky; top:0; z-index:30; color:var(--ink);
  border:0; border-bottom:1px solid var(--line);
@@ -12,30 +12,30 @@
 .top.room-header>.wrap {
  display:grid; grid-template-columns:auto minmax(0,1fr) auto auto; align-items:center;
  width:min(var(--layout-width),calc(100% - 2 * var(--layout-gutter))); max-width:none;
- min-height:94px; margin:auto; padding:15px 0; gap:clamp(12px,1.5vw,24px);
+ min-height:104px; margin:auto; padding:18px 0; gap:clamp(12px,1.4vw,24px);
 }
 .top.room-header .brand {
- display:flex; min-width:0; gap:12px; color:var(--ink); text-decoration:none;
- font-family:"Archivo Variable",system-ui,sans-serif; font-size:clamp(1.5rem,2vw,1.95rem);
- font-weight:720; font-stretch:100%; letter-spacing:-.045em; line-height:1.1;
+ display:flex; min-width:0; gap:14px; color:var(--ink); text-decoration:none;
+ font-family:"Archivo Variable",system-ui,sans-serif; font-size:clamp(1.8rem,2.15vw,2.2rem);
+ font-weight:680; font-stretch:100%; letter-spacing:-.045em; line-height:1.1;
 }
-.top.room-header .brand>svg { width:52px; height:52px; flex:none; border-radius:0; box-shadow:none; filter:none; }
+.top.room-header .brand>svg { width:64px; height:64px; flex:none; border-radius:0; box-shadow:none; filter:none; }
 .top.room-header .brand>span { display:grid; min-width:0; gap:6px; }
 .top.room-header .brand bdi { white-space:nowrap; }
-.top.room-header .brand small { color:var(--muted); font:450 .72rem/1.4 var(--f-body); text-transform:none; letter-spacing:.01em; }
+.top.room-header .brand small { color:var(--muted); font:450 .8125rem/1.4 var(--f-body); text-transform:none; letter-spacing:.01em; }
 .top.room-header .primary-navigation {
  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:stretch;
- justify-self:center; width:100%; max-width:510px; margin:0; gap:3px; padding:4px;
+ justify-self:center; width:100%; max-width:552px; margin:0; gap:3px; padding:4px;
  border:1px solid var(--line); border-radius:10px; background:var(--surface-2);
 }
 .top.room-header .primary-navigation>a {
  position:relative; display:flex; align-items:center; justify-content:center; gap:7px;
- min-width:0; min-height:50px; padding:7px clamp(7px,.8vw,14px);
+ min-width:0; min-height:52px; padding:8px clamp(8px,.8vw,14px);
  border:1px solid transparent; border-radius:6px; background:transparent; box-shadow:none; text-decoration:none;
- color:var(--ink); font:580 .94rem/1.4 var(--f-body); white-space:nowrap;
+ color:var(--ink); font:580 1rem/1.4 var(--f-body); white-space:nowrap;
  transition:background-color 180ms ease,border-color 180ms ease,box-shadow 180ms ease;
 }
-.top.room-header .primary-destination-label { min-width:0; font:inherit; line-height:inherit; }
+.top.room-header .primary-destination-label { min-width:0; font:inherit; line-height:inherit; white-space:normal; text-align:center; overflow-wrap:anywhere; }
 .top.room-header .destination-emblem { display:grid; place-items:center; width:30px; height:30px; flex:none; border-radius:5px; background:transparent; color:var(--muted); transition:background-color 180ms ease,color 180ms ease; }
 .top.room-header .destination-emblem>svg { display:block; width:21px; height:21px; }
 .top.room-header .primary-navigation>a::after {
@@ -48,7 +48,7 @@
 .top.room-header .header-search {
  display:flex; align-items:center; justify-content:center; gap:9px; margin:0;
  min-width:48px; min-height:48px; padding:11px 15px; border:1px solid transparent; border-radius:7px;
- background:var(--sign); color:var(--sign-ink); text-decoration:none; font:650 .86rem/1.4 var(--f-body);
+ background:var(--sign); color:var(--sign-ink); text-decoration:none; font:650 .9375rem/1.4 var(--f-body);
  transition:background-color 180ms ease,box-shadow 180ms ease;
 }
 .top.room-header .header-search svg { flex:none; }
@@ -57,7 +57,7 @@
 .top.room-header .site-menu>summary {
  display:flex; justify-content:center; align-items:center; gap:12px;
  min-width:88px; min-height:48px; padding:10px 14px; border:1px solid var(--line); border-radius:7px;
- background:var(--surface); color:var(--ink); font:550 .88rem/1.4 var(--f-body);
+ background:var(--surface); color:var(--ink); font:550 .9375rem/1.4 var(--f-body);
  list-style:none; cursor:pointer; transition:background-color 180ms ease,border-color 180ms ease;
 }
 .top.room-header .site-menu>summary::-webkit-details-marker { display:none; }
@@ -76,19 +76,19 @@
 }
 .top.room-header .site-menu[open] .site-menu-panel { animation:wayfinding-menu-arrive 120ms ease both; }
 @keyframes wayfinding-menu-arrive { from { opacity:0; } to { opacity:1; } }
-.top.room-header .menu-section-label { display:flex; align-items:center; gap:9px; color:var(--ink); font:650 .9rem/1.4 var(--f-body); margin:0 0 17px; letter-spacing:0; }
+.top.room-header .menu-section-label { display:flex; align-items:center; gap:9px; color:var(--ink); font:650 1rem/1.4 var(--f-body); margin:0 0 17px; letter-spacing:0; }
 .top.room-header .menu-section-label>svg { flex:none; color:var(--muted); }
 .top.room-header .menu-preferences { margin:0; padding:0 0 22px; border:0; border-bottom:1px solid var(--line); }
 .top.room-header .menu-visit { margin-top:22px; }
 .js .top.room-header .appearance-controls { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
 .top.room-header .appearance-field { min-width:0; gap:7px; }
-.top.room-header .appearance-label { font-size:.8rem; font-weight:500; color:var(--muted); }
+.top.room-header .appearance-label { font-size:.875rem; font-weight:500; color:var(--muted); }
 .top.room-header .appearance-select { min-width:0; min-height:48px; border:1px solid var(--field); border-radius:6px; background:var(--surface-2); }
-.top.room-header .appearance-select select { min-height:48px; max-width:none; font-size:.94rem; }
+.top.room-header .appearance-select select { min-height:48px; max-width:none; font-size:1rem; }
 .top.room-header .menu-tools { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:5px 8px; }
 .top.room-header .menu-tools>a {
  display:flex; align-items:center; gap:10px; min-width:0; min-height:48px; padding:11px 10px;
- border:1px solid transparent; border-radius:6px; color:var(--ink); text-decoration:none; font:500 .9rem/1.45 var(--f-body);
+ border:1px solid transparent; border-radius:6px; color:var(--ink); text-decoration:none; font:500 1rem/1.45 var(--f-body);
  transition:background-color 180ms ease,border-color 180ms ease;
 }
 .top.room-header .menu-tools>a>svg { width:18px; height:18px; flex:none; color:var(--muted); }
@@ -104,15 +104,15 @@ html { scroll-padding-top:calc(var(--room-header-height,var(--masthead-height)) 
 #main,#prayer-room,#guide-content,#place-search-input,#q-dir { scroll-margin-top:12px; }
 html[dir=rtl] .top.room-header :is(.primary-navigation>a,.site-menu>summary,.header-search,.menu-tools>a,.menu-section-label,.appearance-label) { font-family:var(--f-arabic); font-size:1rem; line-height:1.5; letter-spacing:0; }
 html[dir=rtl] .top.room-header .brand small { font-family:var(--f-arabic); font-size:.85rem; letter-spacing:0; }
-@media(max-width:1200px) {
- :root { --masthead-height:140px; }
+@media(max-width:1280px) {
+ :root { --masthead-height:158px; }
  .top.room-header>.wrap { grid-template-columns:minmax(0,1fr) auto auto; gap:0 12px; padding:12px 0 10px; }
- .top.room-header .brand { grid-row:1; grid-column:1; font-size:1.65rem; }
+ .top.room-header .brand { grid-row:1; grid-column:1; font-size:1.9rem; }
  .top.room-header .header-search { grid-row:1; grid-column:2; }
  .top.room-header .site-menu { grid-row:1; grid-column:3; position:static; }
  .top.room-header .primary-navigation { grid-row:2; grid-column:1/-1; max-width:none; margin-top:11px; gap:4px; }
  .top.room-header .primary-navigation>a { min-height:45px; padding:6px 10px; }
- .top.room-header .site-menu-panel { top:calc(100% + 8px); inset-inline-end:var(--layout-gutter); max-height:calc(100dvh - 180px); }
+ .top.room-header .site-menu-panel { top:calc(100% + 8px); inset-inline-end:var(--layout-gutter); max-height:calc(100dvh - 195px); }
 }
 /* Keep the long French and Spanish search labels from squeezing the wordmark. */
 @media(max-width:760px) {
@@ -120,33 +120,37 @@ html[dir=rtl] .top.room-header .brand small { font-family:var(--f-arabic); font-
  .top.room-header .header-search>span { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
 }
 @media(max-width:600px) {
- :root { --masthead-height:124px; }
+ :root { --masthead-height:130px; }
  .top.room-header>.wrap { gap:0 8px; padding-top:10px; padding-bottom:8px; }
- .top.room-header .brand { gap:10px; font-size:clamp(1.18rem,4.1vw,1.5rem); }
- .top.room-header .brand>svg { width:44px; height:44px; }
+ .top.room-header .brand { gap:10px; font-size:clamp(1.2rem,4.25vw,1.6rem); }
+ .top.room-header .brand>svg { width:48px; height:48px; }
  .top.room-header .brand>span { gap:5px; }
- .top.room-header .brand small { font-size:.6rem; }
+ .top.room-header .brand small { font-size:.6875rem; }
  .top.room-header .site-menu>summary { min-width:44px; min-height:44px; padding:10px; }
  .top.room-header .header-search { width:44px; min-width:44px; min-height:44px; padding:10px; }
  .top.room-header .site-menu>summary>span:first-child { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
  .top.room-header .primary-navigation { margin-top:10px; gap:3px; padding:3px; border-radius:8px; }
- .top.room-header .primary-navigation>a { gap:5px; min-height:44px; padding:6px 3px; font-size:.81rem; }
+ .top.room-header .primary-navigation>a { gap:5px; min-height:44px; padding:6px 3px; font-size:.875rem; }
  .top.room-header .destination-emblem { width:23px; height:26px; border-radius:3px; }
  .top.room-header .destination-emblem>svg { width:17px; height:17px; }
- .top.room-header .site-menu-panel { inset-inline:12px; width:auto; max-width:none; max-height:calc(100dvh - 165px); padding:22px; }
- .top.room-header .menu-tools>a { font-size:.84rem; }
+ .top.room-header .site-menu-panel { inset-inline:12px; width:auto; max-width:none; max-height:calc(100dvh - 172px); padding:22px; }
+ .top.room-header .menu-tools>a { font-size:.9375rem; }
  .top.room-header .menu-tools>.saved-nav { grid-column:1/-1; }
  #main,#prayer-room,#guide-content,#place-search-input,#q-dir { scroll-margin-top:8px; }
  html[dir=rtl] .top.room-header .brand small { font-size:.72rem; }
  html[dir=rtl] .top.room-header .primary-navigation>a { font-size:.98rem; }
 }
-@media(max-width:380px) {
- :root { --masthead-height:142px; }
- .top.room-header .primary-navigation>a { flex-direction:column; gap:1px; min-height:60px; padding:5px 2px; font-size:.8rem; }
+@media(max-width:480px) {
+ :root { --masthead-height:146px; }
+ .top.room-header .primary-navigation>a { flex-direction:column; gap:2px; min-height:60px; padding:5px 2px; }
  .top.room-header .destination-emblem { width:27px; height:25px; }
+}
+@media(max-width:380px) {
+ .top.room-header .primary-navigation>a { font-size:.8125rem; }
  .top.room-header .menu-tools { grid-template-columns:1fr; }
- .top.room-header .brand { gap:7px; font-size:1.1rem; }
- .top.room-header .brand>svg { width:38px; height:38px; }
+ .top.room-header .brand { gap:6px; font-size:1.0625rem; }
+ .top.room-header .brand>svg { width:48px; height:48px; }
+ .top.room-header>.wrap { column-gap:6px; }
  .top.room-header .brand small { display:none; }
  .top.room-header .site-menu-panel { padding:18px; }
  .top.room-header .menu-tools>a { gap:8px; padding-inline:6px; }

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { initSiteMenu } from '../src/scripts/navigation.js';
+import { initSiteMenu, initSiteNavigation } from '../src/scripts/navigation.js';
 
 function element(root) {
   const listeners = new Map(), attributes = new Map();
@@ -122,4 +122,20 @@ test('masthead labels do not match legacy destination-card circle selectors', as
   for (const [, ancestorClass] of circularChildRules) {
     assert.ok(!linkClasses.includes(ancestorClass), `Header labels must not inherit .${ancestorClass}>span circle dimensions`);
   }
+});
+
+
+test('restoring a page refreshes saved totals after a place was changed elsewhere in the same tab', () => {
+  const root = {}, document = Object.assign(root, element(root)), browser = element(root), count = element(root);
+  let saved = '["/airports/lhr/"]';
+  browser.localStorage = { getItem: () => saved };
+  browser.location = new URL('https://example.test/');
+  document.querySelector = selector => selector === '[data-saved-count]' ? count : null;
+  document.querySelectorAll = () => [];
+  initSiteNavigation(document, browser);
+  assert.equal(count.textContent, '1'); assert.equal(count.hidden, false);
+  saved = '[]'; browser.emit('pageshow', { persisted: true });
+  assert.equal(count.textContent, '0'); assert.equal(count.hidden, true);
+  saved = '["/airports/lhr/", "/universities/example/"]'; browser.emit('pageshow', { persisted: true });
+  assert.equal(count.textContent, '2'); assert.equal(count.hidden, false);
 });

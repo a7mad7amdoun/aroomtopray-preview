@@ -240,7 +240,7 @@ html .immersive-site .site-footer { width:min(var(--layout-width),calc(100% - 2 
 /* The world outside stays stationary while the physical door swings.
    Keep its front just visible at 86 degrees instead of hiding the slab. */
 .room-environment .door-outside { background-image:none; }
-.door-scene { position:absolute; inset:0; background-size:cover; background-repeat:no-repeat; opacity:0; transition:opacity 150ms ease-out; }
+.door-scene { position:absolute; inset:0; background-size:cover; background-repeat:no-repeat; opacity:0; transition:none; }
 .door-scene-airport { background-image:image-set(url('/art/room-threshold/airport-fast-384.webp') 1x,url('/art/room-threshold/airport-fast-768.webp') 2x); background-position:center; }
 .door-scene-campus { background-image:image-set(url('/art/room-threshold/campus-fast-384.webp') 1x,url('/art/room-threshold/campus-fast-768.webp') 2x); background-position:center; }
 .door-scene-hospital { background-image:image-set(url('/art/room-threshold/hospital-fast-384.webp') 1x,url('/art/room-threshold/hospital-fast-768.webp') 2x); background-position:center; }

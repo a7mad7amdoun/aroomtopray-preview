@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-03",
+  "mode": "built-in imagegen",
+  "prompt": "Use case: product-mockup\nAsset type: photorealistic full-bleed surface texture for the front face of a working 3D oak door on a prayer-room website. Portrait 1:2 rectangle.\nCreate a professionally photographed, straight-on orthographic natural quarter-sawn honey oak door FACE ONLY, filling the image precisely from edge to edge. It is a solid flat flush timber slab with no glass, no opening, no handle, no hinges, no plate, no frame, no background, no floor, no shadows outside the slab. The web interface will add those parts with correct physical geometry. High-quality fine vertical oak grain, restrained warm honey-beige color, real matte clear finish, subtle variations between bookmatched veneer leaves. At 5% from the left and right edges, an exceptionally fine straight vertical joinery line creates two narrow solid-oak edge stiles. The main central veneer remains uninterrupted. Extremely shallow believable bevel at the outer four edges. The material should feel tangible and quietly luxurious like an architect-specified public-building door, never rustic, ornate, polished marble or golden metal. Even neutral studio lighting from the upper left, no dramatic highlights or artificial glow. Pin-sharp restrained wood pores and coherent vertical grain. Do not draw a complete room or doorframe. No lettering, no symbols, no logo, no fixtures. This is a usable photographic material map, not an illustration.",
+  "generatedFile": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-9b39c218-6990-4f56-89dd-a1d5aa48351c.png",
+  "selectedAsset": "site/public/art/materials/oak-door-face-v2.webp",
+  "delivery": {
+    "width": 576,
+    "height": 1152,
+    "format": "webp",
+    "quality": 86,
+    "bytes": 81640
+  },
+  "implementation": "Generated wood face only. CSS supplies the actual transparent glass aperture, round rose and lever, hinge barrels, edge thickness, fixed strike and threshold. Existing architectural registration, scenery, prayer-mat orientation and 420/520 ms door timing preserved.",
+  "visualReview": {
+    "generatedMaterial": "Inspected generated image",
+    "renderedWebsite": "Unavailable due to existing browser URL policy block. No alternate rendering path used."
+  }
+}

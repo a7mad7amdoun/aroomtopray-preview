@@ -137,7 +137,7 @@ const guideTabs=[{id:'room-details',label:g.rooms,icon:'pin'},{id:'direction',la
           <aside class="card ask"><span class="eyebrow">Facilities found</span><h2 style="font-size:1.2rem">Our sources list a prayer room, a wuḍūʾ area and a space for women at {a.iata}.</h2><p class="fine">If that changes, tell us and we’ll update the page.</p></aside>
         )}
         {a.status !== 'room' && a.status !== 'pending' && <LetterKit place={a.name} city={a.city} kind="airport" feedbackUrl={a.feedback || null} />}
-        <details class="card report-box">
+        <details class="card report-box" id="report">
           <summary>Been through {a.iata} recently? Tell us</summary>
           <p class="muted" style="font-size:.95rem;margin-top:8px">The editor checks every report against the airport before anything changes. Please don’t include your name or contact details. <a href="/about/#privacy">How we handle reports</a></p>
           <form class="report" data-report={a.code} method="post" action="/api/report">

@@ -72,6 +72,7 @@ export function initSiteNavigation(root = globalThis.document, browser = globalT
   };
   browser.addEventListener('storage', updateSaved);
   browser.addEventListener('saved-places-change', updateSaved);
+  browser.addEventListener('pageshow', updateSaved);
   updateSaved();
   initSiteMenu(root.querySelector('[data-site-menu]'), root, browser);
   root.querySelectorAll('[data-print]').forEach(button => {

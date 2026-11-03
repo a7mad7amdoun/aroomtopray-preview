@@ -1,0 +1,19 @@
+Applied refinement brief — A Room to Pray
+
+Purpose
+Help a traveller, student, patient or visitor find a usable place to pray calmly and quickly. Retain Ahmed’s room and doorway concept, Hamza’s directory depth and ivory/navy/yellow wayfinding identity. Improve this established site without replacing its architecture, artwork family, translations or visitor tools.
+
+Physical room
+Keep the prayer mat directed at the empty wall. Register the door to the existing photographed room geometry. Build the door as one pivoting timber leaf with a real transparent aperture, glass beading, coherent wood grain, a lever on a round rose, three hinges, visible thickness and restrained contact shadows. The destination image stays behind the door; it must never travel as a photograph glued to the leaf. Leave readable content and controls stationary. Preserve rapid 420 ms opening and 520 ms closing, native navigation, reduced-motion handling and interruption-safe controls. Scene selection must show one clear destination without crossfading two buildings. No automatic camera drift, hover lifts, artificial glow or ornamental motion.
+
+Identity and information
+Use the established Archivo and Arabic Noto Naskh family consistently. Make branding, country flags, practical text, facts and tabs larger. Use paired light/dark colours, predictable spacing, strong heading hierarchy and stable aligned surfaces. Give long French, Spanish and Arabic labels room to wrap. Responsive cards and facts must collapse before they become cramped. Keep restrictions visible, illustrations labelled and genuine institutional photos credited. Symbols support text rather than replacing it.
+
+Useful interactions
+Verify tabs, deep links, history, search, filters, maps, corrections, save/copy, language, menu, light switch, door controls and print. Modified browser keyboard shortcuts must stay native. Switching panels must not strand keyboard focus in hidden content. All panels must remain available without JavaScript and for printing. No extra duplicate controls or inactive apparent buttons.
+
+Source integrity
+Preserve every previously recorded original listing, all source links and all four languages. Additional practical information must come from the relevant institution and carry its source-access date without changing room verification dates. Add Heathrow duty-chaplain guidance, Bristol quiet-space alternatives and St Thomas arrival-support guidance. Preserve each access caveat. Pinterest references guide environmental wayfinding, restrained hierarchy and material character; do not claim to have inspected blocked images or reuse unlicensed artwork. New real-photo candidates require both licensing and pixel review before publication.
+
+Verification and publication
+Build the complete GitHub Pages preview and test the source, every exported page’s control structure and representative interactions in all four languages. Preserve unrelated map edits in the main checkout. Publish only Ahmed’s authorized preview, leaving Hamza’s live website untouched. Record unavailable browser-rendered visual checks explicitly; offline DOM checks do not prove visual appearance or motion quality.

@@ -20,9 +20,9 @@ if(form){
   panel.hidden=false;input.setAttribute('aria-expanded','true');
   if(active>=0){input.setAttribute('aria-activedescendant',`place-result-${active}`);list.children[active]?.scrollIntoView({block:'nearest'});}else input.removeAttribute('aria-activedescendant');
  }
- input.addEventListener('input',()=>{active=-1;const params=new URLSearchParams(location.search);params.delete('q');if(input.value.trim())params.set('q',input.value.trim().slice(0,160));const query=params.toString();history.replaceState({},'',location.pathname+(query?'?'+query:'')+location.hash);render();});input.addEventListener('focus',render);
+ input.addEventListener('input',()=>{active=-1;const params=new URLSearchParams(location.search);params.delete('q');if(input.value.trim())params.set('q',input.value.trim().slice(0,160));const query=params.toString();try{history.replaceState(history.state,'',location.pathname+(query?'?'+query:'')+location.hash);}catch{}render();});input.addEventListener('focus',render);
  input.addEventListener('keydown',e=>{
-  if(e.isComposing)return;
+  if(e.defaultPrevented||e.isComposing||e.metaKey||e.ctrlKey||e.altKey||e.shiftKey)return;
   if(e.key==='Escape'){e.preventDefault();close();return;}
   const next=searchIndexForKey(e.key,active,matches.length);
   if(next!==null){e.preventDefault();active=next;render();}
