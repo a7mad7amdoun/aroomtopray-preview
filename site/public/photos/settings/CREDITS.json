@@ -1,0 +1,64 @@
+{
+  "credits": [
+    {
+      "scene": "airport",
+      "name": "Changi Airport · Terminal 3",
+      "author": "*angys*",
+      "date": "2023-08-15",
+      "width": 12000,
+      "height": 9000,
+      "source": "https://commons.wikimedia.org/wiki/File:Changi_Airport_T3_interior_(230815).jpg",
+      "original": "https://upload.wikimedia.org/wikipedia/commons/a/af/Changi_Airport_T3_interior_%28230815%29.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sha256Original": "b8ec368bde3baecbdd913c04196eaa0b7531f708a53e636ad9dc8cfa066115fc",
+      "files": [
+        "airport-720.webp",
+        "airport-1440.webp",
+        "airport-2160.webp"
+      ],
+      "modifications": "EXIF orientation normalized, resized without enlargement, converted to WebP. Website crops with object-fit. No AI editing or upscaling.",
+      "purpose": "Real architectural context, not evidence of a prayer room or current access."
+    },
+    {
+      "scene": "campus",
+      "name": "University of Glasgow · Cloisters",
+      "author": "Atreides83",
+      "date": "2022-07-21",
+      "width": 4032,
+      "height": 3024,
+      "source": "https://commons.wikimedia.org/wiki/File:The_Cloisters_at_the_University_of_Glasgow.jpg",
+      "original": "https://upload.wikimedia.org/wikipedia/commons/2/2d/The_Cloisters_at_the_University_of_Glasgow.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sha256Original": "71f6d5f902af4133ac1878c8ac92bfb7cddc4aa1a7a7d4578b86013ae6cc3c47",
+      "files": [
+        "campus-720.webp",
+        "campus-1440.webp",
+        "campus-2160.webp"
+      ],
+      "modifications": "EXIF orientation normalized, resized without enlargement, converted to WebP. Website crops with object-fit. No AI editing or upscaling.",
+      "purpose": "Real architectural context, not evidence of a prayer room or current access."
+    },
+    {
+      "scene": "hospital",
+      "name": "Princess Alexandra Hospital · Brisbane",
+      "author": "Kgbo",
+      "date": "2017-03-23",
+      "width": 3024,
+      "height": 4032,
+      "source": "https://commons.wikimedia.org/wiki/File:Princess_Alexandra_Hospital_corridors.jpg",
+      "original": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Princess_Alexandra_Hospital_corridors.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sha256Original": "d55a28da6223ce750401e2693ce1f22c73f9da7c0f936ae4a57a3c23c7834d8b",
+      "files": [
+        "hospital-720.webp",
+        "hospital-1440.webp",
+        "hospital-2160.webp"
+      ],
+      "modifications": "EXIF orientation normalized, resized without enlargement, converted to WebP. Website crops with object-fit. No AI editing or upscaling.",
+      "purpose": "Real architectural context, not evidence of a prayer room or current access."
+    }
+  ]
+}

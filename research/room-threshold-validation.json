@@ -1,0 +1,26 @@
+{
+  "unitTests": {
+    "passed": 138,
+    "failed": 0
+  },
+  "exportedPages": 2177,
+  "brokenLocalLinks": 0,
+  "offlineDOMChecks": {
+    "unifiedStructure": 24,
+    "roomDoorAndTour": 24,
+    "directories": 12,
+    "searchTabsThemesSavedPlaces": 12,
+    "receptionCards": 12
+  },
+  "languages": [
+    "en",
+    "fr",
+    "ar",
+    "es"
+  ],
+  "artworkInspection": "Generated day and evening panoramas visually inspected. Both mat heads face a clear solid wall. Three generated destination views and three real source photographs inspected.",
+  "renderedBrowserCheck": false,
+  "limitation": "Existing explicit browser URL policy blocked rendered-page inspection; no alternate renderer used. CSS geometry and responsive rules checked statically.",
+  "data": "All existing place records, sources, access facts and verification dates retained.",
+  "publication": "Ahmed GitHub Pages preview only; Hamza production untouched."
+}

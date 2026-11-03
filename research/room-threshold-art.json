@@ -1,0 +1,58 @@
+{
+  "generator": "Built-in image_gen image tool",
+  "mode": "reference-based image editing",
+  "purpose": "Imagined architectural scenery, not evidence of listed rooms.",
+  "prayerOrientation": "The single mat faces the solid empty wall. No furniture or doorway is in its prayer direction. Both day and night preserve this arrangement.",
+  "rejected": "Initial day/night bench composition rejected after the user's mat-orientation correction; not shipped.",
+  "entries": [
+    {
+      "key": "day",
+      "prompt": "Use case: precise-object-edit. Correct this exact prayer-room panorama for prayer orientation. Preserve the exact room camera, 2:1 framing, far-left doorway and aperture pixel alignment, walls, light, materials and floor. Remove the bench and the folded mats completely. Reposition the single navy prayer mat into the clear floor area just to the RIGHT of the doorway, centered near x=34% of image width. Its long axis must point DIRECTLY TOWARD THE SOLID BLANK WALL ABOVE IT, perpendicular to that wall, its head/top edge nearest that wall and its foot/bottom edge nearest the viewer. It must NOT face the doorway, any bench, furniture, shelf, person or objects. Keep all space between the mat and the solid wall empty. Use a subtle woven directional prayer-rug motif with its arch at the head edge toward the wall so orientation is unambiguous. Realistic floor perspective, the mat lies fully flat and does not block the doorway. Leave the right 55% of the image as clear wall for interface text. No other props, no extra doors, no text, no symbols on the wall. Keep the warm, modest, realistic prayer-room photography.",
+      "previousPrompt": "Use case: precise-object-edit. Asset type: production panoramic prayer-room website background, landscape 2:1. Edit the reference room into a more believable contemporary prayer room while keeping its quiet ivory limestone, natural oak, navy prayer mat and warm natural architectural-photography identity. Critical new composition: move the only rectangular doorway to the extreme LEFT of the panorama, its visible inner aperture approximately x=2% to 22%, y=17% to 81%. The left edge of its oak jamb can be partly cropped. The rectangular aperture must be front-on, vertical, unobstructed and open, with a plain muted shadowed recess; absolutely NO closed door leaf inside the image because a working website door and changing exterior scene will occupy this aperture. Remove the old central rounded stone recess entirely. Keep the right 60% of the picture a continuous beautiful but simple pale warm plaster wall for readable website text. Make the whole scene feel like being INSIDE a real, modest, thoughtfully made room to pray in, not looking at a product display. Floor extends across the entire bottom fifth, natural honed limestone and a low quiet oak bench with a pair of neatly folded navy prayer mats near the left-middle wall; one full navy woven prayer mat lies clear of the doorway, angled slightly toward the blank wall. Daylight from an unseen side window produces gentle authentic shadows, no hard light pattern over the right reading wall. Realistic proportion, construction joints, material grain, natural optics, calm premium editorial photography. Straight-on camera, architectural verticals, no fisheye, no floating props, no decorative arches, no mosque dome, no columns, no signage or text, no people, no extra doors. The room is the background itself, not an image inside a frame.",
+      "generatedPath": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-3cf05027-568f-40a1-9c56-5a51a45e9ba9.png",
+      "outputs": [
+        "site/public/art/room-threshold/day-1024.webp",
+        "site/public/art/room-threshold/day-1774.webp"
+      ]
+    },
+    {
+      "key": "night",
+      "prompt": "Edit this exact room photograph into its matching evening/dark-mode version. Preserve every pixel's architectural geometry: 2:1 camera crop, left-edge oak door opening, blank wall and floor, and the EXACT position, scale and orientation of the single navy prayer mat at x34%. The mat's pointed woven arch/head faces the solid empty wall above it. Nothing may stand between the mat and that wall: NO bench, furniture, folded mats, artwork, door or objects in its prayer direction. Do not move or rotate the mat. Change lighting/material appearance only: deep muted navy-charcoal wall with subtle plaster texture, gentle warm concealed illumination near the ceiling and door jamb, softly illuminated limestone floor. Calm believable real photography, not dramatic or theatrical. Keep doorway bright enough for a website insert and wall detail visible. No text, no new furnishings, no people. The room remains an uncluttered usable prayer room.",
+      "generatedPath": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-71749fbe-22dd-4df0-88dc-b1c991faf933.png",
+      "outputs": [
+        "site/public/art/room-threshold/night-1024.webp",
+        "site/public/art/room-threshold/night-1774.webp"
+      ]
+    },
+    {
+      "key": "airport",
+      "ref": "/Users/ilyas/Documents/ChatGPT/Ahmed Project/aroomtopray-room-threshold/site/public/photos/settings/airport-1440.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: portrait 3:4 exterior-view insert for a working prayer-room doorway. Use the reference photograph ONLY for believable airport structure, material scale and daylight. Create a new imagined airport concourse, seen at normal eye level from a quiet side room. Borderless image of the public space beyond; NO door, no doorway frame, no foreground wall, because a real interface door frames it separately. Spacious glass terminal with a restrained sculpted pale ceiling, warm oak detail, a few departure seats, a distant airplane visible through the glass, daylight and polished stone floor. The centre of the composition clearly identifies an airport even when cropped narrow. Natural photographic realism, neutral-warm tones, quiet and welcoming, careful verticals and shadows. Very few tiny unidentifiable travelers at a distance, no prominent people. No readable signage, text, logos, invented symbols, watermarks, fantasy forms, luxury hotel features or excessive decorations. The scene is illustrative, not a photograph of a specific facility.",
+      "generatedPath": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-4af7b463-5c9f-4240-8af7-cbe4f5a10514.png",
+      "outputs": [
+        "site/public/art/room-threshold/airport-720.webp",
+        "site/public/art/room-threshold/airport-1086.webp"
+      ]
+    },
+    {
+      "key": "campus",
+      "ref": "/Users/ilyas/Documents/ChatGPT/Ahmed Project/aroomtopray-room-threshold/site/public/photos/settings/campus-1440.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: portrait 3:4 exterior-view insert for a working prayer-room doorway. Use the source photograph ONLY for real stone texture, daylight and the feeling of a university cloister. Make a new imagined university campus seen from the side of a quiet study/prayer room: an OPEN pale sandstone arcade looks into a green collegiate courtyard with a familiar academic building beyond, a simple noticeboard in the far distance, and two tiny unidentifiable students walking. Borderless view of the campus only: NO added door, no closed door, no doorframe, no foreground room wall. An authentic campus, not a cathedral or mosque. The central portion clearly shows an open arch, lawn and academic architecture when cropped to a narrow door. Warm morning light, olive green trees, tactile stone, natural photography, carefully proportioned architecture. No text or readable signs, no logos, no fantasy geometry, no over-styled decor. Illustrative architecture, no claim to depict a specific institution.",
+      "generatedPath": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-db4cad0b-b405-46e1-a8ba-38e3e76cf675.png",
+      "outputs": [
+        "site/public/art/room-threshold/campus-720.webp",
+        "site/public/art/room-threshold/campus-1086.webp"
+      ]
+    },
+    {
+      "key": "hospital",
+      "ref": "/Users/ilyas/Documents/ChatGPT/Ahmed Project/aroomtopray-room-threshold/site/public/photos/settings/hospital-1440.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: portrait 3:4 exterior-view insert for a working prayer-room doorway. Use the reference only for practical hospital scale and handrail details, not exact signage or room numbers. Create a new imagined welcoming hospital public corridor, photographed at eye level from a quiet side room: pale walls, a muted blue-gray floor, a continuous handrail, clear sightline to a small waiting area with two blue chairs and a glazed courtyard with greenery. Hospital context should be immediately believable and calm. The centre of the composition remains legible in a narrow doorway crop. Borderless public-space view only: NO door, no doorway frame, no closed foreground door, no foreground room wall. Natural daylight, a touch of warm timber at reception, realistic materials and safe clear circulation. No patients, no distress, no medical equipment, no logos, no readable signs or text, no fake glyphs, no glamorous hotel staging. Illustrative architecture, not evidence of an actual facility.",
+      "generatedPath": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-58b74de0-91d0-4a07-874d-31201c1b31d4.png",
+      "outputs": [
+        "site/public/art/room-threshold/hospital-720.webp",
+        "site/public/art/room-threshold/hospital-1086.webp"
+      ]
+    }
+  ]
+}

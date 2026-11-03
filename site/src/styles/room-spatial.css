@@ -1,11 +1,11 @@
-/* A sculpted sanctuary: full-width limestone, a recessed threshold, and one
+/* A quiet prayer room: full-width limestone, a far-left threshold, and one
    quiet reading wall. Artwork and door share an independent coordinate plane. */
 :root {
  --bg:#f2efe6; --surface:#fbf9f3; --surface-2:#eae6db; --ink:#142033; --muted:#586271;
  --line:#d6d3c8; --field:#788292; --focus:#355c86; --sign:#ffc629; --sign-ink:#14171c;
  --layout-width:1520px; --layout-gutter:clamp(16px,2.5vw,40px); --content-inset:clamp(22px,4vw,64px);
- --room-day:url('/art/room-sanctuary/day-1774.webp');
- --room-night:url('/art/room-sanctuary/night-1774.webp');
+ --room-day:url('/art/room-threshold/day-1774.webp');
+ --room-night:url('/art/room-threshold/night-1774.webp');
  --room-night-opacity:0; --room-wall-wash:#fbf9f3e6;
  --room-edge:#92836a12; --room-door-shade:rgba(111,77,39,.48);
 }
@@ -29,9 +29,11 @@ html .room-layout>.room-main { position:relative; width:100%; max-width:none; mi
 :root .room-main .room-environment .room-wall::before,:root .room-main .room-environment .room-wall::after { content:''; display:block; position:absolute; inset:0; background-size:100% 100%; background-position:center; border-radius:0; }
 :root .room-main .room-environment .room-wall::before { background-image:var(--room-day); }
 :root .room-main .room-environment .room-wall::after { background-image:var(--room-night); opacity:var(--room-night-opacity); transition:opacity 760ms cubic-bezier(.25,.65,.25,1); }
-/* Inner jamb (400,221)–(676,686), on both 1774×887 source images.
-   The rounded stone recess belongs to the artwork, not the moving door. */
-.room-environment .door-surround { left:22.548%; top:24.9154%; bottom:auto; width:15.5581%; height:52.4239%; min-height:0; }
+/* Inner jamb (30,185)–(368,699), on both 1774×887 source images.
+   Keep the door at the far-left edge and the mat facing the clear wall. */
+.room-environment .door-surround { left:1.6911%; top:20.8568%; bottom:auto; width:19.053%; height:57.9481%; min-height:0; }
+.room-environment[data-door-state=open] { --door-angle:-96deg; }
+.room-environment .door-clear-glass { position:absolute; inset:0; background:linear-gradient(135deg,#fff1,transparent 60%); }
 .room-environment .door-room-sign { top:-10%; min-height:25px; padding:5px; border-radius:2px; box-shadow:0 1px 0 #fff2,0 3px 6px #0003; }
 .room-environment .door-room-sign b { font-size:clamp(.65rem,.9vw,.84rem); font-weight:700; }
 .room-environment .door-action-caption { top:auto; bottom:18px; font-size:.76rem; min-height:40px; border-radius:4px; background:#111b2a; color:#f7f3e8; border:1px solid #c7b79080; box-shadow:0 3px 12px #0002; }
@@ -86,16 +88,16 @@ html .room-layout>.room-main { position:relative; width:100%; max-width:none; mi
 .room-main .place-arrival .d-meta { gap:10px 14px; line-height:1.65; }
 .room-main .support-arrival>.eyebrow { display:block; margin-bottom:20px; font-size:.76rem; }
 .room-main .support-arrival>.btn { margin-top:22px; }
-.room-environment .room-location { position:absolute; left:43%; top:54%; width:auto; margin:0; padding:0; pointer-events:auto; transform:translateX(-50%); }
+.room-environment .room-location { position:absolute; left:27%; top:44%; width:auto; margin:0; padding:0; pointer-events:auto; transform:translateX(-50%); }
 .room-environment .room-light { position:static; display:flex; flex-direction:column; align-items:center; width:auto; gap:7px; padding:0; }
 .room-environment .room-light>small { display:block; min-width:0; max-width:9ch; padding:3px 6px; font-size:.65rem; line-height:1.4; text-align:center; color:#263044; background:#ece5d9; border:1px solid #b5a894; border-radius:3px; }
 .room-environment .light-switch { width:44px; height:62px; min-height:44px; padding:5px; background:#e5ddcf; border:1px solid #aa9b83; border-radius:4px; box-shadow:0 3px 8px #0002,inset 0 1px #fff8; }
 .room-environment .switch-rocker { background:linear-gradient(#f6efe3,#d1c5b1); color:#29303a; border:1px solid #a99b84; transition:transform 220ms var(--room-ease),box-shadow 220ms var(--room-ease); }
 .room-environment .light-switch[aria-pressed=false] .switch-rocker { background:linear-gradient(#bdb09a,#e2d8c6); color:#29303a; box-shadow:inset 0 2px 3px #42352230; }
 .room-environment .light-switch:hover { box-shadow:0 4px 10px #0003,inset 0 1px #fff8; }
-.room-environment .room-art-note { position:absolute; z-index:2; inset:auto auto 12px 20px; width:auto; max-width:34ch; margin:0; font-size:.65rem; line-height:1.5; color:var(--muted); background:var(--surface); border-radius:3px; padding:5px 8px; opacity:1; }
-/* The three drawings are also functional destination notices, rendered with
-   real interface text. They are illustrative settings, never room evidence. */
+.room-environment .room-art-note { position:absolute; z-index:2; inset:auto auto 12px 20px; width:auto; max-width:20%; margin:0; font-size:.65rem; line-height:1.5; color:var(--muted); background:var(--surface); border-radius:3px; padding:5px 8px; opacity:1; }
+/* Real, credited architecture introduces each destination. Interface text and
+   source credit stay outside the photograph; these are not room locations. */
 .room-environment .room-console { position:relative; z-index:0; inset:auto; width:100%; padding:44px var(--content-inset) 48px; margin:0; display:block; background:linear-gradient(90deg,var(--room-edge),transparent 6%,transparent 94%,var(--room-edge)),var(--surface); border-top:1px solid var(--line); }
 .room-environment[data-room-presentation=home] .room-console { border-top:0; }
 .room-environment .room-wayfinding { position:static; inset:auto; width:auto; padding:0; margin:0; }
@@ -126,12 +128,28 @@ html .room-layout>.room-main { position:relative; width:100%; max-width:none; mi
 .room-environment .door-notice-return { position:static; width:auto; height:auto; clip-path:none; margin-top:6px; padding:0; font-size:.76rem; }
 .notice-description { margin-top:18px; padding-top:16px; border-top:1px solid var(--line); font-size:.84rem; color:var(--muted); line-height:1.65; }
 .room-environment .room-utilities { display:none; }
+
+.room-atmosphere-controls { display:flex; align-items:center; justify-content:space-between; gap:12px 24px; flex-wrap:wrap; margin:0 0 24px; padding:0 0 16px; border-bottom:1px solid var(--line); }
+.room-atmosphere-controls [data-room-cycle] { display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:44px; padding:8px 14px; border:1px solid var(--field); border-radius:4px; background:var(--surface); color:var(--ink); font:500 .78rem/1.4 var(--f-body); cursor:pointer; }
+.room-atmosphere-controls [data-room-cycle]:is(:hover,:focus-visible) { border-color:var(--ink); background:var(--surface-2); }
+.room-cycle-icon { flex:none; }
+.room-cycle-icon .cycle-play,[data-room-cycle][data-paused=true] .cycle-pause { display:none; }
+[data-room-cycle][data-paused=true] .cycle-play { display:block; }
+.room-environment:not([data-room-presentation=home]) .room-atmosphere-controls { margin:0; padding:12px var(--content-inset); }
+.room-environment .door-notice-entry { display:flex; flex-direction:column; min-width:0; }
+.room-environment .door-notice-entry>.door-notice { flex:1; }
+.notice-photo-credit { display:flex; flex-direction:column; gap:5px; margin:12px 0 0; padding-inline:2px; color:var(--muted); font:400 .7rem/1.6 var(--f-body); }
+.notice-photo-credit a { color:inherit; text-decoration:underline; text-decoration-color:var(--field); text-underline-offset:3px; }
+.notice-photo-credit a:is(:hover,:focus-visible) { color:var(--ink); text-decoration-color:currentColor; }
+.door-notice-hospitals .notice-art img { object-position:center 56%; }
+html[dir=rtl] .room-atmosphere-controls [data-room-cycle],html[dir=rtl] .notice-photo-credit { font-family:var(--f-arabic); font-size:.95rem; }
+
 /* On directories and detail pages the same notices become compact wayfinding. */
 .room-environment:not([data-room-presentation=home]) .room-console { padding:0; background:var(--surface); }
 .room-environment:not([data-room-presentation=home]) .room-destinations-heading { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); margin:0; }
 .room-environment:not([data-room-presentation=home]) .door-notices { gap:0; }
 .room-environment:not([data-room-presentation=home]) .door-notice { border:0; border-inline-end:1px solid var(--line); border-radius:0; }
-.room-environment:not([data-room-presentation=home]) .door-notice:last-child { border-inline-end:0; }
+.room-environment:not([data-room-presentation=home]) .door-notice-entry:last-child .door-notice { border-inline-end:0; }
 .room-environment:not([data-room-presentation=home]) .notice-information { border-top:3px solid transparent; padding:22px 28px; }
 .room-environment:not([data-room-presentation=home]) .door-notice[aria-current] .notice-information { border-top-color:var(--sign); background:var(--surface-2); }
 .room-environment:not([data-room-presentation=home]) .notice-kicker { display:none; }
@@ -187,10 +205,10 @@ html .immersive-site .site-footer { width:min(var(--layout-width),calc(100% - 2 
 .immersive-site .site-footer nav a { min-height:36px; font-size:.85rem; }
 /* The world outside stays stationary while the physical door swings. */
 .room-environment .door-outside { background-image:none; }
-.door-scene { position:absolute; inset:0; background-size:cover; background-repeat:no-repeat; opacity:0; transition:opacity 240ms ease-out; }
-.door-scene-airport { background-image:var(--view-airport); background-position:65% center; }
-.door-scene-campus { background-image:var(--view-campus); background-position:70% center; }
-.door-scene-hospital { background-image:var(--view-hospital); background-position:65% center; }
+.door-scene { position:absolute; inset:0; background-size:cover; background-repeat:no-repeat; opacity:0; transition:opacity 1800ms ease-in-out; }
+.door-scene-airport { background-image:image-set(url('/art/room-threshold/airport-720.webp') 1x,url('/art/room-threshold/airport-1086.webp') 2x); background-position:center; }
+.door-scene-campus { background-image:image-set(url('/art/room-threshold/campus-720.webp') 1x,url('/art/room-threshold/campus-1086.webp') 2x); background-position:center; }
+.door-scene-hospital { background-image:image-set(url('/art/room-threshold/hospital-720.webp') 1x,url('/art/room-threshold/hospital-1086.webp') 2x); background-position:center; }
 .outside-airport>.door-scene-airport,.outside-campus>.door-scene-campus,.outside-hospital>.door-scene-hospital { opacity:1; }
 /* Distinct presentations: a departures board, a photographic example, an atlas,
    country index and practical room facts. Shared type and spacing join them. */
@@ -201,7 +219,7 @@ html .immersive-site .site-footer { width:min(var(--layout-width),calc(100% - 2 
 .room-main .home-departures .directory-photo { margin:0; border-radius:3px; padding:0; }
 .room-main .home-departures .directory-photo-image { aspect-ratio:16/10; border-radius:0; }
 .room-main .home-departures .directory-photo-caption { padding:20px; }
-.room-main .home-departures .prayer-board { margin:0; border-radius:3px; box-shadow:none; container:prayer-guide / inline-size; }
+.room-main .home-departures .prayer-board { margin:0; border-radius:3px; box-shadow:none; container:prayer-board / inline-size; }
 .room-main .home-photo-library { margin-top:32px; border-radius:3px; }
 .room-main .home-photo-library>summary { font-size:.9rem; }
 .room-main .room-disclosure { border-radius:4px; }
@@ -246,15 +264,14 @@ html[dir=rtl] .room-environment .door-notice:hover .notice-arrow { translate:-3p
  .room-main .guide-tabs>:is(a,button) { min-width:0; }
 }
 @media(max-width:800px) {
- :root { --room-day:image-set(url('/art/room-sanctuary/day-1024.webp') 1x,url('/art/room-sanctuary/day-1774.webp') 2x); --room-night:image-set(url('/art/room-sanctuary/night-1024.webp') 1x,url('/art/room-sanctuary/night-1774.webp') 2x); }
+ :root { --room-day:image-set(url('/art/room-threshold/day-1024.webp') 1x,url('/art/room-threshold/day-1774.webp') 2x); --room-night:image-set(url('/art/room-threshold/night-1024.webp') 1x,url('/art/room-threshold/night-1774.webp') 2x); }
  html .room-layout { margin-top:0; }
  .room-stage { grid-template-columns:minmax(0,1fr); }
  .room-stage::after { display:none; }
  .room-environment .room-arrival-copy,.room-environment[data-room-presentation] .room-arrival-copy { grid-area:1/1; width:100%; padding:32px var(--content-inset); margin:0; }
  .room-environment[data-room-presentation] .room-architecture { grid-area:2/1; width:100%; max-width:none; height:clamp(360px,72vw,480px); margin:0; border:0; aspect-ratio:auto; --mobile-room-height:clamp(360px,72vw,480px); }
- /* Center the new threshold in narrow views without ever exposing empty canvas.
-    Its center is x=.30327 of an image whose width is exactly twice its height. */
- .room-environment[data-room-presentation] .room-canvas { left:min(0px,calc(50% - var(--mobile-room-height) * .60654)); width:calc(var(--mobile-room-height) * 2); height:var(--mobile-room-height); }
+ /* Preserve the left edge on phones: the door and mat stay in the same room. */
+ .room-environment[data-room-presentation] .room-canvas { left:0; width:calc(var(--mobile-room-height) * 2); height:var(--mobile-room-height); }
  .room-environment .room-architecture::before { content:''; position:absolute; z-index:1; inset:0 0 auto; height:7%; pointer-events:none; background:linear-gradient(var(--surface),transparent); }
  .room-environment .room-console { padding:32px var(--content-inset); }
  .room-main .room-arrival-copy h1 { font-size:2.6rem; }
@@ -267,7 +284,7 @@ html[dir=rtl] .room-environment .door-notice:hover .notice-arrow { translate:-3p
  .room-environment .door-action-caption>svg { width:14px; height:14px; }
  .room-environment .light-switch { width:44px; height:58px; }
  .room-environment .room-light>small { font-size:.65rem; }
- .room-environment .room-art-note { font-size:.6rem; inset:auto auto 10px 12px; }
+ .room-environment .room-art-note { font-size:.6rem; inset:12px 12px auto auto; max-width:55%; }
  .room-destinations-heading { display:block; }
  .room-illustration-label { display:block; max-width:none; text-align:start; margin-top:16px; }
  .room-environment .door-notices { gap:12px; }
@@ -299,7 +316,7 @@ html[dir=rtl] .room-environment .door-notice:hover .notice-arrow { translate:-3p
  .room-main .room-arrival-copy :is(.room-introduction,.directory-intro-copy>p,.visit-heading>p,.support-arrival>p) { font-size:.95rem; }
  /* A closer crop of the same canvas keeps the doorway usable on phones.
     Canvas width always remains exactly twice its height. */
- .room-environment .room-art-note { max-width:calc(100% - 24px); }
+ .room-environment .room-art-note { max-width:55%; }
  .room-environment .door-notices { grid-template-columns:1fr; gap:22px; }
  .room-environment:not([data-room-presentation=home]) .door-notices { grid-template-columns:repeat(3,minmax(0,1fr)); gap:0; }
  .room-environment:not([data-room-presentation=home]) .door-notice-title { grid-template-columns:1fr; }

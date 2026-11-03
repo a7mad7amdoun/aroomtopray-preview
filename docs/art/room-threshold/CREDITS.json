@@ -1,0 +1,54 @@
+{
+  "description": "AI-generated imagined room and destination scenery, not actual listing photographs.",
+  "prayerMat": "Faces an empty wall, clear of doorway and furniture, in both lighting versions.",
+  "room": {
+    "files": [
+      "day-1024.webp",
+      "day-1774.webp",
+      "night-1024.webp",
+      "night-1774.webp"
+    ],
+    "method": "Generated architectural illustration; lighting edit preserves mat orientation."
+  },
+  "views": [
+    {
+      "scene": "airport",
+      "source": "https://commons.wikimedia.org/wiki/File:Changi_Airport_T3_interior_(230815).jpg",
+      "author": "*angys*",
+      "date": "2023-08-15",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "files": [
+        "airport-720.webp",
+        "airport-1086.webp"
+      ],
+      "modifications": "Reference-based AI-generated adaptation changes architecture, composition, lighting and surroundings. Distributed under CC BY-SA 4.0 where copyright applies."
+    },
+    {
+      "scene": "campus",
+      "source": "https://commons.wikimedia.org/wiki/File:The_Cloisters_at_the_University_of_Glasgow.jpg",
+      "author": "Atreides83",
+      "date": "2022-07-21",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "files": [
+        "campus-720.webp",
+        "campus-1086.webp"
+      ],
+      "modifications": "Reference-based AI-generated adaptation changes architecture, composition, lighting and surroundings. Distributed under CC BY-SA 4.0 where copyright applies."
+    },
+    {
+      "scene": "hospital",
+      "source": "https://commons.wikimedia.org/wiki/File:Princess_Alexandra_Hospital_corridors.jpg",
+      "author": "Kgbo",
+      "date": "2017-03-23",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "files": [
+        "hospital-720.webp",
+        "hospital-1086.webp"
+      ],
+      "modifications": "Reference-based AI-generated adaptation changes architecture, composition, lighting and surroundings. Distributed under CC BY-SA 4.0 where copyright applies."
+    }
+  ]
+}

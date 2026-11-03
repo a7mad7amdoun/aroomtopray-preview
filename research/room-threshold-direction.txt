@@ -1,0 +1,36 @@
+A ROOM TO PRAY — THE LEFT-HAND THRESHOLD
+
+Intent
+Refine the restored room design. Keep Hamza’s yellow wayfinding, navy/ivory identity, practical information, attribution and sources. Make the room feel like a welcome pause beside the busy public place. The doorway belongs to the far-left edge; a clean reading wall holds the search and guide. Do not create another unrelated visual identity.
+
+Prayer direction: explicit user correction
+The prayer mat must face a solid empty wall or mihrab. Remove the bench completely. Place the mat just to the right of the doorway, head toward the blank wall, feet toward the viewer. Nothing lies in the direction in which someone would pray. Maintain identical geometry in the evening image. This is conceptual scenery, not a compass or qibla instruction for a real building.
+
+Research
+Pinterest was searched first for airport, campus and hospital interiors. Indexed references were limited; direct Pinterest search was unavailable and the medical waiting-room board returned HTTP 403. Do not claim those boards were visually reviewed. No Pinterest-hosted photograph was copied.
+Attempted references:
+https://www.pinterest.com/search/pins/?q=airport%20terminal%20architecture
+https://ie.pinterest.com/danburns84/sandymount-green-medical-waiting-room/
+https://ca.pinterest.com/kitcatdvm/clinic-architecture/
+
+Original architecture sources informed the direction:
+https://uofgliving.gla.ac.uk/story/37141963/looking-to-take-the-perfect-uofg-photo
+https://pda.designsingapore.org/award-recipients/2011/khoo-teck-puat-hospital/
+https://www.networkarchitectural.com.au/projects/changi-airport-terminal-3/
+No images from these architecture pages were copied.
+
+Reusable photographs
+Use the three individually credited Wikimedia Commons CC BY-SA 4.0 photographs recorded in site/public/photos/settings/CREDITS.json. Credit the photographer, capture date, source page and license visibly. The native originals are 12000×9000, 4032×3024 and 3024×4032. Resize with no enlargement; do not invent details by AI upscaling photographs. Use them as real architectural examples, never as proof of a prayer room. Preserve all existing actual room photographs and source links.
+
+Generated artwork
+Built-in image generation produced the two matched room panoramas and three new borderless destination inserts. The panorama has an aperture at (30,185)–(368,699) in a 1774×887 image. Fit the CSS door to this same coordinate plane. The moving leaf swings left beyond the edge, while the outside scene stays stationary. The new views remain visible in both themes. A university arcade is open to a campus courtyard, never a closed cathedral door. A hospital public corridor is welcoming but recognizably practical. The airport shows actual kinds of seats, ceiling structure, glass and airside context. No generated text or invented room signage.
+Prompts and output records: research/room-threshold-art.json.
+
+Interaction
+On the homepage only, let the scenes crossfade every 14 seconds without navigating. Pause automatically during hover, keyboard interaction, offscreen state, a hidden page or a closed door. Start paused for reduced-motion and data-saving preferences. Offer a native pause/resume button. Never change a search query, filters, language, keyboard focus or scroll position. Category pages keep their corresponding view.
+
+Guide integrity
+Hamza’s https://aroomtopray.com/ remains the source of the existing guide. Preserve all 536 local records, source links, access restrictions and tools. The source homepage reports 366 checked airports, while the local collection contains 414 airport records; do not label every record verified. No room details, access conditions, institutional affiliations or verification dates were added. Do not promise universal access or a legal right at every institution. Present welcome and practical next steps.
+
+Delivery and verification
+Publish only Ahmed’s authorized GitHub Pages preview. No production changes to Hamza’s website. Preserve unrelated pending map work in the main checkout. Inspect generated assets directly. Run unit tests, build and offline HTML/DOM checks in all four languages. Browser rendering was unavailable due to the existing explicit URL-policy block; do not bypass it or claim visual browser QA.

@@ -5,6 +5,7 @@ import { airports, byCode } from '../lib/airports.js';
 import { universities } from '../lib/universities.js';
 import { hospitals } from '../lib/hospitals.js';
 import { QUIET_COPY } from '../data/quiet-copy.js';
+import { ATMOSPHERE_COPY } from '../data/room-atmosphere.js';
 import DestinationChoices from './DestinationChoices.astro';
 import PlaceSearch from './PlaceSearch.astro';
 import PrayerRoomBoard from './PrayerRoomBoard.astro';
@@ -19,6 +20,7 @@ import { ROOM_COPY } from '../data/room-copy.js';
 import { GUIDE_COPY } from '../data/guide-copy.js';
 const { locale='en' }=Astro.props, t=getCopy(locale), r=ROOM_COPY[locale],g=GUIDE_COPY[locale];
 const identity=IDENTITY_COPY[locale], q=QUIET_COPY[locale];
+const atmosphere=ATMOSPHERE_COPY[locale];
 const allPlaces=[...airports,...universities,...hospitals];
 const coverage=new Set(allPlaces.map(place=>place.country)).size;
 const number=new Intl.NumberFormat(locale);
@@ -26,7 +28,7 @@ const tabs=[{id:'find-place',label:g.find,icon:'search'},{id:'countries',label:g
 ---
 <Base title={`${r.title} ${r.line} | A Room to Pray`} description={t.home.description}>
  <Fragment slot="arrival">
-  <header class="room-home-intro"><span class="room-eyebrow"><span></span>{g.guide}</span><h1 id="home-title">{r.title}<br/><span>{r.line}</span></h1><p class="room-introduction">{q.intro}</p></header>
+  <header class="room-home-intro"><span class="room-eyebrow"><span></span>{atmosphere.welcome}</span><h1 id="home-title">{r.title}<br/><span>{r.line}</span></h1><p class="room-introduction">{atmosphere.intro}</p></header>
   <PlaceSearch {locale}/>
   <p class="arrival-coverage"><span><b>{number.format(allPlaces.length)}</b> {q.listed}</span><span><b>{number.format(coverage)}</b> {q.countries}</span></p>
  </Fragment>

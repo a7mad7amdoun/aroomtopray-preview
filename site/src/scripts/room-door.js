@@ -1,4 +1,5 @@
 import { browseQuery, returnToDirectory } from '../lib/directory-context.js';
+import { initRoomCycle } from '../lib/room-cycle.js';
 
 // The moving leaf is decorative. Wayfinding and controls stay on the wall.
 export function initRoomDoor(room, browser = window) {
@@ -11,10 +12,12 @@ export function initRoomDoor(room, browser = window) {
   const sceneIcon = room.querySelector('[data-room-scene-icon]');
   const notices = [...room.querySelectorAll('[data-door-preview]')];
   const initiallyOpen = room.dataset.doorState === 'open';
+  let cycle;
   const setOpen = open => {
     room.dataset.doorState = open ? 'open' : 'closed';
     control?.setAttribute('aria-expanded', String(open));
     if (label && control) label.textContent = open ? control.dataset.closeLabel : control.dataset.openLabel;
+    cycle?.sync();
   };
   const preview = link => {
     // A category room keeps its location, even while choosing another destination.
@@ -65,7 +68,8 @@ export function initRoomDoor(room, browser = window) {
     room.ownerDocument?.addEventListener('directory:updated', syncContext);
     room.ownerDocument?.addEventListener('atlas:selection', syncContext);
   });
-  // Restored pages keep their current state; no timers or delayed redirects.
+  cycle=initRoomCycle(room,browser,notices,preview);
+  // Restored pages keep their door state; navigation is always immediate.
   browser.addEventListener('pageshow', () => setOpen(room.dataset.doorState === 'open'));
   room.dataset.doorReady = 'true';
 }
