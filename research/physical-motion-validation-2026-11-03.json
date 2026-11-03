@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-03",
+  "baseCommit": "9da24c3a06ebb552d45916a83d053f755ff72d97",
+  "scope": "Physical motion and useful wayfinding graphics; Ahmed GitHub Pages preview only",
+  "changes": [
+    "Stationary room during scrolling and guide interaction; header alignment retained",
+    "Distinct 780ms opening / 960ms closing with synchronized physical layers",
+    "Validated before-paint arrival avoids late close/reopen flash; 4s failed-enhancement fallback",
+    "Opt-in destination tour and deliberate 180ms hover previews; native navigation retained",
+    "Shorter scene and lighting fades, no card lift/photo zoom/arrow drift/panel slide",
+    "Category pictograms and consistent airport/campus/hospital action panels with visible access caution"
+  ],
+  "unitTests": {
+    "passed": 190,
+    "failed": 0
+  },
+  "export": {
+    "pages": 2177,
+    "mountedAssets": 80,
+    "brokenLocalLinks": 0,
+    "reviewSubmissionsDisabled": true,
+    "attributionPreserved": true
+  },
+  "offlineDomChecks": {
+    "languages": [
+      "en",
+      "fr",
+      "ar",
+      "es"
+    ],
+    "roomMenuBoards": 24,
+    "structuralRoutes": 24,
+    "searchMenuVisitorTools": 12,
+    "directoryFiltersMapHistory": 12,
+    "reception": 12,
+    "contentAndLinksComparedWithBase": 24
+  },
+  "contentComparisonExclusions": [
+    "Removed decorative ordinal text",
+    "Deliberately changed opt-in tour label",
+    "Newly visible existing translated caution label"
+  ],
+  "css": {
+    "filesParsed": 20,
+    "sourceReview": [
+      "reduced motion",
+      "RTL reading with unmirrored room",
+      "light/dark tokens",
+      "arrival preparation specificity",
+      "legacy tab entrance override",
+      "fixed artwork and doorway registration"
+    ]
+  },
+  "visualInspection": {
+    "existingRoomAndAirportArtworkViewed": true,
+    "renderedDesktopMobile": false,
+    "reason": "Existing browser URL policy block; not bypassed with alternate rendering tools",
+    "remaining": "Verify perceived animation, cropping and final spacing visually on desktop/mobile in both themes"
+  },
+  "preservation": {
+    "placeRecordsSourcesTranslationsTools": true,
+    "artworkGeometryAndWallFacingMat": true,
+    "unrelatedMainWorktreeMapFiles": 11,
+    "hamzaProductionUntouched": true
+  }
+}

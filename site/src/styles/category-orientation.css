@@ -1,140 +1,138 @@
-/* Real interface text carries the signs. The three materials share one type system. */
+/* A legible family of real signs: one useful pictogram per action, one type system.
+   These are reading aids, not a route diagram or a simulated live status board. */
 .category-orientation {
   --orientation-ink:var(--ink);
   --orientation-muted:var(--muted);
   --orientation-line:var(--line);
-  --orientation-pad:clamp(20px,3.5vw,40px);
+  --orientation-symbol-bg:var(--surface-2);
+  --orientation-symbol-ink:var(--ink);
+  --orientation-pad:clamp(20px,3.5vw,36px);
   position:relative;
   container:category-orientation / inline-size;
   isolation:isolate;
   min-width:0;
   margin-block:8px 36px;
   border:1px solid var(--orientation-line);
-  border-radius:12px;
+  border-radius:10px;
   background:var(--surface);
   color:var(--orientation-ink);
   font-family:var(--f-body);
-  box-shadow:0 2px 4px #07101b06,0 12px 28px #07101b0b,0 38px 65px -38px #07101b40;
+  box-shadow:0 2px 3px #07101b05,0 12px 30px -16px #07101b26;
 }
 .category-orientation .orientation-heading { padding:var(--orientation-pad); }
-.category-orientation .orientation-running-line { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px 24px; margin-block-end:24px; }
-.category-orientation .orientation-category { display:flex; align-items:center; gap:10px; font-size:.82rem; line-height:1.5; font-weight:650; }
+.category-orientation .orientation-running-line { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px 24px; margin-block-end:20px; }
+.category-orientation .orientation-category { display:flex; align-items:center; gap:10px; font-size:.84rem; line-height:1.5; font-weight:650; }
 .category-orientation .orientation-category svg { flex:none; }
-.category-orientation .orientation-kicker { font-size:.76rem; line-height:1.5; color:var(--orientation-muted); }
-.category-orientation .orientation-heading h2 { max-width:31ch; margin:0; color:inherit; font:650 clamp(1.5rem,2.4vw,2rem)/1.2 var(--f-display); font-stretch:100%; letter-spacing:-.035em; text-wrap:balance; }
+.category-orientation .orientation-kicker { font-size:.78rem; line-height:1.5; color:var(--orientation-muted); }
+.category-orientation .orientation-heading h2 { max-width:34ch; margin:0; color:inherit; font:650 clamp(1.5rem,2.4vw,2rem)/1.2 var(--f-display); font-stretch:100%; letter-spacing:-.03em; text-wrap:balance; }
 .category-orientation .orientation-steps { margin:0; padding:0; list-style:none; }
 .category-orientation .orientation-steps>li { min-width:0; }
-.category-orientation .orientation-index { display:grid; place-items:center; width:32px; height:36px; font-size:1rem; font-weight:650; line-height:1; font-variant-numeric:tabular-nums; }
-.category-orientation .orientation-steps h3 { display:flex; align-items:center; gap:12px; margin:0; min-width:0; color:inherit; font:650 1rem/1.45 var(--f-display); font-stretch:100%; letter-spacing:-.015em; text-wrap:initial; }
-.category-orientation .orientation-steps h3 svg { flex:none; }
-.category-orientation .orientation-steps p { margin:0; max-width:65ch; font-size:.92rem; line-height:1.7; color:var(--orientation-muted); }
-.category-orientation .orientation-access-note { display:flex; align-items:flex-start; gap:13px; padding:22px var(--orientation-pad); border-top:1px solid var(--orientation-line); }
+.category-orientation .orientation-symbol { display:grid; place-items:center; flex:none; width:48px; height:48px; border-radius:6px; background:var(--orientation-symbol-bg); color:var(--orientation-symbol-ink); }
+.category-orientation .orientation-symbol svg { display:block; width:28px; height:28px; fill:none; }
+.category-orientation .orientation-steps h3 { margin:0; min-width:0; color:inherit; font:650 1.075rem/1.45 var(--f-display); font-stretch:100%; letter-spacing:-.015em; text-wrap:initial; }
+.category-orientation .orientation-steps p { margin:0; max-width:65ch; font-size:.96rem; line-height:1.65; color:var(--orientation-muted); }
+.category-orientation .orientation-access-note { display:flex; align-items:flex-start; gap:13px; padding:20px var(--orientation-pad); border-top:1px solid var(--orientation-line); border-radius:0 0 9px 9px; }
 .category-orientation .orientation-access-note>svg { flex:none; margin-block-start:2px; }
-.category-orientation .orientation-access-note p { margin:0; max-width:90ch; font-size:.85rem; line-height:1.7; color:inherit; }
+.category-orientation .orientation-access-note>div { min-width:0; }
+.category-orientation .orientation-access-note strong { display:block; margin-block-end:4px; font-size:.88rem; line-height:1.45; font-weight:650; color:inherit; }
+.category-orientation .orientation-access-note p { margin:0; max-width:90ch; font-size:.88rem; line-height:1.65; color:inherit; }
 
-/* Airport: a departure-board rhythm, without fictional flights or status lamps. */
+/* Airport: an aligned wayfinding panel. Yellow identifies the action, not a
+   fabricated gate, flight status or direction. */
 .category-orientation--airports {
   --orientation-ink:#f6f3e8;
   --orientation-muted:#c0c9d5;
   --orientation-line:#3b4758;
+  --orientation-symbol-bg:#ffc629;
+  --orientation-symbol-ink:#162131;
   background:#162131;
   border-color:#334155;
   border-radius:8px;
-  box-shadow:inset 0 1px #ffffff16,0 2px 4px #07101b12,0 18px 46px #07101b1a;
+  box-shadow:inset 0 1px #ffffff12,0 12px 30px -16px #07101b40;
 }
 .category-orientation--airports .orientation-heading { border-bottom:1px solid var(--orientation-line); }
-.category-orientation--airports .orientation-category { color:var(--sign); }
-.category-orientation--airports .orientation-heading h2 { max-width:34ch; }
-.category-orientation--airports .orientation-steps>li { display:grid; grid-template-columns:36px minmax(160px,.8fr) minmax(0,1.3fr); align-items:start; gap:12px 20px; padding:22px var(--orientation-pad); }
+.category-orientation--airports .orientation-category { color:#ffc629; }
+.category-orientation--airports .orientation-steps>li { display:grid; grid-template-columns:48px minmax(150px,.8fr) minmax(0,1.3fr); align-items:start; gap:12px 22px; padding:24px var(--orientation-pad); }
 .category-orientation--airports .orientation-steps>li+li { border-top:1px solid var(--orientation-line); }
-.category-orientation--airports .orientation-index { position:relative; border:1px solid #425066; border-radius:3px; background:linear-gradient(#223044 49%,#162131 50%,#223044 52%); color:var(--sign); box-shadow:0 2px 3px #0002; }
-.category-orientation--airports .orientation-steps h3 { padding-block-start:6px; }
-.category-orientation--airports .orientation-steps h3 svg { color:#acb9cb; }
-.category-orientation--airports .orientation-steps p { padding-block-start:3px; }
-.category-orientation--airports .orientation-access-note { border-radius:0 0 7px 7px; background:#243144; color:#e1e6ee; }
-.category-orientation--airports .orientation-access-note>svg { color:var(--sign); }
+.category-orientation--airports .orientation-steps h3 { padding-block-start:10px; }
+.category-orientation--airports .orientation-steps p { padding-block-start:5px; }
+.category-orientation--airports .orientation-access-note { background:#243144; color:#e1e6ee; }
+.category-orientation--airports .orientation-access-note>svg { color:#ffc629; }
 
-/* Campus: one orderly notice sheet, held by a slim timber rail. */
+/* Campus: an orderly notice sheet with the same navy identity and quiet rule. */
 .category-orientation--universities {
   --orientation-ink:var(--campus-board-ink,#172539);
   --orientation-muted:var(--campus-board-muted,#526071);
   --orientation-line:var(--campus-board-line,#d9d6cb);
+  --orientation-symbol-bg:var(--campus-board-note,#eee9dd);
+  --orientation-symbol-ink:var(--orientation-ink);
   background:var(--campus-board-paper,#f7f3e9);
-  border-radius:3px 3px 9px 9px;
-  border-top:0;
-  padding-block-start:8px;
+  border-radius:4px 4px 9px 9px;
+  border-top:5px solid #26364b;
 }
-.category-orientation--universities::before { content:''; position:absolute; inset:0 -1px auto; height:8px; border-radius:3px 3px 0 0; background:linear-gradient(#a88b66,#947652); box-shadow:0 2px 3px #59452c24; }
 .category-orientation--universities .orientation-running-line { padding-block-end:18px; border-bottom:1px solid var(--orientation-line); }
-.category-orientation--universities .orientation-kicker { color:var(--orientation-muted); }
 .category-orientation--universities .orientation-heading h2 { max-width:35ch; }
-.category-orientation--universities .orientation-steps { padding-inline:var(--orientation-pad); padding-block-end:14px; }
-.category-orientation--universities .orientation-steps>li { display:grid; grid-template-columns:36px minmax(150px,.8fr) minmax(0,1.3fr); gap:12px 20px; padding-block:23px; border-top:1px solid var(--orientation-line); }
-.category-orientation--universities .orientation-index { width:36px; color:var(--orientation-muted); border-inline-end:1px solid var(--orientation-line); justify-items:start; }
-.category-orientation--universities .orientation-steps h3 { padding-block-start:5px; }
-.category-orientation--universities .orientation-steps h3 svg { color:var(--orientation-muted); }
-.category-orientation--universities .orientation-steps p { padding-block-start:3px; }
-.category-orientation--universities .orientation-access-note { background:var(--campus-board-note,#eee9dd); border-radius:0 0 8px 8px; }
-.category-orientation--universities .orientation-access-note>svg { color:var(--orientation-muted); }
+.category-orientation--universities .orientation-steps { padding-inline:var(--orientation-pad); padding-block-end:10px; }
+.category-orientation--universities .orientation-steps>li { display:grid; grid-template-columns:48px minmax(150px,.8fr) minmax(0,1.3fr); gap:12px 22px; padding-block:24px; border-top:1px solid var(--orientation-line); }
+.category-orientation--universities .orientation-steps h3 { padding-block-start:10px; }
+.category-orientation--universities .orientation-steps p { padding-block-start:5px; }
+.category-orientation--universities .orientation-access-note { background:var(--campus-board-note,#eee9dd); }
 :root[data-theme=dark] { --campus-board-ink:#eee9dd; --campus-board-muted:#c2c7cb; --campus-board-line:#48515a; --campus-board-paper:#27313c; --campus-board-note:#212a35; }
 @media(prefers-color-scheme:dark) { :root:not([data-theme=light]) { --campus-board-ink:#eee9dd; --campus-board-muted:#c2c7cb; --campus-board-line:#48515a; --campus-board-paper:#27313c; --campus-board-note:#212a35; } }
 
-/* Hospital: the calm information hierarchy of a visitor reception sign. */
-.category-orientation--hospitals .orientation-heading { border-radius:11px 11px 0 0; background:#203048; color:#f6f3e8; }
-.category-orientation--hospitals .orientation-category { color:var(--sign); }
+/* Hospital: three clear reception topics, with practical instructions directly
+   below each pictogram. No medical alerts or invented institutional branding. */
+.category-orientation--hospitals .orientation-heading { border-radius:9px 9px 0 0; background:#203048; color:#f6f3e8; }
+.category-orientation--hospitals .orientation-category { color:#ffc629; }
 .category-orientation--hospitals .orientation-kicker { color:#c0c9d5; }
-.category-orientation--hospitals .orientation-steps { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); padding:var(--orientation-pad); gap:26px; }
-.category-orientation--hospitals .orientation-steps>li { position:relative; display:grid; grid-template-columns:1fr 32px; grid-template-rows:auto auto; align-content:start; gap:19px 10px; }
-.category-orientation--hospitals .orientation-steps>li+li { padding-inline-start:26px; border-inline-start:1px solid var(--orientation-line); }
-.category-orientation--hospitals .orientation-index { grid-column:2; grid-row:1; width:30px; height:30px; border-radius:50%; border:1px solid var(--orientation-line); color:var(--orientation-muted); font-size:.8rem; font-weight:500; }
-.category-orientation--hospitals .orientation-steps h3 { grid-column:1; grid-row:1; display:flex; flex-direction:column; align-items:flex-start; gap:16px; font-size:1.05rem; }
-.category-orientation--hospitals .orientation-steps h3 svg { width:30px; height:30px; color:var(--orientation-muted); }
-.category-orientation--hospitals .orientation-steps p { grid-column:1/-1; grid-row:2; }
-.category-orientation--hospitals .orientation-access-note { border-radius:0 0 11px 11px; background:var(--surface-2); }
+.category-orientation--hospitals .orientation-steps { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); padding:var(--orientation-pad); gap:24px; }
+.category-orientation--hospitals .orientation-steps>li { display:grid; grid-template-columns:1fr; align-content:start; gap:15px; }
+.category-orientation--hospitals .orientation-steps>li+li { padding-inline-start:24px; border-inline-start:1px solid var(--orientation-line); }
+.category-orientation--hospitals .orientation-steps p { margin-block-start:-7px; }
+.category-orientation--hospitals .orientation-access-note { background:var(--surface-2); }
 
-/* Arabic keeps the same reading hierarchy and logical alignment. */
+/* Arabic uses logical alignment, full-height letterforms and the same hierarchy. */
 html[dir=rtl] .category-orientation { font-family:var(--f-arabic); }
 html[dir=rtl] .category-orientation .orientation-heading h2 { font-family:var(--f-arabic); line-height:1.45; letter-spacing:0; }
 html[dir=rtl] .category-orientation .orientation-steps h3 { font-family:var(--f-arabic); font-size:1.15rem; line-height:1.55; letter-spacing:0; }
 html[dir=rtl] .category-orientation .orientation-steps p { font-size:1.08rem; line-height:1.8; }
-html[dir=rtl] .category-orientation .orientation-access-note p { font-size:1rem; line-height:1.8; }
+html[dir=rtl] .category-orientation .orientation-access-note :is(strong,p) { font-size:1rem; line-height:1.8; }
 html[dir=rtl] .category-orientation .orientation-category { font-size:1.05rem; }
 html[dir=rtl] .category-orientation .orientation-kicker { font-size:.95rem; }
 
+@container category-orientation (max-width:700px) {
+  .category-orientation .orientation-steps>li { grid-template-columns:40px minmax(0,1fr); gap:6px 16px; }
+  .category-orientation .orientation-symbol { grid-column:1; grid-row:1/3; width:40px; height:40px; }
+  .category-orientation .orientation-symbol svg { width:25px; height:25px; }
+  .category-orientation .orientation-steps h3 { grid-column:2; padding-block-start:0; }
+  .category-orientation .orientation-steps p { grid-column:2; padding-block-start:0; }
+  .category-orientation--hospitals .orientation-steps { grid-template-columns:1fr; gap:24px; }
+  .category-orientation--hospitals .orientation-steps>li+li { padding-inline-start:0; padding-block-start:24px; border-inline-start:0; border-top:1px solid var(--orientation-line); }
+  .category-orientation--hospitals .orientation-steps p { margin-block-start:0; }
+}
 @media(max-width:760px) {
   .category-orientation { --orientation-pad:24px; }
-  .category-orientation .orientation-running-line { margin-block-end:20px; }
-  .category-orientation--airports .orientation-steps>li,.category-orientation--universities .orientation-steps>li { grid-template-columns:32px minmax(0,1fr); gap:8px 16px; }
-  .category-orientation--airports .orientation-steps p,.category-orientation--universities .orientation-steps p { grid-column:2; padding-block-start:0; }
-  .category-orientation--universities .orientation-index { width:32px; }
+  .category-orientation .orientation-steps>li { grid-template-columns:40px minmax(0,1fr); gap:6px 16px; }
+  .category-orientation .orientation-symbol { grid-column:1; grid-row:1/3; width:40px; height:40px; }
+  .category-orientation .orientation-symbol svg { width:25px; height:25px; }
+  .category-orientation .orientation-steps h3 { grid-column:2; padding-block-start:0; }
+  .category-orientation .orientation-steps p { grid-column:2; padding-block-start:0; }
   .category-orientation--hospitals .orientation-steps { grid-template-columns:1fr; gap:24px; }
-  .category-orientation--hospitals .orientation-steps>li { grid-template-columns:1fr 30px; gap:12px 16px; }
   .category-orientation--hospitals .orientation-steps>li+li { padding-inline-start:0; padding-block-start:24px; border-inline-start:0; border-top:1px solid var(--orientation-line); }
-  .category-orientation--hospitals .orientation-steps h3 { flex-direction:row; align-items:center; gap:12px; }
-  .category-orientation--hospitals .orientation-steps h3 svg { width:24px; height:24px; }
-}
-@container category-orientation (max-width:700px) {
-  .category-orientation--airports .orientation-steps>li,.category-orientation--universities .orientation-steps>li { grid-template-columns:32px minmax(0,1fr); gap:8px 16px; }
-  .category-orientation--airports .orientation-steps p,.category-orientation--universities .orientation-steps p { grid-column:2; padding-block-start:0; }
-  .category-orientation--hospitals .orientation-steps { grid-template-columns:1fr; gap:24px; }
-  .category-orientation--hospitals .orientation-steps>li { grid-template-columns:1fr 30px; gap:12px 16px; }
-  .category-orientation--hospitals .orientation-steps>li+li { padding-inline-start:0; padding-block-start:24px; border-inline-start:0; border-top:1px solid var(--orientation-line); }
-  .category-orientation--hospitals .orientation-steps h3 { flex-direction:row; align-items:center; gap:12px; }
-  .category-orientation--hospitals .orientation-steps h3 svg { width:24px; height:24px; }
+  .category-orientation--hospitals .orientation-steps p { margin-block-start:0; }
 }
 @media(max-width:420px) {
   .category-orientation { --orientation-pad:18px; }
   .category-orientation .orientation-running-line { gap:8px 14px; }
   .category-orientation .orientation-category { font-size:.79rem; }
-  .category-orientation .orientation-kicker { font-size:.72rem; }
+  .category-orientation .orientation-kicker { font-size:.74rem; }
   .category-orientation .orientation-heading h2 { font-size:1.5rem; }
-  .category-orientation .orientation-steps h3 { font-size:.96rem; }
-  .category-orientation .orientation-steps p { font-size:.9rem; }
+  .category-orientation .orientation-steps h3 { font-size:1rem; }
+  .category-orientation .orientation-steps p { font-size:.93rem; }
 }
 @media print {
-  .category-orientation { --orientation-ink:#111; --orientation-muted:#444; --orientation-line:#bbb; box-shadow:none; break-inside:avoid; background:#fff; color:#111; }
+  .category-orientation { --orientation-ink:#111; --orientation-muted:#444; --orientation-line:#bbb; --orientation-symbol-bg:#fff; --orientation-symbol-ink:#111; box-shadow:none; break-inside:avoid; background:#fff; color:#111; }
   .category-orientation .orientation-heading,.category-orientation .orientation-access-note { background:#fff; color:#111; }
-  .category-orientation .orientation-category,.category-orientation .orientation-kicker,.category-orientation .orientation-index { color:#111; }
-  .category-orientation .orientation-index { background:#fff; border-color:#bbb; box-shadow:none; }
-  .category-orientation--universities::before { display:none; }
+  .category-orientation .orientation-category,.category-orientation .orientation-kicker,.category-orientation .orientation-access-note>svg { color:#111; }
+  .category-orientation .orientation-symbol { border:1px solid #bbb; }
 }

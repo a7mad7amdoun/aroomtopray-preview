@@ -1,16 +1,12 @@
-/* Room and guide occupy independent layers. The architectural canvas owns all
-   camera motion; reading columns and interaction targets never move with it. */
+/* The room is a stationary setting. Only the door and its light respond to
+   interaction; reading columns and navigation stay anchored. */
 :root { --room-rail:clamp(220px,22vw,340px); --room-gutter:clamp(20px,2.4vw,40px); --room-header-height:var(--masthead-height,94px); }
 body.immersive-site { background:var(--bg); }
 html .room-environment { position:relative; display:block; pointer-events:auto; inset:auto; width:100%; min-height:0; height:auto; margin:0; padding:0; border:0; background:transparent; border-radius:0; isolation:isolate; overflow:visible; }
 html .room-environment .room-architecture { position:fixed; z-index:0; inset:var(--room-header-height) 0 0; width:100%; height:auto; min-height:0; margin:0; aspect-ratio:auto; border:0; border-radius:0; pointer-events:none; overflow:hidden; background:var(--bg); }
 .room-architecture::after { content:''; position:absolute; z-index:1; inset:0; pointer-events:none; background:linear-gradient(90deg,transparent 12%,color-mix(in srgb,var(--bg) 28%,transparent) 48%,var(--bg) 100%); }
-.room-architecture .room-canvas { position:absolute; left:0; top:0; width:min(100vw,calc((100svh - var(--room-header-height)) * 2)); height:auto; aspect-ratio:2/1; transform-origin:0 20%; transform:translate3d(var(--room-shift-x,0px),var(--room-shift-y,0px),0) scale(var(--room-camera-scale,1)); transition:transform 900ms cubic-bezier(.22,.68,.25,1); }
+.room-architecture .room-canvas { position:absolute; left:0; top:0; width:min(100vw,calc((100svh - var(--room-header-height)) * 2)); height:auto; aspect-ratio:2/1; transform:none; transition:none; }
 .room-architecture .room-canvas::after { content:''; position:absolute; z-index:1; inset:0; pointer-events:none; background:linear-gradient(transparent 90%,var(--bg)),linear-gradient(90deg,transparent 82%,var(--bg)); }
-.room-environment[data-room-posture=reading] { --room-shift-x:-12px; --room-shift-y:-18px; --room-camera-scale:.97; }
-.room-environment[data-room-view=map] { --room-shift-x:-8px; --room-shift-y:-10px; --room-camera-scale:.985; }
-.room-environment[data-room-motion=off] { --room-shift-x:0px; --room-shift-y:0px; --room-camera-scale:1; }
-.room-environment[data-room-motion=off] .room-canvas,.room-environment[data-room-motion=paused] .room-canvas { transition:none; }
 .room-environment .room-art-note { position:absolute; inset:auto auto 18px 20px; width:calc(var(--room-rail) - 54px); max-width:30ch; font-size:.68rem; line-height:1.5; background:var(--surface); color:var(--muted); border:1px solid var(--line); padding:8px 10px; border-radius:6px; }
 html .room-environment .room-layout { display:block; grid-template-columns:none; gap:0; pointer-events:auto; position:relative; z-index:1; width:min(1680px,100%); max-width:none; margin:0 auto; direction:ltr; }
 html .room-environment .room-layout>.room-main { display:block; position:relative; container:room-reading / inline-size; width:auto; max-width:none; min-width:0; min-height:0; margin:0; padding:22px var(--room-gutter) 0 var(--room-rail); background:none; border:0; border-radius:0; box-shadow:none; backdrop-filter:none; direction:inherit; }
@@ -38,9 +34,7 @@ html[dir=rtl] .room-environment .room-layout>.room-main { direction:rtl; }
 .room-main .guide-tabs>:is(a,button) { flex:1; min-width:0; min-height:48px; margin:0; padding:10px 12px; border-radius:6px; font-weight:600; text-align:center; }
 .room-main .guide-tabs>:is(a,button)[aria-selected=true] { background:var(--surface-2); }
 .room-main .guide-tabs>:is(a,button)::after { inset-inline:12px; bottom:3px; }
-.room-main .guide-panel { transform:none; animation:none; }
-.room-main .guide-panel:not([hidden]) { animation:room-panel-appear 180ms ease both; }
-@keyframes room-panel-appear { from { opacity:.7; } to { opacity:1; } }
+.room-main .guide-panel,.room-main .guide-panel:not([hidden]) { transform:none; animation:none; }
 html .immersive-site .site-footer { position:relative; z-index:1; width:100%; margin:0; padding:36px max(var(--room-gutter),calc((100vw - 1600px)/2)); background:var(--surface); border-top:1px solid var(--line); }
 @container room-reading (min-width:900px) {
  .room-environment[data-room-presentation=home] .room-arrival-copy { display:grid; grid-template-columns:minmax(0,1.12fr) minmax(0,1fr); align-items:center; gap:18px 32px; }

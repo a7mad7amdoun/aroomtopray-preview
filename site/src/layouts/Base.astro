@@ -26,6 +26,7 @@ import { hasLocalizedRoute, navigationPath } from '../lib/localized-routes.js';
 import Icons from '../components/Icons.astro';
 import Mark from '../components/Mark.astro';
 import { SITE } from '../lib/airports.js';
+import { DOOR_ARRIVAL_PREPAINT_SCRIPT } from '../lib/door-arrival.js';
 
 interface Props { title: string; description: string; nav?: string; noindex?: boolean; og?: string | null; jsonld?: object; destinationNav?: boolean }
 const { title, description, nav = '', noindex = false, og = null, jsonld, destinationNav = true } = Astro.props;
@@ -47,6 +48,7 @@ const searchTarget = isHome ? '#place-search-input' : isDirectory ? '#q-dir' : `
 <head>
   <meta charset="utf-8">
   <script is:inline>document.documentElement.classList.add('js'); try { const theme = localStorage.getItem('aroomtopray.theme.v1'); if (theme === 'light' || theme === 'dark') document.documentElement.setAttribute('data-theme', theme); } catch {} try { sessionStorage.removeItem('aroomtopray.focus.v2'); sessionStorage.removeItem('aroomtopray.focus.v1'); } catch {}</script>
+  <script is:inline set:html={DOOR_ARRIVAL_PREPAINT_SCRIPT}/>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>{title}</title>
   <meta name="description" content={description}>

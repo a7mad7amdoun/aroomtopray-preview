@@ -1,5 +1,5 @@
 ---
-import { getCopy, formatCount, localeMeta } from '../lib/i18n.js';
+import { getCopy, localeMeta } from '../lib/i18n.js';
 import { GUIDE_COPY } from '../data/guide-copy.js';
 import '../styles/category-orientation.css';
 
@@ -30,8 +30,8 @@ const headingId = `orientation-${category}`;
   <ol class="orientation-steps" role="list">
     {c.steps.map((step, index) => (
       <li>
-        <span class="orientation-index" aria-hidden="true">{formatCount(index + 1, language)}</span>
-        <h3><svg width="22" height="22" aria-hidden="true"><use href={`#i-${symbols[index]}`}/></svg><span>{step.title}</span></h3>
+        <span class="orientation-symbol" aria-hidden="true"><svg width="28" height="28"><use href={`#i-${symbols[index]}`}/></svg></span>
+        <h3><span>{step.title}</span></h3>
         <p>{step.text}</p>
       </li>
     ))}
@@ -39,6 +39,6 @@ const headingId = `orientation-${category}`;
 
   <div class="orientation-access-note">
     <svg width="21" height="21" aria-hidden="true"><use href="#i-info"/></svg>
-    <p>{c.note}</p>
+    <div><strong>{t.detail.caution}</strong><p>{c.note}</p></div>
   </div>
 </section>

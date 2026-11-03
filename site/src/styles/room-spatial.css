@@ -19,13 +19,22 @@ body.immersive-site { background:radial-gradient(ellipse at 18% 450px,#b49a7020,
 :root .room-environment .room-wall { background:none; border-radius:0; box-shadow:none; }
 :root .room-environment .room-wall::before,:root .room-environment .room-wall::after { content:''; display:block; position:absolute; inset:0; background-size:100% 100%; background-position:center; border-radius:0; }
 :root .room-environment .room-wall::before { background-image:var(--room-day); }
-:root .room-environment .room-wall::after { background-image:var(--room-night); opacity:var(--room-night-opacity); transition:opacity 760ms cubic-bezier(.25,.65,.25,1); }
+:root .room-environment .room-wall::after { background-image:var(--room-night); opacity:var(--room-night-opacity); transition:opacity 320ms ease-out; }
 /* Inner jamb (44,177)–(272,676), on both 1774×887 source images.
    Keep the door at the far-left edge and the mat facing the clear wall. */
 .room-environment .door-surround { left:2.4803%; top:19.955%; bottom:auto; width:12.8523%; height:56.257%; min-height:0; }
-.room-environment { --door-motion:1040ms cubic-bezier(.18,.68,.22,1); }
-.room-environment[data-door-state=open] { --door-angle:-86deg; }
-.room-environment[data-door-arrival=preparing] .door-leaf { transition:none; }
+.room-environment { --door-motion:960ms cubic-bezier(.32,0,.45,1); }
+.room-environment[data-door-state=open] { --door-angle:-86deg; --door-motion:780ms cubic-bezier(.3,0,.2,1); }
+/* Prepare every physical layer together, before the first painted arrival. */
+html[data-door-arrival=preparing] .room-environment { --door-angle:0deg; }
+html[data-door-arrival=preparing] .room-environment .door-skin::after { opacity:0; }
+html[data-door-arrival=preparing] .room-environment .window-reflection { background-position:0% center; }
+html[data-door-arrival=preparing] .room-environment .door-floor-light { opacity:0; transform:scaleX(.08); }
+html[data-door-arrival=preparing] .room-environment .door-swing-shadow { opacity:0; transform:skewX(-22deg) scaleX(.1); }
+html[data-door-arrival=preparing] .room-environment :is(.door-leaf,.door-floor-light,.door-swing-shadow,.window-reflection),
+html[data-door-arrival=preparing] .room-environment .door-skin::after,
+.room-environment[data-door-arrival=preparing] :is(.door-leaf,.door-floor-light,.door-swing-shadow,.window-reflection),
+.room-environment[data-door-arrival=preparing] .door-skin::after { transition:none; }
 .room-environment .door-clear-glass { position:absolute; inset:0; background:linear-gradient(135deg,#fff1,transparent 60%); }
 .room-environment .door-room-sign { top:-10%; min-height:25px; padding:5px; border-radius:2px; box-shadow:0 1px 0 #fff2,0 3px 6px #0003; }
 .room-environment .door-room-sign b { font-size:clamp(.65rem,.9vw,.84rem); font-weight:700; }
@@ -36,11 +45,10 @@ body.immersive-site { background:radial-gradient(ellipse at 18% 450px,#b49a7020,
 .room-environment .door-handle { top:59%; right:8%; height:7%; min-height:20px; width:5px; background:linear-gradient(90deg,#685b45,#d9c8a2 48%,#8c7a5b); }
 .room-environment .door-handle::after { top:35%; width:clamp(14px,1.2vw,22px); background:linear-gradient(#dfd0ae,#9a8864 55%,#63563e); }
 .room-environment .door-kickplate { left:6%; width:88%; height:5%; opacity:.65; }
-.room-environment .door-floor-light { background:radial-gradient(ellipse at 50% 0,#ffe2a85c,transparent 72%); filter:blur(2px); }
+.room-environment .door-floor-light { background:linear-gradient(180deg,#fff4da70,#fff4da00); clip-path:polygon(0 0,100% 0,100% 100%,20% 100%); filter:blur(1px); }
 .room-environment .door-swing-shadow { filter:blur(3px); }
 .room-environment .room-arrival-copy { position:relative; z-index:2; min-width:0; padding:clamp(24px,2.4vw,38px); border:1px solid var(--floating-line); border-radius:18px; background:var(--floating-surface); box-shadow:var(--floating-shadow),inset 0 1px #ffffff16; pointer-events:auto; text-align:start; }
 @supports(backdrop-filter:blur(14px)) { .room-environment .room-arrival-copy { backdrop-filter:blur(14px); } }
-@keyframes room-pane-arrive { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
 /* The same room offers three recognizable information materials. */
 .room-environment[data-room-setting=airports] .room-arrival-copy { --ink:#f6f3e8; --muted:#bdc8d7; --surface:#182536; --surface-2:#22334a; --line:#40516a; --field:#8090a6; --focus:#ffc629; background:#162131f2; border-color:#50617a80; border-top:3px solid var(--sign); }
 .room-environment[data-room-setting=universities] .room-arrival-copy { border-top:5px solid #a28765; border-start-start-radius:5px; border-start-end-radius:5px; }
@@ -114,16 +122,17 @@ body.immersive-site { background:radial-gradient(ellipse at 18% 450px,#b49a7020,
 .guide-source-credit:not(:has(.source-provenance)) { display:none; }
 .guide-source-credit:has(.source-provenance) { margin-top:48px; }
 .notice-art { position:relative; display:block; width:100%; aspect-ratio:16/10; overflow:hidden; background:#e9dfc8; }
-.notice-art img { display:block; width:100%; height:100%; object-fit:cover; transition:scale 600ms var(--room-ease); }
-.door-notice:hover .notice-art img { scale:1.025; }
-.notice-number { position:absolute; top:14px; inset-inline-start:14px; display:grid; place-items:center; width:34px; height:34px; color:var(--sign); background:#111b2a; border:1px solid #ffc62955; font-size:.72rem; font-weight:600; }
+.notice-art img { display:block; width:100%; height:100%; object-fit:cover; }
+.notice-emblem { position:absolute; top:12px; inset-inline-start:12px; display:grid; place-items:center; width:42px; height:42px; color:var(--sign); background:#162131; border:1px solid #ffc62966; border-radius:4px; box-shadow:0 2px 8px #0002; }
+.notice-emblem svg { width:25px; height:25px; }
+.room-environment[data-room-presentation=home] .door-notice-title { grid-template-columns:minmax(0,1fr) 20px; }
+.room-environment[data-room-presentation=home] .door-notice-title>svg:first-child { display:none; }
 .notice-information { display:flex; flex-direction:column; padding:24px; border-top:3px solid var(--sign); }
 .notice-kicker { font-size:.67rem; color:var(--muted); margin:0 0 12px; }
 .room-environment .door-notice-title { display:grid; grid-template-columns:25px minmax(0,1fr) 20px; gap:12px; align-items:center; width:100%; }
 .room-environment .door-notice-title>svg:first-child { display:block; width:25px; height:25px; color:var(--ink); outline:0; padding:0; }
-.room-environment .door-notice-title>.notice-arrow { width:20px; height:20px; color:var(--ink); transform:none; transition:translate 180ms var(--room-ease); }
+.room-environment .door-notice-title>.notice-arrow { width:20px; height:20px; color:var(--ink); transform:none; }
 .room-environment .door-notice:is(:hover,:focus-visible) .notice-arrow { transform:none; }
-.room-environment .door-notice:hover .notice-arrow { translate:3px; }
 .room-environment .door-notice-title>b { font:650 1.18rem/1.4 var(--f-body); letter-spacing:-.025em; }
 .room-environment .door-notice-count { position:static; display:flex; width:auto; height:auto; overflow:visible; clip-path:none; margin:9px 0 0; padding:0; color:var(--muted); font-size:.75rem; opacity:1; }
 .room-environment .door-notice-return { position:static; width:auto; height:auto; clip-path:none; margin-top:6px; padding:0; font-size:.76rem; }
@@ -137,8 +146,8 @@ body.immersive-site { background:radial-gradient(ellipse at 18% 450px,#b49a7020,
 .room-cycle-icon .cycle-play,[data-room-cycle][data-paused=true] .cycle-pause { display:none; }
 [data-room-cycle][data-paused=true] .cycle-play { display:block; }
 .room-environment:not([data-room-presentation=home]) .room-atmosphere-controls { margin:0; padding:12px 24px; }
-.room-environment .door-notice-entry { display:flex; flex-direction:column; min-width:0; overflow:hidden; border:1px solid var(--floating-line); border-radius:12px; background:var(--floating-surface); box-shadow:var(--floating-shadow); transition:translate 300ms var(--room-ease),box-shadow 300ms var(--room-ease); }
-@media(hover:hover) { .room-environment[data-room-presentation=home] .door-notice-entry:has(.door-notice:hover) { translate:0 -4px; box-shadow:0 22px 52px #07101b20; } }
+.room-environment .door-notice-entry { display:flex; flex-direction:column; min-width:0; overflow:hidden; border:1px solid var(--floating-line); border-radius:12px; background:var(--floating-surface); box-shadow:var(--floating-shadow); transition:border-color 160ms ease; }
+@media(hover:hover) { .room-environment[data-room-presentation=home] .door-notice-entry:has(.door-notice:hover) { border-color:var(--field); } }
 .room-environment .door-notice-entry>.door-notice { flex:1; border:0; border-radius:0; background:transparent; box-shadow:none; }
 .room-environment[data-room-presentation=home] .door-notice-airports .notice-information { --ink:#f6f3e8; --muted:#c0c9d5; --line:#40516a; color:var(--ink); background:#162131; }
 .room-environment[data-room-presentation=home] .door-notice-universities .notice-information { border-top-color:#a28765; background:var(--surface); }
@@ -231,7 +240,7 @@ html .immersive-site .site-footer { width:min(var(--layout-width),calc(100% - 2 
 /* The world outside stays stationary while the physical door swings.
    Keep its front just visible at 86 degrees instead of hiding the slab. */
 .room-environment .door-outside { background-image:none; }
-.door-scene { position:absolute; inset:0; background-size:cover; background-repeat:no-repeat; opacity:0; transition:opacity 1800ms ease-in-out; }
+.door-scene { position:absolute; inset:0; background-size:cover; background-repeat:no-repeat; opacity:0; transition:opacity 220ms ease-out; }
 .door-scene-airport { background-image:image-set(url('/art/room-threshold/airport-720.webp') 1x,url('/art/room-threshold/airport-1086.webp') 2x); background-position:center; }
 .door-scene-campus { background-image:image-set(url('/art/room-threshold/campus-720.webp') 1x,url('/art/room-threshold/campus-1086.webp') 2x); background-position:center; }
 .door-scene-hospital { background-image:image-set(url('/art/room-threshold/hospital-720.webp') 1x,url('/art/room-threshold/hospital-1086.webp') 2x); background-position:center; }
@@ -275,7 +284,6 @@ html .immersive-site .site-footer { padding-block:48px; }
 html[dir=rtl] .room-main .room-arrival-copy h1 { font-family:var(--f-arabic); line-height:1.35; letter-spacing:0; }
 html[dir=rtl] .room-main .room-arrival-copy :is(.room-eyebrow,.eyebrow) { letter-spacing:0; }
 html[dir=rtl] .room-environment .door-notice-title>b { font-family:var(--f-arabic); font-size:1.35rem; line-height:1.5; letter-spacing:0; }
-html[dir=rtl] .room-environment .door-notice:hover .notice-arrow { translate:-3px; }
 @media(max-width:1150px) {
  .room-environment .room-arrival-copy { padding:32px; }
  .room-main .room-arrival-copy h1 { font-size:2.6rem; }
@@ -361,7 +369,8 @@ html[dir=rtl] .room-environment .door-notice:hover .notice-arrow { translate:-3p
  .room-environment[data-room-presentation=home] .door-notice { grid-template-columns:88px minmax(0,1fr); }
  .room-environment[data-room-presentation=home] .notice-information { padding:16px 14px; }
  .room-environment[data-room-presentation=home] .notice-art { min-height:180px; }
- .room-environment[data-room-presentation=home] .notice-number { top:10px; inset-inline-start:10px; width:28px; height:28px; }
+ .room-environment[data-room-presentation=home] .notice-emblem { top:8px; inset-inline-start:8px; width:36px; height:36px; }
+ .room-environment[data-room-presentation=home] .notice-emblem svg { width:23px; height:23px; }
  .room-environment[data-room-presentation=home] .door-notice-title>b { font-size:1.3rem; }
  .room-environment[data-room-presentation=home] .notice-kicker { margin-bottom:7px; }
  .room-environment[data-room-presentation=home] .door-notice-count { margin-top:10px; }

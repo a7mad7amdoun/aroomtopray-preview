@@ -1,0 +1,19 @@
+A ROOM TO PRAY — PHYSICAL MOTION AND USEFUL GRAPHICS
+
+Current request: “the motions feel artificial, make it realistic, more useful professional graphics”.
+
+Preserve the established room, registered left doorway, warm wall and wall-facing prayer mat; Hamza-inspired navy, ivory and yellow; Archivo and Arabic typography; all existing imagery, attribution, records, filters, maps, languages and visitor tools. Publish only Ahmed’s authorized GitHub Pages design preview.
+
+Motion must communicate a physical cause or an intentional visitor action. Keep architecture, text and click targets anchored during scrolling, searching and tab selection. Remove scroll camera scaling/translation, card lifts, photo zooms, arrow drift and reading-panel entrance effects. Preserve actual header alignment when navigation wraps.
+
+Keep the door on its existing hinge and registered to the photographed jamb. Use a gentle 780ms opening and a damped 960ms closing curve without overshoot. Couple the slab, glass reflection, floor light and shadow to that same state and timing. Use restrained threshold-shaped light instead of a radial glow. Transition room lighting over 320ms; text contrast switches immediately.
+
+Never close a category door after it was already painted open. Validate short-lived same-origin destination intent before paint; synchronize every physical layer for preparation, then open the door. Late scripts, blocked storage, save-data, reduced motion and page restoration must fail gracefully without interrupting navigation. Expire preparation if enhancement does not load.
+
+Start with a quiet room. Preserve the optional 14-second destination tour, with a localized Explore views action, pause and resume. Explicitly starting opens a previously closed door. No unsolicited rotation. Destination hover requires 180ms of intent; cancel pending work on pointer exit, navigation, door interaction or page exit. Keyboard focus stays immediate. Short 220ms scene fades replace long overlapping exposures. Scene, label, pictogram and selected notice always agree.
+
+Give graphics a practical job. Use the existing category pictograms on the destination photos, replacing decorative sequence numbers and avoiding duplicate home title icons. Use one meaningful action pictogram per category-guide item. Keep the airport wayfinding panel, university notice and hospital reception panel in a shared type and spacing system. Make the existing translated access caution a clear label. Preserve every instruction and source; invent no physical route, gate, institution, room detail or verification claim.
+
+Check actual exported markup, four-language controller integrations, keyboard and native navigation, user context, pause/restoration, deferred script behavior, CSS cascade, reduced motion and all asset links. Review existing artwork directly when possible. Do not treat source/DOM checks as rendered visual verification. Existing browser policy block prevents live desktop/mobile animation inspection in this session.
+
+This brief supersedes the earlier automatic camera-motion direction, not the room concept or existing information architecture.

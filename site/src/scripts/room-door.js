@@ -2,6 +2,8 @@ import { browseQuery, returnToDirectory } from '../lib/directory-context.js';
 import { initRoomCycle } from '../lib/room-cycle.js';
 import { initDoorArrival } from '../lib/door-arrival.js';
 
+export const ROOM_PREVIEW_INTENT_DELAY = 180;
+
 // The moving leaf is decorative. Wayfinding and controls stay on the wall.
 export function initRoomDoor(room, browser = window) {
   if (!room || room.dataset.doorReady === 'true') return;
@@ -13,8 +15,12 @@ export function initRoomDoor(room, browser = window) {
   const sceneIcon = room.querySelector('[data-room-scene-icon]');
   const notices = [...room.querySelectorAll('[data-door-preview]')];
   const initiallyOpen = room.dataset.doorState === 'open';
-  let cycle;
+  let cycle,previewTimer=null;
+  const cancelPreview=()=>{
+    if(previewTimer!==null){browser.clearTimeout(previewTimer);previewTimer=null;}
+  };
   const setOpen = open => {
+    cancelPreview();
     room.dataset.doorState = open ? 'open' : 'closed';
     control?.setAttribute('aria-expanded', String(open));
     if (label && control) label.textContent = open ? control.dataset.closeLabel : control.dataset.openLabel;
@@ -36,11 +42,22 @@ export function initRoomDoor(room, browser = window) {
   setOpen(initiallyOpen);
   if (control) {
     control.hidden = false;
+    control.addEventListener('pointerdown',cancelPreview);
+    control.addEventListener('focus',cancelPreview);
     control.addEventListener('click', () => setOpen(room.dataset.doorState !== 'open'));
   }
   notices.forEach(link => {
-    link.addEventListener('pointerenter', () => preview(link));
-    link.addEventListener('focus', () => preview(link));
+    // Passing across the notices is not a request to change the scenery.
+    // Keyboard focus is deliberate; a pointer gets a short intent threshold.
+    link.addEventListener('pointerenter', event => {
+      cancelPreview();
+      if(room.dataset.roomSetting!=='home' || event.pointerType==='touch')return;
+      previewTimer=browser.setTimeout(()=>{previewTimer=null;preview(link);},ROOM_PREVIEW_INTENT_DELAY);
+    });
+    link.addEventListener('pointerleave',cancelPreview);
+    link.addEventListener('pointerdown',cancelPreview);
+    link.addEventListener('click',cancelPreview);
+    link.addEventListener('focus', () => {cancelPreview();preview(link);});
     // Keep the current category's country, filters, map selection and result page.
     // Other categories must not inherit incompatible filters.
     if (link.dataset.doorDestination !== room.dataset.roomSetting) return;
@@ -69,7 +86,10 @@ export function initRoomDoor(room, browser = window) {
     room.ownerDocument?.addEventListener('directory:updated', syncContext);
     room.ownerDocument?.addEventListener('atlas:selection', syncContext);
   });
-  cycle=initRoomCycle(room,browser,notices,preview);
+  // Exploring is an explicit request to see the views. Open a closed door
+  // before starting; ordinary restoration and hover never do this.
+  cycle=initRoomCycle(room,browser,notices,preview,()=>setOpen(true));
+  browser.addEventListener('pagehide',cancelPreview);
   initDoorArrival(room,browser,setOpen);
   // Restored pages keep their door state; navigation is always immediate.
   browser.addEventListener('pageshow', () => setOpen(room.dataset.doorState === 'open'));

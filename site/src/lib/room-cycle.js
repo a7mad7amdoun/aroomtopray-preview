@@ -1,7 +1,7 @@
 export const ROOM_CYCLE_DELAY = 14000;
 
 // A background tour never changes a route, a form, keyboard focus or live status.
-export function initRoomCycle(room, browser, links, preview) {
+export function initRoomCycle(room, browser, links, preview, onStart) {
  const control=room.querySelector('[data-room-cycle]');
  if(!control || room.dataset.roomPresentation!=='home' || links.length<2) return;
  const label=control.querySelector('[data-room-cycle-label]');
@@ -12,7 +12,9 @@ export function initRoomCycle(room, browser, links, preview) {
  const interaction=room.querySelector('[data-room-tour-interaction]')||room;
  const scenery=room.querySelector('[data-room-scenery]')||room;
  const media=browser.matchMedia?.('(prefers-reduced-motion: reduce)');
- let userPaused=Boolean(media?.matches || browser.navigator?.connection?.saveData);
+ // Scenery is quiet on arrival. A visitor opts into the tour, regardless of
+ // their motion/data preferences; later interruptions never restart it.
+ let userPaused=true,hasStarted=false;
  let hovered=false,focused=false,visible=true,away=false,timer=null;
  const clear=()=>{if(timer!==null){browser.clearTimeout(timer);timer=null;}};
  const canRun=()=>!userPaused&&!hovered&&!focused&&visible&&!away&&!doc?.hidden&&room.dataset.doorState==='open';
@@ -29,7 +31,7 @@ export function initRoomCycle(room, browser, links, preview) {
  };
  const updateControl=(announce=false)=>{
   control.dataset.paused=String(userPaused);
-  if(label)label.textContent=userPaused?control.dataset.resumeLabel:control.dataset.pauseLabel;
+  if(label)label.textContent=userPaused?(hasStarted?control.dataset.resumeLabel:control.dataset.startLabel||control.dataset.resumeLabel):control.dataset.pauseLabel;
   if(announce&&status)status.textContent=userPaused?control.dataset.pausedMessage:control.dataset.playingMessage;
   room.dataset.roomCycle=userPaused?'paused':'playing';
   schedule();
@@ -40,7 +42,7 @@ export function initRoomCycle(room, browser, links, preview) {
   // Resuming is an explicit request, including while the button still has
   // keyboard focus or the pointer remains over it. Subsequent interaction
   // with the guide or destination notices can pause the tour again.
-  if(!userPaused){hovered=false;focused=false;}
+  if(!userPaused){hasStarted=true;hovered=false;focused=false;onStart?.();}
   updateControl(true);
  });
  interaction.addEventListener('pointerenter',()=>{hovered=true;clear();});

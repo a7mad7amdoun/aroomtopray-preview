@@ -74,8 +74,8 @@
  background:var(--surface); color:var(--ink);
  box-shadow:0 24px 64px #07101b24,0 3px 12px #07101b0d;
 }
-.top.room-header .site-menu[open] .site-menu-panel { animation:wayfinding-menu-arrive 260ms cubic-bezier(.2,.7,.2,1) both; }
-@keyframes wayfinding-menu-arrive { from { opacity:0; transform:translateY(-5px); } to { opacity:1; transform:translateY(0); } }
+.top.room-header .site-menu[open] .site-menu-panel { animation:wayfinding-menu-arrive 120ms ease both; }
+@keyframes wayfinding-menu-arrive { from { opacity:0; } to { opacity:1; } }
 .top.room-header .menu-section-label { display:flex; align-items:center; gap:9px; color:var(--ink); font:650 .9rem/1.4 var(--f-body); margin:0 0 17px; letter-spacing:0; }
 .top.room-header .menu-section-label>svg { flex:none; color:var(--muted); }
 .top.room-header .menu-preferences { margin:0; padding:0 0 22px; border:0; border-bottom:1px solid var(--line); }
