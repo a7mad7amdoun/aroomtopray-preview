@@ -1,0 +1,69 @@
+A ROOM TO PRAY — THE ROOM SUPPORTS THE GUIDE
+Professional implementation prompt · 3 November 2026
+
+OBJECTIVE
+Refine Ahmed’s existing A Room to Pray preview into a coherent room-based information experience. This is a fresh presentation of an established project, not a fresh start. The visitor is stressed, in transit, studying or visiting someone in hospital. Help them answer: is there a place to pray, where is it, can I enter, when is it open, and what facilities are actually stated? The room supplies welcome, location and continuity. Information supplies reassurance through accuracy. Both must work together without sacrificing either.
+
+Use the existing implementation, generated room architecture, functioning doorway, destination photographs, translations, information records and visitor tools. Preserve the visual identity built from Hamza’s navy, yellow, display typography, practical signs and exact information structure. Do not invent an unrelated luxury brand. Make the experience feel considered through proportion, finish, readable contrast and dependable navigation. Do not promise a right of access that a particular institution has not stated.
+
+RESEARCH BASIS AND HONESTY
+Read Hamza’s actual website and existing source-linked records. Preserve its strongest pattern: search first, recognizable category navigation, information organised around location, security/access, hours, wuḍūʾ, women’s space and Qibla, with original source and check date beside the relevant facts. Retain honest “not stated”, “pending” and restricted-access distinctions. A directory listing is not the same as a confirmed prayer room. Do not change totals into claims about verified rooms.
+
+Search Pinterest for airport, university and hospital wayfinding and calm architectural presentation. Use defensible references only. Search availability is limited in this session; thin generic search pages are not proof of having inspected artwork. Do not copy a Pinterest photograph without a traceable source and permission. Existing licensed real photographs are preferable to unsuitable new assets. Primary wayfinding references can inform decisions: airport yellow/navy signs at decision points, campus building hierarchy, hospital recognition through clear text and labelled symbols. Record sources and limits in room-flow-references.txt.
+
+The repository contains a previous dated capture of Hamza’s CSS. Its navy #0A111C, #111B2A and #162235, yellow #FFC629, light text #E7ECF2 and muted blue-grey #A3B0C2 are identity evidence. Preserve the current Archivo-led shared typography and Noto Naskh Arabic. Treat the prior capture as dated evidence, not a freshly verified CSS fetch. Avoid introducing several unrelated display faces for the three categories.
+
+THE ARCHITECTURAL ROLE
+The room must become the persistent environmental background of the whole guide, rather than a very large illustration occupying its own row before the useful information. Separate the architectural layer from the reading layer in the document structure. A transformed element or CSS containment must not accidentally turn the fixed background into a local panel or clip it at the bottom of the introduction.
+
+Place the architecture outside the information containers. Keep one continuous room canvas with its current exact two-to-one image geometry. The rendered door, jamb, window, outside scene and shadows must remain registered to the artwork. Never stretch the canvas independently on two axes. Retain the far-left opening and the believable airport, campus and hospital views. Keep the mat’s head facing the clear solid wall; do not place a door, chair, table or decorative object in that direction. The concept image remains clearly identified as illustrative, not a verified photograph of any listed room.
+
+Reserve a meaningful left margin on larger screens for the doorway and architectural context. Use the rest of the viewport for generous information panels. Narrow that margin on practical detail pages, where access and room details matter most. On phones, allow a short architectural glimpse, then give the content the available width. Do not add a full-height room block between search and results. Avoid horizontal overflow, hidden controls and extremely narrow text columns.
+
+MOVE THE ROOM, NOT THE READER
+Use a small, slow architectural shift as the visitor moves from arrival into reading. The doorway and background may recede slightly when the guide or map becomes the focus. Maintain physical plausibility and alignment. Do not animate the width of the reading column, move the focused input, rotate text cards or make paragraphs perpetually float up and down. There must be no scroll hijacking, no unexpected page jump and no history entry just to animate the room.
+
+Use a few semantic visual states, not a continuously running animation loop. Coalesce scroll work into a requested animation frame, change state only when appropriate, and animate only the backdrop transform. Measure the actual header height so translated navigation does not collide with the room or sticky section bar. Respect page visibility, restored pages, reduced-motion and data-saving preferences. A reduced-motion user receives an equally complete stationary guide. The existing pause control should freeze both the changing outside view and the architectural response. The image and information must remain usable when JavaScript is unavailable.
+
+Maintain the existing gradual homepage outside-scene cycle. Do not pause it forever merely because the room wrapper now contains the entire document; ordinary text hover is not a request to stop the scene. Pause on meaningful room interaction, explicit user choice, reduced motion, hidden documents and page departure. Keep the native door toggle immediate and reliable. A category navigation still follows its real link without a delayed animation gate.
+
+READING SURFACES AND THEME CORRECTNESS
+Each reading surface must establish its own actual foreground color, background and control palette. Changing --ink on a container does not recompute a color inherited from an ancestor. Fix that bug explicitly. Navy airport panels must use light text even when the overall page is in light mode. Their inverse buttons must not become pale text on a pale button. Light panels in dark mode must not inherit inappropriate white text.
+
+Create one authoritative semantic palette after the structural styles. Cover primary text, muted text, fields, placeholders, focus rings, links, selection marks, affirmative/partial/negative/unknown status labels and browser-native select options. Reading panels should be sufficiently opaque that a bright doorway or photographic texture cannot lower their text contrast. Floating depth should come from a restrained edge, shadow and spacing, not from transparent text surfaces. Use navy and yellow for identity; avoid introducing decorative color noise.
+
+Require at least 4.5:1 for normal text pairs and 3:1 for meaningful control/selected-state indicators. Record the checked pairs and their ratios. In light mode, a darker gold indicator may accompany the established yellow to remain visible on ivory. Keep selected states visible through shape or weight as well as color. Preserve visible focus indicators on links, tabs, search, filters, door controls and theme controls.
+
+NAVIGATION AND ORIENTATION
+Refine the existing masthead into a compact, confident wayfinding rail. Give A Room to Pray a balanced, readable wordmark and mark. Keep Airports, Universities and Hospitals as the three primary destinations. Group them coherently, with meaningful consistent emblems and a selected surface that is easy to identify. Retain the search action, native menu disclosure, language and theme choices, and every existing visitor-tool link.
+
+Do not duplicate the three destination controls inside every menu level. Keep long French and Spanish labels from crowding the wordmark. Give Arabic equivalent spacing and natural typography. On small screens, keep all three main destinations visible rather than hiding the entire guide in a menu. Use a clear preferences area and a readable tools area in the drawer. Preserve native disclosure fallback, Escape handling, keyboard movement and sensible focus restoration.
+
+Keep the relevant guide tabs nearby while reading, below the actual measured masthead. A sticky section bar must not cover the heading or consume the entire viewport on short screens. Maintain native links without JavaScript and the existing accessible tab semantics with enhancement. New page layouts must not create duplicate main landmarks, ids or controls.
+
+CONTENT PRESENTATION BY PURPOSE
+Home: establish welcome and search immediately. Where width allows, place the introduction beside search, coverage and the next useful action. Show honest large coverage numbers, then the three destination choices. Let real photographs identify the settings without dominating every card. Preserve photo credits and the distinction between architectural context and actual room locations.
+
+Airport directory: retain the departure-sign vocabulary. Search, country, filters and the count remain obvious. Keep access restrictions visible before details. The results list, map and guidance are three complementary views of the same research; changing one must preserve valid search context. Map marks and selected records remain accurate. Do not publish unrelated unfinished map expansion work.
+
+University directory: use the same typography and palette with a restrained notice-sheet treatment. Make buildings, campus access and opening hours easy to find. Never imply public access where the source restricts it to staff or students.
+
+Hospital directory: use a calm reception-information treatment. Make the room location, visitor access, opening hours and chaplaincy route easy to scan. Avoid emergency-style animations, invented queues or misleading availability signals.
+
+Place pages: lead with the existing facility summary and important limitations. Location, access/security and hours should have clear hierarchy. Keep room-specific facts distinct from institution-level summaries: facilities can differ across rooms. Preserve source links, dates, uncertainty notes, photographs, Qibla guidance and all existing visitor actions.
+
+Supporting pages: preserve the same room context and shared reading rhythm while allowing their own useful structure. Do not add empty ornamental sections simply to fill the background. The art is not evidence; the original linked sources are evidence.
+
+TYPOGRAPHY AND MOTION FINISH
+Use one hierarchy for title, section heading, room name, important value, supporting label and source detail. Enlarge decision-making facts, not every sentence. Use restrained line lengths and natural wrapping. Do not clamp essential access conditions or source notes. Arabic must use the established font, zero artificial letter spacing, sufficient line height and logical margins. Keep the physical room on the left while the reading direction remains correct.
+
+Cards can feel suspended through composition, raised surfaces and brief opacity transitions. Their resting positions must be steady. Avoid blur on text, delayed content reveals, dramatic zooms or any effect that makes someone wait to read. Keep room controls recognizable and usable at a minimum practical touch size. Keep all informational text as actual interface text rather than baked into generated imagery.
+
+IMPLEMENTATION AND ACCEPTANCE
+Work in an isolated checkout because the main workspace contains separate unfinished map work. Preserve those pending files byte for byte. Change the layout, theme boundaries, navigation and necessary motion behaviour; do not alter data, credentials, institutional facts or Hamza’s production site. Keep preview submissions, check-ins and uploads disabled.
+
+Run the existing tests plus meaningful coverage for the new architectural state controller, theme contrast and changed tour interaction boundary. Build every localized page. Check the exported HTML for one main landmark, intact guide sections, correct destination links, source attribution, mounted assets and preview noindex. Exercise search, filters, menus, tabs, maps, history, saved places, reception tools, door state and reduced motion in available offline integration checks.
+
+An explicit browser URL policy block remains in this session. Do not bypass it with another browser, renderer or screenshot path. Report rendered visual inspection as unavailable. Inspect source, generated image geometry, color calculations and offline DOM honestly; those checks do not prove pixel-perfect rendering.
+
+Publish only the authorized Ahmed GitHub Pages preview once the checks pass. Verify the exact deployment and served pages. Preserve the prompt, research references and validation record. Return the fresh link, the concrete improvements and any remaining verification limitation. Make a fresh, coherent application of the user’s room idea and Hamza’s practical information identity without pretending that a different model was selected or that unavailable visual checks were performed.

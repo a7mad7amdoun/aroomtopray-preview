@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-03",
+  "purpose": "Make the prayer room a persistent architectural background that supports stable, readable information on every page.",
+  "changes": [
+    "Architecture sits outside the reading container and remains behind the guide; a restrained camera shift responds to scrolling and map use.",
+    "Content stays in normal flow with a wider consistent reading column, aligned floating surfaces and sticky guide tabs.",
+    "Door and light controls have their own accessible reading-area bar; destination views and original artwork remain intact.",
+    "One complete light/dark semantic palette and explicit local navy-board colors fix inherited text and control contrast.",
+    "Three primary navigation destinations use a coherent rail, larger emblem wrappers and selected states; preferences and visitor tools remain grouped in the native menu.",
+    "Background motion respects reduced motion, data saving, existing pause control and page visibility; homepage cycle hover scope is limited to destination controls."
+  ],
+  "preserved": [
+    "All place records, countries, sources, dates and translations",
+    "All guide, arrival and destination-console text and links in 24 representative localized routes",
+    "Search, filters, map/list modes, saved places, reception tools and doorway scenes",
+    "Original photographic/artwork assets and credits; prayer mat faces solid wall"
+  ],
+  "validation": {
+    "unitTests": 172,
+    "unitFailures": 0,
+    "builtPages": 2177,
+    "mountedAssets": 80,
+    "brokenLocalLinks": 0,
+    "localizedStructureCases": 24,
+    "localizedFloatingRoomCases": 24,
+    "localizedSearchMenuVisitCases": 12,
+    "localizedDirectoryCases": 12,
+    "localizedReceptionCases": 12,
+    "preservedContentRoutes": 24,
+    "sourceStylesheetsParsed": 20,
+    "minimumTestedNormalTextContrast": 5.388,
+    "minimumTestedControlContrast": 3.441,
+    "renderedBrowserInspection": false
+  },
+  "limitations": [
+    "Existing browser URL policy block prevented rendered desktop/mobile visual checks. No alternative browser or rendering workaround was used. Responsive layout and RTL were reviewed in source and offline DOM; this does not establish pixel-perfect rendering.",
+    "Pinterest search was attempted but usable results were limited and its linked designer account returned 403. No Pinterest imagery was copied. Primary wayfinding references and Hamza pages informed refinement."
+  ],
+  "deployment": "Only Ahmed’s authorized a7mad7amdoun/aroomtopray-preview GitHub Pages site. Hamza production remains untouched; submissions stay disabled. The 11 unrelated pending map files remain outside this release.",
+  "buildCommand": "PUBLIC_REVIEW_PREVIEW=true PUBLIC_PREVIEW_BASE=/aroomtopray-preview pnpm build, followed by site/scripts/prepare-github-preview.mjs",
+  "prompt": "research/room-flow-master-prompt.txt",
+  "references": "research/room-flow-references.txt"
+}

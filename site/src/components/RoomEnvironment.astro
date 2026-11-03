@@ -20,9 +20,7 @@ const counts={airports:airports.length,universities:universities.length,hospital
 const number=new Intl.NumberFormat(locale);
 ---
 <div id="prayer-room" class:list={['room-environment', {'room-door-open':open}]} data-room-presentation={presentation} data-room-preview={outside} data-room-setting={kind} data-door-state={open?'open':'closed'}>
- <div class="room-stage">
-  <div class="room-arrival-copy" dir={locale==='ar'?'rtl':'ltr'}><slot /><div class="arrival-actions"><ReceptionCard {locale} id="room-reception"/><a class="arrival-guide-link" href="#guide-content">{q.guide}<svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a></div></div>
-  <div class="room-architecture" dir="ltr">
+  <div class="room-architecture" dir="ltr" data-room-scenery>
    <div class="room-canvas">
     <div class="room-wall" aria-hidden="true"></div>
     <div class="door-surround">
@@ -45,11 +43,19 @@ const number=new Intl.NumberFormat(locale);
         </div>
 
       </div>
+
+    </div>
+
+   </div>
+    <p class="room-art-note">{atmosphere.illustration}</p>
+  </div>
+ <div class="room-layout">
+  <main id="main" class="room-main" tabindex="-1">
+   <div class="room-control-bar" dir={locale==='ar'?'rtl':'ltr'}>
         <button class="door-control" dir={locale==='ar'?'rtl':'ltr'} type="button" hidden data-door-toggle data-open-label={d.open} data-close-label={d.close} aria-controls="room-doorway" aria-expanded={String(open)}>
           <span class="door-action-caption"><svg class="door-icon-closed" width="17" height="17" aria-hidden="true"><use href="#i-door-closed"/></svg><svg class="door-icon-open" width="17" height="17" aria-hidden="true"><use href="#i-door-open"/></svg>
           <span data-door-toggle-label>{open?d.close:d.open}</span></span>
         </button>
-    </div>
     <div class="room-location" dir={locale==='ar'?'rtl':'ltr'}>
 
         <div class="room-light" hidden data-room-light-control>
@@ -59,10 +65,10 @@ const number=new Intl.NumberFormat(locale);
         </div>
       </div>
    </div>
-    <p class="room-art-note">{atmosphere.illustration}</p>
-  </div>
- </div>
-  <div class="room-console">
+   <div class="room-stage">
+    <div class="room-arrival-copy" dir={locale==='ar'?'rtl':'ltr'}><slot name="arrival" /><div class="arrival-actions"><ReceptionCard {locale} id="room-reception"/><a class="arrival-guide-link" href="#guide-content">{q.guide}<svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a></div></div>
+   </div>
+  <div class="room-console" data-room-tour-interaction>
     <div class="room-atmosphere-controls" dir={locale==='ar'?'rtl':'ltr'}>
       <p class="room-scene-caption"><svg width="17" height="17" aria-hidden="true"><use data-room-scene-icon href={`#i-${doors.find(([category])=>category===kind)?.[1]||'airport'}`}/></svg><span>{d.outside}<b data-room-scene-name>{t.nav[kind in settings?kind:'airports']}</b></span></p>
       {presentation==='home'&&<button type="button" hidden data-room-cycle data-pause-label={atmosphere.pause} data-resume-label={atmosphere.resume} data-paused-message={atmosphere.paused} data-playing-message={atmosphere.playing} aria-controls="room-doorway"><svg class="room-cycle-icon" width="15" height="15" viewBox="0 0 20 20" aria-hidden="true"><path class="cycle-pause" d="M6 4v12M14 4v12" fill="none" stroke="currentColor" stroke-width="3"/><path class="cycle-play" d="m6 3 10 7-10 7z" fill="currentColor"/></svg><span data-room-cycle-label>{atmosphere.pause}</span></button>}
@@ -83,8 +89,12 @@ const number=new Intl.NumberFormat(locale);
       </nav>
     </aside>
   </div>
+   <slot name="guide" />
+  </main>
+ </div>
 </div>
 <script>
  import '../scripts/room-door.js';
  import '../scripts/room-focus.js';
+ import '../scripts/room-motion.js';
 </script>

@@ -16,6 +16,8 @@ import '../styles/information-design.css';
 import '../styles/modern-room.css';
 import '../styles/room-spatial.css';
 import '../styles/premium-navigation.css';
+import '../styles/room-backdrop.css';
+import '../styles/room-palette.css';
 import HeaderNavigation from '../components/HeaderNavigation.astro';
 import RoomEnvironment from '../components/RoomEnvironment.astro';
 import SourceProvenance from '../components/SourceProvenance.astro';
@@ -71,17 +73,15 @@ const searchTarget = isHome ? '#place-search-input' : isDirectory ? '#q-dir' : `
   <a class="skip" href="#main">{t.nav.skip}</a>
   <Icons />
   <HeaderNavigation {locale} {nav} {searchTarget} {visitHash}/>
-  <div class="room-layout">
   <script>import '../scripts/navigation.js';</script>
-  <main id="main" class="room-main" tabindex="-1">
-    <RoomEnvironment kind={roomKind} {locale} {presentation}><slot name="arrival" /></RoomEnvironment>
-    <div id="guide-content" class="guide-content">
-    <slot name="welcome" />
-    <slot />
-    <div class="guide-source-credit"><SourceProvenance path={Astro.url.pathname} {locale}/></div>
+  <RoomEnvironment kind={roomKind} {locale} {presentation}>
+    <Fragment slot="arrival"><slot name="arrival" /></Fragment>
+    <div id="guide-content" class="guide-content" slot="guide">
+      <slot name="welcome" />
+      <slot />
+      <div class="guide-source-credit"><SourceProvenance path={Astro.url.pathname} {locale}/></div>
     </div>
-  </main>
-  </div>
+  </RoomEnvironment>
   <footer class="site-footer">
     <div class="wrap footer-grid">
       <div class="footer-about stack"><a class="brand" href={localizedPath('/', locale)}><Mark size={28} />A Room to Pray</a><p>{t.footer.statement}</p><span class="fine">{t.footer.description}</span></div>

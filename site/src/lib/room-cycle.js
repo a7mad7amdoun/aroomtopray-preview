@@ -7,6 +7,10 @@ export function initRoomCycle(room, browser, links, preview) {
  const label=control.querySelector('[data-room-cycle-label]');
  const status=room.querySelector('[data-room-cycle-status]');
  const doc=room.ownerDocument;
+ // The environment now wraps the whole page. Hovering ordinary guide text
+ // must not permanently pause a background tour. Only room controls do.
+ const interaction=room.querySelector('[data-room-tour-interaction]')||room;
+ const scenery=room.querySelector('[data-room-scenery]')||room;
  const media=browser.matchMedia?.('(prefers-reduced-motion: reduce)');
  let userPaused=Boolean(media?.matches || browser.navigator?.connection?.saveData);
  let hovered=false,focused=false,visible=true,away=false,timer=null;
@@ -32,8 +36,8 @@ export function initRoomCycle(room, browser, links, preview) {
  };
  control.hidden=false;
  control.addEventListener('click',()=>{userPaused=!userPaused;updateControl(true);});
- room.addEventListener('pointerenter',()=>{hovered=true;clear();});
- room.addEventListener('pointerleave',()=>{hovered=false;schedule();});
+ interaction.addEventListener('pointerenter',()=>{hovered=true;clear();});
+ interaction.addEventListener('pointerleave',()=>{hovered=false;schedule();});
  room.addEventListener('focusin',()=>{focused=true;clear();});
  room.addEventListener('focusout',event=>{focused=room.contains(event.relatedTarget);schedule();});
  doc?.addEventListener('visibilitychange',schedule);
@@ -42,7 +46,7 @@ export function initRoomCycle(room, browser, links, preview) {
  media?.addEventListener?.('change',event=>{if(event.matches)userPaused=true;updateControl();});
  if(browser.IntersectionObserver){
   const observer=new browser.IntersectionObserver(entries=>{visible=entries[0]?.isIntersecting!==false;schedule();},{threshold:0.05});
-  observer.observe(room);
+  observer.observe(scenery);
  }
  updateControl();
  return {sync:schedule};

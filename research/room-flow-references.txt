@@ -1,0 +1,73 @@
+ROOM FLOW — RESEARCH AND IMMEDIATE DESIGN APPLICATION
+Research date: 3 November 2026
+Scope: read-only research for the existing Ahmed GitHub preview. No place records, source-check dates or access claims were changed.
+
+PINTEREST SEARCH OUTCOME
+Pinterest was searched first, as requested, for airport wayfinding, university signage, and hospital reception/directory systems. Queries included:
+- site:pinterest.com/pin/ airport wayfinding Mijksenaar signage
+- site:pinterest.com/pin/ university wayfinding signage Pentagram
+- site:pinterest.com/pin/ hospital wayfinding dnco
+- site:uk.pinterest.com/pin "airport" "wayfinding"
+- site:pinterest.com "Mijksenaar" "Schiphol"
+- site:pinterest.com "Pontoon Dock" wayfinding
+
+Results were mostly generic guide.pinterest.com pages, unrelated content or empty results. One thin indexed architecture Pin lacked enough usable context to support a visual claim. The original designer DNCO links to its Pinterest account at https://www.pinterest.co.uk/dnco/; following that public link returned HTTP 403. No alternate browser/access method was used. No Pinterest image was downloaded, copied, or claimed to have been visually inspected. Pinterest is an inspiration index, not evidence that an image is reusable.
+
+HAMZA'S INFORMATION SYSTEM — FRESH LIVE READ
+https://aroomtopray.com/
+The live homepage puts airport/city/code search first, followed by a compact board and six recurring practical answers: location, security side, hours, washing facilities, women's space and qibla. The source and check date belong with each fact. Unknown information remains unknown. Visitor-owned enquiry tools provide a next step when a room is not listed. The live page states 366 checked airports; the preview's broader record total must not be relabelled as a verified count.
+
+https://aroomtopray.com/airports/iah/
+The detail page separates place identity and facility summary from individual rooms. Each room has a useful location, then labelled access/hours/facility facts and its own source. The useful visual lesson is hierarchy: terminal/gate location is more important than a decorative caption. Do not update historical check dates merely because the page was read today.
+
+https://aroomtopray.com/universities/
+The live directory has 77 universities, country and facility filters, and an early warning that most rooms are for students and staff. Keep that access context close to search/results. A campus illustration cannot establish permission to enter.
+
+https://aroomtopray.com/hospitals/
+The live directory distinguishes 32 checked hospitals from 13 still being checked and includes chaplain information. A reception-style visual treatment should preserve these distinctions. Do not create fake triage statuses, waiting times or medical-service claims.
+
+HAMZA'S COLOUR AND TYPOGRAPHY — PREVIOUSLY CAPTURED CSS EVIDENCE
+The repository already contains a direct live-CSS record dated 2 November 2026 in research/quiet-threshold-research.json. It records URL https://aroomtopray.com/_astro/about.C41yr70D.css and SHA-256 906fddd8f44e44157c998761f2ca446880c2a3fb74dc44b6bf56e33e60d6cff5. This turn's Python HTTP attempt failed DNS; the values below are the prior captured source, not a newly verified stylesheet download.
+
+Dark: background #0A111C, reading surface #111B2A, secondary #162235, text #E7ECF2, secondary text #A3B0C2, border #26354B.
+Light: background #E9EDF1, reading surface #FFFFFF, secondary #F4F6F9, text #0F1C2E, secondary text #4E5B6E.
+Shared sign yellow: #FFC629 with dark sign text #14171C.
+Live type families recorded: Archivo Variable display, Atkinson Hyperlegible body, JetBrains Mono tabular board, Noto Naskh Arabic.
+Application: retain the preview's unified Archivo/Noto direction while inheriting Hamza's clear hierarchy and navy/yellow information language. Similarity should come from structure and legibility, not adding another category typeface.
+
+PRIMARY DESIGN REFERENCES READ THIS TURN
+1. Mijksenaar — Amsterdam Schiphol Airport
+https://www.mijksenaar.com/project/amsterdam-schiphol-airport/
+The designer describes a coherent system of orientation, navigation and experience, recognizable yellow signage, custom pictograms, and information delivered at the relevant point of a traveller's journey.
+Our application: one clear route through the page; a stable category rail; major location information first; quiet architecture around legible signs. Yellow should mark a route, active control or important action, not decorate every edge.
+
+2. DNCO — Pontoon Dock
+https://dnco.com/work/pontoon-dock
+The original healthcare project uses restrained typography, a limited palette, clear floor markings, bespoke icons and updateable signs to differentiate destinations.
+Our application: give each group of facts a clear labelled home; use meaningful icons alongside text; maintain a calm hospital information panel. Flexible blocks should reflow naturally rather than float at arbitrary coordinates.
+
+3. Diadem — RMIT
+https://diadem.co/projects/rmit/
+The consultant describes consistent yellow directional signage and a building-number hierarchy across dispersed campuses, with accessibility review informing the signage system.
+Our application: prominent, real place/building identity; consistent grouping across pages; useful location data outranks ornamental imagery. Do not manufacture building numbers or imply institutional endorsement.
+
+FIVE IMMEDIATE IMPROVEMENTS — ORIGINAL DESIGN RECOMMENDATIONS
+1. Let the room yield to the reading task.
+Use a large room scene on arrival, then smoothly reduce its visual prominence as the visitor scrolls into results/details. Only architecture and lighting move. The content remains in normal document flow and its own reliable surface. Preserve the far-left doorway and prayer mat facing the empty wall. On small screens, give the room a concise opening role instead of reserving a permanent content-obstructing column. Never move content underneath an open door leaf.
+
+2. Create a stable navigation and tab rail.
+The brand establishes identity; the three primary destinations stay obvious. Group preferences and secondary tools inside the existing menu. Selected tabs use both colour and shape/weight, with correct contrast and generous targets. A tab's position should not jump between modes or languages. Use the same grid to align the brand, arrival panel and guide reading edge.
+
+3. Give every surface its own complete text palette.
+The navy departures board stays navy in both themes, so it always needs its own pale text, subdued text, separators and focus colour. Warm light panels need their own dark ink. Do not mix global light/dark ink with local fixed surfaces. Audit labels, placeholders, inactive tabs, badges, links and disabled states, not just headings. Preserve 4.5:1 ordinary-text and 3:1 meaningful large-text/control contrast targets.
+
+4. Make the information lead the artwork.
+Directory: search, current filter context, count and essential access restriction are the first information group. Detail: place identity followed immediately by location, access/security and hours; remaining facilities, source links and dates form a calm second group. Guide/map tabs keep the same outer alignment. Strong facts become prominent through size and whitespace, while long prose keeps a readable line length. No additional data section is needed merely to make the page look busy.
+
+5. Float through depth and useful motion, not drifting text.
+Use consistent contact shadows, one quiet edge highlight and separated planes. A restrained background adjustment can mark the move from arrival to reading. Door motion remains physical and intentional. Tab content can enter once with a short opacity/translation transition and then settle. Avoid continuous card bobbing, pointer-following paragraphs, scroll-jacking or fixed overlays that compete with the map. Respect reduced motion, keyboard focus, hidden tabs and mobile performance.
+
+RIGHTS, SOURCE INTEGRITY AND REVIEW LIMITS
+The designer pages are primary references for principles, not licences to reuse photographs or institutional marks. No new images were copied in this task. Keep existing licensed photographs and their credits; conceptual artwork must not be represented as an actual listed room. Preserve original data, honest unknowns, source links, translations and checked dates. The authorized target remains Ahmed's GitHub Pages preview; Hamza's live site is read-only.
+
+Research used the web text tool and repository source records. No rendered-browser check or alternate screenshot pipeline was used to bypass the existing URL policy block. These notes establish a design rationale; they do not constitute visual validation of the implementation.

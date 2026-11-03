@@ -1,0 +1,556 @@
+{
+  "date": "2026-11-03",
+  "method": "WCAG sRGB relative luminance calculated from production CSS tokens; normal text 4.5:1, controls and selected-state indicators 3:1. Unit tests read production stylesheet. This is source-level palette validation, not a rendered accessibility audit.",
+  "stylesheet": "site/src/styles/room-palette.css",
+  "tests": {
+    "passed": 12,
+    "failed": 0
+  },
+  "findingsFixed": [
+    "Airport arrival changed --ink without establishing color, leaving navy inherited text on a navy panel in light mode.",
+    "Airport inverse buttons inherited the ivory page --bg token for text on ivory --ink buttons.",
+    "Yellow selected-tab and navigation indicators on ivory did not reach non-text contrast.",
+    "Placeholder default opacity could reduce measured text contrast.",
+    "Layered root palettes and translucent information surfaces made foreground/background combinations inconsistent."
+  ],
+  "implementation": [
+    "One final shared semantic palette for explicit light, explicit dark and system dark.",
+    "Complete independent navy palette for airport arrival and homepage notice, including native controls and inverse buttons.",
+    "Opaque reading surfaces keep architectural images from changing contrast, while room lighting, shadows and edges provide depth.",
+    "Readable status text and meaningful selected-state marks; text labels remain present.",
+    "Print retains paper-friendly readable surfaces."
+  ],
+  "beforeAirportInheritedHeadingContrast": 1.009,
+  "afterAirportHeadingContrast": 14.586,
+  "checks": [
+    {
+      "scope": "light",
+      "minimumTextContrast": 5.388,
+      "minimumControlContrast": 3.441,
+      "checks": [
+        {
+          "foreground": "--ink",
+          "background": "--bg",
+          "ratio": 14.096,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--muted",
+          "background": "--bg",
+          "ratio": 5.788,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--link",
+          "background": "--bg",
+          "ratio": 7.737,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--field",
+          "background": "--bg",
+          "ratio": 3.697,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--focus",
+          "background": "--bg",
+          "ratio": 5.981,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--selection-mark",
+          "background": "--bg",
+          "ratio": 5.47,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--ink",
+          "background": "--surface",
+          "ratio": 15.668,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--muted",
+          "background": "--surface",
+          "ratio": 6.433,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--link",
+          "background": "--surface",
+          "ratio": 8.6,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--field",
+          "background": "--surface",
+          "ratio": 4.109,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--focus",
+          "background": "--surface",
+          "ratio": 6.648,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--selection-mark",
+          "background": "--surface",
+          "ratio": 6.08,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--ink",
+          "background": "--surface-2",
+          "ratio": 13.122,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--muted",
+          "background": "--surface-2",
+          "ratio": 5.388,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--link",
+          "background": "--surface-2",
+          "ratio": 7.203,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--field",
+          "background": "--surface-2",
+          "ratio": 3.441,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--focus",
+          "background": "--surface-2",
+          "ratio": 5.568,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--selection-mark",
+          "background": "--surface-2",
+          "ratio": 5.092,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--go",
+          "background": "--go-bg",
+          "ratio": 6.542,
+          "minimum": 4.5,
+          "purpose": "status"
+        },
+        {
+          "foreground": "--warn",
+          "background": "--warn-bg",
+          "ratio": 6.377,
+          "minimum": 4.5,
+          "purpose": "status"
+        },
+        {
+          "foreground": "--alert",
+          "background": "--alert-bg",
+          "ratio": 6.356,
+          "minimum": 4.5,
+          "purpose": "status"
+        },
+        {
+          "foreground": "--muted",
+          "background": "--mute-bg",
+          "ratio": 5.405,
+          "minimum": 4.5,
+          "purpose": "unknown status"
+        },
+        {
+          "foreground": "--sign-ink",
+          "background": "--sign",
+          "ratio": 11.429,
+          "minimum": 4.5,
+          "purpose": "primary action"
+        },
+        {
+          "foreground": "--bg",
+          "background": "--ink",
+          "ratio": 14.096,
+          "minimum": 4.5,
+          "purpose": "inverse control"
+        }
+      ]
+    },
+    {
+      "scope": "dark",
+      "minimumTextContrast": 6.961,
+      "minimumControlContrast": 4.734,
+      "checks": [
+        {
+          "foreground": "--ink",
+          "background": "--bg",
+          "ratio": 16.87,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--muted",
+          "background": "--bg",
+          "ratio": 10.498,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--link",
+          "background": "--bg",
+          "ratio": 13.134,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--field",
+          "background": "--bg",
+          "ratio": 6.517,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--focus",
+          "background": "--bg",
+          "ratio": 12.039,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--selection-mark",
+          "background": "--bg",
+          "ratio": 12.039,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--ink",
+          "background": "--surface",
+          "ratio": 14.433,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--muted",
+          "background": "--surface",
+          "ratio": 8.981,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--link",
+          "background": "--surface",
+          "ratio": 11.236,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--field",
+          "background": "--surface",
+          "ratio": 5.576,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--focus",
+          "background": "--surface",
+          "ratio": 10.3,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--selection-mark",
+          "background": "--surface",
+          "ratio": 10.3,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--ink",
+          "background": "--surface-2",
+          "ratio": 12.255,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--muted",
+          "background": "--surface-2",
+          "ratio": 7.626,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--link",
+          "background": "--surface-2",
+          "ratio": 9.541,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--field",
+          "background": "--surface-2",
+          "ratio": 4.734,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--focus",
+          "background": "--surface-2",
+          "ratio": 8.746,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--selection-mark",
+          "background": "--surface-2",
+          "ratio": 8.746,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--go",
+          "background": "--go-bg",
+          "ratio": 7.852,
+          "minimum": 4.5,
+          "purpose": "status"
+        },
+        {
+          "foreground": "--warn",
+          "background": "--warn-bg",
+          "ratio": 7.66,
+          "minimum": 4.5,
+          "purpose": "status"
+        },
+        {
+          "foreground": "--alert",
+          "background": "--alert-bg",
+          "ratio": 7.414,
+          "minimum": 4.5,
+          "purpose": "status"
+        },
+        {
+          "foreground": "--muted",
+          "background": "--mute-bg",
+          "ratio": 6.961,
+          "minimum": 4.5,
+          "purpose": "unknown status"
+        },
+        {
+          "foreground": "--sign-ink",
+          "background": "--sign",
+          "ratio": 11.429,
+          "minimum": 4.5,
+          "purpose": "primary action"
+        },
+        {
+          "foreground": "--bg",
+          "background": "--ink",
+          "ratio": 16.87,
+          "minimum": 4.5,
+          "purpose": "inverse control"
+        }
+      ]
+    },
+    {
+      "scope": "airport",
+      "minimumTextContrast": 7.413,
+      "minimumControlContrast": 4.408,
+      "checks": [
+        {
+          "foreground": "--ink",
+          "background": "--bg",
+          "ratio": 15.748,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--muted",
+          "background": "--bg",
+          "ratio": 10.335,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--link",
+          "background": "--bg",
+          "ratio": 12.143,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--field",
+          "background": "--bg",
+          "ratio": 6.024,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--focus",
+          "background": "--bg",
+          "ratio": 11.131,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--selection-mark",
+          "background": "--bg",
+          "ratio": 11.131,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--ink",
+          "background": "--surface",
+          "ratio": 13.933,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--muted",
+          "background": "--surface",
+          "ratio": 9.145,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--link",
+          "background": "--surface",
+          "ratio": 10.744,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--field",
+          "background": "--surface",
+          "ratio": 5.33,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--focus",
+          "background": "--surface",
+          "ratio": 9.848,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--selection-mark",
+          "background": "--surface",
+          "ratio": 9.848,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--ink",
+          "background": "--surface-2",
+          "ratio": 11.524,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--muted",
+          "background": "--surface-2",
+          "ratio": 7.563,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--link",
+          "background": "--surface-2",
+          "ratio": 8.886,
+          "minimum": 4.5,
+          "purpose": "normal text"
+        },
+        {
+          "foreground": "--field",
+          "background": "--surface-2",
+          "ratio": 4.408,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--focus",
+          "background": "--surface-2",
+          "ratio": 8.145,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--selection-mark",
+          "background": "--surface-2",
+          "ratio": 8.145,
+          "minimum": 3,
+          "purpose": "control or state"
+        },
+        {
+          "foreground": "--go",
+          "background": "--go-bg",
+          "ratio": 7.852,
+          "minimum": 4.5,
+          "purpose": "status"
+        },
+        {
+          "foreground": "--warn",
+          "background": "--warn-bg",
+          "ratio": 7.66,
+          "minimum": 4.5,
+          "purpose": "status"
+        },
+        {
+          "foreground": "--alert",
+          "background": "--alert-bg",
+          "ratio": 7.414,
+          "minimum": 4.5,
+          "purpose": "status"
+        },
+        {
+          "foreground": "--muted",
+          "background": "--mute-bg",
+          "ratio": 7.413,
+          "minimum": 4.5,
+          "purpose": "unknown status"
+        },
+        {
+          "foreground": "--sign-ink",
+          "background": "--sign",
+          "ratio": 11.429,
+          "minimum": 4.5,
+          "purpose": "primary action"
+        },
+        {
+          "foreground": "--bg",
+          "background": "--ink",
+          "ratio": 15.748,
+          "minimum": 4.5,
+          "purpose": "inverse control"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "No rendered browser inspection was permitted. CSS source and numerical contrast checks do not certify every pixel, layout or interactive state.",
+    "Existing university and hospital orientation artwork retains its individually scoped previously verified palettes."
+  ]
+}

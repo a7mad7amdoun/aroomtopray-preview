@@ -6,8 +6,8 @@ function target() {
  const listeners=new Map();
  return { dataset:{}, addEventListener(type,handler){const list=listeners.get(type)||[];list.push(handler);listeners.set(type,list);}, emit(type,values={}){for(const handler of listeners.get(type)||[])handler(values);} };
 }
-function fixture({reduced=false,saveData=false,presentation='home'}={}) {
- const room=target(),control=target(),document=target(),browser=target(),media=target();
+function fixture({reduced=false,saveData=false,presentation='home',scoped=false}={}) {
+ const room=target(),control=target(),document=target(),browser=target(),media=target(),interaction=target(),scenery=target();
  const label={textContent:''},status={textContent:''},timers=new Map(),seen=[];
  let serial=0,observer;
  control.hidden=true;
@@ -15,18 +15,18 @@ function fixture({reduced=false,saveData=false,presentation='home'}={}) {
  control.querySelector=()=>label;
  room.dataset={roomPresentation:presentation,roomPreview:'airport',doorState:'open'};
  room.ownerDocument=document;
- room.querySelector=selector=>selector==='[data-room-cycle]'?control:status;
+ room.querySelector=selector=>selector==='[data-room-cycle]'?control:selector==='[data-room-cycle-status]'?status:scoped&&selector==='[data-room-tour-interaction]'?interaction:scoped&&selector==='[data-room-scenery]'?scenery:null;
  room.contains=node=>node===control;
  browser.matchMedia=()=>media;
  media.matches=reduced;
  browser.navigator={connection:{saveData}};
  browser.setTimeout=(callback,delay)=>{assert.equal(delay,ROOM_CYCLE_DELAY);timers.set(++serial,callback);return serial;};
  browser.clearTimeout=id=>timers.delete(id);
- browser.IntersectionObserver=class {constructor(callback){observer=callback;}observe(node){assert.equal(node,room);}};
+ browser.IntersectionObserver=class {constructor(callback){observer=callback;}observe(node){assert.equal(node,scoped?scenery:room);}};
  const links=['airport','campus','hospital'].map(scene=>({dataset:{doorPreview:scene}}));
  const cycle=initRoomCycle(room,browser,links,link=>{seen.push(link.dataset.doorPreview);room.dataset.roomPreview=link.dataset.doorPreview;});
  const tick=()=>{assert.equal(timers.size,1);const [id,callback]=timers.entries().next().value;timers.delete(id);callback();};
- return {room,control,document,browser,media,label,status,timers,seen,cycle,tick,visibility:visible=>observer([{isIntersecting:visible}])};
+ return {room,control,interaction,scenery,document,browser,media,label,status,timers,seen,cycle,tick,visibility:visible=>observer([{isIntersecting:visible}])};
 }
 test('homepage slowly cycles all three views with only one pending timer and no live announcements',()=>{
  const f=fixture();assert.equal(f.control.hidden,false);assert.equal(ROOM_CYCLE_DELAY,14000);
@@ -70,4 +70,15 @@ test('closing the door stops the tour and opening it starts a fresh delay',()=>{
 });
 test('category and support pages do not initialize automatic cycling',()=>{
  for(const presentation of ['directory','detail','support']){const f=fixture({presentation});assert.equal(f.cycle,undefined);assert.equal(f.timers.size,0);assert.equal(f.control.hidden,true);}
+});
+
+test('persistent room keeps cycling over the guide but pauses for destination interaction and hidden scenery',()=>{
+ const f=fixture({scoped:true});
+ f.room.emit('pointerenter');assert.equal(f.timers.size,1);f.tick();
+ f.interaction.emit('pointerenter');assert.equal(f.timers.size,0);
+ f.interaction.emit('pointerleave');assert.equal(f.timers.size,1);
+ f.room.emit('focusin');assert.equal(f.timers.size,0);
+ f.room.emit('focusout',{relatedTarget:null});assert.equal(f.timers.size,1);
+ f.visibility(false);assert.equal(f.timers.size,0);f.visibility(true);assert.equal(f.timers.size,1);
+ assert.deepEqual(f.seen,['campus']);
 });
