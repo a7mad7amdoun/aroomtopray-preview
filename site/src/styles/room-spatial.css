@@ -1,42 +1,45 @@
-/* A quiet prayer room: full-width limestone, a far-left threshold, and one
-   quiet reading wall. Artwork and door share an independent coordinate plane. */
+/* A physical room with information suspended in front of it. Architecture,
+   moving door and floor share one coordinate plane; text stays steady. */
 :root {
  --bg:#f2efe6; --surface:#fbf9f3; --surface-2:#eae6db; --ink:#142033; --muted:#586271;
  --line:#d6d3c8; --field:#788292; --focus:#355c86; --sign:#ffc629; --sign-ink:#14171c;
  --layout-width:1520px; --layout-gutter:clamp(16px,2.5vw,40px); --content-inset:clamp(22px,4vw,64px);
- --room-day:url('/art/room-threshold/day-1774.webp');
- --room-night:url('/art/room-threshold/night-1774.webp');
+ --room-day:url('/art/floating-room/day-1774.webp');
+ --room-night:url('/art/floating-room/night-1774.webp');
  --room-night-opacity:0; --room-wall-wash:#fbf9f3e6;
- --room-edge:#92836a12; --room-door-shade:rgba(111,77,39,.48);
+ --room-edge:#92836a12; --room-door-shade:rgba(111,77,39,.30);
+ --floating-surface:#fcfaf4f2; --floating-line:#ffffffb3; --floating-shadow:0 2px 4px #3a302306,0 18px 46px #3a302312,0 48px 85px -48px #3a302340;
 }
-:root[data-theme=dark] { --bg:#0a111c; --surface:#111b2a; --surface-2:#162235; --ink:#e7ecf2; --muted:#a3b0c2; --line:#26354b; --field:#5f708a; --focus:#ffc629; --room-night-opacity:1; --room-wall-wash:#111b2ad9; --room-edge:#03070c38; --room-door-shade:rgba(83,61,37,.57); }
-@media(prefers-color-scheme:dark) { :root:not([data-theme=light]) { --bg:#0a111c; --surface:#111b2a; --surface-2:#162235; --ink:#e7ecf2; --muted:#a3b0c2; --line:#26354b; --field:#5f708a; --focus:#ffc629; --room-night-opacity:1; --room-wall-wash:#111b2ad9; --room-edge:#03070c38; --room-door-shade:rgba(83,61,37,.57); } }
-body.immersive-site { background:radial-gradient(ellipse at 20% 300px,#b49a7014,transparent 1100px),var(--bg); }
+:root[data-theme=dark] { --bg:#0a111c; --surface:#111b2a; --surface-2:#162235; --ink:#e7ecf2; --muted:#a3b0c2; --line:#26354b; --field:#5f708a; --focus:#ffc629; --room-night-opacity:1; --room-wall-wash:#111b2ad9; --room-edge:#03070c38; --room-door-shade:rgba(83,61,37,.35); --floating-surface:#142032f2; --floating-line:#b7c5d226; --floating-shadow:0 2px 4px #0002,0 18px 46px #0003,0 48px 85px -48px #0008; }
+@media(prefers-color-scheme:dark) { :root:not([data-theme=light]) { --bg:#0a111c; --surface:#111b2a; --surface-2:#162235; --ink:#e7ecf2; --muted:#a3b0c2; --line:#26354b; --field:#5f708a; --focus:#ffc629; --room-night-opacity:1; --room-wall-wash:#111b2ad9; --room-edge:#03070c38; --room-door-shade:rgba(83,61,37,.35); --floating-surface:#142032f2; --floating-line:#b7c5d226; --floating-shadow:0 2px 4px #0002,0 18px 46px #0003,0 48px 85px -48px #0008; } }
+body.immersive-site { background:radial-gradient(ellipse at 18% 450px,#b49a7020,transparent 1300px),linear-gradient(110deg,#b49a700a,transparent 65%),var(--bg); }
 html .room-layout { display:block; width:min(1680px,100%); max-width:none; margin:0 auto; direction:ltr; }
 html .room-layout>.room-main { position:relative; width:100%; max-width:none; min-width:0; min-height:0; margin:0; padding:0; border:0; border-radius:0; background:transparent; box-shadow:none; backdrop-filter:none; }
-.room-main>.guide-content { padding:48px var(--content-inset) 64px; background:linear-gradient(90deg,var(--room-edge),transparent 6%,transparent 94%,var(--room-edge)),var(--surface); border-block:1px solid var(--line); container:prayer-guide / inline-size; }
+.room-main>.guide-content { margin:32px var(--content-inset) 56px; padding:40px; background:var(--floating-surface); border:1px solid var(--floating-line); border-radius:16px; box-shadow:var(--floating-shadow); container:prayer-guide / inline-size; }
 .room-main .guide-content>.wrap { width:100%; max-width:none; padding:0; margin:0; border:0; background:none; }
-/* The room and guide share one continuous wall. The reading wash changes
-   immediately with text colors; only the artwork crossfades, preserving contrast. */
-.room-main .room-environment { position:relative; inset:auto; display:block; width:100%; height:auto; min-height:0; margin:0; z-index:3; isolation:isolate; border:0; border-radius:0; background:var(--surface); pointer-events:auto; overflow:visible; }
+/* Stable, sufficiently opaque reading surfaces sit above the room. Only the
+   architectural light crossfades; type colors and panel contrast switch together. */
+.room-main .room-environment { position:relative; inset:auto; display:block; width:100%; height:auto; min-height:0; margin:0; z-index:3; isolation:isolate; border:0; border-radius:0; background:transparent; pointer-events:auto; overflow:visible; }
 :root .room-main .room-environment { --door-veneer-shade:var(--room-door-shade); --door-trim:#826039; --door-reveal:#654b30; --door-hardware:#b7aa8e; }
-.room-stage { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr); direction:ltr; isolation:isolate; background:var(--surface); --reading-start:43%; --reading-end:49%; }
-.room-stage::after { content:''; position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(90deg,transparent var(--reading-start),var(--room-wall-wash) var(--reading-end)); }
+.room-stage { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr); direction:ltr; isolation:isolate; background:transparent; --reading-start:43%; --reading-end:49%; }
+.room-stage::after { display:none; }
 .room-environment .room-architecture { grid-area:1/1; position:relative; inset:auto; width:100%; height:auto; min-height:0; margin:0; align-self:start; aspect-ratio:2/1; border:0; border-radius:0; pointer-events:none; z-index:0; overflow:clip; }
-.room-environment .room-architecture::after { content:''; position:absolute; z-index:1; inset:auto 0 0; height:8%; pointer-events:none; background:linear-gradient(transparent,var(--surface)); }
+.room-environment .room-architecture::after { content:''; position:absolute; z-index:1; inset:auto 0 0; height:3%; pointer-events:none; background:linear-gradient(transparent,var(--bg)); }
 .room-canvas { position:absolute; inset:0 auto auto 0; width:100%; height:auto; aspect-ratio:2/1; }
 :root .room-main .room-environment .room-wall { background:none; border-radius:0; box-shadow:none; }
 :root .room-main .room-environment .room-wall::before,:root .room-main .room-environment .room-wall::after { content:''; display:block; position:absolute; inset:0; background-size:100% 100%; background-position:center; border-radius:0; }
 :root .room-main .room-environment .room-wall::before { background-image:var(--room-day); }
 :root .room-main .room-environment .room-wall::after { background-image:var(--room-night); opacity:var(--room-night-opacity); transition:opacity 760ms cubic-bezier(.25,.65,.25,1); }
-/* Inner jamb (30,185)–(368,699), on both 1774×887 source images.
+/* Inner jamb (44,177)–(272,676), on both 1774×887 source images.
    Keep the door at the far-left edge and the mat facing the clear wall. */
-.room-environment .door-surround { left:1.6911%; top:20.8568%; bottom:auto; width:19.053%; height:57.9481%; min-height:0; }
-.room-environment[data-door-state=open] { --door-angle:-96deg; }
+.room-environment .door-surround { left:2.4803%; top:19.955%; bottom:auto; width:12.8523%; height:56.257%; min-height:0; }
+.room-environment { --door-motion:1040ms cubic-bezier(.18,.68,.22,1); }
+.room-environment[data-door-state=open] { --door-angle:-86deg; }
+.room-environment[data-door-arrival=preparing] .door-leaf { transition:none; }
 .room-environment .door-clear-glass { position:absolute; inset:0; background:linear-gradient(135deg,#fff1,transparent 60%); }
 .room-environment .door-room-sign { top:-10%; min-height:25px; padding:5px; border-radius:2px; box-shadow:0 1px 0 #fff2,0 3px 6px #0003; }
 .room-environment .door-room-sign b { font-size:clamp(.65rem,.9vw,.84rem); font-weight:700; }
-.room-environment .door-action-caption { top:auto; bottom:18px; font-size:.76rem; min-height:40px; border-radius:4px; background:#111b2a; color:#f7f3e8; border:1px solid #c7b79080; box-shadow:0 3px 12px #0002; }
+.room-environment .door-action-caption { top:auto; bottom:-54px; font-size:.76rem; min-height:40px; border-radius:4px; background:#111b2a; color:#f7f3e8; border:1px solid #c7b79080; box-shadow:0 3px 12px #0002; }
 .room-environment .door-control:is(:hover,:focus-visible) .door-action-caption { background:var(--sign); color:var(--sign-ink); border-color:var(--sign); }
 .room-environment .door-skin { clip-path:polygon(evenodd,0 0,100% 0,100% 100%,0 100%,0 0,24% 11%,24% 51%,76% 51%,76% 11%,24% 11%,0 0); }
 .room-environment .door-window { left:24%; width:52%; top:11%; height:40%; border:2px solid #7b6244; border-radius:2px; }
@@ -45,41 +48,49 @@ html .room-layout>.room-main { position:relative; width:100%; max-width:none; mi
 .room-environment .door-kickplate { left:6%; width:88%; height:5%; opacity:.65; }
 .room-environment .door-floor-light { background:radial-gradient(ellipse at 50% 0,#ffe2a85c,transparent 72%); filter:blur(2px); }
 .room-environment .door-swing-shadow { filter:blur(3px); }
-.room-environment .room-arrival-copy { grid-area:1/1; position:relative; z-index:2; width:51%; min-width:0; align-self:center; margin:0 0 0 49%; padding:60px clamp(28px,4vw,64px) 72px 32px; background:none; border:0; border-radius:0; box-shadow:none; backdrop-filter:none; pointer-events:auto; text-align:start; }
+.room-environment .room-arrival-copy { grid-area:1/1; position:relative; z-index:2; width:46%; min-width:0; align-self:center; margin:40px 4% 40px 50%; padding:clamp(26px,3vw,46px); border:1px solid var(--floating-line); border-radius:18px; background:var(--floating-surface); box-shadow:var(--floating-shadow),inset 0 1px #ffffff16; pointer-events:auto; text-align:start; animation:room-pane-arrive 650ms cubic-bezier(.2,.7,.2,1) both; }
+@supports(backdrop-filter:blur(14px)) { .room-environment .room-arrival-copy { backdrop-filter:blur(14px); } }
+@keyframes room-pane-arrive { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
+/* The same room offers three recognizable information materials. */
+.room-environment[data-room-setting=airports] .room-arrival-copy { --ink:#f6f3e8; --muted:#bdc8d7; --surface:#182536; --surface-2:#22334a; --line:#40516a; --field:#8090a6; --focus:#ffc629; background:#162131f2; border-color:#50617a80; border-top:3px solid var(--sign); }
+.room-environment[data-room-setting=universities] .room-arrival-copy { border-top:5px solid #a28765; border-start-start-radius:5px; border-start-end-radius:5px; }
+.room-environment[data-room-setting=hospitals] .room-arrival-copy { border-top:4px solid #72889e; }
+.room-environment[data-room-setting=airports] .category-emblem { color:var(--sign); background:#25354b; border-color:#50617a; }
+.room-environment[data-room-setting=airports] .room-directory-intro .room-eyebrow { color:var(--muted); }
 .room-main .room-arrival-copy :is(.room-home-intro,.room-directory-intro,.visit-heading,.support-arrival) { display:block; max-width:none; padding:0; margin:0; text-align:start; }
-.room-main .room-arrival-copy .room-eyebrow { display:flex; justify-content:flex-start; margin:0 0 26px; font-size:.73rem; font-weight:600; letter-spacing:.035em; }
+.room-main .room-arrival-copy .room-eyebrow { display:flex; justify-content:flex-start; margin:0 0 20px; font-size:.73rem; font-weight:600; letter-spacing:.035em; }
 .room-main .room-arrival-copy .room-eyebrow>span { width:32px; height:4px; border-radius:0; background:var(--sign); }
-.room-main .room-arrival-copy h1 { font-family:var(--f-display); font-size:clamp(2.1rem,3.5vw,3.45rem); font-weight:700; font-stretch:100%; line-height:1.08; letter-spacing:-.055em; margin:0 0 24px; text-wrap:balance; }
-.room-main .room-home-intro h1 { font-size:clamp(3.1rem,4.6vw,4.6rem); line-height:1.02; }
+.room-main .room-arrival-copy h1 { font-family:var(--f-display); font-size:clamp(2rem,3.1vw,3.1rem); font-weight:700; font-stretch:100%; line-height:1.08; letter-spacing:-.055em; margin:0 0 24px; text-wrap:balance; }
+.room-main .room-home-intro h1 { font-size:clamp(2.75rem,4.15vw,4.15rem); line-height:1.04; }
 .room-main .room-home-intro h1>span { font-weight:400; color:var(--ink); }
-.room-main .room-arrival-copy :is(.room-introduction,.directory-intro-copy>p,.visit-heading>p,.support-arrival>p) { max-width:48ch; margin:0; font-size:1rem; line-height:1.75; color:var(--muted); }
+.room-main .room-arrival-copy :is(.room-introduction,.directory-intro-copy>p,.visit-heading>p,.support-arrival>p) { max-width:48ch; margin:0; font-size:.96rem; line-height:1.75; color:var(--muted); }
 .room-main .directory-title-line { display:block; margin:0; }
 .room-main .directory-title-line h1 { margin-top:16px; }
 .room-main .category-emblem { width:52px; height:52px; border-radius:3px; margin-bottom:20px; }
 .room-main .category-emblem>svg { width:30px; height:30px; }
 .room-main .room-arrival-copy .place-search { max-width:none; margin:30px 0 0; }
 .room-main .room-arrival-copy .place-search>label { display:block; position:static; width:auto; height:auto; clip-path:none; overflow:visible; padding:0; margin:0 0 12px; font-size:.86rem; font-weight:600; }
-.room-main .place-search-field { min-height:68px; border:1px solid var(--field); border-radius:6px; background:var(--surface); box-shadow:0 4px 18px #07101b06; }
+.room-main .place-search-field { min-height:62px; border:1px solid var(--field); border-radius:9px; background:var(--surface); box-shadow:0 4px 18px #07101b06; }
 .room-main .place-search-field input { font-size:1rem; }
 .room-main .place-search-field button { width:48px; height:48px; border-radius:2px; }
 .room-main .place-search-results { text-align:start; z-index:10; max-height:440px; overflow-y:auto; overscroll-behavior:contain; border-radius:4px; }
 .arrival-coverage { display:flex; flex-wrap:wrap; gap:8px 24px; margin:16px 0 0; font-size:.76rem; color:var(--muted); }
 .arrival-coverage b { font-weight:600; color:var(--ink); font-variant-numeric:tabular-nums; }
-.arrival-actions { display:flex; flex-wrap:wrap; align-items:center; gap:12px 24px; margin-top:30px; padding-top:24px; border-top:1px solid var(--line); }
+.arrival-actions { display:flex; flex-wrap:wrap; align-items:center; gap:12px 24px; margin-top:24px; padding-top:20px; border-top:1px solid var(--line); }
 .room-main .arrival-actions .reception-trigger { background:transparent; border:0; padding:0; border-radius:0; font-weight:500; font-size:.8rem; justify-content:start; }
 .arrival-guide-link { display:inline-flex; align-items:center; min-height:44px; gap:12px; text-decoration:none; color:var(--ink); font-size:.8rem; font-weight:600; }
 .arrival-guide-link>svg { rotate:90deg; }
 .arrival-guide-link:hover { text-decoration:underline; text-underline-offset:5px; }
 /* Place and supporting pages start with shorter introductions so practical
    details remain close to the top. The room always remains visible. */
-.room-environment[data-room-presentation=directory] .room-architecture { aspect-ratio:2.4/1; }
-.room-environment[data-room-presentation=directory] .room-canvas { width:92%; }
+.room-environment[data-room-presentation=directory] .room-architecture { aspect-ratio:2/1; }
+.room-environment[data-room-presentation=directory] .room-canvas { width:100%; }
 .room-environment[data-room-presentation=directory] .room-stage { --reading-start:40%; --reading-end:45%; }
-.room-environment[data-room-presentation=directory] .room-arrival-copy { width:55%; margin-left:45%; padding-block:44px; }
-.room-environment:is([data-room-presentation=detail],[data-room-presentation=support]) .room-architecture { aspect-ratio:3.2/1; }
-.room-environment:is([data-room-presentation=detail],[data-room-presentation=support]) .room-canvas { width:70%; }
+.room-environment[data-room-presentation=directory] .room-arrival-copy { width:48%; margin-left:48%; padding-block:32px; }
+.room-environment:is([data-room-presentation=detail],[data-room-presentation=support]) .room-architecture { aspect-ratio:2.6/1; }
+.room-environment:is([data-room-presentation=detail],[data-room-presentation=support]) .room-canvas { width:82%; }
 .room-environment:is([data-room-presentation=detail],[data-room-presentation=support]) .room-stage { --reading-start:30%; --reading-end:37%; }
-.room-environment:is([data-room-presentation=detail],[data-room-presentation=support]) .room-arrival-copy { width:63%; margin-left:37%; padding-block:40px; }
+.room-environment:is([data-room-presentation=detail],[data-room-presentation=support]) .room-arrival-copy { width:57%; margin-left:39%; padding-block:32px; }
 .room-main .place-arrival .crumbs { margin-bottom:22px; font-size:.8rem; }
 .room-main .place-arrival .d-head { margin:0; gap:22px; }
 .room-main .place-arrival .d-code { width:64px; min-width:64px; border-radius:3px; font-size:1.5rem; }
@@ -88,17 +99,17 @@ html .room-layout>.room-main { position:relative; width:100%; max-width:none; mi
 .room-main .place-arrival .d-meta { gap:10px 14px; line-height:1.65; }
 .room-main .support-arrival>.eyebrow { display:block; margin-bottom:20px; font-size:.76rem; }
 .room-main .support-arrival>.btn { margin-top:22px; }
-.room-environment .room-location { position:absolute; left:27%; top:44%; width:auto; margin:0; padding:0; pointer-events:auto; transform:translateX(-50%); }
+.room-environment .room-location { position:absolute; left:20%; top:38%; width:auto; margin:0; padding:0; pointer-events:auto; transform:translateX(-50%); }
 .room-environment .room-light { position:static; display:flex; flex-direction:column; align-items:center; width:auto; gap:7px; padding:0; }
 .room-environment .room-light>small { display:block; min-width:0; max-width:9ch; padding:3px 6px; font-size:.65rem; line-height:1.4; text-align:center; color:#263044; background:#ece5d9; border:1px solid #b5a894; border-radius:3px; }
 .room-environment .light-switch { width:44px; height:62px; min-height:44px; padding:5px; background:#e5ddcf; border:1px solid #aa9b83; border-radius:4px; box-shadow:0 3px 8px #0002,inset 0 1px #fff8; }
 .room-environment .switch-rocker { background:linear-gradient(#f6efe3,#d1c5b1); color:#29303a; border:1px solid #a99b84; transition:transform 220ms var(--room-ease),box-shadow 220ms var(--room-ease); }
 .room-environment .light-switch[aria-pressed=false] .switch-rocker { background:linear-gradient(#bdb09a,#e2d8c6); color:#29303a; box-shadow:inset 0 2px 3px #42352230; }
 .room-environment .light-switch:hover { box-shadow:0 4px 10px #0003,inset 0 1px #fff8; }
-.room-environment .room-art-note { position:absolute; z-index:2; inset:auto auto 12px 20px; width:auto; max-width:20%; margin:0; font-size:.65rem; line-height:1.5; color:var(--muted); background:var(--surface); border-radius:3px; padding:5px 8px; opacity:1; }
+.room-environment .room-art-note { position:absolute; z-index:2; inset:12px auto auto 20px; width:auto; max-width:38ch; margin:0; font-size:.65rem; line-height:1.5; color:var(--muted); background:var(--surface); border-radius:3px; padding:5px 8px; opacity:1; }
 /* Real, credited architecture introduces each destination. Interface text and
    source credit stay outside the photograph; these are not room locations. */
-.room-environment .room-console { position:relative; z-index:0; inset:auto; width:100%; padding:44px var(--content-inset) 48px; margin:0; display:block; background:linear-gradient(90deg,var(--room-edge),transparent 6%,transparent 94%,var(--room-edge)),var(--surface); border-top:1px solid var(--line); }
+.room-environment .room-console { position:relative; z-index:0; inset:auto; width:auto; padding:28px var(--content-inset) 8px; margin:0; display:block; background:none; border:0; }
 .room-environment[data-room-presentation=home] .room-console { border-top:0; }
 .room-environment .room-wayfinding { position:static; inset:auto; width:auto; padding:0; margin:0; }
 .room-destinations-heading { display:flex; justify-content:space-between; align-items:end; gap:24px; margin:0 0 26px; }
@@ -109,10 +120,12 @@ html .room-layout>.room-main { position:relative; width:100%; max-width:none; mi
 .room-environment .door-notice { position:relative; display:flex; flex-direction:column; justify-content:flex-start; min-width:0; min-height:0; padding:0; border:1px solid var(--line); border-radius:3px; background:var(--surface); color:var(--ink); box-shadow:none; transform:none; overflow:hidden; text-decoration:none; transition:border-color 180ms var(--room-ease),box-shadow 180ms var(--room-ease); }
 .room-environment .door-notice::before { display:none; }
 .room-environment .door-notice:is(:hover,:focus-visible,[aria-current],[data-previewed]) { background:var(--surface); border-color:var(--field); box-shadow:0 8px 20px #07101b0c; transform:none; }
-.room-environment .door-notice[data-previewed] { outline:2px solid var(--focus); outline-offset:3px; }
+.room-environment .door-notice[data-previewed] { outline:2px solid var(--focus); outline-offset:-3px; }
+.room-environment .door-notice:focus-visible { outline:3px solid var(--focus); outline-offset:-4px; }
+.room-environment[data-room-presentation=home] .door-notice-airports:is(:focus-visible,[data-previewed]) { outline-color:var(--sign); }
 .guide-source-credit:not(:has(.source-provenance)) { display:none; }
 .guide-source-credit:has(.source-provenance) { margin-top:48px; }
-.notice-art { position:relative; display:block; width:100%; aspect-ratio:3/2; overflow:hidden; background:#e9dfc8; }
+.notice-art { position:relative; display:block; width:100%; aspect-ratio:16/10; overflow:hidden; background:#e9dfc8; }
 .notice-art img { display:block; width:100%; height:100%; object-fit:cover; transition:scale 600ms var(--room-ease); }
 .door-notice:hover .notice-art img { scale:1.025; }
 .notice-number { position:absolute; top:14px; inset-inline-start:14px; display:grid; place-items:center; width:34px; height:34px; color:var(--sign); background:#111b2a; border:1px solid #ffc62955; font-size:.72rem; font-weight:600; }
@@ -135,17 +148,22 @@ html .room-layout>.room-main { position:relative; width:100%; max-width:none; mi
 .room-cycle-icon { flex:none; }
 .room-cycle-icon .cycle-play,[data-room-cycle][data-paused=true] .cycle-pause { display:none; }
 [data-room-cycle][data-paused=true] .cycle-play { display:block; }
-.room-environment:not([data-room-presentation=home]) .room-atmosphere-controls { margin:0; padding:12px var(--content-inset); }
-.room-environment .door-notice-entry { display:flex; flex-direction:column; min-width:0; }
-.room-environment .door-notice-entry>.door-notice { flex:1; }
-.notice-photo-credit { display:flex; flex-direction:column; gap:5px; margin:12px 0 0; padding-inline:2px; color:var(--muted); font:400 .7rem/1.6 var(--f-body); }
+.room-environment:not([data-room-presentation=home]) .room-atmosphere-controls { margin:0; padding:12px 24px; }
+.room-environment .door-notice-entry { display:flex; flex-direction:column; min-width:0; overflow:hidden; border:1px solid var(--floating-line); border-radius:12px; background:var(--floating-surface); box-shadow:var(--floating-shadow); transition:translate 300ms var(--room-ease),box-shadow 300ms var(--room-ease); }
+@media(hover:hover) { .room-environment[data-room-presentation=home] .door-notice-entry:has(.door-notice:hover) { translate:0 -4px; box-shadow:0 22px 52px #07101b20; } }
+.room-environment .door-notice-entry>.door-notice { flex:1; border:0; border-radius:0; background:transparent; box-shadow:none; }
+.room-environment[data-room-presentation=home] .door-notice-airports .notice-information { --ink:#f6f3e8; --muted:#c0c9d5; --line:#40516a; color:var(--ink); background:#162131; }
+.room-environment[data-room-presentation=home] .door-notice-universities .notice-information { border-top-color:#a28765; background:var(--surface); }
+.room-environment[data-room-presentation=home] .door-notice-hospitals .notice-information { border-top-color:#72889e; background:var(--surface); }
+.notice-photo-credit { display:flex; flex-direction:column; gap:5px; margin:0; padding:14px 20px; border-top:1px solid var(--line); color:var(--muted); font:400 .7rem/1.6 var(--f-body); }
 .notice-photo-credit a { color:inherit; text-decoration:underline; text-decoration-color:var(--field); text-underline-offset:3px; }
 .notice-photo-credit a:is(:hover,:focus-visible) { color:var(--ink); text-decoration-color:currentColor; }
 .door-notice-hospitals .notice-art img { object-position:center 56%; }
 html[dir=rtl] .room-atmosphere-controls [data-room-cycle],html[dir=rtl] .notice-photo-credit { font-family:var(--f-arabic); font-size:.95rem; }
 
 /* On directories and detail pages the same notices become compact wayfinding. */
-.room-environment:not([data-room-presentation=home]) .room-console { padding:0; background:var(--surface); }
+.room-environment:not([data-room-presentation=home]) .room-console { margin:0 var(--content-inset) 24px; padding:0; border:1px solid var(--floating-line); border-radius:12px; background:var(--floating-surface); box-shadow:var(--floating-shadow); overflow:hidden; }
+.room-environment:not([data-room-presentation=home]) .door-notice-entry { border:0; border-radius:0; background:transparent; box-shadow:none; }
 .room-environment:not([data-room-presentation=home]) .room-destinations-heading { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); margin:0; }
 .room-environment:not([data-room-presentation=home]) .door-notices { gap:0; }
 .room-environment:not([data-room-presentation=home]) .door-notice { border:0; border-inline-end:1px solid var(--line); border-radius:0; }
@@ -203,7 +221,8 @@ html .immersive-site .site-footer { width:min(var(--layout-width),calc(100% - 2 
 .immersive-site .site-footer .footer-grid { grid-template-columns:repeat(4,minmax(0,1fr)); gap:32px; }
 .immersive-site .site-footer nav h2 { font-size:.8rem; letter-spacing:0; text-transform:none; }
 .immersive-site .site-footer nav a { min-height:36px; font-size:.85rem; }
-/* The world outside stays stationary while the physical door swings. */
+/* The world outside stays stationary while the physical door swings.
+   Keep its front just visible at 86 degrees instead of hiding the slab. */
 .room-environment .door-outside { background-image:none; }
 .door-scene { position:absolute; inset:0; background-size:cover; background-repeat:no-repeat; opacity:0; transition:opacity 1800ms ease-in-out; }
 .door-scene-airport { background-image:image-set(url('/art/room-threshold/airport-720.webp') 1x,url('/art/room-threshold/airport-1086.webp') 2x); background-position:center; }
@@ -227,7 +246,10 @@ html .immersive-site .site-footer { width:min(var(--layout-width),calc(100% - 2 
 .room-main .guide-tabs>:is(a,button) { flex:none; min-width:140px; padding-inline:12px; justify-content:center; }
 .room-main .guide-tabs>:is(a,button)[aria-selected=true] { color:var(--ink); }
 .room-main .guide-tabs>:is(a,button)::after { height:3px; }
-.room-main .results-toolbar { margin-block:32px 20px; }
+.room-main .results-toolbar { margin-block:24px 20px; }
+.directory-access-note { display:flex; align-items:flex-start; gap:10px; padding:14px 18px; margin:0 0 20px; border:1px solid var(--line); border-inline-start:3px solid var(--sign); border-radius:6px; background:var(--surface-2); color:var(--muted); font-size:.82rem; line-height:1.7; }
+.directory-access-note svg { flex:none; margin-top:2px; }
+html[dir=rtl] .directory-access-note { font-family:var(--f-arabic); font-size:1rem; }
 .room-main .directory-workspace .list { border-top:1px solid var(--line); }
 .room-main .directory-workspace .directory-result.lrow { padding-block:26px; border-radius:0; border-bottom:1px solid var(--line); }
 .room-main .directory-workspace .directory-result .nm>b { font-size:1.18rem; }
@@ -253,7 +275,7 @@ html[dir=rtl] .room-environment .door-notice:hover .notice-arrow { translate:-3p
 @media(max-width:1150px) {
  .room-environment .room-arrival-copy { padding:32px; }
  .room-main .room-arrival-copy h1 { font-size:2.6rem; }
- .room-main .room-home-intro h1 { font-size:3.3rem; }
+ .room-main .room-home-intro h1 { font-size:3.1rem; }
  .room-main .room-arrival-copy .directory-fields { grid-template-columns:1fr; }
  .room-environment .door-notice-title>b { font-size:1rem; }
  .notice-information { padding:20px; }
@@ -263,24 +285,24 @@ html[dir=rtl] .room-environment .door-notice:hover .notice-arrow { translate:-3p
  .room-main .guide-tabs { gap:16px; }
  .room-main .guide-tabs>:is(a,button) { min-width:0; }
 }
-@media(max-width:800px) {
- :root { --room-day:image-set(url('/art/room-threshold/day-1024.webp') 1x,url('/art/room-threshold/day-1774.webp') 2x); --room-night:image-set(url('/art/room-threshold/night-1024.webp') 1x,url('/art/room-threshold/night-1774.webp') 2x); }
+@media(max-width:1100px) {
+ :root { --room-day:image-set(url('/art/floating-room/day-1024.webp') 1x,url('/art/floating-room/day-1774.webp') 2x); --room-night:image-set(url('/art/floating-room/night-1024.webp') 1x,url('/art/floating-room/night-1774.webp') 2x); }
  html .room-layout { margin-top:0; }
  .room-stage { grid-template-columns:minmax(0,1fr); }
  .room-stage::after { display:none; }
- .room-environment .room-arrival-copy,.room-environment[data-room-presentation] .room-arrival-copy { grid-area:1/1; width:100%; padding:32px var(--content-inset); margin:0; }
- .room-environment[data-room-presentation] .room-architecture { grid-area:2/1; width:100%; max-width:none; height:clamp(360px,72vw,480px); margin:0; border:0; aspect-ratio:auto; --mobile-room-height:clamp(360px,72vw,480px); }
+ .room-environment .room-arrival-copy,.room-environment[data-room-presentation] .room-arrival-copy { grid-area:1/1; width:auto; padding:28px; margin:24px var(--content-inset); }
+ .room-environment[data-room-presentation] .room-architecture { grid-area:2/1; width:100%; max-width:none; height:clamp(360px,50vw,550px); margin:0; border:0; aspect-ratio:auto; --mobile-room-height:clamp(360px,50vw,550px); }
  /* Preserve the left edge on phones: the door and mat stay in the same room. */
  .room-environment[data-room-presentation] .room-canvas { left:0; width:calc(var(--mobile-room-height) * 2); height:var(--mobile-room-height); }
- .room-environment .room-architecture::before { content:''; position:absolute; z-index:1; inset:0 0 auto; height:7%; pointer-events:none; background:linear-gradient(var(--surface),transparent); }
- .room-environment .room-console { padding:32px var(--content-inset); }
+ .room-environment .room-architecture::before { content:''; position:absolute; z-index:1; inset:0 0 auto; height:7%; pointer-events:none; background:linear-gradient(var(--bg),transparent); }
+ .room-environment .room-console { padding:24px var(--content-inset) 8px; }
  .room-main .room-arrival-copy h1 { font-size:2.6rem; }
- .room-main .room-home-intro h1 { font-size:3.3rem; }
+ .room-main .room-home-intro h1 { font-size:3.1rem; }
  .room-main .room-arrival-copy .directory-fields { grid-template-columns:minmax(0,1.3fr) minmax(150px,1fr); }
  .room-environment .door-room-sign { min-height:20px; top:-10%; padding:3px; }
  .room-environment .door-room-sign b { font-size:.63rem; }
  .room-environment .door-room-sign svg { display:none; }
- .room-environment .door-action-caption { min-height:38px; font-size:.7rem; padding:7px; top:auto; bottom:12px; }
+ .room-environment .door-action-caption { min-height:44px; font-size:.68rem; padding:6px 3px; top:auto; bottom:-52px; gap:4px; }
  .room-environment .door-action-caption>svg { width:14px; height:14px; }
  .room-environment .light-switch { width:44px; height:58px; }
  .room-environment .room-light>small { font-size:.65rem; }
@@ -297,7 +319,7 @@ html[dir=rtl] .room-environment .door-notice:hover .notice-arrow { translate:-3p
  .notice-description { font-size:.78rem; }
  .notice-kicker { font-size:.63rem; }
  .room-environment .door-notice-count,.room-environment .door-notice-return { font-size:.7rem; }
- .room-main>.guide-content { padding:32px var(--content-inset) 40px; }
+ .room-main>.guide-content { margin:24px var(--content-inset) 40px; padding:28px; border-radius:12px; }
  .discovery-heading,.home-departures { grid-template-columns:1fr; gap:24px; }
  .home-departures .directory-photo { max-width:620px; }
  .room-main .room-three-steps { grid-template-columns:1fr; }
@@ -311,7 +333,10 @@ html[dir=rtl] .room-environment .door-notice:hover .notice-arrow { translate:-3p
 @media(max-width:600px) {
  :root { --layout-gutter:12px; --content-inset:22px; }
  .room-main .room-arrival-copy h1 { font-size:2.25rem; }
- .room-main .room-home-intro h1 { font-size:2.9rem; }
+ .room-main .room-home-intro h1 { font-size:2.75rem; }
+ .room-environment[data-room-presentation] .room-arrival-copy { margin:18px 12px; padding:24px; border-radius:14px; }
+ .room-main>.guide-content { margin:20px 12px 32px; padding:22px 18px; }
+ .room-environment:not([data-room-presentation=home]) .room-console { margin-inline:12px; }
  .room-main .room-arrival-copy .directory-fields { grid-template-columns:1fr; }
  .room-main .room-arrival-copy :is(.room-introduction,.directory-intro-copy>p,.visit-heading>p,.support-arrival>p) { font-size:.95rem; }
  /* A closer crop of the same canvas keeps the doorway usable on phones.
@@ -340,7 +365,7 @@ html[dir=rtl] .room-environment .door-notice:hover .notice-arrow { translate:-3p
  .immersive-site .site-footer .footer-grid { gap:24px 18px; }
  html[dir=rtl] .room-environment:not([data-room-presentation=home]) .door-notice-title>b { font-size:1rem; }
 }
-@media(prefers-reduced-motion:reduce) { .door-scene,.room-environment .door-notice,.room-environment .notice-arrow,.notice-art img,.room-environment .switch-rocker,:root .room-main .room-environment .room-wall::after { transition:none; } .door-notice:hover .notice-art img { scale:none; } }
+@media(prefers-reduced-motion:reduce) { .room-environment .room-arrival-copy { animation:none; } .room-environment .door-notice-entry { transition:none; translate:none!important; } .door-scene,.room-environment .door-notice,.room-environment .notice-arrow,.notice-art img,.room-environment .switch-rocker,:root .room-main .room-environment .room-wall::after { transition:none; } .door-notice:hover .notice-art img { scale:none; } }
 @media print {
  :root,:root[data-theme],:root:not([data-theme=light]) { --bg:#fff; --surface:#fff; --surface-2:#f4f4f4; --ink:#142033; --muted:#465263; --line:#bac0c8; --field:#788292; --room-wall-wash:#fff; --room-edge:transparent; }
  html .room-layout { width:100%; margin:0; }
@@ -350,7 +375,7 @@ html[dir=rtl] .room-environment .door-notice:hover .notice-arrow { translate:-3p
  .room-stage::after { display:none; }
  .room-main .room-environment :is(.room-architecture,.room-console,.arrival-actions,.arrival-coverage) { display:none!important; }
  .room-main .room-environment .room-arrival-copy { display:block; width:100%; margin:0 0 24px; padding:0; border:0; background:none; box-shadow:none; backdrop-filter:none; }
- .room-main>.guide-content { padding:0; border:0; }
+ .room-main>.guide-content { margin:0; padding:0; border:0; border-radius:0; box-shadow:none; }
  .room-main .room-arrival-copy :is(.place-search,.controls) { display:none; }
  .home-departures { grid-template-columns:1fr; }
 }

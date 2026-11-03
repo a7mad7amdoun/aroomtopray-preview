@@ -1,5 +1,6 @@
 import { browseQuery, returnToDirectory } from '../lib/directory-context.js';
 import { initRoomCycle } from '../lib/room-cycle.js';
+import { initDoorArrival } from '../lib/door-arrival.js';
 
 // The moving leaf is decorative. Wayfinding and controls stay on the wall.
 export function initRoomDoor(room, browser = window) {
@@ -69,6 +70,7 @@ export function initRoomDoor(room, browser = window) {
     room.ownerDocument?.addEventListener('atlas:selection', syncContext);
   });
   cycle=initRoomCycle(room,browser,notices,preview);
+  initDoorArrival(room,browser,setOpen);
   // Restored pages keep their door state; navigation is always immediate.
   browser.addEventListener('pageshow', () => setOpen(room.dataset.doorState === 'open'));
   room.dataset.doorReady = 'true';

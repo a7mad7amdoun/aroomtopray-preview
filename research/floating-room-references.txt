@@ -1,0 +1,81 @@
+FLOATING ROOM — SOURCE AND DESIGN REFERENCE RECORD
+Research date: 3 November 2026
+Scope: presentation research only. No place records, verification dates, source links or access facts were changed by this research.
+
+PINTEREST FIRST
+The first searches targeted Pinterest for airport departures boards, university notices and hospital reception wayfinding. The returned results were mostly generic Pinterest guide pages, not strong original project documentation. Previously attempted direct Pinterest boards returned 403; no alternate access method was used. Pinterest is an inspiration index, not evidence of a reuse licence. No Pinterest image was downloaded or copied.
+Queries: site:pinterest.com airport departure board minimal interior wood light; site:pinterest.com university wayfinding signage timetable notice board; site:pinterest.com hospital reception wayfinding signage interior.
+Indexed examples: https://ca.pinterest.com/pin/292171094580460711/ and https://in.pinterest.com/pin/723250021434167791/ (limited search snippets only; not used as a basis for a factual visual claim).
+
+HAMZA'S ACTUAL PRODUCT — PRESERVE THE INFORMATION LOGIC
+https://aroomtopray.com/
+Read the live homepage. Its strongest feature is an immediately useful search, followed by a compact airport-style board and the same six practical answers: location, security side, hours, washing facilities, women's space and qibla. Sources and check dates sit with the information. An unlisted room leads to a polite message the visitor can send themselves. The live homepage reports 366 checked airports; do not relabel the preview's 414 total airport records as 414 verified airports.
+
+https://aroomtopray.com/universities/
+Read the live university directory. It retains country and facility filters, including visitors and Jumu'ah. Its introductory warning that most rooms are for students and staff belongs close to results, not behind ornamental content. The directory has 77 university records.
+
+https://aroomtopray.com/hospitals/
+Read the live hospital directory. It distinguishes 32 checked hospitals from 13 still being checked, displays chaplain information, and states that this is a prayer-place directory rather than medical care. Preserve unknown fields. Do not invent clinical queue times or emergency statuses for a decorative board.
+
+https://aroomtopray.com/airports/iah/
+Read the example detail page. It provides a clear place identity, listing status, facilities, source-check date and specific terminal/gate location. Keep this information as actual text, not part of a generated picture.
+
+AIRPORT — THREE PRIMARY REFERENCES
+1. Mijksenaar, Amsterdam Schiphol Airport
+https://www.mijksenaar.com/project/amsterdam-schiphol-airport/
+The designer describes a single recognizable wayfinding system, yellow signage, custom pictograms and information timed to the traveller's journey. Application (our inference): retain Hamza's yellow/navy identity, use one strong sign heading and aligned useful columns, and keep icons paired with words. Do not copy Schiphol branding or decorative arrows that imply a physical route we do not know.
+
+2. Pentagram, Toronto Pearson Airport
+https://www.pentagram.com/work/toronto-pearson-airport/story
+The original design project combines identification, directions and flight information in substantial sign structures. English and French share an intentional hierarchy, and visibility was tested with visually impaired people. Application (our inference): treat the information as a coherent object in the room; support all four languages in real HTML and give Arabic equal breathing room. Architecture and signage should complement one another.
+
+3. Van Beem & Van Haagen, Schiphol sign fabrication
+https://vbenvh.nl/en/project/wayfinding/amsterdam-airport-schiphol-2/
+The fabricator describes thin suspended signs and evenly illuminated faces without patchy shadows. Application (our inference): a restrained light edge, slim structural border and soft contact shadow make a board feel physically present. Avoid luminous haze over letters or continuous split-flap animation.
+
+UNIVERSITY — FOUR PRIMARY REFERENCES
+1. University of Melbourne, Signage Guidelines, February 2019
+https://about.unimelb.edu.au/__data/assets/pdf_file/0028/75619/UoM-Signage-Guidelines-02.19-v13.pdf
+The university's own guide defines one typography/pictogram toolbox across directories, door plates, door bands, hanging signs and a modular slat system. Application (our inference): an ivory notice board or paper rail can distinguish the campus presentation while retaining the shared font, icon strokes and grid. Do not imitate the institution's crest or claim affiliation.
+
+2. RMIT, Signage Design Standards, May 2024
+https://www.rmit.edu.au/content/dam/rmit/au/en/about/locations-and-facilities/safety-and-security/signage-design-standards.pdf
+The official standards organize signs around decision points: arrival, circulation, building identification, entry conditions and accessible entry. Application (our inference): show campus/building, who can enter and opening information before secondary facilities. A beautiful campus illustration cannot replace those facts.
+
+3. Diadem, RMIT case study
+https://diadem.co/projects/rmit/
+The original consultant describes consistent yellow directional signage, building numbers and a reviewed accessibility system across campuses. Application (our inference): make the institution name and actual location field easy to distinguish; treat existing building numbers as useful data rather than decorative typography.
+
+4. Studio Semaphore, RMIT Our Place
+https://studiosemaphore.com.au/our-work/rmit-our-place/
+The original project uses consistent signage language across varied interiors. Application (our inference): special materials and context are enough to give the campus page character; it does not need a separate type family or competing colour identity.
+
+HOSPITAL — THREE PRIMARY REFERENCES
+1. DNCO, Pontoon Dock
+https://dnco.com/work/pontoon-dock
+The designer describes a restrained typographic system, clear floor marking, icons and reconfigurable signs for clinical spaces. Application (our inference): a calm reception directory with quiet dividers and clear section labels suits the hospital guide. Use a reception/information treatment, not a mock emergency triage board.
+
+2. Queensland Health, Wayfinding design principles, Version 2, June 2026
+https://www.health.qld.gov.au/__data/assets/pdf_file/0024/1501593/Wayfinding-design-principles.pdf
+The official guide promotes plain language, consistent colour, visible signs and avoiding visual themes that distract from directions. It considers both text-to-panel and panel-to-environment contrast. Application (our inference): floating surfaces still need an opaque reading area; label every colour-coded state, keep public/access restrictions explicit, and use atmosphere around the content rather than through the letters. The document states CC BY 4.0; no artwork was extracted here.
+
+3. Interior Health, Wayfinding Signage Guideline, June 2024
+https://www.interiorhealth.ca/sites/default/files/PDFS/ih-wayfinding-signage-guideline.pdf
+The provider distinguishes identification signs from directional signs and standardizes symbols, colour and text hierarchy. Application (our inference): the hospital page's sign should first identify the guide and place, then offer clear next actions. Avoid making every icon look like a navigational command.
+
+SYNTHESIS FOR THE IMPLEMENTATION — ORIGINAL DESIGN RECOMMENDATIONS
+The fresh idea is an inhabited room with information objects held just away from its wall, not an artwork followed by an unrelated dashboard. Keep a clear foreground reading plane, with a large realistic doorway at the far left and a broad calm wall behind information. The prayer mat faces only a clear wall or mihrab; no door, furniture or screen in front of it.
+
+One identity; three material presentations:
+- Airports: a charcoal lightbox with yellow heading and compact, stable departures-style rows.
+- Universities: warm ivory notices and a quiet modular paper/slat rhythm; actual building/access information is prominent.
+- Hospitals: a calm reception directory with strong location labels, restrained separators and explicit visitor/chaplain information.
+Keep shared type family, content width, text scale, icon family, corner treatment and interaction rules. Functional text stays in the interface so it remains searchable, readable and translatable. No borrowed institutional logos or implied endorsements.
+
+Depth comes from soft occlusion, thin edge highlights and carefully separated surfaces. Use near-opaque panels in both modes. Keep backgrounds calm at the text boundaries. Float means spatial layering; it should not mean all cards bob continuously. Motion recommendations: restrained entry transitions, a physically hinged door with clear pivot and thickness, no text moving while being read, no scroll-jacking, and reduced-motion support. The homepage cycle should retain pause and respect focus/visibility. Light and dark share geometry; warm daylight and controlled evening lighting change the room, not the information order.
+
+RIGHTS AND PROVENANCE
+All project links above are primary references for principles and original conceptual interpretation. Their photographs and design assets are not assumed reusable. No reference images were copied or fed into generation by this research task. Existing licensed photographs and their credits should remain intact. Any new generated room must be labelled as conceptual artwork, never proof of the appearance or availability of a specific real prayer room. No new location, opening-hour, access or affiliation claims are justified by these visual references.
+
+REVIEW LIMITATION
+Research pages and source text were read with the web tool. No alternate browser, app renderer or screenshot pipeline was used to bypass the existing rendered-preview access restriction. These research findings do not constitute visual QA of the local/public preview.

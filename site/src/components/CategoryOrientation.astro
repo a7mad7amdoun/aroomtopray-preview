@@ -1,0 +1,44 @@
+---
+import { getCopy, formatCount, localeMeta } from '../lib/i18n.js';
+import { GUIDE_COPY } from '../data/guide-copy.js';
+import '../styles/category-orientation.css';
+
+const { kind = 'airports', locale = 'en' } = Astro.props;
+const language = localeMeta(locale).code;
+const t = getCopy(language);
+const category = ['airports', 'universities', 'hospitals'].includes(kind) ? kind : 'airports';
+const c = t.directories[category];
+const g = GUIDE_COPY[language];
+const emblem = { airports: 'airport', universities: 'campus', hospitals: 'care' }[category];
+const symbols = {
+  airports: ['search', 'security', 'door-open'],
+  universities: ['campus', 'key', 'clock'],
+  hospitals: ['pin', 'door-open', 'help'],
+}[category];
+const headingId = `orientation-${category}`;
+---
+
+<section class={`category-orientation category-orientation--${category}`} aria-labelledby={headingId}>
+  <header class="orientation-heading">
+    <div class="orientation-running-line">
+      <span class="orientation-category"><svg width="22" height="22" aria-hidden="true"><use href={`#i-${emblem}`}/></svg>{t.nav[category]}</span>
+      <span class="orientation-kicker">{g.notes}</span>
+    </div>
+    <h2 id={headingId}>{c.wayfindingTitle}</h2>
+  </header>
+
+  <ol class="orientation-steps" role="list">
+    {c.steps.map((step, index) => (
+      <li>
+        <span class="orientation-index" aria-hidden="true">{formatCount(index + 1, language)}</span>
+        <h3><svg width="22" height="22" aria-hidden="true"><use href={`#i-${symbols[index]}`}/></svg><span>{step.title}</span></h3>
+        <p>{step.text}</p>
+      </li>
+    ))}
+  </ol>
+
+  <div class="orientation-access-note">
+    <svg width="21" height="21" aria-hidden="true"><use href="#i-info"/></svg>
+    <p>{c.note}</p>
+  </div>
+</section>

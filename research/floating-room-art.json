@@ -1,0 +1,41 @@
+{
+  "mode": "Built-in image_gen",
+  "intent": "New architectural room plus matched evening lighting edit",
+  "brief": "research/floating-room-master-prompt.txt",
+  "referenceResearch": "research/floating-room-references.txt",
+  "scenery": "Conceptual room, not a verified facility",
+  "geometry": {
+    "size": [
+      1774,
+      887
+    ],
+    "innerDoor": [
+      44,
+      177,
+      272,
+      676
+    ],
+    "doorOpenAngle": -86,
+    "prayerDirection": "Mat head faces the solid empty wall, no furniture or door in front."
+  },
+  "images": [
+    {
+      "name": "day",
+      "prompt": "Use case: photorealistic-natural\nAsset type: new ultra-wide 2:1 architectural background for a prayer-room website, 1774x887 composition.\nCreate an entirely new, exceptionally believable small contemporary prayer room photographed from standing height with a full-frame architectural lens, camera level facing the main wall. Calm first-class hospitality in durable ordinary materials, not a hotel lobby or fantasy palace.\nArchitecture: warm ivory mineral plaster walls with subtle authentic texture; pale large-format limestone floor; visible ceiling junction and a slim soft indirect light cove. Show a narrow return of the right-hand wall and gently rounded inside corner at the extreme right to give real depth. Very restrained natural light from an unseen high side window creates broad soft shadows, not stripes or decorative patterns. No furnishings.\nThe door opening is EXTREMELY FAR LEFT, a fully rectangular front-facing aperture with straight parallel verticals, believable human door proportion about 1:2.1. Exact intended composition: inner opening approximately x=35 to330, y=125 to735 in a 1774x887 canvas. A deep natural oak jamb surrounds it with 3cm thickness, a realistic reveal and subtle shadow. No door leaf in the artwork: the web interface will add a real moving door. Nothing inside the opening other than a neutral softly lit corridor receding into shadow, with no second frame. Do not put any door or architectural opening in the center.\nOne beautifully woven deep navy prayer mat with a restrained thin ochre arch border lies flat on the floor at center-left, centered around x=620. The mat's HEAD/POINTED ARCH is at its far edge nearest the solid empty wall, its feet edge nearest the viewer. Long axis perpendicular to the wall. Head edge around y=750 and foot edge around y=875, mat floor perspective accurate. The worshipper would face ONLY the EMPTY SOLID WALL: never the doorway, never furniture, never another object. Leave the whole wall directly in front of the mat blank. No bench or folded rugs.\nReserve the entire right 50% for interface readability: continuous gently illuminated empty plaster wall, no art, no lights, no text, no plaques. The mat must remain fully in the left 45%. The floor stays real and spacious with restrained joints.\nMood: a quiet pause beside a busy public space. Natural photographic realism with careful material grain, slight imperfections, tactile oak, subtle ambient occlusion. Premium through composition, restraint and truthful light. Warm ivory, natural pale oak and deep navy. No people, no lettering, no logos, no plants, no decorative props, no minaret, no religious writing, no exaggerated golden lighting, no giant arch portal, no symmetry gimmicks, no vignette or fake depth blur. Render no interface text or graphics.",
+      "generated": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-dc979a07-82d9-4472-b7f7-507c273ef674.png",
+      "saved": [
+        "site/public/art/floating-room/day-1024.webp",
+        "site/public/art/floating-room/day-1774.webp"
+      ]
+    },
+    {
+      "name": "night",
+      "prompt": "Use case: lighting-weather. Make the matching evening version of this exact architectural prayer-room image. Preserve exact 1774x887 framing, EVERY boundary of the far-left doorway and oak jamb, floor joints, mat shape, mat position and the complete composition. Only change lighting and wall/floor material color appearance. Deep blue-charcoal mineral plaster walls, softly visible authentic texture, a very restrained warm indirect ceiling light, natural warm oak doorframe, softly lit neutral limestone floor. The room should be calm and welcoming, not dark black, orange, theatrical or foggy. The navy mat remains visible with its thin woven ochre arch at its HEAD facing ONLY THE SOLID EMPTY WALL above it. No object, door, bench or furniture may appear in that prayer direction. No furnishings or new details. The exact door aperture must remain unchanged for a working interface door: image target inner rectangle x44–272 y177–676. Do not put a door leaf into it. No text or interface graphics. Photographic realism with gentle shading and good visibility throughout.",
+      "generated": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-e2b70aab-e364-4b54-a38b-39b377cc047b.png",
+      "saved": [
+        "site/public/art/floating-room/night-1024.webp",
+        "site/public/art/floating-room/night-1774.webp"
+      ]
+    }
+  ]
+}

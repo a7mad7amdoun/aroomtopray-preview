@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-03",
+  "scope": "Floating room presentation and wayfinding refinement; authorized GitHub Pages preview only",
+  "unitTests": {
+    "passed": 151,
+    "failed": 0
+  },
+  "build": {
+    "pages": 2177,
+    "base": "/aroomtopray-preview",
+    "previewSubmissions": "disabled"
+  },
+  "offlineIntegration": {
+    "structure": 24,
+    "directory": 12,
+    "professionalTools": 12,
+    "receptionCard": 12,
+    "floatingRoom": 24,
+    "locales": [
+      "en",
+      "fr",
+      "ar",
+      "es"
+    ]
+  },
+  "artwork": {
+    "generatedPixelsInspected": true,
+    "matchedDayAndNight": true,
+    "matFaces": "solid empty wall",
+    "credits": "site/public/art/floating-room/CREDITS.json"
+  },
+  "staticChecks": {
+    "brokenLocalLinks": 0,
+    "mountedCssAssetReferences": 80,
+    "allPagesNoindex": true
+  },
+  "preserved": "All existing place data, country coverage, official and Hamza source links, licensed destination photographs, translations, map, search, filters, tabs, saved places, travel tools and reception phrases.",
+  "limitations": [
+    "Browser rendering was unavailable because of an explicit URL policy block. No browser, alternate renderer or screenshot workaround was used.",
+    "Responsive layout, theme styling and Arabic layout were reviewed in source and offline DOM; rendered pixel-level behavior remains unverified.",
+    "Pinterest search informed reference research only; no Pinterest imagery was copied."
+  ],
+  "excluded": "Unrelated pending map changes in the primary checkout were not included in this release."
+}

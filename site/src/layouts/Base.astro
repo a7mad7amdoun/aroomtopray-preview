@@ -16,14 +16,11 @@ import '../styles/information-design.css';
 import '../styles/modern-room.css';
 import '../styles/room-spatial.css';
 import '../styles/premium-navigation.css';
-import AppearanceControls from '../components/AppearanceControls.astro';
+import HeaderNavigation from '../components/HeaderNavigation.astro';
 import RoomEnvironment from '../components/RoomEnvironment.astro';
 import SourceProvenance from '../components/SourceProvenance.astro';
-import { ROOM_COPY } from '../data/room-copy.js';
-import { VIEW_COPY } from '../data/view-copy.js';
-import { WAYFINDING_COPY } from '../data/wayfinding-copy.js';
 import { LOCALES, getCopy, localeFromPath, localeMeta, localizedPath } from '../lib/i18n.js';
-import { hasLocalizedRoute, languageTarget, navigationPath } from '../lib/localized-routes.js';
+import { hasLocalizedRoute, navigationPath } from '../lib/localized-routes.js';
 import Icons from '../components/Icons.astro';
 import Mark from '../components/Mark.astro';
 import { SITE } from '../lib/airports.js';
@@ -33,12 +30,8 @@ const { title, description, nav = '', noindex = false, og = null, jsonld, destin
 const reviewPreview = import.meta.env.PUBLIC_REVIEW_PREVIEW === 'true';
 const locale = localeFromPath(Astro.url.pathname);
 const t = getCopy(locale);
-const w = WAYFINDING_COPY[locale];
-const r = ROOM_COPY[locale];
-const view = VIEW_COPY[locale];
 const visitHash = ['airports','universities','hospitals'].includes(nav) ? `#panel-${nav}` : '';
 const roomKind = ['airports','universities','hospitals'].includes(nav) ? nav : 'home';
-const languageLinks = LOCALES.map(l => ({ code: l.code, label: l.nativeName, href: languageTarget(Astro.url.pathname, l.code) }));
 const local = path => navigationPath(path, locale);
 const canonical = new URL(Astro.url.pathname, SITE).href;
 const ogImage = new URL(og || '/og/default.jpg', SITE).href;
@@ -77,28 +70,7 @@ const searchTarget = isHome ? '#place-search-input' : isDirectory ? '#q-dir' : `
   {reviewPreview && <aside class="review-preview-notice" style="padding:7px 16px;text-align:center;font-size:12px;background:#111b2a;color:#f7f6f0;position:relative;z-index:5" aria-label="Review preview">{{en:'Design preview for Hamza · Forms, check-ins and uploads are disabled.',fr:'Aperçu pour Hamza · Formulaires, signalements de présence et envois désactivés.',ar:'معاينة التصميم لحمزة · النماذج وتسجيل الزيارات ورفع الصور معطّلة.',es:'Vista previa para Hamza · Formularios, registros de visitas y cargas desactivados.'}[locale]}</aside>}
   <a class="skip" href="#main">{t.nav.skip}</a>
   <Icons />
-  <header class="top room-header">
-    <div class="wrap">
-      <a class="brand" href={localizedPath('/',locale)} aria-label={`A Room to Pray · ${t.nav.home}`}><Mark size={52}/><span>A Room to Pray<small>{w.directory}</small></span></a>
-      <nav class="primary-navigation" aria-label={t.footer.directories}>
-        {(['airports','universities','hospitals'] as const).map(kind=><a href={local(`/${kind}/`)} aria-current={nav===kind?'page':undefined}><svg width="19" height="19" aria-hidden="true"><use href={`#i-${{airports:'airport',universities:'campus',hospitals:'care'}[kind]}`}/></svg>{t.nav[kind]}</a>)}
-      </nav>
-      <a class="header-search" href={searchTarget}><svg width="19" height="19" aria-hidden="true"><use href="#i-search"/></svg><span>{r.search}</span></a>
-      <details class="site-menu" data-site-menu>
-        <summary><span>{r.menu}</span><span class="menu-glyph" aria-hidden="true"><i></i><i></i></span></summary>
-        <div class="site-menu-panel">
-          <nav class="menu-destinations" aria-label={t.footer.directories}>{(['airports','universities','hospitals'] as const).map(kind=><a href={local(`/${kind}/`)} aria-current={nav===kind?'page':undefined}><svg width="20" height="20" aria-hidden="true"><use href={`#i-${{airports:'airport',universities:'campus',hospitals:'care'}[kind]}`}/></svg>{t.nav[kind]} <svg class="menu-destination-arrow directional-icon" width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a>)}</nav>
-          <p class="menu-section-label">{view.tools}</p>
-          <nav class="menu-tools" aria-label={t.footer.prepare}>
-            <a href={local('/visit/')+visitHash}><svg width="18" height="18" aria-hidden="true"><use href="#i-book"/></svg>{r.details}</a>
-            <a class="saved-nav" href="/saved/"><svg width="18" height="18" aria-hidden="true"><use href="#i-save"/></svg>{t.nav.saved}{locale!=='en'&&<small class="source-language">EN</small>}<span class="saved-count" data-saved-count hidden></span></a>
-            {(['planner','travel','rooms-won','about','contact'] as const).map((path,i)=><a href={`/${path}/`}><svg width="18" height="18" aria-hidden="true"><use href={`#i-${['list','globe','check','info','help'][i]}`}/></svg>{[t.nav.planner,t.nav.travel,t.nav.roomsWon,t.nav.about,t.nav.contact][i]}{locale!=='en'&&<small class="source-language">EN</small>}</a>)}
-          </nav>
-          <div class="menu-preferences"><p class="menu-section-label">{view.settings}</p><AppearanceControls {locale} {languageLinks}/></div>
-        </div>
-      </details>
-    </div>
-  </header>
+  <HeaderNavigation {locale} {nav} {searchTarget} {visitHash}/>
   <div class="room-layout">
   <script>import '../scripts/navigation.js';</script>
   <main id="main" class="room-main" tabindex="-1">

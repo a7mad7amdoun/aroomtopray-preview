@@ -618,7 +618,7 @@ html[dir=rtl] .room-main :is(.eyebrow,.guide-kicker,.count) { font-family:var(--
 .guide-contribution small { font-weight:400; color:var(--muted); }
 html[lang=ar] .prayer-board-fact { font-size:1rem; }
 html[lang=ar] .prayer-board-columns,html[lang=ar] .prayer-board-note,html[lang=ar] .prayer-board-footer { font-size:.92rem; }
-@container prayer-guide (max-width:480px) {
+@container prayer-board (max-width:480px) {
  .prayer-board-columns { display:none; }
  .prayer-board-rows a { grid-template-columns:1fr 1fr; gap:13px 14px; padding:17px 8px; }
  .prayer-board-place { grid-row:1; grid-column:1; }

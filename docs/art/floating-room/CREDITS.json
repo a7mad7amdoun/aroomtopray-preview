@@ -1,0 +1,12 @@
+{
+  "description": "AI-generated conceptual room architecture, with a matching evening lighting edit. Not a photograph of a listed facility or geographic qibla guidance.",
+  "generator": "Built-in image_gen tool",
+  "prayerDirection": "Single mat faces a solid empty wall, clear of furniture and doorway, in both versions.",
+  "files": [
+    "day-1024.webp",
+    "day-1774.webp",
+    "night-1024.webp",
+    "night-1774.webp"
+  ],
+  "outsideViews": "Existing separately credited generated views at /art/room-threshold/CREDITS.json. Real photographs retain their independent source credits."
+}

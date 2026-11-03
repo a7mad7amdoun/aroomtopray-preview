@@ -1,0 +1,68 @@
+A ROOM TO PRAY — A QUIET ROOM, A CLEAR WAY FORWARD
+Professional design and implementation brief / applied to the existing preview
+
+1. THE EXPERIENCE TO CREATE
+Build the feeling of arriving at a quiet room beside a crowded public place. A visitor may be tired, stressed, on a short connection, studying between classes, or accompanying someone in hospital. The website must lower the effort of finding a suitable place to pray. It should feel considered and welcoming before it feels decorative. Keep Hamza’s information and public-service purpose at the center, but make Ahmed’s room-and-door idea the recognizable experience.
+
+Make a visibly fresh composition. Do not repeat the flat wall with text simply painted over its right half. Introduce a clear foreground, middle distance and background: tactile architectural scenery behind, an actual moving timber door at the far left, and legible information panes that feel lightly suspended in front of the room. The room has depth; the panels have calm edge light and contact shadows; useful information remains completely steady while it is read.
+
+The deliverable is the working website, not a moodboard or a mockup. Apply this brief directly to the existing static Astro implementation, preserving records, translations, visitor tools and routes. Keep this preview separate from Hamza’s production site. Use the strongest available image-generation workflow already provided by the environment, without pretending to switch the chat’s model or promising unsupported quality settings.
+
+2. WHAT MUST REMAIN TRUE
+Retain all 536 local place records, every source link, original attribution, actual room photographs and access caveat. The collection includes 414 airport records; that is not a claim that all 414 are verified. The live source currently distinguishes checked entries from those still checking. Do not invent a facility, terminal, opening hour, permission, room photograph, affiliation or verification date. Unknown facts remain unknown.
+
+Keep the English, French, Arabic and Spanish versions; country names and flags; saved places; trip planner; reception phrases; room-request tools; search; filters; list/card views; airport map; source pages; and practical tabs. No duplicate search form. Native destination anchors remain native. Filter and map context must survive return links where it already does. Keep forms, check-ins and uploads disabled in the review preview.
+
+The prayer mat faces ONLY a solid clear wall or mihrab. Its woven pointed head is at the wall side, its foot edge nearest the viewer. There is no bench, doorway, decorative object, shelving or furniture directly in front of it. Preserve that orientation in every lighting version. The conceptual room does not communicate a geographic qibla direction for any actual building.
+
+3. ONE BRAND, THREE PHYSICAL PRESENTATIONS
+Use one family of type, one spacing rhythm and one restrained palette. Archivo is the Latin identity; Noto Naskh Arabic receives equal hierarchy and appropriate Arabic line heights. Keep headings purposeful, not overscaled. Do not give universities a different serif identity or hospitals an unrelated sans. Use tabular numerals for codes and counts, ordinary text for practical instructions, and meaningful symbols beside labels.
+
+Core palette: deep navy/charcoal, warm ivory/mineral stone, Hamza’s yellow wayfinding accent, and natural timber visible in the room. Yellow indicates a route, action or active state. It is not wallpaper. Day mode is warm and readable. Evening mode has slate walls and controlled warm light, with the room, mat and exterior views still visible. Text remains high contrast on stable surfaces in either theme. Avoid neon, purple gradients, heavy gold, glossy black luxury clichés, excessive blur and translucent paragraphs over busy photographs.
+
+Airport information borrows the discipline of departures signage: a dark illuminated frame, a strong yellow lead, aligned rows, legible codes and clear statuses. No fake flights or live availability. Campus information borrows an orderly notice rail and subject timetable: a narrow timber cap, warm paper, ruled sections and logical numbered entries. Do not rotate the notices or add torn paper effects. Hospital information borrows a calm public reception directory: a high-contrast nameplate, grouped visitor instructions, precise access notes and familiar care symbols. Never invent an emergency queue, wait time, clinical status or institutional endorsement. All three are recognizably part of A Room to Pray.
+
+4. ARCHITECTURE AND REALISM
+Commission a new panoramic room asset and a matching evening edit. Use realistic human proportions, visible material grain, credible joints, a small amount of indirect light and natural floor perspective. The door opening must be near the extreme left with straight verticals so a working web door can align exactly. The jamb belongs to the photograph; the movable leaf, glass, handle and control belong to the interface. Never place a second raster door behind the moving one.
+
+The door should feel human in scale and open almost to a right angle at the left edge, leaving a clear view into the relevant public setting. Airport, campus and hospital views remain stationary behind the moving leaf. The window is transparent to that same view, not an unrelated picture pasted on the door. On category pages show the matching setting. On the homepage preserve the slow optional cycle and explicit pause control. Keep the real photographs and their photographer/license credits as context; keep generated scenery explicitly identified as illustrative.
+
+Do not make the room an obstacle. Desktop can show the room beside a floating search panel. On narrow screens retain a recognizably complete portion of the room with a visible doorway and prayer mat, then let the information stack naturally. Do not shrink controls into architectural miniatures or require visitors to interact with the decorative door before searching. Normal scrolling, typing and keyboard navigation always work.
+
+5. FLOATING INFORMATION AND SPACE
+Replace the flat reading wash with a distinct foreground surface: softly rounded but architectural, thin edge highlight, restrained translucent tint, sufficient opacity for readable text, and layered soft shadows. Blur is a progressive enhancement, not a requirement for legibility. The panel should look like a clear information object hovering in the room, not a generic glass dashboard.
+
+Give the arrival heading, explanatory copy, search, country control, result count and practical help a deliberate reading order. Keep input labels visible. Use one main search action. Preserve the reception card and jump-to-guide links but keep them quieter than search. The room’s physical switch stays on the wall with a full touch target and visible state.
+
+Continue the room materials below the hero. The destination notices and main information area become separate raised surfaces on a continuous warm or slate background. Use space between surfaces, not extra boxed subdivisions everywhere. Let the room remain visible around the reading areas. Place photographs at useful sizes with consistent crops and visible attribution. Photographs are not low-contrast backgrounds for facts.
+
+Category pages must feel special before and after search. The arrival/search surface gets a subtle material cue from its setting; the full practical guidance board uses the airport, campus or hospital presentation. Existing results remain accessible and scanable. Essential access notes cannot disappear into decorative imagery. Listing details use the same spacing and surface system; the location, access, hours and facilities remain readable. Supporting pages stay part of the room but use a shorter arrival treatment.
+
+6. NAVIGATION THAT FEELS FINISHED
+Use a clean, compact masthead with a larger recognizable mark and A Room to Pray wordmark. The three destinations are primary. On mobile keep a simple visible destination row rather than forcing every route behind a menu. Active states are unambiguous but quiet. A compact search action leads to the real search on the current page or the correct localized home route.
+
+Organize the native menu into preferences and visitor tools. Language and appearance belong together. Keep all existing tools and links; do not create a second set of competing destination buttons. Escape closes the menu and returns focus where appropriate; outside interaction closes it without stealing focus from the clicked control. No focus trap for a non-modal menu. Preserve native details behavior without JavaScript and useful language links. Make all meaningful controls at least 44 pixels in their interactive dimension and keep keyboard focus visible.
+
+7. MOTION WITH PURPOSE
+Floating means depth, not perpetual bobbing. Make arrival surfaces settle once over a short distance with a gentle ease. Give destination cards a slight lift on a deliberate hover or focus, never a strong tilt. Keep text stationary after arrival. Use restrained border/shadow changes to show interactivity. Avoid magnetic cursors, scroll hijacking, parallax that displaces text, staggered word reveals and animations that delay access.
+
+The door uses a measured hinged movement with believable deceleration. When a visitor deliberately enters a different destination, let the door open to the new setting without delaying native navigation. Record only a short-lived same-origin arrival intention; ignore modified clicks, external links, new tabs and expired records. Failure of session storage must not affect navigation. Do not animate a page restored from browser history unnecessarily.
+
+The homepage scenery tour remains slow. Pause for keyboard/pointer interaction, offscreen state, hidden documents and a closed door. Respect reduced-motion and data-saving preferences, with explicit user opt-in if desired. Reduced motion eliminates ornamental transitions and arrival movement while retaining state changes. No sound. No loading curtain.
+
+8. ARTWORK, SOURCES AND HONESTY
+Search Pinterest first as requested, but report limited access honestly. Use primary wayfinding and architectural sources to understand principles. Do not copy Pinterest images or present them as reusable without following their original license. Consult Hamza’s current public website to preserve the essence: location, before/after security, opening hours, wudu, space for women, qibla, source links and check dates. His ability to help people ask for a room is as important as the directory.
+
+Use image generation for raster architecture; use real HTML/CSS/SVG for signs, text and interaction. Do not bake text into artwork. Preserve successful existing real photographs and generated destination views where they are already useful. Replace a background only when the new composition improves depth, integration or physical plausibility. Save the final prompts, reference roles, output locations and production assets in the project. Keep generated architectural illustrations separate from photographic evidence of actual rooms.
+
+9. IMPLEMENTATION DISCIPLINE
+Inspect before editing. Consolidate the current dominant room stylesheet rather than piling an unrelated theme over everything. Use explicit classes and CSS custom properties for surface colors, shadows, motion and doorway geometry. Keep the artwork and moving door in one shared coordinate plane. Respect physical left placement even in Arabic while the content reads right to left. Use logical spacing for text and navigation. No fixed-width element should cause phone overflow.
+
+Do not publish unrelated pending map changes in the main checkout. Work in an isolated Git worktree, retain the original patch, and restore any temporary stash exactly. Keep repository dependencies stable. Change only what the visual/interaction brief needs. Do not add a large animation framework for a few transitions. Prefer native progressive enhancement.
+
+10. ACCEPTANCE AND DELIVERY
+Run the existing tests and focused new tests for menu/arrival behavior. Build all localized pages. Check internal URLs, mounted asset paths, noindex preview marking, disabled submission forms and source attribution. Run offline DOM scenarios for search, filters, tabs, saved places, reception cards, door state, tour controls, focus and language navigation. Inspect the actual generated image pixels for doorway position, mat orientation, light/dark consistency and distracting artifacts.
+
+Browser rendering is currently blocked by an explicit URL policy from this session. Do not bypass it with another browser, renderer or alternate route. Report that rendered visual QA remains unavailable. Offline checks are valuable but are not screenshots or proof of visual perfection.
+
+Publish only the authorized a7mad7amdoun/aroomtopray-preview GitHub Pages site after checks pass. Confirm the deployment and representative served pages/assets. Provide the fresh versioned link and a concise account of the changes, the preserved information and any real verification limit. The result should feel unmistakably different in presentation while remaining useful, peaceful and recognizably a room to pray.

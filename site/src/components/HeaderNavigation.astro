@@ -1,0 +1,64 @@
+---
+import AppearanceControls from './AppearanceControls.astro';
+import Mark from './Mark.astro';
+import { ROOM_COPY } from '../data/room-copy.js';
+import { VIEW_COPY } from '../data/view-copy.js';
+import { WAYFINDING_COPY } from '../data/wayfinding-copy.js';
+import { LOCALES, getCopy, localizedPath } from '../lib/i18n.js';
+import { languageTarget, navigationPath } from '../lib/localized-routes.js';
+
+interface Props { locale: string; nav?: string; searchTarget: string; visitHash?: string }
+const { locale, nav = '', searchTarget, visitHash = '' } = Astro.props;
+const t = getCopy(locale);
+const room = ROOM_COPY[locale];
+const view = VIEW_COPY[locale];
+const wayfinding = WAYFINDING_COPY[locale];
+const local = path => navigationPath(path, locale);
+const languageLinks = LOCALES.map(language => ({ code: language.code, label: language.nativeName, href: languageTarget(Astro.url.pathname, language.code) }));
+const destinations = [
+  { kind: 'airports', icon: 'airport' },
+  { kind: 'universities', icon: 'campus' },
+  { kind: 'hospitals', icon: 'care' },
+];
+const tools = [
+  { path: 'planner', icon: 'list', label: t.nav.planner },
+  { path: 'travel', icon: 'globe', label: t.nav.travel },
+  { path: 'rooms-won', icon: 'check', label: t.nav.roomsWon },
+  { path: 'about', icon: 'info', label: t.nav.about },
+  { path: 'contact', icon: 'help', label: t.nav.contact },
+];
+---
+<header class="top room-header">
+  <div class="wrap">
+    <a class="brand" href={localizedPath('/', locale)} aria-label={`A Room to Pray · ${t.nav.home}`}>
+      <Mark size={52}/><span><bdi>A Room to Pray</bdi><small>{wayfinding.directory}</small></span>
+    </a>
+    <nav class="primary-navigation" aria-label={t.footer.directories}>
+      {destinations.map(({ kind, icon }) => <a href={local(`/${kind}/`)} aria-current={nav === kind ? 'page' : undefined}>
+        <svg width="19" height="19" aria-hidden="true"><use href={`#i-${icon}`}/></svg><span>{t.nav[kind]}</span>
+      </a>)}
+    </nav>
+    <a class="header-search" href={searchTarget}><svg width="19" height="19" aria-hidden="true"><use href="#i-search"/></svg><span>{room.search}</span></a>
+    <details class="site-menu" data-site-menu>
+      <summary aria-controls="site-menu-panel"><span>{room.menu}</span><span class="menu-glyph" aria-hidden="true"><i></i><i></i></span></summary>
+      <div class="site-menu-panel" id="site-menu-panel">
+        <div class="menu-preferences">
+          <p class="menu-section-label">{view.settings}</p>
+          <AppearanceControls {locale} {languageLinks}/>
+        </div>
+        <div class="menu-visit">
+          <p class="menu-section-label">{view.tools}</p>
+          <nav class="menu-tools" aria-label={t.footer.prepare}>
+            <a class="menu-visit-guide" href={local('/visit/') + visitHash}>
+              <svg width="20" height="20" aria-hidden="true"><use href="#i-book"/></svg>
+              <span>{room.details}</span>
+              <svg class="menu-link-arrow directional-icon" width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <a class="saved-nav" href="/saved/"><svg width="18" height="18" aria-hidden="true"><use href="#i-save"/></svg><span>{t.nav.saved}</span>{locale !== 'en' && <small class="source-language">EN</small>}<span class="saved-count" data-saved-count hidden></span></a>
+            {tools.map(({ path, icon, label }) => <a href={`/${path}/`}><svg width="18" height="18" aria-hidden="true"><use href={`#i-${icon}`}/></svg><span>{label}</span>{locale !== 'en' && <small class="source-language">EN</small>}</a>)}
+          </nav>
+        </div>
+      </div>
+    </details>
+  </div>
+</header>

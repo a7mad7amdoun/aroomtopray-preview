@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import CategoryOrientation from './CategoryOrientation.astro';
 import OfficialFieldNote from './OfficialFieldNote.astro';
 import DirectoryPhoto from './DirectoryPhoto.astro';
 import DirectoryResult from './DirectoryResult.astro';
@@ -51,6 +52,7 @@ const photoExample=rows.find(place=>place.url===photoExampleUrl);
   <div class="wrap room-directory">
     <section class="directory-workspace" id="browse" aria-label={t.common.browse}>
       <nav class="guide-tabs directory-mode-tabs" hidden data-directory-mode-controls aria-label={g.overview} role="tablist"><button type="button" id="tab-directory-list" data-directory-mode="list" role="tab" aria-selected="true" aria-controls="directory-list-panel"><svg width="19" height="19" aria-hidden="true"><use href="#i-list"/></svg><span>{g.browse}</span></button>{kind==='airports'&&<button type="button" id="tab-directory-map" data-directory-mode="map" role="tab" aria-selected="false" aria-controls="directory-map-panel"><svg width="19" height="19" aria-hidden="true"><use href="#i-globe"/></svg><span>{g.map}</span></button>}<button type="button" id="tab-directory-guide" data-directory-mode="guide" role="tab" aria-selected="false" aria-controls="directory-guidance-panel"><svg width="19" height="19" aria-hidden="true"><use href="#i-book"/></svg><span>{g.notes}</span></button></nav>
+      <p class="directory-access-note"><svg width="18" height="18" aria-hidden="true"><use href="#i-info"/></svg><span>{c.note}</span></p>
       <div class="results-toolbar"><h2>{r.results}</h2><div class="browse-tools" data-browse-tools hidden><label class="sr" for="directory-sort">{t.common.sort}</label><select id="directory-sort" data-directory-sort aria-label={t.common.sort}><option value="default">{t.common.recommended}</option><option value="name">{t.common.sortName}</option><option value="location">{t.common.sortLocation}</option></select><div class="seg directory-layout-choice" role="group" aria-label={t.common.view}><button type="button" data-directory-view="list" aria-pressed="true" aria-label={t.common.list} title={t.common.list}><svg width="19" height="19" aria-hidden="true"><use href="#i-list"/></svg></button><button type="button" data-directory-view="cards" aria-pressed="false" aria-label={t.common.cards} title={t.common.cards}><svg width="19" height="19" aria-hidden="true"><use href="#i-grid"/></svg></button></div></div></div>
       {kind==='airports'&&<div id="directory-map-panel" data-directory-map hidden aria-labelledby="tab-directory-map"><AirportMap {locale}/></div>}
       <div id="directory-list-panel" data-directory-list-panel aria-labelledby="tab-directory-list">
@@ -60,7 +62,7 @@ const photoExample=rows.find(place=>place.url===photoExampleUrl);
     </div>
         <nav class="directory-pagination" data-directory-pagination hidden aria-label={r.page}><button type="button" data-page-previous>{r.previous}</button><span data-page-status data-label={r.page} data-of={r.of} role="status"></span><button type="button" data-page-next>{r.next}</button></nav>
       </div>
-      <div id="directory-guidance-panel" data-directory-guidance-panel aria-labelledby="tab-directory-guide"><header class="panel-heading"><span class="guide-kicker">{g.notes}</span><h2>{c.wayfindingTitle}</h2></header><ol class="room-three-steps">{c.steps.map((step,i)=><li><span class="step-symbol"><svg width="23" height="23" aria-hidden="true"><use href={`#i-${['pin','key','water'][i]}`}/></svg></span><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol><p class="note">{c.note}</p><OfficialFieldNote {kind} {locale}/><DirectoryPhoto place={photoExample} {locale}/><VisitInsights {kind} {locale} compact /><VisitorArtwork scene={{airports:'airport',universities:'campus',hospitals:'hospital'}[kind]} {locale}/></div>
+      <div id="directory-guidance-panel" data-directory-guidance-panel aria-labelledby="tab-directory-guide"><CategoryOrientation {kind} {locale}/><OfficialFieldNote {kind} {locale}/><DirectoryPhoto place={photoExample} {locale}/><VisitInsights {kind} {locale} compact /><VisitorArtwork scene={{airports:'airport',universities:'campus',hospitals:'hospital'}[kind]} {locale}/></div>
     </section>
 
   </div>
