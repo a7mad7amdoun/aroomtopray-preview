@@ -4,12 +4,18 @@ export function initRoomMotion(doc=document,browser=window) {
  const room=doc.querySelector('.room-environment');
  if(!room||room.dataset.roomMotionReady==='true')return;
  const header=doc.querySelector('.room-header');
- let frame=null,away=false;
+ let frame=null,away=false,lastHeaderHeight;
  const measure=()=>{
   frame=null;
   if(away||doc.hidden)return;
   const bounds=header?.getBoundingClientRect?.();
-  if(bounds&&Number.isFinite(bounds.bottom))doc.documentElement.style.setProperty('--room-header-height',`${Math.max(0,Math.ceil(bounds.bottom))}px`);
+  if(bounds&&Number.isFinite(bounds.bottom)){
+   const height=Math.max(0,Math.ceil(bounds.bottom));
+   if(height!==lastHeaderHeight){
+    doc.documentElement.style.setProperty('--room-header-height',`${height}px`);
+    lastHeaderHeight=height;
+   }
+  }
  };
  const schedule=()=>{
   if(away||doc.hidden||frame!==null)return;

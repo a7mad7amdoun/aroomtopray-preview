@@ -2,7 +2,7 @@ import { browseQuery, returnToDirectory } from '../lib/directory-context.js';
 import { initRoomCycle } from '../lib/room-cycle.js';
 import { initDoorArrival } from '../lib/door-arrival.js';
 
-export const ROOM_PREVIEW_INTENT_DELAY = 180;
+export const ROOM_PREVIEW_INTENT_DELAY = 120;
 
 // The moving leaf is decorative. Wayfinding and controls stay on the wall.
 export function initRoomDoor(room, browser = window) {

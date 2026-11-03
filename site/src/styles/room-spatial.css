@@ -19,12 +19,12 @@ body.immersive-site { background:radial-gradient(ellipse at 18% 450px,#b49a7020,
 :root .room-environment .room-wall { background:none; border-radius:0; box-shadow:none; }
 :root .room-environment .room-wall::before,:root .room-environment .room-wall::after { content:''; display:block; position:absolute; inset:0; background-size:100% 100%; background-position:center; border-radius:0; }
 :root .room-environment .room-wall::before { background-image:var(--room-day); }
-:root .room-environment .room-wall::after { background-image:var(--room-night); opacity:var(--room-night-opacity); transition:opacity 320ms ease-out; }
+:root .room-environment .room-wall::after { background-image:var(--room-night); opacity:var(--room-night-opacity); transition:opacity 180ms ease-out; }
 /* Inner jamb (44,177)–(272,676), on both 1774×887 source images.
    Keep the door at the far-left edge and the mat facing the clear wall. */
 .room-environment .door-surround { left:2.4803%; top:19.955%; bottom:auto; width:12.8523%; height:56.257%; min-height:0; }
-.room-environment { --door-motion:960ms cubic-bezier(.32,0,.45,1); }
-.room-environment[data-door-state=open] { --door-angle:-86deg; --door-motion:780ms cubic-bezier(.3,0,.2,1); }
+.room-environment { --door-motion:520ms cubic-bezier(.32,0,.45,1); }
+.room-environment[data-door-state=open] { --door-angle:-86deg; --door-motion:420ms cubic-bezier(.3,0,.2,1); }
 /* Prepare every physical layer together, before the first painted arrival. */
 html[data-door-arrival=preparing] .room-environment { --door-angle:0deg; }
 html[data-door-arrival=preparing] .room-environment .door-skin::after { opacity:0; }
@@ -240,10 +240,10 @@ html .immersive-site .site-footer { width:min(var(--layout-width),calc(100% - 2 
 /* The world outside stays stationary while the physical door swings.
    Keep its front just visible at 86 degrees instead of hiding the slab. */
 .room-environment .door-outside { background-image:none; }
-.door-scene { position:absolute; inset:0; background-size:cover; background-repeat:no-repeat; opacity:0; transition:opacity 220ms ease-out; }
-.door-scene-airport { background-image:image-set(url('/art/room-threshold/airport-720.webp') 1x,url('/art/room-threshold/airport-1086.webp') 2x); background-position:center; }
-.door-scene-campus { background-image:image-set(url('/art/room-threshold/campus-720.webp') 1x,url('/art/room-threshold/campus-1086.webp') 2x); background-position:center; }
-.door-scene-hospital { background-image:image-set(url('/art/room-threshold/hospital-720.webp') 1x,url('/art/room-threshold/hospital-1086.webp') 2x); background-position:center; }
+.door-scene { position:absolute; inset:0; background-size:cover; background-repeat:no-repeat; opacity:0; transition:opacity 150ms ease-out; }
+.door-scene-airport { background-image:image-set(url('/art/room-threshold/airport-fast-384.webp') 1x,url('/art/room-threshold/airport-fast-768.webp') 2x); background-position:center; }
+.door-scene-campus { background-image:image-set(url('/art/room-threshold/campus-fast-384.webp') 1x,url('/art/room-threshold/campus-fast-768.webp') 2x); background-position:center; }
+.door-scene-hospital { background-image:image-set(url('/art/room-threshold/hospital-fast-384.webp') 1x,url('/art/room-threshold/hospital-fast-768.webp') 2x); background-position:center; }
 .outside-airport>.door-scene-airport,.outside-campus>.door-scene-campus,.outside-hospital>.door-scene-hospital { opacity:1; }
 /* Distinct presentations: a departures board, a photographic example, an atlas,
    country index and practical room facts. Shared type and spacing join them. */

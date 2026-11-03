@@ -3,9 +3,9 @@ import assert from 'node:assert/strict';
 import {initRoomMotion} from '../src/scripts/room-motion.js';
 const target=()=>{const listeners=new Map();return{addEventListener(type,fn){const list=listeners.get(type)||[];list.push(fn);listeners.set(type,list);},emit(type){for(const fn of listeners.get(type)||[])fn();}};};
 function fixture(){
- const doc=target(),browser=target(),room={dataset:{roomPresentation:'home'}},values=new Map(),frames=new Map();let serial=0,headerBottom=94,observer;
+ const doc=target(),browser=target(),room={dataset:{roomPresentation:'home'}},values=new Map(),writes=[],frames=new Map();let serial=0,headerBottom=94,observer;
  const header={getBoundingClientRect:()=>({bottom:headerBottom})};
- doc.documentElement={style:{setProperty:(key,value)=>values.set(key,value)}};
+ doc.documentElement={style:{setProperty:(key,value)=>{values.set(key,value);writes.push([key,value]);}}};
  doc.querySelector=selector=>selector==='.room-environment'?room:selector==='.room-header'?header:null;
  browser.scrollY=0;
  browser.location=new URL('https://example.test/airports/?country=GB#room-details');
@@ -14,7 +14,7 @@ function fixture(){
  browser.scrollTo=()=>assert.fail('Room alignment must not scroll the page');doc.activeElement={id:'search'};
  const controller=initRoomMotion(doc,browser);
  const flush=()=>{const callbacks=[...frames.values()];frames.clear();for(const fn of callbacks)fn();};
- return{doc,browser,room,values,frames,controller,flush,header:value=>headerBottom=value,resizeHeader:()=>observer()};
+ return{doc,browser,room,values,writes,frames,controller,flush,header:value=>headerBottom=value,resizeHeader:()=>observer()};
 }
 test('scrolling coalesces header measurements without moving the room or changing user context',()=>{
  const f=fixture(),url=f.browser.location.href,focus=f.doc.activeElement,dataset={...f.room.dataset};f.browser.scrollY=400;
@@ -44,4 +44,12 @@ test('initialization is idempotent and hidden documents do no work',()=>{
 test('invalid or negative measurements cannot corrupt the room layout',()=>{
  const f=fixture();f.header(NaN);f.controller.refresh();f.flush();assert.equal(f.values.get('--room-header-height'),'94px');
  f.header(-10);f.controller.refresh();f.flush();assert.equal(f.values.get('--room-header-height'),'0px');
+});
+
+test('ordinary scrolling does not repeatedly invalidate styles when header height is unchanged',()=>{
+ const f=fixture();assert.equal(f.writes.length,1);
+ for(let i=0;i<30;i++){f.browser.scrollY=i*20;f.browser.emit('scroll');f.flush();}
+ assert.equal(f.writes.length,1);
+ f.header(120);f.browser.emit('scroll');f.flush();assert.equal(f.writes.length,2);
+ f.resizeHeader();f.flush();assert.equal(f.writes.length,2);
 });

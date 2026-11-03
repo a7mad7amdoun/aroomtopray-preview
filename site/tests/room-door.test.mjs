@@ -163,7 +163,7 @@ test('home previews keep the visible caption and highlighted notice in sync',()=
 test('a deliberate hover previews a home notice without moving the door or navigating',()=>{
  const f=closedHome();const href=f.links[1].getAttribute('href');
  f.links[1].emit('pointerenter',{pointerType:'mouse'});
- assert.equal(ROOM_PREVIEW_INTENT_DELAY,180);assert.equal(f.timers.size,1);
+ assert.equal(ROOM_PREVIEW_INTENT_DELAY,120);assert.equal(f.timers.size,1);
  assert.equal(f.outside.classList.contains('outside-airport'),true);
  assert.equal(f.room.dataset.roomPreview,'airport');
  f.tick();assert.equal(f.room.dataset.roomPreview,'campus');assert.equal(f.timers.size,0);
