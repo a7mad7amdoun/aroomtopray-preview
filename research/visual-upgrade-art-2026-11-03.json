@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-03",
+  "mode": "built-in imagegen",
+  "purpose": "A visible room-and-wayfinding refinement of the existing preview, preserving all information and interactions.",
+  "assets": [
+    {
+      "kind": "day",
+      "prompt": "Use case: precise-object-edit\nAsset type: production background for A Room to Pray, a premium but welcoming public prayer-room guide.\nInput image: edit target, existing 1774 by 887 room. Keep its 2:1 landscape composition and camera.\nPrimary request: carefully upgrade the materials and natural architectural lighting, and correct the oversized prayer mat. Make this feel like an exacting architectural photograph, not a fantasy rendering.\nINVARIANTS: preserve the door opening and wood frame at EXACTLY the same coordinates, dimensions and straight vertical edges: inner opening x44–272, y177–676 on the 1774x887 image. Preserve empty opening, no door leaf, no new frame, no glass, no hardware. Preserve wall/floor seam y676. Preserve the overall wall planes, perspective and clear right-hand wall.\nChange: replace muddy beige plaster with finely textured warm ivory mineral plaster, restrained natural soft daylight from upper right, tangible quarter-sawn oak trim, matte honed limestone floor with precise subtle joints and convincing contact shadows. Reduce the ceiling light to a narrow soft integrated wash, no exaggerated yellow glow.\nPrayer mat: a realistic single-person woven deep navy mat with a fine muted sand mihrab outline; reposition it entirely in the LEFT part of the floor immediately right of the door. Head end at x365–545,y680, front end at x315–595,y863. Its pointed head faces the EMPTY BACK WALL directly, never the doorway or camera. Keep the wall ahead empty. Real fine woven pile, gentle fabric edge, no oversized gold trim.\nKeep the remaining floor and wall uncluttered. No furnishings, plants, people, signs, symbols outside the mat, text or logos. Calm public architecture, believable restrained luxury, precise clean edges, neutral exposure, no bloom, no lens flare. Output one finished image.",
+      "source": "site/public/art/floating-room/day-1774.webp",
+      "generatedFile": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-76b1e487-e0b2-46eb-9177-f925a6d49466.png",
+      "selectedFiles": [
+        "site/public/art/architectural-room/day-v2-1024.webp",
+        "site/public/art/architectural-room/day-v2-1774.webp"
+      ]
+    },
+    {
+      "kind": "night",
+      "prompt": "Use case: lighting-weather\nAsset type: dark-mode architectural room background, paired exactly with supplied day image for a prayer-room website.\nInput image is the EDIT TARGET. Change ONLY lighting and apparent material color under evening light. Keep every object, outline, image dimensions, doorway/frame coordinates, wall/floor seam, floor joints, prayer mat size/location/orientation and camera EXACTLY unchanged. In particular inner doorway stays x44–272,y177–676 on this 1774x887 2:1 image.\nCreate a believable quietly luxurious evening photograph. The ivory wall falls into deep slate/navy shadow, with soft restrained warm 2700K ceiling cove illumination grazing its mineral texture. Natural oak frame remains legible and tactile; the limestone floor and navy woven prayer mat retain visible fine detail. Gentle contact shadows, matte finishes, clear midtones. Reduce the day sun patch to a very faint soft cool ambient fill. No blue glowing light sources, no decorative beams, no neon, no excessive gold glow, no black-crushed details. Existing prayer mat continues facing the bare wall. No added objects, people, door leaf, signs, text or symbols. Identical registration is essential for the working CSS door. One image only.",
+      "source": "Generated day image above",
+      "generatedFile": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-d761ed65-d1c5-4a3f-a0b1-e8dfeb0097b2.png",
+      "selectedFiles": [
+        "site/public/art/architectural-room/night-v2-1024.webp",
+        "site/public/art/architectural-room/night-v2-1774.webp"
+      ]
+    }
+  ],
+  "geometry": {
+    "sourceSize": [
+      1774,
+      887
+    ],
+    "innerAperture": [
+      44,
+      177,
+      272,
+      676
+    ],
+    "mat": "Reduced to a single-person scale on the left, with its head facing the bare back wall. The same coordinates and orientation are preserved in both lighting variants."
+  },
+  "delivery": "Proportional resizing and WebP encoding only, no compositing or pixel edits outside the image tool.",
+  "inspection": {
+    "assets": "Both generation results visually inspected: registered door and mat orientation retained.",
+    "website": "Browser rendered checks remain unavailable due the existing URL policy block. Offline checks are recorded separately."
+  },
+  "direction": "Give the room a larger left-hand area, move existing controls beside it, use substantial credited architecture photographs with consistent navy/yellow destination signs, simplify the header, and establish clearer tab/result/fact/photo hierarchy without replacing data or functions."
+}
