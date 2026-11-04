@@ -640,8 +640,6 @@ html[lang=ar] .prayer-board-columns,html[lang=ar] .prayer-board-note,html[lang=a
 .room-main .visit-instructions h3 { font-size:1.05rem; }
 .room-main .insight-card { padding:20px; gap:12px; }
 .room-main .insight-card h3 { font-size:1.05rem; line-height:1.4; }
-.room-main .insight-source { font-size:.8rem!important; }
-.room-main .insight-source time { font:inherit; }
 .room-main .src a { overflow-wrap:anywhere; }
 .room-main .country-search:focus-within { outline:2px solid var(--focus); outline-offset:3px; }
 .room-main .country-search input:focus-visible { outline:none; }

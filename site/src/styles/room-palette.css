@@ -153,8 +153,7 @@
    the state is visible without relying on a low-contrast yellow hairline. */
 .room-main .guide-tabs>:is(a,button) { color:var(--muted); }
 .room-main .guide-tabs>:is(a,button)[aria-selected=true] { color:var(--ink); }
-.room-main .guide-tabs>:is(a,button)::after,
-.top.room-header .primary-navigation>a::after { background:var(--selection-mark); }
+.room-main .guide-tabs>:is(a,button)::after { background:var(--selection-mark); }
 .room-main .guide-tabs>:is(a,button):focus-visible { outline-color:var(--focus); }
 .room-main :is(.prose,.src,.room-source-promise) a:not(.btn) {
   color:var(--link);

@@ -61,9 +61,20 @@ const formatDate = (date: string) => new Intl.DateTimeFormat(locale === 'en' ? '
   .insight-facts { margin: 0; padding-inline-start: 1.1rem; line-height: 1.5; }
   .insight-facts li + li { margin-block-start: .45rem; }
   .insight-caveat { margin: 1rem 0; padding-inline-start: .75rem; border-inline-start: 2px solid var(--line); color: var(--muted); font-size: .9rem; line-height: 1.5; }
-  .insight-source { display: grid; gap: .45rem; margin-block-start: auto; padding-block-start: .9rem; border-block-start: 1px solid var(--line); color: var(--muted); font-size: .78rem; line-height: 1.45; }
+  .insight-source {
+    display: grid;
+    gap: 8px;
+    margin-block-start: auto;
+    padding-block-start: 18px;
+    border-block-start: 1px solid var(--line);
+    color: var(--muted);
+    font-size: var(--guide-meta, .875rem);
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+  }
   .insight-source a { color: var(--ink); text-decoration-thickness: 1px; text-underline-offset: .18em; }
-  .insight-source-name { display: block; margin-block-start: .15rem; overflow-wrap: anywhere; font-size: .73rem; }
+  .insight-source-name { display: block; margin-block-start: .15rem; overflow-wrap: anywhere; font-size: inherit; line-height: inherit; }
+  .insight-source time { font: inherit; }
   .insight-actions { display: flex; flex-wrap: wrap; gap: .65rem 1.15rem; padding-block-start: 1rem; font-size: .85rem; }
   .insight-actions a { display: inline-flex; gap: .5rem; align-items: baseline; color: var(--ink); text-underline-offset: .2em; }
   .insight-action { font-weight: 700; }

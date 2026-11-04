@@ -163,8 +163,6 @@
 #guide-content .insight-facts li+li { margin-block-start:10px; }
 #guide-content .insight-facts li::marker { color:var(--selection-mark); }
 #guide-content .insight-caveat { margin-block:20px; padding-inline-start:14px; border-color:var(--line); }
-/* Earlier legacy sheets mark this size important; restore the shared scale. */
-#guide-content .insight-source { padding-block-start:18px; gap:8px; font-size:var(--guide-meta)!important; }
 #guide-content .insight-actions { gap:12px 18px; padding-block-start:18px; }
 #guide-content .insight-actions>a { min-height:46px; }
 #guide-content .insight-actions .insight-action {

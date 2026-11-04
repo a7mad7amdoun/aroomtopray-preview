@@ -110,7 +110,7 @@ body.immersive-site { font-size:17px; }
 .room-main :is(.room-source-promise,.byline,.d-meta,.crumbs) { font-size:var(--guide-meta); line-height:1.6; }
 #guide-content :is(.field-note-text,.insight-card>p) { font-size:var(--guide-copy); line-height:1.7; }
 #guide-content :is(.field-note-eyebrow,.field-note-institution,.field-note-source>a,.insight-place,.insight-actions) { font-size:var(--guide-label); line-height:1.55; }
-#guide-content :is(.field-note-source>span,.field-note-source small,.insight-source,.insight-source-name) { font-size:var(--guide-meta); line-height:1.6; }
+#guide-content :is(.field-note-source>span,.field-note-source small) { font-size:var(--guide-meta); line-height:1.6; }
 #guide-content .insight-caveat { font-size:1rem; line-height:1.6; }
 .room-main :is(.btn,.insight-action,.field-note-source>a) { min-height:46px; }
 .room-main :is(.btn,.chip,.page-jumps a,.room-picker a,.country-card a,.directory-result,.room-disclosure>summary):focus-visible {
