@@ -495,11 +495,14 @@ html[dir=rtl] .room-main :is(.eyebrow,.guide-kicker,.count) { font-family:var(--
  :root,:root[data-theme] { --bg:#fff; --surface:#fff; --surface-2:#f1f2ee; --ink:#172331; --muted:#485456; --line:#c2c6bf; --go:#0a7552; --go-bg:#dcf1e7; --warn:#8f430b; --warn-bg:#fbeadb; --alert:#b42318; --alert-bg:#fce4e1; --mute-bg:#e3e8ef; }
 }
 
-/* Secondary tools use the guide's available width, not the browser width. */
+/* Tool workspaces respond to the guide's usable width. On wide layouts the
+   result or contents rail stays beside the task instead of far below it. */
 .immersive-site .room-main .pl-grid,
-.immersive-site .room-main .saved-intro,
 .immersive-site .room-main .guide-layout,
-.immersive-site .room-main .travel-context { grid-template-columns:minmax(0,1fr); gap:22px; }
+.immersive-site .room-main .travel-context { display:grid; grid-template-columns:minmax(0,1fr); align-items:start; gap:24px; }
+.immersive-site .room-main .saved-intro { grid-template-columns:minmax(0,1fr); gap:22px; }
+.room-main .pl-grid>* { min-width:0; }
+.room-main .guide-layout { max-width:1120px; margin-inline:auto; }
 .immersive-site .room-main .pl-jump { display:inline-flex; }
 .immersive-site .room-main .pl-see { display:flex; }
 .immersive-site .room-main .pl-form { padding:18px; }
@@ -511,7 +514,7 @@ html[dir=rtl] .room-main :is(.eyebrow,.guide-kicker,.count) { font-family:var(--
 .room-main .saved-privacy { padding:15px 18px; border-radius:7px; background:var(--surface-2); }
 .room-main .saved-privacy p { margin-block:7px; font-size:.85rem; }
 .room-main .saved-empty { padding:28px 20px; margin-block:20px; border-radius:9px; }
-.room-main .guide-contents { position:static; margin:8px 0 0; padding:18px; border-radius:8px; width:100%; }
+.room-main .guide-contents { position:static; margin:0; padding:18px; border-radius:8px; width:100%; }
 .room-main .guide-contents ol { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:2px 18px; }
 .room-main .guide-contents a { min-height:40px; display:inline-flex; align-items:center; font-size:.86rem; }
 .room-main .prose { max-width:70ch; width:100%; margin-inline:auto; padding-block:10px 20px; }
@@ -520,10 +523,26 @@ html[dir=rtl] .room-main :is(.eyebrow,.guide-kicker,.count) { font-family:var(--
 .room-main .section-intro h1,.room-main .visit-heading h1 { font-size:var(--guide-title); line-height:1.2; }
 .room-main .section-intro .lede { font-size:1rem; }
 .room-main .rw-card { background:var(--surface); border-radius:8px; }
+@container prayer-guide (min-width:960px) {
+ .immersive-site .room-main .pl-grid { grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr); gap:32px; }
+ .immersive-site .room-main .guide-layout:has(.guide-contents:not([hidden])) { grid-template-columns:240px minmax(0,1fr); gap:32px; }
+ .immersive-site .room-main .travel-context { grid-template-columns:repeat(2,minmax(0,1fr)); gap:32px; }
+ .room-main .guide-contents ol { grid-template-columns:1fr; }
+ .immersive-site .room-main .pl-jump,
+ .immersive-site .room-main .pl-see { display:none; }
+}
+@container prayer-guide (max-width:480px) {
+ .room-main .pl-when { grid-template-columns:minmax(0,1fr); }
+}
 @media(max-width:650px) {
  .room-main .guide-contents ol { grid-template-columns:1fr; }
  .room-main .prose h1,.room-main .section-intro h1,.room-main .saved-intro h1 { font-size:2rem; }
  .immersive-site .room-main .pl-form { padding:14px; }
+}
+@media print {
+ .immersive-site .room-main .pl-grid,
+ .immersive-site .room-main .guide-layout,
+ .immersive-site .room-main .travel-context { display:block; }
 }
 
 @container prayer-guide (max-width:620px) {

@@ -1,0 +1,40 @@
+---
+import { getCopy, localizedPath } from '../lib/i18n.js';
+import { ROOM_COPY } from '../data/room-copy.js';
+import { DOOR_COPY } from '../data/door-copy.js';
+import { QUIET_COPY } from '../data/quiet-copy.js';
+import { ATMOSPHERE_COPY, SETTING_PHOTOS, SETTING_PHOTO_LICENSE } from '../data/room-atmosphere.js';
+import { airports } from '../lib/airports.js';
+import { universities } from '../lib/universities.js';
+import { hospitals } from '../lib/hospitals.js';
+
+const { kind='home', locale='en', presentation='home' }=Astro.props;
+const t=getCopy(locale), r=ROOM_COPY[locale], d=DOOR_COPY[locale], q=QUIET_COPY[locale];
+const atmosphere=ATMOSPHERE_COPY[locale];
+const settings={airports:'airport', universities:'campus', hospitals:'hospital'};
+const doors=[['airports','airport'],['universities','campus'],['hospitals','care']];
+const counts={airports:airports.length,universities:universities.length,hospitals:hospitals.length};
+const number=new Intl.NumberFormat(locale);
+---
+  <div class="room-console" data-room-tour-interaction>
+    <aside class="room-wayfinding" dir={locale==='ar'?'rtl':'ltr'} aria-labelledby="room-wayfinding-label">
+     <div class="room-console-heading">
+      <header class="room-destinations-heading"><p class="room-wayfinding-label" id="room-wayfinding-label">{q.settings}</p>{presentation==='home'&&<><h2>{q.choose}</h2><span class="room-illustration-label">{atmosphere.examples}</span></>}</header>
+    <div class="room-atmosphere-controls" dir={locale==='ar'?'rtl':'ltr'}>
+      <p class="room-scene-caption"><svg width="17" height="17" aria-hidden="true"><use data-room-scene-icon href={`#i-${doors.find(([category])=>category===kind)?.[1]||'airport'}`}/></svg><span>{d.outside}<b data-room-scene-name>{t.nav[kind in settings?kind:'airports']}</b></span></p>
+      {presentation==='home'&&<button type="button" hidden data-room-cycle data-start-label={atmosphere.start} data-pause-label={atmosphere.pause} data-resume-label={atmosphere.resume} data-paused-message={atmosphere.paused} data-playing-message={atmosphere.playing} aria-controls="room-doorway"><svg class="room-cycle-icon" width="15" height="15" viewBox="0 0 20 20" aria-hidden="true"><path class="cycle-pause" d="M6 4v12M14 4v12" fill="none" stroke="currentColor" stroke-width="3"/><path class="cycle-play" d="m6 3 10 7-10 7z" fill="currentColor"/></svg><span data-room-cycle-label>{atmosphere.start}</span></button>}
+      <span class="sr" data-room-cycle-status role="status"></span>
+    </div>
+     </div>
+      <nav class="door-notices" aria-labelledby="room-wayfinding-label">
+        {doors.map(([category,icon])=><div class="door-notice-entry"><a href={localizedPath(`/${category}/`,locale)} class={`door-notice door-notice-${category}`} data-door-destination={category} data-door-preview={settings[category]} data-scene-name={t.nav[category]} data-scene-icon={icon} data-scene-label={`${atmosphere.illustration}. ${d.outside}${t.nav[category]}`} data-return-label={d.return} aria-current={kind===category?'location':undefined}>
+          {presentation==='home'&&<span class="notice-art"><img src={`/photos/settings/${settings[category]}-1440.webp`} srcset={`/photos/settings/${settings[category]}-360.webp 360w, /photos/settings/${settings[category]}-720.webp 720w, /photos/settings/${settings[category]}-1440.webp 1440w, /photos/settings/${settings[category]}-2160.webp 2160w`} sizes="(max-width:520px) calc(100vw - 32px), (max-width:1020px) 42vw, (max-width:1520px) 30vw, 440px" width={SETTING_PHOTOS[settings[category]].width} height={SETTING_PHOTOS[settings[category]].height} alt="" loading="lazy" decoding="async"/></span>}
+          <span class="notice-information"><span class="notice-sign"><span class="notice-kicker">{q.categories[category].kicker}</span><span class="door-notice-title"><svg width="18" height="18" aria-hidden="true"><use href={`#i-${icon}`}/></svg><b>{t.nav[category]}</b><svg class="notice-arrow" width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
+          <span class="door-notice-count"><strong>{number.format(counts[category])}</strong>{' '}<span>{r.places}</span><span class="door-current-dot" aria-hidden="true"></span></span>
+          {kind===category&&<span class="sr">{d.current}</span>}
+          <span class="door-notice-return" data-door-return-label hidden></span>
+          {presentation==='home'&&<span class="notice-description">{q.categories[category].text}</span>}</span>
+        </a>{presentation==='home'&&<p class="notice-photo-credit"><span>{atmosphere.photo}: <a href={SETTING_PHOTOS[settings[category]].source} lang="en">{SETTING_PHOTOS[settings[category]].name}</a></span><span><bdi>{SETTING_PHOTOS[settings[category]].author}</bdi> · <time datetime={SETTING_PHOTOS[settings[category]].date}>{SETTING_PHOTOS[settings[category]].date.slice(0,4)}</time> · <a href={SETTING_PHOTO_LICENSE}>CC BY-SA 4.0</a></span></p>}</div>)}
+      </nav>
+    </aside>
+  </div>

@@ -6,9 +6,15 @@
  --room-reading-width:1360px;
  --room-recede-duration:1100ms;
  --room-header-height:var(--masthead-height,94px);
+ --room-stage-gap:40px;
+ --room-threshold-gap:32px;
+ --room-opening-height:330px;
+ --room-mobile-canvas:820px;
 }
 body.immersive-site { background:var(--bg); }
 html .room-environment { position:relative; display:block; pointer-events:auto; inset:auto; width:100%; min-height:0; height:auto; margin:0; padding:0; border:0; background:transparent; border-radius:0; isolation:isolate; overflow:visible; }
+/* Inner pages retain the doorway, with a shorter arrival before the task. */
+.room-environment:not([data-room-presentation=home]) { --room-stage-gap:24px; --room-threshold-gap:16px; --room-opening-height:250px; --room-mobile-canvas:620px; }
 html .room-environment .room-architecture { position:fixed; z-index:0; inset:var(--room-header-height) 0 0; width:100%; height:auto; min-height:0; margin:0; aspect-ratio:auto; border:0; border-radius:0; pointer-events:none; overflow:hidden; background:var(--bg); }
 .room-architecture::after { content:''; position:absolute; z-index:1; inset:0; pointer-events:none; background:linear-gradient(90deg,transparent 12%,color-mix(in srgb,var(--bg) 28%,transparent) 48%,var(--bg) 100%); }
 .room-architecture .room-canvas { position:absolute; left:0; top:0; width:min(100vw,calc((100svh - var(--room-header-height)) * 2)); height:auto; aspect-ratio:2/1; transform:none; opacity:1; transition:opacity var(--room-recede-duration) cubic-bezier(.22,.61,.36,1); }
@@ -19,7 +25,7 @@ html .room-environment .room-architecture { position:fixed; z-index:0; inset:var
 html .room-environment .room-layout { display:block; grid-template-columns:none; gap:0; pointer-events:auto; position:relative; z-index:1; width:min(var(--layout-width),100%); max-width:none; margin:0 auto; direction:ltr; }
 html .room-environment .room-layout>.room-main { display:block; position:relative; container:room-reading / inline-size; width:auto; max-width:none; min-width:0; min-height:0; margin:0; padding:30px var(--room-gutter) 0; background:none; border:0; border-radius:0; box-shadow:none; backdrop-filter:none; direction:inherit; }
 html[dir=rtl] .room-environment .room-layout>.room-main { direction:rtl; }
-.room-environment .room-stage { position:relative; z-index:4; display:block; min-width:0; width:auto; margin:0 0 40px; padding-left:calc(var(--room-rail) - var(--room-gutter)); container:room-arrival / inline-size; isolation:auto; background:none; }
+.room-environment .room-stage { position:relative; z-index:4; display:block; min-width:0; width:auto; margin:0 0 var(--room-stage-gap); padding-left:calc(var(--room-rail) - var(--room-gutter)); container:room-arrival / inline-size; isolation:auto; background:none; }
 .room-environment .room-stage::after { display:none; }
 .room-environment .room-arrival-copy,.room-environment[data-room-presentation] .room-arrival-copy { position:relative; z-index:auto; width:100%; min-width:0; margin:0; padding:clamp(24px,2.7vw,40px); animation:none; backdrop-filter:none; border-radius:14px; }
 .room-environment .room-control-bar { position:absolute; left:24px; top:28px; z-index:5; display:flex; align-items:center; justify-content:flex-start; flex-wrap:wrap; width:calc(var(--room-rail) - 48px); gap:10px; min-height:44px; margin:0; }
@@ -40,7 +46,7 @@ html[dir=rtl] .room-environment .room-layout>.room-main { direction:rtl; }
 .room-main>.guide-content { position:relative; z-index:2; width:100%; max-width:var(--room-reading-width); margin:20px auto 36px; padding:clamp(20px,2.2vw,32px); border-radius:14px; }
 /* A native return link leaves the room within reach without a floating control
    covering results, maps or phone content. */
-.room-guide-threshold { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px 24px; max-width:var(--room-reading-width); margin:32px auto 0; padding:18px 0 0; border-top:1px solid var(--line); }
+.room-guide-threshold { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px 24px; max-width:var(--room-reading-width); margin:var(--room-threshold-gap) auto 0; padding:18px 0 0; border-top:1px solid var(--line); }
 .room-guide-identity { display:flex; align-items:center; gap:12px; min-width:0; color:var(--ink); font:550 1rem/1.6 var(--f-body); }
 .room-guide-identity>svg { width:30px; height:30px; flex:none; color:var(--selection-mark); }
 .room-return { display:inline-flex; align-items:center; gap:10px; min-height:44px; padding:9px 14px; border:1px solid var(--line); border-radius:6px; background:var(--surface); color:var(--ink); font:550 .9375rem/1.5 var(--f-body); text-decoration:none; }
@@ -71,6 +77,9 @@ html .immersive-site .site-footer { position:relative; z-index:1; width:100%; ma
  .room-environment[data-room-presentation=home] .notice-photo-credit { flex-direction:row; flex-wrap:wrap; gap:4px 12px; }
 }
 @container room-reading (max-width:1100px) { .home-departures { grid-template-columns:1fr; } }
+@media(min-width:1201px) {
+ .room-environment:not([data-room-presentation=home]) { --room-rail:clamp(300px,27vw,420px); }
+}
 @media(max-width:1200px) and (min-width:761px) {
  :root { --room-rail:clamp(250px,34vw,408px); }
  .room-environment .room-control-bar { position:relative; inset:auto; width:auto; justify-content:flex-end; margin:0 0 16px; }
@@ -83,9 +92,11 @@ html .immersive-site .site-footer { position:relative; z-index:1; width:100%; ma
 }
 @media(max-width:760px) {
  :root { --room-rail:16px; --room-gutter:16px; }
- html .room-environment[data-room-presentation] .room-layout>.room-main { padding-top:330px; }
+ /* The registered doorway ends at 38.106% of the canvas width. Reserve
+    enough space for it at every phone width, including the shorter arrival. */
+ html .room-environment[data-room-presentation] .room-layout>.room-main { padding-top:max(var(--room-opening-height),calc(38.106vw + 16px)); }
  .room-environment .room-stage { padding-left:0; margin-bottom:24px; }
- .room-architecture .room-canvas { width:max(820px,100vw); }
+ .room-architecture .room-canvas { width:max(var(--room-mobile-canvas),100vw); }
  .room-environment .room-art-note { inset:20px 16px auto auto; width:44%; max-width:220px; padding:9px 11px; font-size:.6875rem; }
  .room-environment .room-control-bar { position:relative; inset:auto; width:auto; justify-content:flex-end; gap:8px; margin:0 0 12px; }
  .room-environment .room-control-bar .door-action-caption { padding:8px 10px; font-size:.78rem; }

@@ -12,7 +12,8 @@
 @media(prefers-color-scheme:dark) { :root:not([data-theme=light]) { --room-night-opacity:1; --room-wall-wash:#111b2ad9; --room-edge:#03070c38; --room-door-shade:rgba(83,61,37,.35); --floating-surface:#142032f2; --floating-line:#b7c5d226; --floating-shadow:0 2px 4px #0002,0 18px 46px #0003,0 48px 85px -48px #0008; } }
 body.immersive-site { background:radial-gradient(ellipse at 18% 450px,#b49a7020,transparent 1300px),linear-gradient(110deg,#b49a700a,transparent 65%),var(--bg); }
 .room-main>.guide-content { margin:20px 0 36px; padding:clamp(22px,2.5vw,36px); background:var(--floating-surface); border:1px solid var(--floating-line); border-radius:16px; box-shadow:var(--floating-shadow); container:prayer-guide / inline-size; }
-.room-main .guide-content>.wrap { width:100%; max-width:none; padding:0; margin:0; border:0; background:none; }
+.room-main .guide-content>.wrap { width:100%; padding:0; border:0; background:none; }
+.room-main .guide-content>.wrap:not(.guide-layout) { max-width:none; margin:0; }
 /* Stable, sufficiently opaque reading surfaces sit above the room. Only the
    architectural light crossfades; type colors and panel contrast switch together. */
 :root .room-environment { --door-veneer-shade:var(--room-door-shade); --door-trim:#826039; --door-reveal:#654b30; --door-hardware:#b7aa8e; }
