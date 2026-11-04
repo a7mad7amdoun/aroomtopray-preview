@@ -1,12 +1,12 @@
 /* Landscape views fill the broad glass wall. Matched lighting preserves
    each setting, with readable details in both appearances. */
 :root {
- --view-airport-light:image-set(url('/art/quiet-threshold/airport-light-768.webp') 1x,url('/art/quiet-threshold/airport-light-1536.webp') 2x);
- --view-airport-dark:image-set(url('/art/quiet-threshold/airport-dark-768.webp') 1x,url('/art/quiet-threshold/airport-dark-1536.webp') 2x);
- --view-campus-light:image-set(url('/art/quiet-threshold/campus-light-768.webp') 1x,url('/art/quiet-threshold/campus-light-1536.webp') 2x);
- --view-campus-dark:image-set(url('/art/quiet-threshold/campus-dark-768.webp') 1x,url('/art/quiet-threshold/campus-dark-1536.webp') 2x);
- --view-hospital-light:image-set(url('/art/quiet-threshold/hospital-light-768.webp') 1x,url('/art/quiet-threshold/hospital-light-1536.webp') 2x);
- --view-hospital-dark:image-set(url('/art/quiet-threshold/hospital-dark-768.webp') 1x,url('/art/quiet-threshold/hospital-dark-1536.webp') 2x);
+ --view-airport-light:image-set(url('/art/panoramic-views/airport-day-800.webp') 1x,url('/art/panoramic-views/airport-day-1400.webp') 2x);
+ --view-airport-dark:image-set(url('/art/panoramic-views/airport-night-800.webp') 1x,url('/art/panoramic-views/airport-night-1400.webp') 2x);
+ --view-campus-light:image-set(url('/art/panoramic-views/campus-day-800.webp') 1x,url('/art/panoramic-views/campus-day-1400.webp') 2x);
+ --view-campus-dark:image-set(url('/art/panoramic-views/campus-night-800.webp') 1x,url('/art/panoramic-views/campus-night-1400.webp') 2x);
+ --view-hospital-light:image-set(url('/art/panoramic-views/hospital-day-800.webp') 1x,url('/art/panoramic-views/hospital-day-1400.webp') 2x);
+ --view-hospital-dark:image-set(url('/art/panoramic-views/hospital-night-800.webp') 1x,url('/art/panoramic-views/hospital-night-1400.webp') 2x);
  --view-airport:var(--view-airport-light);
  --view-campus:var(--view-campus-light);
  --view-hospital:var(--view-hospital-light);

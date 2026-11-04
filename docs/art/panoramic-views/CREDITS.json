@@ -1,0 +1,150 @@
+{
+  "title": "Elevated panoramic destination views",
+  "created": "2026-11-04",
+  "type": "AI-generated architectural illustration",
+  "tool": "Built-in image_gen",
+  "purpose": "Imagined airport, university and hospital exteriors viewed from a quiet upper-floor room. These are not photographs of listed institutions and do not establish any facility, access condition or prayer-room view.",
+  "design": "Six original exterior plates: three daylight scenes and three reference-guided early-evening lighting variants. No interior room, foreground door, window frame or glass layer is baked into them. The existing interface supplies the fixed glazing.",
+  "camera": "Approximately third-floor height, looking gently down; central subject framing suitable for the existing window aperture.",
+  "delivery": "Proportional downscaling from 1448 by 1086 originals to 800 by 600 and 1400 by 1050; WebP quality 84, method 6. No AI upscaling, compositing or additional image generation after the day/night pair.",
+  "sourceResearch": "research/panoramic-view-references-2026-11-04.json",
+  "prompts": "research/panoramic-view-prompts-2026-11-04.json",
+  "originalRoomCredits": "/aroomtopray-preview/art/arrival-room/CREDITS.json",
+  "visualInspection": "All six generated images reviewed. Elevated viewpoints, clear category subject, evening readability, absence of foreground room/door, and day/evening composition correspondence checked. This is image inspection, not browser rendering.",
+  "sourceFiles": [
+    {
+      "subject": "airport",
+      "variant": "day",
+      "generatedFilename": "exec-4ca58ddd-956b-4a28-9f0f-1602e1dcf0ee.png",
+      "width": 1448,
+      "height": 1086,
+      "sha256": "5023dad40eea8a20553518e4eacc60ee715ac879e452b739af68aff0fa494079"
+    },
+    {
+      "subject": "airport",
+      "variant": "night",
+      "generatedFilename": "exec-b9b8619c-9459-4e1a-9ca9-1f05b97f95c6.png",
+      "width": 1448,
+      "height": 1086,
+      "sha256": "d6bcb998b3addceafa2b848e1787dbee7254243d6c2c23974f40f2d0faec4815"
+    },
+    {
+      "subject": "campus",
+      "variant": "day",
+      "generatedFilename": "exec-3181e5a0-e844-4f4c-83eb-eb203f4c93d8.png",
+      "width": 1448,
+      "height": 1086,
+      "sha256": "8d67a2f54d50d9e991069cc46c376f5a38abf308ef93ff8d97bcdc6dd92fb463"
+    },
+    {
+      "subject": "campus",
+      "variant": "night",
+      "generatedFilename": "exec-295f9c0e-7730-46dc-a201-2d77840f0a9c.png",
+      "width": 1448,
+      "height": 1086,
+      "sha256": "1c3e08c84fd83f1bc3e560b0a44d7f065d8e5b7c237c1847932423fa6cae5d06"
+    },
+    {
+      "subject": "hospital",
+      "variant": "day",
+      "generatedFilename": "exec-7beabbc9-4fdb-4863-a18a-203b5db87791.png",
+      "width": 1448,
+      "height": 1086,
+      "sha256": "bbf2e27b3637bedbf5a40a06e63ce7f5cfb897d8dc897d9e3caf3218d2c2dd2d"
+    },
+    {
+      "subject": "hospital",
+      "variant": "night",
+      "generatedFilename": "exec-efdb598c-46ed-4f21-80a3-9ac4369b21e5.png",
+      "width": 1448,
+      "height": 1086,
+      "sha256": "966854723a7a56f64d8a9b2811a514abbf89e624d3e03810dd4fc33d50daa73c"
+    }
+  ],
+  "files": [
+    {
+      "file": "airport-day-1400.webp",
+      "width": 1400,
+      "height": 1050,
+      "bytes": 123998,
+      "sha256": "3b0148a074b0a3aba39467c0bd47d797ae39f0a00c69985403ed38018f9a1011"
+    },
+    {
+      "file": "airport-day-800.webp",
+      "width": 800,
+      "height": 600,
+      "bytes": 53584,
+      "sha256": "4fb6d8fc6fae8f02c4cfad460eb5424ad6c4f74173953f136484c8dd9aa2e3e2"
+    },
+    {
+      "file": "airport-night-1400.webp",
+      "width": 1400,
+      "height": 1050,
+      "bytes": 120760,
+      "sha256": "d7d5cdd84f9f6f558aa5302ede1c86c82b239bc357472a3a80ed85b60e84dd43"
+    },
+    {
+      "file": "airport-night-800.webp",
+      "width": 800,
+      "height": 600,
+      "bytes": 51592,
+      "sha256": "95ddb776fd14509dd7f8212dcb70af64e016c37fed0f43bfa8e46967209d04e1"
+    },
+    {
+      "file": "campus-day-1400.webp",
+      "width": 1400,
+      "height": 1050,
+      "bytes": 375332,
+      "sha256": "cc0bbe51d9755e9faaf0409f12dc3bcb33ef1756f086ebe12eff42ea5a133559"
+    },
+    {
+      "file": "campus-day-800.webp",
+      "width": 800,
+      "height": 600,
+      "bytes": 154502,
+      "sha256": "aea65906ae8145f70fc3c47022169c759a4cde27141a928bfbc4357b374a1f2c"
+    },
+    {
+      "file": "campus-night-1400.webp",
+      "width": 1400,
+      "height": 1050,
+      "bytes": 281680,
+      "sha256": "b185c7e91aa82b1f4dc4030ad4584723691318ecdd5551df4febf2faf3d1eabf"
+    },
+    {
+      "file": "campus-night-800.webp",
+      "width": 800,
+      "height": 600,
+      "bytes": 115066,
+      "sha256": "5291928a86f9d30fa477b9999b9af8714628ba1fcfe8a89217f57320fb40c9be"
+    },
+    {
+      "file": "hospital-day-1400.webp",
+      "width": 1400,
+      "height": 1050,
+      "bytes": 313368,
+      "sha256": "5e56d3c34e3801f4616ddf3dc6a0c6fba5d25ee2f32d5b26d4f817007b1bf71c"
+    },
+    {
+      "file": "hospital-day-800.webp",
+      "width": 800,
+      "height": 600,
+      "bytes": 128202,
+      "sha256": "b5f3844fd6426e60ea75815f14ba53d21ea9d53cc74d113695a2fc7fcb03bbe8"
+    },
+    {
+      "file": "hospital-night-1400.webp",
+      "width": 1400,
+      "height": 1050,
+      "bytes": 260268,
+      "sha256": "2753a72d50c50a2a3b778535341a40c5f5816e1e02ca15601135581e10b270ea"
+    },
+    {
+      "file": "hospital-night-800.webp",
+      "width": 800,
+      "height": 600,
+      "bytes": 110040,
+      "sha256": "46ff82969acbf8545d57cf397a5d6b8ea167a096b9ee11002a27d7a6faff9812"
+    }
+  ]
+}

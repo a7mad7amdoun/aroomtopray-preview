@@ -1,0 +1,20 @@
+---
+import AppearanceControls from './AppearanceControls.astro';
+import { ROOM_COPY } from '../data/room-copy.js';
+const { locale='en' }=Astro.props;
+const r=ROOM_COPY[locale];
+const settingsLabel={en:'Light settings',fr:'Réglages de lumière',ar:'إعدادات الإضاءة',es:'Ajustes de luz'}[locale];
+---
+<div class="room-light-panel" dir={locale==='ar'?'rtl':'ltr'} data-room-tour-interaction hidden data-room-light-control>
+  <div class="room-light">
+    <button type="button" class="light-switch" data-room-light aria-describedby="room-light-state" aria-label={r.light} aria-pressed="true" title={r.light}>
+      <span class="switch-rocker" aria-hidden="true"><svg class="light-icon-sun" width="18" height="18"><use href="#i-sun"/></svg><svg class="light-icon-moon" width="18" height="18"><use href="#i-moon"/></svg></span>
+    </button>
+    <small id="room-light-state" data-room-light-state data-light={r.on} data-dark={r.off}></small>
+    <span class="sr" data-room-light-status role="status"></span>
+  </div>
+  <details class="room-light-settings">
+    <summary aria-label={settingsLabel} title={settingsLabel}><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="4" cy="10" r="1.4" fill="currentColor"/><circle cx="10" cy="10" r="1.4" fill="currentColor"/><circle cx="16" cy="10" r="1.4" fill="currentColor"/></svg></summary>
+    <AppearanceControls {locale} languageLinks={[]} showLanguage={false}/>
+  </details>
+</div>

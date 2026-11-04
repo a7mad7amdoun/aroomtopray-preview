@@ -16,8 +16,7 @@ html .room-environment { position:relative; display:block; pointer-events:auto; 
 /* Inner pages keep a shorter arrival before the practical guide. */
 .room-environment:not([data-room-presentation=home]) { --room-stage-gap:24px; --room-threshold-gap:16px; --room-opening-height:250px; --room-mobile-canvas:620px; }
 .room-architecture::after { content:''; position:absolute; z-index:1; inset:0; pointer-events:none; background:linear-gradient(90deg,transparent 12%,color-mix(in srgb,var(--bg) 28%,transparent) 48%,var(--bg) 100%); }
-.room-architecture .room-canvas { position:absolute; left:0; top:0; width:min(100vw,calc((100svh - var(--room-header-height)) * 2)); height:auto; aspect-ratio:2/1; transform:none; opacity:1; transition:opacity var(--room-recede-duration) cubic-bezier(.22,.61,.36,1); }
-.room-environment[data-room-reading=true] .room-canvas { opacity:.24; }
+.room-architecture .room-canvas { position:absolute; left:0; top:0; width:min(100vw,calc((100svh - var(--room-header-height)) * 2)); height:auto; aspect-ratio:2/1; transform:none; opacity:var(--room-visibility,1); transition:opacity 120ms linear; }
 .room-environment[data-room-reading=true] .room-art-note { opacity:0; }
 .room-architecture .room-canvas::after { content:''; position:absolute; z-index:1; inset:0; pointer-events:none; background:linear-gradient(transparent 90%,var(--bg)),linear-gradient(90deg,transparent 82%,var(--bg)); }
 .room-environment .room-art-note { position:absolute; inset:auto auto 24px 24px; width:min(190px,calc(var(--room-rail) * .47)); max-width:none; font-size:.75rem; line-height:1.55; background:var(--surface); color:var(--muted); border:1px solid var(--line); padding:10px 12px; border-radius:4px; transition:opacity var(--room-recede-duration) ease; }

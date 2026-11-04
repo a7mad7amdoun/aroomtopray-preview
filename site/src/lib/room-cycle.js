@@ -1,7 +1,7 @@
 export const ROOM_CYCLE_DELAY = 14000;
 
 // A background tour never changes a route, a form, keyboard focus or live status.
-export function initRoomCycle(room, browser, links, preview, onStart) {
+export function initRoomCycle(room, browser, links, preview) {
  const control=room.querySelector('[data-room-cycle]');
  if(!control || room.dataset.roomPresentation!=='home' || links.length<2) return;
  const label=control.querySelector('[data-room-cycle-label]');
@@ -15,13 +15,14 @@ export function initRoomCycle(room, browser, links, preview, onStart) {
  // long mobile introduction can remain visible after its views have left.
  const scenery=room.querySelector('[data-room-scenery]')||room.querySelector('.room-stage')||room;
  const media=browser.matchMedia?.('(prefers-reduced-motion: reduce)');
- // Scenery is quiet on arrival. A visitor opts into the tour, regardless of
- // their motion/data preferences; later interruptions never restart it.
- let userPaused=true,hasStarted=false;
+ // The homepage changes slowly without changing the guide. Motion and data
+ // preferences keep it still until an explicit request; a pause survives restore.
+ let userPaused=Boolean(media?.matches || browser.navigator?.connection?.saveData);
+ let hasStarted=!userPaused;
  const hovered=new Set();
  let focused=false,visible=true,away=false,timer=null;
  const clear=()=>{if(timer!==null){browser.clearTimeout(timer);timer=null;}};
- const canRun=()=>!userPaused&&!hovered.size&&!focused&&visible&&!away&&!doc?.hidden&&room.dataset.doorState==='open';
+ const canRun=()=>!userPaused&&!hovered.size&&!focused&&visible&&!away&&!doc?.hidden;
  const schedule=()=>{
   clear();
   if(!canRun()) return;
@@ -46,7 +47,7 @@ export function initRoomCycle(room, browser, links, preview, onStart) {
   // Resuming is an explicit request, including while the button still has
   // keyboard focus or the pointer remains over it. Subsequent interaction
   // with the guide or destination notices can pause the tour again.
-  if(!userPaused){hasStarted=true;hovered.clear();focused=false;onStart?.();}
+  if(!userPaused){hasStarted=true;hovered.clear();focused=false;}
   updateControl(true);
  });
  for(const interaction of interactions){

@@ -6,8 +6,8 @@ interface Labels {
   language: string; appearance: string; auto: string; light: string; dark: string;
   themeSaved: string; themeUnsaved: string;
 }
-interface Props { locale?: string; languageLinks: LanguageLink[]; labels?: Partial<Labels> }
-const { locale = 'en', languageLinks, labels = {} } = Astro.props;
+interface Props { locale?: string; languageLinks: LanguageLink[]; labels?: Partial<Labels>; showLanguage?: boolean; showTheme?: boolean }
+const { locale = 'en', languageLinks, labels = {}, showLanguage = true, showTheme = true } = Astro.props;
 const translations: Record<string, Labels> = {
   en: { language: 'Language', appearance: 'Appearance', auto: 'System', light: 'Light', dark: 'Dark', themeSaved: 'Appearance preference saved on this device.', themeUnsaved: 'Appearance changed for this page. Your browser could not save the preference.' },
   fr: { language: 'Langue', appearance: 'Apparence', auto: 'Système', light: 'Clair', dark: 'Sombre', themeSaved: 'Préférence d’apparence enregistrée sur cet appareil.', themeUnsaved: 'Apparence modifiée pour cette page. Votre navigateur n’a pas pu enregistrer la préférence.' },
@@ -17,7 +17,7 @@ const translations: Record<string, Labels> = {
 const copy = { ...(translations[locale] || translations.en), ...labels };
 ---
 <div class="appearance-controls" data-appearance-controls data-theme-saved={copy.themeSaved} data-theme-unsaved={copy.themeUnsaved}>
-  <label class="appearance-field">
+  {showLanguage && <label class="appearance-field">
     <span class="appearance-label">{copy.language}</span>
     <span class="appearance-select appearance-language">
     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9" /><ellipse cx="12" cy="12" rx="4" ry="9" /><path d="M3 12h18" /></svg>
@@ -26,8 +26,8 @@ const copy = { ...(translations[locale] || translations.en), ...labels };
     </select>
     <svg class="appearance-chevron" viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m3 4.5 3 3 3-3" /></svg>
     </span>
-  </label>
-  <label class="appearance-field">
+  </label>}
+  {showTheme && <label class="appearance-field">
     <span class="appearance-label">{copy.appearance}</span>
     <span class="appearance-select appearance-theme">
     <svg class="theme-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8.5" /><path d="M12 3.5a8.5 8.5 0 0 1 0 17Z" fill="currentColor" stroke="none" /></svg>
@@ -38,8 +38,8 @@ const copy = { ...(translations[locale] || translations.en), ...labels };
     </select>
     <svg class="appearance-chevron" viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m3 4.5 3 3 3-3" /></svg>
     </span>
-  </label>
+  </label>}
   <p class="appearance-status sr" data-appearance-status role="status" aria-live="polite"></p>
 </div>
-<noscript><nav class="appearance-fallback" aria-label={copy.language}>{languageLinks.map(link => <a href={link.href} lang={link.code} hreflang={link.code} aria-current={link.code === locale ? 'page' : undefined}>{link.label}</a>)}</nav></noscript>
+{showLanguage && <noscript><nav class="appearance-fallback" aria-label={copy.language}>{languageLinks.map(link => <a href={link.href} lang={link.code} hreflang={link.code} aria-current={link.code === locale ? 'page' : undefined}>{link.label}</a>)}</nav></noscript>}
 <script>import '../scripts/appearance.js';</script>

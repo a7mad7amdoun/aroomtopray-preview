@@ -1,0 +1,63 @@
+A ROOM TO PRAY — THE PANORAMIC ROOM
+
+Keep the original arrival-room interior approved in c900056f6: its quiet plaster,
+long light line, timber junction, solid prayer-facing recess and complete mat.
+The room is the atmosphere of the welcome, not a separate photograph card.
+
+Replace the opening metaphor with a fixed glass wall. Remove the opening button,
+leaf, handle, hinges, thresholds and scripted opening journey. Keep a realistic
+slender frame, modest reflections and uninterrupted transparent views. Commission
+original airport, university and hospital exterior scenes from an upper floor,
+with clear depth below the viewer. Each has a matching daylight/evening version.
+The exterior is illustrative context, never evidence of an actual listed room.
+
+Use the full welcome width. Let the room gently recede with scrolling; text,
+search, controls, maps and factual information never move or fade with it. Keep
+reading areas opaque in the active palette. The mobile layout preserves the mat
+and fixed glass, then places the guide below with comfortable touch targets.
+
+Mount the light switch inside the room on the solid wall, in an obvious corner,
+clear of the prayer-facing recess and view. One switch changes light/dark; a
+small native settings disclosure retains System/Light/Dark. Keep language in
+the menu. Never duplicate the same full appearance panel in two places.
+
+Give A Room to Pray strong Archivo typography, inspired by Hamza's broad heavy
+wordmark, navy/ivory/yellow palette and useful wayfinding. Move the small directory
+subtitle into the menu. Make the three main destinations and visitor tools
+clearly ordered. Retain every supporting route, language, context and search hook.
+
+Typeset the Adhan invitation as a respectful architectural inscription: carefully
+spaced live text, refined weight, generous line height, and Noto Naskh Arabic with
+the same care as other languages. Keep its wording accurate and readable. Do not
+turn sacred text into a decorative logo, image-generated lettering or animation.
+
+Homepage scenery automatically crossfades between the three contexts after a
+long quiet dwell. Offer a clear pause/resume control. Honor reduced-motion and
+data-saving preferences, pause offscreen/background or during interaction, and
+never announce automatic changes to screen readers. Category pages keep their
+own setting. Where supported, native cross-document transitions blend scenery
+only; navigation must remain immediate and usable without motion support.
+
+Give category information a shared structure with purposeful differences: an
+airport departures board, a university notice-board edge, and an orderly hospital
+information board. Use live HTML labels and actual records, never fictitious
+patient results or image-baked functional text. Preserve every fact, restriction,
+source, photo, translation, record, map, filter, saved place and visitor tool.
+
+Use Pinterest as atmosphere and material research, not a composition to copy.
+Use original generated exterior artwork and keep real source photos separately
+credited. No invented rooms, verification dates, access conditions or affiliations.
+
+Implementation: keep Astro and current components; edit owning styles; remove
+obsolete opening code; introduce only useful shared room-light markup. Preserve
+other working-tree map work. Check source cascade, contrast, responsive geometry,
+keyboard/native interactions and all exported routes. Report browser visual QA
+as unavailable while the existing session URL-policy block remains. Publish only
+Ahmed's authorized GitHub Pages review preview, never Hamza's live website.
+
+APPLIED REFERENCE DETAILS
+The user's oak-framed whiteboard informs the campus board's timber binding and
+paper-like hierarchy. The user's wall-mounted translucent plaques inform the
+hospital board's subtle depth and corner fasteners; the reading backing stays
+opaque. A separately inspected airport split-flap board informs aligned rows,
+strong headings and steady text, without incessant flip animations.

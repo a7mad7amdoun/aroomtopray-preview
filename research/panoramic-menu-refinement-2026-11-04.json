@@ -1,0 +1,70 @@
+{
+  "date": "2026-11-04",
+  "scope": "Masthead and visitor-tools menu for the fixed panoramic prayer room",
+  "direction": "Use a larger, wider Archivo wordmark, three stable destination links and a concise visitor-tools sheet. The room carries lighting; the menu carries language. Move the secondary directory descriptor into the open menu rather than under the brand.",
+  "sources": [
+    {
+      "url": "https://aroomtopray.com/",
+      "method": "Web source extraction on 2026-11-04",
+      "observed": "Airports, Universities and Hospitals remain primary destinations. Planner, Travel guide, Rooms won and About are useful supporting navigation. The page emphasizes practical facts and linked sources."
+    },
+    {
+      "url": "https://aroomtopray.com/_astro/about.C41yr70D.css",
+      "method": "Existing 2026-11-02 direct-CSS record in research/quiet-threshold-research.json; current direct HTML request returned HTTP403 and CSS web-open was unavailable",
+      "observed": "Recorded original brand uses Archivo Variable, weight800 and width120%; original navy background is #0A111C and yellow #FFC629.",
+      "application": "Retain the existing self-hosted Archivo and semantic palette. Use weight780 and width110% for the enlarged masthead to balance sign character with practical navigation width. Arabic navigation keeps Noto Naskh Arabic."
+    },
+    {
+      "url": "https://i.pinimg.com/1200x/b1/2c/bf/b12cbf95ba011522f89c6125f80e1217.jpg",
+      "method": "Visually inspected by the root agent through the allowed CUA surface on 2026-11-04; description relayed to this implementation agent.",
+      "observed": "Light oak-framed whiteboard, pinned papers and photos, quiet navy sample, ivory wall.",
+      "application": "Reuse the existing campus timber color #a28765 on the notice-board rail and heading edge. Preserve paper-style active tabs and a single small binding clip; do not reproduce pinned content."
+    },
+    {
+      "url": "https://i.pinimg.com/1200x/46/12/08/461208af760ff149834e8ebd1aab9b3f.jpg",
+      "method": "Visually inspected by the root agent through the allowed CUA surface on 2026-11-04; description relayed to this implementation agent.",
+      "observed": "An orderly grid of translucent navy and muted-color wall plaques with four metal corner stand-offs and aligned headings.",
+      "application": "A navy hospital information-board heading gets a restrained tint, an edge highlight and four tiny noninteractive corner fixings. Existing navy/ivory/yellow tokens remain; no orange, fake results or institutional signs."
+    }
+  ],
+  "implementation": [
+    "HeaderNavigation removes the subtitle from the brand and places the same translated descriptor in the menu heading.",
+    "The menu keeps every existing destination, supporting link, search target, language target and interaction hook.",
+    "AppearanceControls supports showLanguage and showTheme, both true by default. Header uses showTheme=false; room controls use showLanguage=false without duplicating behavior.",
+    "Owning navigation styles are edited in place. No extra override sheet or script is added.",
+    "Only opacity and color transitions remain; reduced-motion removes those transitions and menu entrance animation."
+  ],
+  "checksPerformed": {
+    "astroCompiler": "HeaderNavigation and AppearanceControls transformed with no diagnostics",
+    "cssParser": "premium-navigation.css parsed successfully with PostCSS",
+    "focusedTests": "13 passing navigation, theme-preference and localized-routes tests",
+    "diffWhitespace": "git diff --check passed",
+    "responsiveReview": "Source/CSS arithmetic only at360,390,600,760,768,1024,1201,1280 and1440px; brand estimate used actual base font glyph advances with declared width and letterspacing. Not browser text measurement."
+  },
+  "limitations": [
+    "No rendered browser, real phone or iOS validation. Existing session browser URL-policy restriction was respected.",
+    "Current live stylesheet was not freshly fetched successfully; original typography comparison uses the dated source capture."
+  ],
+  "categoryBoards": {
+    "scope": "Only visual-reading.css; no directory markup, data, text, queries or controls changed.",
+    "airport": "Existing navy/yellow departures tab language preserved.",
+    "universities": "Existing campus timber material on a squared binding rail and heading edge, paper active tabs, and a small noninteractive edge clip.",
+    "hospitals": "Divided square tabs and a softly tinted navy plaque heading with four 6px stand-off fixings inside its empty corners. An opaque backing protects text contrast. No simulated medical results or clinical iconography.",
+    "contrast": {
+      "hospitalHeading": 14.59,
+      "universitySelectedLight": 15.67,
+      "universitySelectedDark": 14.43,
+      "hospitalSelectedLight": 13.12,
+      "hospitalSelectedDark": 12.26,
+      "minimumSelectedIcon": 6.08,
+      "hospitalFocusLightOnBoard": 3.78,
+      "hospitalFocusLightOnControl": 4.11,
+      "hospitalFocusDarkOnBoardAndControl": 5.58,
+      "hospitalHeadingGradientMinimum": 13.53,
+      "hospitalFocusLightOnGradient": 3.5,
+      "hospitalFocusDarkOnGradient": 5.61
+    },
+    "responsiveReview": "No new fixed content dimensions. Existing 58px minimum tabs and wrapping remain. University clip 40×6px sits above toolbar padding; hospital fixings fit inside empty 14px corner squares. Pseudo-elements use pointer-events:none, contain no text and are hidden for print. Logical start positioning follows RTL.",
+    "verification": "PostCSS parsing and git diff --check passed; contrast calculated from paired semantic token colors. Source-only review, not rendered validation."
+  }
+}

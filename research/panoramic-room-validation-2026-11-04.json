@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-04",
+  "baseline": "c900056f6b65f5e4a192f85e87576233e14b1ea9",
+  "scope": "Approved room retained; fixed upper-floor glazing, six original exterior scenes, integrated light controls, larger brand/menu, category signage treatments and progressive scenery fade.",
+  "tests": {
+    "command": "pnpm --dir site test",
+    "passed": 207,
+    "failed": 0
+  },
+  "build": {
+    "pages": 2177,
+    "export": "GitHub Pages review preview only",
+    "passed": true
+  },
+  "contentPreservation": {
+    "records": 536,
+    "localizedDetailPages": 2144,
+    "locales": [
+      "en",
+      "fr",
+      "ar",
+      "es"
+    ],
+    "routes": 2177,
+    "originalArtAndPhotoFiles": 419,
+    "passed": true
+  },
+  "interactionChecks": {
+    "directoryPages": 12,
+    "localizedRoomScenarios": 24,
+    "generalScenarios": 37,
+    "passed": true
+  },
+  "sourceGeometry": {
+    "cases": 576,
+    "assertions": 40728,
+    "includesWidths": [
+      360,
+      390
+    ],
+    "passed": true
+  },
+  "contrast": {
+    "semanticPairs": 32,
+    "wallDayMinimum": 5.44,
+    "wallNightMinimum": 9.94,
+    "passed": true
+  },
+  "exportLinks": {
+    "pages": 2177,
+    "mounted_assets": 80,
+    "broken_links": 0,
+    "inline_script_check": "pass",
+    "rendered_visual_check": false
+  },
+  "pendingWork": "11 unrelated pending map files and their original diff preserved byte-for-byte.",
+  "limitations": [
+    "No rendered browser or iOS Simulator review was available because of the existing browser URL-policy restriction.",
+    "Geometry and interaction checks are source/offline DOM checks, not screenshots.",
+    "Native scenery page dissolves are progressive enhancement; unsupported browsers navigate normally."
+  ],
+  "evidenceDirectory": ".local/panoramic-room/"
+}

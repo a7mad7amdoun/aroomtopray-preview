@@ -5,6 +5,9 @@ export function initRoomMotion(doc=document,browser=window) {
  if(!room||room.dataset.roomMotionReady==='true')return;
  const header=doc.querySelector('.room-header');
  const stage=room.querySelector?.('.room-stage');
+ const scenery=room.querySelector?.('[data-room-scenery]');
+ const motion=browser.matchMedia?.('(prefers-reduced-motion: reduce)');
+ let lastVisibility;
  let frame=null,away=false,lastHeaderHeight,stageObserver=null,refreshStage=false,lastScrollY=browser.scrollY??0;
  const setReading=bounds=>{
   if(!stage)return;
@@ -30,6 +33,22 @@ export function initRoomMotion(doc=document,browser=window) {
   stageObserver=observer;
   observer.observe(stage);
  };
+ const updateVisibility=()=>{
+  if(!scenery)return;
+  let visibility=1;
+  if(!motion?.matches){
+   const bounds=scenery.getBoundingClientRect?.();
+   if(Number.isFinite(bounds?.top)&&Number.isFinite(bounds?.height)&&bounds.height>0){
+    const progress=Math.min(1,Math.max(0,((lastHeaderHeight??0)-bounds.top)/(bounds.height*.75)));
+    visibility=1-.84*progress;
+   }
+  }
+  const value=String(Math.round(visibility*1000)/1000);
+  if(value!==lastVisibility){
+   room.style?.setProperty('--room-visibility',value);
+   lastVisibility=value;
+  }
+ };
  const measure=()=>{
   frame=null;
   if(away||doc.hidden)return;
@@ -43,6 +62,9 @@ export function initRoomMotion(doc=document,browser=window) {
     headerChanged=true;
    }
   }
+  // Only the decorative canvas consumes this value. Reading content and room
+  // controls stay fully visible, and no content position or focus is changed.
+  updateVisibility();
   // An anchor jump can take a short stage from below to above the viewport
   // between observer samples, leaving isIntersecting false at both ends.
   const scrollY=browser.scrollY??0;
@@ -61,6 +83,7 @@ export function initRoomMotion(doc=document,browser=window) {
   disconnectStage();
  };
  const refresh=()=>{refreshStage=true;schedule();};
+ motion?.addEventListener?.('change',schedule);
  browser.addEventListener('scroll',schedule,{passive:true});
  browser.addEventListener('resize',refresh,{passive:true});
  browser.addEventListener('pageshow',()=>{away=false;schedule();});

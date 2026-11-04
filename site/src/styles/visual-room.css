@@ -12,7 +12,7 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
 .room-environment .room-stage {
   display:grid; grid-template-columns:minmax(0,1.16fr) minmax(0,.84fr);
   grid-template-rows:auto auto; align-items:center; gap:0; direction:ltr;
-  max-width:var(--room-reading-width); margin:0 auto var(--room-stage-gap); padding:0;
+  max-width:none; margin:0 calc(-1 * var(--room-gutter)) var(--room-stage-gap); padding:0;
   border:0; border-radius:0; background:transparent; box-shadow:none; container-type:normal;
 }
 .room-environment .room-architecture {
@@ -37,42 +37,57 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
   font-size:.625rem; line-height:1.5; border:0; background:var(--surface);
 }
 .room-wall-quote {
-  position:absolute; z-index:1; left:39%; top:28%; width:9.7%; margin:0;
-  color:var(--room-inscription); font:550 clamp(.5rem,1cqi,.875rem)/1.55 var(--f-body);
-  letter-spacing:-.015em; text-align:center;
+  position:absolute; z-index:1; left:38.9%; top:40%; width:10%; margin:0;
+  color:var(--room-inscription); font:450 clamp(.625rem,1.05cqi,1.0625rem)/1.8 var(--f-body);
+  letter-spacing:.015em; text-align:center; text-wrap:balance;
 }
 .room-wall-quote span { display:block; }
-.room-wall-quote:lang(ar) { font-family:var(--f-arabic); font-size:clamp(.625rem,1.2cqi,1rem); letter-spacing:0; line-height:1.6; }
+.room-wall-quote span+span { margin-top:.7em; }
+.room-wall-quote:lang(ar) { font-family:var(--f-arabic); font-size:clamp(.875rem,1.5cqi,1.5rem); font-weight:400; letter-spacing:0; line-height:1.85; }
 .room-environment[data-room-presentation] .room-arrival-copy {
   position:relative; z-index:2; grid-column:2; grid-row:1; display:block;
-  width:100%; margin:0; padding:clamp(32px,4vw,64px) 0 clamp(32px,4vw,64px) 24px;
+  width:100%; margin:0; padding:clamp(32px,4vw,64px) var(--room-gutter) clamp(32px,4vw,64px) 28px;
   border:0; border-radius:0; background:transparent; box-shadow:none;
 }
 /* Airport arrivals keep the practical departure-sign surface and its explicit
    palette. The wider guide below remains theme-aware, just like other places. */
 .room-environment[data-room-setting=airports] .room-arrival-copy {
-  margin-block:28px; padding:28px; border-radius:6px; border-top:3px solid var(--sign); background:var(--board);
+  margin:28px var(--room-gutter) 28px 0; width:auto; padding:28px; border-radius:6px; border-top:3px solid var(--sign); background:var(--board);
 }
 .room-environment .room-scene-tools {
   grid-column:1/-1; grid-row:2; position:relative; z-index:4;
   display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px 24px;
-  width:100%; padding:16px 0; border:0; border-block:1px solid var(--line);
+  width:auto; margin-inline:var(--room-gutter); padding:16px 0; border:0; border-bottom:1px solid var(--line);
 }
-.room-environment .room-control-bar {
-  position:static; inset:auto; width:auto; max-width:none; min-height:44px;
-  justify-content:flex-start; gap:10px; margin:0;
+.room-scene-tools .room-atmosphere-controls { width:100%; justify-content:space-between; gap:16px; }
+/* A physical light plaque on the quiet upper wall, outside the scenery canvas
+   so scroll fading never reduces the contrast of an interactive control. */
+.room-architecture .room-light-panel {
+  position:absolute; z-index:5; top:9%; right:calc(42% + 16px);
+  display:flex; align-items:center; gap:2px; padding:8px;
+  border:1px solid var(--field); border-radius:7px;
+  background:var(--surface); color:var(--ink); box-shadow:0 2px 5px #101a2814;
+  pointer-events:auto;
 }
-.room-environment .room-control-bar .door-action-caption,
-.room-environment .room-control-bar .room-light { border-color:var(--line); border-radius:5px; box-shadow:none; }
-.room-scene-tools .room-atmosphere-controls { justify-content:space-between; gap:16px; }
+.room-light-panel .room-light { position:static; display:flex; flex-direction:column; gap:4px; width:auto; margin:0; padding:0; }
+.room-light-panel .light-switch { display:grid; place-items:center; width:44px; height:44px; min-height:44px; padding:4px; border:0; border-radius:4px; box-shadow:none; background:var(--surface-2); }
+.room-light-panel .switch-rocker { width:28px; height:34px; border-radius:3px; }
+.room-light-panel .room-light>small { display:block; max-width:none; padding:0; border:0; background:transparent; color:var(--ink); font:550 .75rem/1.4 var(--f-body); }
+.room-light-settings { position:relative; align-self:start; }
+.room-light-settings>summary { display:grid; place-items:center; min-width:44px; min-height:44px; padding:0; list-style:none; border-radius:4px; cursor:pointer; }
+.room-light-settings>summary::-webkit-details-marker { display:none; }
+.room-light-settings>summary:is(:hover,:focus-visible) { background:var(--surface-2); }
+.room-light-settings>.appearance-controls { position:absolute; top:calc(100% + 12px); right:0; left:auto; width:210px; max-width:70vw; margin:0; padding:16px; border:1px solid var(--field); border-radius:7px; background:var(--surface); color:var(--ink); box-shadow:0 8px 24px #0a111c26; }
+.js .room-light-settings>.appearance-controls { display:grid; grid-template-columns:minmax(0,1fr); gap:12px; }
+.room-light-panel :is(button,summary,select):focus-visible { outline:3px solid var(--focus); outline-offset:3px; }
 /* Detail/support arrivals occupy less vertical space than the home welcome. */
 .room-environment:is([data-room-presentation=detail],[data-room-presentation=support]) .room-architecture { max-width:1120px; }
 .room-environment:is([data-room-presentation=detail],[data-room-presentation=support]) .room-arrival-copy { padding-block:28px; }
 .room-main .room-arrival-copy h1 { font-weight:650; letter-spacing:-.035em; }
 .room-main .room-home-intro h1 {
-  font-size:clamp(2.75rem,4vw,4rem); line-height:1.12; max-width:18ch;
+  font-size:clamp(3.1rem,5.3vw,5.5rem); line-height:1.03; max-width:14ch; font-weight:780; font-stretch:112%; letter-spacing:-.045em; text-wrap:balance;
 }
-.room-main .room-home-intro h1>span { color:var(--muted); font-weight:450; }
+.room-main .room-home-line { margin:18px 0 24px; color:var(--muted); font:450 clamp(1.35rem,2vw,1.875rem)/1.4 var(--f-display); letter-spacing:-.02em; }
 .room-main .room-arrival-copy .room-introduction { max-width:53ch; line-height:1.7; }
 .room-main .room-arrival-copy .room-eyebrow { letter-spacing:.02em; margin-bottom:22px; }
 .room-main .room-arrival-copy .room-eyebrow>span { width:7px; height:7px; border-radius:50%; }
@@ -105,20 +120,21 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
 
 
 @media(max-width:1100px) and (min-width:761px) {
-  .room-main .room-home-intro h1 { font-size:clamp(2.65rem,4.5vw,3.5rem); }
+  .room-main .room-home-intro h1 { font-size:clamp(3.2rem,5vw,4.25rem); }
   .room-environment[data-room-presentation] .room-arrival-copy { padding-block:28px; padding-left:18px; }
   .room-environment[data-room-setting=airports] .room-arrival-copy { padding:24px; }
 }
 @media(max-width:1000px) {
   .room-environment .room-stage { grid-template-columns:minmax(0,1fr); }
-  .room-environment .room-architecture { grid-column:1; grid-row:1; width:100%; max-width:640px; margin-inline:auto; aspect-ratio:1.1; }
+  .room-environment .room-architecture { grid-column:1; grid-row:1; width:100%; max-width:720px; margin-inline:auto; aspect-ratio:1.1; }
   .room-environment .room-canvas { width:181.818182%; }
   .room-environment:not([data-room-presentation=home]) .room-architecture { max-width:480px; }
   .room-environment .room-architecture::after { display:none; }
+  .room-architecture .room-light-panel { right:12px; top:5.5%; }
   .room-environment .room-art-note { width:42%; }
   .room-environment .room-scene-tools { grid-column:1; grid-row:2; }
-  .room-environment[data-room-presentation] .room-arrival-copy { grid-column:1; grid-row:3; padding:28px 0 8px; }
-  .room-environment[data-room-setting=airports] .room-arrival-copy { margin-block:24px 0; padding:24px; }
+  .room-environment[data-room-presentation] .room-arrival-copy { grid-column:1; grid-row:3; padding:28px var(--room-gutter) 8px; }
+  .room-environment[data-room-setting=airports] .room-arrival-copy { margin:24px var(--room-gutter) 0; padding:24px; }
   .room-main .room-home-intro h1 { max-width:21ch; }
 }
 @media(max-width:760px) {
@@ -129,16 +145,16 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
   .room-environment .room-scene-tools { gap:12px; padding:14px 0; }
   .room-scene-tools .room-atmosphere-controls { width:100%; }
   .room-environment[data-room-presentation] .room-arrival-copy { padding-top:28px; }
-  .room-main .room-home-intro h1 { font-size:clamp(2.4rem,8vw,3.25rem); }
+  .room-main .room-home-intro h1 { font-size:clamp(2.8rem,10vw,3.75rem); }
   .room-main .room-arrival-copy .room-eyebrow { margin-bottom:18px; }
   .room-main .room-arrival-copy .room-introduction { font-size:1.0625rem; }
   .room-main .place-search-field { min-height:64px; }
 }
 html[dir=rtl] .room-main .room-arrival-copy h1 { letter-spacing:0; line-height:1.45; }
-html[dir=rtl] .room-main .room-home-intro h1>span { font-weight:400; }
+html[dir=rtl] .room-main .room-home-line { letter-spacing:0; line-height:1.7; }
 @media print {
   .room-environment .room-stage { display:block; border:0; background:none; box-shadow:none; }
-  .room-environment .room-scene-tools { display:none; }
+  .room-environment .room-scene-tools,.room-architecture .room-light-panel { display:none; }
   .room-environment[data-room-presentation] .room-arrival-copy { padding:0; border:0; background:#fff; box-shadow:none; }
   .room-main .room-home-intro h1 { font-size:24pt; }
 }

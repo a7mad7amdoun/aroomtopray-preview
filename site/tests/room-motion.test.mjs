@@ -1,12 +1,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {initRoomMotion} from '../src/scripts/room-motion.js';
-const target=()=>{const listeners=new Map();return{listeners,addEventListener(type,fn){const list=listeners.get(type)||[];list.push(fn);listeners.set(type,list);},emit(type){for(const fn of listeners.get(type)||[])fn();}};};
-function fixture({withStage=false,withIntersectionObserver=true,reducedMotion=false}={}){
- const doc=target(),browser=target(),room={dataset:{roomPresentation:'home'}},values=new Map(),writes=[],frames=new Map(),intersections=[];let serial=0,headerBottom=94,stageBottom=900,observer,stageReads=0;
+const target=()=>{const listeners=new Map();return{listeners,addEventListener(type,fn){const list=listeners.get(type)||[];list.push(fn);listeners.set(type,list);},emit(type,values={}){for(const fn of listeners.get(type)||[])fn(values);}};};
+function fixture({withStage=false,withScenery=false,withIntersectionObserver=true,reducedMotion=false}={}){
+ const doc=target(),browser=target(),room={dataset:{roomPresentation:'home'}},values=new Map(),writes=[],frames=new Map(),intersections=[],media=target();let serial=0,headerBottom=94,stageBottom=900,sceneryTop=94,sceneryHeight=600,observer,stageReads=0,sceneryReads=0;
  const header={getBoundingClientRect:()=>({bottom:headerBottom})};
  const stage={getBoundingClientRect:()=>{stageReads++;return{bottom:stageBottom};}};
- room.querySelector=selector=>withStage&&selector==='.room-stage'?stage:null;
+ const scenery={getBoundingClientRect:()=>{sceneryReads++;return{top:sceneryTop,height:sceneryHeight};}};
+ room.querySelector=selector=>withStage&&selector==='.room-stage'?stage:withScenery&&selector==='[data-room-scenery]'?scenery:null;
+ room.style={setProperty:(key,value)=>{values.set(key,value);writes.push([key,value]);}};
  doc.documentElement={style:{setProperty:(key,value)=>{values.set(key,value);writes.push([key,value]);}}};
  doc.querySelector=selector=>selector==='.room-environment'?room:selector==='.room-header'?header:null;
  browser.scrollY=0;
@@ -27,11 +29,11 @@ function fixture({withStage=false,withIntersectionObserver=true,reducedMotion=fa
    if(isIntersecting!==this.previousIntersection){this.previousIntersection=isIntersecting;this.callback([{target:stage,boundingClientRect:{bottom},isIntersecting}]);}
   }
  };
- browser.matchMedia=()=>({matches:reducedMotion});
+ media.matches=reducedMotion;browser.matchMedia=()=>media;
  browser.scrollTo=()=>assert.fail('Room alignment must not scroll the page');doc.activeElement={id:'search'};
  const controller=initRoomMotion(doc,browser);
  const flush=()=>{const callbacks=[...frames.values()];frames.clear();for(const fn of callbacks)fn();};
- return{doc,browser,room,values,writes,frames,controller,flush,intersections,stage:value=>stageBottom=value,stageReads:()=>stageReads,header:value=>headerBottom=value,resizeHeader:()=>observer()};
+ return{doc,browser,room,values,writes,frames,controller,flush,intersections,media,scenery:(top,height=600)=>{sceneryTop=top;sceneryHeight=height;},sceneryReads:()=>sceneryReads,stage:value=>stageBottom=value,stageReads:()=>stageReads,header:value=>headerBottom=value,resizeHeader:()=>observer()};
 }
 test('scrolling coalesces header measurements without moving the room or changing user context',()=>{
  const f=fixture(),url=f.browser.location.href,focus=f.doc.activeElement,dataset={...f.room.dataset};f.browser.scrollY=400;
@@ -159,4 +161,58 @@ test('batched observer deliveries use the most recent stage entry',()=>{
   {target:f.room.querySelector('.room-stage'),boundingClientRect:{bottom:94}},
  ]);
  assert.equal(f.room.dataset.roomReading,'false');
+});
+
+
+test('the room panorama fades progressively as it passes the header without changing guide context',()=>{
+ const f=fixture({withScenery:true,withStage:true}),url=f.browser.location.href,focus=f.doc.activeElement;
+ assert.equal(f.values.get('--room-visibility'),'1');
+ f.scenery(194);f.browser.emit('scroll');f.flush();assert.equal(f.values.get('--room-visibility'),'1');
+ f.scenery(94-225);f.browser.scrollY=225;f.browser.emit('scroll');f.flush();assert.equal(f.values.get('--room-visibility'),'0.58');
+ f.scenery(94-450);f.browser.scrollY=450;f.browser.emit('scroll');f.flush();assert.equal(f.values.get('--room-visibility'),'0.16');
+ f.scenery(-2000);f.browser.emit('scroll');f.flush();assert.equal(f.values.get('--room-visibility'),'0.16');
+ f.scenery(94);f.browser.scrollY=0;f.browser.emit('scroll');f.flush();assert.equal(f.values.get('--room-visibility'),'1');
+ assert.equal(f.browser.location.href,url);assert.equal(f.doc.activeElement,focus);
+ assert.equal(f.room.dataset.roomReading,'false');
+ assert.deepEqual([...f.values.keys()],['--room-header-height','--room-visibility']);
+});
+
+test('panorama geometry is read once per queued frame and rounded unchanged opacity is not rewritten',()=>{
+ const f=fixture({withScenery:true}),initialReads=f.sceneryReads(),initialWrites=f.writes.length;
+ f.scenery(-131);for(let i=0;i<25;i++)f.browser.emit('scroll');
+ assert.equal(f.sceneryReads(),initialReads);assert.equal(f.frames.size,1);f.flush();
+ assert.equal(f.sceneryReads(),initialReads+1);assert.equal(f.writes.length,initialWrites+1);
+ f.scenery(-131.01);f.browser.emit('scroll');f.flush();assert.equal(f.writes.length,initialWrites+1);
+ f.scenery(-132);f.browser.emit('scroll');f.flush();assert.equal(f.writes.length,initialWrites+2);
+});
+
+test('panorama restoration measures its current position and hidden pages do no fade work',()=>{
+ const f=fixture({withScenery:true});
+ f.scenery(-131);f.browser.emit('scroll');f.browser.emit('pagehide');
+ const reads=f.sceneryReads();f.browser.emit('scroll');f.flush();assert.equal(f.sceneryReads(),reads);assert.equal(f.values.get('--room-visibility'),'1');
+ f.browser.emit('pageshow');f.flush();assert.equal(f.values.get('--room-visibility'),'0.58');
+ f.doc.hidden=true;f.doc.emit('visibilitychange');f.scenery(-1000);f.browser.emit('scroll');f.flush();assert.equal(f.sceneryReads(),reads+1);
+ f.doc.hidden=false;f.doc.emit('visibilitychange');f.flush();assert.equal(f.values.get('--room-visibility'),'0.16');
+});
+
+test('reduced-motion keeps the panorama opaque and responds immediately to preference changes',()=>{
+ const f=fixture({withScenery:true,reducedMotion:true});
+ assert.equal(f.values.get('--room-visibility'),'1');assert.equal(f.sceneryReads(),0);
+ f.scenery(-131);f.browser.emit('scroll');f.flush();assert.equal(f.values.get('--room-visibility'),'1');assert.equal(f.sceneryReads(),0);
+ f.media.matches=false;f.media.emit('change',{matches:false});f.flush();assert.equal(f.values.get('--room-visibility'),'0.58');
+ f.media.matches=true;f.media.emit('change',{matches:true});f.flush();assert.equal(f.values.get('--room-visibility'),'1');
+});
+
+test('invalid panorama measurements return an opaque room rather than an invalid style',()=>{
+ const f=fixture({withScenery:true});
+ for(const [top,height]of [[NaN,600],[0,NaN],[0,0],[0,-30],[Infinity,600]]){
+  f.scenery(top,height);f.browser.emit('scroll');f.flush();assert.equal(f.values.get('--room-visibility'),'1');
+ }
+ f.scenery(-131,600);f.controller.refresh();f.flush();assert.equal(f.values.get('--room-visibility'),'0.58');
+});
+
+test('header resizing adjusts the fade boundary while room controls retain their existing state',()=>{
+ const f=fixture({withScenery:true}),dataset={...f.room.dataset};
+ f.scenery(94);f.header(144);f.resizeHeader();f.flush();assert.equal(f.values.get('--room-visibility'),'0.907');
+ assert.deepEqual(f.room.dataset,dataset);assert.equal(f.browser.scrollY,0);
 });

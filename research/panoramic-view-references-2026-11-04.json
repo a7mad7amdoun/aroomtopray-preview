@@ -1,0 +1,51 @@
+{
+  "created": "2026-11-04",
+  "purpose": "Atmosphere and architectural grounding for original exterior view plates. No source photograph was downloaded, embedded, traced or passed to image generation.",
+  "references": [
+    {
+      "url": "https://i.pinimg.com/736x/b1/ce/da/b1cedafec92f0d7658c1c9304c26e289.jpg",
+      "access": "User-supplied prayer-room reference inspected in the parent task.",
+      "role": "Transparency lets visitors recognize the surrounding destination. The new plate is outside only, avoiding a second interior inside the window."
+    },
+    {
+      "url": "https://www.pinterest.com/pin/993606736553172649/",
+      "access": "User-supplied prayer-corner reference inspected in the parent task.",
+      "role": "Calm shelter and daylight, not a composition to reproduce. No arch, furniture or ornament copied."
+    },
+    {
+      "url": "https://kr.pinterest.com/pin/780248704192416227/",
+      "access": "Pinterest search result title only: Small Airplane on Airport Tarmac. Direct page returned 403; image not inspected.",
+      "role": "Search discovery only, not used as visual evidence or an image-generation input."
+    },
+    {
+      "url": "https://ru.pinterest.com/pin/1688918606781028/",
+      "access": "Pinterest search result caption about courtyard landscaping and trees. Direct page returned 403; image not inspected.",
+      "role": "Search discovery only, not used as visual evidence or an image-generation input."
+    },
+    {
+      "url": "https://www.nickulivieriphotography.com/blog/ohare-terminal-3-expansion/",
+      "access": "Official photographer project text retrieved.",
+      "role": "Grounding for elevated third-floor-scale airport perspectives, apron equipment, material restraint and soft daylight. No photograph reproduced."
+    },
+    {
+      "url": "https://www.mahanrykiel.com/portfolio/anne-arundel-medical-center-healing-garden/",
+      "access": "Landscape architect project text retrieved.",
+      "role": "Grounding for quiet planted courtyards, meandering paths, benches and views that provide hospital respite. No project or photograph reproduced."
+    },
+    {
+      "url": "https://www.lib.utah.edu/spaces/katherines-courtyard.php",
+      "access": "University library search result retrieved.",
+      "role": "Grounding for layered campus courtyards linking library study space with outdoor paths. Does not identify our imagined image with this place."
+    }
+  ],
+  "searches": [
+    "site:pinterest.com airport apron view terminal glass architecture photography",
+    "airport apron terminal aerial architecture (Pinterest domain filter)",
+    "university campus courtyard library architecture (Pinterest domain filter)",
+    "hospital healing garden courtyard architecture (Pinterest domain filter)",
+    "Pinterest hospital courtyard architecture healing garden",
+    "Pinterest university courtyard library photography",
+    "Pinterest airport apron view architecture"
+  ],
+  "limits": "Pinterest returned sparse search results and 403 responses for two discovered pins. No claim is made to have inspected those pin photographs. These are invented exterior scenes, never evidence of listed prayer-room availability, access or appearance."
+}

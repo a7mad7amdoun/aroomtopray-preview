@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-04",
+  "method": "Pinterest pages and supplied images visually inspected through the permitted browser reference workflow; no source artwork copied or downloaded.",
+  "references": [
+    {
+      "url": "https://i.pinimg.com/1200x/b1/2c/bf/b12cbf95ba011522f89c6125f80e1217.jpg",
+      "observed": "Oak-framed whiteboard with pinned paper and photographic material swatches.",
+      "application": "Campus board timber binding, quiet paper surfaces, disciplined information groups."
+    },
+    {
+      "url": "https://i.pinimg.com/1200x/46/12/08/461208af760ff149834e8ebd1aab9b3f.jpg",
+      "observed": "Orderly wall-mounted translucent plaques with four stand-off fasteners and aligned headings.",
+      "application": "Hospital information header with restrained navy depth and four corner fixings; no treatment claims or copied labels."
+    },
+    {
+      "url": "https://www.pinterest.com/pin/47428602326260926/",
+      "observed": "Currently opened a British Vogue promotional video with related departure-board references. The intended primary artwork could not be confirmed.",
+      "application": "No design inference from the unconfirmed video."
+    },
+    {
+      "url": "https://www.pinterest.com/pin/327144360402231452/",
+      "observed": "Vintage airport departure board with aligned flight codes, narrow uppercase city rows and a dark mechanical grid.",
+      "application": "Steady real-record board rows and clear typography; no decorative text animation."
+    }
+  ],
+  "additionalSearch": "Pinterest: university campus wayfinding signage. Search results visually reviewed for grouped labels, arrows, room names and material hierarchy.",
+  "technicalReference": "https://developer.chrome.com/docs/web-platform/view-transitions/cross-document",
+  "note": "Cross-document scenery dissolves are progressive enhancement; native navigation and reduced-motion behavior remain usable without API support."
+}
