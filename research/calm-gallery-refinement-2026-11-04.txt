@@ -8,7 +8,7 @@ Refine the current successful room experience into a clearer, more comfortable g
 The visitor may be tired, anxious or in a hurry. The interface should communicate welcome without asking for attention it does not need. Make the next action evident. Keep a calm architectural setting around a readable, trustworthy directory. Premium means considerate proportions, useful hierarchy and careful finishing, not exclusivity, glossy surfaces or small type.
 
 REFERENCE DIRECTION
-Use Pinterest as visual discovery, with original designers' descriptions supporting the relevant principles. Four search-visible references are listed below. Direct Pin pages returned403, so do not claim their complete boards were inspected. No Pinterest images are downloaded, copied or used as project assets.
+Use Pinterest as visual discovery, with original designers' descriptions supporting the relevant principles. Four search-visible references are listed below. Direct Pin pages returned 403, so do not claim their complete boards were inspected. No Pinterest images are downloaded, copied or used as project assets.
 
 1. Schiphol wayfinding: repeated directional language, clear pictograms and yellow reserved for meaningful decisions.
 Pinterest: https://www.pinterest.com/pin/schiphol-airport-signage-design--176133035418371388/
@@ -32,11 +32,11 @@ https://normcph.com/project/soft-minimal-2/
 These are references for decisions, not endorsements or affiliations. Preserve the site's existing sourced facts. Add no claims about room access, institutional facilities or verification dates during this visual pass.
 
 THE DESTINATION GALLERY
-Keep the three real, credited destination photographs and the entire-card navigation. Give each destination a shared3:2 image composition on narrow and wide cards. Let the photograph carry atmosphere, a compact navy-and-yellow sign carry identity, and the theme's ivory or navy reading surface carry description and coverage. Keep words outside the photograph so the scene remains uninterrupted and the text remains legible.
+Keep the three real, credited destination photographs and the entire-card navigation. Give each destination a shared 3:2 image composition on narrow and wide cards. Let the photograph carry atmosphere, a compact navy-and-yellow sign carry identity, and the theme's ivory or navy reading surface carry description and coverage. Keep words outside the photograph so the scene remains uninterrupted and the text remains legible.
 
 Separate the destination title from the supporting information by hierarchy, not multiple large dark bands. All three categories share the same typography, arrow treatment, spacing and baseline. Retain a clear pictogram and a directional arrow shaped consistently with the doorway's restrained geometry. The whole card remains a native link; there must be no nested button. Focus and preview states remain clear. Photo-source and licence links remain individually usable below the card.
 
-Give photographs enough room. Use one vertical card per row below480px of actual reading width, balanced horizontal image/text cards from480px to959px, and three equal columns only when the reading area reaches960px. Do not create a two-plus-one grid or shrink French and Arabic titles to squeeze three cards into tablet width. Keep the grid symmetrical and preserve all translated copy.
+Give photographs enough room. Use one vertical card per row below 480px of actual reading width, balanced horizontal image/text cards from 480px to 959px, and three equal columns only when the reading area reaches 960px. Do not create a two-plus-one grid or shrink French and Arabic titles to squeeze three cards into tablet width. Keep the grid symmetrical and preserve all translated copy.
 
 ONE WELCOMING HEADER
 Consolidate the scene caption, optional tour button and destination heading into one flexible editorial header above the cards. Use one opaque reading surface with generous spacing. Preserve the optional tour, its status announcements and all existing data hooks. On category/detail pages, keep the compact scene caption and current destination navigation. The shared structure must not accidentally hide controls with the visually hidden section label.
@@ -46,18 +46,18 @@ The room remains a distinct opening moment; it should not become a stack of boxe
 THE INTRODUCTION AND READING RHYTHM
 Keep the headline and large search field dominant. Convert the homepage's coverage statistics into one restrained, wrapping information line. Keep the actual numbers and translated labels. Remove redundant dividers between those numbers; the useful secondary actions can retain a single separator. Use stable document flow, with no animation moving the content.
 
-Preserve Archivo and Noto Naskh Arabic. Adjust hierarchy through scale and spacing. Long location descriptions and room-fact values should have a comfortable maximum line length around65ch, while the existing full-width grids, restrictions, maps and results remain available. Keep essential access conditions prominent. Avoid truncating text or hiding facts to make a visual composition look cleaner.
+Preserve Archivo and Noto Naskh Arabic. Adjust hierarchy through scale and spacing. Long location descriptions and room-fact values should have a comfortable maximum line length around 65ch, while the existing full-width grids, restrictions, maps and results remain available. Keep essential access conditions prominent. Avoid truncating text or hiding facts to make a visual composition look cleaner.
 
 COLOUR, LIGHT AND MOTION
 Retain ivory, navy/charcoal and yellow. Use existing semantic tokens, especially for surfaces, text, borders, focus and signs. The navy destination sign must own its readable text colours; the surrounding card must inherit the correct light/dark surface. Remove older rules that force an entire airport card dark after the new structure separates its sign and body. Check explicit themes and system dark mode.
 
-Preserve the1.1-second opening,1.3-second closing and gentle room recession from the previous version. Keep all artwork, geometry and motion intact unless a concrete defect requires a scoped correction. Do not add parallax, photo zoom, floating cards, a loading introduction or mandatory motion. Respect reduced motion.
+Preserve the 1.1-second opening, 1.3-second closing and gentle room recession from the previous version. Keep all artwork, geometry and motion intact unless a concrete defect requires a scoped correction. Do not add parallax, photo zoom, floating cards, a loading introduction or mandatory motion. Respect reduced motion.
 
 ENGINEERING
 Work in the existing Astro components and owning stylesheets. Use one small sign wrapper only where it gives the title a real shared responsibility. Consolidate touched rules rather than adding override sheets. Preserve search context, maps, filters, tabs, reception tools, saved places, translations, native links and source attribution. Do not edit or publish unrelated pending map work. Build and publish only to Ahmed's authorised GitHub Pages preview; never alter Hamza's production website.
 
 VALIDATION
-Run the existing test suite, build all preview pages and regenerate docs with the existing export script. Exercise navigation, tours, tabs, filters and history through offline DOM checks in English, French, Arabic and Spanish. Compare existing content, source links, photographs and controls with the committed baseline. Inspect the changed cascade, contrast pairs and responsive calculations at360,390,768,1024 and desktop widths. Verify published files match the local export.
+Run the existing test suite, build all preview pages and regenerate docs with the existing export script. Exercise navigation, tours, tabs, filters and history through offline DOM checks in English, French, Arabic and Spanish. Compare existing content, source links, photographs and controls with the committed baseline. Inspect the changed cascade, contrast pairs and responsive calculations at 360, 390, 768, 1024 and desktop widths. Verify published files match the local export.
 
 Rendered website inspection remains unavailable under this session's browser URL policy. Do not use another browser or renderer to bypass it. Report that limitation accurately. The user should receive a working review URL, this prompt and a concise account of what changed and what was checked.
 
