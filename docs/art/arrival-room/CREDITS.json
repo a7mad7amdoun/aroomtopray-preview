@@ -1,0 +1,63 @@
+{
+  "title": "An original continuous arrival room",
+  "created": "2026-11-04",
+  "type": "AI-generated architectural illustration",
+  "tool": "Built-in image_gen",
+  "purpose": "An imagined welcome, never evidence of a listed facility or a location-specific qibla direction",
+  "design": "Original2:1 panoramic room commissioned for the interface, with one flat prayer-facing wall recess, timber junction, narrow ceiling light and empty reading wall. The reference photographs informed transparency and calm rather than the composition.",
+  "geometry": {
+    "width": 1774,
+    "height": 887,
+    "aperture": {
+      "left": 90,
+      "top": 112,
+      "right": 594,
+      "bottom": 696
+    },
+    "doorLeafFraction": 0.5,
+    "matBounds": {
+      "left": 610,
+      "right": 948,
+      "top": 700,
+      "bottom": 863
+    },
+    "prayerFacing": "Solid rectangular wall recess, with no door or window in front of mat"
+  },
+  "delivery": "Proportional downscaling to1024px and WebP encoding;1774px original resolution preserved. No AI upscaling.",
+  "references": [
+    {
+      "url": "https://i.pinimg.com/736x/b1/ce/da/b1cedafec92f0d7658c1c9304c26e289.jpg",
+      "role": "Transparency and awareness of airport setting; not reproduced."
+    },
+    {
+      "url": "https://www.pinterest.com/pin/993606736553172649/",
+      "role": "Quiet prayer-facing wall and requested live-text invitation; room composition not reproduced."
+    }
+  ],
+  "destinationViews": {
+    "credits": "/aroomtopray-preview/art/quiet-threshold/CREDITS.json",
+    "note": "Existing generated landscape pairs, explicitly imagined."
+  },
+  "files": [
+    {
+      "file": "day-1024.webp",
+      "sha256": "1cfd7b12e4d255c5c5567f3e6c3031820155b5e3ebc896815fed8dd462908542",
+      "bytes": 29744
+    },
+    {
+      "file": "day-1774.webp",
+      "sha256": "1b8297d8eda3bed55dea6fcbeff982eee88b0aa5fa9f70a33fe187eb0881fe5d",
+      "bytes": 93346
+    },
+    {
+      "file": "night-1024.webp",
+      "sha256": "1f5ceb8368ee774521acc513008601749f32c3c9cbdf7d761a1f03f1608b3d98",
+      "bytes": 19536
+    },
+    {
+      "file": "night-1774.webp",
+      "sha256": "de8b34c833c139d62722a33726b234527eedbbcf1fcb0f91b99073ad1bb61750",
+      "bytes": 68260
+    }
+  ]
+}

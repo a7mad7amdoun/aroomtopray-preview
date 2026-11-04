@@ -1,0 +1,104 @@
+{
+  "date": "2026-11-04",
+  "baseline": "80836658e1e06632bed66949704627e5a2dc9498",
+  "scope": "Original arrival composition for Ahmed’s review preview; Hamza’s production site unchanged.",
+  "implementation": [
+    "New original panoramic daylight and evening architectural plates with registered transparent two-pane doorway.",
+    "Continuous room welcome with a fully opaque reading area and a wider room-to-interface blend.",
+    "One grouped threshold control strip; a compact three-destination rail; fewer outer guide frames.",
+    "Quieter masthead with retained branding, destination hierarchy and clear hover/active feedback.",
+    "Existing wall invitation retained in four languages, with the complete mat facing a solid rectangular recess."
+  ],
+  "unitTests": {
+    "passed": 223,
+    "failed": 0
+  },
+  "build": {
+    "pages": 2177,
+    "passed": true,
+    "submissionsDisabled": true
+  },
+  "preservation": {
+    "passed": true,
+    "places": 536,
+    "localizedDetailPages": 2144,
+    "protectedFiles": 511,
+    "existingArtworkAndPhotos": 414,
+    "mainLinks": 56961,
+    "images": 7555,
+    "controls": 29727,
+    "allowedContentChange": "Only the exact reviewed artwork-credit paragraph plus component placement; no factual listing changes."
+  },
+  "offlineInteractions": {
+    "allGeneratedPages": 2177,
+    "allDeclaredTabs": 6456,
+    "allNativeLinks": 126626,
+    "localizedPageScenarios": 37,
+    "guidePanels": 60,
+    "deepTargets": 77,
+    "nativeLinks": 1987,
+    "buttons": 158
+  },
+  "sourceGeometry": {
+    "passed": true,
+    "cases": 504,
+    "checks": 26379,
+    "locales": [
+      "en",
+      "fr",
+      "ar",
+      "es"
+    ],
+    "themes": [
+      "light",
+      "dark",
+      "system-dark"
+    ],
+    "method": "Source CSS cascade and native artwork dimensions, not a browser layout engine. Includes landscape cases.",
+    "viewportSizes": [
+      [
+        360,
+        780
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        768,
+        1024
+      ],
+      [
+        1024,
+        768
+      ],
+      [
+        1440,
+        900
+      ],
+      [
+        844,
+        390
+      ],
+      [
+        1024,
+        540
+      ]
+    ]
+  },
+  "contrast": {
+    "semanticPairs": 32,
+    "allPass": true,
+    "wallInscriptionMinimumDay": 4.9,
+    "wallInscriptionMinimumNight": 11.17,
+    "method": "Declared opaque color pairs and source-art pixels; not rendered-font sampling."
+  },
+  "assetInspection": "New local day/night bitmaps visually inspected. Full website rendering not performed.",
+  "pendingMapWork": "All 11 pre-existing working-tree files and their full-index patch preserved exactly.",
+  "limitations": [
+    "Browser preview inspection is unavailable under the existing URL-policy restriction.",
+    "Actual text wrapping, Safari/iOS, touch hit areas and perceived motion/appearance require device review.",
+    "Imagined artwork is illustrative, not a verified facility photograph."
+  ],
+  "deploymentTarget": "https://a7mad7amdoun.github.io/aroomtopray-preview/"
+}

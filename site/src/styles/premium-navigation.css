@@ -1,6 +1,6 @@
 /* One wayfinding masthead: a clear identity, three destinations, then tools.
    Opaque surfaces keep the room's changing light out of navigation text. */
-:root { --masthead-height:104px; }
+:root { --masthead-height:88px; }
 .top.room-header {
  position:sticky; top:0; z-index:30; color:var(--ink);
  border:0; border-bottom:1px solid var(--line);
@@ -9,7 +9,7 @@
 .top.room-header>.wrap {
  display:grid; grid-template-columns:auto minmax(0,1fr) auto auto; align-items:center;
  width:min(var(--layout-width),calc(100% - 2 * var(--layout-gutter))); max-width:none;
- min-height:104px; margin:auto; padding:18px 0; gap:clamp(12px,1.4vw,24px);
+ min-height:88px; margin:auto; padding:12px 0; gap:clamp(12px,1.4vw,24px);
 }
 .top.room-header .brand {
  display:flex; min-width:0; gap:14px; color:var(--ink); text-decoration:none;
@@ -22,7 +22,7 @@
 .top.room-header .brand small { color:var(--muted); font:450 .8125rem/1.4 var(--f-body); text-transform:none; letter-spacing:.01em; }
 .top.room-header .primary-navigation {
  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:stretch;
- justify-self:center; width:100%; max-width:552px; margin:0; gap:8px; padding:0;
+ justify-self:center; width:100%; max-width:520px; margin:0; gap:8px; padding:0;
  border:0; border-radius:0; background:none;
 }
 .top.room-header .primary-navigation>a {
@@ -35,12 +35,13 @@
 .top.room-header .primary-destination-label { min-width:0; font:inherit; line-height:inherit; white-space:normal; text-align:center; overflow-wrap:anywhere; }
 .top.room-header .destination-emblem { display:grid; place-items:center; width:30px; height:30px; flex:none; border-radius:5px; background:transparent; color:var(--muted); transition:background-color 180ms ease,color 180ms ease; }
 .top.room-header .destination-emblem>svg { display:block; width:21px; height:21px; }
-/* Selection has a tile and an underline, so it never relies on colour alone. */
+/* Selection has an icon tile and underline; hover receives its own clear line. */
 .top.room-header .primary-navigation>a::after {
  content:''; display:block; position:absolute; inset-inline:12px; bottom:0;
  height:2px; border-radius:0; background:transparent; transform:none;
 }
-.top.room-header .primary-navigation>a:is(:hover,[aria-current]) { background:var(--surface-2); border-color:var(--line); color:var(--ink); box-shadow:none; }
+.top.room-header .primary-navigation>a:is(:hover,[aria-current]) { background:transparent; border-color:var(--line); color:var(--ink); box-shadow:none; }
+.top.room-header .primary-navigation>a:hover::after { background:var(--selection-mark); }
 .top.room-header .primary-navigation>a[aria-current] { font-weight:680; }
 .top.room-header .primary-navigation>a[aria-current]::after { background:var(--selection-mark); }
 .top.room-header .primary-navigation>a[aria-current] .destination-emblem { background:var(--sign); color:var(--sign-ink); }

@@ -1,0 +1,31 @@
+A ROOM TO PRAY — ORIGINAL CONTINUOUS ARRIVAL
+2026-11-04 · Ahmed's authorized review preview
+
+CORRECTION
+The prior pass interpreted reference photographs too literally and kept the old stack of boxed widgets. The new design must translate the qualities of the references into an original digital composition, not recreate their room as an image beside a text card.
+
+KEEP
+Hamza's practical directory, attribution, linked sources, honest unknowns, navy/ivory/yellow identity, Archivo and Arabic typography. Preserve all 536 records, four languages, maps, filters, search context, saved places, visitor tools, photos, previous artwork records and native navigation. Keep the wall invitation specifically requested by the user: Come to prayer, come to success. Keep the mat facing only a solid wall or recess.
+
+NEW COMPOSITION
+Commission an original 2:1 panoramic room for the website's layout. Use a glazed threshold at the left, a solid rectangular prayer-facing recess beside it, one modest timber junction, a restrained ceiling-light line, tactile matte material and open wall on the reading side. Avoid the reference's pointed arch, glass-roof pattern, furniture, plants and ornamental arrangement. The original artwork must provide the negative space needed by the interface.
+The homepage is one continuous arrival space rather than two equal bordered cards. Architecture spans the welcome; native HTML content occupies a fully opaque theme-controlled reading wall. The photograph remains separate from factual information. Do not put text over detailed imagery or dim the page to simulate luxury.
+The full mat and threshold must remain visible. The room's physical orientation stays LTR; Arabic reading content uses correct RTL. On smaller screens show the meaningful left 55% of the panoramic room, then grouped controls and readable information. Crop only empty right wall. Category/detail pages use a more compact arrival and get to their working guide sooner.
+Keep the slow glass-door action, stationary destination scenery and opt-in exploration. Glazing is two panes: a moving left leaf and fixed right pane, with plausible human proportions. No world attached to the door, no moving text or navigation delays.
+Group door, light and view controls into one threshold strip. Keep the three destination notices as a compact rail: equal desktop entries, short horizontal phone rows, restrained symbols, actual photographs with credits, clear category titles/counts/arrows. Preserve every source and description.
+Remove unnecessary outer frames around the welcome, destination heading and main guide. Give the practical board, maps and detail panels room to carry their own hierarchy. Keep category materials legible: departures navy/yellow, campus notice surfaces, calm hospital information hierarchy, all within one type system.
+Retain the strong wordmark and navigation; reduce vertical chrome without discarding primary destinations, language controls or visitor tools.
+
+IMPLEMENTATION
+Stay within Astro and current components. Reuse RoomArchitecture, RoomEnvironment and RoomDestinations. Move the existing control markup in its template; no DOM-rewriting scripts or duplicated buttons. Edit owning styles instead of adding another override stylesheet. Keep unrelated pending map work untouched.
+Create paired daylight/evening artwork with locked geometry. Save final assets and credits; render all functional text and the requested invitation as live HTML. These are imagined architectural views, not named institutions or verified rooms.
+
+ACCEPTANCE
+A visibly different composition, not a slightly restyled split card. The room establishes arrival; the guide is immediately understandable. The room, posters and reading surfaces share a deliberate hierarchy rather than competing.
+Preserve 2,177 routes and all existing information. Run existing tests and source/offline interaction checks across locales, themes and responsive widths. Check actual asset geometry, source cascade and contrast. Do not claim browser or phone visual validation when unavailable under the earlier URL-policy restriction.
+Publish only Ahmed's authorized GitHub Pages preview after verification. Never modify Hamza's production site.
+
+REFERENCES
+https://aroomtopray.com/
+https://i.pinimg.com/736x/b1/ce/da/b1cedafec92f0d7658c1c9304c26e289.jpg
+https://www.pinterest.com/pin/993606736553172649/

@@ -5,7 +5,7 @@
   --door-metal-light:#dddcd4; --door-metal-mid:#a1a7a3; --door-metal-dark:#4a5352;
 }
 .room-environment .door-leaf {
-  inset:0 auto 0 0; width:33.333333%; border:2px solid var(--door-trim);
+  inset:0 auto 0 0; width:50%; border:2px solid var(--door-trim);
   background:transparent; box-shadow:inset 1px 0 #fff5,1px 1px 3px #0004;
 }
 .room-environment .door-leaf::before {
@@ -21,12 +21,8 @@
   background:linear-gradient(116deg,#d8e5e218,transparent 48%,#f3f1df15);
 }
 .room-environment .door-glazing {
-  position:absolute; inset:0 0 0 33.333333%; border-left:2px solid var(--door-trim);
+  position:absolute; inset:0 0 0 50%; border-left:2px solid var(--door-trim);
   box-shadow:inset 1px 0 #fff5; pointer-events:none;
-}
-.room-environment .door-glazing::before {
-  content:''; position:absolute; top:0; bottom:0; left:50%; width:2px;
-  background:var(--door-trim); box-shadow:1px 0 #fff4;
 }
 /* A single translucent manifestation band makes the glazing legible. */
 .room-environment .door-glazing::after,
@@ -64,10 +60,10 @@
 .room-environment .door-outside { box-shadow:inset 2px 2px 4px #0003; }
 .room-environment .door-outside::after { background:linear-gradient(90deg,#07101b18,transparent 8%); }
 .room-environment .door-floor-light,
-.room-environment .door-swing-shadow { width:33.333333%; }
+.room-environment .door-swing-shadow { width:50%; }
 .room-environment .door-floor-light { background:linear-gradient(#f4f3e914,transparent); }
 .room-environment .door-room-sign {
-  top:-12%; left:0; width:auto; min-width:33.333333%; max-width:80%; min-height:0; padding:5px 8px;
+  top:-10%; left:0; width:auto; min-width:50%; max-width:80%; min-height:0; padding:5px 8px;
   border-color:#b4a36a73; background:#162131; color:#ffd24b;
   box-shadow:inset 0 1px #ffffff16,0 2px 4px #0003;
 }

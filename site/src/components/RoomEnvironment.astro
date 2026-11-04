@@ -15,7 +15,10 @@ const outside=settings[kind] || 'airport';
 <div id="prayer-room" class:list={['room-environment', {'room-door-open':open}]} data-room-presentation={presentation} data-room-preview={outside} data-room-setting={kind} data-door-state={open?'open':'closed'}>
  <div class="room-layout">
   <main id="main" class="room-main" tabindex="-1">
-   <div class="room-control-bar" dir={locale==='ar'?'rtl':'ltr'}>
+   <div class="room-stage">
+    <RoomArchitecture {kind} {locale}/>
+    <div class="room-scene-tools" data-room-tour-interaction>
+     <div class="room-control-bar" dir={locale==='ar'?'rtl':'ltr'}>
         <button class="door-control" dir={locale==='ar'?'rtl':'ltr'} type="button" hidden data-door-toggle data-open-label={d.open} data-close-label={d.close} aria-controls="room-doorway" aria-expanded={String(open)}>
           <span class="door-action-caption"><svg class="door-icon-closed" width="17" height="17" aria-hidden="true"><use href="#i-door-closed"/></svg><svg class="door-icon-open" width="17" height="17" aria-hidden="true"><use href="#i-door-open"/></svg>
           <span data-door-toggle-label>{open?d.close:d.open}</span></span>
@@ -29,9 +32,8 @@ const outside=settings[kind] || 'airport';
         </div>
       </div>
    </div>
-   <div class="room-stage">
-    <RoomArchitecture {kind} {locale}/>
-    <div class="room-scene-tools" data-room-tour-interaction><RoomSceneControls {kind} {locale} {presentation}/></div>
+     <RoomSceneControls {kind} {locale} {presentation}/>
+    </div>
     <div class="room-arrival-copy" dir={locale==='ar'?'rtl':'ltr'}><slot name="arrival" /><div class="arrival-actions"><ReceptionCard {locale} id="room-reception"/><a class="arrival-guide-link" href="#guide-content">{q.guide}<svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a></div></div>
    </div>
    {presentation==='home'&&<RoomDestinations {kind} {locale} {presentation}/>}
