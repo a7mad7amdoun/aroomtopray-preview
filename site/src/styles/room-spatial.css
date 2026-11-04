@@ -239,7 +239,7 @@ html .immersive-site .site-footer { width:min(var(--layout-width),calc(100% - 2 
 .discovery-heading>p { max-width:50ch; margin:0; font-size:1rem; line-height:1.65; color:var(--muted); }
 .home-departures { display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr); gap:28px; align-items:start; }
 .room-main .home-departures .directory-photo { margin:0; border-radius:3px; padding:0; }
-.room-main .home-departures .directory-photo-image { aspect-ratio:16/10; border-radius:0; }
+.room-main .home-departures .directory-photo-image { aspect-ratio:auto; border-radius:0; }
 .room-main .home-departures .directory-photo-caption { padding:20px; }
 .room-main .home-departures .prayer-board { margin:0; border-radius:3px; box-shadow:none; container:prayer-board / inline-size; }
 .room-main .home-photo-library { margin-top:32px; border-radius:3px; }

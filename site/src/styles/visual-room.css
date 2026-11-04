@@ -1,7 +1,7 @@
 /* An original continuous room: architecture establishes arrival, while the
    clear right wall belongs to the guide. No photograph-card or centre divider. */
 :root {
-  --room-day:url('/art/arrival-room/day-1774.webp');
+  --room-day:url('/art/daylight-room/day-1774.webp');
   --room-night:url('/art/arrival-room/night-1774.webp');
   --visual-shadow:0 2px 3px #14203303,0 16px 40px -26px #14203338;
   --room-inscription:#142033;
@@ -10,22 +10,22 @@
 @media(prefers-color-scheme:dark) { :root:not([data-theme=light]) { --visual-shadow:0 2px 3px #0002,0 18px 42px -24px #0007; --room-inscription:#f6f0e4; } }
 html .room-environment[data-room-presentation] .room-layout>.room-main { padding-top:0; }
 .room-environment .room-stage {
-  display:grid; grid-template-columns:minmax(0,1.16fr) minmax(0,.84fr);
+  display:grid; grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
   grid-template-rows:auto auto; align-items:center; gap:0; direction:ltr;
   max-width:none; margin:0 calc(-1 * var(--room-gutter)) var(--room-stage-gap); padding:0;
   border:0; border-radius:0; background:transparent; box-shadow:none; container-type:normal;
 }
 .room-environment .room-architecture {
   position:relative; grid-column:1/-1; grid-row:1; z-index:0; inset:auto;
-  display:block; width:100%; height:auto; min-height:0; margin:0; aspect-ratio:2/1;
+  display:block; width:100%; height:auto; min-height:0; margin:0; aspect-ratio:50/23;
   border:0; border-radius:0; overflow:hidden; pointer-events:none;
   background:transparent; container-type:inline-size;
 }
-.room-environment .room-canvas { left:0; top:0; bottom:auto; width:100%; height:auto; aspect-ratio:2/1; }
-/* The complete mat ends before 54%. A wider transition then blends the room
-   into a fully opaque reading wall at 58%, clear of the introduction. */
+.room-environment .room-canvas { left:0; top:0; bottom:auto; width:92%; height:auto; aspect-ratio:2/1; }
+/* A modestly wider reading track leaves the complete mat before 50%. The
+   room blends into the opaque reading wall at 54%, clear of the introduction. */
 .room-environment .room-architecture::after {
-  display:block; background:linear-gradient(90deg,transparent 54%,var(--bg) 58%);
+  display:block; background:linear-gradient(90deg,transparent 50%,var(--bg) 54%);
 }
 .room-environment .room-canvas::after {
   display:block; background:linear-gradient(transparent 99%,var(--bg)),linear-gradient(90deg,var(--bg),transparent 2%);
@@ -46,7 +46,7 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
 .room-wall-quote:lang(ar) { font-family:var(--f-arabic); font-size:clamp(.875rem,1.5cqi,1.5rem); font-weight:400; letter-spacing:0; line-height:1.85; }
 .room-environment[data-room-presentation] .room-arrival-copy {
   position:relative; z-index:2; grid-column:2; grid-row:1; display:block;
-  width:100%; margin:0; padding:clamp(32px,4vw,64px) var(--room-gutter) clamp(32px,4vw,64px) 28px;
+  width:100%; margin:0; padding:clamp(28px,3vw,48px) var(--room-gutter) clamp(28px,3vw,48px) 28px;
   border:0; border-radius:0; background:transparent; box-shadow:none;
 }
 /* Airport arrivals keep the practical departure-sign surface and its explicit
@@ -63,7 +63,7 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
 /* A physical light plaque on the quiet upper wall, outside the scenery canvas
    so scroll fading never reduces the contrast of an interactive control. */
 .room-architecture .room-light-panel {
-  position:absolute; z-index:5; top:9%; right:calc(42% + 16px);
+  position:absolute; z-index:5; top:9%; right:calc(46% + 16px);
   display:flex; align-items:center; gap:2px; padding:8px;
   border:1px solid var(--field); border-radius:7px;
   background:var(--surface); color:var(--ink); box-shadow:0 2px 5px #101a2814;
@@ -87,9 +87,9 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
 .room-main .room-home-intro h1 {
   font-size:clamp(3.1rem,5.3vw,5.5rem); line-height:1.03; max-width:14ch; font-weight:780; font-stretch:112%; letter-spacing:-.045em; text-wrap:balance;
 }
-.room-main .room-home-line { margin:18px 0 24px; color:var(--muted); font:450 clamp(1.35rem,2vw,1.875rem)/1.4 var(--f-display); letter-spacing:-.02em; }
+.room-main .room-home-line { margin:16px 0 20px; color:var(--muted); font:450 clamp(1.35rem,2vw,1.875rem)/1.4 var(--f-display); letter-spacing:-.02em; }
 .room-main .room-arrival-copy .room-introduction { max-width:53ch; line-height:1.7; }
-.room-main .room-arrival-copy .room-eyebrow { letter-spacing:.02em; margin-bottom:22px; }
+.room-main .room-arrival-copy .room-eyebrow { letter-spacing:.02em; margin-bottom:18px; }
 .room-main .room-arrival-copy .room-eyebrow>span { width:7px; height:7px; border-radius:50%; }
 .room-main .room-arrival-copy .place-search { margin-top:28px; }
 .room-main .room-arrival-copy .place-search>label { font-weight:650; margin-bottom:12px; }
@@ -126,11 +126,13 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
 }
 @media(max-width:1000px) {
   .room-environment .room-stage { grid-template-columns:minmax(0,1fr); }
-  .room-environment .room-architecture { grid-column:1; grid-row:1; width:100%; max-width:720px; margin-inline:auto; aspect-ratio:1.1; }
-  .room-environment .room-canvas { width:181.818182%; }
-  .room-environment:not([data-room-presentation=home]) .room-architecture { max-width:480px; }
+  .room-environment .room-architecture { grid-column:1; grid-row:1; width:100%; max-width:600px; margin-inline:auto; aspect-ratio:4/3; }
+  .room-environment .room-canvas { width:150%; }
+  .room-environment:not([data-room-presentation=home]) .room-architecture { max-width:420px; }
   .room-environment .room-architecture::after { display:none; }
-  .room-architecture .room-light-panel { right:12px; top:5.5%; }
+  .room-architecture .room-light-panel { right:12px; top:3%; }
+  .room-wall-quote { top:37%; }
+  .room-wall-quote:lang(ar) { line-height:1.6; }
   .room-environment .room-art-note { width:42%; }
   .room-environment .room-scene-tools { grid-column:1; grid-row:2; }
   .room-environment[data-room-presentation] .room-arrival-copy { grid-column:1; grid-row:3; padding:28px var(--room-gutter) 8px; }
@@ -139,7 +141,7 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
 }
 @media(max-width:760px) {
   :root {
-    --room-day:image-set(url('/art/arrival-room/day-1024.webp') 1x,url('/art/arrival-room/day-1774.webp') 2x);
+    --room-day:image-set(url('/art/daylight-room/day-1024.webp') 1x,url('/art/daylight-room/day-1774.webp') 2x);
     --room-night:image-set(url('/art/arrival-room/night-1024.webp') 1x,url('/art/arrival-room/night-1774.webp') 2x);
   }
   .room-environment .room-scene-tools { gap:12px; padding:14px 0; }

@@ -1,0 +1,28 @@
+A ROOM TO PRAY — A CLEARER DAYLIGHT WELCOME
+
+Refine the approved 72f70cc9c panoramic prayer room, its guide, and the way the two work together. Retain the fixed glass, upper-floor airport/campus/hospital views, navy prayer mat facing the solid prayer recess, restrained movement, Hamza-inspired Archivo identity and yellow wayfinding. This is a careful refinement, not a new concept or an architecture rewrite.
+
+LIGHT AND MATERIAL
+Create a confident white mode with neutral daylight, clean white reading surfaces, very pale stone backgrounds and precise navy lettering. Remove the muddy cream cast. Distinguish a white card from its background with a fine cool-neutral edge and a small grounded shadow, not heavy gradients. Keep yellow for primary action and identification, not broad decorative fills. Retain established dark-mode colors and its matching views. Keep field outlines, focus states, muted labels and status text readable. Do not darken real documentary photographs to match a theme.
+
+Relight only the existing daytime room illustration: brighter neutral mineral-white plaster, pale natural stone/carpet, restrained oak, charcoal window frame, same navy mat. Preserve camera, exact glazing aperture, recess, floor line and complete mat. The website supplies live text and transparent glass; do not bake lettering or signs into the artwork. Preserve the existing night room. Inspect a generated lighting edit before adopting it; reject any edit that breaks geometry.
+
+REAL-WORLD RESEARCH
+Study real official airport, university and hospital wayfinding and interior photography. Prefer terminal/building/location, access and useful preparation information to decorative storytelling. Use photos only where the institution and rights are known, with accurate captions and visible credits. A sign, exterior or corridor must never be labeled as a prayer-room interior. Retain current source photos and links. Pinterest is inspiration for material and hierarchy, not a source of unlicensed site assets. Add new information only if reliable evidence supports it and it improves this particular guide.
+
+COMPOSITION AND SPACE
+Give the welcome copy a little more horizontal room while retaining the full mat and glazing. Keep the room visible but shorten excessive mobile scenery height. Use a symmetric, repeatable reading grid. Let photos breathe through natural framing; avoid forcing a portrait or panoramic photograph into a small square. Keep useful metadata close to the photograph rather than spread across decorative rows.
+
+Every region needs a role: brand and navigation, room welcome, search, category choice, browse results, access facts, source context. Preserve all existing guide tabs and tools. Reduce redundant framing, tiny screws, clips, nested borders and oversized blank gaps. Do not replace calm space with more controls. Keep primary destinations obvious and hit areas at least 44px.
+
+INFORMATION BOARDS
+Airports retain navy/yellow departures-board discipline with aligned identifiers and stable rows. Universities use simple paper-like surfaces and a restrained material edge. Hospitals use clear grouped information and a calm reception-board hierarchy. Share typography, spacing and symbols across all three. Artwork supports a location or task; text remains live, searchable and accessible. Use the approved panoramic exterior family consistently where an illustration is appropriate, with an explicit illustration label.
+
+MOTION AND ACCESSIBILITY
+Preserve slow scene dissolves, pause control, reduced-motion and Save-Data behavior. Navigation stays immediate. Scenery may fade on scroll; factual text and controls never do. Keep the in-room light switch obvious, outside the fading canvas and clear of the inscription. Ensure Arabic typography and RTL layout receive equal care. Keep translated content, country navigation, all sources, visitor tools, maps, search state and restrictions intact.
+
+IMPLEMENTATION AND VALIDATION
+Use the existing Astro architecture and components; edit owning CSS rules and a small number of existing semantic tokens. Do not stack a new override stylesheet or rewrite rendered HTML. Preserve unrelated pending map work byte-for-byte. Check the current tests, all exported routes, content/link/photo preservation, semantic contrast and source geometry at 360px, 390px, tablet and desktop. Describe offline source checks accurately and state that rendered browser/iOS QA is unavailable under the existing session restriction. Publish only Ahmed's authorized GitHub review preview. Never change Hamza's live website.
+
+APPLIED REAL-WORLD REFERENCES
+Heathrow official prayer-room guidance informs terminal/security-side/location hierarchy. The University of Washington physical wayfinding system supports one clear heading, short direction rows and supporting map detail. Warwick facilities demonstrate keeping campus and building context together. NHS wayfinding guidance supports repeatable location and access positions. Maggie’s Oxford architecture informs neutral daylight, pale surfaces and precise dark glazing. These official photographs are inspiration only. The licensed 2013 Taoyuan T1 entrance photograph is a separately credited, dated documentary addition; it does not verify present access. Exact sources and rights are recorded in daylight-real-world-references-2026-11-04.json.

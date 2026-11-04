@@ -3,18 +3,18 @@
 :root,
 :root[data-theme=light] {
   color-scheme:light;
-  --bg:#f1eee5;
-  --surface:#fcfaf4;
-  --surface-2:#eae6dc;
+  --bg:#f6f7f7;
+  --surface:#ffffff;
+  --surface-2:#edf1f3;
   --ink:#142033;
-  --muted:#505d6d;
-  --line:#d0cec5;
-  --field:#717b89;
+  --muted:#4e5c6d;
+  --line:#d3dce2;
+  --field:#748394;
   --focus:#355c86;
   --link:#234b76;
   --sign:#ffc629;
   --sign-ink:#14171c;
-  --selection-mark:#795b00;
+  --selection-mark:#745500;
   --go:#135e46;
   --go-bg:#e0f0e6;
   --warn:#84430e;
@@ -27,7 +27,7 @@
   --board-dim:#bdc8d7;
   --board-cell:#22334a;
   --floating-surface:var(--surface);
-  --floating-line:#d0cec5;
+  --floating-line:var(--line);
   --guide-surface:var(--surface);
   --room-reading-surface:var(--surface);
   --room-reading-edge:var(--line);
@@ -148,7 +148,7 @@
 }
 .immersive-site select option { color:var(--ink); background:var(--surface); }
 
-/* Yellow remains the sign colour. A darker gold marks selection on ivory so
+/* Yellow remains the sign colour. A darker gold marks selection on white so
    the state is visible without relying on a low-contrast yellow hairline. */
 .room-main .guide-tabs>:is(a,button) { color:var(--muted); }
 .room-main .guide-tabs>:is(a,button)[aria-selected=true] { color:var(--ink); }

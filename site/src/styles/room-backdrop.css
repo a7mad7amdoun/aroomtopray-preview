@@ -6,8 +6,8 @@
  --room-reading-width:1360px;
  --room-recede-duration:1100ms;
  --room-header-height:var(--masthead-height,94px);
- --room-stage-gap:40px;
- --room-threshold-gap:32px;
+ --room-stage-gap:28px;
+ --room-threshold-gap:24px;
  --room-opening-height:330px;
  --room-mobile-canvas:820px;
 }

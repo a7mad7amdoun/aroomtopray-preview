@@ -8,37 +8,37 @@
   --orientation-note:var(--surface-2);
   --orientation-symbol-bg:var(--surface-2);
   --orientation-symbol-ink:var(--ink);
-  --orientation-pad:clamp(24px,3vw,36px);
+  --orientation-pad:clamp(22px,2.6vw,30px);
   position:relative;
   container:category-orientation / inline-size;
   min-width:0;
-  margin-block:8px 36px;
+  margin-block:8px var(--reading-gap,30px);
   overflow:hidden;
   border:1px solid var(--orientation-line);
   border-radius:10px;
   background:var(--orientation-surface);
   color:var(--orientation-ink);
   font-family:var(--f-body);
-  box-shadow:0 2px 3px #07101b05,0 12px 30px -16px #07101b26;
+  box-shadow:var(--reading-shadow,none);
 }
 .category-orientation .orientation-heading { display:grid; grid-template-columns:minmax(0,1fr); align-items:center; gap:24px; padding:var(--orientation-pad); }
 .category-orientation .orientation-title-block { min-width:0; }
-.category-orientation .orientation-art { min-width:0; margin:0; overflow:hidden; border:1px solid color-mix(in srgb,currentColor 22%,transparent); border-radius:7px; }
-.category-orientation .orientation-art>.concept-art { width:100%; aspect-ratio:3/2; background-size:contain; background-repeat:no-repeat; }
-.category-orientation .orientation-art figcaption { margin:0; padding:10px 12px; font-size:var(--guide-meta,.875rem); line-height:1.6; color:var(--orientation-muted); }
-.category-orientation .orientation-running-line { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px 24px; margin-block-end:24px; }
+.category-orientation .orientation-art { min-width:0; margin:0; overflow:hidden; border:0; border-radius:6px; }
+.category-orientation .orientation-art>.concept-art { width:100%; aspect-ratio:4/3; background-size:contain; background-repeat:no-repeat; background-position:center; }
+.category-orientation .orientation-art figcaption { margin:0; padding:10px 0 0; font-size:var(--guide-meta,.875rem); line-height:1.6; color:var(--orientation-muted); }
+.category-orientation .orientation-running-line { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px 24px; margin-block-end:18px; }
 .category-orientation .orientation-category { display:flex; align-items:center; gap:12px; font-size:1rem; line-height:1.5; font-weight:650; }
 .category-orientation .orientation-category svg { flex:none; width:28px; height:28px; }
 .category-orientation .orientation-kicker { font-size:var(--guide-meta,.875rem); line-height:1.5; color:var(--orientation-muted); }
 .category-orientation .orientation-heading h2 { max-width:34ch; margin:0; color:inherit; font:650 clamp(1.625rem,2.3vw,2.125rem)/1.2 var(--f-display); font-stretch:100%; letter-spacing:-.025em; text-wrap:balance; }
 .category-orientation .orientation-steps { display:grid; grid-template-columns:1fr; gap:0; margin:0; padding:0 var(--orientation-pad); list-style:none; }
-.category-orientation .orientation-steps>li { position:relative; display:grid; grid-template-columns:48px minmax(0,1fr); align-content:start; gap:6px 18px; min-width:0; padding:26px 0; }
+.category-orientation .orientation-steps>li { position:relative; display:grid; grid-template-columns:44px minmax(0,1fr); align-content:start; gap:6px 16px; min-width:0; padding:22px 0; }
 .category-orientation .orientation-steps>li+li { border-top:1px solid var(--orientation-line); }
-.category-orientation .orientation-symbol { display:grid; grid-column:1; grid-row:1/3; place-items:center; width:48px; height:48px; border:1px solid var(--orientation-line); border-radius:7px; background:var(--orientation-symbol-bg); color:var(--orientation-symbol-ink); }
+.category-orientation .orientation-symbol { display:grid; grid-column:1; grid-row:1/3; place-items:center; width:44px; height:44px; border:0; border-radius:6px; background:var(--orientation-symbol-bg); color:var(--orientation-symbol-ink); }
 .category-orientation .orientation-symbol svg { display:block; width:28px; height:28px; fill:none; }
 .category-orientation .orientation-steps h3 { grid-column:2; min-width:0; margin:0; padding:0; color:inherit; font:650 1.125rem/1.45 var(--f-display); font-stretch:100%; letter-spacing:-.015em; text-wrap:initial; }
 .category-orientation .orientation-steps p { grid-column:2; max-width:65ch; margin:0; padding:0; font-size:var(--guide-copy,1.0625rem); line-height:1.7; color:var(--orientation-muted); }
-.category-orientation .orientation-access-note { display:flex; align-items:flex-start; gap:14px; padding:24px var(--orientation-pad); border-top:1px solid var(--orientation-line); background:var(--orientation-note); }
+.category-orientation .orientation-access-note { display:flex; align-items:flex-start; gap:14px; padding:20px var(--orientation-pad); border-top:1px solid var(--orientation-line); background:var(--orientation-note); }
 .category-orientation .orientation-access-note>svg { flex:none; margin-block-start:3px; }
 .category-orientation .orientation-access-note>div { min-width:0; }
 .category-orientation .orientation-access-note strong { display:block; margin-block-end:4px; font-size:1rem; line-height:1.5; font-weight:650; color:inherit; }
@@ -76,12 +76,12 @@
 /* Use available board width, not viewport width. Equal columns keep long
    translated headings aligned; separators occupy the gap, never text space. */
 @container category-orientation (min-width:700px) {
-  .category-orientation .orientation-heading { grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:32px; }
-  .category-orientation .orientation-steps { grid-template-columns:repeat(3,minmax(0,1fr)); column-gap:48px; padding-block:30px; }
+  .category-orientation .orientation-heading { grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+  .category-orientation .orientation-steps { grid-template-columns:repeat(3,minmax(0,1fr)); column-gap:32px; padding-block:24px; }
   .category-orientation .orientation-steps>li { grid-template-columns:minmax(0,1fr); gap:16px; padding:0; border:0; }
-  .category-orientation .orientation-steps>li+li::before { content:""; position:absolute; inset-block:0; inset-inline-start:-24px; width:1px; background:var(--orientation-line); }
-  .category-orientation .orientation-symbol { grid-column:auto; grid-row:auto; width:56px; height:56px; }
-  .category-orientation .orientation-symbol svg { width:32px; height:32px; }
+  .category-orientation .orientation-steps>li+li::before { content:""; position:absolute; inset-block:0; inset-inline-start:-16px; width:1px; background:var(--orientation-line); }
+  .category-orientation .orientation-symbol { grid-column:auto; grid-row:auto; width:44px; height:44px; }
+  .category-orientation .orientation-symbol svg { width:28px; height:28px; }
   .category-orientation .orientation-steps :is(h3,p) { grid-column:1; }
 }
 @media(max-width:420px) {

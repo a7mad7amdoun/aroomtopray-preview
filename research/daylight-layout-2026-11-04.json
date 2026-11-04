@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-04",
+  "baseline": "72f70cc9c",
+  "scope": [
+    "site/src/styles/visual-reading.css",
+    "site/src/styles/category-orientation.css",
+    "site/src/components/DirectoryPhoto.astro",
+    "site/src/components/CategoryOrientation.astro"
+  ],
+  "intent": "Refine useful space and photograph presentation while preserving the approved room, category identities and all guide information.",
+  "changes": [
+    "Removed non-functional campus binding clip and hospital screw-like decoration from result bars. Kept restrained material edges, navy headings and yellow airport selected state.",
+    "Unified board heading and tab outer radii at 6px; reduced campus edge to 4px and removed hospital toolbar gradient.",
+    "Tightened shared reading gap and inset scale, list row padding, fact spacing and summary label/value spacing without reducing font sizes or interactive target sizes.",
+    "Category preparation board uses balanced 50/50 title/image tracks; smaller but clear symbols and shorter step gaps preserve full copy with fewer decorative boxes.",
+    "Category artwork now uses approved panoramic day/night assets, displayed with their full 4:3 composition and the original illustration caption. These are still explicitly illustrations, not photographs of a named room.",
+    "Real directory photos preserve full compositions with natural aspect ratios, height:auto and object-fit:contain. A 420px maximum height bounds tall or square photographs without cropping; wide homepage photos remain naturally shorter. Lazy sizes use auto with conservative fallbacks; sources and full photo credits are unchanged.",
+    "Wide real-photo/example cards use equal image and caption tracks. Existing Arabic line-height and logical-direction rules are preserved."
+  ],
+  "checks": {
+    "astro_compiler": {
+      "DirectoryPhoto.astro": 0,
+      "CategoryOrientation.astro": 0,
+      "meaning": "diagnostics"
+    },
+    "postcss_parse": {
+      "visual-reading.css": 159,
+      "category-orientation.css": 59,
+      "meaning": "rules parsed"
+    },
+    "targeted_existing_tests": {
+      "passed": 17,
+      "failed": 0,
+      "files": [
+        "place-photos.test.mjs",
+        "photo-viewer.test.mjs",
+        "directory-presentation.test.mjs"
+      ]
+    },
+    "component_information_preservation": {
+      "site/src/components/DirectoryPhoto.astro": "All markup, factual and translated expressions, credits, dates, links, labels and controls unchanged except responsive image sizes / illustration asset selection.",
+      "site/src/components/CategoryOrientation.astro": "All markup, factual and translated expressions, credits, dates, links, labels and controls unchanged except responsive image sizes / illustration asset selection."
+    },
+    "panoramic_asset_paths_checked": 12,
+    "git_diff_check": "passed"
+  },
+  "validation_limit": "Source / compiler / offline checks only; no rendered browser or iOS visual verification. Full localized export and 360/390px source geometry audit coordinated by root QA.",
+  "integration_note": "Root is updating the original homepage DirectoryPhoto aspect-ratio rule in room-spatial.css to auto so it does not override natural image proportions. Final source review identified the full-width Heathrow example could be633px tall; root bounded it to420px in both owning image rules."
+}

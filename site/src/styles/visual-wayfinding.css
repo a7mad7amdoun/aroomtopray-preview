@@ -16,7 +16,7 @@
 }
 #prayer-room[data-room-presentation=home] .door-notice-entry>.door-notice {
   display:grid;
-  grid-template-columns:clamp(84px,22%,112px) minmax(0,1fr);
+  grid-template-columns:clamp(100px,30%,160px) minmax(0,1fr);
   grid-template-rows:1fr;
   align-items:stretch;
   gap:0;
@@ -40,20 +40,13 @@
 #prayer-room[data-room-presentation=home] .notice-art img {
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;
   scale:none;
   transform:none;
   filter:none;
   transition:none;
 }
-/* The cloister and hospital corridor retain their full original framing. */
-#prayer-room[data-room-presentation=home] :is(.door-notice-universities,.door-notice-hospitals) .notice-art {
-  padding:6px;
-}
-#prayer-room[data-room-presentation=home] :is(.door-notice-universities,.door-notice-hospitals) .notice-art img {
-  object-fit:contain;
-  object-position:center;
-}
+/* Documentary photos retain their full framing, including the airport view. */
 #prayer-room[data-room-presentation=home] .notice-information {
   display:flex;
   flex-direction:column;
@@ -173,7 +166,7 @@
 /* Three equal entries only when each has room for its complete label. */
 @container room-reading (min-width:960px) {
   #prayer-room[data-room-presentation=home] .door-notices { grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
-  #prayer-room[data-room-presentation=home] .door-notice-entry>.door-notice { grid-template-columns:minmax(0,.3fr) minmax(0,.7fr); }
+  #prayer-room[data-room-presentation=home] .door-notice-entry>.door-notice { grid-template-columns:minmax(0,.36fr) minmax(0,.64fr); }
   #prayer-room[data-room-presentation=home] .notice-information { padding:18px 16px; }
 }
 @container room-reading (max-width:380px) {

@@ -1,0 +1,119 @@
+{
+  "reviewedOn": "2026-11-04",
+  "purpose": "Refine the approved panoramic room and the guide using real institutional wayfinding, real care architecture, and properly identified photographs. This is inspiration and an asset shortlist, not new verification of the directory's access records.",
+  "existingPhotography": {
+    "records": 7,
+    "source": "site/src/data/place-photos.js",
+    "coverage": [
+      "Heathrow prayer-room sign",
+      "Kuala Lumpur prayer-room interior",
+      "Hong Kong prayer-room interior",
+      "Warwick Arts Centre exterior",
+      "St Thomas Hospital exterior",
+      "Doha men's prayer-room sign",
+      "Doha women's prayer-room sign"
+    ],
+    "presentation": "DirectoryPhoto already presents a named example, historical date, author and licence. PlacePhotos preserves complete images with object-fit: contain. Reuse these patterns; avoid cutting off functional signs or substituting a generic photograph for a real institution.",
+    "priority": "Give existing named photographs a quieter frame, less nested padding and enough width to read the sign; retain honest context labels and captions. Warwick and St Thomas photographs are exterior context, not prayer-room interiors."
+  },
+  "references": [
+    {
+      "id": "heathrow-terminal-hierarchy",
+      "title": "Heathrow: Multi-faith prayer rooms",
+      "url": "https://www.heathrow.com/at-the-airport/terminal-facilities/multi-faith-prayer-rooms",
+      "type": "Official airport source",
+      "observed": "The current page groups locations by terminal, explicitly distinguishes before/after security and gate or level, and lists Wudu locations separately.",
+      "application": "Make terminal/building, location, access and hours separate scan-friendly fields rather than burying them in prose. Keep access warnings ahead of supplementary imagery. Preserve existing exact records unless separately reverified.",
+      "rights": "Information-layout inspiration only; no image reuse permission established."
+    },
+    {
+      "id": "heathrow-simple-instructions",
+      "title": "Heathrow: Multi-faith prayer-room code of conduct",
+      "url": "https://www.heathrow.com/content/dam/heathrow/web/common/documents/at-the-airport/terminal-facilities/Heathrow-multi-faith-prayer-room-code-of-conduct.pdf",
+      "type": "Official airport poster",
+      "observed": "The poster pairs one pictogram with a short instruction, including quiet use, returning shared items, keeping belongings close and storing removed footwear.",
+      "application": "Use the existing small symbol family with text, one message per line. Reserve the yellow highlight for direction and selected actions. Do not turn these Heathrow-specific rules into claims applying to every room.",
+      "rights": "Reference only; redraw interface symbols using the existing project system, not the poster artwork."
+    },
+    {
+      "id": "uw-real-campus-guide",
+      "title": "University of Washington: UW Wayfinding",
+      "url": "https://art.washington.edu/news/2016/10/31/uw-wayfinding",
+      "type": "Official university case study and professional photographs",
+      "visualInspection": "CUA browser inspection of the first full gallery photograph on 2026-11-04.",
+      "observed": "The photographed campus totem has a narrow dark upright panel, restrained branding, short aligned direction rows, then a large map and compact legend. The article describes 23 guide signs, redesigned map icons and replaceable map panels. Photos credited to William Wright, October 2016; design credited to Studio Matthews.",
+      "application": "Organize university guidance as a stable heading, immediate next step, then supporting map or photograph. Use a single strong visual accent; avoid clip/pin simulations or several competing boxes. Keep map controls and result rows in the same visual alignment.",
+      "rights": "Photographs inspected as references; no open licence found, do not integrate image files."
+    },
+    {
+      "id": "warwick-campus-location",
+      "title": "University of Warwick: Chaplaincy facilities",
+      "url": "https://warwick.ac.uk/services/chaplaincy/about_us/facilities/",
+      "relatedUrl": "https://warwick.ac.uk/services/chaplaincy/about_us/facilities/mfprswallowhouse/",
+      "type": "Official university source",
+      "observed": "Facilities are organized by Central, Westwood and Gibbet Hill campuses. The Swallow House page explicitly explains a relocation from University House and identifies room MR.G1 beside reception.",
+      "application": "Keep campus/building/room visibly separate, and preserve relocation caveats near the room location. A clean notice strip is more useful than generic decorative campus stationery.",
+      "rights": "Information structure only; do not infer access or hours from photographs or other campus pages."
+    },
+    {
+      "id": "sath-wayfinding",
+      "title": "Shrewsbury and Telford Hospital NHS Trust: Wayfinding focus group, 5 June 2025",
+      "url": "https://www.sath.nhs.uk/wp-content/uploads/2025/06/Signage-Wayfinding-HTP-Focus-Group-5-June-2025.pdf",
+      "type": "Official hospital wayfinding consultation, including real existing examples and proposed designs",
+      "observed": "Pages 8-9 describe consistent repeated directories and motifs at entrances and along the route. Pages 13 and 17 present supplementary colour logic and directory proposals. These are proposals, not confirmation that future signs have been installed.",
+      "application": "Use a stable hospital information heading and plain labelled directions with one restrained accent. Keep institution, location and access in the same corners across pages. Colour supports labels; it never substitutes for a label or signals invented clinical status.",
+      "rights": "Design-method reference only; no reuse licence established for embedded photographs/graphics."
+    },
+    {
+      "id": "maggies-oxford-daylight",
+      "title": "Maggie's: Oxford architecture and design",
+      "url": "https://www.maggies.org/about-us/buildings-and-architecture/oxford/",
+      "type": "Official care organization architecture gallery",
+      "visualInspection": "CUA browser inspection of the exterior and the sitting-room gallery image on 2026-11-04.",
+      "observed": "The actual sitting-room photograph shows full-height glazing with slim dark framing, soft daylight, visible trees, pale walls and a small amount of contrasting upholstery. The official article describes an elevated timber design by Wilkinson Eyre, connected to its woodland setting. This is a cancer-support centre, not a prayer-room photograph.",
+      "application": "Use neutral light on the approved room, precise dark window frames, unclouded exterior visibility and small material accents. Let clear white reading surfaces carry text while architectural warmth stays within the scene; avoid an overall yellow/cream cast.",
+      "rights": "Inspiration only; no open licence identified for gallery photographs."
+    }
+  ],
+  "licensedPhotoCandidate": {
+    "decision": "Integrated as an additional historical entrance photograph on the existing Taoyuan listing; original downloaded after source/rights verification, inspected and resized without crop or AI editing.",
+    "sourceTitle": "Muslim Prayer Room - Taoyuan International Airport Terminal 1.JPG",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Muslim_Prayer_Room_-_Taoyuan_International_Airport_Terminal_1.JPG",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Muslim_Prayer_Room_-_Taoyuan_International_Airport_Terminal_1.JPG",
+    "placeUrl": "/airports/tpe/",
+    "author": "Chongkian",
+    "dateTaken": "2013-04-07",
+    "width": 1984,
+    "height": 1488,
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0/"
+    },
+    "visualInspection": "CUA Commons media viewer: pale timber prayer-room entrance with illuminated arched edge, crescent/star marking and terminal corridor at the left. No visitors visible. This shows an entrance, not the inside of the room.",
+    "suggestedCaption": "The entrance to the Muslim prayer room in Taoyuan International Airport Terminal 1, photographed in April 2013.",
+    "suggestedAlt": "An illuminated arched timber prayer-room entrance beside the terminal corridor at Taoyuan Airport.",
+    "conditions": "Keep historical date, author, source and ShareAlike licence. Resize/format conversion only, no generative reconstruction or invented sign text. Do not use it as evidence of current conditions or access.",
+    "provenanceRecord": "research/daylight-tpe-photograph-2026-11-04.json"
+  },
+  "deferredPhotoCandidates": [
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Prayer_Room_Daffodil_University_Dhaka.jpg",
+      "author": "Gary Todd",
+      "dateTaken": "2018-01-16",
+      "license": "CC0 1.0",
+      "decision": "Rights and source read, not visually reviewed. Institution is absent from this directory; do not attach to another university or create a new place based only on a photograph."
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Islamic_prayer_room_at_the_Franciscus_Gasthuis_%26_Vlietland,_Hillegersberg,_Rotterdam_(2020)_02.jpg",
+      "author": "Donald Trung Quoc Don",
+      "dateTaken": "2020-12-17",
+      "license": "CC BY-SA 4.0",
+      "decision": "Rights and source read, not visually reviewed. Institution is absent from this directory; keep as a research lead, not a generic hospital image."
+    }
+  ],
+  "searchLimitations": [
+    "Pinterest airport-white-interior and hospital-wayfinding search pages were inaccessible in the web tool. No visual observations are attributed to those pages.",
+    "No preview/local-site rendered visual inspection was attempted; existing browser restriction remains in force. Reference-site browser inspection was available.",
+    "This file records design inspiration and a photo candidate only. It does not change place data or verification dates."
+  ]
+}

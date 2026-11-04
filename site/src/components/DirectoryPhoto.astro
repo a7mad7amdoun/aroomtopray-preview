@@ -11,7 +11,7 @@ const date = photo && new Intl.DateTimeFormat(locale, {year:'numeric',month:'sho
 ---
 {photo && <figure class="directory-photo" data-photo-example={place.url}>
  <a class="directory-photo-link" href={`${localizedPath(place.url,locale)}#place-photos`}>
-  <span class="directory-photo-image"><img src={photo.images.at(-1).src} srcset={photoSrcset(photo)} sizes="(max-width: 760px) calc(100vw - 64px), (max-width: 1100px) 42vw, 520px" width={photo.width} height={photo.height} alt={photo.alt[locale] || photo.alt.en} loading="lazy" decoding="async" /></span>
+  <span class="directory-photo-image"><img src={photo.images.at(-1).src} srcset={photoSrcset(photo)} sizes="auto, (max-width: 760px) calc(100vw - 40px), (max-width: 1100px) calc(100vw - 64px), 640px" width={photo.width} height={photo.height} alt={photo.alt[locale] || photo.alt.en} loading="lazy" decoding="async" /></span>
   <span class="directory-photo-caption"><span class="directory-photo-kind"><svg width="14" height="14" aria-hidden="true"><use href="#i-photo"/></svg>{t.kinds[photo.kind]}</span><strong><bdi>{place.short || place.name}</bdi><svg class="directional-icon" width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></strong><span class="directory-photo-date">{t.captured} · <time datetime={photo.dateTaken}>{date}</time></span></span>
  </a>
  <figcaption>© <bdi>{photo.author}</bdi> · <a href={photo.sourceUrl} target="_blank" rel="noopener noreferrer">{photo.license.name}<span class="sr"> · {t.original}</span></a></figcaption>
@@ -19,8 +19,8 @@ const date = photo && new Intl.DateTimeFormat(locale, {year:'numeric',month:'sho
 <style>
  .directory-photo { margin:0; min-width:0; align-self:center; padding:10px 10px 0; overflow:hidden; border:1px solid var(--line); border-radius:16px; background:var(--surface); box-shadow:none; }
  .directory-photo-link { display:grid; grid-template-columns:1fr; align-items:center; gap:0; color:var(--ink); text-decoration:none; border-radius:3px; }
- .directory-photo-image { display:grid; align-items:center; min-width:0; background:var(--surface-2); border-radius:9px; overflow:hidden; aspect-ratio:4/3; }
- img { display:block; width:100%; height:100%; max-height:380px; object-fit:contain; filter:none; }
+ .directory-photo-image { display:grid; align-items:center; min-width:0; background:var(--surface-2); border-radius:9px; overflow:hidden; aspect-ratio:auto; }
+ img { display:block; width:100%; height:auto; max-height:420px; object-fit:contain; filter:none; }
  .directory-photo-caption { display:grid; min-width:0; gap:8px; padding:18px 12px 16px; }
  .directory-photo-kind { display:flex; align-items:center; gap:6px; color:var(--muted); font-size:.73rem; line-height:1.4; }
  .directory-photo-kind svg { flex:none; }

@@ -15,7 +15,7 @@ const emblem = { airports: 'airport', universities: 'campus', hospitals: 'care' 
 const scene = { airports: 'airport', universities: 'campus', hospitals: 'hospital' }[category];
 // These wide concept views keep the whole setting visible inside the board.
 // The caption below distinguishes them from sourced photographs of a place.
-const artStyle = ['light', 'dark'].map(theme => `--view-${scene}-${theme}:image-set(url('/art/quiet-threshold/${scene}-${theme}-768.webp') 1x,url('/art/quiet-threshold/${scene}-${theme}-1536.webp') 2x)`).join(';');
+const artStyle = [['light', 'day'], ['dark', 'night']].map(([theme, light]) => `--view-${scene}-${theme}:image-set(url('/art/panoramic-views/${scene}-${light}-800.webp') 1x,url('/art/panoramic-views/${scene}-${light}-1400.webp') 2x)`).join(';');
 const symbols = {
   airports: ['search', 'security', 'door-open'],
   universities: ['campus', 'key', 'clock'],

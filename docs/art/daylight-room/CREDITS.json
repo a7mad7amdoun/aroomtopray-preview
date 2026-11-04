@@ -1,0 +1,27 @@
+{
+  "title": "Neutral daylight prayer-room refinement",
+  "created": "2026-11-04",
+  "type": "AI-generated architectural illustration; lighting and material edit",
+  "tool": "Built-in image_gen",
+  "sourceImage": "/aroomtopray-preview/art/arrival-room/day-1774.webp",
+  "purpose": "An imagined room, not a verified institution or prayer-room location.",
+  "invariants": "Approved room camera, glazing aperture, prayer-facing recess and complete mat retained. No factual or functional text baked into image.",
+  "changes": "Neutral mineral-white plaster and pale stone-grey floor; natural oak, navy mat and same soft daylight composition.",
+  "nightImage": "/aroomtopray-preview/art/arrival-room/night-1774.webp",
+  "promptRecord": "research/daylight-artwork-prompt-2026-11-04.json",
+  "files": [
+    {
+      "file": "day-1024.webp",
+      "width": 1024,
+      "sha256": "f0f3df94d000ccd1540be8f43b006fdc1d5fb4a57f463e2c405858287c01757b",
+      "bytes": 19864
+    },
+    {
+      "file": "day-1774.webp",
+      "width": 1774,
+      "sha256": "830020abf11a33e22588cfd3aaa01c2dee59f638f830392e274b83b96955674e",
+      "bytes": 66294
+    }
+  ],
+  "generatedFilename": "exec-4c2e9cad-f522-444e-ac13-3240ca7546b2.png"
+}

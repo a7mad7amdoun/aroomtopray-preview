@@ -336,7 +336,7 @@ html[dir=rtl] .return-to-results::before { content:"→"; }
 [dir=rtl] .room-main [lang=en] { font-family:"Archivo Variable",system-ui,sans-serif; }
 [dir=rtl] .room-main :is(h1,h2,h3) [lang=en] { font-family:"Archivo Variable",system-ui,sans-serif; line-height:1.4; }
 html[dir=rtl] .room-main :is(h1,h2,h3) { letter-spacing:0; line-height:1.5; }
-html[dir=rtl] .room-main :is(p,dd,li) { line-height:1.85; }
+html[dir=rtl] .room-main :is(p,dd,li):not(.room-wall-quote) { line-height:1.85; }
 html[dir=rtl] :is(.guide-tabs,.primary-navigation,.country-card,.room-eyebrow,.directory-refine,.atlas-toolbar) { letter-spacing:0; }
 html[dir=rtl] .room-main :is(.eyebrow,.guide-kicker,.count) { font-family:var(--f-body); letter-spacing:0; }
 [dir=rtl] .room-home-intro h1 { font-size:3.2rem; letter-spacing:0; }

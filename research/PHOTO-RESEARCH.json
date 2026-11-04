@@ -10237,7 +10237,7 @@
       "countryCode": "TW",
       "latitude": 25.0777,
       "longitude": 121.233,
-      "status": "needs-research",
+      "status": "sourced-sign-photo",
       "existingSourceLinks": [
         "https://eng.taiwan.net.tw/m1.aspx?sNo=0022187",
         "https://www.taoyuan-airport.com/emailus"
@@ -10253,7 +10253,9 @@
         "entrance": "https://commons.wikimedia.org/w/index.php?search=Taiwan+Taoyuan+International+Airport+Taoyuan+Taiwan+prayer+room+entrance+sign&title=Special%3AMediaSearch&type=image",
         "access": "https://commons.wikimedia.org/w/index.php?search=Taiwan+Taoyuan+International+Airport+Taoyuan+Taiwan+chaplaincy+prayer+facilities+access&title=Special%3AMediaSearch&type=image"
       },
-      "acceptedPhotoIds": []
+      "acceptedPhotoIds": [
+        "tpe-prayer-entrance"
+      ]
     },
     {
       "id": "airports/trn",

@@ -2,8 +2,8 @@
    Reading surfaces stay still; only semantic controls receive feedback. */
 .room-main {
   --reading-radius:10px;
-  --reading-gap:clamp(22px,3cqi,34px);
-  --reading-inset:clamp(20px,3cqi,30px);
+  --reading-gap:clamp(20px,2.6cqi,30px);
+  --reading-inset:clamp(20px,2.6cqi,28px);
   --reading-shadow:0 1px 2px #0a111c06,0 8px 24px #0a111c04;
 }
 
@@ -76,9 +76,9 @@ html[data-sector=universities] .directory-workspace {
   /* Existing campus timber material, now carried into its notice-board rail. */
   --directory-binding:#a28765;
   --directory-heading-surface:var(--surface);
-  --directory-heading-radius:3px;
-  --directory-tabs-edge:6px;
-  --directory-tabs-radius:3px;
+  --directory-heading-radius:6px;
+  --directory-tabs-edge:4px;
+  --directory-tabs-radius:6px;
   --directory-tabs-gap:6px;
 }
 html[data-sector=universities] .directory-mode-tabs {
@@ -89,10 +89,10 @@ html[data-sector=universities] .directory-mode-tabs {
 }
 html[data-sector=hospitals] .directory-workspace {
   --directory-binding:var(--field);
-  --directory-heading-surface:linear-gradient(125deg,color-mix(in srgb,var(--board) 97%,var(--bg)),var(--board));
+  --directory-heading-surface:var(--board);
   --directory-heading-ink:var(--board-ink);
-  --directory-heading-radius:3px;
-  --directory-tabs-radius:3px;
+  --directory-heading-radius:6px;
+  --directory-tabs-radius:6px;
   --directory-tabs-gap:0;
   --directory-identifier-surface:var(--surface-2);
 }
@@ -128,7 +128,7 @@ html[data-sector=airports] .room-main #guide-content .directory-mode-tabs>button
 /* A quiet board heading keeps the result controls with their records. */
 #guide-content .results-toolbar {
   position:relative;
-  padding:18px 20px;
+  padding:16px 20px;
   margin:0;
   border:1px solid var(--line);
   border-inline-start:3px solid var(--directory-binding);
@@ -137,34 +137,6 @@ html[data-sector=airports] .room-main #guide-content .directory-mode-tabs>button
   color:var(--directory-heading-ink);
 }
 #guide-content .results-toolbar h2 { margin:0; color:inherit; }
-/* A single binding clip sits on the paper edge, outside every text/control box. */
-html[data-sector=universities] #guide-content .results-toolbar::before {
-  content:'';
-  position:absolute;
-  inset-block-start:-4px;
-  inset-inline-start:24px;
-  inline-size:40px;
-  block-size:6px;
-  border:1px solid var(--field);
-  border-radius:2px;
-  background:var(--surface-2);
-  pointer-events:none;
-}
-/* A lightly tinted acrylic plaque, with four quiet stand-off fixings confined
-   to its empty corners. The backing stays opaque so text contrast is stable. */
-html[data-sector=hospitals] #guide-content .results-toolbar::before {
-  --plaque-fixing:radial-gradient(circle,var(--board-ink) 0 .7px,var(--field) 1px 2px,var(--board) 2.5px 3px,transparent 3.5px);
-  content:'';
-  position:absolute;
-  inset:0;
-  border-radius:inherit;
-  background-image:var(--plaque-fixing),var(--plaque-fixing),var(--plaque-fixing),var(--plaque-fixing);
-  background-size:8px 8px;
-  background-position:left 6px top 6px,right 6px top 6px,left 6px bottom 6px,right 6px bottom 6px;
-  background-repeat:no-repeat;
-  box-shadow:inset 0 1px 0 color-mix(in srgb,var(--board-ink) 18%,transparent);
-  pointer-events:none;
-}
 /* Controls keep their paired surface/ink tokens; the field-color focus ring
    remains visible against both the navy plaque and its light-mode controls. */
 html[data-sector=hospitals] #guide-content .results-toolbar :is(button,select):focus-visible { outline-color:var(--field); }
@@ -175,7 +147,7 @@ html[data-sector=hospitals] #guide-content .results-toolbar :is(button,select):f
 
 /* Results are readable records, with a recognisable country/IATA identifier. */
 #guide-content .directory-workspace .list:not([data-view=cards]) .directory-result.lrow {
-  padding:26px 12px;
+  padding:22px 12px;
   gap:20px;
   border-radius:0;
   background:transparent;
@@ -202,7 +174,7 @@ html[data-sector=hospitals] #guide-content .results-toolbar :is(button,select):f
 #guide-content .directory-workspace .directory-result .result-location { margin-block-start:5px; }
 #guide-content .directory-workspace .directory-result .mob-s { margin-block-start:12px; }
 #guide-content .directory-workspace .directory-result .row-arrow { width:23px; height:23px; color:var(--ink); }
-#guide-content .directory-workspace .directory-result .row-facilities { padding-block-start:16px; margin-block-start:16px; gap:12px 18px; }
+#guide-content .directory-workspace .directory-result .row-facilities { padding-block-start:14px; margin-block-start:14px; gap:10px 18px; }
 #guide-content .directory-workspace .directory-result .result-fact { gap:4px 8px; }
 #guide-content .directory-workspace .directory-result .result-fact svg { color:var(--ink); }
 #guide-content .directory-workspace .list[data-view=cards] { gap:18px; margin-block-start:22px; }
@@ -230,7 +202,7 @@ html[data-sector=hospitals] #guide-content .results-toolbar :is(button,select):f
 #guide-content .room .room-number { min-width:38px; height:38px; background:var(--surface-2); border-color:var(--line); font-size:var(--guide-meta); }
 #guide-content .room .where { max-inline-size:65ch; padding-block:16px 22px; border-block-end:1px solid var(--line); margin-block-end:18px; }
 #guide-content .room .facts { column-gap:28px; }
-#guide-content .room .facts>div { padding-block:17px; }
+#guide-content .room .facts>div { padding-block:15px; }
 #guide-content .room .facts>.fact-essential {
   padding:18px 20px;
   margin-block-end:14px;
@@ -248,7 +220,7 @@ html[data-sector=hospitals] #guide-content .results-toolbar :is(button,select):f
 #guide-content .overview-facts { border-radius:var(--reading-radius); background:var(--surface); }
 #guide-content .overview-fact { padding:24px 20px; }
 #guide-content .overview-fact dt { font-size:var(--guide-label); line-height:1.5; }
-#guide-content .overview-fact dd { margin-block-start:18px; }
+#guide-content .overview-fact dd { margin-block-start:12px; }
 #guide-content .overview-bearing { font-size:var(--guide-meta); line-height:1.6; }
 #guide-content .visit-intro { padding:var(--reading-inset); border-radius:var(--reading-radius); background:var(--surface-2); box-shadow:none; }
 #guide-content .page-jumps { gap:9px; padding-block-start:18px; }
@@ -307,8 +279,8 @@ html[data-sector=hospitals] #guide-content .results-toolbar :is(button,select):f
   box-shadow:var(--reading-shadow);
 }
 .room-main .directory-photo .directory-photo-link { border-radius:0; }
-.room-main .directory-photo .directory-photo-image { border-radius:0; background:var(--surface-2); aspect-ratio:4/3; }
-.room-main .directory-photo .directory-photo-image>img { width:100%; height:100%; max-height:460px; object-fit:contain; }
+.room-main .directory-photo .directory-photo-image { border-radius:0; background:var(--surface-2); aspect-ratio:auto; }
+.room-main .directory-photo .directory-photo-image>img { width:100%; height:auto; max-height:420px; object-fit:contain; }
 .room-main .directory-photo .directory-photo-caption { padding:var(--reading-inset); gap:14px; }
 .room-main .directory-photo .directory-photo-kind { font-size:var(--guide-label); line-height:1.55; gap:8px; }
 .room-main .directory-photo .directory-photo-kind>svg { width:18px; height:18px; }
@@ -335,7 +307,7 @@ html[data-sector=hospitals] #guide-content .results-toolbar :is(button,select):f
 #guide-content .country-card a>svg { width:21px; height:21px; }
 
 @container directory-image (min-width:680px) {
-  .room-main .directory-photo .directory-photo-link { grid-template-columns:minmax(0,1.5fr) minmax(0,1fr); }
+  .room-main .directory-photo .directory-photo-link { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
   .room-main .directory-photo .directory-photo-caption { padding:30px; }
   .room-main .directory-photo .directory-photo-image { border-inline-end:1px solid var(--line); }
 }
@@ -379,7 +351,6 @@ html[dir=rtl] .room-main .directory-photo strong { line-height:1.65; letter-spac
   #guide-content :is(.d-main>.room,.insight-card,.place-photo-grid>figure),.room-main .directory-photo { background:#fff; box-shadow:none; break-inside:avoid; }
   #guide-content .directory-workspace .directory-result.lrow { box-shadow:none; }
   #guide-content .results-toolbar { padding:10pt 0; border:0; border-block-end:1px solid var(--line); border-radius:0; background:#fff; color:#142033; }
-  html:is([data-sector=universities],[data-sector=hospitals]) #guide-content .results-toolbar::before { display:none; }
   html[data-sector] .directory-workspace { --directory-identifier-surface:#fff; --directory-identifier-ink:#142033; }
   #guide-content .insight-actions .insight-action { background:#fff; color:#142033; }
   #guide-content :is(.panel-heading,.discovery-heading,.insight-heading) { padding-block-end:10pt; }

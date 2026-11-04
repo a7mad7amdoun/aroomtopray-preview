@@ -1,0 +1,230 @@
+{
+  "date": "2026-11-04",
+  "baseline": "72f70cc9c51fb56fc880cb540364c543f26a0e1b",
+  "status": "Validated local release export; deployment verified separately by parent task",
+  "renderedBrowserReview": false,
+  "scope": "Incremental neutral-white theme, relit approved room, more balanced hero and photo proportions, quieter category information surfaces, and one responsibly attributed historical TPE entrance photograph. Existing architecture, navigation, fixed glass, scenes, dark mode, languages, guide records and tools retained.",
+  "automatedChecks": {
+    "tests": {
+      "passed": 207,
+      "failed": 0
+    },
+    "build": {
+      "routes": 2177,
+      "exportBase": "/aroomtopray-preview",
+      "serverSubmissionsDisabled": true
+    },
+    "staticExport": {
+      "pages": 2177,
+      "mounted_assets": 80,
+      "broken_links": 0,
+      "inline_script_check": "pass",
+      "rendered_visual_check": false
+    },
+    "offlineInteractions": {
+      "allGeneratedPages": 2177,
+      "allDeclaredTabs": 6456,
+      "allNativeLinks": 126644,
+      "localizedPageScenarios": 37,
+      "guidePanels": 60,
+      "deepTargets": 77,
+      "nativeLinks": 1987,
+      "buttons": 138
+    },
+    "directoryScenarios": 12,
+    "floatingScenarios": 24,
+    "structuralPages": 2177
+  },
+  "exactPreservation": {
+    "routes": {
+      "before": 2177,
+      "after": 2177,
+      "added": [],
+      "removed": []
+    },
+    "records": {
+      "byCategory": {
+        "airports": 414,
+        "universities": 77,
+        "hospitals": 45
+      },
+      "count": 536,
+      "localeCount": 4,
+      "retainedLocalizedPages": 2144
+    },
+    "markup": {
+      "mainsCompared": 2177,
+      "locales": {
+        "en": 554,
+        "ar": 541,
+        "es": 541,
+        "fr": 541
+      },
+      "existingLinkOccurrences": 56963,
+      "existingExternalLinkOccurrences": 15155,
+      "existingImageOccurrences": 7555,
+      "existingControlOccurrences": 31904,
+      "letterAssociationsChecked": 254
+    },
+    "protectedSourceFiles": 528,
+    "unchangedOriginalImageFiles": 423,
+    "existingPhotoRecords": 7,
+    "existingPhotoMetadataUnchanged": true,
+    "reviewedProtectedMetadataUpdates": [
+      {
+        "file": "site/public/photos/places/CREDITS.json",
+        "before": "66252a9ae27e91811732f734929adabccc6b276f42d60463c05219e5eeabf8bf",
+        "after": "169a8b5782d4fbdb47190f3cc5b0a91963f0244770e5b76203434f2a9940a0ce"
+      },
+      {
+        "file": "site/src/data/place-photos.js",
+        "before": "624d86902c4e1846e842862e2cb28f33102e35c1c208a3c1b2e75677996c4d6b",
+        "after": "5f2e75c3d71e25b87124086c885b7d5abb284f6045945e19938ca8a792762670"
+      }
+    ],
+    "exactPresentationExceptions": {
+      "artworkCreditParagraphs": 2,
+      "TPEPhotoDependentSnapshots": 12,
+      "homeSearchIndex": "Only the existing TPE entry gains the localized sourced-photo badge; all other entry properties and all other places compare exactly."
+    },
+    "otherFunctionalChanges": "None. No visitor control removed, no place record or factual access condition changed."
+  },
+  "newHistoricalPhoto": {
+    "id": "tpe-prayer-entrance",
+    "institution": "Taoyuan International Airport Terminal1",
+    "dateTaken": "2013-04-07",
+    "author": "Chongkian",
+    "license": "CC BY-SA3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Muslim_Prayer_Room_-_Taoyuan_International_Airport_Terminal_1.JPG",
+    "localesVerified": [
+      "en",
+      "fr",
+      "ar",
+      "es"
+    ],
+    "derivativeWidths": [
+      480,
+      960,
+      1440
+    ],
+    "notes": "Reviewed source and asset hashes, dated four-language entrance-only captions, alt, credit, license, historical caveat and unchanged old source links. No AI editing or upscaling; no current room/access claim inferred."
+  },
+  "geometry": {
+    "sourceOnly": true,
+    "cases": 576,
+    "assertions": 41476,
+    "viewports": [
+      "360×780",
+      "390×844",
+      "768×1024",
+      "1024×768",
+      "1440×900",
+      "1920×1080",
+      "844×390",
+      "1024×540"
+    ],
+    "pageTypes": [
+      "home",
+      "airports directory",
+      "universities directory",
+      "hospitals directory",
+      "airport detail",
+      "support"
+    ],
+    "locales": [
+      "en",
+      "fr",
+      "ar",
+      "es"
+    ],
+    "themes": [
+      "light",
+      "dark",
+      "system-dark"
+    ],
+    "checked": [
+      "Full aperture and complete prayer mat remain inside scenery",
+      "54/46 desktop reading split with opaque reading track",
+      "150% canvas inside4:3 mobile room;600px home/420px inner maximum width",
+      "44px room light and210px settings fit both directions",
+      "Mobile switch top3%, inscription top37%, Arabic line-height1.6",
+      "Conservative four-line Arabic box clears recess at declared phone sizes",
+      "Source quote conflict fixed in original broad Arabic paragraph rule",
+      "Natural photograph ratios with object-fit:contain and420px directory image cap"
+    ],
+    "limitation": "Arithmetic and focused CSS-cascade checks; not measured browser layout or font shaping."
+  },
+  "contrast": {
+    "semanticPairs": 48,
+    "allPassed": true,
+    "systemDarkParity": true,
+    "sourceInscription": [
+      {
+        "theme": "day",
+        "ink": [
+          20,
+          32,
+          51
+        ],
+        "sourceRegion": {
+          "left": 690,
+          "top": 328,
+          "width": 178,
+          "height": 330
+        },
+        "minimumContrast": 7.215789629161975,
+        "maximumContrast": 12.776119024936678,
+        "passed": true
+      },
+      {
+        "theme": "night",
+        "ink": [
+          246,
+          240,
+          228
+        ],
+        "sourceRegion": {
+          "left": 690,
+          "top": 328,
+          "width": 178,
+          "height": 330
+        },
+        "minimumContrast": 9.624297521753284,
+        "maximumContrast": 15.411112667035576,
+        "passed": true
+      }
+    ],
+    "limitation": "WCAG relative-luminance arithmetic on opaque declared semantic color pairs. This is not a rendered contrast audit. Source-pixel sampling does not validate rendered font size, anti-aliasing, wrapping or final composite."
+  },
+  "visualAssetInspection": {
+    "performed": [
+      "New neutral daylight room source plate",
+      "New960px TPE entrance photograph"
+    ],
+    "notPerformed": [
+      "Rendered website screenshots",
+      "Browser layout, animation or physical focus checks",
+      "Real phone or iOS Simulator checks"
+    ]
+  },
+  "limitations": [
+    "The existing preview URL policy prevents rendered browser review; no alternate renderer, browser or origin was used to bypass it.",
+    "Actual text wrapping, paint, artwork composite placement and touch behavior remain for visual review.",
+    "Source image sampling validates declared text/plate contrast, not browser anti-aliasing or font shaping."
+  ],
+  "evidence": {
+    "localDirectory": ".local/daylight-refinement",
+    "scripts": [
+      "check-source-preservation.mjs",
+      "check-all-content.mjs",
+      "review-panoramic-geometry.mjs",
+      "check-wall-inscription.mjs",
+      "check-floating.mjs",
+      "review-structure.mjs",
+      "check-premium-interactions.mjs",
+      "check-github-directory.mjs",
+      "check-palette.mjs",
+      "validate-modern.py"
+    ]
+  }
+}

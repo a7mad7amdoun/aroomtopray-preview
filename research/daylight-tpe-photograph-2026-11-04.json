@@ -1,0 +1,173 @@
+{
+  "reviewedOn": "2026-11-04",
+  "apiUrl": "https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url%7Csize%7Cextmetadata&titles=File%3AMuslim+Prayer+Room+-+Taoyuan+International+Airport+Terminal+1.JPG",
+  "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Muslim_Prayer_Room_-_Taoyuan_International_Airport_Terminal_1.JPG",
+  "downloadedBytes": 1283713,
+  "sha256": "ef011c51214f70fd24b1cd473fa59ded442361f8cac6bd9532dbea61de8c789c",
+  "metadata": {
+    "pageid": 27580941,
+    "ns": 6,
+    "title": "File:Muslim Prayer Room - Taoyuan International Airport Terminal 1.JPG",
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 1283713,
+        "width": 1984,
+        "height": 1488,
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Muslim_Prayer_Room_-_Taoyuan_International_Airport_Terminal_1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Muslim_Prayer_Room_-_Taoyuan_International_Airport_Terminal_1.JPG",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=27580941",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2013-08-05 19:49:56",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Muslim Prayer Room - Taoyuan International Airport Terminal 1",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Star and crescent|Taken with Samsung PL170|April 2013 in Taiwan|Surau in Taiwan|Interior of Taiwan Taoyuan International Airport Terminal 1|Airport chapels|Taiwan photographs taken on 2013-04-07|Self-published work|2013 photographs of Taoyuan",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Muslim Prayer Room - Taoyuan International Airport Terminal 1",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2013-04-07 17:42:48",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:Chongkian\" title=\"User:Chongkian\">Chongkian</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "CC BY-SA 3.0",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Creative Commons Attribution-Share Alike 3.0",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "true",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by-sa/3.0",
+            "source": "commons-desc-page"
+          },
+          "Copyrighted": {
+            "value": "True",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "cc-by-sa-3.0",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      }
+    ]
+  },
+  "visualReview": "Original inspected through Commons media viewer and the downloaded original; marked entrance only, no interior. No visitors visible.",
+  "processing": "Sharp resize without enlargement, no crop, WebP quality 86 effort 6, metadata removed. No AI editing.",
+  "record": {
+    "id": "tpe-prayer-entrance",
+    "placeUrl": "/airports/tpe/",
+    "kind": "sign",
+    "caption": {
+      "en": "The Muslim prayer-room entrance in Taoyuan International Airport Terminal 1, photographed on 7 April 2013. The prayer-room interior is not shown.",
+      "fr": "L’entrée de la salle de prière musulmane du terminal 1 de l’aéroport international de Taoyuan, photographiée le 7 avril 2013. L’intérieur de la salle n’est pas visible.",
+      "ar": "مدخل مصلّى المسلمين في مبنى الركاب ١ بمطار تاويوان الدولي، صُوّر في ٧ أبريل ٢٠١٣. لا تظهر الصورة داخل المصلّى.",
+      "es": "La entrada a la sala de oración musulmana de la terminal 1 del aeropuerto internacional de Taoyuan, fotografiada el 7 de abril de 2013. No se muestra el interior de la sala."
+    },
+    "alt": {
+      "en": "An illuminated arched timber entrance marked with a crescent and star beside the terminal corridor at Taoyuan Airport.",
+      "fr": "Une entrée en bois en forme d’arche éclairée, marquée d’un croissant et d’une étoile, à côté du couloir du terminal de l’aéroport de Taoyuan.",
+      "ar": "مدخل خشبي مقوّس بإضاءة وعلامة هلال ونجمة، بجانب ممر مبنى الركاب في مطار تاويوان.",
+      "es": "Una entrada de madera con arco iluminado y una media luna y estrella junto al pasillo de la terminal del aeropuerto de Taoyuan."
+    },
+    "sourceTitle": "Muslim Prayer Room - Taoyuan International Airport Terminal 1.JPG",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Muslim_Prayer_Room_-_Taoyuan_International_Airport_Terminal_1.JPG",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Muslim_Prayer_Room_-_Taoyuan_International_Airport_Terminal_1.JPG",
+    "commonsPageId": 27580941,
+    "author": "Chongkian",
+    "dateTaken": "2013-04-07",
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0/"
+    },
+    "review": {
+      "status": "accepted",
+      "sourceReviewedOn": "2026-11-04",
+      "identityBasis": "Commons identifies the Muslim prayer room at Taoyuan International Airport Terminal 1. Original pixels visually inspected: the marked entrance and adjoining terminal corridor are visible; the prayer-room interior is not shown. Historical signage does not verify current access or facilities.",
+      "rights": "Attribution and ShareAlike retained; resize and format conversion only. No crop, retouching or generative editing."
+    },
+    "originalSha256": "ef011c51214f70fd24b1cd473fa59ded442361f8cac6bd9532dbea61de8c789c",
+    "width": 1984,
+    "height": 1488,
+    "images": [
+      {
+        "src": "/photos/places/tpe-prayer-entrance-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/photos/places/tpe-prayer-entrance-960.webp",
+        "width": 960
+      },
+      {
+        "src": "/photos/places/tpe-prayer-entrance-1440.webp",
+        "width": 1440
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "src": "/photos/places/tpe-prayer-entrance-480.webp",
+      "width": 480,
+      "height": 360,
+      "bytes": 12418,
+      "sha256": "47848974dc6ee16bba4a67703543943a9cd23f7e108dffbf49057a89169c1cd6"
+    },
+    {
+      "src": "/photos/places/tpe-prayer-entrance-960.webp",
+      "width": 960,
+      "height": 720,
+      "bytes": 36084,
+      "sha256": "e6363f5d8cffc20c12ddfa55f0fb43f0dab74a5bca1506456b4707c2a6730f7e"
+    },
+    {
+      "src": "/photos/places/tpe-prayer-entrance-1440.webp",
+      "width": 1440,
+      "height": 1080,
+      "bytes": 75184,
+      "sha256": "7b761371b175a33f777a85096ea0a204c6ed0311cc6399317ed75ef14051050e"
+    }
+  ]
+}

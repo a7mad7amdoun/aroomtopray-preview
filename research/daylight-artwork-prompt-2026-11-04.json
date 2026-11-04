@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-04",
+  "tool": "Built-in image_gen",
+  "target": "site/public/art/arrival-room/day-1774.webp",
+  "prompt": "Use case: lighting-weather and precise material color edit. Edit target: the supplied existing wide prayer-room interior. Keep the EXACT camera, 2:1 composition, all geometry, all edges, perspective, positions, dimensions and object silhouettes. Window opening interior remains exactly at x=90..594,y=112..696 in the original 1774x887; keep it a flat charcoal grey placeholder for interface scenery. Keep recess x=687..865,y=174..692. Keep complete navy prayer mat at x=612..947,y=700..863, facing that solid recess. Do not add or remove any object, no people or lettering. Change ONLY the daylight color/material finish: brighter refined neutral mineral-white plaster walls and ceiling, pale neutral stone-grey carpet, restrained light natural oak reveal, charcoal bronze window metal, the same deep navy mat and thin pale border. Remove the pervasive beige/tan/yellow cast. Architectural editorial photograph, calm clean daylight at about 5500K, delicate shadows and visible subtle texture, softly luminous white room, confident and understated rather than sterile or overexposed. Keep the ceiling light a restrained neutral glow, no orange bloom. Preserve the grey window placeholder and floor/wall junction exactly. No outdoor scene, no door, no glass decals, no signs, no inscriptions. Do not zoom or crop. Output the exact same wide 2:1 framing and highest fidelity possible.",
+  "files": [
+    "site/public/art/daylight-room/day-1024.webp",
+    "site/public/art/daylight-room/day-1774.webp"
+  ],
+  "review": "Image visually inspected: original camera, glazing aperture, complete mat and solid recess retained; neutral white materials adopted. No browser rendering.",
+  "generatedFilename": "exec-4c2e9cad-f522-444e-ac13-3240ca7546b2.png"
+}
