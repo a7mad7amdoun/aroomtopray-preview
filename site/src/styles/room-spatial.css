@@ -225,8 +225,11 @@ html .immersive-site .site-footer { width:min(var(--layout-width),calc(100% - 2 
 .immersive-site .site-footer nav h2 { font-size:.8rem; letter-spacing:0; text-transform:none; }
 .immersive-site .site-footer nav a { min-height:36px; font-size:.85rem; }
 /* The world is beyond stationary glazing; only the scene dissolves. */
-.room-environment .door-outside { background-image:none; background-color:#26313a; overflow:hidden; }
+.room-environment .door-outside { background-image:none; background-color:transparent; overflow:hidden; isolation:isolate; }
 .door-scene { position:absolute; inset:0; background-size:cover; background-repeat:no-repeat; background-position:center; opacity:0; transition:opacity 2200ms cubic-bezier(.22,.61,.36,1); }
+/* The isolated panorama adds complementary alpha during the crossfade.
+   Its opaque frame remains the fallback; glass reflections sit outside it. */
+@supports (mix-blend-mode:plus-lighter) { .door-scene { mix-blend-mode:plus-lighter; } }
 .door-scene-airport { background-image:var(--view-airport); }
 .door-scene-campus { background-image:var(--view-campus); }
 .door-scene-hospital { background-image:var(--view-hospital); }

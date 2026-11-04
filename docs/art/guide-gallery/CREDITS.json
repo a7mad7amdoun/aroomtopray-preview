@@ -1,0 +1,100 @@
+{
+  "checkedOn": "2026-11-04",
+  "transformations": "Proportionate downsampling only. Museum images: WebP quality90; original airport relief: WebP quality85. No cropping, recoloring, or upscaling. Original museum images have not been AI-modified.",
+  "artworks": [
+    {
+      "id": "airport-relief",
+      "title": "A quiet current",
+      "type": "Original AI-generated concept artwork",
+      "date": "2026",
+      "source": "Built-in image generator",
+      "referencePrinciple": "Sculptural airport public art; original composition, not a photograph of a real installation",
+      "files": [
+        "airport-600.webp",
+        "airport-1000.webp"
+      ],
+      "integration": "Decorative airport guide artwork. Never claim location, artist affiliation or institutional endorsement.",
+      "research": "research/artful-airport-art-2026-11-04.json"
+    },
+    {
+      "id": "campus-botanical",
+      "title": "Spiraea aruncus (Tyrol)",
+      "artist": "Anna Atkins",
+      "date": "1851–54",
+      "medium": "Cyanotype",
+      "institution": "The Metropolitan Museum of Art",
+      "objectNumber": "2004.172",
+      "creditLine": "Purchase, Alfred Stieglitz Society Gifts, 2004",
+      "sourcePage": "https://www.metmuseum.org/art/collection/search/285421",
+      "sourceImage": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/285421/2280762/main-image",
+      "rights": "Public Domain; The Met Open Access",
+      "rightsEvidence": "The museum object page explicitly labels this image Public Domain and offers Download Image. Its Research Resources section permits unrestricted commercial and noncommercial use of Open Access/public-domain images.",
+      "sourceDimensions": {
+        "width": 854,
+        "height": 1200
+      },
+      "files": [
+        {
+          "path": "site/public/art/guide-gallery/atkins-spiraea-600.webp",
+          "width": 600,
+          "height": 843,
+          "bytes": 91112,
+          "sourceWidth": 854,
+          "sourceHeight": 1200,
+          "sha256": "17fa9c734ddd6dcfb165a981e3ab312b6811911fc558008f9e99394dac9b22e4"
+        },
+        {
+          "path": "site/public/art/guide-gallery/atkins-spiraea-854.webp",
+          "width": 854,
+          "height": 1200,
+          "bytes": 172736,
+          "sourceWidth": 854,
+          "sourceHeight": 1200,
+          "sha256": "85cf1710a5c3108ba0fc9cc6f4e3ab15fda327afbf888c37b1cf8d9caf387579"
+        }
+      ],
+      "suggestedAlt": "Pale botanical leaves and flowering stems on a blue cyanotype by Anna Atkins.",
+      "integration": "A complete artwork, not a photograph of a listed campus. Keep full paper border and full composition with object-fit: contain. Name artist/title and link museum in caption. No institutional affiliation or prayer-room claims."
+    },
+    {
+      "id": "hospital-water-lilies",
+      "title": "Water Lilies",
+      "artist": "Helena de Kay",
+      "date": "ca. 1870–77",
+      "medium": "Oil on canvas",
+      "institution": "The Metropolitan Museum of Art",
+      "objectNumber": "2024.73",
+      "creditLine": "Anonymous Gift, 2024",
+      "sourcePage": "https://www.metmuseum.org/art/collection/search/899646",
+      "sourceImage": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/899646/2229554/main-image",
+      "rights": "Public Domain; The Met Open Access",
+      "rightsEvidence": "The museum object page explicitly labels this image Public Domain and offers Download Image. Its Research Resources section permits unrestricted commercial and noncommercial use of Open Access/public-domain images.",
+      "sourceDimensions": {
+        "width": 1200,
+        "height": 786
+      },
+      "files": [
+        {
+          "path": "site/public/art/guide-gallery/de-kay-water-lilies-600.webp",
+          "width": 600,
+          "height": 393,
+          "bytes": 63626,
+          "sourceWidth": 1200,
+          "sourceHeight": 786,
+          "sha256": "07ca37c1d35666530e9ad1f32659100ad7fdb9f7dfdac63b92478ffdea100a53"
+        },
+        {
+          "path": "site/public/art/guide-gallery/de-kay-water-lilies-1000.webp",
+          "width": 1000,
+          "height": 655,
+          "bytes": 188826,
+          "sourceWidth": 1200,
+          "sourceHeight": 786,
+          "sha256": "354db92971793aa4c95d3b5b30bf9004d6f1a1bc289a66a60abaf722ea166494"
+        }
+      ],
+      "suggestedAlt": "White water lilies reflected in dark green water, painted by Helena de Kay.",
+      "integration": "A complete calming nature artwork, not a photograph of a listed hospital. Retain all blossoms and original brushwork with object-fit: contain. Name artist/title and link museum in caption. No claim of medical benefit, hospital installation, or affiliation."
+    }
+  ]
+}

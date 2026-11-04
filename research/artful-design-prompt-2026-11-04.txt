@@ -1,0 +1,15 @@
+ARTFUL ROOM — refinement brief, 4 November 2026
+
+Improve the approved panoramic prayer room, preserving the room, neutral white and navy modes, fixed glass wall, complete mat facing its solid recess, and all536 place records in four languages. Make the homepage a special welcome while the directories remain fast, credible tools.
+
+Use Pinterest as visual research, not as an unlicensed image library. Translate airport public-art relief, university cyanotypes and hospital nature-art principles into three restrained introductions. Replace the repeated category panorama with one credited artwork per category. Display full uncropped museum works, never imply they depict listed places. Keep actual place photos and all practical guidance unchanged.
+
+Give the invitation ‘Come to prayer, come to success’ the dignity of an architectural inscription: Source Serif4 Semibold for Latin languages, existing Noto Naskh Arabic600 for Arabic. Preserve each translation, comfortable line spacing, and all Arabic marks. Keep Archivo for the interface, ensuring a unified functional system.
+
+Create a homepage-only material variation of the existing room in daylight and night: fine plaster relief at the far left and ceiling, soft realistic shadows, no added objects, no pattern in the prayer-facing niche. Lock the exact aperture and mat geometry. Retain the current simple room on category and support pages.
+
+Motion is deterministic and useful: crossfade the static panoramas without dark brightness dips; scroll smoothly fades only scenery, never controls or guide information. No parallax, zooming floors, perpetual bobbing or scroll interception. Preserve reduced motion, pause, keyboard and native links.
+
+Remove the redundant homepage guide jump, retaining the visible guide threshold, category choices and visitor tools. Reuse the existing orientation component and spacing tokens; keep category preparation notes, restrictions, sources, search, maps, countries and all translations intact. Avoid new sections just for decoration.
+
+Inspect asset composition, verify data parity, unit tests, static build and offline DOM behavior in every locale. Check360/390px, tablet and desktop geometry and color contrast arithmetically where browser rendering is unavailable. Do not claim rendered checks. Publish only Ahmed’s review preview, never Hamza’s production site.

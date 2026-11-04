@@ -1,0 +1,33 @@
+{
+  "type": "Original AI-generated concept artwork",
+  "date": "2026-11-04",
+  "purpose": "Homepage-only artisan plaster detail, preserving approved room geometry",
+  "method": "Built-in imagegen edits; full composition proportionally downsampled with sharp; original assets retained",
+  "references": [
+    "../daylight-room/day-1774.webp",
+    "../arrival-room/night-1774.webp"
+  ],
+  "disclosure": "Imagined prayer room, not a photograph of a listed place. Exterior panoramas are supplied by the interface.",
+  "files": [
+    {
+      "path": "day-1024.webp",
+      "width": 1024,
+      "height": 512
+    },
+    {
+      "path": "day-1774.webp",
+      "width": 1774,
+      "height": 887
+    },
+    {
+      "path": "night-1024.webp",
+      "width": 1024,
+      "height": 512
+    },
+    {
+      "path": "night-1774.webp",
+      "width": 1774,
+      "height": 887
+    }
+  ]
+}

@@ -1,0 +1,457 @@
+{
+  "date": "2026-11-04",
+  "baseline": "794138b66d0865a00a81df3442325ff24f1fdce8",
+  "status": "Validated completed local release export; deployment verification is performed separately by parent task.",
+  "renderedBrowserReview": false,
+  "scope": "Incremental homepage artisan-relief day/evening room plates; stronger Source Serif4 wall inscription with600-weight Noto Naskh Arabic; three full-composition gallery works replacing repeated orientation panoramas; one redundant homepage guide jump removed; stable scroll-opacity and hover-intent behavior. Approved room geometry, prayer-mat orientation, fixed glazing, menu, place records, languages, sources and visitor tools remain.",
+  "automatedChecks": {
+    "tests": {
+      "passed": 210,
+      "failed": 0
+    },
+    "build": {
+      "routes": 2177,
+      "exportBase": "/aroomtopray-preview",
+      "serverSubmissionsDisabled": true
+    },
+    "staticExport": {
+      "pages": 2177,
+      "mounted_assets": 87,
+      "broken_links": 0,
+      "inline_script_check": "pass",
+      "rendered_visual_check": false
+    },
+    "offlineInteractions": {
+      "allGeneratedPages": 2177,
+      "allDeclaredTabs": 6456,
+      "allNativeLinks": 126648,
+      "localizedPageScenarios": 37,
+      "guidePanels": 60,
+      "deepTargets": 77,
+      "nativeLinks": 1983,
+      "buttons": 138
+    },
+    "directoryScenarios": 12,
+    "floatingScenarios": 24,
+    "structuralPages": 2177
+  },
+  "exactPreservation": {
+    "routes": {
+      "before": 2177,
+      "after": 2177,
+      "added": [],
+      "removed": []
+    },
+    "records": {
+      "byCategory": {
+        "airports": 414,
+        "universities": 77,
+        "hospitals": 45
+      },
+      "count": 536,
+      "localeCount": 4,
+      "retainedLocalizedPages": 2144
+    },
+    "markup": {
+      "mainsCompared": 2177,
+      "locales": {
+        "en": 554,
+        "ar": 541,
+        "es": 541,
+        "fr": 541
+      },
+      "existingLinkOccurrences": 56980,
+      "existingExternalLinkOccurrences": 15167,
+      "existingImageOccurrences": 7559,
+      "existingControlOccurrences": 31908,
+      "letterAssociationsChecked": 254
+    },
+    "protectedSourceFiles": 534,
+    "unchangedOriginalImageFiles": 428,
+    "existingPhotoRecords": 8,
+    "existingPhotoMetadataUnchanged": true,
+    "newPlacePhotoRecords": 0,
+    "realPhotoExports": {
+      "files": 40,
+      "unchanged": true,
+      "reviewedCreditUpdates": []
+    },
+    "oldArtworkExports": {
+      "files": 398,
+      "unchanged": true,
+      "reviewedCreditUpdates": []
+    },
+    "reviewedProtectedBehaviorChanges": [
+      {
+        "file": "site/src/scripts/room-door.js",
+        "before": "7ea215488d6244e3bcef2c0a62ec88dac7423611790d9ba941e2a68c285b229b",
+        "after": "a8d5da3646ac8bc4c1c2d282acc0f58e6944417b29757218dc6b6876668f1cb5",
+        "review": "Fixed panorama hover intent now cancels on pointercancel and hidden documents; a delayed callback checks document visibility. Native destinations, context restoration, category locking and cycle behavior retained. Reviewed exact source diff and focused cancellation tests."
+      },
+      {
+        "file": "site/src/scripts/room-motion.js",
+        "before": "2f437a7f60e5debed56e262273f6b2540dcbab6ded7377b0d290f9897801ea1d",
+        "after": "3c1b0c62e0da0828ce1b9f6a6d03c62dfa685711fb8a56326b46517911dee0c3",
+        "review": "Replace linear scroll-opacity proportion with smoothstep based only on the same scroll progress. Boundaries, reduced-motion behavior, hidden-page suspension, passive requestAnimationFrame scheduling and reading/control state retained. Reviewed deterministic reversal test."
+      }
+    ],
+    "exactPresentationExceptions": {
+      "count": 16,
+      "homepageGuideJump": 4,
+      "categoryArtworkSubtree": 12,
+      "artworkCreditParagraphs": 0,
+      "description": "Only reviewed exact before/after snapshots. Four home links lose only the repeated localized Explore the guide jump; all reception text/controls remain exact. Twelve category orientation-art subtrees change decorative imagery/credits; every preparation step, restriction and factual listing remains exact. Search indexes compare exactly, with no previous photo-addition exception."
+    },
+    "otherFunctionalChanges": "None; original native links, maps, tabs, filtering, theme/language controls and visitor tools retained."
+  },
+  "newArtwork": {
+    "assets": [
+      {
+        "file": "site/public/art/artful-room/day-1024.webp",
+        "width": 1024,
+        "height": 512,
+        "bytes": 27812,
+        "sha256": "4f2a94ace6124d9d9614d4e45bb97ae570acbe734598444b54c238385d33da73"
+      },
+      {
+        "file": "site/public/art/artful-room/day-1774.webp",
+        "width": 1774,
+        "height": 887,
+        "bytes": 85618,
+        "sha256": "d6660f6066dc907bbd5bc3b58ef48e5656ee3523fa7452ea6aa53e53487fd8cd"
+      },
+      {
+        "file": "site/public/art/artful-room/night-1024.webp",
+        "width": 1024,
+        "height": 512,
+        "bytes": 22424,
+        "sha256": "802baea8a5b303c3a23d62b5d0045f283e823c32867a5cc2d46168ce9ce846d2"
+      },
+      {
+        "file": "site/public/art/artful-room/night-1774.webp",
+        "width": 1774,
+        "height": 887,
+        "bytes": 70244,
+        "sha256": "aea0e731121bf01c3df0f949ee455188999f05077c63cd40f2ddde29d2bafd23"
+      },
+      {
+        "file": "site/public/art/guide-gallery/airport-1000.webp",
+        "width": 1000,
+        "height": 750,
+        "bytes": 24052,
+        "sha256": "85c4fde6b90d644e9d0c7f28d62c4069ff5924501d147bb096c9d36f8b912fe2"
+      },
+      {
+        "file": "site/public/art/guide-gallery/airport-600.webp",
+        "width": 600,
+        "height": 450,
+        "bytes": 11804,
+        "sha256": "d1ccaaa81949ed83674a5d6a2c791b09974ec6fb3e13390c295da0301391a3fe"
+      },
+      {
+        "file": "site/public/art/guide-gallery/atkins-spiraea-600.webp",
+        "width": 600,
+        "height": 843,
+        "bytes": 91112,
+        "sha256": "17fa9c734ddd6dcfb165a981e3ab312b6811911fc558008f9e99394dac9b22e4"
+      },
+      {
+        "file": "site/public/art/guide-gallery/atkins-spiraea-854.webp",
+        "width": 854,
+        "height": 1200,
+        "bytes": 172736,
+        "sha256": "85cf1710a5c3108ba0fc9cc6f4e3ab15fda327afbf888c37b1cf8d9caf387579"
+      },
+      {
+        "file": "site/public/art/guide-gallery/de-kay-water-lilies-1000.webp",
+        "width": 1000,
+        "height": 655,
+        "bytes": 188826,
+        "sha256": "354db92971793aa4c95d3b5b30bf9004d6f1a1bc289a66a60abaf722ea166494"
+      },
+      {
+        "file": "site/public/art/guide-gallery/de-kay-water-lilies-600.webp",
+        "width": 600,
+        "height": 393,
+        "bytes": 63626,
+        "sha256": "07ca37c1d35666530e9ad1f32659100ad7fdb9f7dfdac63b92478ffdea100a53"
+      }
+    ],
+    "localizedCategoryIntegrations": 12,
+    "museumWorks": [
+      {
+        "title": "Spiraea aruncus (Tyrol)",
+        "artist": "Anna Atkins",
+        "date": "1851–54",
+        "source": "https://www.metmuseum.org/art/collection/search/285421",
+        "rights": "Public Domain / The Met Open Access"
+      },
+      {
+        "title": "Water Lilies",
+        "artist": "Helena de Kay",
+        "date": "ca. 1870–77",
+        "source": "https://www.metmuseum.org/art/collection/search/899646",
+        "rights": "Public Domain / The Met Open Access"
+      }
+    ],
+    "originalAirportWork": "A quiet current, disclosed as original concept artwork; no invented real installation or institutional affiliation.",
+    "presentation": "Complete images use object-fit:contain in a bounded180–260px responsive mat. Localized alt, truthful captions, museum source links, dimensions, lazy loading and async decoding checked in all12category routes. Existing practical instructions remain identical."
+  },
+  "geometry": {
+    "sourceOnly": true,
+    "cases": 576,
+    "assertions": 43204,
+    "viewports": [
+      "360×780",
+      "390×844",
+      "768×1024",
+      "1024×768",
+      "1440×900",
+      "1920×1080",
+      "844×390",
+      "1024×540"
+    ],
+    "pageTypes": [
+      "home",
+      "airports directory",
+      "universities directory",
+      "hospitals directory",
+      "airport detail",
+      "support"
+    ],
+    "locales": [
+      "en",
+      "fr",
+      "ar",
+      "es"
+    ],
+    "themes": [
+      "light",
+      "dark",
+      "system-dark"
+    ],
+    "checked": [
+      "Complete fixed glass and prayer mat remain visible",
+      "Reading track and accessible44px room light placement unchanged",
+      "Responsive home plate selection is distinct from practical pages in both modes",
+      "No settling CSS transition on scroll-opacity canvas",
+      "Wall text top37%, left39%, width9.7% clears control plaque",
+      "Full-composition category artwork bounded without cropping"
+    ],
+    "limitation": "Focused CSS cascade and source arithmetic only, not a browser layout engine."
+  },
+  "inscriptionTypography": {
+    "font": "Adobe Source Serif4 Small Text Semibold, bundled WOFF2 under supplied OFL license; existing Noto Naskh Arabic at600weight",
+    "allFourLocaleWordingUnchanged": true,
+    "fontMetricCases": 128,
+    "allMetricCasesPassed": true,
+    "method": "HarfBuzz shaping of bundled WOFF2 font at declared size, greedy word line counts and source geometry. No browser rendering.",
+    "phoneFrench": [
+      {
+        "width": 360,
+        "height": 780,
+        "presentation": "home",
+        "locale": "fr",
+        "fontSize": 11,
+        "availableWidth": 52.38,
+        "longestWord": 44.45,
+        "greedyLines": [
+          [
+            "Venez à la",
+            "prière,"
+          ],
+          [
+            "venez à la",
+            "réussite."
+          ]
+        ],
+        "estimatedLineBoxHeight": 71.5,
+        "recessClearance": 38.63,
+        "passed": true
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "presentation": "home",
+        "locale": "fr",
+        "fontSize": 11,
+        "availableWidth": 56.75,
+        "longestWord": 44.45,
+        "greedyLines": [
+          [
+            "Venez à la",
+            "prière,"
+          ],
+          [
+            "venez à la",
+            "réussite."
+          ]
+        ],
+        "estimatedLineBoxHeight": 71.5,
+        "recessClearance": 47.81,
+        "passed": true
+      }
+    ],
+    "limitations": [
+      "Greedy shaping supports a fit estimate; CSS text-wrap:balance, font fallback, antialiasing and actual browser line boxes are not rendered or measured.",
+      "Only inscription typography and fixed declared geometry assessed."
+    ]
+  },
+  "contrast": {
+    "semanticPairs": 50,
+    "allPassed": true,
+    "systemDarkParity": true,
+    "hospitalArtworkFocus": [
+      {
+        "theme": "light",
+        "name": "hospitalArtworkFocus",
+        "foreground": "#ffc629",
+        "background": "#162131",
+        "ratio": 10.31,
+        "minimum": 3,
+        "pass": true
+      },
+      {
+        "theme": "dark",
+        "name": "hospitalArtworkFocus",
+        "foreground": "#ffc629",
+        "background": "#162131",
+        "ratio": 10.31,
+        "minimum": 3,
+        "pass": true
+      }
+    ],
+    "sourceInscription": [
+      {
+        "role": "home",
+        "theme": "day",
+        "directory": "artful-room",
+        "ink": [
+          20,
+          32,
+          51
+        ],
+        "sourceRegion": {
+          "left": 691,
+          "top": 328,
+          "width": 174,
+          "height": 330
+        },
+        "minimumContrast": 7.782784463227861,
+        "maximumContrast": 11.42607204004319,
+        "passed": true
+      },
+      {
+        "role": "home",
+        "theme": "night",
+        "directory": "artful-room",
+        "ink": [
+          246,
+          240,
+          228
+        ],
+        "sourceRegion": {
+          "left": 691,
+          "top": 328,
+          "width": 174,
+          "height": 330
+        },
+        "minimumContrast": 11.229753700432674,
+        "maximumContrast": 15.880070387362043,
+        "passed": true
+      },
+      {
+        "role": "guide",
+        "theme": "day",
+        "directory": "daylight-room",
+        "ink": [
+          20,
+          32,
+          51
+        ],
+        "sourceRegion": {
+          "left": 691,
+          "top": 328,
+          "width": 174,
+          "height": 330
+        },
+        "minimumContrast": 7.215789629161975,
+        "maximumContrast": 11.95776199492621,
+        "passed": true
+      },
+      {
+        "role": "guide",
+        "theme": "night",
+        "directory": "arrival-room",
+        "ink": [
+          246,
+          240,
+          228
+        ],
+        "sourceRegion": {
+          "left": 691,
+          "top": 328,
+          "width": 174,
+          "height": 330
+        },
+        "minimumContrast": 11.172954234006792,
+        "maximumContrast": 15.411112667035576,
+        "passed": true
+      }
+    ],
+    "limitations": [
+      "WCAG relative-luminance arithmetic on opaque declared semantic color pairs. This is not a rendered contrast audit.",
+      "Source-pixel sampling does not validate rendered font size, anti-aliasing, wrapping or final composite."
+    ]
+  },
+  "motion": {
+    "sourceReviewed": true,
+    "unitTestsIncludedIn210": true,
+    "changes": [
+      "Scroll fade uses smoothstep derived from scroll position; reversing retraces the same opacity with no delayed CSS settling.",
+      "Pending scene hover intent cancels on pointercancel and hidden document, with callback visibility guard.",
+      "Isolated plus-lighter scene dissolves are progressive enhancement; reduced-motion and homepage pause controls retained."
+    ],
+    "limitation": "No rendered compositor, animation-quality or real-touch evaluation was possible."
+  },
+  "visualAssetInspection": {
+    "performedByQA": [
+      "Homepage daylight1774px plate",
+      "Homepage evening1774px plate"
+    ],
+    "observations": [
+      "Complete prayer mat faces solid prayer recess.",
+      "Fixed aperture, blank inscription recess and overall registration retained.",
+      "New relief remains on far-left wall and ceiling, away from reading area."
+    ],
+    "notPerformed": [
+      "Rendered website screenshots",
+      "Browser font wrapping/fallback and final scene composites",
+      "Real phone or iOS Simulator checks"
+    ]
+  },
+  "limitations": [
+    "The existing preview URL-policy restriction prevents rendered browser review; no alternative renderer, browser or origin was used to bypass it.",
+    "Actual paint, final composite alignment, font fallback, CSS text balancing, physical focus and touch behavior remain for visual review.",
+    "Font shaping and source pixel contrast validate constrained source geometry, not actual browser rendering."
+  ],
+  "evidence": {
+    "localDirectory": ".local/artful-room",
+    "baselineMethod": "Full immutable git794138b66 HTML/assets read directly; task-owned duplicated baseline archive removed to recover disk space. Exact comparison retained.",
+    "scripts": [
+      "check-all-content.mjs",
+      "check-source-preservation.mjs",
+      "check-artwork-integration.mjs",
+      "review-panoramic-geometry.mjs",
+      "check-wall-inscription.mjs",
+      "check-inscription-metrics.py",
+      "check-floating.mjs",
+      "review-structure.mjs",
+      "check-premium-interactions.mjs",
+      "check-github-directory.mjs",
+      "check-palette.mjs",
+      "validate-modern.py"
+    ],
+    "fontMetricReproduction": "Python fonttools,brotli,uharfbuzz installed in task-local temporary path for the recorded run. Temporary packages removed after report creation to recover31MB; reinstall into .local/artful-room/python-packages before rerun."
+  }
+}

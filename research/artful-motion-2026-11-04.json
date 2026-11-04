@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-04",
+  "baseline": "794138b66",
+  "scope": "Focused motion stability refinement of the approved fixed-glass room; no parallax, layout movement, navigation interception, or new controls.",
+  "findings": [
+    {
+      "issue": "A linear scroll-linked room fade changes slope abruptly at its first and last boundary; a 120ms CSS opacity transition also trails each measured scroll position.",
+      "change": "Use cubic smoothstep for the existing normalized scroll progress, retaining full opacity at the start and 0.16 at the end. The owning CSS transition is removed by the parent task so the fade follows scroll position directly and retraces the same opacity on reversal.",
+      "preserved": "The same 75%-of-scenery-height range, header alignment, reduced-motion full opacity, single animation-frame scheduling, rounded writes, and opaque reading controls."
+    },
+    {
+      "issue": "A pending notice hover-preview timer was cancelled on pagehide but could still change the scene after the document became hidden or the pointer was cancelled.",
+      "change": "Cancel pending preview on visibilitychange-to-hidden and pointercancel; reject scheduling in a hidden document and guard already queued callbacks before changing scenery.",
+      "preserved": "120ms deliberate hover, immediate keyboard preview, native links and modified activations, category scene locking, directory filters and map selection."
+    },
+    {
+      "issue": "Two ordinary opacity layers at 50% produce only 75% combined alpha, exposing the aperture backdrop during a scenery dissolve.",
+      "recommendation_sent_to_parent": "Use mix-blend-mode:plus-lighter for scenery inside a transparent isolated .door-outside; keep the existing room-window-frame fallback behind that group. Root owns the relevant CSS.",
+      "evidence": "https://drafts.csswg.org/compositing/#porterduffcompositingoperators_plus_lighter"
+    }
+  ],
+  "reviewed_and_preserved": [
+    "The 14-second homepage-only scene cycle and its explicit pause/resume control.",
+    "Reduced-motion and Save-Data visitors begin with a stationary scene until explicit opt-in.",
+    "Cycle suspension for hidden pages, offscreen art, keyboard focus and relevant control hover.",
+    "Category pages retain their destination scene.",
+    "Native route changes retain search/filter/map context without delaying navigation.",
+    "2.2-second scenery dissolve with no generated camera motion or text transforms."
+  ],
+  "verification": {
+    "command": "node --test tests/room-motion.test.mjs tests/room-door.test.mjs tests/room-cycle.test.mjs",
+    "working_directory": "site",
+    "tests": 63,
+    "passed": 63,
+    "failed": 0,
+    "new_regressions": [
+      "Ease-in/ease-out opacity at sampled scroll positions with identical reverse-scroll results and no pending settling work.",
+      "Visibility hide cancels hover intent, hidden documents cannot queue new intent, and returning does not replay stale imagery.",
+      "An already queued hover callback cannot change scenery when hidden.",
+      "Pointer cancellation clears hover intent while links remain native."
+    ],
+    "limitations": "Source and offline event-fixture checks only. No rendered browser or iOS visual check was performed."
+  }
+}

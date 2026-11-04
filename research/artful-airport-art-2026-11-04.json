@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-04",
+  "kind": "Original generated concept artwork",
+  "generator": "Built-in image_gen tool; no API/CLI fallback",
+  "intendedUse": "Airport category orientation figure in A Room to Pray review preview",
+  "title": "A quiet current",
+  "description": "A gallery-style material study of short brushed aluminum ribs on midnight navy, photographed frontally with a restrained reflected yellow edge.",
+  "disclosure": "Original concept artwork. This is not a photograph of a real airport installation and must not be presented as one.",
+  "inspiration": "Public airport art as a general physical medium, using metal rhythm and directional calm. No existing artwork or artist composition was used as an image input.",
+  "initialPrompt": "Use case: photorealistic-natural.\nAsset type: original concept artwork for the airport section of A Room to Pray, shown as a quiet material study beside useful directory information.\nCreate an original sculptural aluminum line-relief photographed straight on as a refined physical gallery artwork. Wide 4:3 horizontal photograph. Deep midnight navy matte ground. Closely spaced short brushed silver ribs, each a real thin raised piece of aluminum with delicate machining grain and tiny natural shadows. Their restrained flow should suggest the calm ordered rhythm of a transit hall, without depicting an airport, map, aircraft, logo or directional symbol. Make an original balanced nonfigurative arrangement with a soft low-amplitude diagonal current of staggered ribs, ample navy breathing space and the whole artwork contained visibly inside the frame. Subtle soft yellow reflected light grazes just one edge. Photorealistic material, precise joins, honest shallow relief, diffuse gallery lighting, premium crafted object, peaceful not flashy. Keep every rib structurally plausible and consistent; no artificial neon, floating objects, chrome swirls or generic digital ribbons. No people, no words, no letters, no captions, no watermark. This is newly invented concept art inspired by public airport art only as a general medium; do not reproduce any existing artwork or Rob Ley Field Lines composition. Show the full finished composition without clipping its edges.",
+  "refinementPrompt": "Use case: precise-object-edit. This is original concept art, not a real existing installation. Refine only the aluminum rib arrangement in the provided physical relief photograph. Keep exactly the same wide 4:3 composition, full frame, navy matte surface, frontal gallery camera, believable physical lighting and subdued yellow edge reflection. Replace the few long horizontal metal bars with many shorter thin silver aluminum ribs: approximately 65–85 short brushed metal pieces, each around 8–13 percent of artwork width, staggered in a calm continuous diagonal current across the middle, closely spaced but individually distinct with fine real shadows. No bars span the width. Give the current a subtle asymmetrical bend, using real rigid or gently curved shallow metal pieces, not digital ribbons. Preserve ample navy breathing room above and below. Aim for tactile crafted precision, quiet luxurious material, not visual noise. No words, logos, aircraft, letters, people or watermark. Do not copy an existing artist's composition.",
+  "source": {
+    "initial": "/Users/ilyas/.codex/generated_images/01a1a82f-4507-7d40-80a4-7e5ecc07aa0d/exec-2276b158-772f-4e3f-ba83-385344a7c09f.png",
+    "selected": "/Users/ilyas/.codex/generated_images/01a1a82f-4507-7d40-80a4-7e5ecc07aa0d/exec-0516f23a-9487-4e0f-a6b3-3f02be168e7d.png",
+    "width": 1448,
+    "height": 1086
+  },
+  "outputs": [
+    {
+      "path": "site/public/art/guide-gallery/airport-600.webp",
+      "width": 600,
+      "height": 450,
+      "bytes": 11804
+    },
+    {
+      "path": "site/public/art/guide-gallery/airport-1000.webp",
+      "width": 1000,
+      "height": 750,
+      "bytes": 24052
+    }
+  ],
+  "processing": "Sharp resize by width only, without enlargement; no crop or composition edit. WebP quality85 effort6.",
+  "inspection": {
+    "generatedOriginal": true,
+    "optimized600WebP": true,
+    "observations": [
+      "Full outer frame and complete relief visible.",
+      "No words, logos, aircraft, faces or directional symbols.",
+      "Short silver ribs retain distinct edges and shadows at600px.",
+      "Navy ground and yellow reflection fit the existing airport palette.",
+      "Final image is newly invented artwork, not source evidence for prayer-room facilities."
+    ]
+  },
+  "integration": "Parent task owns interface markup, caption/disclosure and shared credits."
+}

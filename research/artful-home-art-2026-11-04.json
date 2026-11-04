@@ -1,0 +1,70 @@
+{
+  "createdOn": "2026-11-04",
+  "purpose": "Homepage-only artisan plaster detail, preserving approved room geometry",
+  "method": "Built-in imagegen edits; full composition proportionally downsampled with sharp; original assets retained",
+  "aperture": {
+    "x": 90,
+    "y": 112,
+    "width": 504,
+    "height": 584
+  },
+  "mat": {
+    "x": 612,
+    "y": 700,
+    "width": 335,
+    "height": 163
+  },
+  "niche": {
+    "x": 687,
+    "y": 174,
+    "width": 178,
+    "height": 518
+  },
+  "referenceDimensions": [
+    1774,
+    887
+  ],
+  "visualReview": "Both generated plates inspected; fixed aperture and complete mat retained, blank solid recess, relief confined to ceiling and far-left wall. No rendered browser inspection.",
+  "assets": [
+    {
+      "mode": "day",
+      "source": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-a2fc08f4-90e2-4c93-a4a5-263d6a566d69.png",
+      "sourceWidth": 1774,
+      "sourceHeight": 887,
+      "path": "site/public/art/artful-room/day-1024.webp",
+      "width": 1024,
+      "height": 512,
+      "bytes": 27812
+    },
+    {
+      "mode": "day",
+      "source": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-a2fc08f4-90e2-4c93-a4a5-263d6a566d69.png",
+      "sourceWidth": 1774,
+      "sourceHeight": 887,
+      "path": "site/public/art/artful-room/day-1774.webp",
+      "width": 1774,
+      "height": 887,
+      "bytes": 85618
+    },
+    {
+      "mode": "night",
+      "source": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-27f10819-f547-400d-98c8-871289e308aa.png",
+      "sourceWidth": 1774,
+      "sourceHeight": 887,
+      "path": "site/public/art/artful-room/night-1024.webp",
+      "width": 1024,
+      "height": 512,
+      "bytes": 22424
+    },
+    {
+      "mode": "night",
+      "source": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-27f10819-f547-400d-98c8-871289e308aa.png",
+      "sourceWidth": 1774,
+      "sourceHeight": 887,
+      "path": "site/public/art/artful-room/night-1774.webp",
+      "width": 1774,
+      "height": 887,
+      "bytes": 70244
+    }
+  ]
+}

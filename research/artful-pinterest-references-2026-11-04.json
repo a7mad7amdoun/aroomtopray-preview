@@ -1,0 +1,92 @@
+{
+  "checkedOn": "2026-11-04",
+  "scope": "Artistic refinement of the approved panoramic prayer-room design. Reference-only Pinterest browsing, never copying Pinterest images into the site.",
+  "searches": [
+    "airport art installation light",
+    "botanical cyanotype print museum",
+    "hospital nature art installation",
+    "architectural light shadow plaster wall art",
+    "modern mosque wall calligraphy typography"
+  ],
+  "method": "Used Pinterest search UI, opened individual pins, inspected their rendered images and accessibility attribution. Cross-checked named artists against primary sources. No Pinterest downloads, saves, reactions or posting. Actual preview/local-site rendering remains unavailable and was not attempted.",
+  "references": [
+    {
+      "id": "airport-field-lines",
+      "pin": "https://www.pinterest.com/pin/806636983238355663/",
+      "verified": "Opened pin, viewed image and read attribution. Image shows flowing blue aluminum elements spanning an airport wall above service counters.",
+      "title": "Field Lines",
+      "artist": "Rob Ley",
+      "primarySource": "https://www.rob-ley.com/field-lines",
+      "primaryEvidence": "Artist identifies O’Hare Airport, Chicago; 2018; painted aluminum. Describes dynamic air currents and steady breeze.",
+      "secondarySource": "https://www.r-barc.com/work/ohare-multi-modal-terminal-curated-artwork",
+      "application": "One original abstract airflow/metal relief in existing airport orientation artwork slot. Adopt directional rhythm and low-relief material, not the artist’s composition. Keep departures information aligned and still.",
+      "rights": "Inspiration only; no permission to reproduce source artwork assumed."
+    },
+    {
+      "id": "campus-cyanotype",
+      "pin": "https://www.pinterest.com/pin/360569513932438980/",
+      "verified": "Opened pin and viewed complete navy cyanotype with pale botanical stems, generous border and natural texture. Pinterest description identifies Henrietta Molinaro.",
+      "title": "Large cyanotype prints",
+      "artist": "Henrietta Molinaro",
+      "primarySource": "https://www.henriettamolinaro.com/cyanotypes",
+      "primaryEvidence": "Artist lists botanical cyanotypes and all-rights-reserved notice.",
+      "application": "Replace repeated campus photograph with a real public-domain archival botanical artwork by Anna Atkins; preserve full composition and museum credit. Science, paper and nature create a campus-specific mood without inventing an institution.",
+      "rights": "Pinterest reference not reused. Selected public-domain Atkins asset documented separately in artful-art-sources-2026-11-04.json."
+    },
+    {
+      "id": "hospital-botanical-wall",
+      "pin": "https://www.pinterest.com/pin/641059328206870118/",
+      "verified": "Opened pin and viewed real hospital corridor: fine botanical linework across high white walls, pale green banners and generous blank areas.",
+      "title": "Women & Children’s Centre, Shrewsbury and Telford Hospital",
+      "artist": "Art in Site",
+      "primarySource": "https://www.artinsite.co.uk/projects/women-and-childrens-centre",
+      "primaryEvidence": "Official project page corresponds to Pinterest source and identifies project.",
+      "application": "Keep hospital panels light, clear and calm; use one nature artwork beside concise practical guidance, never decorative medical test data. Selected actual public-domain Water Lilies painting is distinct from campus cyanotype and preserves original brushwork.",
+      "rights": "Inspiration only. Hospital mural not copied or licensed; public-domain painting separately documented."
+    },
+    {
+      "id": "homepage-light-relief",
+      "pin": "https://www.pinterest.com/pin/311874342964198764/",
+      "verified": "Opened pin and viewed slender white layered relief with restrained warm light between sculpted layers. Caption is only Glyph; uploader MaWinkel.",
+      "title": "Glyph (Pinterest caption)",
+      "artist": null,
+      "primarySource": null,
+      "provenance": "Artist and whether photograph or render cannot be confirmed from the pin; do not describe it as a verified real installation.",
+      "application": "Homepage-only original architectural relighting: a slender layered shadow at one outer wall edge, with room geometry, solid prayer niche, rug orientation and glass panorama unchanged. No extra floating ornaments or neon.",
+      "rights": "Inspiration only. No source image reuse."
+    },
+    {
+      "id": "architectural-inscription",
+      "pin": "https://www.pinterest.com/pin/642114859411563774/",
+      "verified": "Opened pin and viewed dark raised Arabic letterforms on a light exterior wall with long vertical strokes and strong negative space.",
+      "title": "альметевская центральная мечеть (Pinterest title)",
+      "artist": null,
+      "primarySource": null,
+      "provenance": "Location title observed on Pinterest; architect/calligrapher not independently verified.",
+      "application": "Give the Adhan phrase deliberate typographic authority using accessible live text: stronger scale, calm line rhythm, higher weight and clear contrast. Preserve exact translated wording; Arabic must remain correctly shaped and readable. Do not copy the inscription or fabricate calligraphy in a raster graphic.",
+      "rights": "Inspiration only. No source image reuse."
+    }
+  ],
+  "implementationRecommendations": {
+    "home": "One exclusive light treatment in existing room artwork, inscription as the focal point; retain the glass wall and calm panoramic context. Remove repeated subtitle/hero labels only where meaning remains clear.",
+    "airport": "Original gentle metal relief in the existing orientation art slot; keep explicit airport identifiers and departures board hierarchy.",
+    "campus": "Real archival botanical cyanotype in the existing orientation art slot, bounded full composition and a small honest caption.",
+    "hospital": "Real public-domain water-lily painting in the existing orientation art slot, quiet pale petals against deeper water, full composition and a small honest caption.",
+    "motion": "No animated line art, flowers or text. Art stays stable while scenic crossfades and scroll reveal preserve the approved calm behavior. Pause and reduced-motion behavior must remain.",
+    "space": "Replace repeated imagery, do not add more decorative sections; retain informative labels, captions, guide controls and opaque text surfaces."
+  },
+  "failedOrExcludedSources": [
+    {
+      "kind": "web search quality",
+      "detail": "Initial broad web search for Pinterest pins returned mostly guide.pinterest.com generic autogenerated design prose; not used as visual evidence or quoted."
+    },
+    {
+      "url": "https://www.nga.gov/artworks/41481-landscape-trees-and-water",
+      "detail": "Official page public-domain candidate, direct image blocked by browser; not downloaded or integrated. No bypass."
+    },
+    {
+      "url": "https://www.metmuseum.org/art/collection/search/437137",
+      "detail": "Monet Water Lilies image specifically non-downloadable despite generic Open Access footer; excluded."
+    }
+  ]
+}

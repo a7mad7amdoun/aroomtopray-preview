@@ -23,9 +23,16 @@
 }
 .category-orientation .orientation-heading { display:grid; grid-template-columns:minmax(0,1fr); align-items:center; gap:24px; padding:var(--orientation-pad); }
 .category-orientation .orientation-title-block { min-width:0; }
-.category-orientation .orientation-art { min-width:0; margin:0; overflow:hidden; border:0; border-radius:6px; }
-.category-orientation .orientation-art>.concept-art { width:100%; aspect-ratio:4/3; background-size:contain; background-repeat:no-repeat; background-position:center; }
-.category-orientation .orientation-art figcaption { margin:0; padding:10px 0 0; font-size:var(--guide-meta,.875rem); line-height:1.6; color:var(--orientation-muted); }
+.category-orientation .orientation-art { min-width:0; width:100%; max-width:460px; margin:0; justify-self:center; }
+/* Full works, never cropped into banners. A bounded art area keeps the notes
+   close to their heading, particularly in the single-column mobile layout. */
+.category-orientation .orientation-art-mat { display:grid; place-items:center; height:clamp(180px,28cqi,260px); padding:12px; border:1px solid var(--orientation-line); border-radius:6px; background:var(--orientation-note); }
+.category-orientation .orientation-art img { display:block; width:100%; height:100%; min-height:0; object-fit:contain; }
+.category-orientation .orientation-art figcaption { display:grid; gap:4px; margin:0; padding:10px 0 0; font-size:var(--guide-meta,.875rem); line-height:1.6; color:var(--orientation-muted); }
+.category-orientation .orientation-art-title { display:block; }
+.category-orientation .orientation-art cite { font-style:normal; }
+.category-orientation .orientation-art a { display:inline-flex; align-items:center; gap:6px; justify-self:start; color:inherit; text-underline-offset:.2em; }
+.category-orientation .orientation-art a:focus-visible { outline:3px solid var(--focus); outline-offset:4px; }
 .category-orientation .orientation-running-line { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px 24px; margin-block-end:18px; }
 .category-orientation .orientation-category { display:flex; align-items:center; gap:12px; font-size:1rem; line-height:1.5; font-weight:650; }
 .category-orientation .orientation-category svg { flex:none; width:28px; height:28px; }
@@ -68,7 +75,7 @@
 .category-orientation--universities .orientation-running-line { padding-block-end:18px; border-bottom:1px solid var(--orientation-line); }
 
 /* Hospital reception: an identifiable header and a calm reading surface. */
-.category-orientation--hospitals .orientation-heading { background:var(--board); color:var(--board-ink); }
+.category-orientation--hospitals .orientation-heading { --focus:var(--sign); background:var(--board); color:var(--board-ink); }
 .category-orientation--hospitals .orientation-category { color:var(--sign); }
 .category-orientation--hospitals .orientation-kicker,
 .category-orientation--hospitals .orientation-art figcaption { color:var(--board-dim); }

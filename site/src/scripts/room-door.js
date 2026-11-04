@@ -34,10 +34,14 @@ export function initRoomDoor(room, browser = window) {
     // Keyboard focus is deliberate; a pointer gets a short intent threshold.
     link.addEventListener('pointerenter', event => {
       cancelPreview();
-      if(room.dataset.roomSetting!=='home' || event.pointerType==='touch')return;
-      previewTimer=browser.setTimeout(()=>{previewTimer=null;preview(link);},ROOM_PREVIEW_INTENT_DELAY);
+      if(room.dataset.roomSetting!=='home' || event.pointerType==='touch' || room.ownerDocument?.hidden)return;
+      previewTimer=browser.setTimeout(()=>{
+        previewTimer=null;
+        if(!room.ownerDocument?.hidden)preview(link);
+      },ROOM_PREVIEW_INTENT_DELAY);
     });
     link.addEventListener('pointerleave',cancelPreview);
+    link.addEventListener('pointercancel',cancelPreview);
     link.addEventListener('pointerdown',cancelPreview);
     link.addEventListener('click',cancelPreview);
     link.addEventListener('focus', () => {cancelPreview();preview(link);});
@@ -71,6 +75,9 @@ export function initRoomDoor(room, browser = window) {
   });
   initRoomCycle(room,browser,notices,preview);
   browser.addEventListener('pagehide',cancelPreview);
+  room.ownerDocument?.addEventListener('visibilitychange',()=>{
+    if(room.ownerDocument.hidden)cancelPreview();
+  });
   room.dataset.doorReady = 'true';
 }
 if (typeof document !== 'undefined') initRoomDoor(document.querySelector('.room-environment'));

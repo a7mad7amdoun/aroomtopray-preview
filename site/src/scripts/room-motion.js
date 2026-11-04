@@ -40,7 +40,10 @@ export function initRoomMotion(doc=document,browser=window) {
    const bounds=scenery.getBoundingClientRect?.();
    if(Number.isFinite(bounds?.top)&&Number.isFinite(bounds?.height)&&bounds.height>0){
     const progress=Math.min(1,Math.max(0,((lastHeaderHeight??0)-bounds.top)/(bounds.height*.75)));
-    visibility=1-.84*progress;
+    // Ease at both architectural boundaries, not over time: reversing a scroll
+    // must reveal the same room immediately rather than chase a CSS transition.
+    const eased=progress*progress*(3-2*progress);
+    visibility=1-.84*eased;
    }
   }
   const value=String(Math.round(visibility*1000)/1000);

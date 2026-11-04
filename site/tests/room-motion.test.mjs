@@ -213,6 +213,18 @@ test('invalid panorama measurements return an opaque room rather than an invalid
 
 test('header resizing adjusts the fade boundary while room controls retain their existing state',()=>{
  const f=fixture({withScenery:true}),dataset={...f.room.dataset};
- f.scenery(94);f.header(144);f.resizeHeader();f.flush();assert.equal(f.values.get('--room-visibility'),'0.907');
+ f.scenery(94);f.header(144);f.resizeHeader();f.flush();assert.equal(f.values.get('--room-visibility'),'0.971');
  assert.deepEqual(f.room.dataset,dataset);assert.equal(f.browser.scrollY,0);
+});
+
+test('the architectural fade eases at each boundary and retraces the same opacity when scrolling back',()=>{
+ const f=fixture({withScenery:true});
+ const samples=[[0,1],[.01,1],[.1,.976],[.25,.869],[.5,.58],[.75,.291],[.9,.184],[.99,.16],[1,.16]];
+ for(const [progress,expected] of [...samples,...samples.toReversed()]){
+  f.scenery(94-450*progress);f.browser.emit('scroll');f.flush();
+  assert.equal(Number(f.values.get('--room-visibility')),expected);
+  assert.equal(f.frames.size,0);
+ }
+ // There is no time-based settling after scroll stops or changes direction.
+ const writes=f.writes.length;f.flush();assert.equal(f.writes.length,writes);
 });

@@ -157,7 +157,7 @@ test('a deliberate hover previews a home notice behind fixed glass without navig
  assert.equal(f.room.dataset.doorState,undefined);assert.equal(f.links[1].getAttribute('href'),href);
 });
 test('crossing notices, touch, pointer activation and leaving the page do not queue scenery changes',()=>{
- for(const cancel of ['pointerleave','pointerdown','click','pagehide']){
+ for(const cancel of ['pointerleave','pointercancel','pointerdown','click','pagehide']){
   const f=home();f.links[1].emit('pointerenter');assert.equal(f.timers.size,1);
   const event=(cancel==='pagehide'?f.browser:f.links[1]).emit(cancel);
   assert.equal(f.timers.size,0);assert.equal(f.room.dataset.roomPreview,'airport');
@@ -168,6 +168,21 @@ test('crossing notices, touch, pointer activation and leaving the page do not qu
  f.links[1].emit('pointerenter');f.links[1].emit('pointerleave');f.links[2].emit('pointerenter');
  assert.equal(f.timers.size,1);f.tick();assert.equal(f.room.dataset.roomPreview,'hospital');
  f.browser.emit('pagehide');f.browser.emit('pageshow',{persisted:true});assert.equal(f.timers.size,0);
+});
+test('switching tabs cancels hover intent and never replays a stale scene on return',()=>{
+ const f=home();f.links[1].emit('pointerenter');assert.equal(f.timers.size,1);
+ f.document.hidden=true;f.document.emit('visibilitychange');
+ assert.equal(f.timers.size,0);assert.equal(f.room.dataset.roomPreview,'airport');
+ f.links[2].emit('pointerenter');assert.equal(f.timers.size,0);
+ f.document.hidden=false;f.document.emit('visibilitychange');
+ assert.equal(f.timers.size,0);assert.equal(f.room.dataset.roomPreview,'airport');
+ f.links[2].emit('pointerenter');f.tick();assert.equal(f.room.dataset.roomPreview,'hospital');
+});
+test('an already queued hover callback cannot change scenery in a hidden document',()=>{
+ const f=home();f.links[1].emit('pointerenter');assert.equal(f.timers.size,1);
+ // A visibility update and an already queued timer may be delivered in either order.
+ f.document.hidden=true;f.tick();
+ assert.equal(f.room.dataset.roomPreview,'airport');assert.equal(f.timers.size,0);
 });
 test('keyboard focus previews immediately and cancels a pending pointer preview',()=>{
  const f=home();f.links[1].emit('pointerenter');assert.equal(f.timers.size,1);

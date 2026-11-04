@@ -1,8 +1,7 @@
 ---
 import { getCopy, localeMeta } from '../lib/i18n.js';
 import { GUIDE_COPY } from '../data/guide-copy.js';
-import { ATMOSPHERE_COPY } from '../data/room-atmosphere.js';
-import ThemeArt from './ThemeArt.astro';
+import { getGuideArtwork } from '../data/guide-artwork.js';
 import '../styles/category-orientation.css';
 
 const { kind = 'airports', locale = 'en' } = Astro.props;
@@ -12,10 +11,7 @@ const category = ['airports', 'universities', 'hospitals'].includes(kind) ? kind
 const c = t.directories[category];
 const g = GUIDE_COPY[language];
 const emblem = { airports: 'airport', universities: 'campus', hospitals: 'care' }[category];
-const scene = { airports: 'airport', universities: 'campus', hospitals: 'hospital' }[category];
-// These wide concept views keep the whole setting visible inside the board.
-// The caption below distinguishes them from sourced photographs of a place.
-const artStyle = [['light', 'day'], ['dark', 'night']].map(([theme, light]) => `--view-${scene}-${theme}:image-set(url('/art/panoramic-views/${scene}-${light}-800.webp') 1x,url('/art/panoramic-views/${scene}-${light}-1400.webp') 2x)`).join(';');
+const artwork = getGuideArtwork(category, language);
 const symbols = {
   airports: ['search', 'security', 'door-open'],
   universities: ['campus', 'key', 'clock'],
@@ -33,9 +29,14 @@ const headingId = `orientation-${category}`;
       </div>
       <h2 id={headingId}>{c.wayfindingTitle}</h2>
     </div>
-    <figure class="orientation-art" style={artStyle}>
-      <ThemeArt {scene}/>
-      <figcaption>{ATMOSPHERE_COPY[language].illustration}</figcaption>
+    <figure class="orientation-art" data-artwork={artwork.id}>
+      <div class="orientation-art-mat">
+        <img src={artwork.src} srcset={artwork.srcset} sizes="(max-width: 600px) 85vw, 440px" width={artwork.width} height={artwork.height} alt={artwork.alt} loading="lazy" decoding="async"/>
+      </div>
+      <figcaption>
+        <span class="orientation-art-title" lang="en" dir="ltr"><cite>{artwork.title}</cite>{artwork.artist && <> · {artwork.artist}, {artwork.date}</>}</span>
+        {artwork.source ? <a href={artwork.source}>{artwork.credit}<svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a> : <span>{artwork.credit}</span>}
+      </figcaption>
     </figure>
   </header>
 
