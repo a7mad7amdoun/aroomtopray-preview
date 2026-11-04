@@ -9,15 +9,19 @@ export function initRoomCycle(room, browser, links, preview, onStart) {
  const doc=room.ownerDocument;
  // The environment now wraps the whole page. Hovering ordinary guide text
  // must not permanently pause a background tour. Only room controls do.
- const interaction=room.querySelector('[data-room-tour-interaction]')||room;
- const scenery=room.querySelector('[data-room-scenery]')||room;
+ const interactions=[...(room.querySelectorAll?.('[data-room-tour-interaction]')||[])];
+ if(!interactions.length)interactions.push(room.querySelector('[data-room-tour-interaction]')||room);
+ // The homepage scenery is in document flow. Observe the artwork itself: a
+ // long mobile introduction can remain visible after its views have left.
+ const scenery=room.querySelector('[data-room-scenery]')||room.querySelector('.room-stage')||room;
  const media=browser.matchMedia?.('(prefers-reduced-motion: reduce)');
  // Scenery is quiet on arrival. A visitor opts into the tour, regardless of
  // their motion/data preferences; later interruptions never restart it.
  let userPaused=true,hasStarted=false;
- let hovered=false,focused=false,visible=true,away=false,timer=null;
+ const hovered=new Set();
+ let focused=false,visible=true,away=false,timer=null;
  const clear=()=>{if(timer!==null){browser.clearTimeout(timer);timer=null;}};
- const canRun=()=>!userPaused&&!hovered&&!focused&&visible&&!away&&!doc?.hidden&&room.dataset.doorState==='open';
+ const canRun=()=>!userPaused&&!hovered.size&&!focused&&visible&&!away&&!doc?.hidden&&room.dataset.doorState==='open';
  const schedule=()=>{
   clear();
   if(!canRun()) return;
@@ -42,11 +46,13 @@ export function initRoomCycle(room, browser, links, preview, onStart) {
   // Resuming is an explicit request, including while the button still has
   // keyboard focus or the pointer remains over it. Subsequent interaction
   // with the guide or destination notices can pause the tour again.
-  if(!userPaused){hasStarted=true;hovered=false;focused=false;onStart?.();}
+  if(!userPaused){hasStarted=true;hovered.clear();focused=false;onStart?.();}
   updateControl(true);
  });
- interaction.addEventListener('pointerenter',()=>{hovered=true;clear();});
- interaction.addEventListener('pointerleave',()=>{hovered=false;schedule();});
+ for(const interaction of interactions){
+  interaction.addEventListener('pointerenter',()=>{hovered.add(interaction);clear();});
+  interaction.addEventListener('pointerleave',()=>{hovered.delete(interaction);schedule();});
+ }
  room.addEventListener('focusin',()=>{focused=true;clear();});
  room.addEventListener('focusout',event=>{focused=room.contains(event.relatedTarget);schedule();});
  doc?.addEventListener('visibilitychange',schedule);
@@ -54,7 +60,7 @@ export function initRoomCycle(room, browser, links, preview, onStart) {
  browser.addEventListener('pageshow',()=>{away=false;schedule();});
  media?.addEventListener?.('change',event=>{if(event.matches)userPaused=true;updateControl();});
  if(browser.IntersectionObserver){
-  const observer=new browser.IntersectionObserver(entries=>{visible=entries[0]?.isIntersecting!==false;schedule();},{threshold:0.05});
+  const observer=new browser.IntersectionObserver(entries=>{visible=entries.at(-1)?.isIntersecting!==false;schedule();},{threshold:0.05});
   observer.observe(scenery);
  }
  updateControl();

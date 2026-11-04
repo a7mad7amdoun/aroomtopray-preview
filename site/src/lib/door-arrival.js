@@ -1,4 +1,6 @@
 export const DOOR_ARRIVAL_KEY='aroomtopray.door-arrival.v1';
+export const DOOR_JOURNEY_DURATION=1500;
+export const DOOR_JOURNEY_ANIMATION='door-arrival-depth';
 const MAX_AGE=15000;
 
 // This self-contained function also runs inline in <head>, before the first
@@ -49,24 +51,51 @@ export function initDoorArrival(room,browser,setOpen) {
  const root=room.ownerDocument?.documentElement;
  const prepared=root?.dataset.doorArrival==='preparing';
  const intended=consumeDoorArrival(browser);
- if(!prepared || !intended || room.dataset.doorState!=='open' || browser.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches || browser.navigator?.connection?.saveData || !browser.requestAnimationFrame) {
+ const motion=browser.matchMedia?.('(prefers-reduced-motion: reduce)');
+ if(!prepared || !intended || room.dataset.doorState!=='open' || motion?.matches || browser.navigator?.connection?.saveData || !browser.requestAnimationFrame || !browser.setTimeout) {
   if(root)delete root.dataset.doorArrival;
   return;
  }
- let cancelled=false,pending=true,settled=false,firstFrame,secondFrame;
+ let cancelled=false,pending=true,settled=false,firstFrame,secondFrame,journeyTimer;
+ const finishJourney=()=>{
+  delete room.dataset.doorJourney;
+  if(journeyTimer!==undefined)browser.clearTimeout?.(journeyTimer);
+  journeyTimer=undefined;
+ };
  const cancel=()=>{
   cancelled=true;pending=false;
   if(firstFrame!==undefined)browser.cancelAnimationFrame?.(firstFrame);
   if(secondFrame!==undefined)browser.cancelAnimationFrame?.(secondFrame);
+  finishJourney();
+ };
+ const settle=()=>{
+  const wasPending=pending;
+  cancel();
+  if(wasPending){
+   room.dataset.doorArrival='preparing';
+   setOpen(true);
+  }
+  return wasPending;
  };
  room.querySelector('[data-door-toggle]')?.addEventListener('click',()=>{cancel();delete room.dataset.doorArrival;},{once:true});
- browser.addEventListener?.('pagehide',()=>{
-  if(!pending)return;
-  cancel();settled=true;
-  room.dataset.doorArrival='preparing';
-  setOpen(true);
+ room.addEventListener?.('animationend',event=>{
+  if(event.animationName===DOOR_JOURNEY_ANIMATION && event.target?.classList?.contains('door-scene'))finishJourney();
  });
- browser.addEventListener?.('pageshow',()=>{if(settled)delete room.dataset.doorArrival;});
+ browser.addEventListener?.('pagehide',()=>{
+  settled=settle()||settled;
+ });
+ browser.addEventListener?.('pageshow',event=>{
+  // Initial pageshow may follow the first animation frames. Only restoration
+  // cancels an arrival; a normal load must not truncate its decorative motion.
+  if(event.persisted){settle();delete room.dataset.doorArrival;}
+  else if(settled){finishJourney();delete room.dataset.doorArrival;}
+ });
+ motion?.addEventListener?.('change',event=>{
+  if(!event.matches)return;
+  // Expose the server's open state immediately under reduced-motion styles.
+  settle();
+  delete room.dataset.doorArrival;
+ });
  room.dataset.doorArrival='preparing';
  setOpen(false);
  delete root.dataset.doorArrival;
@@ -77,6 +106,10 @@ export function initDoorArrival(room,browser,setOpen) {
    pending=false;
    delete room.dataset.doorArrival;
    setOpen(true);
+   // The depth treatment belongs only to scenery. Content, navigation, focus
+   // and scroll are never held for an animation or its completion event.
+   room.dataset.doorJourney='entering';
+   journeyTimer=browser.setTimeout(finishJourney,DOOR_JOURNEY_DURATION);
   });
  });
 }

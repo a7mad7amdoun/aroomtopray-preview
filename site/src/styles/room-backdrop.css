@@ -15,7 +15,7 @@ body.immersive-site { background:var(--bg); }
 html .room-environment { position:relative; display:block; pointer-events:auto; inset:auto; width:100%; min-height:0; height:auto; margin:0; padding:0; border:0; background:transparent; border-radius:0; isolation:isolate; overflow:visible; }
 /* Inner pages retain the doorway, with a shorter arrival before the task. */
 .room-environment:not([data-room-presentation=home]) { --room-stage-gap:24px; --room-threshold-gap:16px; --room-opening-height:250px; --room-mobile-canvas:620px; }
-html .room-environment .room-architecture { position:fixed; z-index:0; inset:var(--room-header-height) 0 0; width:100%; height:auto; min-height:0; margin:0; aspect-ratio:auto; border:0; border-radius:0; pointer-events:none; overflow:hidden; background:var(--bg); }
+html .room-environment:not([data-room-presentation=home]) .room-architecture { position:fixed; z-index:0; inset:var(--room-header-height) 0 0; width:100%; height:auto; min-height:0; margin:0; aspect-ratio:auto; border:0; border-radius:0; pointer-events:none; overflow:hidden; background:var(--bg); }
 .room-architecture::after { content:''; position:absolute; z-index:1; inset:0; pointer-events:none; background:linear-gradient(90deg,transparent 12%,color-mix(in srgb,var(--bg) 28%,transparent) 48%,var(--bg) 100%); }
 .room-architecture .room-canvas { position:absolute; left:0; top:0; width:min(100vw,calc((100svh - var(--room-header-height)) * 2)); height:auto; aspect-ratio:2/1; transform:none; opacity:1; transition:opacity var(--room-recede-duration) cubic-bezier(.22,.61,.36,1); }
 .room-environment[data-room-reading=true] .room-canvas { opacity:.24; }
@@ -60,15 +60,6 @@ html[dir=rtl] .room-guide-threshold :is(.room-guide-identity,.room-return) { fon
 .room-main .guide-tabs>:is(a,button)::after { inset-inline:12px; bottom:3px; }
 .room-main .guide-panel,.room-main .guide-panel:not([hidden]) { transform:none; animation:none; }
 html .immersive-site .site-footer { position:relative; z-index:1; width:100%; margin:0; padding:36px max(var(--room-gutter),calc((100vw - 1600px)/2)); background:var(--surface); border-top:1px solid var(--line); }
-@container room-arrival (min-width:900px) {
- .room-environment[data-room-presentation=home] .room-arrival-copy { display:grid; grid-template-columns:minmax(0,1.12fr) minmax(0,1fr); align-items:center; gap:18px 32px; }
- .room-environment[data-room-presentation=home] .room-home-intro { grid-column:1; grid-row:1/4; }
- .room-environment[data-room-presentation=home] .place-search { grid-column:2; margin:0; }
- .room-environment[data-room-presentation=home] .arrival-coverage { grid-column:2; margin:0; }
- .room-environment[data-room-presentation=home] .arrival-actions { grid-column:2; margin:0; }
- .room-main .room-home-intro h1 { font-size:clamp(2.8rem,3.6vw,3.8rem); }
- .room-main .room-arrival-copy .room-introduction { font-size:1rem; max-width:42ch; }
-}
 @container room-reading (max-width:899px) {
  .room-environment[data-room-presentation=home] .door-notices { grid-template-columns:1fr; gap:14px; }
  .room-environment[data-room-presentation=home] .door-notice { grid-template-columns:minmax(90px,.6fr) minmax(0,1.8fr); }

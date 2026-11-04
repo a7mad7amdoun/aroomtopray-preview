@@ -1,51 +1,19 @@
 ---
-import { getCopy } from '../lib/i18n.js';
 import { ROOM_COPY } from '../data/room-copy.js';
 import { DOOR_COPY } from '../data/door-copy.js';
 import ReceptionCard from './ReceptionCard.astro';
 import RoomDestinations from './RoomDestinations.astro';
+import RoomArchitecture from './RoomArchitecture.astro';
+import RoomSceneControls from './RoomSceneControls.astro';
 import { QUIET_COPY } from '../data/quiet-copy.js';
-import { ATMOSPHERE_COPY } from '../data/room-atmosphere.js';
 const { kind='home', locale='en', presentation='home' }=Astro.props;
-const t=getCopy(locale), r=ROOM_COPY[locale], d=DOOR_COPY[locale], q=QUIET_COPY[locale];
-const atmosphere=ATMOSPHERE_COPY[locale];
+const r=ROOM_COPY[locale], d=DOOR_COPY[locale], q=QUIET_COPY[locale];
 const settings={airports:'airport', universities:'campus', hospitals:'hospital'};
 const open=kind in settings || presentation==='home';
-const scenes=kind in settings?[settings[kind]]:['airport','campus','hospital'];
 const outside=settings[kind] || 'airport';
 ---
 <div id="prayer-room" class:list={['room-environment', {'room-door-open':open}]} data-room-presentation={presentation} data-room-preview={outside} data-room-setting={kind} data-door-state={open?'open':'closed'}>
-  <div class="room-architecture" dir="ltr" data-room-scenery>
-   <div class="room-canvas">
-    <div class="room-wall" aria-hidden="true"></div>
-    <div class="door-surround">
-          <span class="door-room-sign" dir={locale==='ar'?'rtl':'ltr'}><svg width="20" height="20" aria-hidden="true"><use href="#i-mark"/></svg><b>{r.room}</b></span>
-      <div class="door-frame" id="room-doorway">
-        <div class={`door-outside outside-${outside}`} role="img" aria-label={`${atmosphere.illustration}. ${d.outside}${t.nav[kind in settings?kind:'airports']}`}>
-          {scenes.map(scene=><span class={`door-scene door-scene-${scene}`} aria-hidden="true"></span>)}
-        </div>
-        <span class="door-floor-light" aria-hidden="true"></span>
-        <span class="door-swing-shadow" aria-hidden="true"></span>
-        <span class="door-threshold" aria-hidden="true"></span>
-        <span class="door-strike" aria-hidden="true"></span>
-        <div class="door-leaf" aria-hidden="true">
-          <span class="door-skin"></span>
-          <div class="door-window">
-            <span class="door-clear-glass"></span>
-            <span class="window-reflection"></span>
-          </div>
-          <span class="door-handle" aria-hidden="true"></span>
-          <span class="door-kickplate" aria-hidden="true"></span>
-          <span class="door-hinge door-hinge-top"></span><span class="door-hinge door-hinge-middle"></span><span class="door-hinge door-hinge-bottom"></span>
-        </div>
-
-      </div>
-
-    </div>
-
-   </div>
-    <p class="room-art-note">{atmosphere.illustration}</p>
-  </div>
+  {presentation!=='home'&&<RoomArchitecture {kind} {locale} {presentation}/>}
  <div class="room-layout">
   <main id="main" class="room-main" tabindex="-1">
    <div class="room-control-bar" dir={locale==='ar'?'rtl':'ltr'}>
@@ -63,6 +31,7 @@ const outside=settings[kind] || 'airport';
       </div>
    </div>
    <div class="room-stage">
+    {presentation==='home'&&<><RoomArchitecture {kind} {locale} {presentation}/><div class="room-scene-tools" data-room-tour-interaction><RoomSceneControls {kind} {locale} {presentation}/></div></>}
     <div class="room-arrival-copy" dir={locale==='ar'?'rtl':'ltr'}><slot name="arrival" /><div class="arrival-actions"><ReceptionCard {locale} id="room-reception"/><a class="arrival-guide-link" href="#guide-content">{q.guide}<svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a></div></div>
    </div>
    {presentation==='home'&&<RoomDestinations {kind} {locale} {presentation}/>}

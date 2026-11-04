@@ -1,11 +1,13 @@
-/* Matched light/evening artwork. Keep this layer separate from the guide layout. */
+/* Matched portrait views preserve the approach to each place inside the tall
+   doorway. The 480/1024 pair covers phone and desktop pixel densities without
+   enlarging the landscape illustrations into a narrow crop. */
 :root {
- --view-airport-light:image-set(url('/art/quiet-threshold/airport-light-768.webp') 1x,url('/art/quiet-threshold/airport-light-1536.webp') 2x);
- --view-airport-dark:image-set(url('/art/quiet-threshold/airport-dark-768.webp') 1x,url('/art/quiet-threshold/airport-dark-1536.webp') 2x);
- --view-campus-light:image-set(url('/art/quiet-threshold/campus-light-768.webp') 1x,url('/art/quiet-threshold/campus-light-1536.webp') 2x);
- --view-campus-dark:image-set(url('/art/quiet-threshold/campus-dark-768.webp') 1x,url('/art/quiet-threshold/campus-dark-1536.webp') 2x);
- --view-hospital-light:image-set(url('/art/quiet-threshold/hospital-light-768.webp') 1x,url('/art/quiet-threshold/hospital-light-1536.webp') 2x);
- --view-hospital-dark:image-set(url('/art/quiet-threshold/hospital-dark-768.webp') 1x,url('/art/quiet-threshold/hospital-dark-1536.webp') 2x);
+ --view-airport-light:image-set(url('/art/immersive/refined/airport-light-480.webp') 1x,url('/art/immersive/refined/airport-light-1024.webp') 2x);
+ --view-airport-dark:image-set(url('/art/immersive/refined/airport-dark-480.webp') 1x,url('/art/immersive/refined/airport-dark-1024.webp') 2x);
+ --view-campus-light:image-set(url('/art/immersive/refined/campus-light-480.webp') 1x,url('/art/immersive/refined/campus-light-1024.webp') 2x);
+ --view-campus-dark:image-set(url('/art/immersive/refined/campus-dark-480.webp') 1x,url('/art/immersive/refined/campus-dark-1024.webp') 2x);
+ --view-hospital-light:image-set(url('/art/immersive/refined/hospital-light-480.webp') 1x,url('/art/immersive/refined/hospital-light-1024.webp') 2x);
+ --view-hospital-dark:image-set(url('/art/immersive/refined/hospital-dark-480.webp') 1x,url('/art/immersive/refined/hospital-dark-1024.webp') 2x);
  --view-airport:var(--view-airport-light);
  --view-campus:var(--view-campus-light);
  --view-hospital:var(--view-hospital-light);
@@ -19,15 +21,6 @@
  --view-airport:var(--view-airport-dark);
  --view-campus:var(--view-campus-dark);
  --view-hospital:var(--view-hospital-dark);
-}}
-/* Compact artwork delivery retains the same camera and materials. */
-@media(max-width:760px) { :root {
- --view-airport-light:image-set(url('/art/quiet-threshold/airport-light-384.webp') 1x,url('/art/quiet-threshold/airport-light-768.webp') 2x);
- --view-airport-dark:image-set(url('/art/quiet-threshold/airport-dark-384.webp') 1x,url('/art/quiet-threshold/airport-dark-768.webp') 2x);
- --view-campus-light:image-set(url('/art/quiet-threshold/campus-light-384.webp') 1x,url('/art/quiet-threshold/campus-light-768.webp') 2x);
- --view-campus-dark:image-set(url('/art/quiet-threshold/campus-dark-384.webp') 1x,url('/art/quiet-threshold/campus-dark-768.webp') 2x);
- --view-hospital-light:image-set(url('/art/quiet-threshold/hospital-light-384.webp') 1x,url('/art/quiet-threshold/hospital-light-768.webp') 2x);
- --view-hospital-dark:image-set(url('/art/quiet-threshold/hospital-dark-384.webp') 1x,url('/art/quiet-threshold/hospital-dark-768.webp') 2x);
 }}
 .outside-airport { background-image:var(--view-airport); }
 .outside-campus { background-image:var(--view-campus); }

@@ -1,0 +1,47 @@
+A ROOM TO PRAY — THE ROOM AS A WELCOME
+Implementation brief · 4 November 2026
+
+Purpose
+Refine Ahmed's existing preview into a clear, welcoming threshold between a crowded public place and a useful prayer-room guide. The homepage must communicate the idea through one coherent room: an openable door, the world beyond it, and a prayer rug facing a solid wall. Information must remain immediate, legible and independent of animation. This is an evolution of the existing Astro website, not a framework migration.
+
+Identity
+Preserve Hamza's navy departure-sign language, ivory reading surfaces, yellow wayfinding accents, Archivo typography, Noto Naskh Arabic, original attribution and useful source links. The expressive element is the doorway; avoid adding more badges, ornamental icons, exaggerated shadows, competing card styles or decorative text. Existing practical symbols retain their text labels.
+
+Homepage composition
+Give the room a deliberate, generous architectural area beside the introduction and search, rather than leaving a narrow doorway behind overlapping information panels. Use a matched daylight/evening illustration with a wider timber aperture. Show the entire prayer rug and threshold. The rug must face the uninterrupted wall, never the doorway. Crop only the empty right-hand wall when fitting this panorama into its architectural window. Keep the same camera, proportions and rug position in both modes.
+
+Place the introduction, search, coverage and visitor actions in a quiet adjacent reading area. Keep the existing copy and controls. Use the same visual order on phones: room, nearby view controls, introduction and search. Stack at the existing 1000px compact-layout breakpoint, capping the architectural window at640px on tablets; never hide the rug under a text panel. Keep the architecture on the physical left for both LTR and RTL; Arabic content retains its own direction and typography.
+
+The room is a functional welcome
+Keep Airports, Universities and Hospitals as native destinations. Keep the door's separate open/close control and light switch. Place Explore/Pause/Resume beside the room it controls. A deliberate preview changes only the view beyond the door; the building, rug, search, text and cards stay still. Reuse the destination component and original link/context hooks. The three photo cards remain distinct from illustrative scenery, with visible photographer credits.
+
+Artwork and framing
+Use the project's existing matched portrait views for the airport, campus and hospital doorway. Portrait artwork fits the aperture and reveals more of the setting than a landscape image enlarged to fill a narrow hole. Center the perspective. Preserve full university and hospital photographs inside equally sized quiet frames instead of cropping away architecture. Existing visitor illustrations already use contain and must not be cropped again. Keep all real photographs and source records; never describe generated views as actual listed rooms.
+
+Motion
+Restore a 1400ms opacity crossfade between stationary doorway scenes over one neutral backing. Keep the physical hinged leaf, reflection, handle, shadow and threshold coordinated through the existing door timing. Retain the explicit 14-second view tour with pause, focus, visibility and page lifecycle handling. Do not animate slides across the page or move reading surfaces.
+
+When a visitor follows a normal category link, preserve the native immediate navigation. On the destination, the existing prepaint preparation opens the door; a small one-shot 1500ms depth movement gives a sense of approaching the destination. The effect belongs only to the decorative scenery. Clear it on completion, timeout, manual interaction, page exit/restoration and reduced-motion changes. Do not capture scrolling, delay a route, steal focus, cover the page with a loading overlay or require animation to reach information. Direct/bookmarked loads retain their stable open door.
+
+Information architecture
+Preserve the recent work that keeps directory search close to the guide, moves secondary destination navigation below inner-page content, pairs planner results with inputs on wide layouts, and provides an article contents rail at appropriate guide widths. Do not mix category cards into search results. Keep location, access, opening hours, restrictions, source links, country navigation, maps, translated records, saved places and visitor tools unchanged.
+
+Implementation guardrails — the requested firewall
+- Work only in Ahmed's preview repository. Do not touch Hamza's live website, DNS or credentials.
+- Isolate the existing unrelated map work; preserve its exact file hashes and patch.
+- Use shared Astro components for architecture and scene controls. Render each once per page.
+- Edit the owning styles; remove conflicting old homepage layout rules instead of stacking another override stylesheet.
+- Use theme tokens, ordinary document flow, native links and existing translation data.
+- Keep reduced-motion and data-saving fallbacks, touch targets, keyboard focus, print behavior and no-JavaScript navigation usable.
+- Preserve records, source URLs, photographs and existing credited artwork. Document only the deliberate presentation and artwork-credit updates.
+- Do not claim a browser, phone or screenshot check that could not be performed.
+
+Acceptance
+The homepage presents a recognisable complete room and a useful search together. The doorway has more visual weight, the rug is unobstructed, view controls are close to the room, and scene changes do not cut abruptly. Campus and hospital compositions are readable as places. Every route remains reachable with ordinary native navigation. Run the existing tests plus lifecycle tests for the new enhancement; build and export every route; check localized interactions, source preservation, CSS cascade, mobile/desktop geometry, asset references and the served preview. Browser rendering is currently blocked; report that limitation explicitly.
+
+References consulted
+Hamza's original website: https://aroomtopray.com/
+Existing preview and registered artwork at baseline 92c19b3cc.
+Native browser-transition research: https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API/Using
+The implementation retains the existing native-navigation arrival enhancement rather than adding a second routing system.
+Pinterest searches returned no usable results in this session; no Pinterest image was downloaded, copied or presented as a licensed asset.

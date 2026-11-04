@@ -226,12 +226,17 @@ html .immersive-site .site-footer { width:min(var(--layout-width),calc(100% - 2 
 .immersive-site .site-footer nav a { min-height:36px; font-size:.85rem; }
 /* The world outside stays stationary while the physical door swings.
    A readable open leaf preserves the wood, handle and physical threshold. */
-.room-environment .door-outside { background-image:none; }
-.door-scene { position:absolute; inset:0; background-size:cover; background-repeat:no-repeat; opacity:0; transition:none; }
-.door-scene-airport { background-image:var(--view-airport); background-position:52% center; }
-.door-scene-campus { background-image:var(--view-campus); background-position:70% center; }
-.door-scene-hospital { background-image:var(--view-hospital); background-position:35% center; }
+.room-environment .door-outside { background-image:none; background-color:#26313a; overflow:hidden; }
+.door-scene { position:absolute; inset:0; background-size:cover; background-repeat:no-repeat; background-position:center; opacity:0; transition:opacity 1400ms cubic-bezier(.22,.61,.36,1); }
+.door-scene-airport { background-image:var(--view-airport); }
+.door-scene-campus { background-image:var(--view-campus); }
+.door-scene-hospital { background-image:var(--view-hospital); }
 .outside-airport>.door-scene-airport,.outside-campus>.door-scene-campus,.outside-hospital>.door-scene-hospital { opacity:1; }
+/* A single gentle step towards the destination, confined to the scenery.
+   Text, controls, scroll position and native navigation stay in place. */
+[data-door-journey=entering] .door-scene { transform-origin:50% 58%; animation:door-arrival-depth 1500ms cubic-bezier(.22,.61,.36,1) both; }
+@keyframes door-arrival-depth { from { transform:scale(.96); } to { transform:scale(1); } }
+@media(prefers-reduced-motion:reduce) { .door-scene,[data-door-journey=entering] .door-scene { animation:none; transition:none; transform:none; } }
 /* Distinct presentations: a departures board, a photographic example, an atlas,
    country index and practical room facts. Shared type and spacing join them. */
 .discovery-heading { display:grid; grid-template-columns:1.15fr 1fr; align-items:end; gap:28px; margin:8px 0 22px; }

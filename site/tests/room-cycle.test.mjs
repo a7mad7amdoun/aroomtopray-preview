@@ -6,27 +6,28 @@ function target() {
  const listeners=new Map();
  return { dataset:{}, addEventListener(type,handler){const list=listeners.get(type)||[];list.push(handler);listeners.set(type,list);}, emit(type,values={}){for(const handler of listeners.get(type)||[])handler(values);} };
 }
-function fixture({reduced=false,saveData=false,presentation='home',scoped=false,onStart}={}) {
- const room=target(),control=target(),document=target(),browser=target(),media=target(),interaction=target(),scenery=target();
+function fixture({reduced=false,saveData=false,presentation='home',scoped=false,multipleRegions=false,withStage=false,onStart}={}) {
+ const room=target(),control=target(),document=target(),browser=target(),media=target(),interaction=target(),secondInteraction=target(),scenery=target(),stage=target();
  const label={textContent:''},status={textContent:''},timers=new Map(),seen=[];
- let serial=0,observer;
+ let serial=0,observer,observed;
  control.hidden=true;
  control.dataset={startLabel:'Explore views',pauseLabel:'Pause views',resumeLabel:'Resume views',pausedMessage:'Paused',playingMessage:'Playing'};
  control.querySelector=()=>label;
  room.dataset={roomPresentation:presentation,roomPreview:'airport',doorState:'open'};
  room.ownerDocument=document;
- room.querySelector=selector=>selector==='[data-room-cycle]'?control:selector==='[data-room-cycle-status]'?status:scoped&&selector==='[data-room-tour-interaction]'?interaction:scoped&&selector==='[data-room-scenery]'?scenery:null;
+ room.querySelector=selector=>selector==='[data-room-cycle]'?control:selector==='[data-room-cycle-status]'?status:scoped&&selector==='[data-room-tour-interaction]'?interaction:scoped&&selector==='[data-room-scenery]'?scenery:withStage&&selector==='.room-stage'?stage:null;
+ if(multipleRegions)room.querySelectorAll=selector=>selector==='[data-room-tour-interaction]'?[interaction,secondInteraction]:[];
  room.contains=node=>node===control;
  browser.matchMedia=()=>media;
  media.matches=reduced;
  browser.navigator={connection:{saveData}};
  browser.setTimeout=(callback,delay)=>{assert.equal(delay,ROOM_CYCLE_DELAY);timers.set(++serial,callback);return serial;};
  browser.clearTimeout=id=>timers.delete(id);
- browser.IntersectionObserver=class {constructor(callback){observer=callback;}observe(node){assert.equal(node,scoped?scenery:room);}};
+ browser.IntersectionObserver=class {constructor(callback){observer=callback;}observe(node){observed=node;assert.equal(node,scoped?scenery:withStage?stage:room);}};
  const links=['airport','campus','hospital'].map(scene=>({dataset:{doorPreview:scene}}));
  const cycle=initRoomCycle(room,browser,links,link=>{seen.push(link.dataset.doorPreview);room.dataset.roomPreview=link.dataset.doorPreview;},onStart);
  const tick=()=>{assert.equal(timers.size,1);const [id,callback]=timers.entries().next().value;timers.delete(id);callback();};
- return {room,control,interaction,scenery,document,browser,media,label,status,timers,seen,cycle,tick,start:()=>control.emit('click'),visibility:visible=>observer([{isIntersecting:visible}])};
+ return {room,control,interaction,secondInteraction,scenery,stage,observed,document,browser,media,label,status,timers,seen,cycle,tick,start:()=>control.emit('click'),visibility:visible=>observer([{target:observed,isIntersecting:visible}]),intersections:entries=>observer(entries)};
 }
 test('every homepage starts still until the visitor explicitly explores the views',()=>{
  for(const options of [{},{reduced:true},{saveData:true}]){
@@ -129,4 +130,53 @@ test('the start action runs only for explicit Explore or Resume activations',()=
  f.control.emit('click');assert.equal(starts,1);
  f.media.emit('change',{matches:true});f.browser.emit('pageshow');assert.equal(starts,1);
  f.control.emit('click');assert.equal(starts,2);assert.equal(f.timers.size,1);
+});
+
+test('the hero controls and destination notices independently pause the same tour',()=>{
+ const f=fixture({scoped:true,multipleRegions:true});f.start();
+ f.room.emit('pointerenter');assert.equal(f.timers.size,1);
+ for(const region of [f.interaction,f.secondInteraction]){
+  region.emit('pointerenter');assert.equal(f.timers.size,0);
+  assert.equal(f.room.dataset.roomCycle,'playing');assert.deepEqual(f.seen,[]);
+  region.emit('pointerleave');assert.equal(f.timers.size,1);
+ }
+ // Leaving one region must not restart a tour while another is still hovered.
+ f.interaction.emit('pointerenter');f.secondInteraction.emit('pointerenter');
+ f.interaction.emit('pointerleave');assert.equal(f.timers.size,0);
+ f.secondInteraction.emit('pointerleave');assert.equal(f.timers.size,1);
+ f.tick();assert.deepEqual(f.seen,['campus']);
+});
+
+test('explicit resume clears interaction pauses while subsequent focus and hover still protect the visitor',()=>{
+ const f=fixture({scoped:true,multipleRegions:true});f.start();
+ f.interaction.emit('pointerenter');f.secondInteraction.emit('pointerenter');f.room.emit('focusin');
+ f.control.emit('click');assert.equal(f.timers.size,0);
+ f.control.emit('click');assert.equal(f.timers.size,1);
+ f.tick();assert.deepEqual(f.seen,['campus']);
+ f.secondInteraction.emit('pointerenter');assert.equal(f.timers.size,0);
+ f.room.emit('focusin');f.secondInteraction.emit('pointerleave');assert.equal(f.timers.size,0);
+ f.room.emit('focusout',{relatedTarget:null});assert.equal(f.timers.size,1);
+});
+
+test('the artwork governs the tour even while a long mobile introduction remains on screen',()=>{
+ const f=fixture({scoped:true,multipleRegions:true,withStage:true});
+ assert.equal(f.observed,f.scenery);assert.notEqual(f.observed,f.stage);
+ f.start();f.tick();assert.deepEqual(f.seen,['campus']);
+ f.visibility(false);assert.equal(f.timers.size,0);
+ f.browser.emit('pageshow');f.document.emit('visibilitychange');assert.equal(f.timers.size,0);
+ // A batched delivery must use the artwork's most recent visibility state.
+ f.intersections([{target:f.scenery,isIntersecting:true},{target:f.scenery,isIntersecting:false}]);
+ assert.equal(f.timers.size,0);
+ f.visibility(true);assert.equal(f.timers.size,1);
+ f.tick();assert.deepEqual(f.seen,['campus','hospital']);
+ f.control.emit('click');f.visibility(false);f.visibility(true);
+ assert.equal(f.timers.size,0);assert.equal(f.label.textContent,'Resume views');
+});
+
+test('layouts without a scenery element fall back to the visible introduction',()=>{
+ const f=fixture({withStage:true});assert.equal(f.observed,f.stage);
+ f.start();assert.equal(f.timers.size,1);
+ f.visibility(false);assert.equal(f.timers.size,0);
+ f.visibility(true);assert.equal(f.timers.size,1);
+ f.tick();assert.deepEqual(f.seen,['campus']);
 });

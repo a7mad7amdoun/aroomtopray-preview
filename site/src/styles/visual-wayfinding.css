@@ -42,6 +42,16 @@
   filter:none;
   transition:none;
 }
+/* Keep the whole cloister and hospital corridor visible. Their different
+   photographic proportions sit in the same quiet frame, without cropping
+   the portrait hospital image to half its original height. */
+#prayer-room[data-room-presentation=home] :is(.door-notice-universities,.door-notice-hospitals) .notice-art {
+  padding:clamp(8px,1.2vw,16px);
+}
+#prayer-room[data-room-presentation=home] :is(.door-notice-universities,.door-notice-hospitals) .notice-art img {
+  object-fit:contain;
+  object-position:center;
+}
 #prayer-room[data-room-presentation=home] .notice-information {
   display:flex;
   flex-direction:column;

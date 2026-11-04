@@ -1,0 +1,43 @@
+---
+import { getCopy } from '../lib/i18n.js';
+import { ROOM_COPY } from '../data/room-copy.js';
+import { DOOR_COPY } from '../data/door-copy.js';
+import { ATMOSPHERE_COPY } from '../data/room-atmosphere.js';
+const { kind='home', locale='en' }=Astro.props;
+const t=getCopy(locale), r=ROOM_COPY[locale], d=DOOR_COPY[locale];
+const atmosphere=ATMOSPHERE_COPY[locale];
+const settings={airports:'airport', universities:'campus', hospitals:'hospital'};
+const scenes=kind in settings?[settings[kind]]:['airport','campus','hospital'];
+const outside=settings[kind] || 'airport';
+---
+  <div class="room-architecture" dir="ltr" data-room-scenery>
+   <div class="room-canvas">
+    <div class="room-wall" aria-hidden="true"></div>
+    <div class="door-surround">
+          <span class="door-room-sign" dir={locale==='ar'?'rtl':'ltr'}><svg width="20" height="20" aria-hidden="true"><use href="#i-mark"/></svg><b>{r.room}</b></span>
+      <div class="door-frame" id="room-doorway">
+        <div class={`door-outside outside-${outside}`} role="img" aria-label={`${atmosphere.illustration}. ${d.outside}${t.nav[kind in settings?kind:'airports']}`}>
+          {scenes.map(scene=><span class={`door-scene door-scene-${scene}`} aria-hidden="true"></span>)}
+        </div>
+        <span class="door-floor-light" aria-hidden="true"></span>
+        <span class="door-swing-shadow" aria-hidden="true"></span>
+        <span class="door-threshold" aria-hidden="true"></span>
+        <span class="door-strike" aria-hidden="true"></span>
+        <div class="door-leaf" aria-hidden="true">
+          <span class="door-skin"></span>
+          <div class="door-window">
+            <span class="door-clear-glass"></span>
+            <span class="window-reflection"></span>
+          </div>
+          <span class="door-handle" aria-hidden="true"></span>
+          <span class="door-kickplate" aria-hidden="true"></span>
+          <span class="door-hinge door-hinge-top"></span><span class="door-hinge door-hinge-middle"></span><span class="door-hinge door-hinge-bottom"></span>
+        </div>
+
+      </div>
+
+    </div>
+
+   </div>
+    <p class="room-art-note">{atmosphere.illustration}</p>
+  </div>
