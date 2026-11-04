@@ -61,6 +61,7 @@ const searchTarget = isHome ? '#place-search-input' : isDirectory ? '#q-dir' : `
   <script is:inline data-arrival-presentation={presentation} data-arrival-kind={roomKind} set:html={roomFirstPaint}/>
   {(locale==='ar'?[arabicRegularUrl,arabicSemiboldUrl]:[archivoLatinUrl]).map(href=><link rel="preload" href={href} as="font" type="font/woff2" crossorigin="anonymous"/>)}
   {isHome && <link rel="preload" href={locale==='ar'?'/fonts/room-invitation/amiri-regular.woff2':'/fonts/room-invitation/garamond-medium.woff2'} as="font" type="font/woff2" crossorigin="anonymous"/>}
+  {isHome && locale!=='ar' && <link rel="preload" href="/fonts/room-invitation/garamond-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>}
   <title>{title}</title>
   <meta name="description" content={description}>
   <link rel="canonical" href={canonical}>

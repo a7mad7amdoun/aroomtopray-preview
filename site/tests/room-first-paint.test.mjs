@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 
 const source = fs.readFileSync(new URL('../src/scripts/room-first-paint.js', import.meta.url), 'utf8');
-function freshPage({ preference, systemDark = false, mobile = false, density = 1, kind = 'home', presentation = 'home', query = '', blocked = false, preview = false } = {}) {
+function freshPage({ preference, systemDark = false, mobile = false, tablet = false, density = 1, kind = 'home', presentation = 'home', query = '', blocked = false, preview = false } = {}) {
   const attributes = new Map(), classes = new Set(), links = [], removed = [];
   const root = { dataset: {}, classList: { add: value => classes.add(value) }, setAttribute: (key, value) => attributes.set(key, value) };
   const meta = { setAttribute: (key, value) => attributes.set(`meta-${key}`, value) };
@@ -15,7 +15,7 @@ function freshPage({ preference, systemDark = false, mobile = false, density = 1
   };
   const context = {
     document, URLSearchParams,
-    window: { devicePixelRatio: density, location: { search: query }, matchMedia: query => ({ matches: query.includes('color-scheme') ? systemDark : mobile }) },
+    window: { devicePixelRatio: density, location: { search: query }, matchMedia: query => ({ matches: query.includes('color-scheme') ? systemDark : query.includes('min-width') ? !mobile && !tablet : mobile }) },
     localStorage: { getItem: key => { assert.equal(key, preview ? 'aroomtopray-preview.theme.v1' : 'aroomtopray.theme.v1'); if (blocked) throw Error('blocked'); return preference; } },
     sessionStorage: { removeItem: key => { if (blocked) throw Error('blocked'); removed.push(key); } },
   };
@@ -44,7 +44,7 @@ test('each category and device density preloads existing assets used by the CSS'
       const mode = preference === 'dark' ? 'night' : 'day';
       const folder = preference === 'dark' ? 'arrival-room' : 'daylight-room';
       assert.equal(p.links[0].href, `/art/${folder}/${mode}-${mobile && density === 1 ? 1024 : 1774}.webp`);
-      assert.equal(p.links[1].href, `/art/real-views/${scene}-${density === 1 ? 800 : 1400}.webp`);
+      assert.equal(p.links[1].href, `/art/real-views/${scene}-${density === 1 ? 800 : !mobile && scene !== 'hospital' ? 2048 : 1400}.webp`);
       for (const link of p.links) {
         assert.equal(link.rel, 'preload'); assert.equal(link.as, 'image');
         assert.ok(fs.existsSync(new URL('../public' + link.href, import.meta.url)), link.href);
@@ -59,4 +59,13 @@ test('blocked storage, mounted preview paths and report intent keep initial appe
   assert.equal(p.attributes.get('meta-content'), '#0a111c');
   assert.ok(p.links.every(link => link.href.startsWith('/aroomtopray-preview/art/')));
   assert.equal(freshPage({ query: '?q=report' }).root.dataset.guideReportIntent, undefined);
+});
+
+test('dense tablet glass keeps the medium image while large desktop gets original-resolution detail', () => {
+  for (const [kind, scene] of Object.entries({airports:'airport',universities:'campus',hospitals:'hospital'})) {
+    const tablet=freshPage({kind,tablet:true,density:2});
+    assert.equal(tablet.links[1].href, `/art/real-views/${scene}-1400.webp`);
+    const desktop=freshPage({kind,density:2});
+    assert.equal(desktop.links[1].href, `/art/real-views/${scene}-${scene==='hospital'?1400:2048}.webp`);
+  }
 });

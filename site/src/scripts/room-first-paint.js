@@ -21,7 +21,8 @@
   const density = window.devicePixelRatio || 1;
   const small = window.matchMedia('(max-width: 760px)').matches;
   const roomWidth = small && density <= 1 ? 1024 : 1774;
-  const sceneWidth = density <= 1 ? 800 : 1400;
+  const largeGlass = window.matchMedia('(min-width: 1001px)').matches;
+  const sceneWidth = density <= 1 ? 800 : largeGlass && scene !== 'hospital' ? 2048 : 1400;
   const paths = [`${folder}/${mode}-${roomWidth}.webp`, `real-views/${scene}-${sceneWidth}.webp`];
   for (const path of paths) {
     const link = document.createElement('link');

@@ -88,7 +88,6 @@ html[dir=rtl] .menu-destinations>a[aria-current] { box-shadow:inset -3px 0 var(-
 .light-switch:hover { border-color:var(--ink); }
 .light-switch:active .switch-rocker { scale:.95; }
 .switch-rocker { transition:transform .15s,box-shadow .15s; }
-.room-art-note { left:3vw; font-size:.62rem; max-width:34vw; line-height:1.4; opacity:.8; }
 /* All page types live on the same lightly translucent guide panel. */
 .room-main { width:min(var(--room-reading),calc(100% - var(--room-rail) - 42px)); margin:28px 42px 24px var(--room-rail); padding:32px; min-height:0; border:1px solid color-mix(in srgb,var(--line) 75%,transparent); border-top-color:var(--guide-highlight); border-radius:var(--guide-radius); background:var(--guide-surface); box-shadow:0 8px 28px #0a111c0a,inset 0 1px 0 var(--guide-highlight); backdrop-filter:blur(18px); }
 .room-main>.wrap { padding:0!important; border:0!important; background:transparent!important; }
@@ -389,7 +388,6 @@ html[dir=rtl] .room-main :is(.eyebrow,.guide-kicker,.count) { font-family:var(--
  .room-location { top:calc(100% + 11px); gap:7px; }
  .room-location small { display:none; }
  .room-location b { font-size:.71rem; }
- .room-art-note { bottom:7px; left:12px; max-width:33%; font-size:.5rem; }
  .room-main { width:calc(100% - 40px); max-width:780px; margin:0 auto 24px; padding:28px; border-radius:var(--guide-radius); }
  .room-home-intro { padding-bottom:24px; }
  .room-home-intro h1 { font-size:2.8rem; }

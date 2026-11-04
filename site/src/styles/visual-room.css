@@ -31,7 +31,7 @@
   --arrival-light-right:24px; --arrival-search-gap:0;
 }
 html .room-environment[data-room-presentation] .room-layout>.room-main { padding-top:0; }
-html .room-environment[data-room-presentation=home] .room-layout { width:100%; }
+html .room-environment[data-room-presentation=home] .room-layout { width:100%; max-width:1920px; margin-inline:auto; }
 .room-environment .room-stage {
   display:grid; grid-template-columns:minmax(0,var(--arrival-scene-track,1.08fr)) minmax(0,var(--arrival-reading-track,.92fr));
   grid-template-rows:auto auto; align-items:center; gap:0; direction:ltr;
@@ -62,10 +62,6 @@ html .room-environment[data-room-presentation=home] .room-layout { width:100%; }
 }
 /* Inner edge (90,112)–(594,696), on both1774×887 commissioned plates. */
 .room-environment .door-surround { left:5.0732807%; top:12.626832%; width:28.410372%; height:65.83991%; }
-.room-environment .room-art-note {
-  inset:auto auto 10px 10px; width:29%; max-width:250px; padding:5px 8px;
-  font-size:.625rem; line-height:1.5; border:0; background:var(--surface);
-}
 /* Original public-domain calligraphy: unchanged paths, anchored to the solid
    niche above the mat. Its colour responds to light, its form never changes. */
 .room-sacred-name {
@@ -84,13 +80,13 @@ html .room-environment[data-room-presentation=home] .room-layout { width:100%; }
 }
 .room-environment .room-scene-tools {
   grid-column:1/-1; grid-row:2; position:relative; z-index:4;
-  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px 24px;
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px 24px;
   width:auto; margin-inline:var(--room-gutter); padding:16px 0; border:0; border-bottom:1px solid var(--line);
 }
 .room-scene-tools .room-atmosphere-controls { display:grid; grid-template-columns:minmax(0,1fr) auto; flex:1; width:auto; min-height:48px; align-items:center; gap:16px; }
 /* Reserve the native control before its enhancement loads, including wrapped
    labels. No-JavaScript visitors still have no inactive tour button. */
-.room-scene-tools .room-scene-caption { min-width:0; min-height:3.2em; margin:0; }
+.room-scene-tools .room-scene-caption { min-width:0; min-height:44px; margin:0; }
 /* A physical light plaque on the quiet upper wall, outside the scenery canvas
    so scroll fading never reduces the contrast of an interactive control. */
 .room-architecture .room-light-panel {
@@ -125,12 +121,12 @@ html .room-environment[data-room-presentation=home] .room-layout { width:100%; }
 .room-main .room-home-intro .room-eyebrow { display:flex; align-items:center; gap:10px; margin:0 0 24px; color:var(--room-inscription); font-size:.875rem; font-weight:550; }
 .room-main .room-home-intro .room-eyebrow>span { width:24px; height:2px; border-radius:0; background:var(--invitation-accent); }
 .room-main .room-home-intro h1 {
-  margin:0; font:500 clamp(3rem,4.65vw,5.75rem)/1.04 'Room Invitation',Georgia,serif;
-  max-width:none; letter-spacing:-.025em; text-wrap:balance; font-synthesis:none; color:var(--room-inscription);
+  margin:0; font:500 clamp(3rem,4.65vw,5.75rem)/1.1 'Room Invitation',Georgia,serif;
+  max-width:none; letter-spacing:-.015em; text-wrap:balance; font-synthesis:none; color:var(--room-inscription);
 }
 .room-main .room-home-intro h1>span { display:block; font-weight:inherit; color:inherit; }
-.room-main .room-home-intro h1>span+span { margin-top:.12em; color:var(--invitation-accent); font-style:italic; }
-.room-main .home-welcome-copy { margin-top:26px; }
+.room-main .room-home-intro h1>span+span { margin-top:.08em; color:var(--invitation-accent); font-style:italic; }
+.room-main .home-welcome-copy { margin-top:24px; }
 .room-main .room-home-line { margin:0 0 10px; color:var(--room-inscription); font:550 1.125rem/1.5 var(--f-display); letter-spacing:-.015em; }
 .room-main .home-welcome-copy .room-introduction { margin:0; max-width:35ch; color:var(--room-inscription); font-size:1.0625rem; line-height:1.65; }
 .home-find-link { display:inline-flex; align-items:center; gap:24px; min-height:48px; margin-top:24px; padding:8px 0; border-bottom:1px solid var(--invitation-accent); color:var(--room-inscription); text-decoration:none; font-weight:600; }
@@ -205,7 +201,6 @@ html .room-environment[data-room-presentation=home] .room-layout { width:100%; }
   .room-environment .room-architecture::after { display:none; }
   .room-architecture .room-light-panel { right:12px; top:3%; flex-direction:column; gap:6px; padding:6px; }
   .room-light-settings>.appearance-controls { top:0; right:calc(100% + 12px); max-height:calc(min(75vw,315px) - 96px); overflow-y:auto; }
-  .room-environment .room-art-note { width:42%; }
   .room-environment .room-scene-tools { grid-column:1; grid-row:3; }
   .room-environment[data-room-presentation] .room-arrival-copy { grid-column:1; grid-row:1; margin:20px var(--room-gutter) 24px; padding:28px; }
   .room-environment[data-room-setting=airports] .room-arrival-copy { margin:20px var(--room-gutter) 24px; padding:24px; }
@@ -226,16 +221,20 @@ html .room-environment[data-room-presentation=home] .room-layout { width:100%; }
     --room-night:image-set(url('/art/artful-room/night-1024.webp') 1x,url('/art/artful-room/night-1774.webp') 2x);
   }
   .room-environment .room-scene-tools { gap:12px; padding:14px 0; }
-  .room-scene-tools .room-atmosphere-controls { width:100%; }
+  .room-scene-tools .room-atmosphere-controls { flex-basis:100%; width:100%; }
   .room-environment[data-room-presentation] .room-arrival-copy { padding-top:28px; }
   .room-main .room-home-intro h1 { font-size:clamp(2.65rem,9.5vw,4.5rem); }
-  .room-main .home-welcome-copy { grid-template-columns:1fr; gap:10px; }
   .room-main .home-welcome-copy .room-introduction { font-size:1rem; max-width:42ch; }
   .room-main .room-home-line { font-size:1.25rem; }
   .room-environment[data-room-presentation] .room-arrival-copy { padding:24px; }
   .room-main .room-arrival-copy .room-eyebrow { margin-bottom:18px; }
   .room-main .room-arrival-copy .room-introduction { font-size:1.0625rem; }
   .room-main .place-search-field { min-height:64px; }
+}
+@media(max-width:600px) {
+  .room-scene-tools .room-atmosphere-controls { grid-template-columns:minmax(0,1fr); gap:8px; }
+  .room-scene-tools [data-room-cycle] { justify-self:start; min-width:min(13em,100%); max-width:100%; }
+  .room-scene-tools .room-view-credits { width:100%; border-top:1px solid var(--line); padding-top:8px; }
 }
 html[dir=rtl] .room-main .room-home-intro h1 { font-family:'Room Arabic Invitation',var(--f-arabic); font-weight:400; font-size:clamp(3rem,4.8vw,5.5rem); line-height:1.5; letter-spacing:0; }
 html[dir=rtl] .room-main .room-home-intro h1>span+span { font-style:normal; }

@@ -101,7 +101,6 @@
 .room-environment .door-action-caption { border-radius:24px; min-height:36px; padding:7px 12px; box-shadow:0 2px 6px #00000012; }
 .room-environment .room-focus-button { border-radius:10px; }
 .room-environment .room-utilities { column-gap:14px; }
-.room-environment .room-art-note { opacity:.85; font-size:.7rem; }
 .room-environment .room-scene-caption { line-height:1.6; }
 .immersive-site .site-footer { border-radius:16px; color:var(--muted); }
 .immersive-site .site-footer .brand { color:var(--ink); }
@@ -122,7 +121,6 @@
  .room-main .room-home-intro h1 { font-size:2.15rem; }
  .room-environment .door-notice { border-radius:4px; }
  .room-environment .door-action-caption { min-height:30px; padding:5px 8px; }
- .room-environment .room-art-note { font-size:.7rem; }
 }
 html[dir=rtl] .room-main .room-home-intro h1 { font-size:clamp(2.1rem,7cqi,3.4rem); line-height:1.45; letter-spacing:0; }
 html[dir=rtl] .room-main .directory-title-line h1 { letter-spacing:0; line-height:1.5; }

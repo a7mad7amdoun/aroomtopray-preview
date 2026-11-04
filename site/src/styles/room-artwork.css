@@ -5,6 +5,14 @@
  --view-campus:image-set(url('/art/real-views/campus-800.webp') 1x,url('/art/real-views/campus-1400.webp') 2x);
  --view-hospital:image-set(url('/art/real-views/hospital-800.webp') 1x,url('/art/real-views/hospital-1400.webp') 2x);
 }
+/* Landscape originals need more vertical samples when framed in the tall
+   glass on a large, dense screen. Phones retain the lighter existing assets. */
+@media(min-width:1001px) {
+ :root {
+  --view-airport:image-set(url('/art/real-views/airport-800.webp') 1x,url('/art/real-views/airport-2048.webp') 2x);
+  --view-campus:image-set(url('/art/real-views/campus-800.webp') 1x,url('/art/real-views/campus-2048.webp') 2x);
+ }
+}
 /* The switch controls interior light, not the time of day outside. Original
    photographic colour is preserved in both themes; sources accompany the view. */
 .outside-airport { background-image:var(--view-airport); }

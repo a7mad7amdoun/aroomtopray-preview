@@ -17,9 +17,7 @@ html .room-environment { position:relative; display:block; pointer-events:auto; 
 .room-environment:not([data-room-presentation=home]) { --room-stage-gap:24px; --room-threshold-gap:16px; --room-opening-height:250px; --room-mobile-canvas:620px; }
 .room-architecture::after { content:''; position:absolute; z-index:1; inset:0; pointer-events:none; background:linear-gradient(90deg,transparent 12%,color-mix(in srgb,var(--bg) 28%,transparent) 48%,var(--bg) 100%); }
 .room-architecture .room-canvas { position:absolute; left:0; top:0; width:min(100vw,calc((100svh - var(--room-header-height)) * 2)); height:auto; aspect-ratio:2/1; transform:none; opacity:var(--room-visibility,1); }
-.room-environment[data-room-reading=true] .room-art-note { opacity:0; }
 .room-architecture .room-canvas::after { content:''; position:absolute; z-index:1; inset:0; pointer-events:none; background:linear-gradient(transparent 90%,var(--bg)),linear-gradient(90deg,transparent 82%,var(--bg)); }
-.room-environment .room-art-note { position:absolute; inset:auto auto 24px 24px; width:min(190px,calc(var(--room-rail) * .47)); max-width:none; font-size:.75rem; line-height:1.55; background:var(--surface); color:var(--muted); border:1px solid var(--line); padding:10px 12px; border-radius:4px; transition:opacity var(--room-recede-duration) ease; }
 html .room-environment .room-layout { display:block; grid-template-columns:none; gap:0; pointer-events:auto; position:relative; z-index:1; width:min(var(--layout-width),100%); max-width:none; margin:0 auto; direction:ltr; }
 html .room-environment .room-layout>.room-main { display:block; position:relative; container:room-reading / inline-size; width:auto; max-width:none; min-width:0; min-height:0; margin:0; padding:30px var(--room-gutter) 0; background:none; border:0; border-radius:0; box-shadow:none; backdrop-filter:none; direction:inherit; }
 html[dir=rtl] .room-environment .room-layout>.room-main { direction:rtl; }
@@ -72,7 +70,6 @@ html .immersive-site .site-footer { position:relative; z-index:1; width:100%; ma
 @media(max-width:1200px) and (min-width:761px) {
  :root { --room-rail:clamp(250px,34vw,408px); }
  .room-environment .room-control-bar { position:relative; inset:auto; width:auto; justify-content:flex-end; margin:0 0 16px; }
- .room-environment .room-art-note { left:18px; padding:8px; font-size:.6875rem; }
 }
 @media(max-width:1100px) {
  .room-main .room-arrival-copy h1 { font-size:2.5rem; }
@@ -84,7 +81,6 @@ html .immersive-site .site-footer { position:relative; z-index:1; width:100%; ma
  /* The room is in document flow; no empty offset is needed above the guide. */
  .room-environment .room-stage { padding-left:0; margin-bottom:24px; }
  .room-architecture .room-canvas { width:max(var(--room-mobile-canvas),100vw); }
- .room-environment .room-art-note { inset:20px 16px auto auto; width:44%; max-width:220px; padding:9px 11px; font-size:.6875rem; }
  .room-environment .room-control-bar { position:relative; inset:auto; width:auto; justify-content:flex-end; gap:8px; margin:0 0 12px; }
  .room-environment .room-control-bar .door-action-caption { padding:8px 10px; font-size:.78rem; }
  .room-environment[data-room-presentation] .room-arrival-copy { padding:24px 20px; }
@@ -110,9 +106,8 @@ html .immersive-site .site-footer { position:relative; z-index:1; width:100%; ma
  .room-main .guide-tabs { position:relative; top:auto; }
  .room-architecture .room-canvas { width:min(100vw,calc((100svh - var(--room-header-height)) * 2)); }
  html .room-environment[data-room-presentation] .room-layout>.room-main { padding-top:22px; }
- .room-environment .room-art-note { display:none; }
 }
-@media(prefers-reduced-motion:reduce) { .room-architecture .room-canvas,.room-environment .room-art-note { transform:none; transition:none; } .room-main .guide-panel:not([hidden]) { animation:none; } }
+@media(prefers-reduced-motion:reduce) { .room-architecture .room-canvas { transform:none; transition:none; } .room-main .guide-panel:not([hidden]) { animation:none; } }
 @media print {
  html .room-environment,.room-environment .room-layout { display:block!important; margin:0!important; padding:0!important; background:none; }
  .room-environment .room-architecture,.room-environment .room-control-bar,.room-environment .room-console,.room-environment .arrival-actions,.room-environment .arrival-coverage { display:none!important; }

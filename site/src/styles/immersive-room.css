@@ -78,7 +78,6 @@ body.immersive-site { background:var(--bg); isolation:isolate; }
 .light-switch[aria-pressed=false] .switch-rocker { transform:perspective(80px) rotateX(8deg); box-shadow:0 -2px 2px #0004; color:#d4c085; }
 .room-light>span,.room-light>small { font:400 .5rem/1.4 var(--f-mono); color:var(--ink); text-align:center; }
 .room-light>small { color:var(--muted); }
-.room-art-note { position:absolute; left:28px; bottom:13px; max-width:30vw; color:var(--ink); font:400 .49rem/1.5 var(--f-body); opacity:.75; }
 /* The same reading width and spacing throughout the site. */
 .room-main,.immersive-site .site-footer { position:relative; z-index:2; width:min(var(--room-reading),calc(100% - var(--room-rail) - 40px)); margin-left:var(--room-rail); margin-right:40px; }
 .room-main { min-height:72vh; padding-top:42px; padding-bottom:30px; }
@@ -246,7 +245,6 @@ body.immersive-site { background:var(--bg); isolation:isolate; }
  .door-window { top:5%; height:24%; border-width:4px; }
  .room-light { left:calc(50% + 64px); top:42%; }
  .room-location { font-size:.54rem; margin-top:0; top:calc(100% + 12px); }
- .room-art-note { left:18px; bottom:9px; max-width:80%; font-size:.47rem; }
  .room-main,.immersive-site .site-footer { width:calc(100% - 48px); max-width:780px; margin-inline:auto; }
  .room-main { padding-top:28px; min-height:0; }
  .room-home-intro { min-height:0; padding-top:0; padding-bottom:36px; }

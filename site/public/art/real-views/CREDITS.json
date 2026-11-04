@@ -2,7 +2,7 @@
   "checkedOn": "2026-11-04",
   "type": "Real photographs",
   "purpose": "Architectural context within an imagined room, not actual prayer-room views or evidence of facilities. No institutional endorsement.",
-  "processing": "Original full photographs proportionately downsampled to 800px and 1400px width, WebP quality85, effort6. CSS frames the photograph within the fixed glass. Original photographic colours retained in light and dark themes. No AI editing or upscaling.",
+  "processing": "Original full photographs proportionately downsampled to 800px and 1400px width, WebP quality85, effort6. CSS frames the photograph within the fixed glass. Original photographic colours retained in light and dark themes. No AI editing or upscaling. Large, high-density desktop glass uses 2048px airport and campus versions from the same originals; the taller hospital photograph already has sufficient vertical resolution.",
   "credits": [
     {
       "scene": "airport",
@@ -19,7 +19,7 @@
     },
     {
       "scene": "campus",
-      "name": "All Souls College from St Mary\u2019s Church",
+      "name": "All Souls College from St Mary’s Church",
       "author": "Arnaud Malon",
       "date": "2006-06-20",
       "source": "https://commons.wikimedia.org/wiki/File:All_Souls_College_from_St_Mary%27s_Church.jpg",
@@ -74,6 +74,16 @@
       "file": "hospital-800.webp",
       "bytes": 307904,
       "sha256": "35cc033061b8fe38d3ef91e1446e39d6a94090502acee011d414168a6a741471"
+    },
+    {
+      "file": "airport-2048.webp",
+      "bytes": 388716,
+      "sha256": "660567cd82fd6fef471756a872cf65dadeb4483f6e969fdeabae8e2611fb3e8d"
+    },
+    {
+      "file": "campus-2048.webp",
+      "bytes": 415230,
+      "sha256": "531d781eaeff762962d4551bc7f230fb98f5cba92f1c5fa0d2070de750d4a0e0"
     }
   ]
 }

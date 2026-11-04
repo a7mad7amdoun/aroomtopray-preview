@@ -1,0 +1,32 @@
+A ROOM TO PRAY — REFINEMENT BRIEF
+
+Objective: finish the approved continuous prayer room rather than replace it.
+Make “more fixed” mean a stable architectural composition, deliberate spacing,
+crisp framing, and predictable controls. Keep ivory, navy, warm gold, Archivo,
+Garamond and Amiri. Preserve the welcoming invitation and the room's quietness.
+
+1. Keep the glass fixed, the prayer mat facing the solid niche, and the original
+   Allah calligraphy unchanged. Do not introduce doors, camera zooms, bouncing,
+   parallax, exaggerated lighting, or a new art direction.
+2. Bound the full-width home room on very wide monitors so the approved artwork
+   is not stretched indefinitely. Retain the full mat and niche on phones.
+3. Increase photographic definition using higher-resolution original photographs
+   where the glass aperture needs it. Do not enlarge small files and call them
+   higher quality. Preserve source credits and truthful illustration disclosure.
+4. Make the room's utility strip one coherent layout. Correct inherited grid
+   placement at its source; reserve predictable space for scene names and tour
+   controls, including Arabic and longer French/Spanish labels. Use deliberate
+   stacking on phones. Maintain touch targets, keyboard focus, and no-JS support.
+5. Remove the tiny redundant sticker over the artwork; keep the complete real-
+   photo/imagined-room disclosure and credits directly beneath it.
+6. Refine the invitation's line-height, tracking, wrapping and spacing without
+   changing its words. Load both Latin title faces early so the distinctive
+   second line does not appear late. Respect Arabic shaping and line-height.
+7. Preserve all search, maps, filters, tabs, place records, source links, languages,
+   and visitor tools. Preserve reduced-motion and cycle pause behavior.
+8. Edit owning styles/components; do not add another override layer. Keep pending
+   map work out of this change. Build, check content and interactions, and verify
+   the exported preview. Disclose unavailable rendered browser checks.
+
+Success: the same approved room, more composed and easier to use, with meaningful
+fidelity improvements and fewer competing details. Publish only Ahmed's preview.

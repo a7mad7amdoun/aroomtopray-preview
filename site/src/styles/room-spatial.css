@@ -99,7 +99,6 @@ html[data-door-arrival=preparing] .room-environment .door-skin::after,
 .room-environment .switch-rocker { background:linear-gradient(#f6efe3,#d1c5b1); color:#29303a; border:1px solid #a99b84; transition:transform 220ms var(--room-ease),box-shadow 220ms var(--room-ease); }
 .room-environment .light-switch[aria-pressed=false] .switch-rocker { background:linear-gradient(#bdb09a,#e2d8c6); color:#29303a; box-shadow:inset 0 2px 3px #42352230; }
 .room-environment .light-switch:hover { box-shadow:0 4px 10px #0003,inset 0 1px #fff8; }
-.room-environment .room-art-note { position:absolute; z-index:2; inset:12px auto auto 20px; width:auto; max-width:38ch; margin:0; font-size:.65rem; line-height:1.5; color:var(--muted); background:var(--surface); border-radius:3px; padding:5px 8px; opacity:1; }
 /* Real, credited architecture introduces each destination. Interface text and
    source credit stay outside the photograph; these are not room locations. */
 .room-environment .room-console { position:relative; z-index:0; inset:auto; width:auto; padding:18px 0 0; margin:0; display:block; background:none; border:0; }
@@ -304,7 +303,6 @@ html[dir=rtl] .room-environment .door-notice-title>b { font-family:var(--f-arabi
  .room-environment .door-action-caption>svg { width:14px; height:14px; }
  .room-environment .light-switch { width:44px; height:58px; }
  .room-environment .room-light>small { font-size:.65rem; }
- .room-environment .room-art-note { font-size:.6rem; inset:12px 12px auto auto; max-width:55%; }
  .room-environment .door-notices { gap:12px; }
  .room-environment[data-room-presentation=home] .door-notices { grid-template-columns:1fr; }
  .room-environment[data-room-presentation=home] .door-notice { grid-template-columns:minmax(0,.65fr) minmax(0,1.7fr); }
@@ -345,7 +343,6 @@ html[dir=rtl] .room-environment .door-notice-title>b { font-family:var(--f-arabi
  .room-main .room-arrival-copy :is(.room-introduction,.directory-intro-copy>p,.visit-heading>p,.support-arrival>p) { font-size:.95rem; }
  /* A closer crop of the same canvas keeps the doorway usable on phones.
     Canvas width always remains exactly twice its height. */
- .room-environment .room-art-note { max-width:55%; }
  .room-environment .door-notices { grid-template-columns:1fr; gap:22px; }
  .room-environment:not([data-room-presentation=home]) .door-notices { grid-template-columns:repeat(3,minmax(0,1fr)); gap:0; }
  .room-environment:not([data-room-presentation=home]) .door-notice-title { grid-template-columns:1fr; }
