@@ -1,30 +1,16 @@
-/* Landscape views fill the broad glass wall. Matched lighting preserves
-   each setting, with readable details in both appearances. */
+/* Real photographic views fill the fixed glass wall. Interior lighting
+   changes independently so the exterior remains believable in both themes. */
 :root {
- --view-airport-light:image-set(url('/art/panoramic-views/airport-day-800.webp') 1x,url('/art/panoramic-views/airport-day-1400.webp') 2x);
- --view-airport-dark:image-set(url('/art/panoramic-views/airport-night-800.webp') 1x,url('/art/panoramic-views/airport-night-1400.webp') 2x);
- --view-campus-light:image-set(url('/art/panoramic-views/campus-day-800.webp') 1x,url('/art/panoramic-views/campus-day-1400.webp') 2x);
- --view-campus-dark:image-set(url('/art/panoramic-views/campus-night-800.webp') 1x,url('/art/panoramic-views/campus-night-1400.webp') 2x);
- --view-hospital-light:image-set(url('/art/panoramic-views/hospital-day-800.webp') 1x,url('/art/panoramic-views/hospital-day-1400.webp') 2x);
- --view-hospital-dark:image-set(url('/art/panoramic-views/hospital-night-800.webp') 1x,url('/art/panoramic-views/hospital-night-1400.webp') 2x);
- --view-airport:var(--view-airport-light);
- --view-campus:var(--view-campus-light);
- --view-hospital:var(--view-hospital-light);
+ --view-airport:image-set(url('/art/real-views/airport-800.webp') 1x,url('/art/real-views/airport-1400.webp') 2x);
+ --view-campus:image-set(url('/art/real-views/campus-800.webp') 1x,url('/art/real-views/campus-1400.webp') 2x);
+ --view-hospital:image-set(url('/art/real-views/hospital-800.webp') 1x,url('/art/real-views/hospital-1400.webp') 2x);
 }
-:root[data-theme=dark] {
- --view-airport:var(--view-airport-dark);
- --view-campus:var(--view-campus-dark);
- --view-hospital:var(--view-hospital-dark);
-}
-@media(prefers-color-scheme:dark) { :root:not([data-theme=light]) {
- --view-airport:var(--view-airport-dark);
- --view-campus:var(--view-campus-dark);
- --view-hospital:var(--view-hospital-dark);
-}}
+/* The switch controls interior light, not the time of day outside. Original
+   photographic colour is preserved in both themes; sources accompany the view. */
 .outside-airport { background-image:var(--view-airport); }
 .outside-campus { background-image:var(--view-campus); }
 .outside-hospital { background-image:var(--view-hospital); }
-/* Keep artwork visible; lighting is baked into the paired assets. */
+/* Keep the original photographic light visible. */
 .door-outside,.door-window-view,.notice-picture { filter:none; }
 .destination-card .destination-image { min-height:0; background-position:center 44%; }
 .destination-card .destination-number,.door-notice .notice-micro { display:none; }

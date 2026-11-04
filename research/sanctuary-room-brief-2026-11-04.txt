@@ -1,0 +1,25 @@
+A ROOM TO PRAY — A room first, a useful guide always
+
+Objective
+Refine the approved room and existing Astro components. The homepage opening is one continuous room, not a heading followed by a picture beside a large card. Preserve Hamza's navy/ivory/yellow identity, every record, source, translation, map, search and visitor tool. Publish only Ahmed's authorized review preview.
+
+Composition
+Expose the complete approved 2:1 architectural plate across the homepage. The fixed glass is on the left, the mat faces the solid recessed wall, and the invitation lives on the clear right wall. Keep the niche, glazing and mat in a single coordinate system. Do not stretch, tilt, crop out the rug, or animate the room's scale. Keep a compact welcome and a clear link to search beside the invitation. Search and coverage have their own full-width reading area immediately below the scene; practical content never floats over a busy photograph. On phones, use an intentional stacked introduction, a complete niche/rug view, and immediately adjacent search, without tiny text or horizontal overflow.
+
+Typography and sacred lettering
+Use locally hosted, licensed EB Garamond medium for the invitation, with a restrained italic second line, and Amiri for Arabic. Keep Archivo and Noto Naskh for functional information. Preserve the exact translated invitation (Come to prayer, come to success / حيّ على الصلاة، حيّ على الفلاح); the separate peace welcome must not be presented as Adhan text. Place a documented Arabic Allah calligraphic vector in the wall niche above the rug, never on the floor. Preserve its paths exactly; no generated, traced or invented sacred lettering. Pinterest access was attempted and unavailable; use the documented public-domain Wikimedia original, disclose that substitution, and retain provenance.
+
+A real world beyond the glass
+Use original licensed photographs of Zurich Airport, All Souls College at Oxford viewed from above, and Khoo Teck Puat Hospital's elevated garden/link-bridge view. Downsample proportionately from originals; do not add invented detail or claim synthetic upscaling. Frame them through the stationary aperture. Retain the original files' appearance: changing the room light does not change the time of day outdoors. Credit photographer, title and license next to the scene; state these are architectural references, not photographs of a listed prayer room or its actual view. No affiliation or facility claims.
+
+Light and motion
+Keep the approved day/night room geometry. Switch wall and text colours together to preserve contrast; let only the ceiling-light reflection settle in opacity. Preserve restrained glass reflections. The room may dissolve in opacity as it leaves the viewport; it must never shrink, zoom, chase scrolling or move the text. Avoid cross-document snapshots that stretch different-sized room layouts. Pause the destination tour for reduced motion, hidden pages and interaction. Preserve native navigation and immediate actions.
+
+Controls and inner pages
+Keep the physical light control only on the home room, in a quiet accessible corner clear of the niche. On inner pages put appearance settings in the existing menu, with no duplicate wall switch. Place the invitation as a typographic introduction to the guide/tab area on inner pages, never use it in place of clear functional tab names. Keep category-specific visual cues and all tab panels.
+
+Implementation and review
+Edit owning components and CSS; reuse current tokens, no override stylesheet, no framework migration. First-paint preloads must match the new photos and theme plate. Check exact calligraphy asset bytes, source/license links, preview base paths, 360/390/tablet/desktop geometry and font metrics, reduced motion, search/tabs/lights, and all existing records. Run relevant tests and export checks. Rendered browser checks remain unavailable under the existing session restriction: do not work around it or call static checks visual validation. Preserve the separate 11 pending map files byte-for-byte.
+
+Prompt review
+Resolved contradictory requests: whole room means the opening composition, not unreadable guide panels over imagery; real photographs stay real in both modes; sacred text comes from an identified original; the invitation accompanies tabs without compromising their labels; all geometry remains stable while opacity changes.

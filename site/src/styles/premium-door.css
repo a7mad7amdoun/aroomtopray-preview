@@ -29,17 +29,9 @@
 .room-environment .door-notice { transition:background-color 140ms ease-out,border-color 140ms ease-out,color 140ms ease-out; }
 .room-environment .switch-rocker { transition:transform 140ms ease-out,box-shadow 140ms ease-out; }
 
-/* Progressive enhancement for native same-origin navigation. The named
-   snapshot contains artwork only; no page-wide animation or navigation delay. */
-@media(prefers-reduced-motion:no-preference) {
-  @view-transition { navigation:auto; }
-  :root { view-transition-name:none; }
-  .room-canvas { view-transition-name:prayer-room; }
-  ::view-transition { pointer-events:none; }
-  ::view-transition-group(prayer-room) { animation:none; }
-  ::view-transition-old(prayer-room),::view-transition-new(prayer-room) { animation-duration:700ms; animation-timing-function:ease-in-out; }
-}
+/* Keep navigation geometry native: differently sized home/detail canvases
+   must never be stretched together by a cross-document snapshot. The scenery
+   layers and scroll opacity already provide the quiet architectural dissolve. */
 @media(prefers-reduced-motion:reduce) {
-  @view-transition { navigation:none; }
   .room-environment .switch-rocker { transition:none; }
 }

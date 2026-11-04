@@ -1,0 +1,88 @@
+{
+  "date": "2026-11-04",
+  "baseline": "bbb6437f932e0d79bc717f0e256cfde5f29cec23",
+  "unitTestsPassed": 213,
+  "simulatedFreshStarts": 200,
+  "initialTabStates": 32,
+  "offlineInteractionScenarios": 41,
+  "offlineDirectoryScenarios": 12,
+  "contentPreservation": {
+    "baseline": "bbb6437f932e0d79bc717f0e256cfde5f29cec23",
+    "rendered": false,
+    "guidePages": 2177,
+    "arrivalPages": 2173,
+    "homes": 4,
+    "tabRoots": 2152,
+    "bootstraps": 2177,
+    "locales": {
+      "en": 554,
+      "ar": 541,
+      "es": 541,
+      "fr": 541
+    },
+    "protectedFiles": 903,
+    "existingAtmosphereFieldsPreserved": true,
+    "allowedChanges": [
+      "Home heading moved into room stage; search follows view",
+      "Inner invitation moved from wall to guide introduction",
+      "Home wall light retained, inner appearance in menu",
+      "Photographic view disclosure updated"
+    ]
+  },
+  "headingMetrics": {
+    "cases": 72,
+    "widths": [
+      360,
+      390,
+      760,
+      1000,
+      1024,
+      1100,
+      1280,
+      1440,
+      1920
+    ],
+    "languages": [
+      "en",
+      "fr",
+      "ar",
+      "es"
+    ],
+    "method": "HarfBuzz shaping and source width calculations, not rendered browser layout"
+  },
+  "roomGeometryCases": 27,
+  "wallContrast": [
+    {
+      "mode": "day",
+      "color": "142033",
+      "minimumSampledRatio": 8.238918955433066
+    },
+    {
+      "mode": "day",
+      "color": "573e24",
+      "minimumSampledRatio": 4.991115979593713
+    },
+    {
+      "mode": "night",
+      "color": "f6f0e4",
+      "minimumSampledRatio": 10.42512822673224
+    },
+    {
+      "mode": "night",
+      "color": "dfc590",
+      "minimumSampledRatio": 7.0580167408675605
+    }
+  ],
+  "calligraphy": {
+    "source": "https://commons.wikimedia.org/wiki/File:Allah.svg",
+    "originalBytesPreserved": true,
+    "pinterestImport": false
+  },
+  "imagery": "Three real licensed architectural photographs, proportionately resized without upscaling or AI modification. Existing room plates preserved.",
+  "pendingMapFilesPreserved": 11,
+  "limitations": [
+    "Pinterest pages could not be accessed; documented Wikimedia originals were used.",
+    "Existing browser policy restriction prevents rendered visual and real-refresh validation. No phone or iOS checks performed."
+  ],
+  "publicationScope": "Ahmed GitHub Pages preview only; Hamza production unchanged"
+}

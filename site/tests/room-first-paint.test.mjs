@@ -33,7 +33,7 @@ test('repeated fresh starts restore saved/system appearance before requesting ma
     assert.ok(p.classes.has('js'));
     assert.equal(p.links.length, 2);
     assert.equal(p.links[0].href, `/art/artful-room/${dark ? 'night' : 'day'}-1774.webp`);
-    assert.equal(p.links[1].href, `/art/panoramic-views/airport-${dark ? 'night' : 'day'}-800.webp`);
+    assert.equal(p.links[1].href, `/art/real-views/airport-800.webp`);
   }
 });
 
@@ -44,7 +44,7 @@ test('each category and device density preloads existing assets used by the CSS'
       const mode = preference === 'dark' ? 'night' : 'day';
       const folder = preference === 'dark' ? 'arrival-room' : 'daylight-room';
       assert.equal(p.links[0].href, `/art/${folder}/${mode}-${mobile && density === 1 ? 1024 : 1774}.webp`);
-      assert.equal(p.links[1].href, `/art/panoramic-views/${scene}-${mode}-${density === 1 ? 800 : 1400}.webp`);
+      assert.equal(p.links[1].href, `/art/real-views/${scene}-${density === 1 ? 800 : 1400}.webp`);
       for (const link of p.links) {
         assert.equal(link.rel, 'preload'); assert.equal(link.as, 'image');
         assert.ok(fs.existsSync(new URL('../public' + link.href, import.meta.url)), link.href);

@@ -7,8 +7,8 @@ import { WAYFINDING_COPY } from '../data/wayfinding-copy.js';
 import { LOCALES, getCopy, localizedPath } from '../lib/i18n.js';
 import { languageTarget, navigationPath } from '../lib/localized-routes.js';
 
-interface Props { locale: string; nav?: string; searchTarget: string; visitHash?: string }
-const { locale, nav = '', searchTarget, visitHash = '' } = Astro.props;
+interface Props { locale: string; nav?: string; searchTarget: string; visitHash?: string; showTheme?: boolean }
+const { locale, nav = '', searchTarget, visitHash = '', showTheme = false } = Astro.props;
 const t = getCopy(locale);
 const room = ROOM_COPY[locale];
 const view = VIEW_COPY[locale];
@@ -59,7 +59,7 @@ const tools = [
           </nav>
         </div>
         <div class="menu-preferences">
-          <AppearanceControls {locale} {languageLinks} showTheme={false}/>
+          <AppearanceControls {locale} {languageLinks} {showTheme}/>
         </div>
       </div>
     </details>

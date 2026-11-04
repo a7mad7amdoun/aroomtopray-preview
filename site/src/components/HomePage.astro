@@ -27,13 +27,12 @@ const number=new Intl.NumberFormat(locale);
 const tabs=[{id:'find-place',label:g.find,icon:'search'},{id:'countries',label:g.countryTab,icon:'globe'},{id:'your-visit',label:g.prepare,icon:'book'}];
 ---
 <Base title={`${r.title} ${r.line} | A Room to Pray`} description={t.home.description}>
- <header class="room-home-intro" slot="heading">
+ <header class="room-home-intro" slot="heading" dir={locale==='ar'?'rtl':'ltr'}>
   <div class="home-title-block"><span class="room-eyebrow"><span></span>{atmosphere.welcome}</span><h1 id="home-title">{atmosphere.invitation.map(line=><span>{line}</span>)}</h1></div>
-  <div class="home-welcome-copy"><p class="room-home-line">{r.line}</p><p class="room-introduction">{atmosphere.peace}</p></div>
+  <div class="home-welcome-copy"><p class="room-home-line">{r.line}</p><p class="room-introduction">{atmosphere.peace}</p><a class="home-find-link" href="#place-search-input">{r.search}<svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
  </header>
  <Fragment slot="arrival">
-  <PlaceSearch {locale}/>
-  <p class="home-search-intro">{atmosphere.intro}</p>
+  <div class="home-search-primary"><PlaceSearch {locale}/><p class="home-search-intro">{atmosphere.intro}</p></div>
   <dl class="arrival-coverage"><div><dt>{q.listed}</dt><dd>{number.format(allPlaces.length)}</dd></div><div><dt>{q.countries}</dt><dd>{number.format(coverage)}</dd></div></dl>
  </Fragment>
  <div class="wrap guide-home" data-guide-tabs>

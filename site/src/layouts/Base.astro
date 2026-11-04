@@ -6,6 +6,7 @@ import archivoLatinUrl from '@fontsource-variable/archivo/files/archivo-latin-wd
 import arabicRegularUrl from '@fontsource/noto-naskh-arabic/files/noto-naskh-arabic-arabic-400-normal.woff2?url';
 import arabicSemiboldUrl from '@fontsource/noto-naskh-arabic/files/noto-naskh-arabic-arabic-600-normal.woff2?url';
 import roomFirstPaint from '../scripts/room-first-paint.js?raw';
+import { ATMOSPHERE_COPY } from '../data/room-atmosphere.js';
 import '../styles/global.css';
 import '../styles/improvements.css';
 import '../styles/experience.css';
@@ -59,7 +60,7 @@ const searchTarget = isHome ? '#place-search-input' : isDirectory ? '#q-dir' : `
   <meta name="theme-color" content="#f6f7f7">
   <script is:inline data-arrival-presentation={presentation} data-arrival-kind={roomKind} set:html={roomFirstPaint}/>
   {(locale==='ar'?[arabicRegularUrl,arabicSemiboldUrl]:[archivoLatinUrl]).map(href=><link rel="preload" href={href} as="font" type="font/woff2" crossorigin="anonymous"/>)}
-  {isHome && locale!=='ar' && <link rel="preload" href="/fonts/source-serif-4/source-serif-4-smtext-semibold.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>}
+  {isHome && <link rel="preload" href={locale==='ar'?'/fonts/room-invitation/amiri-regular.woff2':'/fonts/room-invitation/garamond-medium.woff2'} as="font" type="font/woff2" crossorigin="anonymous"/>}
   <title>{title}</title>
   <meta name="description" content={description}>
   <link rel="canonical" href={canonical}>
@@ -83,12 +84,13 @@ const searchTarget = isHome ? '#place-search-input' : isDirectory ? '#q-dir' : `
   {reviewPreview && <aside class="review-preview-notice" style="padding:7px 16px;text-align:center;font-size:12px;background:#111b2a;color:#f7f6f0;position:relative;z-index:5" aria-label="Review preview">{{en:'Design preview for Hamza · Forms, check-ins and uploads are disabled.',fr:'Aperçu pour Hamza · Formulaires, signalements de présence et envois désactivés.',ar:'معاينة التصميم لحمزة · النماذج وتسجيل الزيارات ورفع الصور معطّلة.',es:'Vista previa para Hamza · Formularios, registros de visitas y cargas desactivados.'}[locale]}</aside>}
   <a class="skip" href="#main">{t.nav.skip}</a>
   <Icons />
-  <HeaderNavigation {locale} {nav} {searchTarget} {visitHash}/>
+  <HeaderNavigation {locale} {nav} {searchTarget} {visitHash} showTheme={!isHome}/>
   <script>import '../scripts/navigation.js';</script>
   <RoomEnvironment kind={roomKind} {locale} {presentation}>
     <Fragment slot="heading"><slot name="heading" /></Fragment>
     <Fragment slot="arrival"><slot name="arrival" /></Fragment>
     <div id="guide-content" class="guide-content" slot="guide">
+      {!isHome&&<p class="guide-invitation" lang={locale} dir={locale==='ar'?'rtl':'ltr'}>{ATMOSPHERE_COPY[locale].invitation.map(line=><span>{line}</span>)}</p>}
       <slot name="welcome" />
       <slot />
       <div class="guide-source-credit"><SourceProvenance path={Astro.url.pathname} {locale}/></div>

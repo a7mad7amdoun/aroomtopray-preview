@@ -1,0 +1,79 @@
+{
+  "checkedOn": "2026-11-04",
+  "type": "Real photographs",
+  "purpose": "Architectural context within an imagined room, not actual prayer-room views or evidence of facilities. No institutional endorsement.",
+  "processing": "Original full photographs proportionately downsampled to 800px and 1400px width, WebP quality85, effort6. CSS frames the photograph within the fixed glass. Original photographic colours retained in light and dark themes. No AI editing or upscaling.",
+  "credits": [
+    {
+      "scene": "airport",
+      "name": "Swiss International Air Lines aircraft at Zurich Airport",
+      "author": "Stimpy",
+      "date": "2026-04-02",
+      "source": "https://commons.wikimedia.org/wiki/File:Swiss_International_Air_Lines_aircraft_at_Zurich_Airport.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "originalDimensions": [
+        4080,
+        3072
+      ]
+    },
+    {
+      "scene": "campus",
+      "name": "All Souls College from St Mary\u2019s Church",
+      "author": "Arnaud Malon",
+      "date": "2006-06-20",
+      "source": "https://commons.wikimedia.org/wiki/File:All_Souls_College_from_St_Mary%27s_Church.jpg",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "originalDimensions": [
+        2048,
+        1536
+      ]
+    },
+    {
+      "scene": "hospital",
+      "name": "Link bridge at KTPH",
+      "author": "KTPH",
+      "date": "2013-07-05",
+      "source": "https://commons.wikimedia.org/wiki/File:Link_bridge_at_KTPH.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "originalDimensions": [
+        2848,
+        4288
+      ]
+    }
+  ],
+  "files": [
+    {
+      "file": "airport-1400.webp",
+      "bytes": 185006,
+      "sha256": "07a1a4c8722c75a6d1dfee374f4f719a218ab5888034882f8c6067b87c8f1426"
+    },
+    {
+      "file": "airport-800.webp",
+      "bytes": 58364,
+      "sha256": "a8cda94821c0a3ed3e5e80d14c3e3d7ce229b3ea03f31da2158078cf3f2bd5d0"
+    },
+    {
+      "file": "campus-1400.webp",
+      "bytes": 240460,
+      "sha256": "6ccf53759697908f359f083573ca3941ac9816896d903a013ef1e168416dfe39"
+    },
+    {
+      "file": "campus-800.webp",
+      "bytes": 96898,
+      "sha256": "2f514cfd945be62723850567f0d1af5f5af4eabe9080781049a557d009086a7b"
+    },
+    {
+      "file": "hospital-1400.webp",
+      "bytes": 776136,
+      "sha256": "a9fed10e7a56c46600ef7a781ad63a6c1fce8d80b6cea9689ba8a1d832490d26"
+    },
+    {
+      "file": "hospital-800.webp",
+      "bytes": 307904,
+      "sha256": "35cc033061b8fe38d3ef91e1446e39d6a94090502acee011d414168a6a741471"
+    }
+  ]
+}

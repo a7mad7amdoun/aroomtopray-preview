@@ -22,7 +22,7 @@
   const small = window.matchMedia('(max-width: 760px)').matches;
   const roomWidth = small && density <= 1 ? 1024 : 1774;
   const sceneWidth = density <= 1 ? 800 : 1400;
-  const paths = [`${folder}/${mode}-${roomWidth}.webp`, `panoramic-views/${scene}-${mode}-${sceneWidth}.webp`];
+  const paths = [`${folder}/${mode}-${roomWidth}.webp`, `real-views/${scene}-${sceneWidth}.webp`];
   for (const path of paths) {
     const link = document.createElement('link');
     link.rel = 'preload';

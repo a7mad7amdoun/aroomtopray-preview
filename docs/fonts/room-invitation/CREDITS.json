@@ -1,0 +1,12 @@
+{
+  "fonts": [
+    "EB Garamond Medium / Medium Italic",
+    "Amiri Regular"
+  ],
+  "source": "Google Fonts official distribution (fonts.gstatic.com), corresponding OFL license files from google/fonts",
+  "processing": "Subset to Latin and Arabic characters with all applicable OpenType layout features preserved; WOFF2 encoding. Letterforms unchanged.",
+  "licenses": [
+    "garamond-OFL.txt",
+    "amiri-OFL.txt"
+  ]
+}

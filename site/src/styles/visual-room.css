@@ -1,28 +1,37 @@
 /* An original continuous room: architecture establishes arrival, while the
    clear right wall belongs to the guide. No photograph-card or centre divider. */
 @font-face {
-  font-family:'Room Inscription'; font-style:normal; font-weight:600; font-display:swap;
-  src:url('/fonts/source-serif-4/source-serif-4-smtext-semibold.woff2') format('woff2');
+  font-family:'Room Invitation'; font-style:normal; font-weight:500; font-display:swap;
+  src:url('/fonts/room-invitation/garamond-medium.woff2') format('woff2');
+}
+@font-face {
+  font-family:'Room Invitation'; font-style:italic; font-weight:500; font-display:swap;
+  src:url('/fonts/room-invitation/garamond-medium-italic.woff2') format('woff2');
+}
+@font-face {
+  font-family:'Room Arabic Invitation'; font-style:normal; font-weight:400; font-display:swap;
+  src:url('/fonts/room-invitation/amiri-regular.woff2') format('woff2');
 }
 :root {
   --room-day:url('/art/daylight-room/day-1774.webp');
   --room-night:url('/art/arrival-room/night-1774.webp');
   --visual-shadow:0 2px 3px #14203303,0 16px 40px -26px #14203338;
-  --room-inscription:#142033; --room-glass-fallback:#c6cfd4;
+  --room-inscription:#142033; --room-glass-fallback:#c6cfd4; --invitation-accent:#573e24; --calligraphy-filter:none;
 }
-:root[data-theme=dark] { --visual-shadow:0 2px 3px #0002,0 18px 42px -24px #0007; --room-inscription:#f6f0e4; --room-glass-fallback:#263238; }
-@media(prefers-color-scheme:dark) { :root:not([data-theme=light]) { --visual-shadow:0 2px 3px #0002,0 18px 42px -24px #0007; --room-inscription:#f6f0e4; --room-glass-fallback:#263238; } }
+:root[data-theme=dark] { --visual-shadow:0 2px 3px #0002,0 18px 42px -24px #0007; --room-inscription:#f6f0e4; --room-glass-fallback:#263238; --invitation-accent:#dfc590; --calligraphy-filter:invert(92%) sepia(20%); }
+@media(prefers-color-scheme:dark) { :root:not([data-theme=light]) { --visual-shadow:0 2px 3px #0002,0 18px 42px -24px #0007; --room-inscription:#f6f0e4; --room-glass-fallback:#263238; --invitation-accent:#dfc590; --calligraphy-filter:invert(92%) sepia(20%); } }
 /* The home welcome has its own crafted light study; practical pages retain
    the approved, quieter room. Both plates share the exact window/mat geometry. */
 .room-environment[data-room-presentation=home] {
   --room-day:url('/art/artful-room/day-1774.webp');
   --room-night:url('/art/artful-room/night-1774.webp');
-  --arrival-scene-track:1.18fr; --arrival-reading-track:.82fr;
+  --arrival-scene-track:1.08fr; --arrival-reading-track:.92fr;
   --arrival-canvas-width:100%; --arrival-room-ratio:2/1;
-  --arrival-blend-start:55%; --arrival-blend-end:59%;
-  --arrival-light-right:calc(41% + 16px); --arrival-search-gap:0;
+  --arrival-blend-start:100%; --arrival-blend-end:100%;
+  --arrival-light-right:24px; --arrival-search-gap:0;
 }
 html .room-environment[data-room-presentation] .room-layout>.room-main { padding-top:0; }
+html .room-environment[data-room-presentation=home] .room-layout { width:100%; }
 .room-environment .room-stage {
   display:grid; grid-template-columns:minmax(0,var(--arrival-scene-track,1.08fr)) minmax(0,var(--arrival-reading-track,.92fr));
   grid-template-rows:auto auto; align-items:center; gap:0; direction:ltr;
@@ -36,6 +45,13 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
   background:transparent; container-type:inline-size;
 }
 .room-environment .room-canvas { left:0; top:0; bottom:auto; width:var(--arrival-canvas-width,92%); height:auto; aspect-ratio:2/1; }
+/* Only the cove's reflected light settles over time. The wall and text switch
+   together, preventing light lettering flashing against the daylight wall. */
+.room-environment .room-canvas::before {
+  content:''; position:absolute; inset:0; z-index:2; pointer-events:none;
+  background:linear-gradient(180deg,transparent 3.7%,#ffe2ac26 4.5%,#ffe2ac08 9%,transparent 17%);
+  opacity:var(--room-night-opacity); transition:opacity 850ms ease-out;
+}
 /* A modestly wider reading track leaves the complete mat before 50%. The
    room blends into the opaque reading wall at 54%, clear of the introduction. */
 .room-environment .room-architecture::after {
@@ -50,14 +66,12 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
   inset:auto auto 10px 10px; width:29%; max-width:250px; padding:5px 8px;
   font-size:.625rem; line-height:1.5; border:0; background:var(--surface);
 }
-.room-wall-quote {
-  position:absolute; z-index:1; left:39%; top:37%; width:9.7%; margin:0;
-  color:var(--room-inscription); font:600 clamp(.6875rem,1.3cqi,1.25rem)/1.45 'Room Inscription',Georgia,serif;
-  letter-spacing:0; text-align:center; text-wrap:balance; font-synthesis:none;
+/* Original public-domain calligraphy: unchanged paths, anchored to the solid
+   niche above the mat. Its colour responds to light, its form never changes. */
+.room-sacred-name {
+  position:absolute; z-index:1; left:41.15%; top:29%; width:5.4%; height:auto;
+  filter:var(--calligraphy-filter); opacity:.92; object-fit:contain;
 }
-.room-wall-quote span { display:block; }
-.room-wall-quote span+span { margin-top:.7em; }
-.room-wall-quote:lang(ar) { font-family:var(--f-arabic); font-size:clamp(.875rem,1.5cqi,1.5rem); font-weight:600; letter-spacing:0; line-height:1.85; }
 .room-environment[data-room-presentation] .room-arrival-copy {
   position:relative; z-index:2; grid-column:2; grid-row:1; display:block;
   width:auto; margin:28px var(--room-gutter) 28px 0; padding:clamp(24px,2.6vw,40px);
@@ -73,14 +87,14 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
   display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px 24px;
   width:auto; margin-inline:var(--room-gutter); padding:16px 0; border:0; border-bottom:1px solid var(--line);
 }
-.room-scene-tools .room-atmosphere-controls { display:grid; grid-template-columns:minmax(0,1fr) auto; width:100%; min-height:48px; align-items:center; gap:16px; }
+.room-scene-tools .room-atmosphere-controls { display:grid; grid-template-columns:minmax(0,1fr) auto; flex:1; width:auto; min-height:48px; align-items:center; gap:16px; }
 /* Reserve the native control before its enhancement loads, including wrapped
    labels. No-JavaScript visitors still have no inactive tour button. */
 .room-scene-tools .room-scene-caption { min-width:0; min-height:3.2em; margin:0; }
 /* A physical light plaque on the quiet upper wall, outside the scenery canvas
    so scroll fading never reduces the contrast of an interactive control. */
 .room-architecture .room-light-panel {
-  position:absolute; z-index:5; top:9%; right:var(--arrival-light-right,calc(46% + 16px));
+  position:absolute; z-index:5; top:8%; right:var(--arrival-light-right,24px);
   display:flex; align-items:center; gap:2px; padding:8px;
   border:1px solid var(--field); border-radius:7px;
   background:var(--surface); color:var(--ink); box-shadow:0 2px 5px #101a2814;
@@ -101,26 +115,52 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
 .room-environment:is([data-room-presentation=detail],[data-room-presentation=support]) .room-architecture { max-width:1120px; }
 .room-environment:is([data-room-presentation=detail],[data-room-presentation=support]) .room-arrival-copy { padding-block:28px; }
 .room-main .room-arrival-copy h1 { font-weight:650; letter-spacing:-.035em; }
-/* The invitation is the editorial welcome, not tiny decoration on a wall.
-   Its translation stays exact; the separate welcome is not part of the Adhan. */
+/* The homepage is one full-width room. Its clear right wall carries the
+   invitation; the useful search surface follows directly after the view. */
 .room-main .room-home-intro {
-  display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr); align-items:end;
-  gap:28px 56px; max-width:var(--room-reading-width); margin:0 auto;
-  padding:clamp(32px,4vw,58px) 0 32px; min-height:0;
+  position:relative; z-index:2; grid-column:2; grid-row:1; align-self:center;
+  display:block; min-width:0; max-width:760px; margin:0; padding:48px clamp(24px,4vw,80px) 48px 0;
 }
 .room-main .home-title-block,.room-main .home-welcome-copy { min-width:0; }
-.room-main .room-home-intro .room-eyebrow { display:flex; align-items:center; gap:10px; margin:0 0 20px; font-size:.9375rem; font-weight:550; }
-.room-main .room-home-intro .room-eyebrow>span { width:24px; height:3px; border-radius:0; background:var(--selection-mark); }
+.room-main .room-home-intro .room-eyebrow { display:flex; align-items:center; gap:10px; margin:0 0 24px; color:var(--room-inscription); font-size:.875rem; font-weight:550; }
+.room-main .room-home-intro .room-eyebrow>span { width:24px; height:2px; border-radius:0; background:var(--invitation-accent); }
 .room-main .room-home-intro h1 {
-  margin:0; font:600 clamp(3.25rem,5.8vw,6rem)/1.08 'Room Inscription',Georgia,serif;
-  max-width:none; letter-spacing:-.045em; text-wrap:balance; font-synthesis:none;
+  margin:0; font:500 clamp(3rem,4.65vw,5.75rem)/1.04 'Room Invitation',Georgia,serif;
+  max-width:none; letter-spacing:-.025em; text-wrap:balance; font-synthesis:none; color:var(--room-inscription);
 }
-.room-main .room-home-intro h1>span { display:block; font-weight:inherit; color:var(--ink); }
-.room-main .room-home-intro h1>span+span { margin-top:.06em; }
-.room-main .room-home-line { margin:0 0 14px; color:var(--ink); font:600 clamp(1.5rem,2.2vw,2rem)/1.3 var(--f-display); letter-spacing:-.025em; }
-.room-main .home-welcome-copy .room-introduction { margin:0; max-width:35ch; color:var(--muted); font-size:1.125rem; line-height:1.7; }
-.room-main .home-search-intro { margin:24px 0 0; color:var(--muted); font-size:1rem; line-height:1.7; }
-.room-environment[data-room-presentation=home] .room-arrival-copy { border-top:3px solid var(--sign); }
+.room-main .room-home-intro h1>span { display:block; font-weight:inherit; color:inherit; }
+.room-main .room-home-intro h1>span+span { margin-top:.12em; color:var(--invitation-accent); font-style:italic; }
+.room-main .home-welcome-copy { margin-top:26px; }
+.room-main .room-home-line { margin:0 0 10px; color:var(--room-inscription); font:550 1.125rem/1.5 var(--f-display); letter-spacing:-.015em; }
+.room-main .home-welcome-copy .room-introduction { margin:0; max-width:35ch; color:var(--room-inscription); font-size:1.0625rem; line-height:1.65; }
+.home-find-link { display:inline-flex; align-items:center; gap:24px; min-height:48px; margin-top:24px; padding:8px 0; border-bottom:1px solid var(--invitation-accent); color:var(--room-inscription); text-decoration:none; font-weight:600; }
+.home-find-link svg { rotate:90deg; }
+.home-find-link:hover { color:var(--invitation-accent); }
+.home-find-link:focus-visible { outline:3px solid var(--focus); outline-offset:6px; }
+.room-main .home-search-intro { margin:18px 0 0; max-width:62ch; color:var(--muted); font-size:1rem; line-height:1.7; }
+.room-environment[data-room-presentation=home] .room-arrival-copy {
+  grid-column:1/-1; grid-row:3; display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr); gap:0 40px;
+  width:calc(100% - var(--room-gutter) * 2); max-width:var(--room-reading-width); margin:24px auto 0;
+  border-top:3px solid var(--sign); padding:32px; box-sizing:border-box;
+}
+.room-environment[data-room-presentation=home] .room-arrival-copy .arrival-actions { grid-column:1/-1; }
+.room-environment[data-room-presentation=home] .arrival-coverage { align-self:center; justify-content:center; margin:0; padding:0; padding-inline-start:32px; border-top:0; border-inline-start:1px solid var(--line); }
+.room-environment[data-room-presentation=home] .room-scene-tools { width:calc(100% - var(--room-gutter) * 2); max-width:var(--room-reading-width); margin-inline:auto; }
+.room-view-credits { flex:none; min-width:0; max-width:100%; font-size:.8125rem; line-height:1.6; }
+.room-view-credits summary { display:flex; align-items:center; justify-content:space-between; gap:10px; min-height:44px; cursor:pointer; color:var(--muted); list-style:none; }
+.room-view-credits summary::-webkit-details-marker { display:none; }
+.room-view-credits[open] { flex-basis:100%; }
+.room-view-credits summary:focus-visible { outline:3px solid var(--focus); outline-offset:3px; }
+.room-view-sources { padding:20px; margin-top:8px; border:1px solid var(--line); border-radius:8px; background:var(--surface); color:var(--muted); }
+.room-view-sources p { margin:0 0 12px; max-width:90ch; }
+.room-view-sources p:last-child { margin-bottom:0; }
+.room-view-sources ul { display:flex; flex-wrap:wrap; gap:16px 36px; padding:0; margin:16px 0; list-style:none; }
+.room-view-sources li { display:grid; gap:3px; }
+.room-view-sources a { color:var(--link); text-underline-offset:3px; }
+.guide-invitation { display:flex; flex-wrap:wrap; gap:0 .3em; margin:0 0 28px; font:500 clamp(1.75rem,2.8vw,2.75rem)/1.3 'Room Invitation',Georgia,serif; color:var(--ink); letter-spacing:-.015em; }
+.guide-invitation span+span { color:var(--invitation-accent); font-style:italic; }
+.guide-invitation:lang(ar) { font:400 clamp(2rem,3vw,3rem)/1.6 'Room Arabic Invitation',var(--f-arabic); letter-spacing:0; }
+.guide-invitation:lang(ar) span+span { font-style:normal; }
 .room-environment[data-room-presentation=home] .place-search>label { font-size:1.375rem; line-height:1.35; letter-spacing:-.02em; }
 .room-main .room-arrival-copy .room-introduction { max-width:53ch; line-height:1.7; }
 .room-main .room-arrival-copy .room-eyebrow { letter-spacing:.02em; margin-bottom:18px; }
@@ -165,15 +205,16 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
   .room-environment .room-architecture::after { display:none; }
   .room-architecture .room-light-panel { right:12px; top:3%; flex-direction:column; gap:6px; padding:6px; }
   .room-light-settings>.appearance-controls { top:0; right:calc(100% + 12px); max-height:calc(min(75vw,315px) - 96px); overflow-y:auto; }
-  .room-wall-quote { top:37%; }
-  .room-wall-quote:lang(ar) { line-height:1.6; }
   .room-environment .room-art-note { width:42%; }
   .room-environment .room-scene-tools { grid-column:1; grid-row:3; }
   .room-environment[data-room-presentation] .room-arrival-copy { grid-column:1; grid-row:1; margin:20px var(--room-gutter) 24px; padding:28px; }
   .room-environment[data-room-setting=airports] .room-arrival-copy { margin:20px var(--room-gutter) 24px; padding:24px; }
-  .room-main .room-home-intro { grid-template-columns:1fr; gap:22px; padding-block:32px 24px; }
-  .room-main .home-welcome-copy { display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1fr); gap:24px; align-items:start; }
-  .room-main .room-home-line { margin:0; }
+  .room-main .room-home-intro { grid-column:1; grid-row:1; width:calc(100% - var(--room-gutter) * 2); max-width:720px; margin:0 auto; padding:36px 0 24px; }
+  .room-main .home-welcome-copy { display:block; margin-top:20px; }
+  .room-environment[data-room-presentation=home] .room-architecture { max-width:760px; }
+  .room-environment[data-room-presentation=home] .room-arrival-copy { grid-row:4; grid-template-columns:1fr; gap:0; margin:20px auto 0; }
+  .room-environment[data-room-presentation=home] .arrival-coverage { justify-content:start; border-inline-start:0; border-top:1px solid var(--line); margin-top:24px; padding:20px 0 0; }
+  .room-main .room-home-line { margin:0 0 8px; }
 }
 @media(max-width:760px) {
   :root {
@@ -187,7 +228,7 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
   .room-environment .room-scene-tools { gap:12px; padding:14px 0; }
   .room-scene-tools .room-atmosphere-controls { width:100%; }
   .room-environment[data-room-presentation] .room-arrival-copy { padding-top:28px; }
-  .room-main .room-home-intro h1 { font-size:clamp(2.5rem,8.2vw,4.25rem); }
+  .room-main .room-home-intro h1 { font-size:clamp(2.65rem,9.5vw,4.5rem); }
   .room-main .home-welcome-copy { grid-template-columns:1fr; gap:10px; }
   .room-main .home-welcome-copy .room-introduction { font-size:1rem; max-width:42ch; }
   .room-main .room-home-line { font-size:1.25rem; }
@@ -196,12 +237,14 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
   .room-main .room-arrival-copy .room-introduction { font-size:1.0625rem; }
   .room-main .place-search-field { min-height:64px; }
 }
-html[dir=rtl] .room-main .room-home-intro h1 { font-family:var(--f-arabic); font-size:clamp(2.75rem,5.8vw,5.5rem); line-height:1.45; letter-spacing:0; }
+html[dir=rtl] .room-main .room-home-intro h1 { font-family:'Room Arabic Invitation',var(--f-arabic); font-weight:400; font-size:clamp(3rem,4.8vw,5.5rem); line-height:1.5; letter-spacing:0; }
+html[dir=rtl] .room-main .room-home-intro h1>span+span { font-style:normal; }
 html[dir=rtl] .room-main .room-arrival-copy h1 { letter-spacing:0; line-height:1.45; }
 html[dir=rtl] .room-main .room-home-line { letter-spacing:0; line-height:1.7; }
+@media(prefers-reduced-motion:reduce) { .room-environment .room-canvas::before { transition:none; } }
 @media print {
   .room-environment .room-stage { display:block; border:0; background:none; box-shadow:none; }
-  .room-environment .room-scene-tools,.room-architecture .room-light-panel { display:none; }
+  .room-environment .room-scene-tools,.room-architecture .room-light-panel,.home-find-link { display:none; }
   .room-environment[data-room-presentation] .room-arrival-copy { padding:0; border:0; background:#fff; box-shadow:none; }
   .room-main .room-home-intro { display:block; padding:0 0 20pt; }
   .room-main .room-home-intro h1 { font-size:24pt; }

@@ -5,6 +5,7 @@ import ReceptionCard from './ReceptionCard.astro';
 import RoomDestinations from './RoomDestinations.astro';
 import RoomArchitecture from './RoomArchitecture.astro';
 import RoomSceneControls from './RoomSceneControls.astro';
+import RoomViewCredits from './RoomViewCredits.astro';
 import { QUIET_COPY } from '../data/quiet-copy.js';
 const { kind='home', locale='en', presentation='home' }=Astro.props;
 const r=ROOM_COPY[locale], d=DOOR_COPY[locale], q=QUIET_COPY[locale];
@@ -14,8 +15,8 @@ const outside=settings[kind] || 'airport';
 <div id="prayer-room" class="room-environment" data-room-presentation={presentation} data-room-preview={outside} data-room-setting={kind}>
  <div class="room-layout">
   <main id="main" class="room-main" tabindex="-1">
-   <slot name="heading" />
    <div class="room-stage">
+    <slot name="heading" />
     <div class="room-arrival-copy" dir={locale==='ar'?'rtl':'ltr'}>
      <slot name="arrival" />
      <div class="arrival-actions">
@@ -26,6 +27,7 @@ const outside=settings[kind] || 'airport';
     <RoomArchitecture {kind} {locale} {presentation}/>
     <div class="room-scene-tools" data-room-tour-interaction>
      <RoomSceneControls {kind} {locale} {presentation}/>
+     <RoomViewCredits {kind} {locale}/>
     </div>
    </div>
    {presentation==='home'&&<RoomDestinations {kind} {locale} {presentation}/>}
