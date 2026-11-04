@@ -1,0 +1,29 @@
+A ROOM TO PRAY — EDITING THE QUIET THRESHOLD
+4 November 2026
+
+The complete implementation prompt is in quiet-threshold-creative-brief-2026-11-04.txt. Exact image-generation prompts and original output paths are recorded in quiet-threshold-art-2026-11-04.json. The six settings were generated with the built-in image-generation tool; they are imagined architecture, not photographs of listed institutions. The existing credited photographs and sourced place records are preserved.
+
+ARTWORK
+site/public/art/quiet-threshold/ contains airport, campus and hospital scenes in light and dark variants. Each is delivered at 384, 768 and 1536 pixels wide. All have a 3:2 aspect ratio. Replace a matched pair together to preserve camera position between themes. Keep functional signs and labels in the interface, not in generated pixels.
+
+site/src/styles/room-artwork.css owns the six scene image tokens and their responsive image-set choices. The existing theme selectors choose the matching exposure. site/src/styles/room-spatial.css owns the narrow doorway crop for each scene. CategoryOrientation.astro reuses ThemeArt for the larger landscape presentation, with a translated imagined-setting caption. Its header and mobile crop are in category-orientation.css.
+
+The base prayer-room photograph remains in public/art/architectural-room/. Its aperture and the interactive door must stay registered. Do not change the room photograph independently from the aperture coordinates. The mat faces the prayer wall.
+
+SPACE AND READING
+site/src/styles/room-backdrop.css owns the layout: --room-rail reserves space beside the introductory door, --room-gutter sets horizontal spacing, and --room-reading-width caps the wider guide. Only .room-stage retains the left reservation; results, maps and guide content use the available width below it. Keep the room-arrival and prayer-guide container queries separate. Long supporting prose is capped at 70ch in room-guide.css.
+
+The same file owns the decorative fade: --room-recede-duration controls its duration, and the data-room-reading=true rule retains 24% of the room layer. Information, buttons and links do not inherit that opacity. The normal-flow room-guide-threshold offers a native Show room link. No script is needed for that link.
+
+MOTION
+site/src/styles/room-spatial.css owns --door-motion and --door-angle. Opening currently takes 1100ms; closing takes 1300ms. The open angle is -74 degrees so the leaf and hardware remain visible. The hinge stays fixed, and the view through the opening does not rotate. Reduced-motion rules remove transitions.
+
+site/src/scripts/room-motion.js observes when the introduction passes the measured sticky header. It reuses the existing header scheduler, handles large anchor jumps and restores state after page visibility or history changes. Keep information stationary while scenery recedes. Do not add delayed navigation or continuous parallax.
+
+CATEGORY BOARDS
+CategoryOrientation.astro is the shared template for the airport sign, campus notice and hospital information board. The existing translated steps and access notes stay in the current copy/data files. category-orientation.css owns all board presentation. Edit this stylesheet rather than adding another override to visual-wayfinding.css. Shared typography remains Archivo and Noto Naskh Arabic; the ivory, navy and yellow tokens are unchanged.
+
+REVIEW AND RELEASE
+Run pnpm --dir site test, then build with PUBLIC_REVIEW_PREVIEW=true PUBLIC_PREVIEW_BASE=/aroomtopray-preview. Generate docs using site/scripts/prepare-github-preview.mjs. Publish only to Ahmed's GitHub Pages preview. Keep preview submissions disabled and Hamza's attribution intact.
+
+The current session permits source, offline DOM and asset checks, but not rendered website inspection under its URL policy. Check the actual desktop and mobile presentation before calling this a final production-ready design. In particular review the doorway at 360px and 390px, the transition into results, dark-mode exposure, long French labels and Arabic reading flow. Do not describe the source-based geometry audit as a real-phone or rendered-browser test.

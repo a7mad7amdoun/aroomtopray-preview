@@ -200,84 +200,11 @@
   #prayer-room:not([data-room-presentation=home]) .door-notice-count { font-size:.8125rem; }
 }
 
-/* One architectural wayfinding grid. Airport enamel, campus notice paper and
-   hospital information panels keep their existing materials and copy. */
-#prayer-room .category-orientation { --orientation-pad:clamp(24px,3vw,36px); border-radius:10px; overflow:hidden; }
-#prayer-room .category-orientation .orientation-heading { padding:var(--orientation-pad); }
-#prayer-room .category-orientation .orientation-running-line { margin-bottom:24px; gap:12px 24px; }
-#prayer-room .category-orientation .orientation-category { gap:12px; font-size:1rem; line-height:1.5; }
-#prayer-room .category-orientation .orientation-category>svg { width:28px; height:28px; }
-#prayer-room .category-orientation .orientation-kicker { font-size:.875rem; line-height:1.5; }
-#prayer-room .category-orientation .orientation-heading h2 { font-size:clamp(1.625rem,2.3vw,2.125rem); line-height:1.2; letter-spacing:-.025em; }
-#prayer-room .category-orientation .orientation-steps {
-  display:grid;
-  grid-template-columns:1fr;
-  gap:0;
-  padding:0 var(--orientation-pad);
-}
-#prayer-room .category-orientation .orientation-steps>li {
-  display:grid;
-  grid-template-columns:48px minmax(0,1fr);
-  gap:6px 18px;
-  align-content:start;
-  padding:26px 0;
-  border:0;
-}
-#prayer-room .category-orientation .orientation-steps>li+li { border-top:1px solid var(--orientation-line); }
-#prayer-room .category-orientation .orientation-symbol {
-  grid-column:1;
-  grid-row:1/3;
-  width:48px;
-  height:48px;
-  border:1px solid var(--orientation-line);
-  border-radius:7px;
-}
-#prayer-room .category-orientation .orientation-symbol svg { width:28px; height:28px; }
-#prayer-room .category-orientation--airports .orientation-symbol { border-color:#ffc629; }
-#prayer-room .category-orientation .orientation-steps h3 {
-  grid-column:2;
-  margin:0;
-  padding:0;
-  font-size:1.125rem;
-  line-height:1.45;
-  letter-spacing:-.015em;
-}
-#prayer-room .category-orientation .orientation-steps p {
-  grid-column:2;
-  margin:0;
-  padding:0;
-  font-size:1rem;
-  line-height:1.7;
-}
-#prayer-room .category-orientation .orientation-access-note { padding:24px var(--orientation-pad); gap:14px; }
-#prayer-room .category-orientation .orientation-access-note strong { font-size:1rem; line-height:1.5; }
-#prayer-room .category-orientation .orientation-access-note p { font-size:1rem; line-height:1.7; }
-@container category-orientation (min-width:700px) {
-  #prayer-room .category-orientation .orientation-steps { grid-template-columns:repeat(3,minmax(0,1fr)); padding:30px var(--orientation-pad); }
-  #prayer-room .category-orientation .orientation-steps>li {
-    grid-template-columns:minmax(0,1fr);
-    gap:16px;
-    padding:0 24px;
-    border:0;
-  }
-  #prayer-room .category-orientation .orientation-steps>li:first-child { padding-inline-start:0; }
-  #prayer-room .category-orientation .orientation-steps>li:last-child { padding-inline-end:0; }
-  #prayer-room .category-orientation .orientation-steps>li+li { border-top:0; border-inline-start:1px solid var(--orientation-line); }
-  #prayer-room .category-orientation .orientation-symbol { grid-column:auto; grid-row:auto; width:56px; height:56px; }
-  #prayer-room .category-orientation .orientation-symbol svg { width:32px; height:32px; }
-  #prayer-room .category-orientation .orientation-steps :is(h3,p) { grid-column:1; }
-}
-
 html[dir=rtl] #prayer-room[data-room-presentation=home] .notice-emblem { left:auto; right:0; }
 html[dir=rtl] #prayer-room .door-notice-title>b { font-family:var(--f-arabic); font-size:1.375rem; line-height:1.6; letter-spacing:0; }
 html[dir=rtl] #prayer-room[data-room-presentation=home] .notice-kicker { font-size:1rem; line-height:1.7; letter-spacing:0; }
 html[dir=rtl] #prayer-room[data-room-presentation=home] .notice-description { font-size:1.0625rem; line-height:1.85; }
 html[dir=rtl] #prayer-room[data-room-presentation=home] .notice-photo-credit { font-size:.9375rem; line-height:1.8; }
-html[dir=rtl] #prayer-room .category-orientation .orientation-heading h2 { letter-spacing:0; line-height:1.6; }
-html[dir=rtl] #prayer-room .category-orientation .orientation-steps h3 { font-size:1.1875rem; line-height:1.65; letter-spacing:0; }
-html[dir=rtl] #prayer-room .category-orientation .orientation-steps p,
-html[dir=rtl] #prayer-room .category-orientation .orientation-access-note p { font-size:1.0625rem; line-height:1.85; }
-
 @media(prefers-reduced-motion:reduce) {
   #prayer-room[data-room-presentation=home] .door-notice-entry,
   #prayer-room[data-room-presentation=home] .door-notice-title>.notice-arrow { transition:none; }
@@ -287,6 +214,4 @@ html[dir=rtl] #prayer-room .category-orientation .orientation-access-note p { fo
   #prayer-room[data-room-presentation=home] .notice-information { --ink:#142033; --muted:#465263; --line:#bac0c8; background:#fff; color:#142033; }
   #prayer-room[data-room-presentation=home] .door-notice-count strong,
   #prayer-room[data-room-presentation=home] .door-notice-title>.notice-arrow { color:#142033; }
-  #prayer-room .category-orientation { box-shadow:none; overflow:visible; }
-  #prayer-room .category-orientation .orientation-symbol { border-color:#bbb; }
 }

@@ -514,7 +514,7 @@ html[dir=rtl] .room-main :is(.eyebrow,.guide-kicker,.count) { font-family:var(--
 .room-main .guide-contents { position:static; margin:8px 0 0; padding:18px; border-radius:8px; width:100%; }
 .room-main .guide-contents ol { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:2px 18px; }
 .room-main .guide-contents a { min-height:40px; display:inline-flex; align-items:center; font-size:.86rem; }
-.room-main .prose { max-width:none; width:100%; padding-block:10px 20px; }
+.room-main .prose { max-width:70ch; width:100%; margin-inline:auto; padding-block:10px 20px; }
 .room-main .prose h1 { font-size:var(--guide-title); margin-top:14px; }
 .room-main .prose h2 { font-size:1.4rem; margin-top:28px; }
 .room-main .section-intro h1,.room-main .visit-heading h1 { font-size:var(--guide-title); line-height:1.2; }

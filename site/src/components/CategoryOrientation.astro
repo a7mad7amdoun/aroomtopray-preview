@@ -1,6 +1,8 @@
 ---
 import { getCopy, localeMeta } from '../lib/i18n.js';
 import { GUIDE_COPY } from '../data/guide-copy.js';
+import { ATMOSPHERE_COPY } from '../data/room-atmosphere.js';
+import ThemeArt from './ThemeArt.astro';
 import '../styles/category-orientation.css';
 
 const { kind = 'airports', locale = 'en' } = Astro.props;
@@ -10,6 +12,7 @@ const category = ['airports', 'universities', 'hospitals'].includes(kind) ? kind
 const c = t.directories[category];
 const g = GUIDE_COPY[language];
 const emblem = { airports: 'airport', universities: 'campus', hospitals: 'care' }[category];
+const scene = { airports: 'airport', universities: 'campus', hospitals: 'hospital' }[category];
 const symbols = {
   airports: ['search', 'security', 'door-open'],
   universities: ['campus', 'key', 'clock'],
@@ -20,11 +23,17 @@ const headingId = `orientation-${category}`;
 
 <section class={`category-orientation category-orientation--${category}`} aria-labelledby={headingId}>
   <header class="orientation-heading">
-    <div class="orientation-running-line">
-      <span class="orientation-category"><svg width="22" height="22" aria-hidden="true"><use href={`#i-${emblem}`}/></svg>{t.nav[category]}</span>
-      <span class="orientation-kicker">{g.notes}</span>
+    <div class="orientation-title-block">
+      <div class="orientation-running-line">
+        <span class="orientation-category"><svg width="22" height="22" aria-hidden="true"><use href={`#i-${emblem}`}/></svg>{t.nav[category]}</span>
+        <span class="orientation-kicker">{g.notes}</span>
+      </div>
+      <h2 id={headingId}>{c.wayfindingTitle}</h2>
     </div>
-    <h2 id={headingId}>{c.wayfindingTitle}</h2>
+    <figure class="orientation-art">
+      <ThemeArt {scene}/>
+      <figcaption>{ATMOSPHERE_COPY[language].illustration}</figcaption>
+    </figure>
   </header>
 
   <ol class="orientation-steps" role="list">

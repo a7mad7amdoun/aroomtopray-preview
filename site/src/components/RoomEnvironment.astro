@@ -91,6 +91,10 @@ const number=new Intl.NumberFormat(locale);
       </nav>
     </aside>
   </div>
+   <div class="room-guide-threshold" dir={locale==='ar'?'rtl':'ltr'}>
+    <span class="room-guide-identity"><svg width="30" height="30" aria-hidden="true"><use href="#i-mark"/></svg><span>{r.information}</span></span>
+    <a class="room-return" href="#prayer-room" data-room-return><svg width="20" height="20" aria-hidden="true"><use href="#i-door-open"/></svg>{d.restore}</a>
+   </div>
    <slot name="guide" />
   </main>
  </div>

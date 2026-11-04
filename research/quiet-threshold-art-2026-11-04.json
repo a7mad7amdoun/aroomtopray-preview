@@ -1,0 +1,206 @@
+{
+  "created": "2026-11-04",
+  "mode": "built-in image_gen",
+  "imaginedSettings": true,
+  "delivery": "Proportional resizing and WebP encoding only. No upscaling; originals retained.",
+  "entries": [
+    {
+      "scene": "airport",
+      "theme": "light",
+      "mode": "generate",
+      "source": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-20de16a9-c25e-433c-aee1-2b0fa369c544.png",
+      "editTarget": null,
+      "prompt": "Use case: photorealistic-natural. Asset: wide architectural photograph for a prayer-room guide, 3:2 landscape, extremely carefully finished realistic materials and geometry. Create an imagined contemporary international airport quiet concourse viewed at human standing eye level, upright verticals and a natural 35mm architectural lens. A parked passenger aircraft is clearly visible through glazing in the CENTRAL third of the picture, with its nose and forward fuselage facing across the view. Modest navy upholstered airport seats, restrained brushed metal details, an oak acoustic ceiling, pale honed terrazzo, a glass airbridge outside. Clear uncluttered walking space. The composition is calm, believable and welcoming, like premium architectural editorial photography, not a luxury advertisement. Daylight filtered softly through windows; natural creamy whites, timber warmth and slate blue accents. Keep important airport cues around the centre so a narrow vertical crop remains recognisable. No doorway or door frame in foreground (the website supplies a separate physical door). No people, words, letterforms, logos, signage, brand names, generated maps or religious symbols. No superstructure fantasy, no impossible plane anatomy, no repeated seats or aircraft, no glossy CGI finish, no haze, no vignette. Not a depiction of any named airport. Natural fine grain and impeccable contact shadows.",
+      "assets": [
+        "site/public/art/quiet-threshold/airport-light-384.webp",
+        "site/public/art/quiet-threshold/airport-light-768.webp",
+        "site/public/art/quiet-threshold/airport-light-1536.webp"
+      ],
+      "delivery": [
+        {
+          "path": "site/public/art/quiet-threshold/airport-light-384.webp",
+          "width": 384,
+          "height": 256,
+          "bytes": 21256
+        },
+        {
+          "path": "site/public/art/quiet-threshold/airport-light-768.webp",
+          "width": 768,
+          "height": 512,
+          "bytes": 77794
+        },
+        {
+          "path": "site/public/art/quiet-threshold/airport-light-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 273724
+        }
+      ]
+    },
+    {
+      "scene": "airport",
+      "theme": "dark",
+      "mode": "edit-lighting",
+      "source": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-207bd0e2-725d-42e5-945c-a4cb1768660a.png",
+      "editTarget": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-20de16a9-c25e-433c-aee1-2b0fa369c544.png",
+      "prompt": "Use case: lighting-weather. Edit target: the provided airport architectural photograph. Make its precisely aligned evening companion for dark mode in a prayer-room guide. Change ONLY the time of day and the physically plausible lighting. Keep camera, perspective, framing, image dimensions, every wall, window, plant, seat, aircraft (if any), book, doorway, furnishing and structural geometry in exactly the same place. Outside is blue hour with a deep muted blue sky; indoor existing ceiling lights and existing reading lights give gentle warm light. Add only realistic illumination, not new fixtures or objects. Keep all architecture, wood, flooring and furniture clearly readable in the dark image. Natural restrained exposure: do not crush shadows, do not tint everything blue, no dramatic orange cast, no glow, no fog. If this is the airport, the aircraft and jet bridge remain clearly visible in modest apron lighting. If this is campus, library windows glow softly and the tree and path remain legible. If this is hospital, the corridor remains evenly and safely illuminated and the courtyard is visible. Preserve realism, material detail and calm. Do not add text, people, logos, signs, labels, symbols, moons or other decorative elements. No crop or change of viewpoint.",
+      "assets": [
+        "site/public/art/quiet-threshold/airport-dark-384.webp",
+        "site/public/art/quiet-threshold/airport-dark-768.webp",
+        "site/public/art/quiet-threshold/airport-dark-1536.webp"
+      ],
+      "delivery": [
+        {
+          "path": "site/public/art/quiet-threshold/airport-dark-384.webp",
+          "width": 384,
+          "height": 256,
+          "bytes": 19478
+        },
+        {
+          "path": "site/public/art/quiet-threshold/airport-dark-768.webp",
+          "width": 768,
+          "height": 512,
+          "bytes": 73118
+        },
+        {
+          "path": "site/public/art/quiet-threshold/airport-dark-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 259718
+        }
+      ]
+    },
+    {
+      "scene": "campus",
+      "theme": "light",
+      "mode": "generate",
+      "source": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-21d51046-e5fb-462e-8f4d-9d2e66b71250.png",
+      "editTarget": null,
+      "prompt": "Use case: photorealistic-natural. Asset: wide architectural photograph for a prayer-room guide, 3:2 landscape. An imagined quiet university courtyard seen from a covered contemporary collegiate passage, photographed at human standing eye height with a natural 35mm architectural lens and upright verticals. Warm limestone piers, subtly textured pale brick, carefully made oak library windows, an intimate central garden with one small mature tree and a clean path. Through one side window a few shelves of books and a reading desk give a credible university context. The CENTRAL third contains the quiet courtyard, a stone pier and glimpse of books so a narrow portrait crop remains intelligible. Gentle morning daylight and soft leaf shadows, light ivory, natural oak, muted green and subtle navy details. This is high quality architectural photography with real masonry joints and honest everyday scale, academically thoughtful, beautifully restrained and welcoming to everyone. No foreground doorway or frame; website provides that. No people, text, letters, plaques, logos, crests, artificial lens blur, fantasy Gothic architecture, perfect repeated trees, excessive furniture or CGI gloss. Not a named university. Generous negative space and very fine material detail.",
+      "assets": [
+        "site/public/art/quiet-threshold/campus-light-384.webp",
+        "site/public/art/quiet-threshold/campus-light-768.webp",
+        "site/public/art/quiet-threshold/campus-light-1536.webp"
+      ],
+      "delivery": [
+        {
+          "path": "site/public/art/quiet-threshold/campus-light-384.webp",
+          "width": 384,
+          "height": 256,
+          "bytes": 29270
+        },
+        {
+          "path": "site/public/art/quiet-threshold/campus-light-768.webp",
+          "width": 768,
+          "height": 512,
+          "bytes": 104008
+        },
+        {
+          "path": "site/public/art/quiet-threshold/campus-light-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 349700
+        }
+      ]
+    },
+    {
+      "scene": "campus",
+      "theme": "dark",
+      "mode": "edit-lighting",
+      "source": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-9390b16f-c1ff-45bd-966d-10f618c837fb.png",
+      "editTarget": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-21d51046-e5fb-462e-8f4d-9d2e66b71250.png",
+      "prompt": "Use case: lighting-weather. Edit target: the provided campus architectural photograph. Make its precisely aligned evening companion for dark mode in a prayer-room guide. Change ONLY the time of day and the physically plausible lighting. Keep camera, perspective, framing, image dimensions, every wall, window, plant, seat, aircraft (if any), book, doorway, furnishing and structural geometry in exactly the same place. Outside is blue hour with a deep muted blue sky; indoor existing ceiling lights and existing reading lights give gentle warm light. Add only realistic illumination, not new fixtures or objects. Keep all architecture, wood, flooring and furniture clearly readable in the dark image. Natural restrained exposure: do not crush shadows, do not tint everything blue, no dramatic orange cast, no glow, no fog. If this is the airport, the aircraft and jet bridge remain clearly visible in modest apron lighting. If this is campus, library windows glow softly and the tree and path remain legible. If this is hospital, the corridor remains evenly and safely illuminated and the courtyard is visible. Preserve realism, material detail and calm. Do not add text, people, logos, signs, labels, symbols, moons or other decorative elements. No crop or change of viewpoint.",
+      "assets": [
+        "site/public/art/quiet-threshold/campus-dark-384.webp",
+        "site/public/art/quiet-threshold/campus-dark-768.webp",
+        "site/public/art/quiet-threshold/campus-dark-1536.webp"
+      ],
+      "delivery": [
+        {
+          "path": "site/public/art/quiet-threshold/campus-dark-384.webp",
+          "width": 384,
+          "height": 256,
+          "bytes": 22024
+        },
+        {
+          "path": "site/public/art/quiet-threshold/campus-dark-768.webp",
+          "width": 768,
+          "height": 512,
+          "bytes": 81324
+        },
+        {
+          "path": "site/public/art/quiet-threshold/campus-dark-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 284012
+        }
+      ]
+    },
+    {
+      "scene": "hospital",
+      "theme": "light",
+      "mode": "generate",
+      "source": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-cee272f4-6485-44cd-992b-78fb24c11cca.png",
+      "editTarget": null,
+      "prompt": "Use case: photorealistic-natural. Asset: wide architectural photograph for a prayer-room guide, 3:2 landscape. A realistic imagined modern hospital PUBLIC circulation and quiet waiting area facing a planted glazed courtyard. Human standing eye-level 35mm architectural perspective, straight verticals. Readable hospital context through a discreet continuous wall handrail, broad accessible circulation, pale hygienic mineral surfaces, oak accents, a few navy and muted sage seats and modest clinical corridor doors at one edge. The CENTRAL third has the garden-facing corridor, the handrail and a modest seating group, so a narrow vertical crop remains recognisable. Soft diffused daytime light, natural plants beyond glazing, balanced real-world exposure, ivory and muted blue, clear gentle sightlines. Premium architectural editorial photograph expressing dignity and care rather than exclusivity. No foreground door frame, no people or patients, no medical equipment, no words, no signs, logos, crosses or symbols, no fabricated clinical information, no emergency drama, no intimidating endless tunnel, no luxury hotel lobby, no glossy CGI, no extreme blur. Not a named hospital. Exceptionally credible finishes, glazing reflections, contact shadows and proportions.",
+      "assets": [
+        "site/public/art/quiet-threshold/hospital-light-384.webp",
+        "site/public/art/quiet-threshold/hospital-light-768.webp",
+        "site/public/art/quiet-threshold/hospital-light-1536.webp"
+      ],
+      "delivery": [
+        {
+          "path": "site/public/art/quiet-threshold/hospital-light-384.webp",
+          "width": 384,
+          "height": 256,
+          "bytes": 18370
+        },
+        {
+          "path": "site/public/art/quiet-threshold/hospital-light-768.webp",
+          "width": 768,
+          "height": 512,
+          "bytes": 58876
+        },
+        {
+          "path": "site/public/art/quiet-threshold/hospital-light-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 193262
+        }
+      ]
+    },
+    {
+      "scene": "hospital",
+      "theme": "dark",
+      "mode": "edit-lighting",
+      "source": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-3ec0b2eb-565f-4dbd-9c5a-ffaeb894c760.png",
+      "editTarget": "/Users/ilyas/.codex/generated_images/01a17ec1-0f15-7ab1-a949-7e09028dc0aa/exec-cee272f4-6485-44cd-992b-78fb24c11cca.png",
+      "prompt": "Use case: lighting-weather. Edit target: the provided hospital architectural photograph. Make its precisely aligned evening companion for dark mode in a prayer-room guide. Change ONLY the time of day and the physically plausible lighting. Keep camera, perspective, framing, image dimensions, every wall, window, plant, seat, aircraft (if any), book, doorway, furnishing and structural geometry in exactly the same place. Outside is blue hour with a deep muted blue sky; indoor existing ceiling lights and existing reading lights give gentle warm light. Add only realistic illumination, not new fixtures or objects. Keep all architecture, wood, flooring and furniture clearly readable in the dark image. Natural restrained exposure: do not crush shadows, do not tint everything blue, no dramatic orange cast, no glow, no fog. If this is the airport, the aircraft and jet bridge remain clearly visible in modest apron lighting. If this is campus, library windows glow softly and the tree and path remain legible. If this is hospital, the corridor remains evenly and safely illuminated and the courtyard is visible. Preserve realism, material detail and calm. Do not add text, people, logos, signs, labels, symbols, moons or other decorative elements. No crop or change of viewpoint.",
+      "assets": [
+        "site/public/art/quiet-threshold/hospital-dark-384.webp",
+        "site/public/art/quiet-threshold/hospital-dark-768.webp",
+        "site/public/art/quiet-threshold/hospital-dark-1536.webp"
+      ],
+      "delivery": [
+        {
+          "path": "site/public/art/quiet-threshold/hospital-dark-384.webp",
+          "width": 384,
+          "height": 256,
+          "bytes": 16632
+        },
+        {
+          "path": "site/public/art/quiet-threshold/hospital-dark-768.webp",
+          "width": 768,
+          "height": 512,
+          "bytes": 53104
+        },
+        {
+          "path": "site/public/art/quiet-threshold/hospital-dark-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 173994
+        }
+      ]
+    }
+  ]
+}

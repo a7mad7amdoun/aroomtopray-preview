@@ -1,0 +1,54 @@
+A ROOM TO PRAY — THE QUIET THRESHOLD
+Implementation and art direction brief, 4 November 2026
+
+Purpose
+Build on Ahmed’s room-and-door idea and Hamza’s practical, sourced prayer-room guide. Give a person arriving from a busy airport, university or hospital a welcoming first impression, then make the useful information the strongest part of the experience. The promise is dignity, clarity and care for every visitor. Premium means patient proportions, legible decisions, believable materials and attention to small details. It must never mean exclusivity or an obstacle to finding a place to pray.
+
+Retain the Astro architecture, current directory records, source links, country data, translations, saved places, maps, search context, checklists and visitor tools. Work only in Ahmed’s GitHub review preview. Keep Hamza’s attribution and preview submissions disabled. Do not change the production site. Keep unrelated pending map work out of this release.
+
+The opening moment
+Keep one physically coherent prayer room: ivory mineral plaster, natural oak, a limestone floor and a correctly scaled prayer mat facing the empty prayer wall. The left doorway is the recognisable identity. The room is visible before the guide becomes dense, with the introductory content balanced to its right. Keep the existing registered aperture, door leaf, hinges, lever, glazing and threshold on the same coordinate plane. Do not manufacture a second doorway in the scene artwork. Keep the real door readable at phone sizes. Let the mobile room have a compact opening band; never force visitors through a full-screen splash or an animation before searching.
+
+The transition into useful information
+The introductory room is an arrival, not a permanent width tax on the guide. Below the opening, the destination choices, information tabs, map and results receive the full available reading width. Hero-specific container queries must use the hero’s actual width, not the wider guide. No layout changes while scrolling: establish the geometry in normal flow and let only the decorative room layer recede. Once the introduction passes the sticky header, soften the scene into the ivory/navy background over roughly one second. Keep an architectural trace, a quiet doorway and the material warmth visible. Return to the full room when the visitor returns to the introduction. Include a clear native link back to the room at the transition into the guide. All primary destinations remain in the existing header.
+
+Motion direction
+The door has weight: a restrained, physically plausible acceleration followed by a long cushioned settle, approximately 1.1 seconds opening and 1.3 seconds closing. Keep the left hinge fixed. The world beyond the doorway does not rotate with the door. The glass, metal hardware, edge and contact shadow remain attached correctly. Do not add bounce, elastic effects, cursor parallax, scroll-scrubbed text, an automatic looping door, or decorative card floating. Links navigate immediately; the door must never delay navigation. The existing optional scene tour remains opt-in. Reduced-motion preference removes transitions without removing information or controls. Back/forward restoration, anchor navigation and interrupted motions must remain stable.
+
+Artwork collection
+Create three new photorealistic architectural scenes, each with a matched daylight and evening exposure. Each scene must work both as a narrow view through the doorway and as a generous landscape editorial panel. Keep each subject legible near the centre. No generated words, airport codes, logos, maps, clinical signs or institutional affiliations. All functional text is rendered by the interface. Label these assets as imagined settings, never as proof of a real prayer room or a particular institution. Retain the existing credited photographs and real room photography as evidence with their original source captions.
+
+Airport: calm travel
+An exceptionally believable contemporary terminal with clear glazing, a parked aircraft visible beyond, quiet rows of navy seating, warm oak ceiling elements and a pale terrazzo floor. A few carefully composed architectural elements, honest structural connections, natural reflections and open sightlines. The image feels like a pause beside a functioning terminal, with human scale and no commercial logos. Daylight is soft and clear; evening retains a readable aircraft silhouette, warm interior light and a deep blue sky. Avoid science-fiction ceilings, glossy luxury shopping halls, gigantic empty atria, duplicated aircraft and impossible glazing.
+
+University: thoughtful learning
+A quiet collegiate passage beside a planted courtyard, blending stone or warm brick with contemporary oak and glass. A library visible at one edge gives context; a small tree and clear walking route give calm. Accurate masonry, modest seating, no fantasy Gothic castle and no decorative lecture-board text. Daylight shows tactile materials and leaf shadows. Evening uses warm library light and a blue-hour courtyard, with the same camera, furniture and building geometry. The feeling is scholarly, welcoming and unpretentious.
+
+Hospital: selfless care
+A modern hospital public circulation area with an obvious accessible route, gentle handrails, timber details, softly upholstered seating and a glazed garden courtyard. Quiet human-scale architecture, not a dramatic emergency scene. No patients, medical claims, medical equipment, crosses, fabricated clinical labels or suggestions of an institutional affiliation. Daylight is clear and gently diffused. Evening remains safe and readable, with warm interior illumination, soft garden lights and visible glazing. Avoid sterile horror corridors, resort lobbies and theatrical spotlights.
+
+Family resemblance
+Use the same observational architectural photography quality, upright verticals, restrained colour grading and believable exposure across all six images. Do not put navy or yellow filters over every pixel. Let natural material colour sit beside the established palette. The dark variants are independently lit images, not daylight pictures made illegibly dark. Compress responsive deliveries without artificial upscaling claims. Keep original generated images and record exact prompts and final delivery sizes.
+
+Information design
+Preserve the strongest part of Hamza’s guide: useful answers about location, access/security, opening hours, washing facilities, women’s space and qibla, with sources and honest unknowns. Preserve the country flags and existing meaningful SVG symbols. Do not introduce decorative badges that imply verification. Keep restrictions outside hidden detail states where already available. Make the wider guide support the map and results side by side at suitable widths; long body text retains a readable line length. Search, country choice and filters remain visually adjacent. The next action must be visible and explicit.
+
+Category presentation
+Airport pages use the legibility of an airport sign: navy, yellow, strong titles and an orderly information grid. University pages use the care of a well-composed campus notice: warm paper and clear headings. Hospital pages use a calm reception information board: readable grouping, simple symbols and generous spacing. They share one typography system, one spacing scale and the same structure. These are useful guides, not fake departure statuses or invented emergency instructions. Make the beginnings of category and detail pages feel related through the scene and material palette, while preserving the compact introductions on practical detail pages.
+
+Typography and colour
+Keep Archivo and Noto Naskh Arabic because the current identity already works. Improve hierarchy through proportion, weight, spacing and line length before adding another font. Preserve ivory, navy/charcoal and yellow semantic tokens and tested contrast pairs. Use strong headings, comfortable 17–18px body copy and legible metadata. Arabic receives logical alignment, generous line height, intact letterforms and equal information density. Functional surfaces remain opaque enough for text contrast in either theme. Avoid grain over text, glow, tiny uppercase captions and decorative rules without meaning.
+
+Implementation discipline
+Edit the existing owning components and stylesheets. Consolidate rules in the touched area; do not create another override sheet. Reuse the existing artwork/token system where possible. Introduce a component only for a real shared responsibility. Use CSS for appearance and a small enhancement controller for the scroll boundary. No DOM rewriting, no extra framework or animation package. New motion logic must be testable and resilient when browser APIs are absent. Isolate page artwork through data/theme tokens rather than six divergent templates. Leave easily editable art paths, timings and composition tokens together with comments explaining their purpose.
+
+Acceptance
+Build the review export. Run the existing suite and meaningful tests for the new recession state. Check four languages, both themes, reduced motion, native links, filters, tabs, saved places, deep links and return-to-results. Examine asset crops and matching night geometry directly. Audit responsive declarations at 360, 390, tablet and desktop widths. Confirm all source data and unrelated pending edits remain intact. Browser rendering is currently unavailable under the session’s URL policy; do not bypass that restriction or present source-based checks as rendered proof. Report that limit and the remaining visual review needed before calling this ready for Hamza.
+
+References used for principles, not copied assets
+https://aroomtopray.com/ — task-first search and the six practical answers.
+https://www.fosterandpartners.com/projects/kuwait-international-airport/ — human-scale legibility and filtered daylight.
+https://www.maggies.org/about-us/buildings-and-architecture/ — welcoming light, privacy and views of nature.
+https://heatherwick.com/studio/news/completion-maggies-leeds/ — natural materials and a humane healthcare setting.
+https://stantonwilliams.com/de/journal/inspiration-castelvecchio — material craft and a clear architectural sequence.
+Pinterest searches for airport wayfinding, campus courtyards and healthcare interiors were used for discovery; no Pinterest image is copied or passed off as licensed project photography.

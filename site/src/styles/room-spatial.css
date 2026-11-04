@@ -23,8 +23,9 @@ body.immersive-site { background:radial-gradient(ellipse at 18% 450px,#b49a7020,
 /* Inner jamb (44,177)–(272,676), on both 1774×887 source images.
    Keep the door at the far-left edge and the mat facing the clear wall. */
 .room-environment .door-surround { left:2.4803%; top:19.955%; bottom:auto; width:12.8523%; height:56.257%; min-height:0; }
-.room-environment { --door-motion:520ms cubic-bezier(.32,0,.45,1); }
-.room-environment[data-door-state=open] { --door-angle:-86deg; --door-motion:420ms cubic-bezier(.3,0,.2,1); }
+/* Deliberate hinge travel with a cushioned settle; no navigation waits for it. */
+.room-environment { --door-motion:1300ms cubic-bezier(.4,0,.2,1); }
+.room-environment[data-door-state=open] { --door-angle:-74deg; --door-motion:1100ms cubic-bezier(.22,.61,.36,1); }
 /* Prepare every physical layer together, before the first painted arrival. */
 html[data-door-arrival=preparing] .room-environment { --door-angle:0deg; }
 html[data-door-arrival=preparing] .room-environment .door-skin::after { opacity:0; }
@@ -238,12 +239,12 @@ html .immersive-site .site-footer { width:min(var(--layout-width),calc(100% - 2 
 .immersive-site .site-footer nav h2 { font-size:.8rem; letter-spacing:0; text-transform:none; }
 .immersive-site .site-footer nav a { min-height:36px; font-size:.85rem; }
 /* The world outside stays stationary while the physical door swings.
-   Keep its front just visible at 86 degrees instead of hiding the slab. */
+   A readable open leaf preserves the wood, handle and physical threshold. */
 .room-environment .door-outside { background-image:none; }
 .door-scene { position:absolute; inset:0; background-size:cover; background-repeat:no-repeat; opacity:0; transition:none; }
-.door-scene-airport { background-image:image-set(url('/art/room-threshold/airport-fast-384.webp') 1x,url('/art/room-threshold/airport-fast-768.webp') 2x); background-position:center; }
-.door-scene-campus { background-image:image-set(url('/art/room-threshold/campus-fast-384.webp') 1x,url('/art/room-threshold/campus-fast-768.webp') 2x); background-position:center; }
-.door-scene-hospital { background-image:image-set(url('/art/room-threshold/hospital-fast-384.webp') 1x,url('/art/room-threshold/hospital-fast-768.webp') 2x); background-position:center; }
+.door-scene-airport { background-image:var(--view-airport); background-position:52% center; }
+.door-scene-campus { background-image:var(--view-campus); background-position:70% center; }
+.door-scene-hospital { background-image:var(--view-hospital); background-position:35% center; }
 .outside-airport>.door-scene-airport,.outside-campus>.door-scene-campus,.outside-hospital>.door-scene-hospital { opacity:1; }
 /* Distinct presentations: a departures board, a photographic example, an atlas,
    country index and practical room facts. Shared type and spacing join them. */
