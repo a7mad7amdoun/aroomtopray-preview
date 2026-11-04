@@ -42,6 +42,8 @@ export function initRoomCycle(room, browser, links, preview) {
   schedule();
  };
  control.hidden=false;
+ control.disabled=false;
+ control.dataset.ready='true';
  control.addEventListener('click',()=>{
   userPaused=!userPaused;
   // Resuming is an explicit request, including while the button still has

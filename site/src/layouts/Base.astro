@@ -5,6 +5,7 @@ import '@fontsource/noto-naskh-arabic/400.css';
 import archivoLatinUrl from '@fontsource-variable/archivo/files/archivo-latin-wdth-normal.woff2?url';
 import arabicRegularUrl from '@fontsource/noto-naskh-arabic/files/noto-naskh-arabic-arabic-400-normal.woff2?url';
 import arabicSemiboldUrl from '@fontsource/noto-naskh-arabic/files/noto-naskh-arabic-arabic-600-normal.woff2?url';
+import roomFirstPaint from '../scripts/room-first-paint.js?raw';
 import '../styles/global.css';
 import '../styles/improvements.css';
 import '../styles/experience.css';
@@ -54,16 +55,17 @@ const searchTarget = isHome ? '#place-search-input' : isDirectory ? '#q-dir' : `
 <html lang={locale} dir={localeMeta(locale).dir} data-sector={nav || 'home'}>
 <head>
   <meta charset="utf-8">
-  <script is:inline>document.documentElement.classList.add('js'); try { const theme = localStorage.getItem('aroomtopray.theme.v1'); if (theme === 'light' || theme === 'dark') document.documentElement.setAttribute('data-theme', theme); } catch {} try { sessionStorage.removeItem('aroomtopray.focus.v2'); sessionStorage.removeItem('aroomtopray.focus.v1'); } catch {}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f7f7">
+  <script is:inline data-arrival-presentation={presentation} data-arrival-kind={roomKind} set:html={roomFirstPaint}/>
   {(locale==='ar'?[arabicRegularUrl,arabicSemiboldUrl]:[archivoLatinUrl]).map(href=><link rel="preload" href={href} as="font" type="font/woff2" crossorigin="anonymous"/>)}
+  {isHome && locale!=='ar' && <link rel="preload" href="/fonts/source-serif-4/source-serif-4-smtext-semibold.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>}
   <title>{title}</title>
   <meta name="description" content={description}>
   <link rel="canonical" href={canonical}>
   {hasLocalizedRoute(Astro.url.pathname) && LOCALES.map(l => <link rel="alternate" hreflang={l.code} href={new URL(localizedPath(Astro.url.pathname, l.code), SITE).href} />)}
   {hasLocalizedRoute(Astro.url.pathname) && <link rel="alternate" hreflang="x-default" href={new URL(localizedPath(Astro.url.pathname, 'en'), SITE).href} />}
   {(noindex || reviewPreview) && <meta name="robots" content="noindex">}
-  <meta name="theme-color" content="#FFC629">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -84,6 +86,7 @@ const searchTarget = isHome ? '#place-search-input' : isDirectory ? '#q-dir' : `
   <HeaderNavigation {locale} {nav} {searchTarget} {visitHash}/>
   <script>import '../scripts/navigation.js';</script>
   <RoomEnvironment kind={roomKind} {locale} {presentation}>
+    <Fragment slot="heading"><slot name="heading" /></Fragment>
     <Fragment slot="arrival"><slot name="arrival" /></Fragment>
     <div id="guide-content" class="guide-content" slot="guide">
       <slot name="welcome" />

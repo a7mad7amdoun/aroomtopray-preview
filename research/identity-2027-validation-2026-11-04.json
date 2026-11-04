@@ -1,0 +1,88 @@
+{
+  "date": "2026-11-04",
+  "baseline": "d52e77de0263f4a6b1a8a8c86231386e0d38711f",
+  "unitTests": {
+    "passed": 213,
+    "command": "node --test site/tests/*.test.mjs"
+  },
+  "startup": {
+    "simulatedFreshStarts": 200,
+    "initialTabStates": 32,
+    "categoryThemeDensityCases": 24,
+    "browserRefreshesPerformed": 0
+  },
+  "contentPreservation": {
+    "baseline": "d52e77de0263f4a6b1a8a8c86231386e0d38711f",
+    "rendered": false,
+    "guidePages": 2177,
+    "arrivalPages": 2173,
+    "homes": 4,
+    "tabRoots": 2152,
+    "bootstraps": 2177,
+    "locales": {
+      "en": 554,
+      "ar": 541,
+      "es": 541,
+      "fr": 541
+    },
+    "protectedFiles": 903,
+    "existingAtmosphereFieldsPreserved": true,
+    "allowedChanges": [
+      "Home invitation moved from wall to h1",
+      "Home title replaced by exact translated Adhan invitation; brand retained in masthead",
+      "Separate translated peace welcome added",
+      "Original home explanation moved to search panel",
+      "Cycle control reserves initial space while disabled",
+      "Header wordmark split onto two lines; same accessible name"
+    ]
+  },
+  "responsive": {
+    "headingSpans": 64,
+    "languages": [
+      "en",
+      "fr",
+      "ar",
+      "es"
+    ],
+    "widths": [
+      360,
+      390,
+      760,
+      1000,
+      1100,
+      1280,
+      1440,
+      1920
+    ],
+    "roomGeometryCases": 72,
+    "method": "Shipped-font shaping and source geometry only"
+  },
+  "contrast": {
+    "newOpaquePairs": 8,
+    "minimumRatio": 4.5
+  },
+  "offlineInteractions": {
+    "localizedScenarios": 37,
+    "directoryScenarios": 12,
+    "declaredTabs": 6456
+  },
+  "export": {
+    "pages": 2177,
+    "mounted_assets": 87,
+    "broken_links": 0,
+    "inline_script_check": "pass",
+    "rendered_visual_check": false
+  },
+  "pendingMapFilesPreserved": 11,
+  "limitations": [
+    "Existing session URL policy prevents rendered preview inspection. No browser, real-phone or iOS visual QA was performed.",
+    "Repeated startup tests execute the real head script in fresh simulated documents; they are not actual browser refreshes.",
+    "Font-metric calculations do not verify browser fallback fonts or rendered pixel alignment."
+  ],
+  "publicationScope": "Ahmed GitHub Pages review preview only; Hamza production untouched",
+  "buildCommands": [
+    "node scripts/build-data.mjs",
+    "PUBLIC_REVIEW_PREVIEW=true PUBLIC_PREVIEW_BASE=/aroomtopray-preview node node_modules/astro/astro.js build",
+    "node site/scripts/prepare-github-preview.mjs site/dist docs /aroomtopray-preview"
+  ]
+}

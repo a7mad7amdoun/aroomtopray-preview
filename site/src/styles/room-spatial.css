@@ -19,8 +19,8 @@ body.immersive-site { background:radial-gradient(ellipse at 18% 450px,#b49a7020,
 :root .room-environment { --door-veneer-shade:var(--room-door-shade); --door-trim:#826039; --door-reveal:#654b30; --door-hardware:#b7aa8e; }
 :root .room-environment .room-wall { background:none; border-radius:0; box-shadow:none; }
 :root .room-environment .room-wall::before,:root .room-environment .room-wall::after { content:''; display:block; position:absolute; inset:0; background-size:100% 100%; background-position:center; border-radius:0; }
-:root .room-environment .room-wall::before { background-image:var(--room-day); }
-:root .room-environment .room-wall::after { background-image:var(--room-night); opacity:var(--room-night-opacity); transition:opacity 180ms ease-out; }
+:root .room-environment .room-wall::before { background-image:var(--room-day); background-color:#e5e5e0; }
+:root .room-environment .room-wall::after { background-image:var(--room-night); background-color:#273039; opacity:var(--room-night-opacity); transition:opacity 180ms ease-out; }
 /* Inner jamb (44,177)–(272,676), on both 1774×887 source images.
    Keep the door at the far-left edge and the mat facing the clear wall. */
 .room-environment .door-surround { left:2.4803%; top:19.955%; bottom:auto; width:12.8523%; height:56.257%; min-height:0; }
@@ -133,7 +133,9 @@ html[data-door-arrival=preparing] .room-environment .door-skin::after,
 .notice-description { margin-top:18px; padding-top:16px; border-top:1px solid var(--line); font-size:.84rem; color:var(--muted); line-height:1.65; }
 .room-environment .room-utilities { display:none; }
 
-.room-atmosphere-controls [data-room-cycle] { display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:44px; padding:8px 14px; border:1px solid var(--field); border-radius:4px; background:var(--surface); color:var(--ink); font:500 .875rem/1.4 var(--f-body); cursor:pointer; }
+.room-atmosphere-controls [data-room-cycle] { display:none; align-items:center; justify-content:center; gap:9px; min-width:13em; min-height:44px; padding:8px 14px; border:1px solid var(--field); border-radius:4px; background:var(--surface); color:var(--ink); font:500 .875rem/1.4 var(--f-body); cursor:pointer; }
+.js .room-atmosphere-controls [data-room-cycle] { display:inline-flex; visibility:hidden; }
+.js .room-atmosphere-controls [data-room-cycle][data-ready] { visibility:visible; }
 .room-atmosphere-controls [data-room-cycle]:is(:hover,:focus-visible) { border-color:var(--ink); background:var(--surface-2); }
 .room-cycle-icon { flex:none; }
 .room-cycle-icon .cycle-play,[data-room-cycle][data-paused=true] .cycle-pause { display:none; }

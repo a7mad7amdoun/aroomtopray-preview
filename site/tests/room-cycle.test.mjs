@@ -31,6 +31,8 @@ function fixture({reduced=false,saveData=false,presentation='home',scoped=false,
 }
 test('the homepage starts a slow tour without a door state or a live announcement',()=>{
  const f=fixture();
+ assert.equal(f.control.disabled,false);
+ assert.equal(f.control.dataset.ready,'true');
  assert.equal(f.room.dataset.doorState,undefined);
  assert.equal(f.timers.size,1);assert.deepEqual(f.seen,[]);
  assert.equal(f.label.textContent,'Pause views');assert.equal(f.status.textContent,'');

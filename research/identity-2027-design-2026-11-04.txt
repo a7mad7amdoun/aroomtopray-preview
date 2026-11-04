@@ -1,0 +1,19 @@
+A ROOM TO PRAY — A clearer invitation, a stronger identity
+4 November 2026
+
+Direction
+Make a substantial presentation change within the existing Astro architecture. Keep Hamza’s navy/yellow wayfinding identity, the approved panoramic prayer room and fixed glass, all factual records, four languages, visitor tools and source credits. The identity is welcoming and precise, not a collection of animations.
+
+Homepage
+Lead with the exact translated Adhan invitation in Source Serif4 Semibold; use Noto Naskh Arabic600 in Arabic. Keep the words live and accessible. Give the separate message about finding peace its own paragraph, without presenting it as part of the Adhan. Move the invitation out of the tiny home wall niche to avoid repeating it. Keep the established room inscription on other pages.
+
+Give the room a wider59percent visual track and a clearly framed search panel. Maintain the complete mat and solid prayer-facing niche. Keep text off the view. Use a large, readable search label and emphasize real coverage counts. Present the three destinations as larger architectural photo cards on desktop, retaining full compositions, credits and context disclaimers. On phones, prioritize search and information before artwork; match DOM and keyboard order to this priority.
+
+Shared identity
+Use a stacked A Room to Pray wordmark, the existing mihrab mark, a navy destination rail and filled yellow selected states. Maintain one practical typography system throughout the directory. Give arrivals explicit reading surfaces and consistent padding. Keep language selection in the menu and lighting in the room. Narrow the mobile light plaque so it clears the niche; contain its settings and storage feedback within the room viewport.
+
+Startup and motion
+Restore saved appearance in the head before paint. Preload the correct room and destination images using the actual theme and density after the viewport declaration. Preload the home inscription font. Use a dark opaque fallback behind night artwork so the daylight plate cannot show through while loading. Reserve tour-control space before enhancement, then enable it. Initial tab visibility must agree with default, deep-link and report intent; native links must still work if enhancement is delayed, and all sections remain available with JavaScript disabled. Do not add parallax, artificial zoom or a full-page loading veil.
+
+Validation
+Use existing unit and offline interaction checks, repeated fresh startup execution, immutable-baseline content comparison, shipped-font shaping at360/390px and larger widths, and source geometry/contrast checks. Browser rendering and real refresh observation remain blocked by the session URL policy; do not claim them. Publish only Ahmed’s authorized GitHub Pages preview. Preserve separate pending map work byte-for-byte.

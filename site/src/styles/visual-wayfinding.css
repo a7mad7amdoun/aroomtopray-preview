@@ -9,7 +9,8 @@
 #prayer-room[data-room-presentation=home] .door-notice-entry {
   min-width:0;
   border:1px solid var(--line);
-  border-radius:8px;
+  border-radius:12px;
+  overflow:hidden;
   background:var(--surface);
   box-shadow:none;
   transition:border-color 160ms ease-out;
@@ -88,7 +89,7 @@
   color:var(--selection-mark);
 }
 #prayer-room[data-room-presentation=home] .door-notice-title>b {
-  font:650 clamp(1.125rem,1.4vw,1.25rem)/1.35 var(--f-display);
+  font:650 clamp(1.25rem,1.8vw,1.75rem)/1.25 var(--f-display);
   letter-spacing:-.02em;
   hyphens:none;
   overflow-wrap:anywhere;
@@ -118,8 +119,8 @@
   opacity:1;
 }
 #prayer-room[data-room-presentation=home] .door-notice-count strong {
-  font-size:1.125rem;
-  line-height:1.3;
+  font-size:1.75rem;
+  line-height:1.1;
   font-weight:650;
   letter-spacing:-.02em;
   color:var(--ink);
@@ -164,10 +165,14 @@
 #prayer-room .notice-photo-credit a:focus-visible { outline:3px solid var(--focus); outline-offset:3px; }
 
 /* Three equal entries only when each has room for its complete label. */
-@container room-reading (min-width:960px) {
+@container room-reading (min-width:900px) {
   #prayer-room[data-room-presentation=home] .door-notices { grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
-  #prayer-room[data-room-presentation=home] .door-notice-entry>.door-notice { grid-template-columns:minmax(0,.36fr) minmax(0,.64fr); }
-  #prayer-room[data-room-presentation=home] .notice-information { padding:18px 16px; }
+  #prayer-room[data-room-presentation=home] .door-notice-entry>.door-notice { grid-template-columns:minmax(0,1fr); grid-template-rows:auto 1fr; }
+  #prayer-room[data-room-presentation=home] .notice-art { aspect-ratio:4/3; height:auto; border:0; border-bottom:1px solid var(--line); }
+  #prayer-room[data-room-presentation=home] .notice-art img { position:absolute; inset:0; object-position:center; }
+  #prayer-room[data-room-presentation=home] .notice-information { padding:24px; }
+  #prayer-room[data-room-presentation=home] .door-notice-count { margin-top:20px; }
+  #prayer-room[data-room-presentation=home] .notice-kicker { margin-bottom:12px; }
 }
 @container room-reading (max-width:380px) {
   #prayer-room[data-room-presentation=home] .notice-information { padding:16px 14px; }

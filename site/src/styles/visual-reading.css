@@ -7,6 +7,17 @@
   --reading-shadow:0 1px 2px #0a111c06,0 8px 24px #0a111c04;
 }
 
+/* First paint agrees with progressive tab enhancement. Native hash links also
+   reveal their panel if the module is slow or unavailable. Without JavaScript,
+   all sections remain visible. Printing never uses this initial-screen rule. */
+@media screen {
+  .js [data-guide-tabs]:not([data-guide-enhanced]) > .guide-panel ~ .guide-panel { display:none; }
+  .js[data-guide-report-intent] [data-guide-tabs]:not([data-guide-enhanced]):has(> .guide-panel [data-report]):not(:has(> .guide-panel:target, > .guide-panel :target)) > .guide-panel:not(:has([data-report])) { display:none; }
+  .js[data-guide-report-intent] [data-guide-tabs]:not([data-guide-enhanced]):not(:has(> .guide-panel:target, > .guide-panel :target)) > .guide-panel:has([data-report]) { display:block; }
+  .js [data-guide-tabs]:not([data-guide-enhanced]):has(> .guide-panel:target, > .guide-panel :target) > .guide-panel:not(:target):not(:has(:target)) { display:none; }
+  .js [data-guide-tabs]:not([data-guide-enhanced]) > .guide-panel:is(:target,:has(:target)) { display:block; }
+}
+
 /* One continuous navigation rail, with a clearly signed current destination. */
 .room-main #guide-content .guide-tabs {
   gap:4px;

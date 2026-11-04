@@ -31,7 +31,7 @@ const tools = [
 <header class="top room-header">
   <div class="wrap">
     <a class="brand" href={localizedPath('/', locale)} aria-label={`A Room to Pray · ${t.nav.home}`}>
-      <Mark size={72}/><span><bdi>A Room to Pray</bdi></span>
+      <Mark size={64}/><span><bdi><span>A Room</span>{' '}<span>to Pray</span></bdi></span>
     </a>
     <nav class="primary-navigation" aria-label={t.footer.directories}>
       {destinations.map(({ kind, icon }) => <a class="primary-destination-link" href={local(`/${kind}/`)} aria-current={nav === kind ? 'page' : undefined}>

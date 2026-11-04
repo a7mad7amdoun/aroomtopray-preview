@@ -2,7 +2,7 @@
    photograph attached to a moving door. No opening or perspective transform. */
 .room-environment .room-window-frame {
   position:absolute; inset:0; overflow:hidden; border:1px solid #263238;
-  background:#263238; box-shadow:inset 0 0 0 1px #ffffff24;
+  background:var(--room-glass-fallback,#263238); box-shadow:inset 0 0 0 1px #ffffff24;
 }
 .room-environment .room-window-frame .door-outside {
   inset:0; transform:none; filter:none; box-shadow:inset 2px 2px 5px #0003;

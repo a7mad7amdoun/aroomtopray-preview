@@ -1,7 +1,7 @@
 /* One masthead, one wayfinding rail and a quiet visitor-tools sheet. The wider
    Archivo wordmark follows the original sign typography; language stays in the
    menu and lighting belongs to the room. Reading surfaces remain opaque. */
-:root { --masthead-height:104px; }
+:root { --masthead-height:96px; }
 .top.room-header {
  position:sticky; top:0; z-index:30; color:var(--ink);
  border:0; border-bottom:1px solid var(--line);
@@ -10,55 +10,54 @@
 .top.room-header>.wrap {
  display:grid; grid-template-columns:auto minmax(0,1fr) auto auto; align-items:center;
  width:min(var(--layout-width),calc(100% - 2 * var(--layout-gutter))); max-width:none;
- min-height:104px; margin:auto; padding:16px 0; gap:clamp(12px,1.5vw,24px);
+ min-height:96px; margin:auto; padding:14px 0; gap:clamp(12px,1.5vw,24px);
 }
 .top.room-header .brand {
- display:flex; align-items:center; min-width:0; gap:16px; color:var(--ink); text-decoration:none;
- font-family:"Archivo Variable",system-ui,sans-serif; font-size:clamp(2rem,3vw,2.75rem);
- font-weight:780; font-stretch:110%; letter-spacing:-.045em; line-height:1.06;
+ display:flex; align-items:center; min-width:0; gap:14px; color:var(--ink); text-decoration:none;
+ font-family:"Archivo Variable",system-ui,sans-serif; font-size:1.875rem;
+ font-weight:740; font-stretch:105%; letter-spacing:-.045em; line-height:1.02;
 }
-.top.room-header .brand>svg { width:72px; height:72px; flex:none; border-radius:0; box-shadow:none; filter:none; }
+.top.room-header .brand>svg { width:64px; height:64px; flex:none; border-radius:0; box-shadow:none; filter:none; }
 .top.room-header .brand>span { min-width:0; }
-.top.room-header .brand bdi { white-space:nowrap; }
+.top.room-header .brand bdi { display:block; white-space:normal; }
+.top.room-header .brand bdi>span { display:block; white-space:nowrap; }
 .top.room-header .primary-navigation {
  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:stretch;
- justify-self:center; width:100%; max-width:500px; margin:0; gap:0; padding:0;
- border:0; border-radius:0; background:none;
+ justify-self:center; width:100%; max-width:560px; margin:0; gap:4px; padding:5px;
+ border:1px solid var(--board-cell); border-radius:12px; background:var(--board);
 }
 .top.room-header .primary-navigation>a {
  position:relative; display:flex; align-items:center; justify-content:center; gap:8px;
- min-width:0; min-height:56px; padding:10px clamp(8px,.7vw,12px);
- border:0; border-radius:4px; background:transparent; box-shadow:none; text-decoration:none;
- color:var(--muted); font:580 1rem/1.4 var(--f-body); white-space:nowrap;
+ min-width:0; min-height:54px; padding:10px clamp(8px,.7vw,12px);
+ border:0; border-radius:7px; background:transparent; box-shadow:none; text-decoration:none;
+ color:var(--board-ink); font:580 1rem/1.4 var(--f-body); white-space:nowrap;
  transition:color 180ms ease,background-color 180ms ease;
 }
 .top.room-header .primary-destination-label { min-width:0; font:inherit; line-height:inherit; white-space:normal; text-align:center; overflow-wrap:anywhere; }
 .top.room-header .destination-emblem { display:grid; place-items:center; width:28px; height:28px; flex:none; border-radius:4px; background:transparent; color:inherit; }
 .top.room-header .destination-emblem>svg { display:block; width:21px; height:21px; }
-/* A stable underline marks the current section without moving neighbouring type. */
-.top.room-header .primary-navigation>a::after {
- content:''; display:block; position:absolute; inset-inline:12px; bottom:0;
- height:2px; border-radius:0; background:transparent; transform:none;
- transition:background-color 180ms ease;
-}
-.top.room-header .primary-navigation>a:is(:hover,[aria-current]) { background:var(--surface-2); color:var(--ink); box-shadow:none; }
-.top.room-header .primary-navigation>a:hover::after { background:var(--field); }
-.top.room-header .primary-navigation>a[aria-current] { font-weight:680; }
-.top.room-header .primary-navigation>a[aria-current]::after { background:var(--selection-mark); }
-.top.room-header .primary-navigation>a[aria-current] .destination-emblem { background:var(--sign); color:var(--sign-ink); }
-.top.room-header .primary-navigation>a:focus-visible { outline-offset:1px; }
+/* Filled destination states stay still while the label and symbol lead. */
+.top.room-header .primary-navigation>a::after { content:none; }
+.top.room-header .primary-navigation>a:hover { background:var(--board-cell); color:var(--board-ink); box-shadow:none; }
+
+.top.room-header .primary-navigation>a[aria-current] { background:var(--sign); color:var(--sign-ink); font-weight:680; }
+
+.top.room-header .primary-navigation>a[aria-current] .destination-emblem { background:transparent; color:inherit; }
+.top.room-header .primary-navigation>a:focus-visible { outline:3px solid var(--sign); outline-offset:-3px; }
+.top.room-header .primary-navigation>a[aria-current]:focus-visible { outline-color:var(--sign-ink); }
 .top.room-header .header-search {
  display:flex; align-items:center; justify-content:center; gap:9px; margin:0;
- min-width:48px; min-height:48px; padding:11px 14px; border:1px solid var(--line); border-radius:5px;
+ width:48px; min-width:48px; min-height:48px; padding:11px; border:1px solid var(--line); border-radius:8px;
  background:var(--surface); color:var(--ink); text-decoration:none; font:600 .9375rem/1.4 var(--f-body);
  transition:background-color 180ms ease,border-color 180ms ease;
 }
 .top.room-header .header-search svg { flex:none; }
+.top.room-header .header-search>span { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
 .top.room-header .header-search:hover { background:var(--surface-2); border-color:var(--field); }
 .top.room-header .site-menu { position:relative; min-width:0; }
 .top.room-header .site-menu>summary {
  display:flex; justify-content:center; align-items:center; gap:14px;
- min-width:96px; min-height:48px; padding:10px 15px; border:1px solid transparent; border-radius:5px;
+ min-width:96px; min-height:48px; padding:10px 15px; border:1px solid transparent; border-radius:8px;
  background:var(--sign); color:var(--sign-ink); font:650 .9375rem/1.4 var(--f-body);
  list-style:none; cursor:pointer; transition:background-color 180ms ease,box-shadow 180ms ease;
 }
@@ -112,10 +111,10 @@ html { scroll-padding-top:calc(var(--room-header-height,var(--masthead-height)) 
 #main,#prayer-room,#guide-content,#place-search-input,#q-dir { scroll-margin-top:12px; }
 html[dir=rtl] .top.room-header :is(.primary-navigation>a,.site-menu>summary,.header-search,.menu-tools>a,.menu-section-label,.appearance-label) { font-family:var(--f-arabic); font-size:1rem; line-height:1.5; letter-spacing:0; }
 html[dir=rtl] .top.room-header .menu-panel-heading p { font-family:var(--f-arabic); font-size:1.5rem; letter-spacing:0; line-height:1.6; }
-@media(max-width:1200px) {
- :root { --masthead-height:158px; }
+@media(max-width:1100px) {
+ :root { --masthead-height:160px; }
  .top.room-header>.wrap { grid-template-columns:minmax(0,1fr) auto auto; gap:0 12px; padding:12px 0 10px; }
- .top.room-header .brand { grid-row:1; grid-column:1; font-size:clamp(2rem,4vw,2.5rem); }
+ .top.room-header .brand { grid-row:1; grid-column:1; font-size:1.875rem; }
  .top.room-header .brand>svg { width:64px; height:64px; }
  .top.room-header .header-search { grid-row:1; grid-column:2; }
  .top.room-header .site-menu { grid-row:1; grid-column:3; position:static; }
@@ -126,20 +125,19 @@ html[dir=rtl] .top.room-header .menu-panel-heading p { font-family:var(--f-arabi
 /* Text labels remain accessible when the two utility controls become icon-sized. */
 @media(max-width:760px) {
  .top.room-header .header-search { width:48px; min-width:48px; padding-inline:10px; }
- .top.room-header .header-search>span { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
- .top.room-header .brand { gap:12px; font-size:clamp(1.5rem,4.5vw,2rem); }
- .top.room-header .brand>svg { width:56px; height:56px; }
+ .top.room-header .brand { gap:12px; font-size:1.75rem; }
+ .top.room-header .brand>svg { width:64px; height:64px; }
 }
 @media(max-width:600px) {
- :root { --masthead-height:128px; }
+ :root { --masthead-height:156px; }
  .top.room-header>.wrap { gap:0 8px; padding-top:12px; padding-bottom:8px; }
- .top.room-header .brand { gap:8px; font-size:clamp(1.125rem,5.3vw,1.75rem); font-stretch:105%; letter-spacing:-.035em; }
- .top.room-header .brand>svg { width:48px; height:48px; }
+ .top.room-header .brand { gap:8px; font-size:1.5rem; font-stretch:105%; letter-spacing:-.035em; }
+ .top.room-header .brand>svg { width:56px; height:56px; }
  .top.room-header .site-menu>summary { min-width:44px; min-height:44px; padding:10px; }
  .top.room-header .header-search { width:44px; min-width:44px; min-height:44px; padding:10px; }
  .top.room-header .site-menu>summary>span:first-child { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
  .top.room-header .primary-navigation { margin-top:8px; }
- .top.room-header .primary-navigation>a { min-height:52px; flex-direction:column; gap:2px; padding:4px 3px; font-size:.875rem; }
+ .top.room-header .primary-navigation>a { min-height:60px; flex-direction:column; gap:2px; padding:4px 3px; font-size:.875rem; }
  .top.room-header .destination-emblem { width:26px; height:25px; border-radius:3px; }
  .top.room-header .destination-emblem>svg { width:18px; height:18px; }
  .top.room-header .site-menu-panel { inset-inline:12px; width:auto; max-width:none; max-height:calc(100dvh - 172px); padding:0; }

@@ -3,7 +3,7 @@ import { getCopy } from '../lib/i18n.js';
 import RoomLightControls from './RoomLightControls.astro';
 import { DOOR_COPY } from '../data/door-copy.js';
 import { ATMOSPHERE_COPY } from '../data/room-atmosphere.js';
-const { kind='home', locale='en' }=Astro.props;
+const { kind='home', locale='en', presentation='home' }=Astro.props;
 const t=getCopy(locale), d=DOOR_COPY[locale];
 const atmosphere=ATMOSPHERE_COPY[locale];
 const settings={airports:'airport', universities:'campus', hospitals:'hospital'};
@@ -13,7 +13,7 @@ const outside=settings[kind] || 'airport';
   <div class="room-architecture" dir="ltr" data-room-scenery data-architecture="panorama">
    <div class="room-canvas">
     <div class="room-wall" aria-hidden="true"></div>
-    <p class="room-wall-quote" lang={locale} dir={locale==='ar'?'rtl':'ltr'}>{atmosphere.invitation.map(line=><span>{line}</span>)}</p>
+    {presentation!=='home'&&<p class="room-wall-quote" lang={locale} dir={locale==='ar'?'rtl':'ltr'}>{atmosphere.invitation.map(line=><span>{line}</span>)}</p>}
     <div class="door-surround room-window-surround">
       <div class="room-window-frame" id="room-panorama">
         <div class={`door-outside outside-${outside}`} role="img" aria-label={`${atmosphere.illustration}. ${d.outside}${t.nav[kind in settings?kind:'airports']}`}>

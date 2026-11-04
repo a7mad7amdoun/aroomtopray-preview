@@ -8,34 +8,38 @@
   --room-day:url('/art/daylight-room/day-1774.webp');
   --room-night:url('/art/arrival-room/night-1774.webp');
   --visual-shadow:0 2px 3px #14203303,0 16px 40px -26px #14203338;
-  --room-inscription:#142033;
+  --room-inscription:#142033; --room-glass-fallback:#c6cfd4;
 }
-:root[data-theme=dark] { --visual-shadow:0 2px 3px #0002,0 18px 42px -24px #0007; --room-inscription:#f6f0e4; }
-@media(prefers-color-scheme:dark) { :root:not([data-theme=light]) { --visual-shadow:0 2px 3px #0002,0 18px 42px -24px #0007; --room-inscription:#f6f0e4; } }
+:root[data-theme=dark] { --visual-shadow:0 2px 3px #0002,0 18px 42px -24px #0007; --room-inscription:#f6f0e4; --room-glass-fallback:#263238; }
+@media(prefers-color-scheme:dark) { :root:not([data-theme=light]) { --visual-shadow:0 2px 3px #0002,0 18px 42px -24px #0007; --room-inscription:#f6f0e4; --room-glass-fallback:#263238; } }
 /* The home welcome has its own crafted light study; practical pages retain
    the approved, quieter room. Both plates share the exact window/mat geometry. */
 .room-environment[data-room-presentation=home] {
   --room-day:url('/art/artful-room/day-1774.webp');
   --room-night:url('/art/artful-room/night-1774.webp');
+  --arrival-scene-track:1.18fr; --arrival-reading-track:.82fr;
+  --arrival-canvas-width:100%; --arrival-room-ratio:2/1;
+  --arrival-blend-start:55%; --arrival-blend-end:59%;
+  --arrival-light-right:calc(41% + 16px); --arrival-search-gap:0;
 }
 html .room-environment[data-room-presentation] .room-layout>.room-main { padding-top:0; }
 .room-environment .room-stage {
-  display:grid; grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  display:grid; grid-template-columns:minmax(0,var(--arrival-scene-track,1.08fr)) minmax(0,var(--arrival-reading-track,.92fr));
   grid-template-rows:auto auto; align-items:center; gap:0; direction:ltr;
   max-width:none; margin:0 calc(-1 * var(--room-gutter)) var(--room-stage-gap); padding:0;
   border:0; border-radius:0; background:transparent; box-shadow:none; container-type:normal;
 }
 .room-environment .room-architecture {
   position:relative; grid-column:1/-1; grid-row:1; z-index:0; inset:auto;
-  display:block; width:100%; height:auto; min-height:0; margin:0; aspect-ratio:50/23;
+  display:block; width:100%; height:auto; min-height:0; margin:0; aspect-ratio:var(--arrival-room-ratio,50/23);
   border:0; border-radius:0; overflow:hidden; pointer-events:none;
   background:transparent; container-type:inline-size;
 }
-.room-environment .room-canvas { left:0; top:0; bottom:auto; width:92%; height:auto; aspect-ratio:2/1; }
+.room-environment .room-canvas { left:0; top:0; bottom:auto; width:var(--arrival-canvas-width,92%); height:auto; aspect-ratio:2/1; }
 /* A modestly wider reading track leaves the complete mat before 50%. The
    room blends into the opaque reading wall at 54%, clear of the introduction. */
 .room-environment .room-architecture::after {
-  display:block; background:linear-gradient(90deg,transparent 50%,var(--bg) 54%);
+  display:block; background:linear-gradient(90deg,transparent var(--arrival-blend-start,50%),var(--bg) var(--arrival-blend-end,54%));
 }
 .room-environment .room-canvas::after {
   display:block; background:linear-gradient(transparent 99%,var(--bg)),linear-gradient(90deg,var(--bg),transparent 2%);
@@ -56,8 +60,8 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
 .room-wall-quote:lang(ar) { font-family:var(--f-arabic); font-size:clamp(.875rem,1.5cqi,1.5rem); font-weight:600; letter-spacing:0; line-height:1.85; }
 .room-environment[data-room-presentation] .room-arrival-copy {
   position:relative; z-index:2; grid-column:2; grid-row:1; display:block;
-  width:100%; margin:0; padding:clamp(28px,3vw,48px) var(--room-gutter) clamp(28px,3vw,48px) 28px;
-  border:0; border-radius:0; background:transparent; box-shadow:none;
+  width:auto; margin:28px var(--room-gutter) 28px 0; padding:clamp(24px,2.6vw,40px);
+  border:1px solid var(--line); border-radius:14px; background:var(--surface); box-shadow:var(--visual-shadow);
 }
 /* Airport arrivals keep the practical departure-sign surface and its explicit
    palette. The wider guide below remains theme-aware, just like other places. */
@@ -69,11 +73,14 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
   display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px 24px;
   width:auto; margin-inline:var(--room-gutter); padding:16px 0; border:0; border-bottom:1px solid var(--line);
 }
-.room-scene-tools .room-atmosphere-controls { width:100%; justify-content:space-between; gap:16px; }
+.room-scene-tools .room-atmosphere-controls { display:grid; grid-template-columns:minmax(0,1fr) auto; width:100%; min-height:48px; align-items:center; gap:16px; }
+/* Reserve the native control before its enhancement loads, including wrapped
+   labels. No-JavaScript visitors still have no inactive tour button. */
+.room-scene-tools .room-scene-caption { min-width:0; min-height:3.2em; margin:0; }
 /* A physical light plaque on the quiet upper wall, outside the scenery canvas
    so scroll fading never reduces the contrast of an interactive control. */
 .room-architecture .room-light-panel {
-  position:absolute; z-index:5; top:9%; right:calc(46% + 16px);
+  position:absolute; z-index:5; top:9%; right:var(--arrival-light-right,calc(46% + 16px));
   display:flex; align-items:center; gap:2px; padding:8px;
   border:1px solid var(--field); border-radius:7px;
   background:var(--surface); color:var(--ink); box-shadow:0 2px 5px #101a2814;
@@ -94,14 +101,31 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
 .room-environment:is([data-room-presentation=detail],[data-room-presentation=support]) .room-architecture { max-width:1120px; }
 .room-environment:is([data-room-presentation=detail],[data-room-presentation=support]) .room-arrival-copy { padding-block:28px; }
 .room-main .room-arrival-copy h1 { font-weight:650; letter-spacing:-.035em; }
-.room-main .room-home-intro h1 {
-  font-size:clamp(3.1rem,5.3vw,5.5rem); line-height:1.03; max-width:14ch; font-weight:780; font-stretch:112%; letter-spacing:-.045em; text-wrap:balance;
+/* The invitation is the editorial welcome, not tiny decoration on a wall.
+   Its translation stays exact; the separate welcome is not part of the Adhan. */
+.room-main .room-home-intro {
+  display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr); align-items:end;
+  gap:28px 56px; max-width:var(--room-reading-width); margin:0 auto;
+  padding:clamp(32px,4vw,58px) 0 32px; min-height:0;
 }
-.room-main .room-home-line { margin:16px 0 20px; color:var(--muted); font:450 clamp(1.35rem,2vw,1.875rem)/1.4 var(--f-display); letter-spacing:-.02em; }
+.room-main .home-title-block,.room-main .home-welcome-copy { min-width:0; }
+.room-main .room-home-intro .room-eyebrow { display:flex; align-items:center; gap:10px; margin:0 0 20px; font-size:.9375rem; font-weight:550; }
+.room-main .room-home-intro .room-eyebrow>span { width:24px; height:3px; border-radius:0; background:var(--selection-mark); }
+.room-main .room-home-intro h1 {
+  margin:0; font:600 clamp(3.25rem,5.8vw,6rem)/1.08 'Room Inscription',Georgia,serif;
+  max-width:none; letter-spacing:-.045em; text-wrap:balance; font-synthesis:none;
+}
+.room-main .room-home-intro h1>span { display:block; font-weight:inherit; color:var(--ink); }
+.room-main .room-home-intro h1>span+span { margin-top:.06em; }
+.room-main .room-home-line { margin:0 0 14px; color:var(--ink); font:600 clamp(1.5rem,2.2vw,2rem)/1.3 var(--f-display); letter-spacing:-.025em; }
+.room-main .home-welcome-copy .room-introduction { margin:0; max-width:35ch; color:var(--muted); font-size:1.125rem; line-height:1.7; }
+.room-main .home-search-intro { margin:24px 0 0; color:var(--muted); font-size:1rem; line-height:1.7; }
+.room-environment[data-room-presentation=home] .room-arrival-copy { border-top:3px solid var(--sign); }
+.room-environment[data-room-presentation=home] .place-search>label { font-size:1.375rem; line-height:1.35; letter-spacing:-.02em; }
 .room-main .room-arrival-copy .room-introduction { max-width:53ch; line-height:1.7; }
 .room-main .room-arrival-copy .room-eyebrow { letter-spacing:.02em; margin-bottom:18px; }
 .room-main .room-arrival-copy .room-eyebrow>span { width:7px; height:7px; border-radius:50%; }
-.room-main .room-arrival-copy .place-search { margin-top:28px; }
+.room-main .room-arrival-copy .place-search { margin-top:var(--arrival-search-gap,28px); }
 .room-main .room-arrival-copy .place-search>label { font-weight:650; margin-bottom:12px; }
 .room-main .place-search-field {
   min-height:72px; border-radius:8px; border-color:var(--field);
@@ -109,9 +133,9 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
 }
 .room-main .place-search-field:focus-within { border-color:var(--focus); box-shadow:0 0 0 3px color-mix(in srgb,var(--focus) 16%,transparent); }
 .room-main .place-search-field button { width:48px; height:48px; border-radius:5px; }
-.room-main .arrival-coverage { display:flex; align-items:baseline; flex-wrap:wrap; gap:12px 30px; margin:24px 0 0; padding:0; border:0; }
-.room-main .arrival-coverage>div { display:flex; align-items:baseline; flex-wrap:wrap; gap:8px; min-width:0; }
-.room-main .arrival-coverage dd { margin:0; font:600 1.5rem/1.25 var(--f-display); letter-spacing:-.025em; font-variant-numeric:tabular-nums; color:var(--ink); }
+.room-main .arrival-coverage { display:flex; align-items:baseline; flex-wrap:wrap; gap:20px 32px; margin:28px 0 0; padding:24px 0 0; border:0; border-top:1px solid var(--line); }
+.room-main .arrival-coverage>div { display:flex; flex-direction:column; align-items:start; gap:6px; min-width:0; }
+.room-main .arrival-coverage dd { margin:0; font:650 2.25rem/1.1 var(--f-display); letter-spacing:-.025em; font-variant-numeric:tabular-nums; color:var(--ink); }
 .room-main .arrival-coverage dt { order:2; font-size:.9375rem; line-height:1.6; color:var(--muted); }
 .room-main .arrival-actions { margin-top:24px; padding-top:16px; gap:8px 24px; }
 .room-main .arrival-guide-link { font-size:.9375rem; }
@@ -130,24 +154,26 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
 
 
 @media(max-width:1100px) and (min-width:761px) {
-  .room-main .room-home-intro h1 { font-size:clamp(3.2rem,5vw,4.25rem); }
-  .room-environment[data-room-presentation] .room-arrival-copy { padding-block:28px; padding-left:18px; }
+  .room-environment[data-room-presentation] .room-arrival-copy { padding:24px; }
   .room-environment[data-room-setting=airports] .room-arrival-copy { padding:24px; }
 }
 @media(max-width:1000px) {
   .room-environment .room-stage { grid-template-columns:minmax(0,1fr); }
-  .room-environment .room-architecture { grid-column:1; grid-row:1; width:100%; max-width:600px; margin-inline:auto; aspect-ratio:4/3; }
+  .room-environment .room-architecture { grid-column:1; grid-row:2; width:100%; max-width:600px; margin-inline:auto; aspect-ratio:4/3; }
   .room-environment .room-canvas { width:150%; }
   .room-environment:not([data-room-presentation=home]) .room-architecture { max-width:420px; }
   .room-environment .room-architecture::after { display:none; }
-  .room-architecture .room-light-panel { right:12px; top:3%; }
+  .room-architecture .room-light-panel { right:12px; top:3%; flex-direction:column; gap:6px; padding:6px; }
+  .room-light-settings>.appearance-controls { top:0; right:calc(100% + 12px); max-height:calc(min(75vw,315px) - 96px); overflow-y:auto; }
   .room-wall-quote { top:37%; }
   .room-wall-quote:lang(ar) { line-height:1.6; }
   .room-environment .room-art-note { width:42%; }
-  .room-environment .room-scene-tools { grid-column:1; grid-row:2; }
-  .room-environment[data-room-presentation] .room-arrival-copy { grid-column:1; grid-row:3; padding:28px var(--room-gutter) 8px; }
-  .room-environment[data-room-setting=airports] .room-arrival-copy { margin:24px var(--room-gutter) 0; padding:24px; }
-  .room-main .room-home-intro h1 { max-width:21ch; }
+  .room-environment .room-scene-tools { grid-column:1; grid-row:3; }
+  .room-environment[data-room-presentation] .room-arrival-copy { grid-column:1; grid-row:1; margin:20px var(--room-gutter) 24px; padding:28px; }
+  .room-environment[data-room-setting=airports] .room-arrival-copy { margin:20px var(--room-gutter) 24px; padding:24px; }
+  .room-main .room-home-intro { grid-template-columns:1fr; gap:22px; padding-block:32px 24px; }
+  .room-main .home-welcome-copy { display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1fr); gap:24px; align-items:start; }
+  .room-main .room-home-line { margin:0; }
 }
 @media(max-width:760px) {
   :root {
@@ -161,16 +187,22 @@ html .room-environment[data-room-presentation] .room-layout>.room-main { padding
   .room-environment .room-scene-tools { gap:12px; padding:14px 0; }
   .room-scene-tools .room-atmosphere-controls { width:100%; }
   .room-environment[data-room-presentation] .room-arrival-copy { padding-top:28px; }
-  .room-main .room-home-intro h1 { font-size:clamp(2.8rem,10vw,3.75rem); }
+  .room-main .room-home-intro h1 { font-size:clamp(2.5rem,8.2vw,4.25rem); }
+  .room-main .home-welcome-copy { grid-template-columns:1fr; gap:10px; }
+  .room-main .home-welcome-copy .room-introduction { font-size:1rem; max-width:42ch; }
+  .room-main .room-home-line { font-size:1.25rem; }
+  .room-environment[data-room-presentation] .room-arrival-copy { padding:24px; }
   .room-main .room-arrival-copy .room-eyebrow { margin-bottom:18px; }
   .room-main .room-arrival-copy .room-introduction { font-size:1.0625rem; }
   .room-main .place-search-field { min-height:64px; }
 }
+html[dir=rtl] .room-main .room-home-intro h1 { font-family:var(--f-arabic); font-size:clamp(2.75rem,5.8vw,5.5rem); line-height:1.45; letter-spacing:0; }
 html[dir=rtl] .room-main .room-arrival-copy h1 { letter-spacing:0; line-height:1.45; }
 html[dir=rtl] .room-main .room-home-line { letter-spacing:0; line-height:1.7; }
 @media print {
   .room-environment .room-stage { display:block; border:0; background:none; box-shadow:none; }
   .room-environment .room-scene-tools,.room-architecture .room-light-panel { display:none; }
   .room-environment[data-room-presentation] .room-arrival-copy { padding:0; border:0; background:#fff; box-shadow:none; }
+  .room-main .room-home-intro { display:block; padding:0 0 20pt; }
   .room-main .room-home-intro h1 { font-size:24pt; }
 }
