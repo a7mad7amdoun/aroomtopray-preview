@@ -350,7 +350,7 @@ html[dir=rtl] .notice-arrow { rotate:180deg; }
 .door-notice-airports:is(:hover,:focus-visible) { border-color:#ffcf41; }
 .room-scene-caption {
  grid-column:1/-1; display:flex; align-items:center; gap:8px; margin:0;
- color:var(--muted); font:400 .78rem/1.5 var(--f-body);
+ color:var(--muted); font:400 .875rem/1.6 var(--f-body);
 }
 .room-scene-caption svg { flex:none; color:var(--ink); }
 .room-scene-caption b { color:var(--ink); font-weight:600; }
@@ -374,7 +374,6 @@ html[dir=rtl] .door-action-caption,html[dir=rtl] .room-scene-caption { font-fami
  .door-action-caption { display:block; min-height:0; font-size:.63rem; }
  .door-action-caption svg { display:none!important; }
  html[dir=rtl] .door-action-caption { font-size:.75rem; }
- .room-scene-caption { font-size:.74rem; }
  .room-light>small { font-size:.72rem; }
  .room-utilities { grid-template-columns:1fr auto; }
  .room-utilities .room-focus-button { justify-self:end; }

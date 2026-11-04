@@ -103,8 +103,7 @@
   color:var(--ink);
 }
 
-.room-environment[data-room-setting=airports] .room-arrival-copy,
-.room-environment[data-room-presentation=home] .door-notice-airports .notice-information {
+.room-environment[data-room-setting=airports] .room-arrival-copy {
   color-scheme:dark;
   --bg:#101a28;
   --surface:#182536;
@@ -178,8 +177,7 @@
     --alert:#9b2b22; --alert-bg:#ffffff; --mute-bg:#f2f2ee;
     --floating-surface:#ffffff;
   }
-  .room-environment[data-room-setting=airports] .room-arrival-copy,
-  .room-environment[data-room-presentation=home] .door-notice-airports .notice-information {
+  .room-environment[data-room-setting=airports] .room-arrival-copy {
     color-scheme:light;
     --bg:#ffffff; --surface:#ffffff; --surface-2:#f2f2ee;
     --ink:#142033; --muted:#465263; --line:#bac0c8; --field:#647184;

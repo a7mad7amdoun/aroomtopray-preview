@@ -13,7 +13,8 @@ const declarations = (selector) => {
 const light = declarations(':root,');
 const dark = { ...light, ...declarations(':root[data-theme=dark]') };
 const systemDark = { ...light, ...declarations(':root:not([data-theme=light])') };
-const airport = { ...light, ...declarations('.room-environment[data-room-setting=airports] .room-arrival-copy,') };
+const airportSelector = '.room-environment[data-room-setting=airports] .room-arrival-copy';
+const airport = { ...light, ...declarations(airportSelector) };
 
 const luminance = (hex) => {
   assert.match(hex, /^#[\da-f]{6}$/i, 'Contrast is tested against opaque production colours');
@@ -75,7 +76,7 @@ test('reading surfaces are opaque in both modes and airport scope explicitly est
       assert.equal(palette[surface], 'var(--surface)', 'Artwork must not alter the tested reading contrast');
     }
   }
-  const start = css.indexOf('.room-environment[data-room-setting=airports] .room-arrival-copy,');
+  const start = css.indexOf(airportSelector);
   const block = css.slice(css.indexOf('{', start), css.indexOf('}', start));
   assert.match(block, /color:\s*var\(--ink\);/, 'Local --ink alone does not change an inherited CSS color');
   assert.match(block, /color-scheme:\s*dark;/, 'Native controls must follow the local navy panel');

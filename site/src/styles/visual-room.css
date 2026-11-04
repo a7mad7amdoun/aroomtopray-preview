@@ -40,9 +40,10 @@
 }
 .room-main .place-search-field:focus-within { border-color:var(--focus); box-shadow:0 0 0 3px color-mix(in srgb,var(--focus) 16%,transparent); }
 .room-main .place-search-field button { width:48px; height:48px; border-radius:5px; }
-.room-main .arrival-coverage { gap:20px; margin-top:24px; padding-top:24px; }
-.room-main .arrival-coverage dd { font-size:2.5rem; font-weight:600; }
-.room-main .arrival-coverage dt { font-size:.9375rem; }
+.room-main .arrival-coverage { display:flex; align-items:baseline; flex-wrap:wrap; gap:12px 30px; margin:24px 0 0; padding:0; border:0; }
+.room-main .arrival-coverage>div { display:flex; align-items:baseline; flex-wrap:wrap; gap:8px; min-width:0; }
+.room-main .arrival-coverage dd { margin:0; font:600 1.5rem/1.25 var(--f-display); letter-spacing:-.025em; font-variant-numeric:tabular-nums; color:var(--ink); }
+.room-main .arrival-coverage dt { order:2; font-size:.9375rem; line-height:1.6; color:var(--muted); }
 .room-main .arrival-actions { margin-top:24px; padding-top:16px; gap:8px 24px; }
 .room-main .arrival-guide-link { font-size:.9375rem; }
 .room-main .place-arrival .d-code { width:72px; min-width:72px; height:72px; border-radius:6px; }

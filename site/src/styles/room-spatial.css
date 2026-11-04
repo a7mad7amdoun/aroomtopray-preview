@@ -74,11 +74,6 @@ html[data-door-arrival=preparing] .room-environment .door-skin::after,
 .room-main .place-search-field button { width:48px; height:48px; border-radius:2px; }
 .room-main .place-search-results { text-align:start; z-index:10; max-height:440px; overflow-y:auto; overscroll-behavior:contain; border-radius:4px; }
 /* Coverage counts listings, including records still awaiting confirmation. */
-.arrival-coverage { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px 24px; margin:22px 0 0; padding-top:18px; border-top:1px solid var(--line); }
-.arrival-coverage>div { display:flex; flex-direction:column; gap:4px; min-width:0; }
-.arrival-coverage>div+div { border-inline-start:1px solid var(--line); padding-inline-start:24px; }
-.arrival-coverage dt { order:2; color:var(--muted); font-size:.9rem; line-height:1.45; }
-.arrival-coverage dd { margin:0; color:var(--ink); font:650 clamp(2.1rem,3vw,3rem)/1 var(--f-display); letter-spacing:-.04em; font-variant-numeric:tabular-nums; }
 .arrival-actions { display:flex; flex-wrap:wrap; align-items:center; gap:8px 22px; margin-top:18px; padding-top:14px; border-top:1px solid var(--line); }
 .room-main .arrival-actions .reception-trigger { background:transparent; border:0; padding:0; border-radius:0; font-weight:500; font-size:.9rem; justify-content:start; min-height:44px; }
 .arrival-guide-link { display:inline-flex; align-items:center; min-height:44px; gap:12px; text-decoration:none; color:var(--ink); font-size:.9rem; font-weight:600; }
@@ -109,10 +104,9 @@ html[data-door-arrival=preparing] .room-environment .door-skin::after,
 .room-environment .room-console { position:relative; z-index:0; inset:auto; width:auto; padding:18px 0 0; margin:0; display:block; background:none; border:0; }
 .room-environment[data-room-presentation=home] .room-console { border-top:0; }
 .room-environment .room-wayfinding { position:static; inset:auto; width:auto; padding:0; margin:0; }
-.room-destinations-heading { display:flex; justify-content:space-between; align-items:end; gap:24px; margin:0 0 18px; }
 .room-environment .room-wayfinding-label { position:static; width:auto; height:auto; overflow:visible; clip-path:none; margin:0 0 8px; padding:0; font-size:.8rem; letter-spacing:.03em; color:var(--muted); }
 .room-main .room-destinations-heading h2 { max-width:24ch; font:650 clamp(1.9rem,2.7vw,2.75rem)/1.12 var(--f-display); letter-spacing:-.035em; margin:0; text-wrap:balance; }
-.room-illustration-label { max-width:27ch; flex:none; font-size:.67rem; line-height:1.6; color:var(--muted); text-align:end; }
+.room-illustration-label { display:block; margin-top:12px; font-size:.875rem; line-height:1.6; color:var(--muted); }
 .room-environment .door-notices { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; margin:0; padding:0; }
 .room-environment .door-notice { position:relative; display:flex; flex-direction:column; justify-content:flex-start; min-width:0; min-height:0; padding:0; border:1px solid var(--line); border-radius:3px; background:var(--surface); color:var(--ink); box-shadow:none; transform:none; overflow:hidden; text-decoration:none; transition:border-color 180ms var(--room-ease),box-shadow 180ms var(--room-ease); }
 .room-environment .door-notice::before { display:none; }
@@ -124,8 +118,6 @@ html[data-door-arrival=preparing] .room-environment .door-skin::after,
 .guide-source-credit:has(.source-provenance) { margin-top:48px; }
 .notice-art { position:relative; display:block; width:100%; aspect-ratio:16/10; overflow:hidden; background:#e9dfc8; }
 .notice-art img { display:block; width:100%; height:100%; object-fit:cover; }
-.notice-emblem { position:absolute; top:12px; inset-inline-start:12px; display:grid; place-items:center; width:42px; height:42px; color:var(--sign); background:#162131; border:1px solid #ffc62966; border-radius:4px; box-shadow:0 2px 8px #0002; }
-.notice-emblem svg { width:25px; height:25px; }
 .room-environment[data-room-presentation=home] .door-notice-title { grid-template-columns:minmax(0,1fr) 20px; }
 .room-environment[data-room-presentation=home] .door-notice-title>svg:first-child { display:none; }
 .notice-information { display:flex; flex-direction:column; padding:24px; border-top:3px solid var(--sign); }
@@ -140,19 +132,14 @@ html[data-door-arrival=preparing] .room-environment .door-skin::after,
 .notice-description { margin-top:18px; padding-top:16px; border-top:1px solid var(--line); font-size:.84rem; color:var(--muted); line-height:1.65; }
 .room-environment .room-utilities { display:none; }
 
-.room-atmosphere-controls { display:flex; align-items:center; justify-content:space-between; gap:12px 24px; flex-wrap:wrap; margin:0 0 16px; padding:0 0 10px; border-bottom:1px solid var(--line); }
-.room-atmosphere-controls [data-room-cycle] { display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:44px; padding:8px 14px; border:1px solid var(--field); border-radius:4px; background:var(--surface); color:var(--ink); font:500 .78rem/1.4 var(--f-body); cursor:pointer; }
+.room-atmosphere-controls [data-room-cycle] { display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:44px; padding:8px 14px; border:1px solid var(--field); border-radius:4px; background:var(--surface); color:var(--ink); font:500 .875rem/1.4 var(--f-body); cursor:pointer; }
 .room-atmosphere-controls [data-room-cycle]:is(:hover,:focus-visible) { border-color:var(--ink); background:var(--surface-2); }
 .room-cycle-icon { flex:none; }
 .room-cycle-icon .cycle-play,[data-room-cycle][data-paused=true] .cycle-pause { display:none; }
 [data-room-cycle][data-paused=true] .cycle-play { display:block; }
-.room-environment:not([data-room-presentation=home]) .room-atmosphere-controls { margin:0; padding:12px 24px; }
 .room-environment .door-notice-entry { display:flex; flex-direction:column; min-width:0; overflow:hidden; border:1px solid var(--floating-line); border-radius:12px; background:var(--floating-surface); box-shadow:var(--floating-shadow); transition:border-color 160ms ease; }
 @media(hover:hover) { .room-environment[data-room-presentation=home] .door-notice-entry:has(.door-notice:hover) { border-color:var(--field); } }
 .room-environment .door-notice-entry>.door-notice { flex:1; border:0; border-radius:0; background:transparent; box-shadow:none; }
-.room-environment[data-room-presentation=home] .door-notice-airports .notice-information { --ink:#f6f3e8; --muted:#c0c9d5; --line:#40516a; color:var(--ink); background:#162131; }
-.room-environment[data-room-presentation=home] .door-notice-universities .notice-information { border-top-color:#a28765; background:var(--surface); }
-.room-environment[data-room-presentation=home] .door-notice-hospitals .notice-information { border-top-color:#72889e; background:var(--surface); }
 .notice-photo-credit { display:flex; flex-direction:column; gap:5px; margin:0; padding:14px 20px; border-top:1px solid var(--line); color:var(--muted); font:400 .7rem/1.6 var(--f-body); }
 .notice-photo-credit a { color:inherit; text-decoration:underline; text-decoration-color:var(--field); text-underline-offset:3px; }
 .notice-photo-credit a:is(:hover,:focus-visible) { color:var(--ink); text-decoration-color:currentColor; }
@@ -165,8 +152,6 @@ html[dir=rtl] .room-atmosphere-controls [data-room-cycle],html[dir=rtl] .notice-
 .room-environment[data-room-presentation=home] .door-notice { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.6fr); gap:0; align-items:stretch; }
 .room-environment[data-room-presentation=home] .notice-art { height:100%; min-height:210px; aspect-ratio:auto; }
 .room-environment[data-room-presentation=home] .notice-information { min-width:0; padding:20px; border-top:0; border-inline-start:3px solid var(--sign); }
-.room-environment[data-room-presentation=home] .door-notice-universities .notice-information { border-inline-start-color:#a28765; }
-.room-environment[data-room-presentation=home] .door-notice-hospitals .notice-information { border-inline-start-color:#72889e; }
 .room-environment[data-room-presentation=home] .notice-kicker { font-size:.72rem; margin-bottom:10px; }
 .room-environment[data-room-presentation=home] .door-notice-title { grid-template-columns:minmax(0,1fr) 20px; gap:8px; }
 .room-environment[data-room-presentation=home] .door-notice-title>svg:first-child { display:none; }
@@ -314,8 +299,6 @@ html[dir=rtl] .room-environment .door-notice-title>b { font-family:var(--f-arabi
  .room-environment .light-switch { width:44px; height:58px; }
  .room-environment .room-light>small { font-size:.65rem; }
  .room-environment .room-art-note { font-size:.6rem; inset:12px 12px auto auto; max-width:55%; }
- .room-destinations-heading { display:block; }
- .room-illustration-label { display:block; max-width:none; text-align:start; margin-top:16px; }
  .room-environment .door-notices { gap:12px; }
  .room-environment[data-room-presentation=home] .door-notices { grid-template-columns:1fr; }
  .room-environment[data-room-presentation=home] .door-notice { grid-template-columns:minmax(0,.65fr) minmax(0,1.7fr); }
@@ -370,8 +353,6 @@ html[dir=rtl] .room-environment .door-notice-title>b { font-family:var(--f-arabi
  .room-environment[data-room-presentation=home] .door-notice { grid-template-columns:88px minmax(0,1fr); }
  .room-environment[data-room-presentation=home] .notice-information { padding:16px 14px; }
  .room-environment[data-room-presentation=home] .notice-art { min-height:180px; }
- .room-environment[data-room-presentation=home] .notice-emblem { top:8px; inset-inline-start:8px; width:36px; height:36px; }
- .room-environment[data-room-presentation=home] .notice-emblem svg { width:23px; height:23px; }
  .room-environment[data-room-presentation=home] .door-notice-title>b { font-size:1.3rem; }
  .room-environment[data-room-presentation=home] .notice-kicker { margin-bottom:7px; }
  .room-environment[data-room-presentation=home] .door-notice-count { margin-top:10px; }
@@ -380,9 +361,6 @@ html[dir=rtl] .room-environment .door-notice-title>b { font-family:var(--f-arabi
  .room-main .category-emblem { width:42px; height:42px; }
  .room-main .directory-title-line { gap:12px; }
  .room-main .directory-title-line h1 { font-size:clamp(1.8rem,7vw,2.25rem); }
- .arrival-coverage { gap:14px; margin-top:18px; padding-top:16px; }
- .arrival-coverage>div+div { padding-inline-start:14px; }
- .arrival-coverage dt { font-size:.83rem; }
  html[dir=rtl] .room-main .room-home-intro h1 { font-size:2.65rem; line-height:1.35; }
  html[dir=rtl] .room-environment[data-room-presentation=home] .door-notice-title>b { font-size:1.4rem; line-height:1.45; }
  .room-main .place-arrival .d-head { display:block; }
