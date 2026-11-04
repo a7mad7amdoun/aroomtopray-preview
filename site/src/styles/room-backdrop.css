@@ -13,9 +13,8 @@
 }
 body.immersive-site { background:var(--bg); }
 html .room-environment { position:relative; display:block; pointer-events:auto; inset:auto; width:100%; min-height:0; height:auto; margin:0; padding:0; border:0; background:transparent; border-radius:0; isolation:isolate; overflow:visible; }
-/* Inner pages retain the doorway, with a shorter arrival before the task. */
+/* Inner pages keep a shorter arrival before the practical guide. */
 .room-environment:not([data-room-presentation=home]) { --room-stage-gap:24px; --room-threshold-gap:16px; --room-opening-height:250px; --room-mobile-canvas:620px; }
-html .room-environment:not([data-room-presentation=home]) .room-architecture { position:fixed; z-index:0; inset:var(--room-header-height) 0 0; width:100%; height:auto; min-height:0; margin:0; aspect-ratio:auto; border:0; border-radius:0; pointer-events:none; overflow:hidden; background:var(--bg); }
 .room-architecture::after { content:''; position:absolute; z-index:1; inset:0; pointer-events:none; background:linear-gradient(90deg,transparent 12%,color-mix(in srgb,var(--bg) 28%,transparent) 48%,var(--bg) 100%); }
 .room-architecture .room-canvas { position:absolute; left:0; top:0; width:min(100vw,calc((100svh - var(--room-header-height)) * 2)); height:auto; aspect-ratio:2/1; transform:none; opacity:1; transition:opacity var(--room-recede-duration) cubic-bezier(.22,.61,.36,1); }
 .room-environment[data-room-reading=true] .room-canvas { opacity:.24; }
@@ -83,9 +82,7 @@ html .immersive-site .site-footer { position:relative; z-index:1; width:100%; ma
 }
 @media(max-width:760px) {
  :root { --room-rail:16px; --room-gutter:16px; }
- /* The registered doorway ends at 38.106% of the canvas width. Reserve
-    enough space for it at every phone width, including the shorter arrival. */
- html .room-environment[data-room-presentation] .room-layout>.room-main { padding-top:max(var(--room-opening-height),calc(38.106vw + 16px)); }
+ /* The room is in document flow; no empty offset is needed above the guide. */
  .room-environment .room-stage { padding-left:0; margin-bottom:24px; }
  .room-architecture .room-canvas { width:max(var(--room-mobile-canvas),100vw); }
  .room-environment .room-art-note { inset:20px 16px auto auto; width:44%; max-width:220px; padding:9px 11px; font-size:.6875rem; }

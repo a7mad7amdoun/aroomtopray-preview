@@ -1,0 +1,80 @@
+{
+  "date": "2026-11-04",
+  "baseline": "2a067775fdc1e1ef42b52d3d81fb05bf09063236",
+  "scope": "Ahmed GitHub Pages preview only",
+  "tests": {
+    "passed": 223,
+    "failed": 0
+  },
+  "build": {
+    "pages": 2177,
+    "brokenLinks": 0,
+    "serverSubmissions": "disabled"
+  },
+  "preservation": {
+    "records": 536,
+    "localizedDetails": 2144,
+    "existingMainLinks": 56959,
+    "existingExternalLinks": 15155,
+    "existingImages": 7555,
+    "existingControls": 29727,
+    "existingArtPhotoFilesUnchanged": 406,
+    "unrelatedMapFilesUntouched": 11
+  },
+  "offlineInteractions": {
+    "localizedRoomScenarios": 24,
+    "localizedDirectoryScenarios": 12,
+    "pageScenarios": 37,
+    "guidePanels": 60,
+    "deepTargets": 77
+  },
+  "sourceGeometry": {
+    "configurations": 168,
+    "checks": 4091,
+    "widths": [
+      360,
+      390,
+      768,
+      844,
+      1024,
+      1440
+    ],
+    "themes": [
+      "light",
+      "dark",
+      "system-dark"
+    ],
+    "directions": [
+      "ltr",
+      "rtl"
+    ],
+    "rendered": false
+  },
+  "contrast": {
+    "existingSemanticPairs": 24,
+    "wallInvitation": [
+      {
+        "mode": "day",
+        "minContrast": 5.308530031236317,
+        "passes": true
+      },
+      {
+        "mode": "night",
+        "minContrast": 5.244975780877154,
+        "passes": true
+      }
+    ]
+  },
+  "limitations": [
+    "Browser rendering of local/preview pages remained unavailable under the earlier URL-policy restriction. Source geometry and offline DOM are not rendered visual validation.",
+    "No real phone or iOS Simulator was used. Final perceived lighting, wrapping and glass motion still need rendered review."
+  ],
+  "artwork": "Generated base plates inspected directly; existing landscape day/night views inspected. New imagery is explicitly labelled imagined, not proof of any listed room.",
+  "contentChanges": [
+    "Added the reference wall invitation in four languages.",
+    "Moved shared room/scenery controls into each page arrival.",
+    "Homepage glass door starts closed; category doors retain open state.",
+    "Updated exact artwork credits while retaining every earlier source link."
+  ],
+  "architecture": "Astro, existing components and scripts retained. No framework change or new animation library."
+}

@@ -1,110 +1,78 @@
-/* Keep the registered aperture and hinge axis. The scenery belongs to the
-   building; only the leaf, glass and attached hardware swing toward the room. */
+/* A transparent wall, not scenery attached to a moving door. The destination
+   remains on one stationary plane; only its left glass leaf and hardware move. */
 :root .room-environment {
-  --door-veneer-shade:#65472912;
-  --door-trim:#96734b;
-  --door-reveal:#60482e;
-  --door-metal-light:#d8d5ca;
-  --door-metal-mid:#9d9d94;
-  --door-metal-dark:#585f5b;
-}
-:root[data-theme=dark] .room-environment {
-  --door-veneer-shade:#29241969;
-  --door-trim:#715537;
-  --door-reveal:#42301f;
-  --door-metal-light:#b6b7aa;
-  --door-metal-mid:#83897e;
-  --door-metal-dark:#3d453e;
-}
-@media(prefers-color-scheme:dark) {
-  :root:not([data-theme=light]) .room-environment {
-    --door-veneer-shade:#29241969;
-    --door-trim:#715537;
-    --door-reveal:#42301f;
-    --door-metal-light:#b6b7aa;
-    --door-metal-mid:#83897e;
-    --door-metal-dark:#3d453e;
-  }
+  --door-trim:#343c3c; --door-reveal:#202729;
+  --door-metal-light:#dddcd4; --door-metal-mid:#a1a7a3; --door-metal-dark:#4a5352;
 }
 .room-environment .door-leaf {
-  border:1px solid var(--door-reveal);
-  box-shadow:inset 1px 0 #fff3,inset -1px 0 #0004,1px 1px 2px #0005;
-}
-.room-environment .door-skin {
-  background-image:linear-gradient(90deg,#0000000d,transparent 8%,transparent 93%,#00000012),
-    linear-gradient(var(--door-veneer-shade),var(--door-veneer-shade)),url('/art/materials/oak-door-face-v2.webp');
-  background-position:center;
-  background-size:100% 100%;
-  background-blend-mode:multiply,multiply,normal;
+  inset:0 auto 0 0; width:33.333333%; border:2px solid var(--door-trim);
+  background:transparent; box-shadow:inset 1px 0 #fff5,1px 1px 3px #0004;
 }
 .room-environment .door-leaf::before {
-  width:clamp(5px,.45vw,8px);
-  background:linear-gradient(90deg,var(--door-trim),var(--door-reveal));
-  box-shadow:inset 0 1px #fff2;
+  width:3px; background:linear-gradient(90deg,#d9e4df80,var(--door-reveal));
+  border:0; box-shadow:inset 0 1px #fff4;
 }
 .room-environment .door-window {
-  border:2px solid var(--door-trim); border-radius:1px;
-  box-shadow:0 0 0 1px var(--door-reveal),0 1px 0 #fff4,inset 1px 1px 3px #0006;
+  inset:0; width:100%; height:100%; border:0; border-radius:0;
+  box-shadow:none; transform:none;
 }
-.room-environment .door-clear-glass {
-  background:linear-gradient(116deg,#d8e5e211,transparent 48%,#f3f1df0d);
+.room-environment .door-clear-glass,
+.room-environment .door-glazing {
+  background:linear-gradient(116deg,#d8e5e218,transparent 48%,#f3f1df15);
+}
+.room-environment .door-glazing {
+  position:absolute; inset:0 0 0 33.333333%; border-left:2px solid var(--door-trim);
+  box-shadow:inset 1px 0 #fff5; pointer-events:none;
+}
+.room-environment .door-glazing::before {
+  content:''; position:absolute; top:0; bottom:0; left:50%; width:2px;
+  background:var(--door-trim); box-shadow:1px 0 #fff4;
+}
+/* A single translucent manifestation band makes the glazing legible. */
+.room-environment .door-glazing::after,
+.room-environment .door-window::after {
+  content:''; position:absolute; left:0; right:0; top:53%; height:2%;
+  background:#f4f3e85e; border-block:1px solid #ffffff30;
 }
 .room-environment .window-reflection {
-  background-image:linear-gradient(116deg,#ffffff12,transparent 37%,#ffffff09 38%,transparent 55%);
-  box-shadow:inset 1px 0 #fff2,inset -1px 0 #0003;
+  background-image:linear-gradient(116deg,#ffffff1a,transparent 37%,#ffffff0c 38%,transparent 55%);
+  box-shadow:inset 1px 0 #fff3,inset -1px 0 #0002;
 }
-/* A lever on a round rose, scaled with the door rather than the viewport.
-   Its short return and axle remain attached to the leaf throughout travel. */
+/* An ordinary brushed-metal pull at a consistent human scale. */
 .room-environment .door-handle {
-  top:60%; right:8%; width:7%; height:auto; min-height:0; aspect-ratio:1;
-  border:1px solid var(--door-metal-dark); border-radius:50%;
-  background:linear-gradient(135deg,var(--door-metal-light),var(--door-metal-mid) 55%,var(--door-metal-dark));
-  box-shadow:inset 0 1px #fff5,1px 1px 2px #0005;
-  transform:translateZ(5px);
+  top:46%; right:9%; width:3%; height:16%; min-height:0; border:1px solid var(--door-metal-dark);
+  border-radius:2px; background:linear-gradient(90deg,var(--door-metal-dark),var(--door-metal-light) 55%,var(--door-metal-mid));
+  box-shadow:2px 1px 3px #0004; transform:translateZ(4px);
 }
-.room-environment .door-handle::before {
-  content:''; position:absolute; inset:28%; border:1px solid #0003; border-radius:50%;
-  background:var(--door-metal-mid); box-shadow:0 1px 1px #0005;
-}
+.room-environment .door-handle::before,
 .room-environment .door-handle::after {
-  top:34%; right:30%; width:205%; height:30%; min-height:2px;
-  border:0; border-inline-start:2px solid var(--door-metal-dark); border-radius:2px;
-  background:linear-gradient(var(--door-metal-light),var(--door-metal-mid) 48%,var(--door-metal-dark));
-  box-shadow:0 2px 2px #0004; transform:translateZ(3px);
+  content:''; position:absolute; left:-60%; width:220%; height:8%;
+  background:var(--door-metal-mid); border:1px solid var(--door-metal-dark); border-radius:1px;
 }
+.room-environment .door-handle::before { top:8%; }
+.room-environment .door-handle::after { top:auto; bottom:8%; right:auto; box-shadow:none; }
 .room-environment .door-hinge {
-  left:-3px; width:4px; height:4%; min-height:12px; border:1px solid #464b4266;
+  left:-3px; width:5px; height:4%; min-height:8px; border:1px solid #464b4266;
   background:linear-gradient(90deg,var(--door-metal-dark),var(--door-metal-light) 45%,var(--door-metal-mid));
-  box-shadow:1px 0 1px #0004;
-}
-.room-environment .door-hinge::after {
-  content:''; position:absolute; inset:22% 0; border-block:1px solid #0003;
-}
-.room-environment .door-hinge-middle { top:48%; }
-.room-environment .door-kickplate {
-  left:6%; width:88%; bottom:2.5%; height:4.5%; opacity:.65;
-  border:1px solid #7b7f7244; border-radius:1px;
-  background:linear-gradient(110deg,#d8d8ca38,#b2b7a745 55%,#737e6b2b);
-  box-shadow:0 1px 1px #0001,inset 0 1px #fff2;
-}
-.room-environment .door-strike {
-  position:absolute; right:-1px; top:59%; width:3px; height:5%;
-  background:linear-gradient(90deg,var(--door-metal-dark),var(--door-metal-light));
-  border:1px solid #0004; transform:translateZ(1px); pointer-events:none;
-}
-.room-environment .door-strike::after {
-  content:''; position:absolute; inset:35% 0; background:#302b22;
+  box-shadow:1px 0 1px #0003;
 }
 .room-environment .door-threshold {
-  position:absolute; left:0; right:0; top:100%; height:3px;
-  background:linear-gradient(#c1b7a0,#827c6c); box-shadow:0 1px 2px #0004;
+  position:absolute; left:0; right:0; top:100%; height:2px;
+  background:linear-gradient(#aaa99c,#595f5a); box-shadow:0 1px 2px #0004;
   transform:translateZ(1px); pointer-events:none;
 }
-.room-environment .door-outside { box-shadow:inset 3px 2px 7px #0005; }
+.room-environment .door-outside { box-shadow:inset 2px 2px 4px #0003; }
+.room-environment .door-outside::after { background:linear-gradient(90deg,#07101b18,transparent 8%); }
+.room-environment .door-floor-light,
+.room-environment .door-swing-shadow { width:33.333333%; }
+.room-environment .door-floor-light { background:linear-gradient(#f4f3e914,transparent); }
 .room-environment .door-room-sign {
+  top:-12%; left:0; width:auto; min-width:33.333333%; max-width:80%; min-height:0; padding:5px 8px;
   border-color:#b4a36a73; background:#162131; color:#ffd24b;
   box-shadow:inset 0 1px #ffffff16,0 2px 4px #0003;
 }
+.room-environment .door-room-sign b { font-size:clamp(.55rem,.85vw,.75rem); }
+.room-environment .door-room-sign svg { width:12px; height:12px; }
 /* Controls give immediate colour feedback. Reading surfaces never lift,
    zoom, drift or enter with an animation. No automatic camera movement. */
 .room-main :is(.destination,.place-portal),

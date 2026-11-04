@@ -7,7 +7,6 @@ import { ATMOSPHERE_COPY, SETTING_PHOTOS, SETTING_PHOTO_LICENSE } from '../data/
 import { airports } from '../lib/airports.js';
 import { universities } from '../lib/universities.js';
 import { hospitals } from '../lib/hospitals.js';
-import RoomSceneControls from './RoomSceneControls.astro';
 
 const { kind='home', locale='en', presentation='home' }=Astro.props;
 const t=getCopy(locale), r=ROOM_COPY[locale], d=DOOR_COPY[locale], q=QUIET_COPY[locale];
@@ -21,7 +20,6 @@ const number=new Intl.NumberFormat(locale);
     <aside class="room-wayfinding" dir={locale==='ar'?'rtl':'ltr'} aria-labelledby="room-wayfinding-label">
      <div class="room-console-heading">
       <header class="room-destinations-heading"><p class="room-wayfinding-label" id="room-wayfinding-label">{q.settings}</p>{presentation==='home'&&<><h2>{q.choose}</h2><span class="room-illustration-label">{atmosphere.examples}</span></>}</header>
-    {presentation!=='home'&&<RoomSceneControls {kind} {locale} {presentation}/>}
      </div>
       <nav class="door-notices" aria-labelledby="room-wayfinding-label">
         {doors.map(([category,icon])=><div class="door-notice-entry"><a href={localizedPath(`/${category}/`,locale)} class={`door-notice door-notice-${category}`} data-door-destination={category} data-door-preview={settings[category]} data-scene-name={t.nav[category]} data-scene-icon={icon} data-scene-label={`${atmosphere.illustration}. ${d.outside}${t.nav[category]}`} data-return-label={d.return} aria-current={kind===category?'location':undefined}>

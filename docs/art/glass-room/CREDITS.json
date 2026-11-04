@@ -1,0 +1,67 @@
+{
+  "title": "Glass-wall prayer room",
+  "created": "2026-11-04",
+  "type": "AI-generated architectural illustration",
+  "tool": "Built-in image_gen",
+  "purpose": "Imagined welcome artwork, not a verified facility or qibla instruction",
+  "geometry": {
+    "width": 1536,
+    "height": 1024,
+    "aperture": {
+      "left": 105,
+      "top": 210,
+      "right": 918,
+      "bottom": 790
+    },
+    "glassDoorFraction": 0.3333333333333333,
+    "prayerFacing": "Solid right-hand wall niche"
+  },
+  "references": [
+    {
+      "url": "https://i.pinimg.com/736x/b1/ce/da/b1cedafec92f0d7658c1c9304c26e289.jpg",
+      "role": "User-supplied visual inspiration: broad transparent wall and airport context. Not reproduced."
+    },
+    {
+      "url": "https://www.pinterest.com/pin/993606736553172649/",
+      "role": "User-supplied prayer-corner reference: solid niche and restrained materials. The English invitation is rendered as live text, translated in other locales."
+    }
+  ],
+  "destinationViews": {
+    "path": "/aroomtopray-preview/art/quiet-threshold/",
+    "credits": "/aroomtopray-preview/art/quiet-threshold/CREDITS.json",
+    "note": "Existing generated landscape pairs, not photographs of listed rooms."
+  },
+  "delivery": "1536px original generation; resized down to1024 and640 with WebP encoding, no upscaling. Transparent glazing, mullions, door motion and all text are rendered separately by the interface.",
+  "files": [
+    {
+      "file": "day-1024.webp",
+      "sha256": "fca9f753644283e89af1c514305f8df05e5b3b695784e73cc133b5be0ec4d644",
+      "bytes": 46816
+    },
+    {
+      "file": "day-1536.webp",
+      "sha256": "d3148c98961b582546cc5216de7de7c9c3542d8ea292721b2dc6b4e3d2a173ca",
+      "bytes": 113856
+    },
+    {
+      "file": "day-640.webp",
+      "sha256": "db7b9809c2dc9446e8948d15c81203e32b133cfd8541bf911e810fa152366cb9",
+      "bytes": 15766
+    },
+    {
+      "file": "night-1024.webp",
+      "sha256": "1f39c75c791afe08ef03f6bd02e4d5506ee46122f752fc937a49e3f55659692e",
+      "bytes": 40190
+    },
+    {
+      "file": "night-1536.webp",
+      "sha256": "f2d6e72a49b26bc3ef21adb1bbc5cbac3a3e2121f342fddc85b0edc961409562",
+      "bytes": 95562
+    },
+    {
+      "file": "night-640.webp",
+      "sha256": "d1f4dccc59cf7a59066e4c61b577d2c880e6b6e2f014f8766525ccac96a819a9",
+      "bytes": 13986
+    }
+  ]
+}

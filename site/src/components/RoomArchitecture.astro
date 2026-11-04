@@ -10,9 +10,10 @@ const settings={airports:'airport', universities:'campus', hospitals:'hospital'}
 const scenes=kind in settings?[settings[kind]]:['airport','campus','hospital'];
 const outside=settings[kind] || 'airport';
 ---
-  <div class="room-architecture" dir="ltr" data-room-scenery>
+  <div class="room-architecture" dir="ltr" data-room-scenery data-architecture="glass">
    <div class="room-canvas">
     <div class="room-wall" aria-hidden="true"></div>
+    <p class="room-wall-quote" lang={locale} dir={locale==='ar'?'rtl':'ltr'}>{atmosphere.invitation.map(line=><span>{line}</span>)}</p>
     <div class="door-surround">
           <span class="door-room-sign" dir={locale==='ar'?'rtl':'ltr'}><svg width="20" height="20" aria-hidden="true"><use href="#i-mark"/></svg><b>{r.room}</b></span>
       <div class="door-frame" id="room-doorway">
@@ -22,16 +23,14 @@ const outside=settings[kind] || 'airport';
         <span class="door-floor-light" aria-hidden="true"></span>
         <span class="door-swing-shadow" aria-hidden="true"></span>
         <span class="door-threshold" aria-hidden="true"></span>
-        <span class="door-strike" aria-hidden="true"></span>
+        <span class="door-glazing" aria-hidden="true"></span>
         <div class="door-leaf" aria-hidden="true">
-          <span class="door-skin"></span>
           <div class="door-window">
             <span class="door-clear-glass"></span>
             <span class="window-reflection"></span>
           </div>
           <span class="door-handle" aria-hidden="true"></span>
-          <span class="door-kickplate" aria-hidden="true"></span>
-          <span class="door-hinge door-hinge-top"></span><span class="door-hinge door-hinge-middle"></span><span class="door-hinge door-hinge-bottom"></span>
+          <span class="door-hinge door-hinge-top"></span><span class="door-hinge door-hinge-bottom"></span>
         </div>
 
       </div>

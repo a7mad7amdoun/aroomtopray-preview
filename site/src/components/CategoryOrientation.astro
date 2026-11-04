@@ -13,6 +13,9 @@ const c = t.directories[category];
 const g = GUIDE_COPY[language];
 const emblem = { airports: 'airport', universities: 'campus', hospitals: 'care' }[category];
 const scene = { airports: 'airport', universities: 'campus', hospitals: 'hospital' }[category];
+// These wide concept views keep the whole setting visible inside the board.
+// The caption below distinguishes them from sourced photographs of a place.
+const artStyle = ['light', 'dark'].map(theme => `--view-${scene}-${theme}:image-set(url('/art/quiet-threshold/${scene}-${theme}-768.webp') 1x,url('/art/quiet-threshold/${scene}-${theme}-1536.webp') 2x)`).join(';');
 const symbols = {
   airports: ['search', 'security', 'door-open'],
   universities: ['campus', 'key', 'clock'],
@@ -30,7 +33,7 @@ const headingId = `orientation-${category}`;
       </div>
       <h2 id={headingId}>{c.wayfindingTitle}</h2>
     </div>
-    <figure class="orientation-art">
+    <figure class="orientation-art" style={artStyle}>
       <ThemeArt {scene}/>
       <figcaption>{ATMOSPHERE_COPY[language].illustration}</figcaption>
     </figure>

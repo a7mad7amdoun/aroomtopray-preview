@@ -1,0 +1,38 @@
+A ROOM TO PRAY — GLASS ROOM / INTERACTIVE GUIDE
+Design and implementation brief · 2026-11-04
+
+PURPOSE
+Refine Ahmed's authorized review preview, preserving Hamza's directory, practical care and attribution. A simple interactive guide: search, choose a place, understand access, then find the room or use the existing request tools. No game mechanics, simulated availability or invented institutional claims.
+
+REFERENCES AND WHAT TO TAKE FROM EACH
+1. https://i.pinimg.com/736x/b1/ce/da/b1cedafec92f0d7658c1c9304c26e289.jpg
+   User-supplied airport prayer-room photograph, inspected in the browser. Take the broad transparent wall, slender dark framing, ordinary carpeting, quiet lighting and clear airport context.
+2. https://www.pinterest.com/pin/993606736553172649/
+   User-supplied contemporary prayer-corner collage, inspected in the browser. Take the solid prayer-facing niche, restrained mineral surfaces and daylight admitted beside/above the prayer space. Do not copy its text, plants, furnishings or decorative complexity.
+3. https://aroomtopray.com/
+   Hamza's original directory. Preserve the airport-sign idea, restrained yellow/navy/ivory identity and source-led answers: location, access/security, hours, wudu, women's facilities and qibla. Keep existing attribution and user-controlled requests.
+4. https://www.panynj.gov/content/dam/airports/pdfs/pa-wayfinding-manual-executive-summary.pdf
+   Functional wayfinding reference: clear label/symbol pairing and consistent information hierarchy.
+
+SYNTHESIS
+Hamza's strongest idea is clarity: practical facts presented with the familiarity of public-building signs. Ahmed's strongest idea is arrival: a quiet prayer room that lets the visitor understand the busy setting outside. Combine them by making the room the welcome, and the board the working guide. Reading must remain stable and independent of scenic motion.
+
+ARCHITECTURE
+Create a restrained, plausible room with a broad glazed wall at left and a solid prayer-facing niche at right. The fully visible mat points toward the niche, never toward a door or glass. One left glass leaf opens; two fixed panes remain still. Glass reflections, safety band, slim mullions and metal pull are native CSS so the destination never rotates with the door. All functional text is rendered in HTML. Add the reference’s invitation, “Come to prayer, come to success,” as two crisp live-text lines centered on the niche axis. Translate it naturally into French, Arabic and Spanish. Keep the reflection restrained and transparent in both modes.
+Use the same registered3:2 architecture in daylight and evening. Match material and aperture coordinates. The setting may change, but the room geometry stays stable. Use the existing coherent landscape airport, campus and hospital pairs; disclose that these are imagined architectural illustrations. Retain actual photographs and their licences separately.
+Home begins with the glass door closed and the airport visible through it. Category doors open. Retain the deliberate open/close action and immediate native navigation. Keep opt-in slow view exploration, pause, reduced-motion and data-saving safeguards. No cursor parallax, moving type or loading gate.
+
+PAGE COMPOSITION
+Show the complete room beside the introduction, never behind text. Use equal-width, symmetric room and information columns across page types. Share one RoomArchitecture component on home, category, detail and support pages. Place appearance/door controls above, current setting and exploration immediately below the artwork, and the search/details alongside. Stack cleanly below1000px. Full-width practical guide follows. Preserve a native return-to-room link.
+Keep all guide tabs, search suggestions, filters, country navigation, maps, context, visitor tools and source links. Do not create a duplicate room browser. Airport navigation borrows a navy/yellow departure rail; campus uses a paper notice treatment; hospital uses a calm information-board edge. Keep a shared font and token system across all three.
+Single entries retain their existing detail cards, prominent restrictions, facilities, sources, photographs, source dates and next actions. Improve their arrival composition, not their facts.
+
+DESIGN DISCIPLINE
+Reuse Archivo and the existing Arabic type system. Keep the established theme tokens rather than introducing a new palette. Use legible selected states, generous44px controls, quiet borders and consistent padding. No fake institutional logos, pseudo departure times, patient/test-result data, ornamental status badges or claims that every building grants access.
+Use natural material light, restrained shadows and glass transparency. Do not animate the page's reading surface. Avoid extreme cropping: preserve the whole mat and niche and use landscape views in landscape frames.
+Implement within Astro and the existing component/style architecture. Edit owning rules, remove superseded conflicting declarations when directly affected, and do not add an override stylesheet. Keep unrelated map work untouched.
+
+EVIDENCE AND DELIVERY
+Preserve all536 current place records,4languages, generated routes, source links, existing artwork and visitor tools. Add no room facts without a reliable source. Save prompts and asset credits, distinguish imagery from evidence, and retain all earlier credits.
+Validate existing tests, exported routes/assets, offline interactions, text/links preservation, contrast and geometry at360/390/tablet/desktop. Browser rendering of the preview remains unavailable under the earlier URL-policy restriction; do not mislabel source geometry as visual testing.
+Publish only the authorized Ahmed GitHub Pages preview after checks. Never modify aroomtopray.com.

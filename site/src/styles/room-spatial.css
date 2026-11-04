@@ -26,7 +26,7 @@ body.immersive-site { background:radial-gradient(ellipse at 18% 450px,#b49a7020,
 .room-environment .door-surround { left:2.4803%; top:19.955%; bottom:auto; width:12.8523%; height:56.257%; min-height:0; }
 /* Deliberate hinge travel with a cushioned settle; no navigation waits for it. */
 .room-environment { --door-motion:1300ms cubic-bezier(.4,0,.2,1); }
-.room-environment[data-door-state=open] { --door-angle:-74deg; --door-motion:1100ms cubic-bezier(.22,.61,.36,1); }
+.room-environment[data-door-state=open] { --door-angle:-62deg; --door-motion:1100ms cubic-bezier(.22,.61,.36,1); }
 /* Prepare every physical layer together, before the first painted arrival. */
 html[data-door-arrival=preparing] .room-environment { --door-angle:0deg; }
 html[data-door-arrival=preparing] .room-environment .door-skin::after { opacity:0; }

@@ -83,24 +83,24 @@ html[dir=rtl] .room-layout>.room-main { direction:rtl; }
  --door-angle:0deg;
  --door-motion:820ms cubic-bezier(.22,.61,.36,1);
  --door-veneer-shade:rgba(174,114,46,.48);
- --door-trim:#9b713f;
- --door-reveal:#6f4e2a;
+ --door-trim:#343c3c;
+ --door-reveal:#202729;
  --door-hardware:#5f625c;
  --notice-paper:#f7f6f0;
  --notice-care-paper:#edf0ef;
 }
 :root[data-theme=dark] .room-environment {
  --door-veneer-shade:rgba(99,62,29,.72);
- --door-trim:#73502c;
- --door-reveal:#3e2919;
+ --door-trim:#343c3c;
+ --door-reveal:#202729;
  --door-hardware:#b7b7a9;
  --notice-paper:#e1ded4;
  --notice-care-paper:#dae0de;
 }
 @media(prefers-color-scheme:dark) { :root:not([data-theme=light]) .room-environment {
  --door-veneer-shade:rgba(99,62,29,.72);
- --door-trim:#73502c;
- --door-reveal:#3e2919;
+ --door-trim:#343c3c;
+ --door-reveal:#202729;
  --door-hardware:#b7b7a9;
  --notice-paper:#e1ded4;
  --notice-care-paper:#dae0de;

@@ -14,7 +14,7 @@
   margin-block:0 var(--reading-gap);
   border:1px solid var(--line);
   border-radius:var(--reading-radius);
-  background:var(--surface-2);
+  background:var(--tabs-surface,var(--surface-2));
   box-shadow:none;
 }
 .room-main #guide-content .guide-tabs>:is(a,button) {
@@ -24,25 +24,52 @@
   gap:10px;
   border:1px solid transparent;
   border-radius:6px;
-  color:var(--muted);
+  color:var(--tabs-ink,var(--muted));
   font-size:1rem;
   font-weight:550;
   line-height:1.5;
   transition:background-color 120ms ease,color 120ms ease,border-color 120ms ease;
 }
 .room-main #guide-content .guide-tabs>:is(a,button)>svg { width:21px; height:21px; }
-.room-main #guide-content .guide-tabs>:is(a,button):hover { background:var(--surface); color:var(--ink); }
+.room-main #guide-content .guide-tabs>:is(a,button):hover { background:var(--tabs-hover,var(--surface)); color:var(--tabs-hover-ink,var(--ink)); }
 .room-main #guide-content .guide-tabs>:is(a,button)[aria-selected=true] {
-  background:var(--board);
-  color:var(--board-ink);
-  border-color:var(--board);
+  background:var(--tabs-selected,var(--board));
+  color:var(--tabs-selected-ink,var(--board-ink));
+  border-color:var(--tabs-selected,var(--board));
   box-shadow:none;
   font-weight:650;
 }
 .room-main #guide-content .guide-tabs>:is(a,button)::after { inset-inline:16px; bottom:0; height:3px; border-radius:1px 1px 0 0; transition:none; }
-.room-main #guide-content .guide-tabs>:is(a,button)[aria-selected=true]::after { background:var(--sign); transform:scaleX(1); }
-.room-main #guide-content .guide-tabs>:is(a,button)[aria-selected=true]>svg { color:var(--sign); }
+.room-main #guide-content .guide-tabs>:is(a,button)[aria-selected=true]::after { background:var(--tabs-accent,var(--sign)); transform:scaleX(1); }
+.room-main #guide-content .guide-tabs>:is(a,button)[aria-selected=true]>svg { color:var(--tabs-accent,var(--sign)); }
 .room-main #guide-content .guide-tabs>:is(a,button):focus-visible { outline:3px solid var(--focus); outline-offset:2px; }
+
+/* The same directory has three familiar sign materials. Only the navigation
+   and identifying edge change; the records keep the current reading palette. */
+.directory-workspace {
+  --directory-binding:var(--field);
+  --directory-heading-surface:var(--surface-2);
+  --directory-identifier-surface:var(--surface);
+  --directory-identifier-ink:var(--ink);
+}
+html[data-sector=airports] .directory-workspace {
+  --directory-binding:var(--sign);
+  --directory-identifier-surface:var(--board);
+  --directory-identifier-ink:var(--board-ink);
+}
+html[data-sector=airports] .directory-mode-tabs {
+  --tabs-surface:var(--board);
+  --tabs-ink:var(--board-dim);
+  --tabs-hover:var(--board-cell);
+  --tabs-hover-ink:var(--board-ink);
+  --tabs-selected:var(--sign);
+  --tabs-selected-ink:var(--sign-ink);
+  --tabs-accent:var(--sign-ink);
+}
+html[data-sector=universities] .directory-workspace { --directory-heading-surface:var(--surface); }
+html[data-sector=hospitals] .directory-workspace { --directory-binding:var(--selection-mark); }
+.room-main #guide-content .directory-mode-tabs { border-block-start:3px solid var(--directory-binding); }
+html[data-sector=airports] .room-main #guide-content .directory-mode-tabs>button:focus-visible { outline-color:var(--sign); outline-offset:1px; }
 
 /* Section headings sit on a common grid rather than another decorative card. */
 #guide-content :is(.panel-heading,.discovery-heading,.insight-heading) {
@@ -56,8 +83,8 @@
 #guide-content .directory-access-note { margin-block:0 24px; align-items:flex-start; gap:10px; }
 #guide-content .directory-access-note>svg { flex:none; margin-block-start:3px; }
 
-/* The result heading and pagination frame the records without another box. */
-#guide-content .results-toolbar { padding-block:0 20px; margin-block:0 0; border-block-end:1px solid var(--line); }
+/* A quiet board heading keeps the result controls with their records. */
+#guide-content .results-toolbar { padding:18px 20px; margin:0; border:1px solid var(--line); border-inline-start:3px solid var(--directory-binding); border-radius:6px; background:var(--directory-heading-surface); }
 #guide-content .results-toolbar h2 { margin:0; }
 #guide-content .results-toolbar .browse-tools { gap:12px; }
 #guide-content .results-toolbar :is(select,.seg) { border-radius:6px; }
@@ -81,8 +108,8 @@
   gap:8px;
   border-color:var(--line);
   border-radius:6px;
-  background:var(--surface);
-  color:var(--ink);
+  background:var(--directory-identifier-surface);
+  color:var(--directory-identifier-ink);
   font-family:var(--f-body);
   font-size:.875rem;
   font-variant-numeric:tabular-nums;
@@ -104,7 +131,7 @@
   border-radius:var(--reading-radius);
   box-shadow:var(--reading-shadow);
 }
-#guide-content .directory-workspace .list[data-view=cards] .directory-result .code { min-height:30px; padding:0; background:transparent; border:0; }
+#guide-content .directory-workspace .list[data-view=cards] .directory-result .code { min-height:30px; padding:0; background:transparent; color:var(--ink); border:0; }
 #guide-content .directory-workspace .list[data-view=cards] .directory-result .row-arrow { top:26px; inset-inline-end:24px; }
 #guide-content .directory-workspace .list[data-view=cards] .directory-result .nm { gap:0; }
 
@@ -237,7 +264,7 @@
   .room-main #guide-content .guide-tabs>:is(a,button) { min-height:58px; padding:12px 8px; gap:7px; }
   #guide-content .directory-workspace .list:not([data-view=cards]) .directory-result.lrow { padding:22px 0; gap:14px; }
   #guide-content .directory-workspace .list[data-view=cards] .directory-result.lrow { padding:22px; }
-  #guide-content .results-toolbar { gap:18px; }
+  #guide-content .results-toolbar { gap:18px; padding:16px; }
   #guide-content .room .facts>.fact-essential { padding:16px; }
   #guide-content .insight-grid { grid-template-columns:1fr; }
   #guide-content .official-field-note { grid-template-columns:1fr; }
@@ -269,6 +296,8 @@ html[dir=rtl] .room-main .directory-photo strong { line-height:1.65; letter-spac
   .room-main { --reading-gap:18pt; --reading-inset:14pt; --reading-shadow:none; }
   #guide-content :is(.d-main>.room,.insight-card,.place-photo-grid>figure),.room-main .directory-photo { background:#fff; box-shadow:none; break-inside:avoid; }
   #guide-content .directory-workspace .directory-result.lrow { box-shadow:none; }
+  #guide-content .results-toolbar { padding:10pt 0; border:0; border-block-end:1px solid var(--line); border-radius:0; background:#fff; }
+  html[data-sector] .directory-workspace { --directory-identifier-surface:#fff; --directory-identifier-ink:#142033; }
   #guide-content .insight-actions .insight-action { background:#fff; color:#142033; }
   #guide-content :is(.panel-heading,.discovery-heading,.insight-heading) { padding-block-end:10pt; }
   #guide-content .source-provenance { margin-block:16pt; }

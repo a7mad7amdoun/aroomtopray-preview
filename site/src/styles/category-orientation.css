@@ -24,7 +24,7 @@
 .category-orientation .orientation-heading { display:grid; grid-template-columns:minmax(0,1fr); align-items:center; gap:24px; padding:var(--orientation-pad); }
 .category-orientation .orientation-title-block { min-width:0; }
 .category-orientation .orientation-art { min-width:0; margin:0; overflow:hidden; border:1px solid color-mix(in srgb,currentColor 22%,transparent); border-radius:7px; }
-.category-orientation .orientation-art>.concept-art { width:100%; aspect-ratio:2.2; max-height:160px; }
+.category-orientation .orientation-art>.concept-art { width:100%; aspect-ratio:3/2; background-size:contain; background-repeat:no-repeat; }
 .category-orientation .orientation-art figcaption { margin:0; padding:10px 12px; font-size:var(--guide-meta,.875rem); line-height:1.6; color:var(--orientation-muted); }
 .category-orientation .orientation-running-line { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px 24px; margin-block-end:24px; }
 .category-orientation .orientation-category { display:flex; align-items:center; gap:12px; font-size:1rem; line-height:1.5; font-weight:650; }
@@ -61,20 +61,11 @@
 
 /* Campus notice: warm paper and a quiet navy binding, without another font. */
 .category-orientation--universities {
-  --orientation-ink:#172539;
-  --orientation-muted:#526071;
-  --orientation-line:#d9d6cb;
-  --orientation-surface:#f7f3e9;
-  --orientation-note:#eee9dd;
   --orientation-symbol-bg:var(--orientation-note);
   --orientation-symbol-ink:var(--orientation-ink);
-  border-top:5px solid var(--board);
+  border-top:5px solid var(--orientation-ink);
 }
 .category-orientation--universities .orientation-running-line { padding-block-end:18px; border-bottom:1px solid var(--orientation-line); }
-:root[data-theme=dark] .category-orientation--universities { --orientation-ink:#eee9dd; --orientation-muted:#c2c7cb; --orientation-line:#48515a; --orientation-surface:#27313c; --orientation-note:#212a35; }
-@media(prefers-color-scheme:dark) {
-  :root:not([data-theme=light]) .category-orientation--universities { --orientation-ink:#eee9dd; --orientation-muted:#c2c7cb; --orientation-line:#48515a; --orientation-surface:#27313c; --orientation-note:#212a35; }
-}
 
 /* Hospital reception: an identifiable header and a calm reading surface. */
 .category-orientation--hospitals .orientation-heading { background:var(--board); color:var(--board-ink); }
@@ -86,7 +77,6 @@
    translated headings aligned; separators occupy the gap, never text space. */
 @container category-orientation (min-width:700px) {
   .category-orientation .orientation-heading { grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:32px; }
-  .category-orientation .orientation-art>.concept-art { aspect-ratio:16/9; max-height:none; }
   .category-orientation .orientation-steps { grid-template-columns:repeat(3,minmax(0,1fr)); column-gap:48px; padding-block:30px; }
   .category-orientation .orientation-steps>li { grid-template-columns:minmax(0,1fr); gap:16px; padding:0; border:0; }
   .category-orientation .orientation-steps>li+li::before { content:""; position:absolute; inset-block:0; inset-inline-start:-24px; width:1px; background:var(--orientation-line); }
