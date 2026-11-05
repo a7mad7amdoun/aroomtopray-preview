@@ -1,4 +1,5 @@
 ---
+import RoomPicker from './RoomPicker.astro';
 import { photosForPlace } from '../lib/place-photos.js';
 const { place, kind, food = false } = Astro.props;
 const airport = kind === 'Airport';
@@ -19,5 +20,5 @@ const copy = airport
     {food && <a href="#halal-h">Food listings <span aria-hidden="true">↓</span></a>}
     {kind === 'Hospital' && place.chaplaincy && <a href="#chap-h">Chaplaincy <span aria-hidden="true">↓</span></a>}
   </nav>
-  {place.spaces.length > 1 && <details class="room-picker"><summary>Choose a room or location <span>{place.spaces.length} listings</span></summary><ol>{place.spaces.map((s, i) => <li><a href={`#room-${i + 1}`}><span class="tnum">{String(i + 1).padStart(2, '0')}</span><span class="room-picker-copy"><strong>{s.name}</strong><small>{s.loc}</small></span><span aria-hidden="true">↗</span></a></li>)}</ol></details>}
+  <RoomPicker {place} kind={kind==='Airport'?'airports':kind==='University'?'universities':'hospitals'}/>
 </section>

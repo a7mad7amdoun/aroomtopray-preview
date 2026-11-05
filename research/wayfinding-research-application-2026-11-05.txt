@@ -1,0 +1,92 @@
+A ROOM TO PRAY — RESEARCH APPLICATION BRIEF
+
+Primary research: outputs/site-inspiration/a-room-to-pray.md, A01–A12.
+Apply A01 (Pearson wayfinding), A05 (prayer-room distinctions) and A11 (summary-list
+information structure) to the existing design. Preserve the accepted room/glass
+transitions, homepage-only Allah calligraphy, larger-text setting, palette, fonts,
+artwork and all four languages. Architectural references A06/A07 guide restraint
+and proportion; they supply no facts about listed rooms. Life Is Temporary is not
+an identity source for this site. Pinterest links are discovery searches, not
+inspected pins. Do not recreate buildings or change sacred lettering in this pass.
+
+OUTCOME
+Visitors should make fewer uncertain clicks. The route from choosing a setting,
+to finding a place, to comparing rooms, to checking the source should be explicit.
+Use the navy/yellow sign language for destinations and essential information,
+while keeping the architectural room calm and untouched. Improve hierarchy through
+alignment, purposeful surfaces, readable labels and native links rather than more
+animation or a different design system.
+
+DESTINATIONS / A01
+Retain the large documentary photographs and full-frame crops, exact credits,
+existing category layouts and category-link behavior. Give each home destination
+a recognisable navy sign with the existing yellow accent, familiar symbol and
+readable category title. Add the existing translated action wording to make the
+next step explicit. The complete card remains one native link. Do not nest another
+button or make the arrow a separate target. Keep the three signs part of one family;
+a campus and hospital do not need competing typography or palettes. Preserve focus,
+reduced motion, RTL order and print readability. Add no loading or hover delays.
+
+RESULTS / A05
+Show the published access/security and hours alongside the existing facilities.
+A common value is safe only when every room reports the same value. If records
+differ, say that they vary by room and direct the visitor to the details. If some
+rooms are unknown, do not present the known room as representative of all rooms.
+If no value is stated, preserve that uncertainty. Unchecked/held places retain
+an explicit checking state. Do not derive permission to enter from the existence
+of a room, a photograph, or a facility flag. Keep additional airport access
+conditions visible when supplied; do not truncate them into an unqualified label.
+
+Do not add practical summaries to places with no listed spaces. Preserve the
+original status, qibla, facilities, photo metadata, location, country, filtering
+attributes and record link. Translate interface labels and established vocabulary;
+preserve original source prose with English language/direction metadata where
+needed. Build the value logic as a small pure helper with tests for missing,
+conflicting and qualified data. No inference of live opening status or current
+availability is permitted.
+
+ROOM CHOICE / A05 + A11
+Consolidate the repeated English/localized room selector into one shared component.
+Retain the existing labels, room numbers, exact names, locations and deep links.
+Inside the optional selector, show each room's actual security/access and hours
+so a visitor can compare before jumping. Keep links keyboard accessible and usable
+without JavaScript. Do not add a second search widget or a modal. Long names,
+conditions and untranslated source prose must wrap, not clip. Shared factual
+formatting should agree with the directory summary without claiming that filters
+or facilities belong to every room.
+
+FACT SHEETS / A11
+Keep the semantic description lists and all existing values, warnings and source
+links. Align labels with values in calm horizontal rows where the available width
+allows it. On narrow screens stack each label directly above its value. Use the
+existing navy panel treatment for access/security/hours, with light text and a
+yellow edge. Secondary facts use quiet dividing rules. Do not make a giant
+comparison table that requires horizontal scrolling. Keep sources attached to
+the corresponding room. Maintain Arabic reading rhythm, larger text, print
+contrast and source language. Do not collapse restrictions to make the layout
+look shorter.
+
+ENGINEERING
+Use the established Astro components and owning styles. Do not add an overriding
+stylesheet, CSS framework, runtime HTML-rewriting script, dependency or raster
+payload. Preserve directory search/filter/sort/map behavior and all existing
+visitor tools. Work in an isolated checkout so the eleven pending map files remain
+byte-for-byte unchanged. Preserve factual data files, exact assets and sources.
+
+VERIFICATION
+Run existing tests plus focused aggregation tests. Build all routes. Compare
+existing room details and sources against the baseline, accounting specifically
+for the added summary/selector fields and action labels. Check each language's
+native links, room-picker anchors, single reading control and homepage-only
+calligraphy. Exercise built interactions and directory behavior. Inspect responsive
+source rules for 360/390px, enlarged text, RTL, tablet and desktop. Do not describe
+these checks as rendered visual review: browser rendering remains unavailable under
+the existing session restriction. Keep this limitation explicit. Publish only the
+authorized GitHub Pages preview and verify representative served files.
+
+References actually consulted for this pass:
+A01 https://www.pentagram.com/work/toronto-pearson-airport/story
+A05 https://www.heathrow.com/at-the-airport/terminal-facilities/multi-faith-prayer-rooms
+A07 https://marinatabassumarchitects.com/bait-ur-rouf-jame-mosque/
+A11 https://service-manual.nhs.uk/design-system/components/summary-list
+These are design precedents, not affiliations or newly imported facility records.

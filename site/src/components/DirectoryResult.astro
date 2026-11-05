@@ -1,4 +1,5 @@
 ---
+import { visitSummary } from '../lib/visit-summary.js';
 import CountryFlag from './CountryFlag.astro';
 import { countryCode, countryName, countrySearchText } from '../lib/countries.js';
 import { getCopy, localizedPath, translateTerm, formatCount } from '../lib/i18n.js';
@@ -18,13 +19,14 @@ const fields=[
  {icon:'qibla',label:t.common.qibla,value:`${formatCount(Math.round(p.qibla),locale)}°`},
 ];
 ---
-<a class="lrow directory-result" href={localizedPath(p.url,locale)} aria-labelledby={`${id}-name`} aria-describedby={`${id}-location ${id}-status`}
+<a class="lrow directory-result" href={localizedPath(p.url,locale)} aria-labelledby={`${id}-name`} aria-describedby={`${id}-location ${id}-status${p.spaces.length ? ` ${id}-visit` : ''}`}
  data-name={p.name} data-location={p.city} data-country={countryCode(p.country)} data-region={airport?p.region:p.country} data-status={p.status} data-halal={hasHalal?'1':'0'} data-rooms={JSON.stringify(p.rooms)} data-text={[p.iata,p.name,p.city,p.country,translateTerm(p.country,locale),countrySearchText(p.country),p.group].filter(Boolean).join(' ')}>
  <span class="code"><CountryFlag country={p.country}/><bdi>{p.iata||countryCode(p.country)}</bdi></span>
  <span class="nm">
   <b id={`${id}-name`} dir="auto">{airport?p.short:p.name}</b>
   <span class="result-location" id={`${id}-location`}><bdi>{p.city}</bdi><span aria-hidden="true"> · </span>{countryName(p.country,locale)}</span>
   <span class="mob mob-s" id={`${id}-status`}><span class={`pill ${statusClass}`}>{status}</span></span>
+  {p.spaces.length>0&&<span class="result-visit-summary" id={`${id}-visit`}>{visitSummary(p,kind,locale).map(field=><span class="result-visit-fact"><span class="result-visit-label"><svg width="16" height="16" aria-hidden="true"><use href={`#i-${field.icon}`}/></svg>{field.label}</span><span class="result-visit-value" lang={field.lang} dir={field.dir}>{field.value}</span></span>)}</span>}
   <span class="row-facilities">{fields.map(field=><span class="result-fact"><svg width="16" height="16" aria-hidden="true"><use href={`#i-${field.icon}`}/></svg><span class="result-fact-label">{field.label}</span><span class="result-fact-value"><bdi>{field.value}</bdi></span></span>)}</span>
   {photo&&<span class="result-photo-note"><svg width="14" height="14" aria-hidden="true"><use href="#i-photo"/></svg>{PHOTO_COPY[locale].kinds[photo.kind]}<span aria-hidden="true"> · </span>{photoYear}</span>}
  </span>
@@ -43,6 +45,12 @@ const fields=[
  .directory-result .result-fact .result-fact-value { grid-column:2; margin:0; font-size:1rem; font-weight:550; line-height:1.45; color:var(--ink); overflow-wrap:anywhere; }
  .directory-result .result-photo-note { display:flex; align-items:center; gap:5px; font-size:var(--guide-meta); margin-top:12px; }
  .result-photo-note svg { flex:none; }
+ .directory-result .result-visit-summary { display:grid; gap:12px; margin-block:16px; padding:16px; border:1px solid var(--line); border-radius:6px; background:var(--surface-2); }
+ .directory-result .result-visit-fact { display:grid; gap:4px; min-width:0; }
+ .directory-result .result-visit-label { display:flex; align-items:center; gap:7px; color:var(--muted); font-size:var(--guide-meta); line-height:1.5; }
+ .directory-result .result-visit-label svg { flex:none; }
+ .directory-result .result-visit-value { color:var(--ink); font-size:var(--guide-label); font-weight:550; line-height:1.6; overflow-wrap:anywhere; }
+
  :global(.room-main .directory-workspace .list[data-view=cards]) .directory-result { box-shadow:0 1px 2px #0f1c2e08; border-radius:5px; }
  :global(.room-main .directory-workspace .list[data-view=cards]) .directory-result .code { margin-bottom:4px; }
  @container prayer-guide (min-width:680px) {
@@ -52,7 +60,8 @@ const fields=[
   :global(.room-main .directory-workspace .list:not([data-view=cards])) .directory-result .nm { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:4px 28px; align-items:start; }
   :global(.room-main .directory-workspace .list:not([data-view=cards])) .directory-result .nm>b { grid-column:1; grid-row:1; }
   :global(.room-main .directory-workspace .list:not([data-view=cards])) .directory-result :is(.result-location,.mob-s,.result-photo-note) { grid-column:1; margin-top:2px; }
-  :global(.room-main .directory-workspace .list:not([data-view=cards])) .directory-result .row-facilities { grid-column:2; grid-row:1/5; padding:6px 0 6px 24px; padding-inline:24px 0; margin:0; border-top:0; border-inline-start:1px solid var(--line); align-self:center; }
+  :global(.room-main .directory-workspace .list:not([data-view=cards])) .directory-result .row-facilities { grid-column:1/-1; padding:16px 0 0; margin:12px 0 0; border-top:1px solid var(--line); border-inline-start:0; }
+  :global(.room-main .directory-workspace .list:not([data-view=cards])) .directory-result .result-visit-summary { grid-column:2; grid-row:1/5; margin:0; align-self:start; }
  }
  @container prayer-guide (max-width:400px) {
   :global(.room-main .directory-workspace) .directory-result.lrow { grid-template-columns:40px minmax(0,1fr) 16px; padding:18px 0; gap:10px; }

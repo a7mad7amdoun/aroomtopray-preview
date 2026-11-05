@@ -62,23 +62,25 @@
 }
 #prayer-room[data-room-presentation=home] .notice-sign {
   display:block;
-  padding:0;
-  border:0;
-  background:transparent;
-  color:var(--ink);
+  padding:18px;
+  border:1px solid var(--board-cell);
+  border-inline-start:3px solid var(--sign);
+  border-radius:6px;
+  background:var(--board);
+  color:var(--board-ink);
 }
 #prayer-room[data-room-presentation=home] .notice-kicker {
   display:block;
   margin:0 0 7px;
-  font-size:.8125rem;
+  font-size:var(--guide-meta);
   line-height:1.5;
   font-weight:550;
-  color:var(--muted);
+  color:var(--board-dim);
   letter-spacing:.01em;
 }
 #prayer-room[data-room-presentation=home] .door-notice-title {
   display:grid;
-  grid-template-columns:22px minmax(0,1fr) 32px;
+  grid-template-columns:22px minmax(0,1fr);
   gap:8px;
   align-items:center;
 }
@@ -88,26 +90,33 @@
   height:22px;
   padding:0;
   outline:0;
-  color:var(--selection-mark);
+  color:var(--sign);
 }
 #prayer-room[data-room-presentation=home] .door-notice-title>b {
+  color:var(--board-ink);
   font:650 clamp(1.25rem,1.8vw,1.75rem)/1.25 var(--f-display);
   letter-spacing:-.02em;
   hyphens:none;
   overflow-wrap:anywhere;
 }
-#prayer-room[data-room-presentation=home] .door-notice-title>.notice-arrow {
+#prayer-room[data-room-presentation=home] .notice-action>.notice-arrow {
   display:block;
-  width:32px;
-  height:32px;
-  padding:7px;
-  border:1px solid var(--line);
+  width:40px;
+  height:40px;
+  padding:10px;
+  border:1px solid var(--sign);
   border-radius:6px;
-  color:var(--ink);
-  background:var(--surface-2);
+  color:var(--sign-ink);
+  background:var(--sign);
   transform:none;
   transition:color 160ms ease-out;
 }
+#prayer-room[data-room-presentation=home] .notice-action {
+  display:flex; align-items:center; justify-content:space-between; gap:18px;
+  margin-block-start:22px; padding-block-start:16px; border-top:1px solid var(--line);
+  color:var(--ink); font-size:var(--guide-label); font-weight:650; line-height:1.5;
+}
+#prayer-room[data-room-presentation=home] .notice-action>svg { flex:none; }
 #prayer-room[data-room-presentation=home] .door-notice-count {
   display:flex;
   align-items:baseline;
@@ -151,8 +160,9 @@
 }
 #prayer-room[data-room-presentation=home] .notice-photo-credit a { text-decoration-thickness:1px; }
 #prayer-room[data-room-presentation=home] .door-notice:is(:hover,:focus-visible) .notice-arrow {
-  color:var(--selection-mark);
-  background:transparent;
+  color:var(--sign-ink);
+  background:var(--sign);
+  box-shadow:inset 0 0 0 1px var(--sign-ink);
   transform:none;
 }
 #prayer-room[data-room-presentation=home] .door-notice:is(:focus-visible,[data-previewed]) {
@@ -203,7 +213,6 @@
   color:var(--ink);
 }
 #prayer-room:not([data-room-presentation=home]) .door-notice-title>b { font-size:1.125rem; line-height:1.5; }
-#prayer-room:not([data-room-presentation=home]) .door-notice-title>.notice-arrow { display:none; }
 #prayer-room:not([data-room-presentation=home]) .notice-information { padding:20px 22px; }
 #prayer-room:not([data-room-presentation=home]) .door-notice-count { font-size:.875rem; margin-top:10px; }
 #prayer-room:not([data-room-presentation=home]) .door-notice[aria-current] .notice-information { border-top-color:var(--sign); }
@@ -220,14 +229,15 @@ html[dir=rtl] #prayer-room[data-room-presentation=home] .notice-description { fo
 html[dir=rtl] #prayer-room[data-room-presentation=home] .notice-photo-credit { font-size:.875rem; line-height:1.7; }
 @media(prefers-reduced-motion:reduce) {
   #prayer-room[data-room-presentation=home] .door-notice-entry,
-  #prayer-room[data-room-presentation=home] .door-notice-title>.notice-arrow { transition:none; }
+  #prayer-room[data-room-presentation=home] .notice-action>.notice-arrow { transition:none; }
 }
 @media print {
   #prayer-room[data-room-presentation=home] .door-notice-entry { box-shadow:none; break-inside:avoid; }
   #prayer-room[data-room-presentation=home] .notice-information,
   #prayer-room[data-room-presentation=home] .notice-sign { background:#fff; color:#142033; }
   #prayer-room[data-room-presentation=home] .notice-kicker { color:#465263; }
+  #prayer-room[data-room-presentation=home] .door-notice-title>b { color:#142033; }
   #prayer-room[data-room-presentation=home] .door-notice-count strong,
   #prayer-room[data-room-presentation=home] .door-notice-title>svg:first-child,
-  #prayer-room[data-room-presentation=home] .door-notice-title>.notice-arrow { color:#142033; }
+  #prayer-room[data-room-presentation=home] .notice-action>.notice-arrow { color:#142033; }
 }

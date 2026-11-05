@@ -1,4 +1,5 @@
 ---
+import RoomPicker from './RoomPicker.astro';
 import PlacePhotos from './PlacePhotos.astro';
 import PlaceOverview from './PlaceOverview.astro';
 import VisitorArtwork from './VisitorArtwork.astro';
@@ -158,7 +159,7 @@ const amenity = (group, key) => common.amenities[group][key] || common.amenities
     <section class="visit-intro" aria-labelledby="visit-intro-title">
       <div class="visit-intro-copy"><span class="icon-tile"><svg width="28" height="28" aria-hidden="true"><use href="#i-pin" /></svg></span><div><h2 id="visit-intro-title">{t.before}</h2><p>{intro}</p></div></div>
       <nav class="page-jumps" aria-label={t.onPage}><a href="#room-details">{t.details} <span aria-hidden="true">↓</span></a><a href="#qibla">{t.qibla} <span aria-hidden="true">↓</span></a>{photosForPlace(place.url).length>0&&<a href="#place-photos"><svg width="17" height="17" aria-hidden="true"><use href="#i-photo"/></svg>{PHOTO_COPY[locale].title}<span aria-hidden="true">↓</span></a>}{place.chaplaincy && <a href="#chap-h">{t.chaplaincy} <span aria-hidden="true">↓</span></a>}</nav>
-      {place.spaces.length > 1 && <details class="room-picker"><summary>{t.choose} <span>{place.spaces.length}</span></summary><ol>{place.spaces.map((space, index) => <li><a href={`#room-${index + 1}`}><span class="tnum">{String(index + 1).padStart(2, '0')}</span><span class="room-picker-copy"><strong><bdi lang="en">{space.name}</bdi></strong><small lang="en" dir="ltr">{space.loc}</small></span><span aria-hidden="true">↗</span></a></li>)}</ol></details>}
+      <RoomPicker {place} {kind} {locale} label={t.choose} countLabel={String(place.spaces.length)}/>
     </section>
     <PlaceActions {place} kind={noteKind} />
     <aside class="translation-notice note"><p>{t.sourceNotice}</p><a href={place.url} hreflang="en">{t.original} <span aria-hidden="true">↗</span></a></aside>
