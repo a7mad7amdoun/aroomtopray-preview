@@ -1,5 +1,5 @@
 /* Self-hosted SVG flags retain their symbols and colors in both appearances. */
-img.country-flag { display:inline-block; width:28px; height:21px; flex:none; object-fit:contain; vertical-align:middle; border-radius:2px; background:#fff; box-shadow:0 0 0 1px #10203026; filter:none; }
+img.country-flag { display:inline-block; width:32px; height:24px; flex:none; object-fit:contain; vertical-align:middle; border-radius:2px; background:#fff; box-shadow:0 0 0 1px #10203026; filter:none; }
 .country-badge-compact img.country-flag,.place-search-meta img.country-flag { width:24px; height:18px; }
 .country-card h3>span { min-width:0; overflow-wrap:anywhere; }
 .country-card h3>small { flex:none; }

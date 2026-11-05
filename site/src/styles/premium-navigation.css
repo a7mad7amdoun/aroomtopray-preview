@@ -89,7 +89,7 @@
 .top.room-header .menu-section-label>svg { flex:none; }
 .top.room-header .menu-preferences { margin:0; padding:20px 24px 24px; border:0; border-top:1px solid var(--line); background:var(--surface-2); }
 .top.room-header .menu-visit { margin:0; padding:24px; }
-.js .top.room-header .appearance-controls { display:grid; grid-template-columns:1fr; gap:0; width:100%; }
+.js .top.room-header .appearance-controls { display:grid; grid-template-columns:1fr; gap:14px; width:100%; }
 .top.room-header .appearance-field { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.35fr); align-items:center; min-width:0; gap:16px; }
 .top.room-header .appearance-label { font-size:.9375rem; font-weight:550; color:var(--ink); }
 .top.room-header .appearance-select { min-width:0; min-height:48px; border:1px solid var(--field); border-radius:5px; background:var(--surface); }

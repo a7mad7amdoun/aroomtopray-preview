@@ -1,13 +1,14 @@
 /* One reading system for every guide. The room and its moving hardware are
    independent; these information surfaces stay still and use paired colours. */
 :root {
-  --guide-copy:1.0625rem;
-  --guide-label:.9375rem;
-  --guide-meta:.875rem;
+  --guide-copy:1.125rem;
+  --guide-label:1rem;
+  --guide-meta:.9375rem;
   --guide-section-space:clamp(24px,3vw,36px);
   --guide-card-inset:clamp(20px,2.3vw,28px);
 }
-body.immersive-site { font-size:17px; }
+html[data-reading=large] { font-size:112.5%; }
+body.immersive-site { font-size:var(--guide-copy); }
 .room-main { color:var(--ink); }
 .room-main :is(.panel-heading,.discovery-heading,.insight-heading) { margin-block-end:24px; }
 .room-main :is(.panel-heading h2,.discovery-heading h2,.results-toolbar h2,.visit-heading h2) {
@@ -132,7 +133,7 @@ body.immersive-site { font-size:17px; }
   #guide-content .directory-workspace .list[data-view=cards] .directory-result.lrow { padding:18px; }
   .room-main .country-card { padding:18px; }
 }
-html[dir=rtl] body.immersive-site { font-size:18px; }
+html[dir=rtl] body.immersive-site { font-size:var(--guide-copy); }
 html[dir=rtl] .room-main { --guide-copy:1.125rem; --guide-label:1rem; --guide-meta:.9375rem; }
 html[dir=rtl] .room-main :is(.panel-heading h2,.discovery-heading h2,.results-toolbar h2,.visit-heading h2,.room-top h2,.country-card h3) { letter-spacing:0; line-height:1.6; }
 html[dir=rtl] .room-main :is(.guide-kicker,.room-eyebrow) { letter-spacing:0; }

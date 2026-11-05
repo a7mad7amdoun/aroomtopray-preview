@@ -159,6 +159,13 @@ html .room-environment[data-room-presentation=home] .room-layout { width:100%; m
   border:1px solid var(--line); border-top:3px solid var(--sign); border-radius:10px;
   padding:clamp(24px,3vw,44px); box-sizing:border-box;
 }
+.room-environment[data-room-presentation=home] .room-source-promise {
+ grid-column:1/-1; display:flex; align-items:flex-start; gap:14px; margin:28px 0 0; padding:20px 24px;
+ border:1px solid var(--line); border-radius:6px; background:var(--surface-2); color:var(--ink);
+}
+.room-environment[data-room-presentation=home] .room-source-promise p { margin:0; font-size:1rem; line-height:1.7; }
+.room-environment[data-room-presentation=home] .room-source-promise a { font-size:.9375rem; color:var(--link); }
+.room-environment[data-room-presentation=home] .room-source-promise>svg { color:var(--sign); }
 .room-environment[data-room-presentation=home] .room-arrival-copy .arrival-actions { grid-column:1/-1; }
 .room-environment[data-room-presentation=home] .arrival-coverage { align-self:center; justify-content:center; margin:0; padding:0; padding-inline-start:32px; border-top:0; border-inline-start:1px solid var(--line); }
 .room-environment[data-room-presentation=home] .room-scene-tools { width:calc(100% - var(--room-gutter) * 2); max-width:var(--room-reading-width); margin-inline:auto; }

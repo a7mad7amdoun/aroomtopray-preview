@@ -33,7 +33,7 @@ async function walk(dir) {
   // Root-only hrefs include the brand and English language option, never slash regexes.
   text=text.replace(/\b(href|action|value)="\/(?=["?#])/g,`$1="${base}/`);
   text=text.replace(/("start_url"\s*:\s*)"\/"/g,`$1"${base}/"`);
-  text=text.replace(/aroomtopray\.(?=(?:theme|focus|saved-places)\.v[0-9])/g,'aroomtopray-preview.');
+  text=text.replace(/aroomtopray\.(?=(?:theme|focus|saved-places|reading)\.v[0-9])/g,'aroomtopray-preview.');
   text=text.replace(/navigator\.sendBeacon(?:\?\.)?\(/g,'(()=>false)(');
   if(file.endsWith('.html')) {
    const language=text.match(/<html[^>]*lang="([^"]+)"/)?.[1]||'en';

@@ -1,5 +1,7 @@
 import { THEME_KEY, normalizeTheme, readTheme, saveTheme, applyTheme } from '../lib/theme-preference.js';
 
+import { READING_KEY, readReading, saveReading, applyReading } from '../lib/reading-preference.js';
+
 const root = document.documentElement;
 const controls = [...document.querySelectorAll('[data-appearance-controls]')];
 const system = window.matchMedia('(prefers-color-scheme: dark)');
@@ -22,6 +24,15 @@ function updateTheme(value) {
   window.dispatchEvent(new CustomEvent('themechange', { detail: { preference, theme } }));
 }
 
+function updateReading(value) {
+ const preference = applyReading(root, value);
+ controls.forEach(control => {
+  const select = control.querySelector('[data-reading-switch]');
+  if (select) select.value = preference;
+ });
+ return preference;
+}
+updateReading(readReading(storage));
 updateTheme(preference);
 document.querySelectorAll('[data-room-light-control]').forEach(control => control.hidden = false);
 document.querySelectorAll('[data-room-light]').forEach(button => button.addEventListener('click', () => {
@@ -36,6 +47,14 @@ document.querySelectorAll('[data-room-light]').forEach(button => button.addEvent
   }
 }));
 controls.forEach(control => {
+  control.querySelector('[data-reading-switch]')?.addEventListener('change', event => {
+    const value = updateReading(event.currentTarget.value);
+    const saved = saveReading(storage, value);
+    const status = control.querySelector('[data-appearance-status]');
+    status.textContent = saved ? control.dataset.readingSaved : control.dataset.readingUnsaved;
+    status.classList.toggle('sr', saved);
+    status.classList.toggle('is-warning', !saved);
+  });
   control.querySelector('[data-theme-switch]')?.addEventListener('change', event => {
     updateTheme(event.currentTarget.value);
     const saved = saveTheme(storage, preference);
@@ -55,4 +74,5 @@ controls.forEach(control => {
 system.addEventListener('change', () => { if (preference === 'auto') updateTheme('auto'); });
 window.addEventListener('storage', event => {
   if (event.key === THEME_KEY || event.key === null) updateTheme(readTheme(storage));
+  if (event.key === READING_KEY || event.key === null) updateReading(readReading(storage));
 });

@@ -3,6 +3,7 @@
 (() => {
   const root = document.documentElement;
   root.classList.add('js');
+  try { if (localStorage.getItem('aroomtopray.reading.v1') === 'large') root.setAttribute('data-reading', 'large'); } catch {}
   let preference;
   try { preference = localStorage.getItem('aroomtopray.theme.v1'); } catch {}
   if (preference === 'light' || preference === 'dark') root.setAttribute('data-theme', preference);

@@ -34,6 +34,7 @@ const tabs=[{id:'find-place',label:g.find,icon:'search'},{id:'countries',label:g
  <Fragment slot="arrival">
   <div class="home-search-primary"><PlaceSearch {locale}/><p class="home-search-intro">{atmosphere.intro}</p></div>
   <dl class="arrival-coverage"><div><dt>{q.listed}</dt><dd>{number.format(allPlaces.length)}</dd></div><div><dt>{q.countries}</dt><dd>{number.format(coverage)}</dd></div></dl>
+   <div class="room-promise room-source-promise"><svg width="19" height="19" aria-hidden="true"><use href="#i-check"/></svg><div><p>{identity.promise}</p><a href="#guide-principles-title">{identity.how}<span aria-hidden="true"> →</span></a></div></div>
  </Fragment>
  <div class="wrap guide-home" data-guide-tabs>
   <GuideTabNav {tabs} label={g.overview}/>
@@ -41,7 +42,6 @@ const tabs=[{id:'find-place',label:g.find,icon:'search'},{id:'countries',label:g
 <header class="discovery-heading"><div><span class="guide-kicker">{q.boardKicker}</span><h2>{q.boardTitle}</h2></div><p>{q.boardIntro}</p></header>
    <div class="home-departures"><PrayerRoomBoard {locale}/><DirectoryPhoto place={byCode.doh} {locale}/></div>
    <details class="room-disclosure home-photo-library" data-print-expand><summary><span><svg width="19" height="19" aria-hidden="true"><use href="#i-photo"/></svg>{q.photos}</span><span aria-hidden="true">+</span></summary><DestinationChoices {locale}/></details>
-   <div class="room-promise room-source-promise"><svg width="19" height="19" aria-hidden="true"><use href="#i-check"/></svg><div><p>{identity.promise}</p><a href="#guide-principles-title">{identity.how}<span aria-hidden="true"> →</span></a></div></div>
   </section>
   <section id="countries" class="guide-panel"><CountryExplorer {locale}/></section>
   <section id="your-visit" class="guide-panel">

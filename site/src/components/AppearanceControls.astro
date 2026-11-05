@@ -1,22 +1,24 @@
 ---
 import '../styles/appearance-controls.css';
+import { READING_COPY } from '../data/reading-copy.js';
 
 interface LanguageLink { code: string; label: string; href: string }
 interface Labels {
   language: string; appearance: string; auto: string; light: string; dark: string;
   themeSaved: string; themeUnsaved: string;
 }
-interface Props { locale?: string; languageLinks: LanguageLink[]; labels?: Partial<Labels>; showLanguage?: boolean; showTheme?: boolean }
-const { locale = 'en', languageLinks, labels = {}, showLanguage = true, showTheme = true } = Astro.props;
+interface Props { locale?: string; languageLinks: LanguageLink[]; labels?: Partial<Labels>; showLanguage?: boolean; showTheme?: boolean; showReading?: boolean }
+const { locale = 'en', languageLinks, labels = {}, showLanguage = true, showTheme = true, showReading = false } = Astro.props;
 const translations: Record<string, Labels> = {
   en: { language: 'Language', appearance: 'Appearance', auto: 'System', light: 'Light', dark: 'Dark', themeSaved: 'Appearance preference saved on this device.', themeUnsaved: 'Appearance changed for this page. Your browser could not save the preference.' },
   fr: { language: 'Langue', appearance: 'Apparence', auto: 'Système', light: 'Clair', dark: 'Sombre', themeSaved: 'Préférence d’apparence enregistrée sur cet appareil.', themeUnsaved: 'Apparence modifiée pour cette page. Votre navigateur n’a pas pu enregistrer la préférence.' },
   ar: { language: 'اللغة', appearance: 'المظهر', auto: 'النظام', light: 'فاتح', dark: 'داكن', themeSaved: 'تم حفظ تفضيل المظهر على هذا الجهاز.', themeUnsaved: 'تم تغيير المظهر لهذه الصفحة. تعذّر على المتصفح حفظ التفضيل.' },
   es: { language: 'Idioma', appearance: 'Apariencia', auto: 'Sistema', light: 'Claro', dark: 'Oscuro', themeSaved: 'Preferencia de apariencia guardada en este dispositivo.', themeUnsaved: 'La apariencia ha cambiado en esta página. El navegador no pudo guardar la preferencia.' },
 };
+const reading = READING_COPY[locale] || READING_COPY.en;
 const copy = { ...(translations[locale] || translations.en), ...labels };
 ---
-<div class="appearance-controls" data-appearance-controls data-theme-saved={copy.themeSaved} data-theme-unsaved={copy.themeUnsaved}>
+<div class="appearance-controls" data-appearance-controls data-theme-saved={copy.themeSaved} data-theme-unsaved={copy.themeUnsaved} data-reading-saved={showReading ? reading.saved : undefined} data-reading-unsaved={showReading ? reading.unsaved : undefined}>
   {showLanguage && <label class="appearance-field">
     <span class="appearance-label">{copy.language}</span>
     <span class="appearance-select appearance-language">
@@ -37,6 +39,14 @@ const copy = { ...(translations[locale] || translations.en), ...labels };
       <option value="dark">{copy.dark}</option>
     </select>
     <svg class="appearance-chevron" viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m3 4.5 3 3 3-3" /></svg>
+    </span>
+  </label>}
+  {showReading && <label class="appearance-field">
+    <span class="appearance-label">{reading.label}</span>
+    <span class="appearance-select appearance-reading">
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5h18M12 5v15M7 20h10"/></svg>
+      <select data-reading-switch aria-label={reading.label}><option value="standard">{reading.standard}</option><option value="large">{reading.large}</option></select>
+      <svg class="appearance-chevron" viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m3 4.5 3 3 3-3"/></svg>
     </span>
   </label>}
   <p class="appearance-status sr" data-appearance-status role="status" aria-live="polite"></p>

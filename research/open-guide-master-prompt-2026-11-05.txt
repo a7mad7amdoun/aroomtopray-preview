@@ -1,0 +1,210 @@
+A ROOM TO PRAY — EXCELLENT CARE, OPEN TO EVERYONE
+MASTER DESIGN AND ENGINEERING BRIEF
+
+1. THE AMBITION
+Make this service feel like an exceptionally well-run public guide: welcoming,
+trustworthy, calm, modern and useful. It should offer the care associated with a
+first-class experience to a visitor with very little money just as naturally as
+to a visitor with considerable means. The interface must never imply a hierarchy
+of dignity, access to prayer, nationality or social status. Do not introduce VIP
+language, paid-looking gates, account requirements, class distinctions or prestige
+claims. Treat the aspiration to become a leading guide as a quality standard, not
+as a ranking that can be asserted without evidence.
+
+A Muslim traveller, student, patient, employee, relative or companion may arrive
+here under pressure. Their immediate need is practical: where is the room, can I
+enter, when is it open, and what should I check? The design should answer those
+questions with far greater confidence than it asks for attention. A beautiful room
+that obscures access information has failed. A dense directory that offers no
+welcome has also missed an important part of the idea. Hold both responsibilities.
+
+2. PRESERVE THE SOUL OF THE PROJECT
+Keep the approved architectural room, glass, daylight/nighttime scenes, prayer
+rug, restrained movement and authentic homepage calligraphy. Keep Hamza's recognizable
+signage influence, Archivo information typography and navy/yellow identity. Preserve
+original attribution and the factual work behind the guide. This pass should make
+the whole existing experience stronger rather than restart the project around a
+new trend, a new framework or another unrelated visual metaphor.
+
+The name of Allah remains only on the four localized homepages. Do not regenerate
+sacred lettering, introduce an imitation, move the rug away from the solid prayer
+wall, or alter the Adhan wording. Preserve the existing category glass approach and
+separate architectural fade, including reduced-motion behavior. The room is a
+welcome and a context cue. It is not a game the visitor must complete before finding
+information, and it must never require sound, high-end hardware or a large screen.
+
+3. CHANGE THE READING EXPERIENCE, NOT JUST THE TRIM
+The most meaningful improvement in this pass is the information layer. Make the
+country and place identifier, the place name, location, access, opening hours and
+source trail easier to recognize. Increase the practical reading scale. Give the
+results more explicit row boundaries, deliberate hover/focus feedback and consistent
+spacing. Preserve the distinction between a list and a card grid. Neither view may
+hide required restrictions or make a status depend only on its color.
+
+On individual-place pages, treat access and hours as the key information panels.
+Use the established navy surface with readable light text and a purposeful yellow
+edge to create a clear hierarchy. Keep all existing unknown, pending and qualified
+statements. Do not replace uncertainty with a green check because it looks cleaner.
+An unknown hour is still unknown. An access condition still applies even if the
+visitor is stressed or the photograph looks welcoming.
+
+Give location text and room titles more confidence without making every sentence
+large and bold. Separate labels from values, put useful facts close together, and
+leave enough space to compare them. A small phone should show a clear reading order
+rather than a compressed imitation of a desktop table. Keep whole-record links,
+keyboard focus, source actions and meaningful symbols with their text labels.
+
+4. ACCESSIBLE COMFORT AS A REAL FEATURE
+Add a Text size preference to the existing menu, with Standard and Larger options
+in English, French, Arabic and Spanish. This is a practical visitor tool, not a
+floating accessibility badge or a second control bar. Show it once in the menu;
+do not duplicate it beside the room's light switch. Keep the control native, labelled
+and keyboard accessible, following the existing appearance component's pattern.
+
+The larger setting should increase the root-relative reading scale rather than
+apply a transform, zoom a screenshot, clip text, or swap to a separate mobile page.
+Honor the visitor's browser font and zoom settings. Typography and line wrapping
+must be allowed to grow. Never set fixed heights on content merely to make the two
+sizes look identical. Do not enlarge graphics unnecessarily at the expense of text.
+
+Save the choice on the current device when local storage is available. Standard
+removes the explicit override. Restore Larger in the early head script before
+styles render to avoid a flash of small text followed by a layout jump. A blocked
+storage API must not prevent a change on the current page. Explain, in the current
+language, when a choice could not be saved. Use the existing live-status pattern,
+and keep the preference synchronized if another same-origin tab changes it.
+
+Keep the review preview's storage keys distinct through the existing export process.
+Do not introduce accounts, cookies, analytics, a network request or a new dependency
+for this preference. With JavaScript unavailable, the guide should remain fully
+readable at its improved default size; do not expose a non-working settings control.
+
+5. ONE TYPOGRAPHIC VOICE
+Continue using Archivo for wayfinding, navigation, factual information and controls.
+Keep the established contemplative invitation fonts for their existing role. Do not
+load more font families to manufacture sophistication. Raise small factual labels
+and source metadata where they are unnecessarily difficult to read. Use a coherent
+set of body, label and metadata tokens instead of slightly different values in every
+component. The default body should be comfortable, not tiny because it is a guide.
+
+Maintain natural Arabic leading and language direction. Do not use Latin tracking
+on Arabic text, shrink it to fit an English layout, or mirror the architectural room
+when only the reading direction should change. Country names and place names can be
+long. Let them wrap deliberately. Numeric identifiers, dates and values should remain
+clear, with tabular numerals where they genuinely help comparison.
+
+Preserve hierarchy. A place name should lead its record. An access label should be
+recognizable but quieter than its value. A source link should be visibly actionable.
+A caption should be readable without competing with the place itself. Use a small
+number of weights and avoid all-caps text as a substitute for structure.
+
+6. COLOR WITH A PURPOSE
+Keep warm ivory, midnight blue and Hamza-inspired yellow. The recent palette is a
+foundation; avoid changing the entire identity again for novelty. Extend its most
+successful contrast pair into essential detail panels so the visitor recognizes
+important information across airports, campuses and hospitals.
+
+Set foreground and background together when creating a dark surface inside a light
+page. CSS custom properties inherit, but already computed text colors do not always
+recompute in the way a designer expects. Explicitly establish the appropriate local
+ink and muted ink for each sign-like panel. Check normal text contrast mathematically.
+Preserve semantic success, warning and unknown states and their written descriptions.
+Do not recolor flags, source photographs or sacred artwork as decoration.
+
+Focus should be obvious in both themes. A focused result must not rely on a subtle
+shadow, a slight translation or a color change that disappears on the navy surface.
+Use the existing focus token and a clear edge. Retain native control affordances.
+The larger-text setting must not introduce an alternative low-contrast color theme.
+
+7. COUNTRY AND PLACE PRESENTATION
+Make real country flags more legible while retaining their authentic proportions,
+colors and symbols. Keep them decorative where the country is already written.
+Use the project's self-hosted flag assets. Do not invent fashionable flags or replace
+country labels with flags alone. Small suggestion rows can remain compact; directory
+identifiers and country browsing deserve a clearer, more generous presentation.
+
+Refine the existing results component rather than copying its markup into new page
+variants. Keep all data attributes used by search, filtering, sorting and map behavior.
+Keep source-backed values exactly as supplied. Improve facility labels and photo
+metadata with the same readable scale used elsewhere. Photographs remain labelled
+and credited; their presence does not prove that a room is open or publicly accessible.
+
+8. PUT TRUST NEAR THE FIRST ACTION
+The homepage already contains a concise statement explaining which facts the guide
+provides and that sources accompany the listings. Move that existing statement into
+the reception/search area, where it can help someone understand the service before
+they choose a destination. Do not duplicate it in another section. Keep its link to
+the existing guide principles and ensure that native/deep-link tab handling still
+reveals the correct panel when the visitor follows it.
+
+Retain every language's existing wording. This is a change of placement and hierarchy,
+not an opportunity to claim independent verification of every entry. Preserve the
+more detailed principles: follow the source, distinguish unknown from unavailable,
+and treat visitor reports as information needing review. Give those principles a
+clearer visual structure with the existing symbols and generous, readable text.
+
+Make contribution actions understandable as optional next steps. Do not turn them
+into a modal, a nag, a donation demand or an artificial urgency message. The site's
+preview restrictions still apply: disabled submissions must remain disabled and
+must not imply that a visitor report has been sent.
+
+9. SHARED QUALITY ACROSS PAGE TYPES
+Improve shared components and owning styles so the work reaches home, categories,
+place records, country browsing, visit guidance and supporting pages. Keep the new
+masthead, native menu, responsive side index and photographic destination gallery.
+The detailed record should feel as carefully considered as the homepage. The footer
+and small source actions should not become unreadable after the main content ends.
+
+Use a consistent set of spacing and surface tokens. Preserve the difference between
+architectural presentation and information surfaces. Avoid putting every paragraph
+inside another card. Boundaries should help comparison, not turn the page into a
+collection of disconnected boxes. Provide enough space around the important facts,
+then use quieter separators for secondary information.
+
+10. MOTION AND PERFORMANCE
+Preserve the recent measured motion instead of adding effects for their own sake.
+The category glass can approach as the wall and rug recede. Text, controls and facts
+remain stable. A preference change may naturally reflow the page, but it should not
+animate through unreadable intermediate sizes or scroll the visitor somewhere else.
+Let the existing geometry observers react to the new text size.
+
+Keep reduced motion, focus restoration, browser history, no-JavaScript access and
+background-page suspension intact. Do not add a loader, screen-wide blur, parallax
+on information, moving typography, animated numbers or a custom cursor. Preserve
+responsive image sources, lazy loading and reserved image dimensions. All existing
+artwork remains; this pass needs no additional heavy media or remote font request.
+
+11. RESPONSIVE AND ASSISTIVE USE
+Review 360px and 390px phone layouts as well as tablet and desktop widths, at both
+standard and larger text sizes. Navigation must wrap without hiding its meaning.
+The native menu can scroll when necessary. Forms, country selection, captions and
+long place names must stay inside the available width. Use minmax(0,1fr), logical
+spacing and intrinsic content growth where appropriate.
+
+Do not lock the viewport, suppress browser zoom, rely on hover to reveal facts, or
+make tiny flags the only clickable target. Keep meaningful labels and properly
+associated controls. A keyboard visitor should be able to reach search, choose a
+category, read a room, follow its source and change preferences. Preserve status
+announcements and avoid announcing every decorative animation frame.
+
+12. ENGINEERING AND VERIFICATION
+Inspect first, then modify the source of each issue. Reuse the existing appearance
+component and state patterns. A small reading-preference utility is justified because
+normalization, persistence and application need consistent behavior and focused tests.
+Avoid a generic settings framework, a framework migration or another global override
+stylesheet. Keep the unrelated pending map work completely outside this release.
+
+Test standard/larger normalization, save/remove behavior, blocked storage, early
+restoration, preview key isolation, control synchronization and localized feedback.
+Run the existing suite for navigation, motion, tools and directory state. Build the
+full export. Confirm one reading-size control per page and no duplicate room control.
+Compare factual content and source links with the baseline; account explicitly for
+the single relocated homepage source statement. Verify that the calligraphy still
+appears only on the four homepages and that existing artwork and records are unchanged.
+
+Rendered browser inspection remains unavailable under the current session restriction.
+Be honest about that boundary. Source geometry, DOM checks and tests are valuable,
+but they do not prove that every visual detail is perfect on a real phone. Do not
+claim a global ranking, universal coverage or visual approval that has not occurred.
+Publish only Ahmed's authorized GitHub Pages preview, verify deployment and representative
+served files, and report the concrete improvements and remaining verification limit.

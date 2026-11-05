@@ -169,14 +169,18 @@ html[data-sector=hospitals] #guide-content .results-toolbar :is(button,select):f
 
 /* Results are readable records, with a recognisable country/IATA identifier. */
 #guide-content .directory-workspace .list:not([data-view=cards]) .directory-result.lrow {
-  padding:22px 12px;
+  padding:24px 20px;
+  margin-block:10px;
   gap:20px;
-  border-radius:0;
-  background:transparent;
+  border:1px solid var(--line);
+  border-inline-start:3px solid transparent;
+  border-radius:var(--reading-radius);
+  background:var(--surface);
   box-shadow:none;
 }
 #guide-content .directory-workspace .directory-result.lrow:is(:hover,:focus-visible) {
   background:var(--surface-2);
+  border-inline-start-color:var(--selection-mark);
   box-shadow:none;
 }
 #guide-content .directory-workspace .directory-result .code {
@@ -192,7 +196,7 @@ html[data-sector=hospitals] #guide-content .results-toolbar :is(button,select):f
   font-weight:650;
   letter-spacing:.015em;
 }
-#guide-content .directory-workspace .directory-result .nm>b { font-size:1.25rem; line-height:1.4; letter-spacing:-.018em; }
+#guide-content .directory-workspace .directory-result .nm>b { font-size:1.375rem; line-height:1.4; letter-spacing:-.018em; }
 #guide-content .directory-workspace .directory-result .result-location { margin-block-start:5px; }
 #guide-content .directory-workspace .directory-result .mob-s { margin-block-start:12px; }
 #guide-content .directory-workspace .directory-result .row-arrow { width:23px; height:23px; color:var(--ink); }
@@ -228,15 +232,16 @@ html[data-sector=hospitals] #guide-content .results-toolbar :is(button,select):f
 #guide-content .room .facts>.fact-essential {
   padding:18px 20px;
   margin-block-end:14px;
-  background:var(--surface-2);
+  --ink:var(--board-ink); --muted:var(--board-dim); --selection-mark:var(--sign);
+  background:var(--board); color:var(--ink);
   border:0;
   border-inline-start:3px solid var(--selection-mark);
   border-radius:0;
   border-start-end-radius:6px;
   border-end-end-radius:6px;
 }
-#guide-content .room .facts dt { margin-block-end:8px; }
-#guide-content .room .facts dd { max-inline-size:65ch; line-height:1.75; }
+#guide-content .room .facts dt { margin-block-end:8px; font-size:var(--guide-label); }
+#guide-content .room .facts dd { max-inline-size:65ch; font-size:var(--guide-copy); line-height:1.75; }
 #guide-content .room .extra { background:transparent; border-radius:0; padding:4px 0 4px 18px; padding-inline:18px 0; }
 #guide-content .room .src { margin-block-start:24px; padding-block-start:18px; gap:12px 18px; }
 #guide-content .place-overview { margin-block:32px; }
@@ -340,10 +345,12 @@ html[data-sector=hospitals] #guide-content .results-toolbar :is(button,select):f
 }
 @container prayer-guide (max-width:600px) {
   .room-main #guide-content .guide-tabs>:is(a,button) { min-height:58px; padding:12px 8px; gap:7px; }
-  #guide-content .directory-workspace .list:not([data-view=cards]) .directory-result.lrow { padding:22px 0; gap:14px; }
+  #guide-content .directory-workspace .list:not([data-view=cards]) .directory-result.lrow { padding:22px 16px; gap:14px; }
   #guide-content .directory-workspace .list[data-view=cards] .directory-result.lrow { padding:22px; }
   #guide-content .results-toolbar { gap:18px; padding:16px; }
   #guide-content .room .facts>.fact-essential { padding:16px; }
+  .guide-principles>ol>li { grid-template-columns:32px minmax(0,1fr); gap:12px; padding:16px; }
+  .guide-principles>ol>li>svg { width:32px; height:32px; padding:6px; }
   #guide-content .insight-grid { grid-template-columns:1fr; }
   #guide-content .official-field-note { grid-template-columns:1fr; }
   #guide-content .field-note-source { padding-inline-start:0; border-inline-start:0; }
@@ -381,4 +388,5 @@ html[dir=rtl] .room-main .directory-photo strong { line-height:1.65; letter-spac
   #guide-content .source-provenance { margin-block:16pt; }
   .room-main .directory-photo .directory-photo-link { grid-template-columns:1fr; }
   #guide-content .overview-facts { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  #guide-content .room .facts>.fact-essential { --ink:#142033; --muted:#535e69; --selection-mark:#142033; background:#fff; color:var(--ink); border:1px solid #d8d5cd; border-inline-start:3px solid var(--selection-mark); }
 }

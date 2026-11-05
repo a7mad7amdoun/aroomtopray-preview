@@ -625,13 +625,13 @@ html[dir=rtl] .room-main :is(.eyebrow,.guide-kicker,.count) { font-family:var(--
 .guide-principles { margin-top:28px; padding-top:25px; border-top:1px solid var(--line); }
 .guide-principles>h2 { margin-bottom:20px; }
 .guide-principles>ol { display:grid; gap:19px; padding:0; margin:0; list-style:none; }
-.guide-principles>ol>li { display:grid; grid-template-columns:24px 1fr; gap:13px; }
-.guide-principles>ol>li>svg { color:var(--muted); margin-top:3px; }
-.guide-principles h3 { font-size:1rem; line-height:1.4; }
-.guide-principles p { margin-top:6px; font-size:.9rem; color:var(--muted); }
+.guide-principles>ol>li { display:grid; grid-template-columns:40px minmax(0,1fr); gap:18px; padding:24px; border:1px solid var(--line); border-radius:8px; background:var(--surface); }
+.guide-principles>ol>li>svg { width:40px; height:40px; padding:9px; color:var(--sign-ink); background:var(--sign); border-radius:6px; }
+.guide-principles h3 { font-size:1.25rem; line-height:1.4; }
+.guide-principles p { margin-top:10px; font-size:var(--guide-copy); line-height:1.7; color:var(--muted); }
 .guide-contribution { padding:18px; margin-top:24px; border:1px solid var(--line); border-inline-start:3px solid var(--sign); background:var(--surface-2); border-radius:7px; }
 .guide-contribution>div { display:flex; flex-wrap:wrap; gap:5px 20px; margin-top:11px; }
-.guide-contribution a { display:inline-flex; align-items:center; gap:7px; min-height:44px; font-size:.85rem; font-weight:700; }
+.guide-contribution a { display:inline-flex; align-items:center; gap:7px; min-height:44px; font-size:1rem; font-weight:650; }
 .guide-contribution small { font-weight:400; color:var(--muted); }
 html[lang=ar] .prayer-board-fact { font-size:1rem; }
 html[lang=ar] .prayer-board-columns,html[lang=ar] .prayer-board-note,html[lang=ar] .prayer-board-footer { font-size:.92rem; }

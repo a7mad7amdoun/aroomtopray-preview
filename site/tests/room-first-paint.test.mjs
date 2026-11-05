@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 
 const source = fs.readFileSync(new URL('../src/scripts/room-first-paint.js', import.meta.url), 'utf8');
-function freshPage({ preference, systemDark = false, mobile = false, tablet = false, density = 1, kind = 'home', presentation = 'home', query = '', blocked = false, preview = false } = {}) {
+function freshPage({ reading, preference, systemDark = false, mobile = false, tablet = false, density = 1, kind = 'home', presentation = 'home', query = '', blocked = false, preview = false } = {}) {
   const attributes = new Map(), classes = new Set(), links = [], removed = [];
   const root = { dataset: {}, classList: { add: value => classes.add(value) }, setAttribute: (key, value) => attributes.set(key, value) };
   const meta = { setAttribute: (key, value) => attributes.set(`meta-${key}`, value) };
@@ -16,10 +16,10 @@ function freshPage({ preference, systemDark = false, mobile = false, tablet = fa
   const context = {
     document, URLSearchParams,
     window: { devicePixelRatio: density, location: { search: query }, matchMedia: query => ({ matches: query.includes('color-scheme') ? systemDark : query.includes('min-width') ? !mobile && !tablet : mobile }) },
-    localStorage: { getItem: key => { assert.equal(key, preview ? 'aroomtopray-preview.theme.v1' : 'aroomtopray.theme.v1'); if (blocked) throw Error('blocked'); return preference; } },
+    localStorage: { getItem: key => { if (blocked) throw Error('blocked'); const prefix = preview ? 'aroomtopray-preview' : 'aroomtopray'; if (key === `${prefix}.reading.v1`) return reading; assert.equal(key, `${prefix}.theme.v1`); return preference; } },
     sessionStorage: { removeItem: key => { if (blocked) throw Error('blocked'); removed.push(key); } },
   };
-  const mounted = preview ? source.replaceAll('aroomtopray.theme.v1', 'aroomtopray-preview.theme.v1').replace("'/art/'", "'/aroomtopray-preview/art/'") : source;
+  const mounted = preview ? source.replaceAll('aroomtopray.theme.v1', 'aroomtopray-preview.theme.v1').replaceAll('aroomtopray.reading.v1', 'aroomtopray-preview.reading.v1').replace("'/art/'", "'/aroomtopray-preview/art/'") : source;
   vm.runInNewContext(mounted, context);
   return { root, attributes, classes, links, removed };
 }
@@ -77,4 +77,15 @@ test('home preloads its generated lighting pair without changing directory photo
   assert.equal(page.links[1].href,expected);
   assert.ok(fs.existsSync(new URL('../public'+expected,import.meta.url)));
  }
+});
+
+
+test('larger reading preference restores before paint without overriding theme or accepting invalid values', () => {
+ for (const preview of [false, true]) for (const preference of ['light','dark']) {
+  const page = freshPage({reading:'large',preference,preview});
+  assert.equal(page.attributes.get('data-reading'),'large');
+  assert.equal(page.attributes.get('data-theme'),preference);
+ }
+ for (const reading of [undefined,'standard','invalid']) assert.equal(freshPage({reading}).attributes.has('data-reading'),false);
+ assert.equal(freshPage({reading:'large',blocked:true}).attributes.has('data-reading'),false);
 });

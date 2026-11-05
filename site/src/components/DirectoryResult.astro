@@ -39,9 +39,9 @@ const fields=[
  :global(.room-main .directory-workspace) .directory-result .row-facilities { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 16px; padding-top:12px; margin-top:12px; border-top:1px solid var(--line); }
  .directory-result .row-facilities .result-fact { display:grid; grid-template-columns:16px minmax(0,1fr); align-items:start; gap:2px 6px; margin:0; min-width:0; }
  .result-fact svg { grid-column:1; grid-row:1/3; margin-top:2px; }
- .directory-result .result-fact .result-fact-label { margin:0; font-size:.8rem; line-height:1.45; }
- .directory-result .result-fact .result-fact-value { grid-column:2; margin:0; font-size:.96rem; font-weight:550; line-height:1.45; color:var(--ink); overflow-wrap:anywhere; }
- .directory-result .result-photo-note { display:flex; align-items:center; gap:5px; font-size:.73rem; margin-top:12px; }
+ .directory-result .result-fact .result-fact-label { margin:0; font-size:var(--guide-meta); line-height:1.5; }
+ .directory-result .result-fact .result-fact-value { grid-column:2; margin:0; font-size:1rem; font-weight:550; line-height:1.45; color:var(--ink); overflow-wrap:anywhere; }
+ .directory-result .result-photo-note { display:flex; align-items:center; gap:5px; font-size:var(--guide-meta); margin-top:12px; }
  .result-photo-note svg { flex:none; }
  :global(.room-main .directory-workspace .list[data-view=cards]) .directory-result { box-shadow:0 1px 2px #0f1c2e08; border-radius:5px; }
  :global(.room-main .directory-workspace .list[data-view=cards]) .directory-result .code { margin-bottom:4px; }
@@ -60,7 +60,7 @@ const fields=[
   :global(.room-main .directory-workspace .list[data-view=cards]) .directory-result.lrow { grid-template-columns:1fr; padding:16px; }
   :global(.room-main .directory-workspace .list[data-view=cards]) .directory-result .code { width:auto; min-height:0; }
  }
- :global(html[dir=rtl]) .directory-result .result-fact .result-fact-label { font-size:.87rem; }
- :global(html[dir=rtl]) .directory-result .result-fact .result-fact-value { font-size:.95rem; line-height:1.7; }
+ :global(html[dir=rtl]) .directory-result .result-fact .result-fact-label { font-size:var(--guide-meta); }
+ :global(html[dir=rtl]) .directory-result .result-fact .result-fact-value { font-size:var(--guide-copy); line-height:1.7; }
  @media(prefers-reduced-motion:reduce) { :global(.room-main .directory-workspace) .directory-result.lrow { transition:none; } }
 </style>
