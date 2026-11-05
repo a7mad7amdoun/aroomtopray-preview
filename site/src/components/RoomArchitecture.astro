@@ -14,7 +14,7 @@ const outside=settings[kind] || 'airport';
   <div class="room-architecture" dir="ltr" data-room-scenery data-architecture="panorama">
    <div class="room-canvas">
     <div class="room-wall" aria-hidden="true"></div>
-    <img class="room-sacred-name" src="/art/calligraphy/allah.svg" alt="الله" lang="ar" width="206" height="218" decoding="async"/>
+    {presentation==='home'&&<img class="room-sacred-name" src="/art/calligraphy/allah.svg" alt="الله" lang="ar" width="206" height="218" decoding="async"/>}
     <div class="door-surround room-window-surround">
       <div class="room-window-frame" id="room-panorama">
         <div class={`door-outside outside-${outside}`} role="img" aria-label={`${presentation==='home'?HOME_VIEW_COPY[locale].label:atmosphere.illustration}. ${d.outside}${t.nav[kind in settings?kind:'airports']}`}>

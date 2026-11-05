@@ -29,9 +29,22 @@
 .room-environment .door-notice { transition:background-color 140ms ease-out,border-color 140ms ease-out,color 140ms ease-out; }
 .room-environment .switch-rocker { transition:transform 140ms ease-out,box-shadow 140ms ease-out; }
 
-/* Keep navigation geometry native: differently sized home/detail canvases
-   must never be stretched together by a cross-document snapshot. The scenery
-   layers and scroll opacity already provide the quiet architectural dissolve. */
+/* Only the homepage inscription participates in cross-document navigation.
+   The room and live interface have no snapshot, so mismatched page geometry
+   cannot stretch the architecture or intercept navigation. */
+@media(prefers-reduced-motion:no-preference) {
+ @view-transition { navigation:auto; }
+ :root { view-transition-name:none; }
+ .room-sacred-name { view-transition-name:prayer-inscription; }
+ ::view-transition { pointer-events:none; }
+ ::view-transition-group(prayer-inscription) { animation-duration:240ms; }
+ ::view-transition-old(prayer-inscription) { animation:inscription-depart 240ms ease-out both; }
+ ::view-transition-new(prayer-inscription) { animation:inscription-arrive 300ms ease-out both; }
+ .room-environment[data-room-presentation=directory] .room-window-frame .door-outside { transform:scale(1.035); animation:glass-arrive 1400ms cubic-bezier(.2,.65,.3,1) both; }
+}
+@keyframes inscription-depart { from { opacity:1; } to { opacity:0; } }
+@keyframes inscription-arrive { from { opacity:0; } to { opacity:1; } }
+@keyframes glass-arrive { from { transform:scale(1); } to { transform:scale(1.035); } }
 @media(prefers-reduced-motion:reduce) {
-  .room-environment .switch-rocker { transition:none; }
+ .room-environment .switch-rocker { transition:none; }
 }

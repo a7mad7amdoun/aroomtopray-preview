@@ -1,0 +1,123 @@
+A ROOM TO PRAY — FROM SANCTUARY TO DESTINATION
+
+DESIGN OBJECTIVE
+Refine the airport, university and hospital directory entrances into a more spatial
+experience. The visitor begins inside a prayer room. As they move into the guide,
+the architecture quietly withdraws and the view through the glass becomes clearer
+and closer. This is a transition in attention: from finding peace to understanding
+where to go. The text remains the stable reference throughout.
+
+Preserve the established service identity: Archivo information typography, warm
+ivory, midnight navy, purposeful yellow, real place photography, the existing room,
+stationary architectural glass, and truthful guide content. Keep the successful
+masthead, destination gallery, reception area and responsive guide indexes from the
+previous release. This is a focused enhancement of the room/category relationship,
+not another unrelated style change.
+
+LAYER THE ROOM PROPERLY
+The current category room fades as one whole canvas. Split its rendering behavior
+into independent architectural and destination layers. The room-wall artwork contains
+the rug and niche, so fade that plate together rather than trying to extract or
+repaint the rug. Retain the original wall image, exact mat placement, daylight and
+nighttime geometry. Never turn or relocate the mat.
+
+The glass/frame/exterior layer should remain much more visible than the architecture
+and gently increase in size as the visitor scrolls. Anchor the enlargement to the
+left side of the opening so it does not move toward or overlap the reading column.
+Keep the maximum transformation modest enough that the frame stays inside the
+architectural viewport and the picture remains believable. The window is a quiet
+framing device, not an opening door or a teleportation tunnel.
+
+Use one scroll progress measurement and one requestAnimationFrame batch. Apply a
+smoothstep curve so neither end snaps. Scrolling upward must restore exactly the
+same wall, rug and window without delayed interpolation or chasing the scroll.
+Keep geometry changes out of the document flow. The scene can transform; the guide
+must not change width, move vertically, fade or lose focus as a consequence.
+
+ARRIVAL MOTION
+A freshly loaded category may use a restrained, short approach toward the exterior
+inside the glass. Clip that movement within the window. Keep glass reflections and
+frame aligned. Do not scale text, the rug, navigation or controls. Do not hide the
+room while waiting for artwork, and do not make navigation wait for animation.
+A static fallback must be complete and useful.
+
+As the visitor scrolls, let the room wall and rug fade more strongly than the glass.
+The retained exterior is a context cue. It should not become a fixed, oversized
+photo behind the entire results list. Let the whole architectural section eventually
+leave the viewport normally. The guide below must retain its full reading width.
+
+SACRED CALLIGRAPHY
+The name of Allah belongs only to the homepage. Render the existing authentic SVG
+there and nowhere else: not in category introductions, individual place pages,
+visit pages or supporting pages. This is a source-template decision, not CSS that
+leaves unwanted alt text or hidden content in other documents.
+
+Preserve the SVG paths, Arabic wording, position above the niche and existing theme
+color treatment. Do not regenerate, stylize, abbreviate or replace the calligraphy.
+On supported same-origin browser navigation, let its outgoing snapshot fade gently
+when leaving home. Name only this element for the transition. Disable root snapshots
+so the whole page, room proportions and text are never stretched or crossfaded into
+one another. Returning home may reveal the inscription softly.
+
+Use native progressive enhancement; ordinary links must work without it. Do not
+intercept clicks, insert timeouts, simulate another document, or restore removed
+calligraphy on category pages. Under reduced motion, use immediate native navigation
+and stable imagery. The transient outgoing snapshot is not persistent destination
+content. It must not capture pointer input or cover controls for a long period.
+
+TEXT AND SPACING
+Keep a clear division between the left architectural view and the right introduction.
+Use the existing grid and cap the reading card width so wide monitors do not produce
+long lines. Give the heading a calmer weight, balanced wrapping and comfortable
+leading. Keep the category emblem and labels proportional rather than decorative.
+The paragraph should be easy to read quickly; the search area remains distinctly
+separated below it. Preserve every translated word and every input label.
+
+Maintain the airport's navy departures-sign surface and explicit light text. Give
+university and hospital introductions their existing theme-aware surface with a
+subtle warm wayfinding accent. Avoid a second font family for each category, a
+metallic texture, bright neon, translucent text panels or low-contrast copy over
+photography. Use existing semantic tokens and logical margins and borders.
+
+On phones, keep the room in its own row and the information in a full-width reading
+area. Preserve the compact header and existing stacking order so search remains easy
+to reach. Limit the zoom further on narrow screens if the scene would otherwise
+crowd the composition. Do not force a desktop split into a360px viewport. Arabic
+reading direction must work without mirroring the real architectural room.
+
+MOTION AND STABILITY CONTRACT
+Scope the new split-room behavior to the three category directories. Homepage,
+detail and supporting pages retain their existing decorative fade except for the
+explicit calligraphy removal. Avoid broad changes to unrelated scripts.
+
+Reduced motion must restore neutral scale and full architectural visibility. Invalid
+or zero-size geometry must produce a safe, opaque room. Resize, content reflow,
+mobile keyboard changes, browser Back/Forward and page visibility must use the
+existing lifecycle handling. Hidden documents must not schedule new animation frames.
+Repeated scroll events should collapse into one pending frame and repeated identical
+values should not cause additional style writes.
+
+Do not add a new dependency, router, stylesheet solely for overrides, autoplay loop,
+scroll-jacking library or image-processing pipeline. Edit the owning component and
+styles. Store explanatory comments where the layers and CSS properties connect.
+Keep actual information, sources, saved places, tabs, maps, filters and languages
+unchanged. Leave unrelated pending map work untouched.
+
+VERIFICATION
+Add meaningful behavioral tests for the directory layer values, bounded zoom,
+scroll reversal, reduced-motion restoration and unchanged search/focus context.
+Check source output across all page types to prove that the calligraphy exists
+exactly on the four localized homepages and nowhere else. Compare guide content and
+controls with the previous release. Run the existing suite and export checks.
+Review source geometry at360,390,760,1024 and1440px. Inspect all edited CSS syntax.
+
+Rendered browser checks remain unavailable under the existing session limitation.
+Report that honestly. Native navigation-transition support is progressive, and its
+appearance cannot be claimed as visually verified here. Do not equate unit tests
+with a visual approval. Publish only Ahmed's GitHub Pages preview after the checks;
+never modify Hamza's live website.
+
+TECHNICAL REFERENCES
+https://developer.chrome.com/docs/web-platform/view-transitions/cross-document
+https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API/Using
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@view-transition

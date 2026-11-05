@@ -2,13 +2,14 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {initRoomMotion} from '../src/scripts/room-motion.js';
 const target=()=>{const listeners=new Map();return{listeners,addEventListener(type,fn){const list=listeners.get(type)||[];list.push(fn);listeners.set(type,list);},emit(type,values={}){for(const fn of listeners.get(type)||[])fn(values);}};};
-function fixture({withStage=false,withScenery=false,withIntersectionObserver=true,reducedMotion=false}={}){
- const doc=target(),browser=target(),room={dataset:{roomPresentation:'home'}},values=new Map(),writes=[],frames=new Map(),intersections=[],media=target();let serial=0,headerBottom=94,stageBottom=900,sceneryTop=94,sceneryHeight=600,observer,stageResizeObserver,stageReads=0,sceneryReads=0;
+function fixture({presentation='home',withStage=false,withScenery=false,withIntersectionObserver=true,reducedMotion=false}={}){
+ const doc=target(),browser=target(),room={dataset:{roomPresentation:presentation}},values=new Map(),writes=[],frames=new Map(),intersections=[],media=target();let serial=0,headerBottom=94,stageBottom=900,sceneryTop=94,sceneryHeight=600,observer,stageResizeObserver,stageReads=0,sceneryReads=0,roomWrites=0;
  const header={getBoundingClientRect:()=>({bottom:headerBottom})};
  const stage={getBoundingClientRect:()=>{stageReads++;return{bottom:stageBottom};}};
  const scenery={getBoundingClientRect:()=>{sceneryReads++;return{top:sceneryTop,height:sceneryHeight};}};
  room.querySelector=selector=>withStage&&selector==='.room-stage'?stage:withScenery&&selector==='[data-room-scenery]'?scenery:null;
- room.style={setProperty:(key,value)=>{values.set(key,value);writes.push([key,value]);}};
+ room.style={setProperty:(key,value)=>{roomWrites++;values.set(key,value);writes.push([key,value]);}};
+ scenery.style={setProperty:(key,value)=>{values.set(key,value);writes.push([key,value]);}};
  doc.documentElement={style:{setProperty:(key,value)=>{values.set(key,value);writes.push([key,value]);}}};
  doc.querySelector=selector=>selector==='.room-environment'?room:selector==='.room-header'?header:null;
  browser.scrollY=0;
@@ -34,7 +35,7 @@ function fixture({withStage=false,withScenery=false,withIntersectionObserver=tru
  browser.scrollTo=()=>assert.fail('Room alignment must not scroll the page');doc.activeElement={id:'search'};
  const controller=initRoomMotion(doc,browser);
  const flush=()=>{const callbacks=[...frames.values()];frames.clear();for(const fn of callbacks)fn();};
- return{doc,browser,room,values,writes,frames,controller,flush,intersections,media,scenery:(top,height=600)=>{sceneryTop=top;sceneryHeight=height;},sceneryReads:()=>sceneryReads,stage:value=>stageBottom=value,stageReads:()=>stageReads,header:value=>headerBottom=value,resizeHeader:()=>observer(),resizeStage:()=>stageResizeObserver()};
+ return{doc,browser,room,roomWrites:()=>roomWrites,values,writes,frames,controller,flush,intersections,media,scenery:(top,height=600)=>{sceneryTop=top;sceneryHeight=height;},sceneryReads:()=>sceneryReads,stage:value=>stageBottom=value,stageReads:()=>stageReads,header:value=>headerBottom=value,resizeHeader:()=>observer(),resizeStage:()=>stageResizeObserver()};
 }
 test('scrolling coalesces header measurements without moving the room or changing user context',()=>{
  const f=fixture(),url=f.browser.location.href,focus=f.doc.activeElement,dataset={...f.room.dataset};f.browser.scrollY=400;
@@ -246,4 +247,43 @@ test('a visual viewport resize refreshes the room boundary and stays suspended i
  f.doc.hidden=true;f.doc.emit('visibilitychange');
  f.browser.visualViewport.emit('resize');f.resizeStage();
  assert.equal(f.frames.size,0);
+});
+
+
+test('category scroll separates the architectural fade from the retained glass and reverses exactly',()=>{
+ const f=fixture({presentation:'directory',withScenery:true,withStage:true});
+ const url=f.browser.location.href,focus=f.doc.activeElement;
+ assert.equal(f.values.get('--room-approach'),'0');
+ assert.equal(f.values.get('--room-wall-visibility'),'1');
+ assert.equal(f.values.get('--room-glass-visibility'),'1');
+ f.scenery(94-225);f.browser.scrollY=225;f.browser.emit('scroll');f.flush();
+ assert.equal(f.values.get('--room-approach'),'0.5');
+ assert.equal(f.values.get('--room-wall-visibility'),'0.5');
+ assert.equal(f.values.get('--room-glass-visibility'),'0.925');
+ assert.equal(f.roomWrites(),0,'Scroll variables must not invalidate the entire directory subtree');
+ f.scenery(-2000);f.browser.scrollY=2000;f.browser.emit('scroll');f.flush();
+ assert.equal(f.values.get('--room-approach'),'1');
+ assert.equal(f.values.get('--room-wall-visibility'),'0');
+ assert.equal(f.values.get('--room-glass-visibility'),'0.85');
+ const writes=f.writes.length;f.browser.emit('scroll');f.flush();assert.equal(f.writes.length,writes);
+ f.scenery(94-225);f.browser.scrollY=225;f.browser.emit('scroll');f.flush();
+ assert.equal(f.values.get('--room-approach'),'0.5');
+ assert.equal(f.values.get('--room-wall-visibility'),'0.5');
+ assert.equal(f.browser.location.href,url);assert.equal(f.doc.activeElement,focus);
+});
+test('category reduced motion and invalid geometry restore an opaque unscaled room',()=>{
+ const f=fixture({presentation:'directory',withScenery:true});
+ f.scenery(-500);f.browser.emit('scroll');f.flush();
+ f.media.matches=true;f.media.emit('change');f.flush();
+ for(const [name,value]of [['--room-approach','0'],['--room-wall-visibility','1'],['--room-glass-visibility','1']])assert.equal(f.values.get(name),value);
+ f.media.matches=false;f.scenery(NaN,0);f.media.emit('change');f.flush();
+ assert.equal(f.values.get('--room-approach'),'0');assert.equal(f.values.get('--room-wall-visibility'),'1');
+});
+test('the split-room properties are not applied to homepage, detail or supporting scenes',()=>{
+ for(const presentation of ['home','detail','support']){
+  const f=fixture({presentation,withScenery:true});f.scenery(-500);f.browser.emit('scroll');f.flush();
+  assert.equal(f.values.has('--room-approach'),false);
+  assert.equal(f.values.has('--room-wall-visibility'),false);
+  assert.equal(f.values.has('--room-glass-visibility'),false);
+ }
 });

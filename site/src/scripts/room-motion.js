@@ -7,7 +7,15 @@ export function initRoomMotion(doc=document,browser=window) {
  const stage=room.querySelector?.('.room-stage');
  const scenery=room.querySelector?.('[data-room-scenery]');
  const motion=browser.matchMedia?.('(prefers-reduced-motion: reduce)');
- let lastVisibility;
+ const layered = room.dataset.roomPresentation === 'directory';
+ const lastValues = new Map();
+ const write = (name, value) => {
+  const rounded = String(Math.round(value * 1000) / 1000);
+  if (lastValues.get(name) === rounded) return;
+  // Category variables stay on the small scenery subtree, not the full guide.
+  (layered ? scenery : room)?.style?.setProperty(name, rounded);
+  lastValues.set(name, rounded);
+ };
  let frame=null,away=false,lastHeaderHeight,stageObserver=null,refreshStage=false,lastScrollY=browser.scrollY??0;
  const setReading=bounds=>{
   if(!stage)return;
@@ -35,21 +43,23 @@ export function initRoomMotion(doc=document,browser=window) {
  };
  const updateVisibility=()=>{
   if(!scenery)return;
-  let visibility=1;
+  let visibility=1,eased=0;
   if(!motion?.matches){
    const bounds=scenery.getBoundingClientRect?.();
    if(Number.isFinite(bounds?.top)&&Number.isFinite(bounds?.height)&&bounds.height>0){
     const progress=Math.min(1,Math.max(0,((lastHeaderHeight??0)-bounds.top)/(bounds.height*.75)));
     // Ease at both architectural boundaries, not over time: reversing a scroll
     // must reveal the same room immediately rather than chase a CSS transition.
-    const eased=progress*progress*(3-2*progress);
+    eased=progress*progress*(3-2*progress);
     visibility=1-.84*eased;
    }
   }
-  const value=String(Math.round(visibility*1000)/1000);
-  if(value!==lastVisibility){
-   room.style?.setProperty('--room-visibility',value);
-   lastVisibility=value;
+  if(!layered)write('--room-visibility',visibility);
+  if(layered){
+   // Transform only the glass; never the rug, reading area or document flow.
+   write('--room-approach',eased);
+   write('--room-wall-visibility',1-eased);
+   write('--room-glass-visibility',1-.15*eased);
   }
  };
  const measure=()=>{

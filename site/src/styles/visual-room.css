@@ -34,7 +34,18 @@
    or the prayer mat. The panorama remains in the left half of the room. */
 .room-environment[data-room-presentation=directory] {
   --arrival-scene-track:1fr; --arrival-reading-track:1fr;
+  --room-canvas-opacity:1; --glass-zoom-distance:.32;
 }
+/* The plate contains the rug and niche. Only that architecture dissolves;
+   the retained glass has its own visibility and a left-anchored approach. */
+.room-environment[data-room-presentation=directory] .room-wall { opacity:var(--room-wall-visibility,1); }
+.room-environment[data-room-presentation=directory] .room-window-surround {
+  transform-origin:left 45%;
+  transform:scale(calc(1 + var(--room-approach,0) * var(--glass-zoom-distance)));
+  opacity:var(--room-glass-visibility,1);
+}
+.room-environment[data-room-presentation=directory] .room-canvas::before { opacity:calc(var(--room-night-opacity) * var(--room-wall-visibility,1)); }
+.room-environment[data-room-presentation=directory] .room-arrival-copy { max-width:640px; justify-self:stretch; }
 html .room-environment[data-room-presentation] .room-layout>.room-main { padding-top:0; }
 html .room-environment[data-room-presentation=home] .room-layout { width:100%; max-width:1920px; margin-inline:auto; }
 .room-environment .room-stage {
@@ -189,8 +200,9 @@ html .room-environment[data-room-presentation=home] .room-layout { width:100%; m
 .room-main .category-emblem>svg { width:26px; height:26px; }
 .room-main .room-directory-intro .directory-title-line { align-items:flex-start; gap:14px; margin-bottom:20px; }
 .room-main .room-directory-intro .category-emblem { margin-top:4px; }
-.room-main .room-directory-intro h1 { min-width:0; max-width:18ch; font-size:clamp(2rem,3vw,3.25rem); line-height:1.16; letter-spacing:-.03em; overflow-wrap:break-word; }
+.room-main .room-directory-intro h1 { min-width:0; max-width:18ch; font-size:clamp(2.125rem,3.15vw,3.375rem); font-weight:600; line-height:1.2; letter-spacing:-.025em; overflow-wrap:break-word; }
 .room-main .room-arrival-copy .directory-intro-copy>p { max-width:46ch; font-size:1.0625rem; line-height:1.75; text-wrap:pretty; }
+.room-environment[data-room-presentation=directory] .room-eyebrow { color:var(--selection-mark); }
 .room-environment[data-room-presentation=directory] .room-arrival-copy .controls { margin-top:24px; padding-top:24px; border-top:1px solid var(--line); }
 .room-main .room-arrival-copy .controls { margin-top:30px; gap:18px; }
 .room-main .room-arrival-copy .directory-fields { gap:18px; align-items:end; }
@@ -212,7 +224,9 @@ html .room-environment[data-room-presentation=home] .room-layout { width:100%; m
   .room-environment .room-architecture { grid-column:1; grid-row:2; width:100%; max-width:600px; margin-inline:auto; aspect-ratio:4/3; }
   .room-environment .room-canvas { width:150%; }
   .room-environment:is([data-room-presentation=detail],[data-room-presentation=support]) .room-architecture { max-width:420px; }
+  .room-environment[data-room-presentation=directory] { --glass-zoom-distance:.18; }
   .room-environment[data-room-presentation=directory] .room-architecture { max-width:560px; }
+  .room-environment[data-room-presentation=directory] .room-arrival-copy { max-width:none; }
   .room-environment .room-architecture::after { display:none; }
   .room-architecture .room-light-panel { right:12px; top:3%; flex-direction:column; gap:6px; padding:6px; }
   .room-light-settings>.appearance-controls { top:0; right:calc(100% + 12px); max-height:calc(min(75vw,315px) - 96px); overflow-y:auto; }
@@ -258,7 +272,11 @@ html[dir=rtl] .room-main .room-home-intro h1 { font-family:'Room Arabic Invitati
 html[dir=rtl] .room-main .room-home-intro h1>span+span { font-style:normal; }
 html[dir=rtl] .room-main .room-arrival-copy h1 { letter-spacing:0; line-height:1.45; }
 html[dir=rtl] .room-main .room-home-line { letter-spacing:0; line-height:1.7; }
-@media(prefers-reduced-motion:reduce) { .room-environment .room-canvas::before { transition:none; } }
+@media(prefers-reduced-motion:reduce) {
+ .room-environment .room-canvas::before { transition:none; }
+ .room-environment[data-room-presentation=directory] .room-window-surround { transform:none; opacity:1; }
+ .room-environment[data-room-presentation=directory] .room-wall { opacity:1; }
+}
 @media print {
   .room-environment .room-stage { display:block; border:0; background:none; box-shadow:none; }
   .room-environment .room-scene-tools,.room-architecture .room-light-panel,.home-find-link { display:none; }
