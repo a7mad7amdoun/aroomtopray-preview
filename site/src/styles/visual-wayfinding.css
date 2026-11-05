@@ -12,7 +12,7 @@
   border-radius:12px;
   overflow:hidden;
   background:var(--surface);
-  box-shadow:none;
+  box-shadow:var(--reading-shadow);
   transition:border-color 160ms ease-out;
 }
 #prayer-room[data-room-presentation=home] .door-notice-entry>.door-notice {
@@ -68,15 +68,15 @@
 #prayer-room[data-room-presentation=home] .notice-kicker {
   display:block;
   margin:0 0 7px;
-  font-size:.75rem;
+  font-size:.8125rem;
   line-height:1.5;
-  font-weight:500;
+  font-weight:550;
   color:var(--muted);
   letter-spacing:.01em;
 }
 #prayer-room[data-room-presentation=home] .door-notice-title {
   display:grid;
-  grid-template-columns:22px minmax(0,1fr) 20px;
+  grid-template-columns:22px minmax(0,1fr) 32px;
   gap:8px;
   align-items:center;
 }
@@ -96,13 +96,13 @@
 }
 #prayer-room[data-room-presentation=home] .door-notice-title>.notice-arrow {
   display:block;
-  width:20px;
-  height:20px;
-  padding:0;
-  border:0;
-  border-radius:0;
+  width:32px;
+  height:32px;
+  padding:7px;
+  border:1px solid var(--line);
+  border-radius:6px;
   color:var(--ink);
-  background:transparent;
+  background:var(--surface-2);
   transform:none;
   transition:color 160ms ease-out;
 }
@@ -157,10 +157,6 @@
   outline:3px solid var(--focus);
   outline-offset:-3px;
   box-shadow:none;
-}
-#prayer-room[data-room-presentation=home] .door-notice-entry:has(.door-notice:focus-visible) {
-  outline:3px solid var(--focus);
-  outline-offset:4px;
 }
 #prayer-room .notice-photo-credit a:focus-visible { outline:3px solid var(--focus); outline-offset:3px; }
 

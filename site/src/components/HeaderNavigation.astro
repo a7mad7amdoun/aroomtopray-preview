@@ -10,6 +10,7 @@ import { languageTarget, navigationPath } from '../lib/localized-routes.js';
 interface Props { locale: string; nav?: string; searchTarget: string; visitHash?: string; showTheme?: boolean }
 const { locale, nav = '', searchTarget, visitHash = '', showTheme = false } = Astro.props;
 const t = getCopy(locale);
+const currentPath = Astro.url.pathname.replace(/\/+$/, '');
 const room = ROOM_COPY[locale];
 const view = VIEW_COPY[locale];
 const wayfinding = WAYFINDING_COPY[locale];
@@ -49,13 +50,13 @@ const tools = [
         <div class="menu-visit">
           <p class="menu-section-label"><svg width="18" height="18" aria-hidden="true"><use href="#i-book"/></svg>{view.tools}</p>
           <nav class="menu-tools" aria-label={t.footer.prepare}>
-            <a class="menu-visit-guide" href={local('/visit/') + visitHash}>
+            <a class="menu-visit-guide" href={local('/visit/') + visitHash} aria-current={currentPath===local('/visit/').replace(/\/+$/, '')?'page':undefined}>
               <svg width="20" height="20" aria-hidden="true"><use href="#i-book"/></svg>
               <span>{room.details}</span>
               <svg class="menu-link-arrow directional-icon" width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg>
             </a>
-            <a class="saved-nav" href="/saved/"><svg width="18" height="18" aria-hidden="true"><use href="#i-save"/></svg><span>{t.nav.saved}</span>{locale !== 'en' && <small class="source-language">EN</small>}<span class="saved-count" data-saved-count hidden></span></a>
-            {tools.map(({ path, icon, label }) => <a href={`/${path}/`}><svg width="18" height="18" aria-hidden="true"><use href={`#i-${icon}`}/></svg><span>{label}</span>{locale !== 'en' && <small class="source-language">EN</small>}</a>)}
+            <a class="saved-nav" href="/saved/" aria-current={currentPath==='/saved'?'page':undefined}><svg width="18" height="18" aria-hidden="true"><use href="#i-save"/></svg><span>{t.nav.saved}</span>{locale !== 'en' && <small class="source-language">EN</small>}<span class="saved-count" data-saved-count hidden></span></a>
+            {tools.map(({ path, icon, label }) => <a href={`/${path}/`} aria-current={currentPath===`/${path}`?'page':undefined}><svg width="18" height="18" aria-hidden="true"><use href={`#i-${icon}`}/></svg><span>{label}</span>{locale !== 'en' && <small class="source-language">EN</small>}</a>)}
           </nav>
         </div>
         <div class="menu-preferences">

@@ -33,7 +33,7 @@ const outside=settings[kind] || 'airport';
    {presentation==='home'&&<RoomDestinations {kind} {locale} {presentation}/>}
    <div class="room-guide-threshold" dir={locale==='ar'?'rtl':'ltr'}>
     <span class="room-guide-identity"><svg width="30" height="30" aria-hidden="true"><use href="#i-mark"/></svg><span>{r.information}</span></span>
-    <a class="room-return" href="#prayer-room" data-room-return><svg width="20" height="20" aria-hidden="true"><use href="#i-mark"/></svg>{d.restore}</a>
+    <a class="room-return" href="#prayer-room" data-room-return><svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg>{d.restore}</a>
    </div>
    <slot name="guide" />
    {presentation!=='home'&&<RoomDestinations {kind} {locale} {presentation}/>}

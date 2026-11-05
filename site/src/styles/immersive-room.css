@@ -204,8 +204,7 @@ body.immersive-site { background:var(--bg); isolation:isolate; }
 .immersive-site .site-footer { background:transparent; border-top:1px solid var(--line); padding-block:25px; }
 .immersive-site .site-footer .wrap { padding:0; width:100%; }
 .immersive-site .footer-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:25px; }
-.immersive-site .footer-about { grid-column:1/-1; gap:9px; }
-.immersive-site .footer-about>.brand { display:none; }
+.immersive-site .footer-about { gap:9px; }
 .immersive-site .footer-about>p { font-size:1rem; }
 .immersive-site .footer-about>.fine { font-size:.75rem; }
 .immersive-site .site-footer nav h2 { font-size:.7rem; }

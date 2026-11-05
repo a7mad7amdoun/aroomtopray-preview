@@ -1,0 +1,48 @@
+A ROOM TO PRAY — THE FINISH OF A WELL-KEPT PUBLIC ROOM
+
+Refine the approved website, not its direction. The continuous prayer room,
+stationary glass, paired generated homepage views, real destination photographs,
+conventional hospital scene, sacred calligraphy, prayer mat, typography and palette
+are successful and must remain intact. Preserve all factual data and tools.
+
+Use Pinterest references as design research, not as assets to copy:
+- Schiphol's directional signs: one clear hierarchy, generous spacing, aligned
+  symbols, strong dark/light contrast, yellow reserved for meaningful emphasis.
+- University of Washington campus directories: coherent identifier, destination
+  and direction columns; make labels useful without adding decorative clutter.
+- Royal Children's Hospital wayfinding: readable grouping, reassuring ordinary
+  symbols, enough white space around important information.
+- The user's earlier oak-framed noticeboard and translucent plaque references:
+  carry their quiet edges and orderly spacing into the existing surfaces, without
+  copying pinned content or introducing fake institutional or clinical signage.
+
+APPLY
+1. Navigation: keep the brand and three primary destinations. Make the closed menu
+   visually quieter, with a deliberate open state. Mark the current supporting
+   page in the menu. Align its icons and labels without adding more controls.
+2. Destination notices: establish one shared edge, an aligned arrow area and clear
+   pointer/focus feedback. Keep the entire destination link clickable. Remove
+   duplicated focus outlines; retain a strong accessible focus indicator.
+3. Room-to-guide transition: preserve the return action and clarify its direction
+   with an upward arrow. Keep room controls readable and separate from the artwork.
+4. Reading surfaces: improve paired-fact alignment, retain essential restrictions
+   prominently, and correct physical corner rules that do not mirror in Arabic.
+   Unify small control radii and spacing using the existing local tokens.
+5. Footer: finish the page with a clear boundary, a properly sized brand, a generous
+   description column, readable navigation and consistent touch targets. On phones,
+   let the introductory text span the width rather than squeeze into a narrow cell.
+6. Galleries: preserve real photographs and complete captions. Improve the control
+   alignment and frame spacing using the same signs-and-paper language. No autoplay,
+   zoom effects, synthetic photographic tint, or new decorative icons.
+
+IMPLEMENTATION GUARDRAILS
+Edit owning rules, not a new override stylesheet. Keep Astro and existing component
+boundaries. Avoid unrelated pending map work. No copied Pinterest assets. No new
+fonts, palette, typography gimmicks, camera motion or fabricated place facts.
+Keep Arabic, keyboard navigation, reduced motion, no-JS access and all source links.
+
+VALIDATE
+Build the review export; run existing tests and content/link/interaction checks.
+Check source layout at360,390,760,1024 and1440px with honest verification limits.
+Browser rendering remains unavailable under the existing session restriction; do
+not substitute a different renderer. Publish only Ahmed's authorized GitHub preview.

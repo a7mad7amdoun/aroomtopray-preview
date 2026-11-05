@@ -1,0 +1,17 @@
+{
+  "date":"2026-11-05",
+  "method":"Web and image search. Individual original Pins were inaccessible; new Pinterest references were available through indexed image results. No reference image is copied into the website.",
+  "previousReferences":[
+    {"url":"https://www.pinterest.com/pin/47428602326260926/","access":"Unavailable through web-open this turn"},
+    {"url":"https://www.pinterest.com/pin/993606736553172649/","access":"Unavailable through web-open this turn"},
+    {"url":"https://i.pinimg.com/1200x/b1/2c/bf/b12cbf95ba011522f89c6125f80e1217.jpg","access":"Unavailable this turn; prior inspection is recorded in research/panoramic-menu-refinement-2026-11-04.json","recordedIdea":"Oak-framed whiteboard, ivory wall, paper and quiet navy"},
+    {"url":"https://i.pinimg.com/1200x/46/12/08/461208af760ff149834e8ebd1aab9b3f.jpg","access":"Unavailable this turn; prior inspection is recorded in research/panoramic-menu-refinement-2026-11-04.json","recordedIdea":"Aligned translucent plaques, restrained edges and headings"}
+  ],
+  "indexedPinterestReferences":[
+    {"url":"https://id.pinterest.com/pin/536632111847819942/","title":"Schiphol Airport Wayfinding Signage","application":"Keep yellow emphasis purposeful; align labels, arrows and symbols"},
+    {"url":"https://id.pinterest.com/pin/720505640425383367/","title":"UW wayfinding guide signs by Studio Matthews; photograph by William Wright","application":"Shared sign grid and an unmistakable destination hierarchy"},
+    {"url":"https://www.pinterest.com/pin/423690277414206514/","title":"Royal Children's Hospital Melbourne corridor and Buro North wayfinding","application":"Calm functional labels, readable grouping and ordinary reassuring symbols"},
+    {"url":"https://www.pinterest.com/pin/40884309112304972/","title":"Custom Floor Directory Signage","application":"Restrained material edge and aligned information columns, without copying graphics"}
+  ],
+  "limitations":"Original Pin pages and two associated designer project pages could not be freshly opened. Indexed visual descriptions and the project's dated reference notes inform the refinements; no claim of fresh full-page visual inspection. Rendered website QA remains unavailable."
+}

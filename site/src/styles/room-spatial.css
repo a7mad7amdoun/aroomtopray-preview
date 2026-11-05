@@ -220,11 +220,18 @@ html[dir=rtl] .room-atmosphere-controls [data-room-cycle],html[dir=rtl] .notice-
 .room-main .guide-content .summary { border-radius:8px; }
 .room-main .guide-content .sum { padding:22px; }
 .room-main .visit-checklist { border-radius:8px; }
-html .immersive-site .site-footer { width:min(var(--layout-width),calc(100% - 2 * var(--layout-gutter))); max-width:none; margin:0 auto 24px; padding:40px var(--content-inset); border:0; border-radius:0; background:transparent; box-shadow:none; }
+html .immersive-site .site-footer { width:min(var(--layout-width),calc(100% - 2 * var(--layout-gutter))); max-width:none; margin:0 auto 24px; padding:48px var(--content-inset); border:0; border-top:1px solid var(--line); border-radius:0; background:transparent; box-shadow:none; }
 .immersive-site .site-footer .wrap { width:100%; max-width:none; padding-inline:0; }
-.immersive-site .site-footer .footer-grid { grid-template-columns:repeat(4,minmax(0,1fr)); gap:32px; }
-.immersive-site .site-footer nav h2 { font-size:.8rem; letter-spacing:0; text-transform:none; }
-.immersive-site .site-footer nav a { min-height:36px; font-size:.85rem; }
+.immersive-site .site-footer .footer-grid { grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr)); gap:32px; }
+.immersive-site .site-footer nav h2 { margin:0 0 16px; color:var(--ink); font-size:.9375rem; font-weight:650; line-height:1.5; letter-spacing:0; text-transform:none; }
+.immersive-site .site-footer nav a { min-height:44px; padding-block:8px; font-size:.9375rem; line-height:1.5; text-underline-offset:4px; }
+.immersive-site .site-footer .footer-about { gap:12px; }
+.immersive-site .site-footer .footer-about .brand { gap:12px; font-size:1.5rem; line-height:1.2; font-weight:700; letter-spacing:-.035em; }
+.immersive-site .site-footer .footer-about .brand>svg { width:40px; height:40px; flex:none; }
+.immersive-site .site-footer .footer-about p { max-width:36ch; font-size:1rem; line-height:1.7; }
+.immersive-site .site-footer .footer-about>.fine { max-width:44ch; font-size:.875rem; line-height:1.7; }
+.immersive-site .site-footer a:focus-visible { outline:3px solid var(--focus); outline-offset:3px; }
+@media(max-width:760px) { .immersive-site .site-footer .footer-about { grid-column:1/-1; } }
 /* The world is beyond stationary glazing; only the scene dissolves. */
 .room-environment .door-outside { background-image:none; background-color:transparent; overflow:hidden; isolation:isolate; }
 .door-scene { position:absolute; inset:0; background-size:cover; background-repeat:no-repeat; background-position:center; opacity:0; transition:opacity 2200ms cubic-bezier(.22,.61,.36,1); }
@@ -271,7 +278,6 @@ html[dir=rtl] .directory-access-note { font-family:var(--f-arabic); font-size:1r
 .room-main .room-three-steps { gap:28px; }
 .room-main .room-three-steps li { padding:24px; border:1px solid var(--line); border-radius:4px; background:var(--surface); }
 .room-main .room-three-steps .step-symbol { border-radius:3px; background:var(--sign); color:var(--sign-ink); }
-html .immersive-site .site-footer { padding-block:48px; }
 html[dir=rtl] .room-main .room-arrival-copy h1 { font-family:var(--f-arabic); line-height:1.35; letter-spacing:0; }
 html[dir=rtl] .room-main .room-arrival-copy :is(.room-eyebrow,.eyebrow) { letter-spacing:0; }
 html[dir=rtl] .room-environment .door-notice-title>b { font-family:var(--f-arabic); font-size:1.35rem; line-height:1.5; letter-spacing:0; }

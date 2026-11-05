@@ -46,7 +46,7 @@ html[dir=rtl] .room-environment .room-layout>.room-main { direction:rtl; }
 .room-guide-identity { display:flex; align-items:center; gap:12px; min-width:0; color:var(--ink); font:550 1rem/1.6 var(--f-body); }
 .room-guide-identity>svg { width:30px; height:30px; flex:none; color:var(--selection-mark); }
 .room-return { display:inline-flex; align-items:center; gap:10px; min-height:44px; padding:9px 14px; border:1px solid var(--line); border-radius:6px; background:var(--surface); color:var(--ink); font:550 .9375rem/1.5 var(--f-body); text-decoration:none; }
-.room-return>svg { flex:none; }
+.room-return>svg { flex:none; rotate:-90deg; }
 .room-return:hover { border-color:var(--field); background:var(--surface-2); }
 .room-return:focus-visible { outline:3px solid var(--focus); outline-offset:3px; }
 html[dir=rtl] .room-guide-threshold :is(.room-guide-identity,.room-return) { font-family:var(--f-arabic); line-height:1.75; }

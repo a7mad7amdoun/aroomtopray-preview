@@ -12,7 +12,7 @@ const id=`setting-gallery-${scene}`;
   <button type="button" data-photo-step="1" aria-controls={id} aria-label={copy.next}><svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></button>
  </div></header>
  <div class="photo-track" id={id} data-photo-track tabindex="0" aria-label={copy.title}>
-  {photos.map((photo,index)=><figure data-photo-slide>
+  {photos.map(photo=><figure data-photo-slide>
    <a href={photo.source} aria-label={`${copy.source}: ${photo.title}`}><img src={`${photo.base}-${photo.widths[1]}.webp`} srcset={photo.widths.map(width=>`${photo.base}-${width}.webp ${width}w`).join(', ')} sizes="(max-width:760px) 88vw, (max-width:1520px) 85vw, 1120px" width={photo.width} height={photo.height} alt={photo.title} loading="lazy" decoding="async"/></a>
    <figcaption><strong lang="en" dir="ltr">{photo.title}</strong><span><bdi>{photo.author}</bdi> · <time datetime={photo.date}>{photo.date.slice(0,4)}</time> · <a href={photo.licenseUrl} lang="en">{photo.license}</a></span><small>{copy.changes}</small></figcaption>
   </figure>)}
@@ -33,11 +33,11 @@ const id=`setting-gallery-${scene}`;
  .photo-controls span { min-width:5ch; text-align:center; font-variant-numeric:tabular-nums; color:var(--muted); }
  .photo-track { display:flex; gap:24px; width:100%; overflow-x:auto; overscroll-behavior-inline:contain; scroll-snap-type:x proximity; scrollbar-width:thin; scrollbar-color:var(--field) var(--surface); padding-bottom:12px; }
  .photo-track figure { flex:0 0 90%; min-width:0; margin:0; scroll-snap-align:start; border:1px solid var(--line); border-radius:8px; overflow:hidden; background:var(--surface); }
- .photo-track figure>a { display:block; background:var(--surface-2); }
+ .photo-track figure>a { display:block; padding:clamp(8px,1vw,14px); background:var(--surface-2); }
  .photo-track img { display:block; width:100%; height:clamp(240px,42vw,560px); object-fit:contain; }
- .photo-track figcaption { display:grid; gap:6px; padding:20px; text-align:start; }
+ .photo-track figcaption { display:grid; gap:6px; padding:20px; border-top:1px solid var(--line); text-align:start; }
  .photo-track strong { font-size:1.125rem; line-height:1.5; }
- .photo-track figcaption span,.photo-track small { color:var(--muted); font-size:.8125rem; line-height:1.6; }
+ .photo-track figcaption span,.photo-track small { color:var(--muted); font-size:.875rem; line-height:1.6; }
  .photo-track a { color:var(--link); text-underline-offset:3px; }
  .setting-gallery :is(button,a,.photo-track):focus-visible { outline:3px solid var(--focus); outline-offset:-3px; }
  .setting-gallery[dir=rtl] h2 { letter-spacing:0; line-height:1.6; font-family:var(--f-arabic); }
