@@ -5,7 +5,7 @@
 .top.room-header {
  position:sticky; top:0; z-index:30; color:var(--ink);
  border:0; border-bottom:1px solid var(--line);
- background:var(--surface); box-shadow:none; backdrop-filter:none;
+ background:var(--surface); box-shadow:0 6px 24px -20px #0a111c60; backdrop-filter:none;
 }
 .top.room-header>.wrap {
  display:grid; grid-template-columns:auto minmax(0,1fr) auto auto; align-items:center;
@@ -24,12 +24,12 @@
 .top.room-header .primary-navigation {
  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:stretch;
  justify-self:center; width:100%; max-width:560px; margin:0; gap:4px; padding:5px;
- border:1px solid var(--board-cell); border-radius:12px; background:var(--board);
+ border:1px solid var(--board-cell); border-radius:8px; background:var(--board);
 }
 .top.room-header .primary-navigation>a {
  position:relative; display:flex; align-items:center; justify-content:center; gap:8px;
  min-width:0; min-height:54px; padding:10px clamp(8px,.7vw,12px);
- border:0; border-radius:7px; background:transparent; box-shadow:none; text-decoration:none;
+ border:0; border-radius:4px; background:transparent; box-shadow:none; text-decoration:none;
  color:var(--board-ink); font:580 1rem/1.4 var(--f-body); white-space:nowrap;
  transition:color 180ms ease,background-color 180ms ease;
 }

@@ -76,7 +76,7 @@ html .room-environment[data-room-presentation=home] .room-layout { width:100%; m
 .room-environment[data-room-presentation] .room-arrival-copy {
   position:relative; z-index:2; grid-column:2; grid-row:1; display:block;
   width:auto; margin:28px var(--room-gutter) 28px 0; padding:clamp(24px,2.6vw,40px);
-  border:1px solid var(--line); border-radius:14px; background:var(--surface); box-shadow:var(--visual-shadow);
+  border:1px solid var(--line); border-radius:10px; background:var(--surface); box-shadow:var(--visual-shadow);
 }
 /* Airport arrivals keep the practical departure-sign surface and its explicit
    palette. The wider guide below remains theme-aware, just like other places. */
@@ -134,15 +134,15 @@ html .room-environment[data-room-presentation=home] .room-layout { width:100%; m
 .room-main .home-welcome-copy { margin-top:24px; }
 .room-main .room-home-line { margin:0 0 10px; color:var(--room-inscription); font:550 1.125rem/1.5 var(--f-display); letter-spacing:-.015em; }
 .room-main .home-welcome-copy .room-introduction { margin:0; max-width:35ch; color:var(--room-inscription); font-size:1.0625rem; line-height:1.65; }
-.home-find-link { display:inline-flex; align-items:center; gap:24px; min-height:48px; margin-top:24px; padding:8px 0; border-bottom:1px solid var(--invitation-accent); color:var(--room-inscription); text-decoration:none; font-weight:600; }
+.home-find-link { display:inline-flex; align-items:center; gap:24px; min-height:52px; margin-top:28px; padding:13px 20px; border:1px solid var(--board-dim); border-radius:6px; background:var(--board); color:var(--board-ink); text-decoration:none; font-weight:600; line-height:1.5; }
 .home-find-link svg { rotate:90deg; }
-.home-find-link:hover { color:var(--invitation-accent); }
+.home-find-link:hover { background:var(--board-cell); color:var(--board-ink); border-color:var(--sign); }
 .home-find-link:focus-visible { outline:3px solid var(--focus); outline-offset:6px; }
 .room-main .home-search-intro { margin:18px 0 0; max-width:62ch; color:var(--muted); font-size:1rem; line-height:1.7; }
 .room-environment[data-room-presentation=home] .room-arrival-copy {
   grid-column:1/-1; grid-row:3; display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr); gap:0 40px;
   width:calc(100% - var(--room-gutter) * 2); max-width:var(--room-reading-width); margin:24px auto 0;
-  border-top:3px solid var(--sign); padding:32px; box-sizing:border-box;
+  border-top:3px solid var(--sign); padding:clamp(24px,3vw,44px); box-sizing:border-box;
 }
 .room-environment[data-room-presentation=home] .room-arrival-copy .arrival-actions { grid-column:1/-1; }
 .room-environment[data-room-presentation=home] .arrival-coverage { align-self:center; justify-content:center; margin:0; padding:0; padding-inline-start:32px; border-top:0; border-inline-start:1px solid var(--line); }
@@ -162,7 +162,7 @@ html .room-environment[data-room-presentation=home] .room-layout { width:100%; m
 .guide-invitation span+span { color:var(--invitation-accent); font-style:italic; }
 .guide-invitation:lang(ar) { font:400 clamp(2rem,3vw,3rem)/1.6 'Room Arabic Invitation',var(--f-arabic); letter-spacing:0; }
 .guide-invitation:lang(ar) span+span { font-style:normal; }
-.room-environment[data-room-presentation=home] .place-search>label { font-size:1.375rem; line-height:1.35; letter-spacing:-.02em; }
+.room-environment[data-room-presentation=home] .place-search>label { font-size:clamp(1.375rem,2vw,1.625rem); line-height:1.35; letter-spacing:-.02em; }
 .room-main .room-arrival-copy .room-introduction { max-width:53ch; line-height:1.7; }
 .room-main .room-arrival-copy .room-eyebrow { letter-spacing:.02em; margin-bottom:18px; }
 .room-main .room-arrival-copy .room-eyebrow>span { width:7px; height:7px; border-radius:50%; }
@@ -176,7 +176,7 @@ html .room-environment[data-room-presentation=home] .room-layout { width:100%; m
 .room-main .place-search-field button { width:48px; height:48px; border-radius:5px; }
 .room-main .arrival-coverage { display:flex; align-items:baseline; flex-wrap:wrap; gap:20px 32px; margin:28px 0 0; padding:24px 0 0; border:0; border-top:1px solid var(--line); }
 .room-main .arrival-coverage>div { display:flex; flex-direction:column; align-items:start; gap:6px; min-width:0; }
-.room-main .arrival-coverage dd { margin:0; font:650 2.25rem/1.1 var(--f-display); letter-spacing:-.025em; font-variant-numeric:tabular-nums; color:var(--ink); }
+.room-main .arrival-coverage dd { margin:0; font:600 clamp(2.25rem,3vw,2.75rem)/1.1 var(--f-display); letter-spacing:-.025em; font-variant-numeric:tabular-nums; color:var(--ink); }
 .room-main .arrival-coverage dt { order:2; font-size:.9375rem; line-height:1.6; color:var(--muted); }
 .room-main .arrival-actions { margin-top:24px; padding-top:16px; gap:8px 24px; }
 .room-main .arrival-guide-link { font-size:.9375rem; }

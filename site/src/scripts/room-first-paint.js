@@ -7,7 +7,7 @@
   try { preference = localStorage.getItem('aroomtopray.theme.v1'); } catch {}
   if (preference === 'light' || preference === 'dark') root.setAttribute('data-theme', preference);
   const dark = preference === 'dark' || (preference !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#0a111c' : '#f6f7f7');
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#0b121d' : '#f4f1eb');
   if (new URLSearchParams(window.location.search).has('report')) root.dataset.guideReportIntent = 'true';
   try {
     sessionStorage.removeItem('aroomtopray.focus.v2');

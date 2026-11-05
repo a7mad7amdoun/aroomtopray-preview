@@ -1,0 +1,73 @@
+A ROOM TO PRAY — QUIET HOSPITALITY, PRECISE WAYFINDING
+
+ROLE
+Work as a senior product designer and frontend engineer. Refine the approved
+prayer-room experience into a calm, confident, beautifully finished public guide.
+The visitor may be tired, anxious, carrying luggage, or helping someone else.
+Luxury here means care, clarity, comfort and reliable information.
+
+CREATIVE DIRECTION
+A quiet private lounge within a busy public place. Let architecture communicate
+peace, photography communicate location, and typography communicate certainty.
+Keep the established room, stationary panoramic glass, rug facing the solid niche,
+sacred calligraphy, and actual location photographs. Their successful geometry and
+meaning are more valuable than another visual reset.
+
+MATERIAL AND COLOR
+Refine the light theme toward warm ivory and pale stone with midnight-blue ink.
+Give dark mode deep navy backgrounds and slightly raised blue reading surfaces.
+Use Hamza's yellow for destinations and selected states. Avoid metallic gradients,
+fake gold textures, ornamental frames, or claims that this is a private service.
+Each surface must have explicit, readable foreground colors. Retain status colors
+and the airport's high-contrast departures-board palette.
+
+TYPOGRAPHY
+Keep Archivo as the coherent navigation and information voice, the existing
+Garamond invitation, and the proper Arabic type system. Do not add more fonts.
+Preserve the Adhan wording and Allah artwork. Use confident sizing and restrained
+weights, generous paragraph leading, and readable metadata. Arabic has its own
+line-height and no Latin tracking tricks. Preserve all four languages.
+
+ARRIVAL AND PRIMARY ACTION
+Keep the room as the hero. The search link beside the invitation should read as
+an unmistakable action: a quiet navy button, light label, directional arrow, and
+visible keyboard focus. Maintain direct native navigation to search. Give the
+search surface and coverage figures a deliberate hierarchy, with more breathing
+room on desktop and no fixed text heights. Preserve the recent category-intro
+refinements, where the room and text have balanced proportions.
+
+NAVIGATION
+Keep the large brand, three primary destinations, search and language menu.
+Use precise corners, a gentle separator/shadow and still, legible selected states.
+The menu should feel like a carefully typeset visitor directory. Do not add a
+second menu, duplicate preference controls, or new navigation gestures.
+
+DESTINATION PHOTOGRAPHS
+Present photographs like documentary prints with a modest inset and a consistent
+frame. Keep their full content, original colors, provenance, and descriptive text.
+On desktop give the three destination cards the same landscape presentation and
+align information beneath. On mobile keep compact image-and-information rows.
+Make focus and hover useful and calm, without translating, tilting, zooming or
+hiding content. Do not confuse photo examples with proof of room access.
+
+INFORMATION SYSTEM
+Carry the same measured spacing, surface tones and restrained shadows through
+reading panels, tabs, detail cards and galleries. Preserve each category's useful
+character: airport sign, university directory, hospital information board.
+Keep location, restrictions, facilities, sources and next actions readable.
+Never invent or remove place information, access conditions, dates or affiliations.
+Keep search, filters, maps, saved places and progressive/no-JS behavior intact.
+
+IMPLEMENTATION
+Use existing components and owning stylesheets. Adjust existing tokens instead
+of adding a parallel palette. Keep Astro, existing data and architecture. Do not
+include the unrelated pending map work. Make a focused presentation change with
+no additional dependencies, image requests or runtime scripts.
+
+ACCEPTANCE
+Build all routes; run existing tests. Compare category/home content and links;
+exercise localized directory behavior and validate export paths. Check contrast
+for the revised surface/text combinations mathematically. Review responsive source
+rules at360,390,760,1024 and1440px. State honestly that browser rendering remains
+unavailable in this session; do not claim visual perfection or device testing.
+Publish only Ahmed's authorized GitHub Pages preview, never Hamza's live website.

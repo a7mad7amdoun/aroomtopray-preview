@@ -3,12 +3,12 @@
 :root,
 :root[data-theme=light] {
   color-scheme:light;
-  --bg:#f6f7f7;
-  --surface:#ffffff;
-  --surface-2:#edf1f3;
+  --bg:#f4f1eb;
+  --surface:#fffdf8;
+  --surface-2:#ece9e2;
   --ink:#142033;
-  --muted:#4e5c6d;
-  --line:#d3dce2;
+  --muted:#535e69;
+  --line:#d8d5cd;
   --field:#748394;
   --focus:#355c86;
   --link:#234b76;
@@ -35,9 +35,9 @@
 
 :root[data-theme=dark] {
   color-scheme:dark;
-  --bg:#0a111c;
-  --surface:#152133;
-  --surface-2:#1f2e42;
+  --bg:#0b121d;
+  --surface:#162233;
+  --surface-2:#202f43;
   --ink:#f3f2ec;
   --muted:#b7c2d1;
   --line:#3d4c61;
@@ -66,9 +66,9 @@
 @media(prefers-color-scheme:dark) {
   :root:not([data-theme=light]) {
     color-scheme:dark;
-    --bg:#0a111c;
-    --surface:#152133;
-    --surface-2:#1f2e42;
+    --bg:#0b121d;
+    --surface:#162233;
+    --surface-2:#202f43;
     --ink:#f3f2ec;
     --muted:#b7c2d1;
     --line:#3d4c61;
@@ -170,7 +170,7 @@
 @media print {
   :root,:root[data-theme],:root:not([data-theme=light]) {
     color-scheme:light;
-    --bg:#ffffff; --surface:#ffffff; --surface-2:#f2f2ee;
+    --bg:#ffffff; --surface:#fffdf8; --surface-2:#f2f2ee;
     --ink:#142033; --muted:#465263; --line:#bac0c8; --field:#647184;
     --link:#234b76; --focus:#355c86; --selection-mark:#795b00;
     --go:#135e46; --go-bg:#ffffff; --warn:#84430e; --warn-bg:#ffffff;
@@ -179,7 +179,7 @@
   }
   .room-environment[data-room-setting=airports] .room-arrival-copy {
     color-scheme:light;
-    --bg:#ffffff; --surface:#ffffff; --surface-2:#f2f2ee;
+    --bg:#ffffff; --surface:#fffdf8; --surface-2:#f2f2ee;
     --ink:#142033; --muted:#465263; --line:#bac0c8; --field:#647184;
     --link:#234b76;
     background:#ffffff;

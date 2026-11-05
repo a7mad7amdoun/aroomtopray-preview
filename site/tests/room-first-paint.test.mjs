@@ -29,7 +29,7 @@ test('repeated fresh starts restore saved/system appearance before requesting ma
     const p = freshPage({ preference, systemDark });
     const dark = preference === 'dark' || (!['light','dark'].includes(preference) && systemDark);
     assert.equal(p.attributes.get('data-theme'), ['light','dark'].includes(preference) ? preference : undefined);
-    assert.equal(p.attributes.get('meta-content'), dark ? '#0a111c' : '#f6f7f7');
+    assert.equal(p.attributes.get('meta-content'), dark ? '#0b121d' : '#f4f1eb');
     assert.ok(p.classes.has('js'));
     assert.equal(p.links.length, 2);
     assert.equal(p.links[0].href, `/art/artful-room/${dark ? 'night' : 'day'}-1774.webp`);
@@ -56,7 +56,7 @@ test('each category and device density preloads existing assets used by the CSS'
 test('blocked storage, mounted preview paths and report intent keep initial appearance usable', () => {
   const p = freshPage({ blocked: true, systemDark: true, query: '?report=access', preview: true });
   assert.equal(p.root.dataset.guideReportIntent, 'true');
-  assert.equal(p.attributes.get('meta-content'), '#0a111c');
+  assert.equal(p.attributes.get('meta-content'), '#0b121d');
   assert.ok(p.links.every(link => link.href.startsWith('/aroomtopray-preview/art/')));
   assert.equal(freshPage({ query: '?q=report' }).root.dataset.guideReportIntent, undefined);
 });

@@ -57,7 +57,7 @@ const searchTarget = isHome ? '#place-search-input' : isDirectory ? '#q-dir' : `
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f6f7f7">
+  <meta name="theme-color" content="#f4f1eb">
   <script is:inline data-arrival-presentation={presentation} data-arrival-kind={roomKind} set:html={roomFirstPaint}/>
   {(locale==='ar'?[arabicRegularUrl,arabicSemiboldUrl]:[archivoLatinUrl]).map(href=><link rel="preload" href={href} as="font" type="font/woff2" crossorigin="anonymous"/>)}
   {isHome && <link rel="preload" href={locale==='ar'?'/fonts/room-invitation/amiri-regular.woff2':'/fonts/room-invitation/garamond-medium.woff2'} as="font" type="font/woff2" crossorigin="anonymous"/>}
