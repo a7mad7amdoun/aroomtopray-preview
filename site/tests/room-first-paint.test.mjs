@@ -33,7 +33,7 @@ test('repeated fresh starts restore saved/system appearance before requesting ma
     assert.ok(p.classes.has('js'));
     assert.equal(p.links.length, 2);
     assert.equal(p.links[0].href, `/art/artful-room/${dark ? 'night' : 'day'}-1774.webp`);
-    assert.equal(p.links[1].href, `/art/real-views/airport-800.webp`);
+    assert.equal(p.links[1].href, `/art/home-paired-views/airport-${dark ? 'night' : 'day'}-640.webp`);
   }
 });
 
@@ -63,9 +63,18 @@ test('blocked storage, mounted preview paths and report intent keep initial appe
 
 test('dense tablet glass keeps the medium image while large desktop gets original-resolution detail', () => {
   for (const [kind, scene] of Object.entries({airports:'airport',universities:'campus',hospitals:'hospital'})) {
-    const tablet=freshPage({kind,tablet:true,density:2});
+    const tablet=freshPage({kind,presentation:'directory',tablet:true,density:2});
     assert.equal(tablet.links[1].href, `/art/real-views/${scene}-1400.webp`);
-    const desktop=freshPage({kind,density:2});
+    const desktop=freshPage({kind,presentation:'directory',density:2});
     assert.equal(desktop.links[1].href, `/art/real-views/${scene}-${scene==='hospital'?1400:2048}.webp`);
   }
+});
+
+test('home preloads its generated lighting pair without changing directory photography', () => {
+ for(const preference of ['light','dark'])for(const density of [1,2]) {
+  const page=freshPage({preference,density});
+  const expected=`/art/home-paired-views/airport-${preference==='dark'?'night':'day'}-${density===1?640:1122}.webp`;
+  assert.equal(page.links[1].href,expected);
+  assert.ok(fs.existsSync(new URL('../public'+expected,import.meta.url)));
+ }
 });

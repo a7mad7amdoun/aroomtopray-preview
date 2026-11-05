@@ -1,0 +1,108 @@
+{
+  "checkedOn": "2026-11-04",
+  "purpose": "Documentary architectural context, not photographs of the listed prayer rooms or evidence of access.",
+  "credits": [
+    {
+      "title": "Suvarnabhumi Airport · Terminal E",
+      "author": "Grendelkhan",
+      "date": "2017-04-22",
+      "width": 4032,
+      "height": 3024,
+      "source": "https://commons.wikimedia.org/wiki/File:Suvarnabhumi_Airport_Terminal_E_interior_at_dusk.jpg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "base": "/aroomtopray-preview/photos/setting-gallery/airport",
+      "widths": [
+        720,
+        1440,
+        2160
+      ],
+      "files": [
+        {
+          "file": "airport-720.webp",
+          "bytes": 82682,
+          "sha256": "02733fdb7d63441cdd47ba856bd56d3cce151898a253ce9cfe9cd0a88e7fb62b"
+        },
+        {
+          "file": "airport-1440.webp",
+          "bytes": 282376,
+          "sha256": "883e1fdd7b14c08c6d0a855ba54750d4a580c79d82956aaed8de5191f4530a0d"
+        },
+        {
+          "file": "airport-2160.webp",
+          "bytes": 562002,
+          "sha256": "bfa7a5bbdd8c9a47c2eb188927aa07cbd9228939096ba99c42db8be98488c308"
+        }
+      ],
+      "modifications": "Orientation normalized, resized proportionally without enlargement and converted to WebP. Original colours retained. No AI edits."
+    },
+    {
+      "title": "All Souls College · Hall and kitchen",
+      "author": "Camboxer",
+      "date": "2016-11-28",
+      "width": 3456,
+      "height": 2304,
+      "source": "https://commons.wikimedia.org/wiki/File:All_Souls_hall_%26_kitchen.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "base": "/aroomtopray-preview/photos/setting-gallery/campus",
+      "widths": [
+        720,
+        1440,
+        2160
+      ],
+      "files": [
+        {
+          "file": "campus-720.webp",
+          "bytes": 94960,
+          "sha256": "4d896b95657770cf2556081d13314807f9a95c528f6d805aa08c4c10ecf7f288"
+        },
+        {
+          "file": "campus-1440.webp",
+          "bytes": 313890,
+          "sha256": "5ff01b31e0e9569c3205174c29b36a2288ecd8791d356444d95dce958fb42d40"
+        },
+        {
+          "file": "campus-2160.webp",
+          "bytes": 589166,
+          "sha256": "7284da16fa5d0d5f090c50f038b3ab1c412d1e83eb5e876fa32394d8de0b4ec5"
+        }
+      ],
+      "modifications": "Orientation normalized, resized proportionally without enlargement and converted to WebP. Original colours retained. No AI edits."
+    },
+    {
+      "title": "Queen Elizabeth Hospital · Main entrance, Woolwich",
+      "author": "Paul W",
+      "date": "2018-04-17",
+      "width": 4608,
+      "height": 2592,
+      "source": "https://commons.wikimedia.org/wiki/File:Main_entrance,_Queen_Elizabeth_Hospital,_Woolwich.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "base": "/aroomtopray-preview/photos/setting-gallery/hospital",
+      "widths": [
+        720,
+        1440,
+        2160
+      ],
+      "files": [
+        {
+          "file": "hospital-720.webp",
+          "bytes": 40658,
+          "sha256": "cf30a0d1bf6765309fd6151e1028f082bf5817b0e8c0c0b676f741fc3b017c0b"
+        },
+        {
+          "file": "hospital-1440.webp",
+          "bytes": 124790,
+          "sha256": "8c71c7392983879a7b479330bcd067d6a51e58544d016f8caeea636c8ca9bca0"
+        },
+        {
+          "file": "hospital-2160.webp",
+          "bytes": 243412,
+          "sha256": "5e34144a6797296d915f6262a606da3ce4e6bc9c7755a6acd849a656f0adb76a"
+        }
+      ],
+      "modifications": "Orientation normalized, resized proportionally without enlargement and converted to WebP. Original colours retained. No AI edits."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+// Homepage views are generated illustrations; directory scenery stays photographic.
+export const HOME_VIEW_COPY = {
+ en:{label:'Imagined room · illustrated destination views',note:'Original generated airport, university and hospital scenes, with matched daylight and evening lighting. These do not depict the prayer rooms in this guide.',changes:'The room and views are architectural illustrations. Real photographs and their sources appear on the destination pages.'},
+ fr:{label:'Pièce imaginée · vues de destinations illustrées',note:'Scènes originales générées d’aéroport, d’université et d’hôpital, avec éclairages de jour et du soir assortis. Elles ne représentent pas les salles de prière de ce guide.',changes:'La pièce et les vues sont des illustrations architecturales. Les photographies réelles et leurs sources figurent sur les pages des destinations.'},
+ ar:{label:'غرفة متخيّلة · مشاهد توضيحية للوجهات',note:'مشاهد مولّدة أصلية لمطار وجامعة ومستشفى، بإضاءة نهارية ومسائية متناسقة. لا تمثّل هذه المشاهد غرف الصلاة الواردة في الدليل.',changes:'الغرفة والإطلالات رسوم معمارية توضيحية. تظهر الصور الحقيقية ومصادرها في صفحات الوجهات.'},
+ es:{label:'Habitación imaginada · vistas ilustradas',note:'Escenas originales generadas de aeropuerto, universidad y hospital, con iluminación diurna y nocturna coordinada. No representan las salas de oración de esta guía.',changes:'La habitación y las vistas son ilustraciones arquitectónicas. Las fotografías reales y sus fuentes aparecen en las páginas de los destinos.'},
+};

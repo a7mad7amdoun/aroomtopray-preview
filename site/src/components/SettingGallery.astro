@@ -1,0 +1,47 @@
+---
+import { SETTING_GALLERIES, SETTING_GALLERY_COPY } from '../data/setting-gallery.js';
+const {scene,locale='en'}=Astro.props;
+const photos=SETTING_GALLERIES[scene],copy=SETTING_GALLERY_COPY[locale];
+const id=`setting-gallery-${scene}`;
+---
+<section class="setting-gallery" data-setting-gallery dir={locale==='ar'?'rtl':'ltr'} aria-labelledby={`${id}-title`}>
+ <header><div><h2 id={`${id}-title`}>{copy.title}</h2><p>{copy.note}</p></div>
+ <div class="photo-controls" data-photo-controls hidden>
+  <button type="button" data-photo-step="-1" aria-controls={id} aria-label={copy.previous} disabled><svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+  <span data-photo-status data-of={copy.of} data-locale={locale} role="status" aria-live="polite"></span>
+  <button type="button" data-photo-step="1" aria-controls={id} aria-label={copy.next}><svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+ </div></header>
+ <div class="photo-track" id={id} data-photo-track tabindex="0" aria-label={copy.title}>
+  {photos.map((photo,index)=><figure data-photo-slide>
+   <a href={photo.source} aria-label={`${copy.source}: ${photo.title}`}><img src={`${photo.base}-${photo.widths[1]}.webp`} srcset={photo.widths.map(width=>`${photo.base}-${width}.webp ${width}w`).join(', ')} sizes="(max-width:760px) 88vw, (max-width:1520px) 85vw, 1120px" width={photo.width} height={photo.height} alt={photo.title} loading="lazy" decoding="async"/></a>
+   <figcaption><strong lang="en" dir="ltr">{photo.title}</strong><span><bdi>{photo.author}</bdi> · <time datetime={photo.date}>{photo.date.slice(0,4)}</time> · <a href={photo.licenseUrl} lang="en">{photo.license}</a></span><small>{copy.changes}</small></figcaption>
+  </figure>)}
+ </div>
+</section>
+<script>import '../scripts/setting-gallery.js';</script>
+<style>
+ .setting-gallery { grid-column:1/-1; min-width:0; width:100%; margin-block:32px; color:var(--ink); }
+ .setting-gallery header { display:flex; align-items:end; justify-content:space-between; flex-wrap:wrap; gap:20px; margin-bottom:20px; }
+ .setting-gallery h2 { font:650 clamp(1.5rem,2.4vw,2rem)/1.25 var(--f-display); margin:0 0 10px; letter-spacing:-.025em; }
+ .setting-gallery header p { max-width:65ch; color:var(--muted); line-height:1.65; margin:0; }
+ .photo-controls { display:flex; align-items:center; gap:12px; flex:none; }
+ .photo-controls[hidden] { display:none; }
+ .photo-controls button { display:grid; place-items:center; width:48px; height:48px; padding:0; border:1px solid var(--field); border-radius:6px; background:var(--surface); color:var(--ink); cursor:pointer; }
+ .photo-controls button:disabled { opacity:.4; cursor:default; }
+ .photo-controls button:not(:disabled):hover { background:var(--surface-2); }
+ .photo-controls button[data-photo-step='-1'] svg { rotate:180deg; }
+ .photo-controls span { min-width:5ch; text-align:center; font-variant-numeric:tabular-nums; color:var(--muted); }
+ .photo-track { display:flex; gap:24px; width:100%; overflow-x:auto; overscroll-behavior-inline:contain; scroll-snap-type:x proximity; scrollbar-width:thin; scrollbar-color:var(--field) var(--surface); padding-bottom:12px; }
+ .photo-track figure { flex:0 0 90%; min-width:0; margin:0; scroll-snap-align:start; border:1px solid var(--line); border-radius:8px; overflow:hidden; background:var(--surface); }
+ .photo-track figure>a { display:block; background:var(--surface-2); }
+ .photo-track img { display:block; width:100%; height:clamp(240px,42vw,560px); object-fit:contain; }
+ .photo-track figcaption { display:grid; gap:6px; padding:20px; text-align:start; }
+ .photo-track strong { font-size:1.125rem; line-height:1.5; }
+ .photo-track figcaption span,.photo-track small { color:var(--muted); font-size:.8125rem; line-height:1.6; }
+ .photo-track a { color:var(--link); text-underline-offset:3px; }
+ .setting-gallery :is(button,a,.photo-track):focus-visible { outline:3px solid var(--focus); outline-offset:-3px; }
+ .setting-gallery[dir=rtl] h2 { letter-spacing:0; line-height:1.6; font-family:var(--f-arabic); }
+ .setting-gallery[dir=rtl] .photo-controls svg { scale:-1 1; }
+ @media(max-width:760px) { .photo-track { gap:16px; } .photo-track figure { flex-basis:94%; } .photo-track figcaption { padding:16px; } }
+ @media print { .setting-gallery { display:none; } }
+</style>

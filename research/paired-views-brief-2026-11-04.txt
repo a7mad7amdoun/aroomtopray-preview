@@ -1,0 +1,28 @@
+A ROOM TO PRAY — TWO COMPLEMENTARY IMAGE ROLES
+
+Keep the approved prayer room, typography, niche, mat, fixed glass and controls.
+Homepage: original generated exterior views, one airport, university and hospital,
+with a matching daylight/evening pair for each. Elevated believable camera position,
+quiet architectural atmosphere, real materials, useful details, no logos or text.
+The mode switch changes lighting while preserving camera and architecture. Preserve
+accessible pause, reduced motion, existing scene cycling and deliberate loading.
+
+Sections: real licensed photographs, large enough to see context clearly. Deliver
+native-resolution detail proportionally, not artificial sharpening or fabricated
+room photographs. Identify the photographed place, author and license. Do not
+imply the illustration or photograph is a specific listed prayer-room view.
+
+Keep generated imagery confined to the homepage scene. Existing real directory
+records, place photos and references remain intact. Give category pages a broader
+photographic opening within the same room design; do not sacrifice search visibility.
+Preserve both modes, all four languages, all records, and all visitor tools.
+
+Test first-paint asset selection and image load failure; no blank frames or navigation
+waiting for art. Keep theme-dependent asset rules and preloads in agreement. Build,
+verify exported paths, and publish only Ahmed's GitHub preview. Record prompts and
+provenance; disclose that browser rendering is unavailable in this session.
+
+Hospital refinement: use a conventional general-hospital clinical block, repeated
+windows, covered entrance, ramp and drop-off. Keep planting modest. Match its
+neutral clinical evening lighting to the same daylight camera and architecture.
+Use an ordinary hospital entrance photograph in the real gallery as well.

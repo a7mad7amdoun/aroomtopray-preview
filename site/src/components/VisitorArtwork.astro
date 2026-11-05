@@ -1,4 +1,5 @@
 ---
+import SettingGallery from './SettingGallery.astro';
 import VisitorPicture from './VisitorPicture.astro';
 import { VISITOR_ART_REFERENCES, VISITOR_ART_COPY } from '../data/visitor-art.js';
 // Contextual artwork is kept outside factual room-photo galleries.
@@ -8,7 +9,7 @@ const reference=VISITOR_ART_REFERENCES[scene];
 const copy=VISITOR_ART_COPY[locale]??VISITOR_ART_COPY.en;
 const sizes="(max-width: 1200px) 90vw, 1040px";
 ---
-<figure class:list={['visitor-art',`visitor-art-${placement}`]} data-visitor-art={scene} data-art-purpose={purpose}>
+{placement==='guide'&&['airport','campus','hospital'].includes(scene)?<SettingGallery {scene} {locale}/>:<figure class:list={['visitor-art',`visitor-art-${placement}`]} data-visitor-art={scene} data-art-purpose={purpose}>
  <VisitorPicture {scene} {sizes} alt={copy.alt[scene]}/>
  <figcaption>
   <strong>{title || copy.titles[scene]}</strong>
@@ -16,7 +17,7 @@ const sizes="(max-width: 1200px) 90vw, 1040px";
   <span>{copy.note}</span>
   <span class="visitor-art-credit">{copy.reference} <a href={reference.url}><bdi>{reference.label}</bdi></a>{reference.author&&<> · <bdi>{reference.author}</bdi></>}.{reference.license&&<> {copy.adapted} <a href="https://creativecommons.org/licenses/by-sa/4.0/" lang="en" dir="ltr">CC BY-SA 4.0</a>.</>}</span>
  </figcaption>
-</figure>
+</figure>}
 <style>
  .visitor-art { width:min(100%,var(--visitor-art-width,620px)); min-width:0; grid-column:1/-1; justify-self:start; margin:8px 0 0; overflow:hidden; border:1px solid var(--line); border-radius:6px; background:var(--surface); box-shadow:0 5px 18px #00000008; }
  .visitor-art-story { --visitor-art-width:620px; margin-block:24px; }

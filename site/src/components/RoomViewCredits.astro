@@ -1,16 +1,18 @@
 ---
+import { HOME_VIEW_COPY } from '../data/home-views.js';
 import { ROOM_VIEWS, ROOM_VIEW_COPY } from '../data/room-views.js';
-const {kind='home',locale='en'}=Astro.props;
+const {kind='home',locale='en',presentation='home'}=Astro.props;
 const selected={airports:'airport',universities:'campus',hospitals:'hospital'}[kind];
 const scenes=selected?[selected]:Object.keys(ROOM_VIEWS);
 const copy=ROOM_VIEW_COPY[locale];
+const home=presentation==='home', homeCopy=HOME_VIEW_COPY[locale];
 ---
 <details class="room-view-credits" dir={locale==='ar'?'rtl':'ltr'}>
  <summary>{copy.credit}<svg width="16" height="16" aria-hidden="true"><use href="#i-info"/></svg></summary>
  <div class="room-view-sources">
-  <p>{copy.note}</p>
-  <ul>{scenes.map(scene=>{const view=ROOM_VIEWS[scene];return <li><a href={view.source} lang="en">{view.title}</a><span><bdi>{view.author}</bdi> · <time datetime={view.date}>{view.date.slice(0,4)}</time> · <a href={view.licenseUrl}>{view.license}</a></span></li>})}</ul>
-  <p>{copy.changes}</p>
+  <p>{home?homeCopy.note:copy.note}</p>
+  {!home&&<ul>{scenes.map(scene=>{const view=ROOM_VIEWS[scene];return <li><a href={view.source} lang="en">{view.title}</a><span><bdi>{view.author}</bdi> · <time datetime={view.date}>{view.date.slice(0,4)}</time> · <a href={view.licenseUrl}>{view.license}</a></span></li>})}</ul>}
+  <p>{home?homeCopy.changes:copy.changes}</p>
   <p><a href="https://commons.wikimedia.org/wiki/File:Allah.svg">{copy.calligraphy}</a> · Falcorian · {copy.publicDomain}</p>
  </div>
 </details>

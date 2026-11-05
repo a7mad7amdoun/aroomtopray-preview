@@ -1,0 +1,107 @@
+{
+  "created": "2026-11-04",
+  "type": "Original AI-generated exterior illustrations",
+  "tool": "Built-in image_gen",
+  "purpose": "Homepage only: imagined airport, campus and hospital views, not specific prayer-room locations.",
+  "method": "Separate daylight generations with reference-guided evening lighting edits. Portrait framing, proportional WebP conversion without enlargement. Original room and calligraphy unchanged.",
+  "prompts": "research/paired-views-prompts-2026-11-04.json",
+  "inspection": "Six tool outputs visually inspected for framing, architectural continuity and readable evening detail. This is image inspection, not rendered website validation.",
+  "files": [
+    {
+      "file": "airport-day-640.webp",
+      "bytes": 71898,
+      "sha256": "ab17372434132ef91a670d77c8aa8e5eb84c7c8be6eef7531ef28d4ba66c7d2b",
+      "source": "exec-95a516e9-063a-4586-8e86-c730f1a103cf.png",
+      "originalWidth": 1122,
+      "originalHeight": 1402
+    },
+    {
+      "file": "airport-day-1122.webp",
+      "bytes": 179226,
+      "sha256": "a83e7ebe33cea32a9ebb97eedfe82fe97dd202dc3dbe994661f600c81c20d68e",
+      "source": "exec-95a516e9-063a-4586-8e86-c730f1a103cf.png",
+      "originalWidth": 1122,
+      "originalHeight": 1402
+    },
+    {
+      "file": "airport-night-640.webp",
+      "bytes": 69724,
+      "sha256": "6609ce55c897ebb651a78efacae664fc95352c2352378857d8756568dcab9f04",
+      "source": "exec-0e0f2c0b-90ef-4b9f-b23c-0b0e006d0ddf.png",
+      "originalWidth": 1122,
+      "originalHeight": 1402
+    },
+    {
+      "file": "airport-night-1122.webp",
+      "bytes": 172446,
+      "sha256": "56b2e8a088a263feb5fddbcc3398fbbd4cbfd7079a462ffe3fec82db4de5be2a",
+      "source": "exec-0e0f2c0b-90ef-4b9f-b23c-0b0e006d0ddf.png",
+      "originalWidth": 1122,
+      "originalHeight": 1402
+    },
+    {
+      "file": "campus-day-640.webp",
+      "bytes": 158818,
+      "sha256": "16c252d1f7c8c97f2459246cd1a299338a91663cd7aa9773e223d70b4d01394a",
+      "source": "exec-61851336-f048-49a1-bd54-96692d3ec78d.png",
+      "originalWidth": 1122,
+      "originalHeight": 1402
+    },
+    {
+      "file": "campus-day-1122.webp",
+      "bytes": 423134,
+      "sha256": "ca5b2f98df34b8752d44b1b9839d5ac6cb58850e7722fa7d2ac56e9d85708c5c",
+      "source": "exec-61851336-f048-49a1-bd54-96692d3ec78d.png",
+      "originalWidth": 1122,
+      "originalHeight": 1402
+    },
+    {
+      "file": "campus-night-640.webp",
+      "bytes": 134964,
+      "sha256": "cedf6091b0b871a0337f53ad9a391a81b036ec01433d22d96b756d886c634e87",
+      "source": "exec-049f0da5-195b-46e5-867c-d42e37be430f.png",
+      "originalWidth": 1122,
+      "originalHeight": 1402
+    },
+    {
+      "file": "campus-night-1122.webp",
+      "bytes": 344140,
+      "sha256": "f4e7cca3faf7e0ba33eeb80f40c4a708e17a5f473c62f397b5315671e732392c",
+      "source": "exec-049f0da5-195b-46e5-867c-d42e37be430f.png",
+      "originalWidth": 1122,
+      "originalHeight": 1402
+    },
+    {
+      "file": "hospital-day-640.webp",
+      "bytes": 93506,
+      "sha256": "38517e197a24590d8dd5ecd99e1b9577cf8f80b684067938bff82b056bb01402",
+      "source": "exec-d23bea09-ed23-425e-96e8-5cb18dcc38aa.png",
+      "originalWidth": 1122,
+      "originalHeight": 1402
+    },
+    {
+      "file": "hospital-day-1122.webp",
+      "bytes": 242530,
+      "sha256": "f555a1695d3e418a0ef0db94d04403c20b8c1dfeabdf6062a36494d399918eb7",
+      "source": "exec-d23bea09-ed23-425e-96e8-5cb18dcc38aa.png",
+      "originalWidth": 1122,
+      "originalHeight": 1402
+    },
+    {
+      "file": "hospital-night-640.webp",
+      "bytes": 92720,
+      "sha256": "759620c5042a348f5aa1b91a45376d42b82d07c7d941c0ea3f650c476d531b55",
+      "source": "exec-4d85a288-2a81-4e6d-8d71-10e4f3e9c280.png",
+      "originalWidth": 1122,
+      "originalHeight": 1402
+    },
+    {
+      "file": "hospital-night-1122.webp",
+      "bytes": 227814,
+      "sha256": "245c6a8929fe43f971aeb3814434f2f02959f224c5ace059d78509fefed4f6be",
+      "source": "exec-4d85a288-2a81-4e6d-8d71-10e4f3e9c280.png",
+      "originalWidth": 1122,
+      "originalHeight": 1402
+    }
+  ]
+}

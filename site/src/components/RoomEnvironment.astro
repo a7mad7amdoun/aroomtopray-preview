@@ -27,7 +27,7 @@ const outside=settings[kind] || 'airport';
     <RoomArchitecture {kind} {locale} {presentation}/>
     <div class="room-scene-tools" data-room-tour-interaction>
      <RoomSceneControls {kind} {locale} {presentation}/>
-     <RoomViewCredits {kind} {locale}/>
+     <RoomViewCredits {kind} {locale} {presentation}/>
     </div>
    </div>
    {presentation==='home'&&<RoomDestinations {kind} {locale} {presentation}/>}

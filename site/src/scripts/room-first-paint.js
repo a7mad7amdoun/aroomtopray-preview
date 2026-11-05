@@ -23,7 +23,10 @@
   const roomWidth = small && density <= 1 ? 1024 : 1774;
   const largeGlass = window.matchMedia('(min-width: 1001px)').matches;
   const sceneWidth = density <= 1 ? 800 : largeGlass && scene !== 'hospital' ? 2048 : 1400;
-  const paths = [`${folder}/${mode}-${roomWidth}.webp`, `real-views/${scene}-${sceneWidth}.webp`];
+  const viewPath = settings.arrivalPresentation === 'home'
+    ? `home-paired-views/${scene}-${mode}-${density <= 1 ? 640 : 1122}.webp`
+    : `real-views/${scene}-${sceneWidth}.webp`;
+  const paths = [`${folder}/${mode}-${roomWidth}.webp`, viewPath];
   for (const path of paths) {
     const link = document.createElement('link');
     link.rel = 'preload';
