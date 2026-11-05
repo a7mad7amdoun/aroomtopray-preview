@@ -140,9 +140,13 @@ html .room-environment[data-room-presentation=home] .room-layout { width:100%; m
 .home-find-link:focus-visible { outline:3px solid var(--focus); outline-offset:6px; }
 .room-main .home-search-intro { margin:18px 0 0; max-width:62ch; color:var(--muted); font-size:1rem; line-height:1.7; }
 .room-environment[data-room-presentation=home] .room-arrival-copy {
-  grid-column:1/-1; grid-row:3; display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr); gap:0 40px;
+  grid-column:1/-1; grid-row:3; display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,.5fr); gap:0 48px;
   width:calc(100% - var(--room-gutter) * 2); max-width:var(--room-reading-width); margin:24px auto 0;
-  border-top:3px solid var(--sign); padding:clamp(24px,3vw,44px); box-sizing:border-box;
+  --ink:var(--board-ink); --muted:var(--board-dim); --surface:var(--board);
+  --surface-2:var(--board-cell); --field:#8999ae; --line:#40516a; --focus:var(--sign); --link:#c3d9f6;
+  color-scheme:dark; color:var(--ink); background:var(--surface);
+  border:1px solid var(--line); border-top:3px solid var(--sign); border-radius:10px;
+  padding:clamp(24px,3vw,44px); box-sizing:border-box;
 }
 .room-environment[data-room-presentation=home] .room-arrival-copy .arrival-actions { grid-column:1/-1; }
 .room-environment[data-room-presentation=home] .arrival-coverage { align-self:center; justify-content:center; margin:0; padding:0; padding-inline-start:32px; border-top:0; border-inline-start:1px solid var(--line); }

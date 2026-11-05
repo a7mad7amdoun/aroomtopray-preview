@@ -1,0 +1,1 @@
+function t(r,o,n,e=!1,f=!1){if(!n)return null;if(r==="Home")return 0;if(r==="End")return n-1;const i=f?r==="ArrowDown"?1:r==="ArrowUp"?-1:0:r==="ArrowRight"?1:r==="ArrowLeft"?-1:0;return i?(o+i*(e&&!f?-1:1)+n)%n:null}function d(r,o){return o?r.findIndex(n=>n===o||n.contains(o)):-1}export{d as p,t};

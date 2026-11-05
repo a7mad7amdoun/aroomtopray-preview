@@ -55,6 +55,17 @@
 .room-main #guide-content .guide-tabs>:is(a,button)[aria-selected=true]>svg { color:var(--tabs-accent,var(--sign)); }
 .room-main #guide-content .guide-tabs>:is(a,button):focus-visible { outline:3px solid var(--focus); outline-offset:2px; }
 
+/* Wide guides use the same tabs as a side index. Native/un-enhanced panels
+   flow into separate rows; only the active enhanced panel occupies row one. */
+@media screen and (min-width:1280px) {
+  .room-main #guide-content [data-guide-tabs] { display:grid; grid-template-columns:220px minmax(0,1fr); column-gap:40px; align-items:start; }
+  .room-main #guide-content [data-guide-tabs]>.guide-tabs { grid-column:1; grid-row:1; display:flex; flex-direction:column; align-items:stretch; gap:8px; padding:8px; margin:0; position:sticky; top:calc(var(--room-header-height,var(--masthead-height)) + 20px); max-height:calc(100dvh - var(--room-header-height,var(--masthead-height)) - 40px); overflow-y:auto; overscroll-behavior:contain; }
+  .room-main #guide-content [data-guide-tabs]>.guide-tabs>a { flex:none; width:100%; min-width:0; justify-content:flex-start; text-align:start; padding:16px; }
+  .room-main #guide-content [data-guide-tabs]>.guide-tabs>a::after { inset-inline:0 auto; top:12px; bottom:12px; width:3px; height:auto; }
+  .room-main #guide-content [data-guide-tabs]>.guide-panel { grid-column:2; min-width:0; width:100%; }
+  .room-main #guide-content [data-guide-tabs][data-guide-enhanced]>.guide-panel:not([hidden]) { grid-row:1; }
+}
+
 /* Three public-building information materials share one reading system:
    a departures panel, a bound campus notice and a hospital information board.
    These are interface treatments, never simulated institutional information. */

@@ -1,0 +1,189 @@
+A ROOM TO PRAY — SIGNATURE EXPERIENCE / IMPLEMENTATION BRIEF
+
+01. THE JOB
+Act as a senior product designer, creative director and frontend engineer working
+on an established public-interest service. Produce a substantial, unmistakable
+improvement to A Room to Pray. Do not mistake a palette adjustment or a few smaller
+borders for a redesigned experience. Change how the visitor encounters the brand,
+understands the destinations, reaches search and moves through the information.
+The outcome must feel considered at the scale of the whole page, then precise at
+the scale of a button, caption, selected state and keyboard interaction.
+
+This is a prayer-room guide, not a luxury hotel selling exclusivity. Give every
+visitor the care associated with excellent hospitality, without suggesting that
+peace, dignity or a place to pray belongs only to people with money. Richness comes
+from proportion, clarity, real photography, restrained materials, dependable
+interaction and a welcome that feels humane. Do not use conspicuous gold, glass
+cards everywhere, particles, cursors, a loading ceremony or invented service claims.
+
+02. THE CENTRAL IDEA
+Keep the prayer room as the emotional anchor. The glass is stationary; it reveals
+an airport, campus or hospital beyond the sanctuary. The room is a pause within
+public life. The guide is the practical continuation of that pause. Architecture
+should introduce the setting; the information should help someone act confidently.
+The mat faces the solid niche. Preserve the authentic Allah artwork and the wording
+of the invitation. Do not redraw sacred lettering, put branding in its place, or
+let UI panels obscure its relationship with the mat.
+
+Preserve the successful day/night room plates, generated homepage exterior pairs,
+real destination photographs, credits and restrained transitions. New structure
+should give these assets a more important role rather than discard them for novelty.
+Never present a representative photograph as evidence of a particular prayer room.
+Keep source captions explicit and all attribution links available.
+
+03. MAKE THE CHANGE VISIBLE
+Give the site a more authoritative two-level masthead: an expansive brand and
+utility row above an equal-width destination rail. Visitors should immediately
+understand the name, the three places served, and where search and preferences live.
+Keep the existing mark, Archivo typography and yellow wayfinding language. The
+navigation is a designed architectural sign, not a cluster of floating pills.
+
+Create a distinctive reception/search surface beneath the homepage room. Use the
+navy information-board material, clear light text, an appropriately prominent search
+label, and a separate coverage area. Treat the existing counts as factual information,
+not decorative claims. Retain the reception translation tool and the complete
+no-JavaScript fallback. On small screens this reception surface stacks naturally;
+no horizontal panning or compressed inputs is acceptable.
+
+Give each homepage destination a large documentary presentation: a generous image
+area beside a deliberate text panel, useful descriptions, actual place counts and
+one unmistakable destination link. Use a consistent image/text grid. Preserve full
+image framing with contain rather than cutting off real architectural context. Keep
+credits below each entry. Avoid placing information on a photograph merely because
+it looks dramatic. On phones use a single image-above-text composition so the artwork
+is legible and the title has enough room in French, Spanish and Arabic.
+
+04. THE ROOM AND THE READING WALL
+Preserve the homepage's full room and invitation composition. Keep the category
+introductory improvements: balanced room/text proportions, clear headings, readable
+paragraphs, an obvious category emblem and a separated search area. Use a consistent
+reception-like geometry for the category card. Preserve the airport's departures
+surface and the other categories' semantic day/night surfaces. Do not force all
+categories into identical dark boxes, or make a hospital feel like a nightclub.
+
+Allow the room to fade only as decoration leaves the reading area. Reading panels,
+controls, text and focus must remain opaque and stationary. The room must never
+shrink on scroll, chase the pointer, zoom through the glass, or move the rug. A user
+who jumps to search or returns through browser history must retain the correct
+scene, language, theme and information state immediately.
+
+05. A MORE USEFUL INFORMATION ARCHITECTURE
+On sufficiently wide screens, turn the existing guide tabs into a restrained sticky
+side index for home information, individual-place details and visit guidance. This
+creates a clear distinction between the section selector and the reading column.
+Keep categories' list/map/guide controls horizontal because result rows and maps
+need their width. Do not restructure the underlying data or remove panels.
+
+The index should occupy a small, fixed column and the current panel the remaining
+width. Use the actual translated section labels, existing symbols and a strong
+selected state. Do not invent section numbering that becomes confusing across pages.
+When space becomes limited, return to the familiar horizontal tabs. Native anchors,
+all-panel no-JavaScript presentation, report deep links and print access must survive.
+The layout must never overlap several unenhanced panels in the same grid cell.
+
+Make the accessibility state match the visual orientation. Vertical indexes use
+Up/Down keys; horizontal tabs use Left/Right with RTL-aware direction. Home and End
+work in both. Do not consume unrelated arrow keys or browser shortcuts. Preserve
+focus, active panel, hash and query when the viewport changes. Do not duplicate
+controls for different breakpoints.
+
+06. MOTION THAT SERVES THE TASK
+Do not add animation everywhere. Make the difference noticeable through coherent
+behavior, not the amount of movement. Menu opening may use a short, small vertical
+settling movement with opacity. Panels may gently resolve after an explicit tab
+choice, using opacity only. Keep the content fully present in the DOM; animation is
+optional enhancement, never a prerequisite for interaction.
+
+No panel should animate on initial load, hash restoration or browser Back. Cancel an
+in-progress panel animation before a new one begins. Honor reduced motion at the
+moment of interaction. If Web Animations is absent, selection remains immediate.
+Do not animate dimensions, grid tracks, text positions, sticky offsets or scroll
+positions. Do not wait for an animation before following a destination link.
+
+Maintain the existing scenery crossfade and visibility/page-lifecycle safeguards.
+Review the architectural fade for real resize cases: expanding filters, wrapping
+text, loading a different font and a mobile keyboard can change geometry without
+an ordinary window resize. Refresh measurement using observers where appropriate,
+coalesce work in one animation frame, and keep hidden/background documents quiet.
+Add a meaningful regression test for any newly handled lifecycle or resize case.
+
+07. TYPOGRAPHY AND MATERIALS
+Keep one coherent information family. Archivo remains the navigational and factual
+voice; Garamond and the established Arabic invitation face provide the contemplative
+voice. Do not import a new font merely to signal novelty. Use the existing ivory,
+midnight and yellow palette, with semantic foreground/background pairs rather than
+hard-coded text colors scattered across components.
+
+Large photographs and generous column widths should carry the graphical impact.
+Use fine rules, deliberate dark surfaces, measured padding and clear heading sizes.
+Keep body copy readable, metadata useful and line lengths reasonable. Avoid tiny
+all-caps labels as a substitute for hierarchy. Arabic must have natural leading,
+logical borders, correctly placed arrows and no artificial Latin letter spacing.
+The site should remain recognizable as the same service in both modes.
+
+08. REAL CONTENT IS NON-NEGOTIABLE
+Preserve every place record, country, source URL, room restriction, facility flag,
+opening-hours statement, map link, translation and attribution. Do not invent new
+facts, verification dates, institutional endorsements or user testimonials. Do not
+change useful text merely to sound luxurious. Keep access restrictions visible and
+unknown information honestly unknown. Preserve the saved-places tool, reception
+phrases, visit checklist, local notes and existing search/filter context.
+
+The original creator's contribution remains visible. This work is a better
+presentation of the same public service. It must not silently become a competing
+claim of authorship or a fabricated official airport/university/hospital product.
+
+09. ENGINEERING DISCIPLINE
+Inspect the current implementation before editing. Keep Astro and existing
+component responsibilities. Change source templates for structure and owning styles
+for appearance. Use JavaScript for behavior, not to repair HTML after rendering.
+Do not create another global override sheet. Prefer a small number of explainable
+layout rules to a maze of special-case selectors. Keep changes scoped to the
+components they improve and preserve existing hooks used by scripts and tests.
+
+Work in a separate checkout so unrelated pending map changes cannot be published.
+Stage only the intended source changes and generated preview output. Do not add
+packages, remote runtime dependencies, unlicensed images or external scripts.
+Preserve image dimensions, responsive sources and lazy loading. Update image sizes
+when the new layout changes the actual displayed width, so browsers can choose an
+appropriate asset without unnecessarily downloading the largest image.
+
+10. RESPONSIVE AND FAILURE STATES
+Review360px and390px phones, tablet widths and wide desktop. Navigation, country
+selection, long labels, captions, controls and focus outlines must remain usable.
+Use the established breakpoints where suitable; introduce a desktop side-index
+breakpoint only where the content has enough reading width. Preserve layout direction
+in Arabic without mirroring the architectural world itself.
+
+No-JavaScript visitors should still reach destinations, read all relevant sections,
+follow source links and use the fallback reception phrases. Slow JavaScript must not
+flash all tab panels before enhancement. A blocked storage API must not hide the room.
+An interrupted artwork request must not prevent search. No new hidden-by-default
+content, loading gate or animation-controlled navigation may be introduced.
+
+11. PROOF BEFORE DELIVERY
+Run the existing unit suite and new meaningful behavioral regressions. Build the
+full localized export. Check guide links and tab targets, search/filter behavior,
+reception tools, saved state, language routes and first-paint panel intent. Compare
+representative homepage, category, detail and visit pages with the previous release
+to ensure all textual information and controls survive. Check that the pending map
+files remain byte-for-byte unchanged.
+
+Validate reduced-motion behavior, keyboard orientation, rapid repeated tab choices,
+resize refresh and menu state through available code/DOM checks. Inspect responsive
+source rules and color pairs. Rendered browser inspection remains unavailable under
+the existing session limitation: state that clearly and never substitute a claim
+that tests prove visual perfection. The release can be technically verified without
+pretending it has been visually verified on an actual phone.
+
+12. RELEASE AND PRESENTATION
+Publish only Ahmed's authorized GitHub Pages preview. Do not touch aroomtopray.com,
+its DNS, databases, credentials or production forms. Keep preview submissions disabled.
+Verify deployment completion and representative served files. Save this complete brief
+alongside the source so future iterations can evolve one coherent system.
+
+Report the meaningful visible changes, the behavioral improvements, what was tested,
+and the remaining visual-verification limit. Give a direct cache-versioned preview
+link. Do not describe a few color changes as a complete transformation, and do not
+promise that the result is perfect. The work should speak through a substantially
+clearer, calmer, richer, better organized experience.

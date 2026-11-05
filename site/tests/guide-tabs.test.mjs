@@ -148,3 +148,37 @@ test('only ordinary same-page links request a deep-link scroll', () => {
  f.browser.location.hash = '#report'; f.timers.shift()();
  assert.equal(f.selected(), f.tabs[2]); assert.equal(f.details.open, true);
 });
+
+
+test('wide guide orientation changes preserve selection, focus and URL', () => {
+ const f=fixture({rtl:true});let change;
+ const wide={matches:true,addEventListener:(_type,fn)=>change=fn};
+ f.browser.matchMedia=query=>query.includes('1280')?wide:{matches:true};
+ initGuideTabs(f.root,f.browser);
+ assert.equal(f.nav.getAttribute('aria-orientation'),'vertical');
+ f.tabs[0].emit('keydown',{key:'ArrowDown'});
+ assert.equal(f.selected(),f.tabs[1]);
+ const url=f.browser.location.href,focus=f.doc.activeElement;
+ wide.matches=false;change();
+ assert.equal(f.nav.getAttribute('aria-orientation'),'horizontal');
+ assert.equal(f.selected(),f.tabs[1]);assert.equal(f.doc.activeElement,focus);assert.equal(f.browser.location.href,url);
+ f.tabs[1].emit('keydown',{key:'ArrowLeft'});assert.equal(f.selected(),f.tabs[2]);
+});
+
+test('panel motion runs only after an explicit choice and cancels on reselection or page exit', () => {
+ const f=fixture({hash:'#direction'}),animations=[];
+ const reduced={matches:false};
+ f.browser.matchMedia=query=>query.includes('1280')?{matches:false}:reduced;
+ f.panels.forEach(panel=>panel.animate=(frames,options)=>{
+  const animation={cancelled:false,cancel(){this.cancelled=true;},frames,options};animations.push(animation);return animation;
+ });
+ initGuideTabs(f.root,f.browser);assert.equal(animations.length,0);
+ f.tabs[2].emit('click');assert.equal(animations.length,1);
+ assert.equal(animations[0].options.duration,180);
+ assert.equal(animations[0].frames[0].opacity,.92);
+ f.tabs[0].emit('click');assert.equal(animations[0].cancelled,true);assert.equal(animations.length,2);
+ f.browser.emit('pagehide');assert.equal(animations[1].cancelled,true);
+ reduced.matches=true;f.tabs[1].emit('click');assert.equal(animations.length,2);
+ f.browser.location.hash='#tools';f.browser.emit('popstate');assert.equal(animations.length,2);
+ assert.equal(f.selected(),f.tabs[2]);
+});

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {initRoomMotion} from '../src/scripts/room-motion.js';
 const target=()=>{const listeners=new Map();return{listeners,addEventListener(type,fn){const list=listeners.get(type)||[];list.push(fn);listeners.set(type,list);},emit(type,values={}){for(const fn of listeners.get(type)||[])fn(values);}};};
 function fixture({withStage=false,withScenery=false,withIntersectionObserver=true,reducedMotion=false}={}){
- const doc=target(),browser=target(),room={dataset:{roomPresentation:'home'}},values=new Map(),writes=[],frames=new Map(),intersections=[],media=target();let serial=0,headerBottom=94,stageBottom=900,sceneryTop=94,sceneryHeight=600,observer,stageReads=0,sceneryReads=0;
+ const doc=target(),browser=target(),room={dataset:{roomPresentation:'home'}},values=new Map(),writes=[],frames=new Map(),intersections=[],media=target();let serial=0,headerBottom=94,stageBottom=900,sceneryTop=94,sceneryHeight=600,observer,stageResizeObserver,stageReads=0,sceneryReads=0;
  const header={getBoundingClientRect:()=>({bottom:headerBottom})};
  const stage={getBoundingClientRect:()=>{stageReads++;return{bottom:stageBottom};}};
  const scenery={getBoundingClientRect:()=>{sceneryReads++;return{top:sceneryTop,height:sceneryHeight};}};
@@ -12,10 +12,11 @@ function fixture({withStage=false,withScenery=false,withIntersectionObserver=tru
  doc.documentElement={style:{setProperty:(key,value)=>{values.set(key,value);writes.push([key,value]);}}};
  doc.querySelector=selector=>selector==='.room-environment'?room:selector==='.room-header'?header:null;
  browser.scrollY=0;
+ browser.visualViewport=target();
  browser.innerHeight=800;
  browser.location=new URL('https://example.test/airports/?country=GB#room-details');
  browser.requestAnimationFrame=fn=>{frames.set(++serial,fn);return serial;};browser.cancelAnimationFrame=id=>frames.delete(id);
- browser.ResizeObserver=class{constructor(fn){observer=fn;}observe(element){assert.equal(element,header);}};
+ browser.ResizeObserver=class{constructor(fn){this.callback=fn;}observe(element){if(element===header)observer=this.callback;else if(element===stage)stageResizeObserver=this.callback;else assert.fail("Unexpected resize target");}};
  if(withIntersectionObserver)browser.IntersectionObserver=class{
   constructor(callback,options){this.callback=callback;this.options=options;this.disconnected=false;intersections.push(this);}
   observe(element){assert.equal(element,stage);}
@@ -33,7 +34,7 @@ function fixture({withStage=false,withScenery=false,withIntersectionObserver=tru
  browser.scrollTo=()=>assert.fail('Room alignment must not scroll the page');doc.activeElement={id:'search'};
  const controller=initRoomMotion(doc,browser);
  const flush=()=>{const callbacks=[...frames.values()];frames.clear();for(const fn of callbacks)fn();};
- return{doc,browser,room,values,writes,frames,controller,flush,intersections,media,scenery:(top,height=600)=>{sceneryTop=top;sceneryHeight=height;},sceneryReads:()=>sceneryReads,stage:value=>stageBottom=value,stageReads:()=>stageReads,header:value=>headerBottom=value,resizeHeader:()=>observer()};
+ return{doc,browser,room,values,writes,frames,controller,flush,intersections,media,scenery:(top,height=600)=>{sceneryTop=top;sceneryHeight=height;},sceneryReads:()=>sceneryReads,stage:value=>stageBottom=value,stageReads:()=>stageReads,header:value=>headerBottom=value,resizeHeader:()=>observer(),resizeStage:()=>stageResizeObserver()};
 }
 test('scrolling coalesces header measurements without moving the room or changing user context',()=>{
  const f=fixture(),url=f.browser.location.href,focus=f.doc.activeElement,dataset={...f.room.dataset};f.browser.scrollY=400;
@@ -227,4 +228,22 @@ test('the architectural fade eases at each boundary and retraces the same opacit
  }
  // There is no time-based settling after scroll stops or changes direction.
  const writes=f.writes.length;f.flush();assert.equal(f.writes.length,writes);
+});
+
+
+test('content reflow refreshes the reading boundary without a window resize',()=>{
+ const f=fixture({withStage:true});
+ f.stage(20);f.resizeStage();f.resizeStage();
+ assert.equal(f.frames.size,1);f.flush();
+ assert.equal(f.room.dataset.roomReading,'true');
+ f.stage(900);f.resizeStage();f.flush();
+ assert.equal(f.room.dataset.roomReading,'false');
+});
+test('a visual viewport resize refreshes the room boundary and stays suspended in the background',()=>{
+ const f=fixture({withStage:true});
+ f.stage(20);f.browser.visualViewport.emit('resize');f.flush();
+ assert.equal(f.room.dataset.roomReading,'true');
+ f.doc.hidden=true;f.doc.emit('visibilitychange');
+ f.browser.visualViewport.emit('resize');f.resizeStage();
+ assert.equal(f.frames.size,0);
 });

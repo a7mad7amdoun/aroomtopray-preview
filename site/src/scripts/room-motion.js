@@ -89,10 +89,12 @@ export function initRoomMotion(doc=document,browser=window) {
  motion?.addEventListener?.('change',schedule);
  browser.addEventListener('scroll',schedule,{passive:true});
  browser.addEventListener('resize',refresh,{passive:true});
+ browser.visualViewport?.addEventListener?.('resize',refresh,{passive:true});
  browser.addEventListener('pageshow',()=>{away=false;schedule();});
  browser.addEventListener('pagehide',()=>{away=true;suspend();});
  doc.addEventListener('visibilitychange',()=>{if(doc.hidden)suspend();else schedule();});
  if(browser.ResizeObserver&&header)new browser.ResizeObserver(schedule).observe(header);
+ if(browser.ResizeObserver&&stage)new browser.ResizeObserver(refresh).observe(stage);
  room.dataset.roomMotionReady='true';
  measure();
  return {refresh};

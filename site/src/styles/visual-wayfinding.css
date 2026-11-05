@@ -162,15 +162,26 @@
 }
 #prayer-room .notice-photo-credit a:focus-visible { outline:3px solid var(--focus); outline-offset:3px; }
 
-/* Three equal entries only when each has room for its complete label. */
-@container room-reading (min-width:900px) {
-  #prayer-room[data-room-presentation=home] .door-notices { grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
-  #prayer-room[data-room-presentation=home] .door-notice-entry>.door-notice { grid-template-columns:minmax(0,1fr); grid-template-rows:auto 1fr; }
-  #prayer-room[data-room-presentation=home] .notice-art { aspect-ratio:16/10; height:auto; border:0; border-bottom:1px solid var(--line); }
-  #prayer-room[data-room-presentation=home] .notice-art img { position:absolute; inset:0; object-position:center; }
-  #prayer-room[data-room-presentation=home] .notice-information { padding:28px; }
-  #prayer-room[data-room-presentation=home] .door-notice-count { margin-top:20px; }
-  #prayer-room[data-room-presentation=home] .notice-kicker { margin-bottom:12px; }
+/* A documentary destination gallery: generous images, stable full-width links
+   and a complete caption. Images are contained, never cropped or zoomed. */
+@container room-reading (min-width:700px) {
+  #prayer-room[data-room-presentation=home] .door-notices { grid-template-columns:1fr; gap:28px; }
+  #prayer-room[data-room-presentation=home] .door-notice-entry>.door-notice { grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); grid-template-rows:auto; min-height:300px; }
+  #prayer-room[data-room-presentation=home] .notice-art { aspect-ratio:16/10; height:100%; border:0; border-inline-end:1px solid var(--line); }
+  #prayer-room[data-room-presentation=home] .notice-art img { position:absolute; inset:0; object-position:center; padding:24px; }
+  #prayer-room[data-room-presentation=home] .notice-information { padding:clamp(28px,4cqi,56px); }
+  #prayer-room[data-room-presentation=home] .door-notice-title>b { font-size:clamp(1.75rem,3cqi,2.75rem); }
+  #prayer-room[data-room-presentation=home] .door-notice-count { margin-top:28px; }
+  #prayer-room[data-room-presentation=home] .door-notice-count strong { font-size:2.5rem; }
+  #prayer-room[data-room-presentation=home] .notice-description { margin-top:16px; max-width:40ch; font-size:1.0625rem; line-height:1.7; }
+  #prayer-room[data-room-presentation=home] .notice-kicker { margin-bottom:14px; }
+  #prayer-room[data-room-presentation=home] .notice-photo-credit { padding:14px 24px; }
+}
+@container room-reading (max-width:699px) {
+  #prayer-room[data-room-presentation=home] .door-notice-entry>.door-notice { grid-template-columns:1fr; }
+  #prayer-room[data-room-presentation=home] .notice-art { aspect-ratio:16/9; height:auto; border-inline-end:0; border-bottom:1px solid var(--line); }
+  #prayer-room[data-room-presentation=home] .notice-art img { position:absolute; inset:0; }
+  #prayer-room[data-room-presentation=home] .notice-information { padding:24px; }
 }
 @container room-reading (max-width:380px) {
   #prayer-room[data-room-presentation=home] .notice-information { padding:16px 14px; }

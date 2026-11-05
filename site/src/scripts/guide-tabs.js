@@ -16,6 +16,14 @@ export function initGuideTabs(root, browser = globalThis.window) {
  let active = 0;
  root.dataset.guideEnhanced = 'true';
  nav.setAttribute('role', 'tablist');
+ const wide = browser.matchMedia?.('(min-width:1280px)');
+ const reduced = browser.matchMedia?.('(prefers-reduced-motion: reduce)');
+ const syncOrientation = () => nav.setAttribute('aria-orientation', wide?.matches ? 'vertical' : 'horizontal');
+ wide?.addEventListener?.('change', syncOrientation);
+ syncOrientation();
+ let panelAnimation;
+ reduced?.addEventListener?.('change', () => { if (reduced.matches) panelAnimation?.cancel(); });
+ browser.addEventListener('pagehide', () => panelAnimation?.cancel());
  tabs.forEach((tab, i) => {
   tab.setAttribute('role', 'tab');
   tab.setAttribute('aria-controls', panels[i].id);
@@ -26,6 +34,8 @@ export function initGuideTabs(root, browser = globalThis.window) {
  function select(index, { focus = false, write = false } = {}) {
   // A history change must not leave keyboard focus in information we just hid.
   const hidesFocus = panels.some((panel, i) => i !== index && panel.contains(doc.activeElement));
+  const changed = active !== index;
+  panelAnimation?.cancel();
   active = index;
   tabs.forEach((tab, i) => {
    tab.setAttribute('aria-selected', String(i === index));
@@ -38,6 +48,9 @@ export function initGuideTabs(root, browser = globalThis.window) {
    try {
     browser.history.pushState(browser.history.state, '', browser.location.pathname + browser.location.search + '#' + panels[index].id);
    } catch {}
+  }
+  if (changed && write && reduced && !reduced.matches) {
+   panelAnimation = panels[index].animate?.([{ opacity:.92 }, { opacity:1 }], { duration:180, easing:'ease-out' });
   }
   root.dispatchEvent(new browser.CustomEvent('guide:change', { detail: { panel: panels[index].id } }));
  }
@@ -72,7 +85,7 @@ export function initGuideTabs(root, browser = globalThis.window) {
    if (nativeIntent(event) || event.isComposing) return;
    if (event.key === ' ') { event.preventDefault(); select(i, { write: true }); return; }
    const rtl = browser.getComputedStyle(nav).direction === 'rtl';
-   const next = tabIndexForKey(event.key, i, tabs.length, rtl);
+   const next = tabIndexForKey(event.key, i, tabs.length, rtl, wide?.matches);
    if (next !== null) { event.preventDefault(); select(next, { focus: true, write: true }); }
   });
  });
@@ -87,7 +100,7 @@ export function initGuideTabs(root, browser = globalThis.window) {
   if (!browser.location.hash) select(defaultPanel());
   else revealHash();
  });
- browser.addEventListener('beforeprint', () => panels.forEach(panel => panel.hidden = false));
+ browser.addEventListener('beforeprint', () => { panelAnimation?.cancel(); panels.forEach(panel => panel.hidden = false); });
  browser.addEventListener('afterprint', () => select(active));
  select(defaultPanel());
  revealHash(Boolean(browser.location.hash));

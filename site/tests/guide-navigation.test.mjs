@@ -22,3 +22,15 @@ test('links to a room, compass or report reveal the containing information panel
  assert.equal(panelIndexForTarget(panels,outside),-1);
  assert.equal(panelIndexForTarget(panels,null),-1);
 });
+
+
+test('vertical guide tabs use up/down independently of language direction', () => {
+ for (const rtl of [false,true]) {
+  assert.equal(tabIndexForKey('ArrowDown',0,3,rtl,true),1);
+  assert.equal(tabIndexForKey('ArrowUp',0,3,rtl,true),2);
+  assert.equal(tabIndexForKey('ArrowLeft',0,3,rtl,true),null);
+  assert.equal(tabIndexForKey('ArrowRight',0,3,rtl,true),null);
+  assert.equal(tabIndexForKey('Home',2,3,rtl,true),0);
+  assert.equal(tabIndexForKey('End',0,3,rtl,true),2);
+ }
+});
