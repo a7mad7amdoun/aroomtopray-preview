@@ -1,6 +1,7 @@
 ---
 import AppearanceControls from './AppearanceControls.astro';
 import Mark from './Mark.astro';
+import WayfindingSymbol from './WayfindingSymbol.astro';
 import { ROOM_COPY } from '../data/room-copy.js';
 import { VIEW_COPY } from '../data/view-copy.js';
 import { WAYFINDING_COPY } from '../data/wayfinding-copy.js';
@@ -8,7 +9,7 @@ import { LOCALES, getCopy, localizedPath } from '../lib/i18n.js';
 import { languageTarget, navigationPath } from '../lib/localized-routes.js';
 
 interface Props { locale: string; nav?: string; searchTarget: string; visitHash?: string; showTheme?: boolean }
-const { locale, nav = '', searchTarget, visitHash = '', showTheme = false } = Astro.props;
+const { locale, nav = '', searchTarget, visitHash = '' } = Astro.props;
 const t = getCopy(locale);
 const currentPath = Astro.url.pathname.replace(/\/+$/, '');
 const room = ROOM_COPY[locale];
@@ -34,35 +35,79 @@ const tools = [
     <a class="brand" href={localizedPath('/', locale)} aria-label={`A Room to Pray · ${t.nav.home}`}>
       <Mark size={64}/><span><bdi><span>A Room</span>{' '}<span>to Pray</span></bdi></span>
     </a>
-    <nav class="primary-navigation" aria-label={t.footer.directories}>
-      {destinations.map(({ kind, icon }) => <a class="primary-destination-link" href={local(`/${kind}/`)} aria-current={nav === kind ? 'page' : undefined}>
-        <span class="destination-emblem" aria-hidden="true"><svg width="21" height="21"><use href={`#i-${icon}`}/></svg></span><span class="primary-destination-label">{t.nav[kind]}</span>
+    <nav class="primary-navigation" aria-label={t.footer.directories} data-header-destinations>
+      {destinations.map(({ kind, icon }) => <a class="primary-destination-link" href={local(`/${kind}/`)} data-header-scene={kind==='airports'?'airport':kind==='universities'?'campus':'hospital'} aria-current={nav === kind ? 'page' : undefined}>
+        <span class="destination-emblem" aria-hidden="true"><WayfindingSymbol name={icon} size={28}/></span><span class="primary-destination-copy"><span class="primary-destination-label">{t.nav[kind]}</span></span>
       </a>)}
     </nav>
-    <a class="header-search" href={searchTarget}><svg width="19" height="19" aria-hidden="true"><use href="#i-search"/></svg><span>{room.search}</span></a>
+    <a class="header-search" href={searchTarget}><WayfindingSymbol name="search" size={23}/><span>{room.search}</span></a>
     <details class="site-menu" data-site-menu>
       <summary aria-controls="site-menu-panel"><span>{room.menu}</span><span class="menu-glyph" aria-hidden="true"><i></i><i></i></span></summary>
       <div class="site-menu-panel" id="site-menu-panel">
         <div class="menu-panel-heading">
           <p>{wayfinding.directory}</p>
-          <svg width="28" height="28" aria-hidden="true"><use href="#i-mark"/></svg>
+          <WayfindingSymbol name="room" size={36}/>
         </div>
         <div class="menu-visit">
           <p class="menu-section-label"><svg width="18" height="18" aria-hidden="true"><use href="#i-book"/></svg>{view.tools}</p>
           <nav class="menu-tools" aria-label={t.footer.prepare}>
             <a class="menu-visit-guide" href={local('/visit/') + visitHash} aria-current={currentPath===local('/visit/').replace(/\/+$/, '')?'page':undefined}>
-              <svg width="20" height="20" aria-hidden="true"><use href="#i-book"/></svg>
+              <WayfindingSymbol name="book" size={24}/>
               <span>{room.details}</span>
               <svg class="menu-link-arrow directional-icon" width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg>
             </a>
-            <a class="saved-nav" href="/saved/" aria-current={currentPath==='/saved'?'page':undefined}><svg width="18" height="18" aria-hidden="true"><use href="#i-save"/></svg><span>{t.nav.saved}</span>{locale !== 'en' && <small class="source-language">EN</small>}<span class="saved-count" data-saved-count hidden></span></a>
-            {tools.map(({ path, icon, label }) => <a href={`/${path}/`} aria-current={currentPath===`/${path}`?'page':undefined}><svg width="18" height="18" aria-hidden="true"><use href={`#i-${icon}`}/></svg><span>{label}</span>{locale !== 'en' && <small class="source-language">EN</small>}</a>)}
+            <a class="saved-nav" href="/saved/" aria-current={currentPath==='/saved'?'page':undefined}><WayfindingSymbol name="save" size={24}/><span>{t.nav.saved}</span>{locale !== 'en' && <small class="source-language">EN</small>}<span class="saved-count" data-saved-count hidden></span></a>
+            {tools.filter(({path})=>['planner','travel'].includes(path)).map(({ path, icon, label }) => <a href={`/${path}/`} aria-current={currentPath===`/${path}`?'page':undefined}><WayfindingSymbol name={icon} size={24}/><span>{label}</span>{locale !== 'en' && <small class="source-language">EN</small>}</a>)}
+          </nav>
+        </div>
+        <div class="menu-project">
+          <p class="menu-section-label">{t.footer.project}</p>
+          <nav class="menu-tools" aria-label={t.footer.project}>
+            {tools.filter(({path})=>!['planner','travel'].includes(path)).map(({ path, icon, label }) => <a href={`/${path}/`} aria-current={currentPath===`/${path}`?'page':undefined}><WayfindingSymbol name={icon} size={24}/><span>{label}</span>{locale !== 'en' && <small class="source-language">EN</small>}</a>)}
           </nav>
         </div>
         <div class="menu-preferences">
-          <AppearanceControls {locale} {languageLinks} {showTheme} showReading/>
+          <AppearanceControls {locale} {languageLinks} showTheme={false} showReading/>
         </div>
       </div>
     </details>
   </div>
 </header>
+<script>
+  // Navigation stays native. A temporary scene preview never commits a route,
+  // selected scene or stored preference; its owner restores the underlying view.
+  for (const navigation of document.querySelectorAll<HTMLElement>('[data-header-destinations]')) {
+    const menu = navigation.closest('header')?.querySelector<HTMLDetailsElement>('[data-site-menu]');
+    let hovered: HTMLElement | null = null;
+    let preview: string | null = null;
+    const focused = () => navigation.contains(document.activeElement)
+      ? (document.activeElement as HTMLElement).closest<HTMLElement>('[data-header-scene]') : null;
+    const emit = (link: HTMLElement | null) => {
+      const scene = menu?.open ? null : link?.dataset.headerScene || null;
+      if (scene === preview) return;
+      preview = scene;
+      document.dispatchEvent(new CustomEvent('room:destination-preview', {detail:{scene,source:'header'}}));
+    };
+    for (const link of navigation.querySelectorAll<HTMLElement>('[data-header-scene]')) {
+      link.addEventListener('pointerenter', event => {
+        if (event.pointerType === 'touch') return;
+        hovered = link; emit(link);
+      });
+      link.addEventListener('pointerleave', () => {
+        if (hovered === link) hovered = null;
+        emit(focused());
+      });
+      link.addEventListener('focus', () => emit(link));
+    }
+    navigation.addEventListener('focusout', () => {
+      queueMicrotask(() => emit(hovered || focused()));
+    });
+    navigation.addEventListener('pointerleave', () => { hovered = null; emit(focused()); });
+    menu?.addEventListener('toggle', () => {
+      if (menu.open) { hovered = null; emit(null); }
+    });
+    menu?.addEventListener('focusin', () => { hovered = null; emit(null); });
+    window.addEventListener('blur', () => { hovered = null; emit(null); });
+    window.addEventListener('pagehide', () => emit(null));
+  }
+</script>

@@ -1,0 +1,152 @@
+/* Keep the commissioned room and glass. Give every category the same entrance. */
+html .room-environment[data-room-presentation=directory] .room-layout{width:100%;max-width:1920px;margin-inline:auto}
+.room-environment[data-room-presentation=directory]{--arrival-scene-track:1.08fr;--arrival-reading-track:.92fr;--arrival-canvas-width:100%;--arrival-room-ratio:2/1;--arrival-blend-start:100%;--arrival-blend-end:100%;--glass-zoom-distance:.34}
+#prayer-room[data-room-presentation=directory] .room-arrival-copy{--ink:var(--room-inscription);--muted:var(--room-inscription);color-scheme:normal;grid-column:2;grid-row:1;max-width:none;width:auto;padding:clamp(24px,3vw,50px) clamp(24px,4vw,70px) clamp(24px,3vw,50px) 0;margin:0;background:transparent;border:0;border-radius:0;box-shadow:none;color:var(--room-inscription)}
+#prayer-room[data-room-presentation=directory] .room-arrival-copy{--bg:inherit;--surface:inherit;--surface-2:inherit;--line:inherit;--field:inherit;--focus:inherit;--link:inherit}
+#prayer-room[data-room-presentation=directory] .room-directory-intro{display:grid;gap:24px;width:100%;max-width:none}
+#prayer-room[data-room-presentation=directory] .directory-intro-copy{max-width:none}
+#prayer-room[data-room-presentation=directory] .directory-title-line{align-items:center;gap:16px;margin-bottom:20px}
+#prayer-room[data-room-presentation=directory] .category-emblem{width:56px;height:64px;flex:none;margin:0;padding:7px;border-radius:30px 30px 9px 9px;background:var(--sign);color:var(--sign-ink)}
+#prayer-room[data-room-presentation=directory] .category-emblem>svg{width:42px;height:48px}
+#prayer-room[data-room-presentation=directory] .room-directory-intro h1{font:760 clamp(2.5rem,3.5vw,4.2rem)/1.08 var(--f-display);letter-spacing:-.045em;max-width:19ch;margin:0;color:var(--room-inscription);text-wrap:balance}
+#prayer-room[data-room-presentation=directory] .directory-intro-copy>p{font-size:1.0625rem;line-height:1.65;max-width:51ch;color:var(--room-inscription)}
+#prayer-room[data-room-presentation=directory] .room-eyebrow{color:var(--room-inscription);font-weight:650;letter-spacing:.06em}
+#prayer-room[data-room-presentation=directory] .room-eyebrow>span{background:var(--sign);width:22px;height:3px;border-radius:0}
+#prayer-room[data-room-presentation=directory] .arrival-actions{margin-top:20px;padding-top:0;border:0}
+#prayer-room[data-room-presentation=directory] .room-window-surround{left:4.8%;width:35.5%;transform-origin:left center;overflow:visible}
+#prayer-room[data-room-presentation=directory] .room-window-frame{border:4px solid #324155;box-shadow:0 0 0 6px #9a896b,0 6px 18px #0003}
+#prayer-room[data-room-presentation=directory] .room-scene-tools{width:calc(100% - var(--room-gutter)*2);max-width:var(--room-reading-width);margin-inline:auto}
+.directory-map-preview{display:grid;grid-template-columns:minmax(100px,.8fr) minmax(0,1fr);align-items:center;gap:20px;max-width:540px;padding:12px 20px 12px 12px;border:1px solid #4c617e;border-radius:12px;background:#111b2af5;color:#e7ecf2;text-decoration:none;box-shadow:0 10px 28px -20px #0009;transition:border-color 200ms,background-color 200ms}
+.directory-map-preview:hover{border-color:var(--sign);background:#162235}
+.directory-map-preview>svg{width:100%;height:auto;background:#0a111c;border-radius:6px}
+.directory-map-preview>svg path{fill:#263b58;stroke:#4c6483;stroke-width:.4}
+.directory-map-preview>svg circle{fill:#ffc629;opacity:.8}
+.directory-map-preview-copy{display:grid;gap:12px;min-width:0}
+.directory-map-counts{font:500 .8rem/1.6 var(--f-body);color:#bbc9dd}
+.directory-map-counts b{color:#fff;font-weight:750}
+.directory-map-preview-copy strong{display:flex;align-items:center;justify-content:space-between;gap:12px;font:700 .95rem/1.4 var(--f-display);color:#ffc629}
+.directory-map-preview-copy strong svg{flex:none}
+/* A generous invitation, with the original two typographic voices. */
+#prayer-room[data-room-presentation=home] .room-home-intro{padding-inline-end:clamp(24px,3vw,64px);max-width:none}
+#prayer-room[data-room-presentation=home] .room-home-intro h1{font-size:clamp(3.6rem,6.4vw,7.5rem);line-height:1.05;letter-spacing:-.035em}
+#prayer-room[data-room-presentation=home] .room-home-line{font-size:1.25rem;font-weight:750}
+#prayer-room[data-room-presentation=home] .room-scene-tools{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:20px;padding-block:20px}
+#prayer-room[data-room-presentation=home] .room-scene-tools>.room-atmosphere-controls{display:flex;flex-wrap:wrap;gap:6px 20px}
+#prayer-room[data-room-presentation=home] .room-scene-tools>.room-view-credits{justify-self:end}
+#prayer-room[data-room-presentation=home] .room-scene-tools>.room-view-credits[open]{grid-column:1/-1;width:100%}
+.room-scene-tools .room-light-panel{position:relative;display:flex;align-items:center;justify-content:center;gap:10px;padding:8px 12px 8px 8px;border:1px solid var(--line);border-radius:40px;background:var(--surface);color:var(--ink);box-shadow:0 4px 16px #00000010;pointer-events:auto}
+.room-scene-tools .room-light-panel[hidden]{display:none}
+.room-scene-tools .room-light-panel .room-light{flex-direction:row;gap:14px}
+.room-scene-tools .room-light-panel .light-switch{width:64px;height:48px;background:var(--sign);color:var(--sign-ink);border-radius:26px;box-shadow:inset 0 0 0 1px #0001;padding:0}
+.room-scene-tools .room-light-panel .switch-rocker{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;border:0;background:#fff8;transform:none;box-shadow:0 2px 5px #0002;color:var(--sign-ink);transition:translate 250ms cubic-bezier(.4,0,.6,1);translate:7px 0}
+.room-scene-tools .light-switch[aria-pressed=false] .switch-rocker{translate:-7px 0;color:var(--sign-ink);transform:none}
+.room-scene-tools .room-light-panel .room-light>small{font:700 .875rem/1.4 var(--f-display);min-width:44px}
+.room-scene-tools .room-light-settings{align-self:center}
+.room-scene-tools .room-light-settings>summary{min-width:36px;border-radius:50%}
+.room-scene-tools .room-light-settings>.appearance-controls{top:calc(100% + 16px);inset-inline-end:0;inset-inline-start:auto;z-index:20}
+/* All directories share the same tabs, content span, and reading hierarchy. */
+#prayer-room #guide-content .directory-mode-tabs{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+#prayer-room #guide-content .directory-mode-tabs>button{min-height:88px;padding:18px 22px;gap:16px;flex-direction:row;text-align:start}
+#prayer-room #guide-content .directory-mode-tabs>button>svg{width:32px;height:36px;flex:none}
+#prayer-room #guide-content .directory-mode-copy strong{font-weight:750;font-size:1.0625rem}
+#prayer-room #guide-content .directory-mode-copy small{font-size:.8125rem;line-height:1.4}
+#prayer-room #guide-content .directory-workspace>.controls{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;margin-bottom:24px}
+#prayer-room #guide-content .directory-refine>summary{font-weight:650}
+#prayer-room #guide-content .guide-panel{min-width:0}
+html[dir=rtl] .directory-map-preview-copy strong svg{rotate:180deg}
+html[dir=rtl] #prayer-room[data-room-presentation=directory] .room-directory-intro h1{font-family:var(--f-arabic);letter-spacing:0;line-height:1.4}
+html[dir=rtl] #prayer-room[data-room-presentation=home] .room-home-intro h1{font-family:'Room Arabic Invitation',var(--f-arabic);line-height:1.45;letter-spacing:0}
+@media(max-width:1100px){
+ #prayer-room[data-room-presentation=directory] .room-directory-intro h1{font-size:2.65rem}
+ .directory-map-preview{gap:14px;padding:10px 14px 10px 10px}
+}
+@media(max-width:1000px){
+ #prayer-room[data-room-presentation=directory] .room-stage{grid-template-columns:1fr}
+ #prayer-room[data-room-presentation=directory] .room-arrival-copy{grid-column:1;grid-row:1;padding:32px var(--room-gutter);margin:0;width:100%}
+ #prayer-room[data-room-presentation=directory] .room-directory-intro{grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+ #prayer-room[data-room-presentation=directory] .room-architecture{grid-row:2;width:100%;max-width:none;aspect-ratio:2/1}
+ #prayer-room[data-room-presentation=directory] .room-canvas{width:100%}
+ #prayer-room[data-room-presentation=directory] .room-scene-tools{grid-row:3}
+ #prayer-room[data-room-presentation=directory] .room-arrival-copy{--room-inscription:var(--ink)}
+ .directory-map-preview{grid-template-columns:1fr;gap:10px;width:100%}
+ .directory-map-preview>svg{max-height:110px}
+ #prayer-room[data-room-presentation=home] .room-home-intro h1{font-size:clamp(3.5rem,7.5vw,5.5rem)}
+ #prayer-room[data-room-presentation=home] .room-scene-tools{grid-template-columns:1fr auto}
+ #prayer-room[data-room-presentation=home] .room-scene-tools>.room-light-panel{grid-column:2;grid-row:1}
+ #prayer-room[data-room-presentation=home] .room-scene-tools>.room-view-credits{grid-column:1/-1;justify-self:start}
+}
+@media(max-width:600px){
+ #prayer-room[data-room-presentation=directory] .room-directory-intro{grid-template-columns:1fr;gap:20px}
+ #prayer-room[data-room-presentation=directory] .directory-title-line{flex-direction:row;gap:12px;align-items:center}
+ #prayer-room[data-room-presentation=directory] .category-emblem{width:44px;height:52px;padding:6px}
+ #prayer-room[data-room-presentation=directory] .category-emblem>svg{width:32px;height:40px}
+ #prayer-room[data-room-presentation=directory] .room-directory-intro h1{font-size:clamp(1.75rem,9.5vw,2.5rem);line-height:1.15}
+ #prayer-room[data-room-presentation=directory] .room-arrival-copy{padding-block:28px 24px}
+ #prayer-room[data-room-presentation=directory] .directory-intro-copy>p{font-size:1rem}
+ .directory-map-preview{grid-template-columns:minmax(90px,.7fr) minmax(0,1fr);padding:12px;gap:16px;max-width:none}
+ .directory-map-counts{font-size:.75rem}
+ .directory-map-preview-copy strong{font-size:.875rem}
+ #prayer-room[data-room-presentation=directory] .room-architecture{aspect-ratio:1.45/1}
+ #prayer-room[data-room-presentation=directory] .room-canvas{width:138%}
+ #prayer-room[data-room-presentation=home] .room-home-intro h1{font-size:clamp(3rem,11.8vw,4.2rem)}
+ #prayer-room[data-room-presentation=home] .room-scene-tools{grid-template-columns:1fr;gap:12px}
+ #prayer-room[data-room-presentation=home] .room-scene-tools>.room-light-panel{grid-column:1;grid-row:1;justify-self:center}
+ #prayer-room[data-room-presentation=home] .room-scene-tools>.room-atmosphere-controls{grid-row:2;justify-content:space-between}
+ #prayer-room #guide-content .directory-mode-tabs>button{min-height:92px;padding:12px 6px;gap:8px;flex-direction:column;text-align:center;align-items:center}
+ #prayer-room #guide-content .directory-mode-copy strong{font-size:.875rem}
+ #prayer-room #guide-content .directory-mode-copy small{font-size:.6875rem}
+}
+@media(prefers-reduced-motion:no-preference){
+ .room-environment .room-window-glass{animation:room-glass-light 14s ease-in-out infinite alternate}
+ @keyframes room-glass-light{from{background-position:0% center;opacity:.55}to{background-position:100% center;opacity:.8}}
+ .room-environment .room-window-glass{background-size:180% 100%}
+}
+@media(prefers-reduced-motion:reduce){.room-scene-tools .room-light-panel .switch-rocker,.directory-map-preview{transition:none}}
+@media print{.directory-map-preview,.room-scene-tools .room-light-panel{display:none!important}#prayer-room[data-room-presentation=directory] .room-arrival-copy{padding:0;background:white;color:black}}
+
+/* Approach the whole commissioned room, not a photograph pasted over its frame.
+   The original niche and rug stay registered with the window and are cropped
+   at the boundary of the reading wall. Text never participates in the zoom. */
+#prayer-room[data-room-presentation=directory]{--arrival-scene-track:1.12fr;--arrival-reading-track:.88fr;--arrival-room-ratio:2.1/1;--arrival-blend-start:48%;--arrival-blend-end:60%}
+#prayer-room[data-room-presentation=directory] .room-canvas{width:100%;transform-origin:12% 65%;transform:scale(calc(1.5 + var(--room-approach,0)*.08));opacity:1}
+#prayer-room[data-room-presentation=directory] .room-window-surround{left:5.0732807%;top:12.626832%;width:28.410372%;height:65.83991%;transform:none}
+#prayer-room[data-room-presentation=directory] .room-window-frame{border:0;box-shadow:inset 0 0 0 1px #e5edfa24,inset 8px 0 18px #07101b40}
+#prayer-room[data-room-presentation=directory] .room-window-glass{background:linear-gradient(115deg,#d7e8ff12,transparent 30%,#d7e8ff06 52%,transparent 70%);box-shadow:inset 0 0 0 1px #ffffff24;opacity:.5;animation:none}
+#prayer-room[data-room-presentation=directory] .room-arrival-copy{padding-inline:24px clamp(24px,4vw,70px);color:var(--ink);--room-inscription:var(--ink)}
+#prayer-room[data-room-presentation=directory] .category-emblem{width:44px;height:44px;border-radius:10px;padding:10px;background:transparent;color:var(--ink);border:1px solid var(--field)}
+#prayer-room[data-room-presentation=directory] .category-emblem>svg{width:24px;height:24px}
+#prayer-room[data-room-presentation=directory] .room-architecture::after{background:linear-gradient(90deg,transparent 45%,color-mix(in srgb,var(--bg) 65%,transparent) 54%,var(--bg) 62%)}
+#prayer-room[data-room-presentation=directory] .room-canvas::after{background:none}
+/* Every page has the same tactile light control, outside navigation. */
+#prayer-room:not([data-room-presentation=home]) .room-scene-tools{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 24px;padding-block:16px}
+#prayer-room:not([data-room-presentation=home]) .room-scene-tools>.room-light-panel{grid-column:2;grid-row:1;justify-self:end}
+#prayer-room:not([data-room-presentation=home]) .room-scene-tools>.room-photo-credit{grid-column:1;grid-row:2;margin:0}
+#prayer-room:not([data-room-presentation=home]) .room-scene-tools>.room-view-credits{grid-column:2;grid-row:2;justify-self:end}
+#prayer-room:not([data-room-presentation=home]) .room-scene-tools>.room-view-credits[open]{grid-column:1/-1;grid-row:3;width:100%}
+#prayer-room:not([data-room-presentation=home]) .room-scene-tools>.room-atmosphere-controls{justify-content:flex-start;gap:12px 24px;display:flex}
+.room-scene-tools .room-light-panel .room-light-settings>summary{min-width:44px}
+/* A single quiet tab bar. Yellow is reserved for the active path. */
+#prayer-room #guide-content .directory-mode-tabs{gap:0;padding:0;border:0;border-bottom:1px solid var(--line);border-radius:0;background:var(--bg);box-shadow:0 8px 0 var(--bg)}
+#prayer-room #guide-content .directory-mode-tabs>button{min-height:78px;border:0;border-radius:0;background:transparent;box-shadow:none;position:relative;justify-content:center}
+#prayer-room #guide-content .directory-mode-tabs>button[aria-selected=true]{background:color-mix(in srgb,var(--surface-2) 70%,transparent);box-shadow:inset 0 -3px var(--sign)}
+#prayer-room #guide-content .directory-mode-tabs>button>svg{width:22px;height:24px;color:var(--muted)}
+#prayer-room #guide-content .directory-mode-tabs>button[aria-selected=true]>svg{color:var(--selection-mark)}
+#prayer-room #guide-content .directory-mode-copy strong{font-size:1rem}
+@media(max-width:1000px){
+ #prayer-room[data-room-presentation=directory] .room-arrival-copy{padding:30px var(--room-gutter)}
+ #prayer-room[data-room-presentation=directory] .room-architecture{aspect-ratio:1.8/1}
+ #prayer-room[data-room-presentation=directory] .room-canvas{width:120%;transform-origin:12% 65%;transform:scale(calc(1.45 + var(--room-approach,0)*.05))}
+ #prayer-room[data-room-presentation=directory] .room-architecture::after{background:linear-gradient(90deg,transparent 65%,var(--bg) 100%)}
+}
+@media(max-width:600px){
+ #prayer-room[data-room-presentation=directory] .room-architecture{aspect-ratio:1.15/1}
+ #prayer-room[data-room-presentation=directory] .room-canvas{width:175%;transform-origin:8% 65%;transform:scale(calc(1.4 + var(--room-approach,0)*.05))}
+ #prayer-room[data-room-presentation=directory] .room-architecture::after{background:linear-gradient(90deg,transparent 78%,color-mix(in srgb,var(--bg) 40%,transparent))}
+ #prayer-room:not([data-room-presentation=home]) .room-scene-tools{grid-template-columns:1fr;gap:12px}
+ #prayer-room:not([data-room-presentation=home]) .room-scene-tools>.room-light-panel{grid-column:1;grid-row:1;justify-self:center}
+ #prayer-room:not([data-room-presentation=home]) .room-scene-tools>.room-atmosphere-controls{grid-column:1;grid-row:2;justify-content:space-between}
+ #prayer-room:not([data-room-presentation=home]) .room-scene-tools>.room-photo-credit{grid-column:1;grid-row:3}
+ #prayer-room:not([data-room-presentation=home]) .room-scene-tools>.room-view-credits,#prayer-room:not([data-room-presentation=home]) .room-scene-tools>.room-view-credits[open]{grid-column:1;grid-row:4;justify-self:start}
+ #prayer-room #guide-content .directory-mode-tabs>button{min-height:88px;gap:8px}
+ #prayer-room #guide-content .directory-mode-copy strong{font-size:.875rem}
+}

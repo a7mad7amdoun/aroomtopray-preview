@@ -7,6 +7,13 @@ import { readPresentation, readDirectoryMode } from '../src/lib/directory-presen
 import { readPage } from '../src/lib/directory-pagination.js';
 import { readMapSelection } from '../src/lib/airport-map-state.js';
 
+test('selected airport room survives the guide round trip and invalid room values are removed', () => {
+ const guide=new URL(withBrowseContext('/airports/lhr/','?mode=map&airport=lhr&room=2&f=wudu'),'https://local.test');
+ const returned=new URL(returnToDirectory('/airports/',guide.search),'https://local.test');
+ assert.equal(returned.searchParams.get('room'),'2');
+ for(const query of ['room=2','airport=lhr&room=0','airport=lhr&room=-1','airport=lhr&room=1.2','airport=lhr&room=1000'])assert.equal(new URLSearchParams(browseQuery(query)).has('room'),false);
+});
+
 test('a guide round trip preserves search, country, facilities, page, sort and selected airport across languages', () => {
   const search = '?q=London&country=GB&f=women,wudu&sort=name&view=cards&page=3&mode=list&airport=lhr';
   const guide = new URL(withBrowseContext('/fr/airports/lhr/', search), 'https://local.test');
@@ -47,4 +54,32 @@ test('direct visits and unfiltered links keep the original directory navigation'
   assert.equal(withBrowseContext('/universities/oxford/', ''), '/universities/oxford/');
   assert.equal(returnToDirectory('/hospitals/', ''), null);
   assert.equal(returnToDirectory('/hospitals/', '?browse=report%3Dok'), null);
+});
+
+test('a selected airport room survives a localized guide round trip', () => {
+  const guide = new URL(withBrowseContext('/fr/airports/lhr/', '?airport=lhr&room=3&mode=map&f=airside,wudu'), 'https://local.test');
+  const returned = new URL(returnToDirectory('/ar/airports/', guide.search), 'https://local.test');
+  assert.equal(returned.searchParams.get('airport'), 'lhr');
+  assert.equal(returned.searchParams.get('room'), '3');
+  assert.equal(returned.searchParams.get('mode'), 'map');
+  assert.equal(returned.searchParams.get('f'), 'airside,wudu');
+});
+
+test('room context requires a syntactically valid airport selection', () => {
+  for (const search of ['?room=2', '?place=oxford&room=2', '?airport=INVALID&room=2', '?airport=../lhr&room=2']) {
+    assert.equal(new URLSearchParams(browseQuery(search)).has('room'), false);
+  }
+  assert.equal(new URLSearchParams(browseQuery('?airport=lhr&room=1')).get('room'), '1');
+  assert.equal(new URLSearchParams(browseQuery('?airport=lhr&room=999')).get('room'), '999');
+});
+
+test('malformed room values are discarded without losing the airport or search', () => {
+  for (const room of ['', '0', '-1', '01', '1.5', '1e2', '1000', 'Infinity', 'no']) {
+    const search = new URLSearchParams({ airport:'lhr', room, q:'London', mode:'map' });
+    const cleaned = new URLSearchParams(browseQuery(search));
+    assert.equal(cleaned.has('room'), false, room);
+    assert.equal(cleaned.get('airport'), 'lhr');
+    assert.equal(cleaned.get('q'), 'London');
+    assert.equal(cleaned.get('mode'), 'map');
+  }
 });

@@ -1,13 +1,16 @@
 ---
-const { label } = Astro.props;
+import { getCopy } from '../lib/i18n.js';
+import { ROOM_COPY } from '../data/room-copy.js';
+const { locale='en' } = Astro.props;
+const t=getCopy(locale), r=ROOM_COPY[locale];
 ---
-<div class="browse-heading" id="browse">
-  <div><span class="eyebrow">The directory</span><h2>Explore {label}.</h2></div>
+<div class="results-toolbar">
+  <div class="results-heading"><h2>{r.results}</h2><p>{r.information}</p></div>
   <div class="browse-tools" data-browse-tools hidden>
-    <label>Sort by <select data-directory-sort><option value="default">Directory order</option><option value="name">Name A–Z</option><option value="location">City A–Z</option></select></label>
-    <div class="seg" role="group" aria-label="Results layout">
-      <button type="button" data-directory-view="list" aria-pressed="true"><span aria-hidden="true">☰</span> List</button>
-      <button type="button" data-directory-view="cards" aria-pressed="false"><span aria-hidden="true">▦</span> Cards</button>
+    <label class="directory-sort-label" for="directory-sort"><span>{t.common.sort}</span><select id="directory-sort" data-directory-sort><option value="default">{t.common.recommended}</option><option value="name">{t.common.sortName}</option><option value="location">{t.common.sortLocation}</option></select></label>
+    <div class="seg directory-layout-choice" role="group" aria-label={t.common.view}>
+      <button type="button" data-directory-view="list" aria-pressed="true"><svg width="17" height="17" aria-hidden="true"><use href="#i-list"/></svg><span>{t.common.list}</span></button>
+      <button type="button" data-directory-view="cards" aria-pressed="false"><svg width="17" height="17" aria-hidden="true"><use href="#i-grid"/></svg><span>{t.common.cards}</span></button>
     </div>
   </div>
 </div>

@@ -7,13 +7,20 @@ export function initPhotoViewer(root) {
  if(!body || !close)return false;
  const doc=root.ownerDocument,links=[...root.querySelectorAll('[data-photo-open]')];
  let opener=null,overflow='',backdropPressed=false;
- function restore(){
+ function restore(restoreFocus=true){
+  // Native close events are queued. An earlier session's event must not clear
+  // the content or unlock scrolling after this dialog has already reopened.
+  if(dialog.open)return;
   body.replaceChildren();
-  if(opener){doc.documentElement.style.overflow=overflow;const target=opener;opener=null;if(target.isConnected)target.focus({preventScroll:true});}
+  backdropPressed=false;
+  if(opener){doc.documentElement.style.overflow=overflow;const target=opener;opener=null;if(restoreFocus&&target.isConnected)target.focus({preventScroll:true});}
  }
  function show(link){
   const figure=link.closest('[data-photo-id]'),image=figure?.querySelector('.place-photo-image img'),caption=figure?.querySelector('figcaption');
   if(!image || !caption || dialog.open)return false;
+  // Finish an already closed session before capturing the next scroll state.
+  // Its delayed close event will see the new open dialog and leave it alone.
+  if(opener)restore(false);
   const enlarged=doc.createElement('figure'),photo=image.cloneNode(true),credit=caption.cloneNode(true);
   enlarged.className='photo-viewer-figure';
   photo.sizes='(max-width: 1120px) calc(100vw - 72px), 1060px';photo.loading='eager';
@@ -40,8 +47,13 @@ export function initPhotoViewer(root) {
   link.addEventListener('keydown',event=>{if(event.key===' '){event.preventDefault();link.click();}});
  });
  close.addEventListener('click',()=>dialog.close());
+ // Embedded browsers can deliver Escape without the native cancel action.
+ // Handle it inside the open viewer and reuse the same cleanup lifecycle.
+ dialog.addEventListener('keydown',event=>{
+  if(event.key==='Escape'&&!event.isComposing&&!event.defaultPrevented&&dialog.open){event.preventDefault();dialog.close();}
+ });
  dialog.addEventListener('cancel',event=>{event.preventDefault();dialog.close();});
- dialog.addEventListener('close',restore);
+ dialog.addEventListener('close',()=>restore());
  dialog.addEventListener('pointerdown',event=>{backdropPressed=event.target===dialog;});
  dialog.addEventListener('click',event=>{if(event.target===dialog&&backdropPressed)dialog.close();backdropPressed=false;});
  root.dataset.photoViewerReady='true';

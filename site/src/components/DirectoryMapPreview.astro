@@ -1,0 +1,34 @@
+---
+import { geoEquirectangular, geoPath } from 'd3-geo';
+import { feature } from 'topojson-client';
+import world from 'world-atlas/countries-110m.json';
+import { validMapLocation } from '../lib/place-map.js';
+const { places=[],locale='en' }=Astro.props;
+const points=places.filter(validMapLocation);
+const copy={
+ en:{title:'Find your place on the map',action:'Explore the map',places:'places',countries:'countries'},
+ fr:{title:'Trouvez votre lieu sur la carte',action:'Explorer la carte',places:'lieux',countries:'pays'},
+ ar:{title:'اعثر على مكانك على الخريطة',action:'استكشف الخريطة',places:'مكاناً',countries:'بلداً'},
+ es:{title:'Encuentra tu lugar en el mapa',action:'Explorar el mapa',places:'lugares',countries:'países'},
+}[locale];
+const projection=geoEquirectangular().fitExtent([[6,6],[314,142]],{type:'Sphere'});
+const land=geoPath(projection).digits(1)(feature(world,world.objects.countries));
+const number=new Intl.NumberFormat(locale);
+---
+<a class="directory-map-preview" href="?mode=map#browse" data-directory-map-preview aria-label={copy.title}>
+ <svg viewBox="0 0 320 148" aria-hidden="true"><path d={land}/>{points.map(place=>{const [cx,cy]=projection([place.lon,place.lat]);return <circle {cx} {cy} r="1.8"/>})}</svg>
+ <span class="directory-map-preview-copy"><span class="directory-map-counts"><b>{number.format(points.length)}</b> {copy.places}<span aria-hidden="true"> · </span>{number.format(new Set(points.map(p=>p.country)).size)} {copy.countries}</span><strong>{copy.action}<svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></strong></span>
+</a>
+<script>
+ for(const link of document.querySelectorAll('[data-directory-map-preview]')){
+  link.addEventListener('click',event=>{
+   if(event.button>0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+   const tab=document.querySelector('[data-directory-mode="map"]');
+   if(!tab||tab.closest('[hidden]'))return;
+   event.preventDefault();tab.click();
+   const target=document.querySelector('#atlas-search');
+   document.querySelector('#browse')?.scrollIntoView({block:'start',behavior:'auto'});
+   target?.focus({preventScroll:true});
+  });
+ }
+</script>

@@ -1,0 +1,48 @@
+/* A compact masthead and quiet section index, using the existing sign identity. */
+.wayfinding-symbol { display:block; flex:none; }
+:root { --masthead-height:126px; }
+.top.room-header>.wrap { min-height:0; padding:12px 0 10px; gap:10px 16px; }
+.top.room-header .brand { font-size:1.25rem; gap:10px; letter-spacing:-.035em; }
+.top.room-header .brand>svg { width:42px; height:42px; }
+.top.room-header .brand bdi>span { display:inline; }
+.top.room-header .primary-navigation { padding:4px; gap:4px; border-radius:7px; }
+.top.room-header .primary-navigation>a { min-height:44px; padding:8px 14px; gap:10px; border-radius:4px; font-size:.9rem; }
+.top.room-header .destination-emblem { width:26px; height:26px; border-radius:0; background:none; }
+.top.room-header .destination-emblem>.wayfinding-symbol { width:25px; height:25px; }
+.top.room-header .primary-destination-copy { display:block; }
+.top.room-header .primary-destination-label { font-weight:600; }
+.top.room-header .header-search { width:44px; min-width:44px; min-height:44px; padding:10px; border:0; background:transparent; }
+.top.room-header .site-menu>summary { min-height:44px; min-width:82px; border-color:var(--line); background:transparent; font-weight:550; }
+.top.room-header .site-menu-panel { top:calc(100% + 14px); }
+.room-main #guide-content .guide-tabs { gap:4px; padding:0; border:0; border-bottom:1px solid var(--line); border-radius:0; background:transparent; margin-bottom:32px; }
+.room-main #guide-content .guide-tabs>a { gap:10px; padding:16px; min-height:60px; justify-content:flex-start; text-align:start; border-radius:5px 5px 0 0; background:transparent; color:var(--muted); }
+.room-main #guide-content .guide-tabs>a[aria-selected=true] { background:var(--surface); color:var(--ink); border-color:transparent; box-shadow:inset 0 -2px var(--selection-mark); }
+.room-main #guide-content .guide-tabs>a::after { display:none; }
+.room-main #guide-content .guide-tab-emblem { display:grid; place-items:center; flex:none; width:28px; height:30px; border-radius:0; background:none; }
+.room-main #guide-content .guide-tab-emblem>svg { width:26px; height:26px; }
+.room-main #guide-content .guide-tab-copy { display:block; font-size:.95rem; line-height:1.4; font-weight:600; }
+.room-main .page-jumps a { min-height:44px; padding:8px 12px; gap:8px; }
+@media(min-width:1100px) {
+ :root { --masthead-height:82px; }
+ .top.room-header>.wrap { grid-template-columns:minmax(190px,1fr) auto auto auto; padding-block:16px; }
+ .top.room-header .primary-navigation { grid-row:1; grid-column:2; width:auto; }
+ .top.room-header .header-search { grid-column:3; }
+ .top.room-header .site-menu { grid-column:4; }
+}
+@media(min-width:1280px) {
+ .room-main #guide-content [data-guide-tabs] { grid-template-columns:200px minmax(0,1fr); column-gap:40px; }
+ .room-main #guide-content [data-guide-tabs]>.guide-tabs { padding:0; gap:4px; border:0; border-inline-end:1px solid var(--line); }
+ .room-main #guide-content [data-guide-tabs]>.guide-tabs>a { padding:16px 12px; border-radius:4px 0 0 4px; }
+ .room-main #guide-content [data-guide-tabs]>.guide-tabs>a[aria-selected=true] { box-shadow:inset -2px 0 var(--selection-mark); }
+ html[dir=rtl] .room-main #guide-content [data-guide-tabs]>.guide-tabs>a[aria-selected=true] { box-shadow:inset 2px 0 var(--selection-mark); }
+}
+@media(max-width:600px) {
+ .top.room-header .brand { font-size:1.1rem; }
+ .top.room-header .brand>svg { width:36px; height:36px; }
+ .top.room-header .primary-navigation>a { flex-direction:row; gap:6px; padding:8px 5px; font-size:.78rem; min-height:44px; }
+ .top.room-header .destination-emblem { width:22px; height:24px; }
+ .top.room-header .destination-emblem>.wayfinding-symbol { width:22px; height:22px; }
+ .room-main #guide-content .guide-tabs>a { padding:12px 8px; gap:8px; flex-direction:column; align-items:center; text-align:center; }
+ .room-main #guide-content .guide-tab-copy { font-size:.83rem; }
+}
+@media print { .room-main #guide-content .guide-tabs { display:none!important; } }

@@ -1,0 +1,61 @@
+/* Keep the reading journey calm: one decision, then the next useful action. */
+.room-main .guide-home .discovery-heading { align-items:end; gap:24px 48px; margin-block:12px 32px; }
+.room-main .guide-home .discovery-heading p { max-width:48ch; line-height:1.7; }
+.room-main .home-departures { gap:32px; }
+.room-main .home-photo-library { margin-top:32px; }
+.room-main .room-three-steps { gap:20px; margin-block:28px 32px; }
+.room-main .room-three-steps>li { padding:28px; border-radius:12px; background:var(--surface); }
+.room-main .room-three-steps .step-symbol { display:flex; align-items:center; justify-content:space-between; width:100%; padding:0; background:var(--surface); color:var(--ink); }
+.room-main .room-three-steps .step-symbol>.wayfinding-symbol { width:44px; height:44px; }
+.room-main .guide-step-number { font:500 .8rem var(--f-mono); color:var(--muted); }
+.room-main .room-three-steps h3 { margin-block:24px 12px; line-height:1.4; }
+.room-main .room-three-steps p { line-height:1.75; }
+.room-main .guide-principles { margin-top:48px; padding-top:36px; }
+.room-main .guide-principles>ol { gap:0; border-block:1px solid var(--line); }
+.room-main .guide-principles>ol>li { padding:24px 0; border:0; border-radius:0; background:none; grid-template-columns:44px minmax(0,1fr); gap:22px; }
+.room-main .guide-principles>ol>li+li { border-top:1px solid var(--line); }
+.room-main .guide-principles>ol>li>.wayfinding-symbol { padding:0; width:40px; height:40px; border-radius:0; background:none; color:var(--ink); }
+.room-main .guide-principles p { max-width:70ch; }
+.room-main .guide-contribution { padding-block:28px; }
+.room-main .visit-section-heading { margin-block:12px 28px; }
+.room-main .visit-section-heading h2 { margin-block:12px; font:600 clamp(1.6rem,2.6vw,2.2rem)/1.25 var(--f-display); letter-spacing:-.03em; }
+.room-main .visit-section-heading p { color:var(--muted); line-height:1.7; }
+.room-main .visit-page .visit-panel:not([hidden]) { display:block; margin:0; }
+.room-main .visit-page .visit-instructions { display:block; padding-block:28px 8px; }
+.room-main .visit-instruction-title { display:flex; align-items:center; gap:20px; padding-bottom:28px; border-bottom:1px solid var(--line); }
+.room-main .visit-instruction-title>.wayfinding-symbol { flex:none; color:var(--ink); }
+.room-main .visit-instruction-title h2 { font-size:clamp(1.35rem,2vw,1.7rem); line-height:1.4; max-width:36ch; }
+.room-main .visit-instructions ol { gap:0; margin-block:8px 28px; }
+.room-main .visit-instructions li { padding-block:24px; gap:24px; border-bottom:1px solid var(--line); }
+.room-main .visit-instructions .path-stop { display:grid; place-items:center; width:36px; height:36px; border:1px solid var(--line); border-radius:50%; background:var(--surface); color:var(--ink); font:500 .8rem var(--f-mono); }
+.room-main .visit-instructions li h3 { margin-block:3px 9px; font-size:1.15rem; }
+.room-main .visit-instructions li p { font-size:1rem; line-height:1.75; max-width:70ch; }
+.room-main .visit-instructions>.note { max-width:74ch; line-height:1.7; margin-block:0 24px; }
+.room-main .visit-photo-disclosure { width:100%; margin-top:32px; }
+.room-main .visit-checklist { gap:32px; margin-block:48px; padding:32px; background:var(--surface); border:1px solid var(--line); border-radius:14px; }
+.room-main .visit-checklist p { font-size:.95rem; line-height:1.7; max-width:45ch; }
+.room-main .visit-checklist label { padding-block:20px; gap:18px; }
+.room-main .visit-checklist label:first-child { padding-top:0; }
+.room-main .visit-checklist small { margin-top:8px; font-size:.95rem; line-height:1.7; }
+.room-main .visit-checklist input { width:24px; height:24px; margin-top:2px; }
+.room-main .visit-checklist label:has(input:focus-visible) { outline:2px solid var(--focus); outline-offset:5px; border-radius:4px; }
+.room-main .visit-checklist label:has(input:checked) b { text-decoration:none; }
+.room-main .visit-research { margin-bottom:40px; }
+@container prayer-guide (max-width:680px) {
+ .room-main .room-three-steps { grid-template-columns:1fr; }
+ .room-main .room-three-steps>li { display:block; padding:24px; }
+ .room-main .room-three-steps .step-symbol { width:100%; }
+ .room-main .room-three-steps h3 { margin-top:20px; }
+ .room-main .visit-checklist { grid-template-columns:1fr; padding:24px; }
+ .room-main .visit-instructions li { gap:16px; }
+}
+@media(max-width:600px) {
+ .room-main .visit-checklist { padding:22px 18px; }
+ .room-main .guide-principles>ol>li { gap:16px; }
+ .room-main .visit-instruction-title { gap:16px; }
+}
+html[dir=rtl] .room-main .visit-section-heading h2 { letter-spacing:0; line-height:1.6; }
+@media print {
+ .room-main .visit-photo-disclosure,.room-main .visit-research { display:none; }
+ .room-main .room-three-steps>li { break-inside:avoid; }
+}

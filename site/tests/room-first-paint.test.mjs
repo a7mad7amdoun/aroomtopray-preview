@@ -29,22 +29,22 @@ test('repeated fresh starts restore saved/system appearance before requesting ma
     const p = freshPage({ preference, systemDark });
     const dark = preference === 'dark' || (!['light','dark'].includes(preference) && systemDark);
     assert.equal(p.attributes.get('data-theme'), ['light','dark'].includes(preference) ? preference : undefined);
-    assert.equal(p.attributes.get('meta-content'), dark ? '#0b121d' : '#f4f1eb');
+    assert.equal(p.attributes.get('meta-content'), dark ? '#0a111c' : '#e8edf3');
     assert.ok(p.classes.has('js'));
-    assert.equal(p.links.length, 2);
+    assert.equal(p.links.length, 1);
     assert.equal(p.links[0].href, `/art/artful-room/${dark ? 'night' : 'day'}-1774.webp`);
-    assert.equal(p.links[1].href, `/art/home-paired-views/airport-${dark ? 'night' : 'day'}-640.webp`);
   }
 });
 
-test('each category and device density preloads existing assets used by the CSS', () => {
-  for (const [kind, scene] of Object.entries({ airports: 'airport', universities: 'campus', hospitals: 'hospital' })) {
+test('each category and device density preloads its CSS room only, leaving gallery images to img loading', () => {
+  for (const kind of ['airports','universities','hospitals']) {
     for (const preference of ['light','dark']) for (const mobile of [false,true]) for (const density of [1,2]) {
       const p = freshPage({ kind, presentation: 'directory', preference, mobile, density });
       const mode = preference === 'dark' ? 'night' : 'day';
       const folder = preference === 'dark' ? 'arrival-room' : 'daylight-room';
       assert.equal(p.links[0].href, `/art/${folder}/${mode}-${mobile && density === 1 ? 1024 : 1774}.webp`);
-      assert.equal(p.links[1].href, `/art/real-views/${scene}-${density === 1 ? 800 : !mobile && scene !== 'hospital' ? 2048 : 1400}.webp`);
+      assert.equal(p.links.length, 1);
+      assert.ok(p.links.every(link => !link.href.includes('/real-views/')));
       for (const link of p.links) {
         assert.equal(link.rel, 'preload'); assert.equal(link.as, 'image');
         assert.ok(fs.existsSync(new URL('../public' + link.href, import.meta.url)), link.href);
@@ -56,27 +56,40 @@ test('each category and device density preloads existing assets used by the CSS'
 test('blocked storage, mounted preview paths and report intent keep initial appearance usable', () => {
   const p = freshPage({ blocked: true, systemDark: true, query: '?report=access', preview: true });
   assert.equal(p.root.dataset.guideReportIntent, 'true');
-  assert.equal(p.attributes.get('meta-content'), '#0b121d');
+  assert.equal(p.attributes.get('meta-content'), '#0a111c');
+  assert.equal(p.links.length, 1);
   assert.ok(p.links.every(link => link.href.startsWith('/aroomtopray-preview/art/')));
+  assert.deepEqual(p.removed, []);
   assert.equal(freshPage({ query: '?q=report' }).root.dataset.guideReportIntent, undefined);
 });
 
-test('dense tablet glass keeps the medium image while large desktop gets original-resolution detail', () => {
-  for (const [kind, scene] of Object.entries({airports:'airport',universities:'campus',hospitals:'hospital'})) {
-    const tablet=freshPage({kind,presentation:'directory',tablet:true,density:2});
-    assert.equal(tablet.links[1].href, `/art/real-views/${scene}-1400.webp`);
-    const desktop=freshPage({kind,presentation:'directory',density:2});
-    assert.equal(desktop.links[1].href, `/art/real-views/${scene}-${scene==='hospital'?1400:2048}.webp`);
+test('practical pages and preview mounts do not fetch obsolete CSS window scenes', () => {
+  for (const kind of ['home','airports','universities','hospitals']) {
+    for (const presentation of ['directory','detail','support']) for (const preview of [false,true]) {
+      for (const device of [{tablet:true,density:2},{density:2},{mobile:true,density:1}]) {
+        const page=freshPage({kind,presentation,preview,...device});
+        const prefix=preview?'/aroomtopray-preview/art/':'/art/';
+        assert.equal(page.links.length,1);
+        assert.equal(page.links[0].href,`${prefix}daylight-room/day-${device.mobile?1024:1774}.webp`);
+      }
+    }
   }
 });
 
-test('home preloads its generated lighting pair without changing directory photography', () => {
+test('home preloads only the original room and leaves real photographs to responsive img selection', () => {
  for(const preference of ['light','dark'])for(const density of [1,2]) {
   const page=freshPage({preference,density});
-  const expected=`/art/home-paired-views/airport-${preference==='dark'?'night':'day'}-${density===1?640:1122}.webp`;
-  assert.equal(page.links[1].href,expected);
-  assert.ok(fs.existsSync(new URL('../public'+expected,import.meta.url)));
+  assert.equal(page.links.length,1);
+  assert.ok(!page.links[0].href.includes('home-paired-views'));
+  assert.ok(fs.existsSync(new URL('../public'+page.links[0].href,import.meta.url)));
  }
+});
+
+test('obsolete focus sessions are cleared without interfering with current appearance', () => {
+  const page=freshPage({preference:'dark',reading:'large'});
+  assert.deepEqual(page.removed,['aroomtopray.focus.v2','aroomtopray.focus.v1']);
+  assert.equal(page.attributes.get('data-theme'),'dark');
+  assert.equal(page.attributes.get('data-reading'),'large');
 });
 
 

@@ -13,26 +13,22 @@
   --view-campus:image-set(url('/art/real-views/campus-800.webp') 1x,url('/art/real-views/campus-2048.webp') 2x);
  }
 }
-/* Home owns the imagined day/evening pair. The registered evening layer
-   changes opacity; directory photographs never receive a synthetic tint. */
-.room-environment[data-room-presentation=home] {
- --view-airport:image-set(url('/art/home-paired-views/airport-day-640.webp') 1x,url('/art/home-paired-views/airport-day-1122.webp') 2x);
- --evening-airport:image-set(url('/art/home-paired-views/airport-night-640.webp') 1x,url('/art/home-paired-views/airport-night-1122.webp') 2x);
- --view-campus:image-set(url('/art/home-paired-views/campus-day-640.webp') 1x,url('/art/home-paired-views/campus-day-1122.webp') 2x);
- --evening-campus:image-set(url('/art/home-paired-views/campus-night-640.webp') 1x,url('/art/home-paired-views/campus-night-1122.webp') 2x);
- --view-hospital:image-set(url('/art/home-paired-views/hospital-day-640.webp') 1x,url('/art/home-paired-views/hospital-day-1122.webp') 2x);
- --evening-hospital:image-set(url('/art/home-paired-views/hospital-night-640.webp') 1x,url('/art/home-paired-views/hospital-night-1122.webp') 2x);
-}
+/* A single photographic plate crossfades for each home destination. */
 .room-environment[data-room-presentation=home] .door-scene::after {
- content:''; position:absolute; inset:0; background-image:var(--evening-view);
- background-size:cover; background-position:center; opacity:var(--room-night-opacity);
+ content:''; position:absolute; inset:0;
  transition:opacity 850ms ease-out;
 }
-.room-environment[data-room-presentation=home] .door-scene-airport { --evening-view:var(--evening-airport); }
-.room-environment[data-room-presentation=home] .door-scene-campus { --evening-view:var(--evening-campus); }
-.room-environment[data-room-presentation=home] .door-scene-hospital { --evening-view:var(--evening-hospital); }
+.room-environment[data-room-presentation=home] .door-outside>.door-scene[data-home-scene] { opacity:0; transition:opacity 650ms ease-in-out; }
+.room-environment[data-room-presentation=home] .door-outside>.door-scene[data-home-scene][data-active=true] { opacity:1; }
+/* Documentary photographs replace the illustrated destination plates. Their
+   actual colours survive both themes; only the glass brightness changes. */
+.room-environment[data-room-presentation=home] .door-outside:has(.door-scene-photograph) { background-image:none; }
+.room-environment[data-room-presentation=home] .door-outside>.door-scene-photograph[data-home-scene] { background-image:none; mix-blend-mode:normal; }
+.room-environment[data-room-presentation=home] .door-scene-photograph img { position:absolute; inset:0; width:100%; height:100%; display:block; object-fit:cover; }
+.room-environment[data-room-presentation=home] .door-scene-photograph::after { background-image:none; background-color:#0a111c; opacity:calc(var(--room-night-opacity,0) * .18); }
 @media(prefers-reduced-motion:reduce) {
  .room-environment[data-room-presentation=home] .door-scene::after { transition:none; }
+ .room-environment[data-room-presentation=home] .door-outside>.door-scene[data-home-scene] { transition:none; }
 }
 /* The switch controls interior light, not the time of day outside. Original
    photographic colour is preserved in both themes; sources accompany the view. */

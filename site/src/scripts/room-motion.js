@@ -47,7 +47,7 @@ export function initRoomMotion(doc=document,browser=window) {
   if(!motion?.matches){
    const bounds=scenery.getBoundingClientRect?.();
    if(Number.isFinite(bounds?.top)&&Number.isFinite(bounds?.height)&&bounds.height>0){
-    const progress=Math.min(1,Math.max(0,((lastHeaderHeight??0)-bounds.top)/(bounds.height*.75)));
+    const progress=Math.min(1,Math.max(0,((lastHeaderHeight??0)-bounds.top)/(bounds.height*(layered?1.15:.75))));
     // Ease at both architectural boundaries, not over time: reversing a scroll
     // must reveal the same room immediately rather than chase a CSS transition.
     eased=progress*progress*(3-2*progress);
@@ -59,6 +59,7 @@ export function initRoomMotion(doc=document,browser=window) {
    // Transform only the glass; never the rug, reading area or document flow.
    write('--room-approach',eased);
    write('--room-wall-visibility',1-eased);
+   write('--room-rug-visibility',1-eased);
    write('--room-glass-visibility',1-.15*eased);
   }
  };

@@ -34,14 +34,18 @@ const action = href ? t.directories[kind].action : t.home.cards[kind].action;
         <div class="notice-category"><svg width="25" height="25" aria-hidden="true"><use href={`#i-${meta.icon}`} /></svg><h3>{t.nav[kind]}</h3><span class="notice-number" aria-hidden="true">{meta.number}</span></div>
         <div class="notice-body">
           <p class="notice-context">{w.board[kind]}</p>
-          <div class="notice-prayer"><span class="notice-pictogram"><Mark size={30} /></span><span><strong>{t.common.prayerRoom}</strong>{locale !== 'ar' && <small lang="ar" dir="rtl">مُصَلّى</small>}</span><span class="notice-arrow" aria-hidden="true">↗</span></div>
+          <div class="notice-prayer"><span class="notice-pictogram"><Mark size={30} /></span><span><strong>{t.common.prayerRoom}</strong>{locale !== 'ar' && <small lang="ar" dir="rtl">مُصَلّى</small>}</span><span class="notice-arrow" aria-hidden="true"><svg class="directional-icon" width="30" height="30"><use href="#i-arrow"/></svg></span></div>
           <div class="notice-rows" aria-label={t.common.viewDetails}>
-            {[w.locations[kind], w.access, w.facilities].map((label, i) => <div><span class="notice-row-number" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span><span>{label}</span><span aria-hidden="true">→</span></div>)}
+            {[w.locations[kind], w.access, w.facilities].map((label, i) => <div><span class="notice-row-number" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span><span>{label}</span><span aria-hidden="true"><svg class="directional-icon" width="18" height="18"><use href="#i-arrow"/></svg></span></div>)}
           </div>
           <p class="notice-count"><b>{formatCount(meta.count, locale)}</b><span>{t.directories[kind].placesLabel}</span><span aria-hidden="true">·</span><span>{t.common.sources}</span></p>
         </div>
       </div>
     </div>
   </div>
-  <div class="poster-link"><span>{action}</span><span aria-hidden="true">↗</span></div>
+  <div class="poster-link"><span>{action}</span><span aria-hidden="true"><svg class="directional-icon" width="24" height="24"><use href="#i-arrow"/></svg></span></div>
 </a>
+<style>
+  .destination-poster .notice-arrow{rotate:none}
+  .destination-poster .directional-icon{display:block;flex:none}
+</style>

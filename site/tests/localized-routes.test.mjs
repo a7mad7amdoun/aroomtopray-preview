@@ -12,3 +12,16 @@ test('English-only tools remain reachable and language picker never invents unsu
  assert.equal(hasLocalizedRoute('/airports/lhr/extra/'),false);
  assert.equal(hasLocalizedRoute('/saved/'),false);
 });
+test('photo journals preserve category and language across all four locales',()=>{
+ for(const kind of ['airports','universities','hospitals']){
+  for(const locale of ['en','fr','ar','es']){
+   const expected=`${locale==='en'?'':`/${locale}`}/explore/${kind}/`;
+   assert.equal(hasLocalizedRoute(expected),true);
+   assert.equal(languageTarget(`/fr/explore/${kind}/`,locale),expected);
+   assert.equal(navigationPath(`/explore/${kind}/`,locale),expected);
+  }
+ }
+ assert.equal(hasLocalizedRoute('/explore/unknown/'),false);
+ assert.equal(hasLocalizedRoute('/explore/airports/lhr/'),false);
+ assert.equal(languageTarget('/explore/unknown/','ar'),'/ar/');
+});

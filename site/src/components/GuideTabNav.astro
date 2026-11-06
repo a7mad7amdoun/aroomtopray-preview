@@ -1,5 +1,9 @@
 ---
-const {tabs,label}=Astro.props;
+import WayfindingSymbol from './WayfindingSymbol.astro';
+const { tabs, label } = Astro.props;
 ---
-<nav class="guide-tabs" data-guide-tablist aria-label={label}>{tabs.map(({id,label,icon})=><a href={`#${id}`} id={`tab-${id}`} data-guide-tab={id}><svg width="19" height="19" aria-hidden="true"><use href={`#i-${icon}`}/></svg><span>{label}</span></a>)}</nav>
+<nav class="guide-tabs" data-guide-tablist aria-label={label}>{tabs.map(({id,label,icon}) => <a href={`#${id}`} id={`tab-${id}`} data-guide-tab={id}>
+  <span class="guide-tab-emblem"><WayfindingSymbol name={icon} size={36}/></span>
+  <span class="guide-tab-copy"><span>{label}</span></span>
+</a>)}</nav>
 <script>import '../scripts/guide-tabs.js';</script>

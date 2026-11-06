@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+import CategoryPhotoEssay from './CategoryPhotoEssay.astro';
+import WayfindingSymbol from './WayfindingSymbol.astro';
+import { getCopy, localizedPath } from '../lib/i18n.js';
+const {kind='airports',locale='en'}=Astro.props;
+const t=getCopy(locale),local=path=>localizedPath(path,locale);
+const copy={
+ en:{eyebrow:'The photographic journal',titles:{airports:'Airports in photographs',universities:'Campuses in photographs',hospitals:'Hospitals in photographs'},intro:'Explore the places behind the guides, one photograph at a time.',back:'Back to the directory',prepare:'Prepare for your visit',next:'From looking to visiting',nextCopy:'Use the directory for room locations and access details, or prepare a checklist for your visit.'},
+ fr:{eyebrow:'Le carnet photographique',titles:{airports:'Les aéroports en images',universities:'Les campus en images',hospitals:'Les hôpitaux en images'},intro:'Découvrez les lieux de nos guides, une photographie à la fois.',back:'Retour à l’annuaire',prepare:'Préparer votre visite',next:'Des images à la visite',nextCopy:'Consultez l’annuaire pour trouver les salles et leurs conditions d’accès, ou préparez votre liste de visite.'},
+ es:{eyebrow:'El diario fotográfico',titles:{airports:'Aeropuertos en imágenes',universities:'Campus en imágenes',hospitals:'Hospitales en imágenes'},intro:'Descubre los lugares de nuestras guías, una fotografía a la vez.',back:'Volver al directorio',prepare:'Preparar tu visita',next:'De las imágenes a la visita',nextCopy:'Consulta el directorio para conocer las salas y su acceso, o prepara una lista para tu visita.'},
+ ar:{eyebrow:'الدفتر المصوّر',titles:{airports:'المطارات في صور',universities:'الحرم الجامعي في صور',hospitals:'المستشفيات في صور'},intro:'استكشف الأماكن التي تتناولها أدلتنا، صورة تلو الأخرى.',back:'العودة إلى الدليل',prepare:'استعد لزيارتك',next:'من مشاهدة المكان إلى زيارته',nextCopy:'راجع الدليل لمعرفة مواقع الغرف وشروط الدخول، أو جهّز قائمة استعداد لزيارتك.'},
+}[locale];
+const symbol={airports:'airport',universities:'campus',hospitals:'care'}[kind];
+const journalNav={en:{label:'Browse the photographic journals',read:'View the photographs'},fr:{label:'Parcourir les carnets photographiques',read:'Voir les photographies'},es:{label:'Explorar los diarios fotográficos',read:'Ver las fotografías'},ar:{label:'تصفّح الدفاتر المصوّرة',read:'شاهد الصور'}}[locale];
+---
+<Base title={`${copy.titles[kind]} | A Room to Pray`} description={copy.intro} nav={kind}>
+ <Fragment slot="arrival">
+  <header class="journal-arrival">
+   <a class="journal-back" href={local(`/${kind}/`)}>{copy.back} · {t.nav[kind]}</a>
+   <span class="room-eyebrow">{copy.eyebrow}</span>
+   <div class="journal-title"><span class="journal-emblem"><WayfindingSymbol name={symbol} size={88}/></span><h1>{copy.titles[kind]}</h1></div>
+   <p>{copy.intro}</p>
+   <a class="journal-read" href={`#journal-photographs-${kind}`}>{journalNav.read}<span aria-hidden="true">↓</span></a>
+  </header>
+ </Fragment>
+ <div class="wrap category-journal">
+  <nav class="journal-index" aria-label={journalNav.label}>
+   <span>{copy.eyebrow}</span>
+   <ul>{['airports','universities','hospitals'].map(category=><li><a href={local(`/explore/${category}/`)} aria-current={category===kind?'page':undefined}><WayfindingSymbol name={{airports:'airport',universities:'campus',hospitals:'care'}[category]} size={24}/>{t.nav[category]}</a></li>)}</ul>
+  </nav>
+  <CategoryPhotoEssay {kind} {locale} idPrefix="journal-photographs"/>
+  <nav class="journal-next" aria-labelledby="journal-next-title">
+   <div><h2 id="journal-next-title">{copy.next}</h2><p>{copy.nextCopy}</p></div>
+   <div class="journal-next-links">
+    <a href={local(`/${kind}/`)}>{copy.back}<svg class="directional-icon" width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href={`${local('/visit/')}#panel-${kind}`}>{copy.prepare}<svg class="directional-icon" width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+   </div>
+  </nav>
+ </div>
+</Base>
+<style>
+ .journal-arrival{max-width:980px;min-width:0;color:#f5f7fb;background:#101c2c;border-block-start:5px solid #ffc629;padding:clamp(24px,4vw,48px);border-radius:3px}
+ .journal-back{display:inline-flex;align-items:center;min-height:44px;margin-bottom:12px;color:inherit;font-size:.85rem;text-underline-offset:5px}
+ .journal-arrival .room-eyebrow{color:#c1cddd;display:block;font-size:.75rem;letter-spacing:.07em;margin-top:12px}
+ .journal-title{display:flex;align-items:center;gap:26px;margin-block:20px}
+ .journal-emblem{display:grid;place-items:center;color:#ffc629;flex:none}
+ .journal-title h1{font:750 clamp(2.2rem,4.7vw,4.4rem)/1.08 var(--f-body);letter-spacing:-.045em;margin:0;text-wrap:balance;max-width:20ch;color:inherit}
+ .journal-arrival p{font-size:1.05rem;line-height:1.7;max-width:58ch;margin:16px 0 0;color:#c1cddd}
+ .journal-read{display:inline-flex;align-items:center;gap:24px;min-height:48px;color:#101c2c;background:#ffc629;padding:12px 18px;margin-top:24px;text-decoration:none;font-weight:650;font-size:.88rem}
+ .category-journal{container:journal/inline-size}
+ .journal-index{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:18px;margin-block:12px 28px;border-block:1px solid var(--line)}
+ .journal-index>span{font-size:.75rem;color:var(--muted);line-height:1.5}
+ .journal-index ul{display:flex;flex-wrap:wrap;list-style:none;gap:6px;margin:0;padding:0}
+ .journal-index a{display:flex;align-items:center;gap:9px;min-height:46px;padding:10px 14px;color:var(--ink);font-size:.85rem;line-height:1.4;text-decoration:none;border:1px solid transparent}
+ .journal-index a[aria-current=page]{color:#101c2c;background:#ffc629;border-color:#ffc629;font-weight:700}
+ .journal-index a:hover:not([aria-current]){border-color:var(--line);background:var(--surface-2)}
+ .category-journal :global(.category-photo-essay){margin-block-start:28px}
+ .category-journal :global(.photo-essay-heading){grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);column-gap:36px;padding-bottom:28px;margin-bottom:32px;border-bottom:2px solid #d9ab27}
+ .category-journal :global(.photo-essay-heading>span){grid-column:1/-1}
+ .category-journal :global(.photo-essay-heading h2){font-size:clamp(1.6rem,2.5vw,2.4rem);line-height:1.22}
+ .category-journal :global(.photo-essay-heading p){font-size:.9rem;align-self:end;line-height:1.7}
+ .category-journal :global(.photo-essay-grid){grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 30px}
+ .category-journal :global(.photo-essay-entry),.category-journal :global(.photo-essay-entry:nth-child(n+4)){grid-column:span 1;border-bottom:1px solid var(--line);padding-bottom:22px}
+ .category-journal :global(.photo-essay-entry--lead){grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.8fr) minmax(0,1fr);gap:30px;align-items:center;padding-bottom:32px}
+ .category-journal :global(.photo-essay-image){border-radius:3px}
+ .category-journal :global(.photo-essay-entry--lead .photo-essay-image){aspect-ratio:4/3}
+ .category-journal :global(.photo-essay-entry--lead figcaption){padding:0;border-inline-start:3px solid #ffc629;padding-inline-start:24px}
+ .category-journal :global(.photo-essay-entry--lead h3){font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.25}
+ .category-journal :global(.photo-essay-entry figcaption p){font-size:.92rem;line-height:1.7}
+ .category-journal :global(.photo-essay-location){gap:8px}
+ .journal-next{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:32px;margin-block:32px 56px;padding:clamp(24px,3vw,36px);border-top:4px solid #ffc629;background:#101c2c;color:#f5f7fb;border-radius:3px}
+ .journal-next h2{font-size:1.5rem;line-height:1.3;margin:0 0 10px;color:inherit}
+ .journal-next p{color:#c1cddd;font-size:.95rem;line-height:1.7;margin:0;max-width:60ch}
+ .journal-next-links{display:grid;align-content:center;gap:10px}
+ .journal-next-links a{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:48px;padding:14px 16px;color:#f5f7fb;background:#1d3047;border:1px solid #44566b;font-size:.9rem;font-weight:650;text-decoration:none;line-height:1.5}
+ .journal-next-links a:first-child{color:#101c2c;background:#ffc629;border-color:#ffc629}
+ .journal-next-links svg{flex:none}
+ .journal-next a:focus-visible,.journal-back:focus-visible,.journal-read:focus-visible{outline:3px solid #fff;outline-offset:4px}
+ .journal-index a:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+ :global(html[dir=rtl]) .journal-title h1{font-family:var(--f-arabic);line-height:1.6;letter-spacing:0}
+ :global(html[dir=rtl]) .journal-arrival .room-eyebrow{letter-spacing:0}
+ @media(max-width:850px){.journal-index{align-items:start;flex-direction:column;gap:10px}.category-journal :global(.photo-essay-entry--lead){grid-template-columns:1fr;gap:20px}.category-journal :global(.photo-essay-entry--lead figcaption){padding-inline-start:20px}.category-journal :global(.photo-essay-heading){grid-template-columns:1fr;gap:12px}.journal-next{grid-template-columns:1fr;gap:24px}}
+ @media(max-width:650px){.journal-title{align-items:start;gap:16px}.journal-title :global(svg){width:46px;height:46px;flex:none;margin-top:6px}.journal-title h1{font-size:clamp(1.8rem,7vw,2.8rem)}.journal-index a{padding:10px;font-size:.8rem}.category-journal :global(.photo-essay-grid){grid-template-columns:1fr;gap:30px}.category-journal :global(.photo-essay-entry--lead),.category-journal :global(.photo-essay-entry:nth-child(n+4)){grid-column:1}.journal-next{margin-bottom:32px}}
+ @container journal (max-width:650px){.category-journal :global(.photo-essay-grid){grid-template-columns:1fr;gap:30px}.category-journal :global(.photo-essay-entry--lead),.category-journal :global(.photo-essay-entry:nth-child(n+4)){grid-column:1}.category-journal :global(.photo-essay-entry--lead),.category-journal :global(.photo-essay-heading){grid-template-columns:1fr}.journal-next{grid-template-columns:1fr}.journal-index{align-items:start;flex-direction:column;gap:10px}}
+ @media print{.journal-arrival,.journal-next{background:#fff;color:#182738;border-color:#182738}.journal-arrival p,.journal-next p,.journal-arrival .room-eyebrow{color:#465363}.journal-index,.journal-read{display:none}.category-journal :global(.photo-essay-entry){break-inside:avoid}}
+</style>

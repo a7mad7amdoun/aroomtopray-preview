@@ -1,24 +1,42 @@
 ---
 import RoomPicker from './RoomPicker.astro';
-import { photosForPlace } from '../lib/place-photos.js';
-const { place, kind, food = false } = Astro.props;
-const airport = kind === 'Airport';
-const copy = airport
-  ? place.status === 'pending' ? 'This airport has not been checked yet. Treat this page as a starting point and ask the airport about current facilities.'
-  : place.status === 'none' || place.status === 'planned' ? 'A room is not confirmed as available here. Read the current status below, then use the airport’s contact details to ask about your visit.'
-  : 'Check the terminal and security side first, then the hours and facilities for your chosen room. Keep the directions with you for your journey.'
-  : kind === 'University' ? 'Check the building, opening hours and who can enter. Campus access can be limited to students and staff, so confirm before visiting.'
-  : place.hold ? 'This hospital is still being checked. Ask ward staff or the chaplaincy to confirm the room and access before you go.'
-  : 'Start with the room’s location and access. Ward staff or the chaplaincy can help you find your way when you arrive.';
+import WayfindingSymbol from './WayfindingSymbol.astro';
+import { photosForPlace, contextPhotosForPlace } from '../lib/place-photos.js';
+import { DETAIL_GUIDE_COPY } from '../data/detail-guide-copy.js';
+const { place, kind, food=false, locale='en' }=Astro.props;
+const category=({Airport:'airports',University:'universities',Hospital:'hospitals'})[kind]||kind;
+const copy=DETAIL_GUIDE_COPY[locale]||DETAIL_GUIDE_COPY.en;
+const uncertain=place.status==='pending'||place.status==='none'||place.status==='planned'||place.hold;
+const hasPhotos=photosForPlace(place.url).length+contextPhotosForPlace(place.url).length>0;
 ---
-<section class="visit-intro" aria-labelledby="visit-intro-title">
-  <div class="visit-intro-copy"><span class="icon-tile"><svg width="28" height="28" aria-hidden="true"><use href="#i-pin" /></svg></span><div><h2 id="visit-intro-title">Before you go.</h2><p>{copy}</p></div></div>
-  <nav class="page-jumps" aria-label="On this page">
-    <a href="#room-details">{place.spaces.length ? 'Locations & access' : 'Current status'} <span aria-hidden="true">↓</span></a>
-    <a href="#qibla">Qibla direction <span aria-hidden="true">↓</span></a>
-    {photosForPlace(place.url).length > 0 && <a href="#place-photos"><svg width="17" height="17" aria-hidden="true"><use href="#i-photo"/></svg>Photographs <span aria-hidden="true">↓</span></a>}
-    {food && <a href="#halal-h">Food listings <span aria-hidden="true">↓</span></a>}
-    {kind === 'Hospital' && place.chaplaincy && <a href="#chap-h">Chaplaincy <span aria-hidden="true">↓</span></a>}
-  </nav>
-  <RoomPicker {place} kind={kind==='Airport'?'airports':kind==='University'?'universities':'hospitals'}/>
+<section class={`place-wayfinding place-wayfinding--${category}`} aria-labelledby="visit-intro-title">
+ <header class="place-wayfinding-heading"><WayfindingSymbol name={category==='airports'?'airport':category==='universities'?'campus':'care'} size={44}/><div><span class="place-guide-kicker">{copy.kicker[category]}</span><h2 id="visit-intro-title">{copy.title[category]}</h2><p>{uncertain?copy.unknown:copy.intro[category]}</p></div></header>
+ {place.spaces.length===1?<a class="place-guide-single" href="#room-1"><span>{copy.single}</span><strong dir="auto">{place.spaces[0].name}</strong><span aria-hidden="true">↓</span></a>:<RoomPicker {place} kind={category} {locale} label={copy.choose} countLabel={`${new Intl.NumberFormat(locale).format(place.spaces.length)} · ${copy.count}`} expanded={place.spaces.length<=3} concise />}
+ {(hasPhotos||food||place.chaplaincy)&&<nav class="place-guide-extras" aria-label={copy.onPage}>
+  {hasPhotos&&<a href="#place-photos">{copy.photos}<span aria-hidden="true"> ↓</span></a>}
+  {food&&<a href="#halal-h">{copy.food}<span aria-hidden="true"> ↓</span></a>}
+  {category==='hospitals'&&place.chaplaincy&&<a href="#chap-h">{copy.chaplaincy}<span aria-hidden="true"> ↓</span></a>}
+ </nav>}
 </section>
+<style>
+ .place-wayfinding { --ink:var(--category-panel-ink); --muted:var(--category-panel-muted); --line:var(--category-panel-line); --surface:var(--category-panel); --surface-2:color-mix(in srgb,var(--category-panel) 92%,var(--category-panel-ink)); --link:var(--category-panel-ink); padding:clamp(20px,3vw,34px); border:1px solid var(--category-panel-line,var(--line)); border-inline-start:5px solid var(--category-accent,var(--sign)); border-radius:var(--category-radius,8px); background:var(--category-panel,var(--surface)); color:var(--category-panel-ink,var(--ink)); margin-block:24px; }
+ .place-wayfinding-heading { display:flex; gap:18px; align-items:flex-start; }
+ .place-wayfinding-heading> :first-child { flex:none; }
+ .place-guide-kicker { display:block; font:650 .75rem/1.5 var(--f-body); text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px; color:var(--category-panel-muted,var(--muted)); }
+ .place-wayfinding h2 { font-size:clamp(1.45rem,2.8vw,2.1rem); margin:0 0 10px; line-height:1.2; }
+ .place-wayfinding--universities h2 { font-family:'Room Invitation',Georgia,serif; font-weight:500; }
+ .place-wayfinding-heading p { max-width:74ch; margin:0; font-size:.98rem; line-height:1.7; color:var(--category-panel-muted,var(--muted)); }
+ .place-guide-single { display:grid;grid-template-columns:minmax(0,1fr) auto;gap:5px 18px;color:inherit;text-decoration:none;border-top:1px solid var(--category-panel-line);margin-top:20px;padding-block:16px 4px;min-height:64px; }
+ .place-guide-single>span:first-child { font-size:.75rem;color:var(--category-panel-muted); }
+ .place-guide-single strong { grid-column:1;font-size:1rem;line-height:1.5; }
+ .place-guide-single>span:last-child { grid-column:2;grid-row:1/3;align-self:center; }
+ .place-guide-single:hover strong { text-decoration:underline;text-underline-offset:4px; }
+ .place-guide-extras { display:flex; flex-wrap:wrap; gap:8px 24px; margin-top:8px; }
+ .place-guide-extras a { display:inline-flex; gap:8px; align-items:center; min-height:44px; font-size:.88rem; color:inherit; text-underline-offset:4px; }
+ .place-wayfinding :global(.room-picker) { background:transparent; color:inherit; margin-bottom:0; border-color:var(--category-panel-line,var(--line)); }
+ .place-wayfinding :global(.room-picker>summary>span),.place-wayfinding :global(.room-picker-help) { color:var(--category-panel-muted,var(--muted)); }
+ .place-wayfinding a:focus-visible { outline:3px solid var(--category-accent,var(--focus)); outline-offset:3px; }
+ @media(max-width:760px) { .place-wayfinding-heading { gap:12px; } }
+ :global(html[dir=rtl]) .place-guide-kicker { letter-spacing:0; }
+ :global(html[dir=rtl]) .place-wayfinding h2 { font-family:var(--f-arabic); line-height:1.55; }
+</style>

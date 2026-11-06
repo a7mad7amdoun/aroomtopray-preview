@@ -2,13 +2,28 @@
 import { getCopy } from '../lib/i18n.js';
 import { DOOR_COPY } from '../data/door-copy.js';
 import { ATMOSPHERE_COPY } from '../data/room-atmosphere.js';
+import { ROOM_GALLERY_COPY } from '../data/room-gallery.js';
+import { HOME_VIEW_COPY } from '../data/home-views.js';
 const { kind='home', locale='en', presentation='home' }=Astro.props;
 const t=getCopy(locale), d=DOOR_COPY[locale], atmosphere=ATMOSPHERE_COPY[locale];
 const settings={airports:'airport', universities:'campus', hospitals:'hospital'};
 const doors=[['airports','airport'],['universities','campus'],['hospitals','care']];
+const galleryCopy=ROOM_GALLERY_COPY[locale];
 ---
     <div class="room-atmosphere-controls" dir={locale==='ar'?'rtl':'ltr'}>
-      <p class="room-scene-caption"><svg width="17" height="17" aria-hidden="true"><use data-room-scene-icon href={`#i-${doors.find(([category])=>category===kind)?.[1]||'airport'}`}/></svg><span>{d.outside}<b data-room-scene-name>{t.nav[kind in settings?kind:'airports']}</b></span></p>
+      <p class="room-scene-caption"><svg width="17" height="17" aria-hidden="true"><use data-room-scene-icon href={`#i-${doors.find(([category])=>category===kind)?.[1]||'airport'}`}/></svg><span>{presentation==='home'?HOME_VIEW_COPY[locale].view:d.outside}<b data-room-scene-name>{t.nav[kind in settings?kind:'airports']}</b></span></p>
       {presentation==='home'&&<button type="button" disabled data-room-cycle data-start-label={atmosphere.start} data-pause-label={atmosphere.pause} data-resume-label={atmosphere.resume} data-paused-message={atmosphere.paused} data-playing-message={atmosphere.playing} aria-controls="room-panorama"><svg class="room-cycle-icon" width="15" height="15" viewBox="0 0 20 20" aria-hidden="true"><path class="cycle-pause" d="M6 4v12M14 4v12" fill="none" stroke="currentColor" stroke-width="3"/><path class="cycle-play" d="m6 3 10 7-10 7z" fill="currentColor"/></svg><span data-room-cycle-label>{atmosphere.start}</span></button>}
       <span class="sr" data-room-cycle-status role="status"></span>
+      {presentation==='home'&&<div class="room-gallery-controls" data-home-scene-controls hidden role="group" aria-label={atmosphere.start}>
+        <button type="button" data-home-scene-step="-1" aria-label={galleryCopy.previous} aria-controls="room-panorama">‹</button>
+        <span data-home-scene-count data-locale={locale} data-of={galleryCopy.of}></span>
+        <button type="button" data-home-scene-step="1" aria-label={galleryCopy.next} aria-controls="room-panorama">›</button>
+      </div>}
+      {presentation!=='home'&&kind in settings&&<div class="room-gallery-controls" data-room-gallery-controls hidden role="group" aria-label={galleryCopy.label}>
+        <button type="button" data-room-photo-step="-1" aria-label={galleryCopy.previous} aria-controls="room-panorama">‹</button>
+        <span data-room-photo-count data-locale={locale} data-of={galleryCopy.of}></span>
+        <button type="button" data-room-photo-step="1" aria-label={galleryCopy.next} aria-controls="room-panorama">›</button>
+        <button type="button" data-room-photo-pause data-play-label={galleryCopy.play} data-pause-label={galleryCopy.pause} aria-controls="room-panorama">{galleryCopy.pause}</button>
+        <span class="sr" data-room-photo-announcement role="status" aria-live="polite"></span>
+      </div>}
     </div>

@@ -1,0 +1,35 @@
+---
+import { relatedPlaceGuides } from '../lib/related-place-guides.js';
+import { localizedPath } from '../lib/i18n.js';
+import { countryName } from '../lib/countries.js';
+import WayfindingSymbol from './WayfindingSymbol.astro';
+const {place,kind,locale='en',places=[]}=Astro.props;
+const category=({Airport:'airports',University:'universities',Hospital:'hospitals'})[kind]||kind;
+const related=relatedPlaceGuides(place,places,category);
+const copy={
+ en:{heading:'Continue planning',related:'Another place guide',all:{airports:'All airport guides',universities:'All campus guides',hospitals:'All hospital guides'},browse:'Find another place in the directory.',prepare:'Prepare for your visit',preparation:'Access, washing and what to check before you go.'},
+ fr:{heading:'Poursuivez votre préparation',related:'Un autre guide de lieu',all:{airports:'Tous les guides d’aéroports',universities:'Tous les guides de campus',hospitals:'Tous les guides d’hôpitaux'},browse:'Trouvez un autre lieu dans l’annuaire.',prepare:'Préparez votre visite',preparation:'Accès, ablutions et points à vérifier avant de partir.'},
+ ar:{heading:'تابع التخطيط لزيارتك',related:'دليل مكان آخر',all:{airports:'جميع أدلة المطارات',universities:'جميع أدلة الجامعات',hospitals:'جميع أدلة المستشفيات'},browse:'اعثر على مكان آخر في الدليل.',prepare:'استعدّ لزيارتك',preparation:'الدخول والوضوء وما ينبغي التأكّد منه قبل الذهاب.'},
+ es:{heading:'Sigue preparando tu visita',related:'Otra guía de lugar',all:{airports:'Todas las guías de aeropuertos',universities:'Todas las guías de campus',hospitals:'Todas las guías de hospitales'},browse:'Encuentra otro lugar en el directorio.',prepare:'Prepara tu visita',preparation:'Acceso, abluciones y qué comprobar antes de ir.'},
+}[locale];
+const symbol={airports:'airport',universities:'campus',hospitals:'care'}[category];
+---
+<nav class="related-place-guides" aria-labelledby="related-place-guides-heading" dir={locale==='ar'?'rtl':'ltr'}>
+ <h2 id="related-place-guides-heading">{copy.heading}</h2>
+ <ul>
+  {related.map(candidate=><li><a href={localizedPath(candidate.url,locale)}><WayfindingSymbol name={symbol} size={27}/><span><small>{copy.related}</small><strong dir="auto">{candidate.name}</strong><span class="related-guide-description"><bdi>{candidate.city}</bdi> · {countryName(candidate.country,locale)}</span></span><svg class="directional-icon" width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>)}
+  <li><a href={localizedPath(`/${category}/`,locale)}><WayfindingSymbol name="list" size={27}/><span><strong>{copy.all[category]}</strong><span class="related-guide-description">{copy.browse}</span></span><svg class="directional-icon" width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+  {related.length<2&&<li><a href={localizedPath('/visit/',locale)}><WayfindingSymbol name="book" size={27}/><span><strong>{copy.prepare}</strong><span class="related-guide-description">{copy.preparation}</span></span><svg class="directional-icon" width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>}
+ </ul>
+</nav>
+<style>
+.related-place-guides{margin-block:40px 24px;padding-block-start:22px;border-top:2px solid var(--category-rule,var(--line));container:related-guides/inline-size}
+.related-place-guides h2{font:650 1.2rem/1.5 var(--f-body);margin:0 0 16px;color:var(--ink)}
+ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));list-style:none;gap:12px;margin:0;padding:0}
+li{min-width:0}a{display:flex;align-items:flex-start;gap:12px;height:100%;min-height:112px;padding:18px;border:1px solid var(--line);border-radius:var(--category-radius,6px);text-decoration:none;color:var(--ink);background:var(--surface)}
+a>span{display:grid;gap:7px;min-width:0;flex:1}a>svg{flex:none;margin-block-start:3px}small{font-size:.7rem;line-height:1.4;color:var(--muted)}strong{font:600 .95rem/1.45 var(--f-body);overflow-wrap:anywhere}.related-guide-description{font-size:.8rem;line-height:1.6;color:var(--muted)}
+a:hover{background:var(--surface-2);border-color:var(--category-rule,var(--field))}a:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+@container related-guides (max-width:800px){ul{grid-template-columns:1fr}a{min-height:80px;align-items:center}}
+[dir=rtl] strong{line-height:1.7}
+@media print{.related-place-guides{break-inside:avoid}}
+</style>

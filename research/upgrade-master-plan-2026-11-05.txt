@@ -1,0 +1,156 @@
+A ROOM TO PRAY UPGRADE MASTER PLAN
+5 November 2026
+
+Project: A Room to Pray, https://aroomtopray.com/
+Implementation conversation: Improve aroomtopray.com locally
+Active checkout: aroomtopray-preview
+Review destination: https://a7mad7amdoun.github.io/aroomtopray-preview/
+
+THE RESULT TO BUILD
+
+A welcoming architectural room that leads immediately into the clearest possible guide to finding a usable prayer space. The emotional promise is belonging; the practical promise is knowing where to go, whether you can enter, and what remains uncertain. Quality should feel generous to every Muslim, including someone tired, hurried, using a small phone, or unfamiliar with the place.
+
+The transformation is structural: one memorable arrival, one coherent discovery system, room-first detail pages, a dependable evidence language, and a finished mobile and multilingual journey. More decoration, additional features and repeated CSS polishing will not produce the intended step change.
+
+This is an implementation-ready plan, not a claim that the redesign has been built or tested. Three parallel specialist audits informed it: product experience, visual architecture and engineering readiness. The current public site and published review homepage were inspected through browser page snapshots; local components, styles, artwork and historical decisions were reviewed. A full rendered responsive audit remains a required implementation gate. Previous conversation test results are historical, not new results from this planning pass. Git inspection failed because the system command-line developer tools are unavailable; current changes must be inventoried before implementation.
+
+WHAT THE EXISTING WORK HAS ALREADY EARNED
+
+Keep the original site's practical purpose and six essential facts. Keep the preview's architectural room, accepted glass transition, ivory/navy/yellow identity, original logo, multilingual directories, maps, real photographs, source dates, saved places and visitor tools. Build on the most recent conversation, not the first static aroomtopray-local prototype.
+
+Preserve Archivo and Noto Naskh Arabic for the functional interface. The current homepage also uses a deliberately separate Garamond/Amiri invitation treatment; do not accidentally remove it under an older instruction to use only the utility fonts. Preserve homepage-only Allah calligraphy, larger-text controls, immediate links and Room/Guide state continuity. Do not import Life Is Temporary's book identity, colours or content.
+
+Primary inspiration: outputs/site-inspiration/a-room-to-pray.md, especially A01 Pearson wayfinding, A07 Bait Ur Rouf light/proportion, A05 real room access distinctions, A06 Cambridge warmth and A11 readable summary lists. These are principles to interpret. Architectural images are not evidence of a listed room, and unreviewed Pinterest discovery links are not inspected references.
+
+FIVE HIGH IMPACT CHANGES
+
+1. A single convincing arrival
+
+Compose the homepage as one scene and one clear invitation. On a wide screen, balance the architectural aperture and prayer area against a quiet text/search surface. Let the room supply atmosphere; let the search supply purpose. Keep the main search visible without requiring an animation or a mode switch. Present the three destinations once as a coherent family, then a short explanation of the guide's reliability and useful preparation routes. Reduce repeated introductions and competing invitations around the existing guide tabs.
+
+On phones, use a compact architectural opening followed immediately by search. Preserve the invitation, but do not make a small screen scroll past an entire room to begin. Scene lighting and view controls should form a subordinate atmosphere group with clear labels. The room remains distinctive without every functional panel becoming glass.
+
+First composition target: a visitor understands what the site does, sees a search field and recognises Airports, Universities and Hospitals within the first useful view. A direct Guide entry remains available. No forced cinematic entrance.
+
+2. One continuous discovery system
+
+Make exact-code search, broad city search, category browsing, filters and map selection feel like parts of the same task. Autocomplete is a shortcut; pressing Enter on a broad query must lead to a complete browsable result set. Carry the query and relevant state through URLs and Back navigation. Preserve selected filters when switching list/map or Room/Guide.
+
+Each result should prioritise: place identity; the matching room or room count; terminal/building and access constraints; key requested facilities; evidence status. Do not repeat every possible field on every card. Explain when access or hours vary by room. When filters match a particular room, carry that room into the detail view.
+
+Keep only primary search and filter controls immediately expanded on phones. Secondary filters can use an accessible sheet with applied-count feedback and a visible reset. Map and list share the same results and selection; a map cannot be the only usable interface. Preserve the pending map work until its owner and change boundaries are established.
+
+No matches should preserve the query, explain the active constraints and offer specific filters to relax. Never silently broaden a result set. Combined amenities must be satisfied by one room, not assembled from different rooms at one institution.
+
+3. Room-first detail pages
+
+Replace the long prelude to actual room facts with a compact decision area: place identity, room choice, location, security/access, hours and source status. For one room, show its useful details immediately. For several rooms, show a short comparison with actual terminal/building/access differences; opening a collapsed selector should not be required to discover that choice.
+
+Follow with the six consistent facts: location, access/security, hours, wudu, women's space and qibla. Preserve meaningful distinctions: shared space versus partition; calculated qibla bearing versus a documented room marker; not listed versus unavailable. Keep uncertainty beside the relevant fact.
+
+On desktop, a room comparison/navigation rail may sit alongside the selected fact sheet. On mobile, stack selection, decisive facts, directions and evidence. Keep source access close to the decision. Put broader travel preparation, food, advocacy and secondary visitor tools later. Real photographs belong with relevant room information and retain captions, licences and source links.
+
+Use only sourced location instructions. Do not draw invented indoor routes, imply step-free access, calculate unsourced walking times or label a room open now without the data and time-zone logic needed to support it.
+
+4. An unmistakable visual family
+
+Retain the room geometry and invest in proportion, light, type and information rhythm. Airports should feel like clear transport wayfinding; universities like a thoughtful campus notice; hospitals like a calm public reception. They share one component system and factual hierarchy, with different contextual imagery and restrained emphasis.
+
+Use warm ivory for reading surfaces, deep navy for structure and yellow for guidance and deliberate emphasis. Do not use yellow or green decoration as implied verification. Restrict glass effects to atmospheric layers; keep factual text on stable, readable surfaces. In dark mode, use intentionally lit scenes and independently checked text contrast, not a dimmed light theme.
+
+Proposed starting scale: 4/8/12/16/24/32/48/64/96 spacing; 17-18px body text; at least 14px supporting labels; roughly 60-70 characters for long prose. Test these values in real compositions before treating them as final tokens. Use sentence case and a small number of weights. Arabic gets appropriate line height, logical properties and no tracking that breaks its letterforms.
+
+Keep the accepted category glass approach: decorative view subtly enlarges while wall/rug recede; functional text stays still. No scroll hijack, bouncing cards, automatic door loops or navigation delays. Pause optional tours; reduced motion removes movement without losing content. Use opacity/transform where appropriate and stop offscreen work.
+
+Consolidate the existing stylesheet ownership while changing each surface. Base.astro currently imports 21 global style sheets; adding another final-override sheet will make future refinement less reliable. Establish tokens, layout, room scene, wayfinding, facts and reading styles with clear ownership, migrating incrementally behind visual comparisons.
+
+5. A finished journey people can take with them
+
+Unify Save, Copy and Print around the chosen room, not merely the institution. The saved record or exported fact sheet should identify the room, access restrictions, unknowns, source links and check dates. Preserve older saved entries through a versioned migration and handle unavailable browser storage gracefully.
+
+Close the language gaps in the useful journey. Saved places, planner and travel interfaces currently fall back to explicitly marked English routes. Prioritise translated save/reopen/print and essential preparation UI in French, Arabic and Spanish. Keep original source prose recognisable as source prose; interface translation must not rewrite facility evidence. Religious guidance needs appropriate content review, not casual paraphrasing during layout work.
+
+Do not claim saved places are available offline unless actual offline data and update behaviour are delivered and tested. A printable room sheet is a useful first completion milestone without introducing a service-worker cache.
+
+DELIVERY ORDER AND EXIT GATES
+
+Phase 0 — Establish the baseline
+Owner: lead integrator, with engineering support.
+Read the latest original conversation and repository instructions. Restore a working Git command, inventory staged/unstaged/untracked changes and protect the pending map work. Record exact source revision and assets. Run existing tests/build and capture representative rendered pages before changing them. List failures as pre-existing or introduced. Keep generated docs separate from source changes.
+Exit: reproducible baseline; preserved changes; representative fixtures for multiple rooms, unknowns, no room listed, planned room and missing photos. Do not proceed by resetting or replacing the checkout.
+
+Phase 1 — Prove the new experience on three surfaces
+Owner: design lead plus implementation lead.
+Build the new homepage, a narrow directory and one multi-room airport detail as a connected vertical slice. Include an Arabic variation, light/dark themes and an uncertainty-heavy example. Resolve layout and reading order before expanding across thousands of generated routes. Use the existing imagery first; commission new assets only for a demonstrated composition gap.
+Exit: visibly stronger composition, immediate search and room access answers, no state regressions. Review all three together; a beautiful homepage alone does not pass.
+
+Phase 2 — Implement the shared discovery and fact system
+Owner: product engineer.
+Complete broad search results, matching-room handoff, URL state, map/list equivalence, room comparison and the shared six-fact presentation. Apply to all three categories and translated detail templates. Reuse proven data semantics rather than inventing a new evidence model.
+Harden the data build alongside this work: validate record schemas and source dates, report conflicting patches and duplicate records, document patch precedence, and verify reproducible output. The existing data script runs on dev/build and merges research patches; edit authoritative inputs rather than generated airport data. Treat source dates as evidence dates, never refresh them merely because a build ran.
+Exit: exact-code/city/hospital/no-match flows work; a combined-facility fixture cannot pass across different rooms; Back/deep links restore state; each restriction and source date survives the full route.
+
+Phase 3 — Complete daily use
+Owner: accessibility/localisation engineer.
+Finish room-specific saved/copy/print flows, essential translated utility interfaces, empty/error/storage-denied behaviour, narrow layouts and keyboard operation. Include a clear return to results. Keep maps and photographs as enhancements rather than dependencies for reading room facts.
+Exit: an Arabic mobile visitor can search, compare, save, reopen and print without an unexplained English interface; assistive-technology and enlarged-text checks pass.
+
+Phase 4 — Consolidate and verify
+Owner: integrator and independent reviewer.
+Remove superseded CSS only after each migrated component is compared. Scope page-specific scripts/assets, right-size scene and gallery images, avoid eagerly loading below-fold photographs and unnecessary font variants. Automate meaningful behavioural checks and check the built export for broken internal links, missing assets and changed source content.
+Exit: baseline suite plus new behavioural tests pass; representative pages render correctly; no unexplained content/attribution loss; performance budgets below are met or a specific measured exception is accepted.
+
+Phase 5 — Deliver the usable review and prepare production separately
+Owner: lead integrator.
+Provide a stable local startup command, tested review export, short handoff, known limitations and before/after evidence. Personal/review use includes browsing, searching, maps, saved places and preparation tools. Forms, uploads and check-ins remain visibly disabled in the static review.
+For a later production release, separately inventory Cloudflare Functions, storage/bindings, moderation, upload handling, rate limits, privacy and deployment ownership. Test against isolated non-production services first. Retained moderation tooling has production-specific remote behaviour: make target configuration explicit and safe before anyone runs it. Do not connect production credentials merely to make a demo button work.
+Exit for review: all review features work and limitations are honest. Exit for production: service tests, monitoring/rollback, owner-approved content and explicit production authorization. Existing AGENTS.md permits the review repository only; this planning request does not authorize changes to aroomtopray.com, DNS or production data.
+
+MEASURABLE QUALITY BAR
+
+Usability targets to validate, not claims already achieved:
+- With a known airport code, a new visitor can find relevant access information within 30 seconds in a simple moderated task.
+- Representative visitors can distinguish an unknown facility from a negative finding and from a source-confirmed facility.
+- Search is usable on a small phone without operating the room, tour or lighting controls.
+- Every primary task works with keyboard; focus is visible and returns correctly from menus/sheets.
+- No obscured controls or horizontal page overflow at 360, 390, 768, 1280 and 1440px; test 200% text and 400% browser zoom/reflow as separate cases.
+- Both themes, English/French/Arabic/Spanish, reduced motion and larger-text preference are covered. Check long translations and mixed Arabic/Latin codes.
+- Target WCAG 2.2 AA for implemented surfaces: contrast, focus, labels, status announcements and adequate pointer targets; prefer 44px primary controls.
+- Target LCP <= 2.5s and CLS <= 0.1 under a documented representative mobile lab profile; assess INP <= 200ms with field measurements when available. Lab interaction checks are not a claim of field INP compliance.
+- Zero unreviewed source/room-count/attribution changes; zero production submissions from the review; no broken internal links or missing required assets in the export.
+
+Regression scenarios: change Room/Guide after filtering; Back from a selected room; locale change with airport codes and punctuation; map unavailable; storage blocked; no JavaScript fallback; reduced motion; missing hours; differing room hours; different rooms offering different amenities; unknown women's-space status; no listed room; planned but unopened facility; preview mounted under /aroomtopray-preview/.
+
+AGENT WORK INSTRUCTIONS FOR IMPLEMENTATION
+
+Use the available four concurrent slots as one integrator plus three focused agents. Larger headcount is less useful than clear ownership. Assign disjoint files or worktrees; agree component/data interfaces before parallel edits. Never allow several agents to append competing CSS fixes to the same global styles.
+
+Integrator brief:
+“Implement this plan in the existing A Room to Pray preview, using the latest original conversation as decision history. Preserve pending work and factual data. Establish the baseline and the three-surface vertical slice first. Assign clear file ownership, reconcile shared changes yourself, and integrate only checked work. Maintain a short completion ledger covering user-visible results, tests and unresolved limitations. Do not mistake historical test passes for current verification.”
+
+Design and composition agent:
+“Own the arrival, category compositions and shared visual tokens. Produce a materially new reading order and spatial hierarchy while retaining the accepted architectural identity. Preserve Garamond/Amiri invitation treatment and Archivo/Noto utility typography. Deliver responsive, dark and RTL variants together. Consolidate touched style ownership. Show before/after evidence and explain how each changed hierarchy helps the visitor. Do not change data, source claims or search contracts.”
+
+Discovery and room agent:
+“Own search-to-results, matching-room handoff, room comparison and shared detail facts. Keep filters room-scoped, uncertainty explicit and all URLs/state restorable. Coordinate data attributes and component interfaces before editing shared files. Write meaningful tests for multi-room mismatches, broad searches, unknowns and Back restoration. Do not independently restyle the global room or change factual records.”
+
+Quality and completion agent:
+“Own language continuity, saved/copy/print behaviour, accessibility and release verification in assigned files. Audit both themes, RTL, keyboard, reduced motion and enlarged text. Check the built preview with browser rendering, meaningful task scenarios and source/asset/link comparisons. Do not run production moderation or enable submissions. Report concrete failures with reproduction steps; do not claim perfect visual quality from a build passing.”
+
+Master creative instruction:
+“Make A Room to Pray feel like a real welcome and work like an exceptionally clear public guide. A visitor arrives from a busy terminal, campus or hospital and should feel there is a place for them. Translate that feeling into one coherent architectural opening, calm typography and unmistakable wayfinding. Then give the practical facts more authority than the decoration. Make the next useful action obvious on every screen. Use colour, space, light and motion consistently. Carry the same care into an unknown status, a long Arabic label, an empty result and a printable room sheet. The work is complete when its visual ambition and practical reliability reinforce each other.”
+
+EVIDENCE AND NEXT STARTING POINTS
+
+Conversation: agent-host-session://ahp-session/01a17ec1-0f15-7ab1-a949-7e09028dc0aa
+Repository instructions: ../AGENTS.md
+Project description and review build: ../README.md
+Visual ownership and page shell: ../site/src/layouts/Base.astro
+Arrival and guide composition: ../site/src/components/HomePage.astro and RoomEnvironment.astro
+Discovery: ../site/src/components/DirectoryPage.astro, DirectoryResult.astro; ../site/src/scripts/place-search.js
+Facts: ../site/src/components/RoomPicker.astro, PlaceOverview.astro, LocalizedPlace.astro; ../site/src/lib/visit-summary.js
+State semantics: ../site/src/lib/directory-state.js
+Language gaps: ../site/src/lib/localized-routes.js; ../site/src/pages/saved/index.astro
+Research: ../../outputs/site-inspiration/a-room-to-pray.md
+
+Next implementation action: baseline inventory and the connected homepage/directory/detail slice. Do not start another independent overall redesign or add another overriding stylesheet.

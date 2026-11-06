@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import { pageWindow, readPage, writePage } from '../src/lib/directory-pagination.js';
 test('directory paging keeps every matching result reachable and clamps after filtering',()=>{
  const entries=Array.from({length:29},(_,i)=>i);
- assert.deepEqual([1,2,3].flatMap(page=>pageWindow(entries,page).items),entries);
+ const pages=Array.from({length:pageWindow(entries,1).totalPages},(_,index)=>index+1);
+ assert.deepEqual(pages.flatMap(page=>pageWindow(entries,page).items),entries);
  assert.deepEqual(pageWindow(entries.slice(0,3),3),{page:1,totalPages:1,items:[0,1,2]});
  assert.deepEqual(pageWindow([],3),{page:1,totalPages:1,items:[]});
 });

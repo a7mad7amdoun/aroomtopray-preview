@@ -1,8 +1,9 @@
 ---
 import { getCopy } from '../lib/i18n.js';
-import RoomLightControls from './RoomLightControls.astro';
+import { ROOM_GALLERIES, ROOM_GALLERY_COPY } from '../data/room-gallery.js';
+import '../styles/room-gallery.css';
 import { DOOR_COPY } from '../data/door-copy.js';
-import { HOME_VIEW_COPY } from '../data/home-views.js';
+import { HOME_VIEW_COPY, HOME_SCENES } from '../data/home-views.js';
 import { ATMOSPHERE_COPY } from '../data/room-atmosphere.js';
 const { kind='home', locale='en', presentation='home' }=Astro.props;
 const t=getCopy(locale), d=DOOR_COPY[locale];
@@ -10,6 +11,7 @@ const atmosphere=ATMOSPHERE_COPY[locale];
 const settings={airports:'airport', universities:'campus', hospitals:'hospital'};
 const scenes=kind in settings?[settings[kind]]:['airport','campus','hospital'];
 const outside=settings[kind] || 'airport';
+const gallery=presentation!=='home' && kind in settings ? ROOM_GALLERIES[outside] : null;
 ---
   <div class="room-architecture" dir="ltr" data-room-scenery data-architecture="panorama">
    <div class="room-canvas">
@@ -17,8 +19,8 @@ const outside=settings[kind] || 'airport';
     {presentation==='home'&&<img class="room-sacred-name" src="/art/calligraphy/allah.svg" alt="الله" lang="ar" width="206" height="218" decoding="async"/>}
     <div class="door-surround room-window-surround">
       <div class="room-window-frame" id="room-panorama">
-        <div class={`door-outside outside-${outside}`} role="img" aria-label={`${presentation==='home'?HOME_VIEW_COPY[locale].label:atmosphere.illustration}. ${d.outside}${t.nav[kind in settings?kind:'airports']}`}>
-          {scenes.map(scene=><span class={`door-scene door-scene-${scene}`} aria-hidden="true"></span>)}
+        <div class={`door-outside outside-${outside}`} role={gallery?'group':'img'} aria-label={gallery?ROOM_GALLERY_COPY[locale].label:presentation==='home'?`${HOME_VIEW_COPY[locale].label}. ${HOME_SCENES[0].photo.alt[locale]}`:`${atmosphere.illustration}. ${d.outside}${t.nav[kind in settings?kind:'airports']}`} data-room-gallery={gallery?'true':undefined}>
+          {gallery ? gallery.map((photo,index)=><img class="room-gallery-photo" data-room-photo data-active={index===0?'true':'false'} aria-hidden={index!==0?'true':'false'} src={`${photo.base}-${photo.widths.at(-1)}.webp`} srcset={photo.widths.map(width=>`${photo.base}-${width}.webp ${width}w`).join(', ')} sizes="(max-width: 760px) 100vw, 90vw" width={photo.width} height={photo.height} alt={`${photo.title} · ${photo.author}`} loading={index===0?'eager':'lazy'} decoding="async"/>) : presentation==='home' ? HOME_SCENES.map(({id,category,photo},index)=><span class={`door-scene door-scene-${category} door-scene-photograph`} data-home-scene={id} data-scene-description={`${HOME_VIEW_COPY[locale].label}. ${photo.alt[locale]}`} data-active={index===0?'true':'false'} aria-hidden="true"><img src={photo.images[1].src} srcset={photo.images.map(image=>`${image.src} ${image.width}w`).join(', ')} sizes="(max-width:760px) 120vw, 85vw" width={photo.width} height={photo.height} alt="" style={`object-position:${photo.objectPosition}`} loading={index===0?'eager':'lazy'} fetchpriority={index===0?'high':'low'} decoding="async"/></span>) : scenes.map(scene=><span class={`door-scene door-scene-${scene}`} aria-hidden="true"></span>)}
         </div>
         <span class="room-window-glass" aria-hidden="true"></span>
         <span class="room-window-mullion" aria-hidden="true"></span>
@@ -26,5 +28,5 @@ const outside=settings[kind] || 'airport';
     </div>
 
    </div>
-    {presentation==='home'&&<RoomLightControls {locale}/>}
   </div>
+<script>import '../scripts/room-gallery.js';</script>

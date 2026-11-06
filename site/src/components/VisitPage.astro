@@ -1,12 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
-import VisitorArtwork from './VisitorArtwork.astro';
+import { ROOM_COPY } from '../data/room-copy.js';
+import WayfindingSymbol from './WayfindingSymbol.astro';
+import DocumentaryArtwork from './DocumentaryArtwork.astro';
 import GuideTabNav from './GuideTabNav.astro';
 import VisitInsights from './VisitInsights.astro';
 import { getCopy, localizedPath } from '../lib/i18n.js';
 const {locale='en'}=Astro.props;
 const t=getCopy(locale), kinds=['airports','universities','hospitals'];
 const visitTabs=kinds.map((kind,i)=>({id:`panel-${kind}`,label:t.nav[kind],icon:['airport','campus','care'][i]}));
+const extras={en:{first:'01 · Choose your setting',second:'02 · Before you leave',photos:'See examples of these spaces',intro:'A little preparation makes room for a calmer visit.'},fr:{first:'01 · Choisissez votre cadre',second:'02 · Avant de partir',photos:'Voir des exemples de ces espaces',intro:'Quelques préparatifs pour une visite plus sereine.'},ar:{first:'٠١ · اختر وجهتك',second:'٠٢ · قبل المغادرة',photos:'شاهد أمثلة لهذه الأماكن',intro:'قليل من الاستعداد يمنحك زيارة أكثر طمأنينة.'},es:{first:'01 · Elige tu entorno',second:'02 · Antes de salir',photos:'Ver ejemplos de estos espacios',intro:'Un poco de preparación para una visita más tranquila.'}}[locale];
 const labels={en:{choose:'Where are you going?',check:'Your preparation checklist',count:'steps checked',note:'A personal checklist for this visit. Nothing is saved or sent.'},fr:{choose:'Où allez-vous ?',check:'Votre liste de préparation',count:'étapes cochées',note:'Une liste pour cette visite. Rien n’est enregistré ni envoyé.'},ar:{choose:'إلى أين تتجه؟',check:'قائمة الاستعداد للزيارة',count:'خطوات مكتملة',note:'قائمة شخصية لهذه الزيارة. لا يتم حفظ أي شيء أو إرساله.'},es:{choose:'¿Adónde vas?',check:'Tu lista de preparación',count:'pasos marcados',note:'Una lista para esta visita. No se guarda ni se envía nada.'}}[locale];
 ---
 <Base title={`${t.home.stepsEyebrow} | A Room to Pray`} description={t.home.sourceText}>
@@ -14,12 +17,37 @@ const labels={en:{choose:'Where are you going?',check:'Your preparation checklis
     <header class="visit-heading"><span class="wayfinding-label"><svg width="23" height="23" aria-hidden="true"><use href="#i-gate"/></svg>{t.home.stepsEyebrow}<span aria-hidden="true">→</span></span><h1>{t.home.stepsTitle}</h1><p>{t.home.exploreDescription}</p></header>
   </Fragment>
   <div class="wrap visit-page">
+    <header class="visit-section-heading"><span class="guide-kicker">{extras.first}</span><h2>{labels.choose}</h2><p>{extras.intro}</p></header>
     <div class="visit-directions" data-guide-tabs>
     <GuideTabNav tabs={visitTabs} label={labels.choose}/>
-    {kinds.map((kind,i)=><section class={`visit-panel guide-panel sector-${kind}`} id={`panel-${kind}`} data-visit-panel={kind} aria-labelledby={`panel-heading-${kind}`}><div class="visit-instructions"><h2 id={`panel-heading-${kind}`}>{t.directories[kind].wayfindingTitle}</h2><ol>{t.directories[kind].steps.map((s,j)=><li><span class="path-stop">{j+1}</span><div><h3>{s.title}</h3><p>{s.text}</p></div></li>)}</ol><p class="note">{t.directories[kind].note}</p><a class="btn sign-btn" href={localizedPath(`/${kind}/`,locale)}>{t.directories[kind].action} →</a><VisitorArtwork scene={['airport','campus','hospital'][i]} {locale}/></div></section>)}
+    {kinds.map((kind,i)=><section class={`visit-panel guide-panel sector-${kind}`} id={`panel-${kind}`} data-visit-panel={kind} aria-labelledby={`panel-heading-${kind}`}>
+     <div class="visit-instructions visit-signboard">
+      <div class="visit-instruction-title"><WayfindingSymbol name={['airport','campus','care'][i]} size={48}/><div><span class="visit-sign-category">{t.nav[kind]}</span><h2 id={`panel-heading-${kind}`}>{t.directories[kind].wayfindingTitle}</h2></div></div>
+      <ol>{t.directories[kind].steps.map((s,j)=><li><span class="path-stop">{new Intl.NumberFormat(locale,{minimumIntegerDigits:2}).format(j+1)}</span><div><h3>{s.title}</h3><p>{s.text}</p></div></li>)}</ol>
+      <p class="note">{t.directories[kind].note}</p><a class="btn sign-btn" href={localizedPath(`/${kind}/`,locale)}>{t.directories[kind].action}<span aria-hidden="true"> →</span></a>
+     </div>
+     <DocumentaryArtwork scene={['airport','campus','hospital'][i]} {locale} purpose="visitor-preparation"/>
+    </section>)}
     </div>
-    <section class="visit-checklist" data-visit-checklist><div><span class="eyebrow">{t.home.stepsEyebrow}</span><h2>{labels.check}</h2><p>{labels.note}</p><span class="checklist-count" data-checklist-count data-label={labels.count} role="status" aria-live="polite">{new Intl.NumberFormat(locale).format(0)} / {new Intl.NumberFormat(locale).format(t.home.steps.length)} {labels.count}</span></div><div>{t.home.steps.map((s,i)=><label><input type="checkbox" data-visit-check /><span><b>{s.title}</b><small>{s.text}</small></span></label>)}</div></section>
-    <VisitInsights {locale} />
+    <section class="visit-checklist" id="preparation-checklist" data-visit-checklist><div><span class="guide-kicker">{extras.second}</span><h2>{labels.check}</h2><p>{labels.note}</p><span class="checklist-count" data-checklist-count data-label={labels.count} role="status" aria-live="polite">{new Intl.NumberFormat(locale).format(0)} / {new Intl.NumberFormat(locale).format(t.home.steps.length)} {labels.count}</span></div><div>{t.home.steps.map((s,i)=><label><input type="checkbox" data-visit-check /><span><b>{s.title}</b><small>{s.text}</small></span></label>)}</div></section>
+    <details class="room-disclosure visit-research"><summary><span>{ROOM_COPY[locale].research}</span><span aria-hidden="true">+</span></summary><VisitInsights {locale} /></details>
   </div>
 </Base>
 <script>import '../scripts/visit-guide.js';</script>
+<style>
+ .visit-page .visit-signboard { padding:clamp(22px,4vw,42px); border:1px solid var(--line); border-top:5px solid var(--sign); background:var(--surface); border-radius:5px; }
+ .visit-sign-category { font:650 .75rem/1.5 var(--f-body); letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+ .visit-page .visit-instruction-title { display:flex; gap:20px; align-items:center; }
+ .visit-page .visit-instruction-title>svg { flex:none; }
+ .visit-page .visit-instruction-title h2 { margin:8px 0 0; font-size:clamp(1.5rem,3vw,2.2rem); }
+ .visit-page .visit-signboard ol { margin-top:24px; }
+ .visit-page .sector-airports .visit-signboard { background:#101c2c; color:#f3f6fa; --ink:#f3f6fa; --muted:#c1cddd; --line:#425064; --surface:#17273c; }
+ .visit-page .sector-airports .visit-signboard :is(h2,h3) { color:#f3f6fa; }
+ .visit-page .sector-airports .visit-signboard .path-stop { color:#ffc629; border-color:#657385; border-radius:2px; }
+ .visit-page .sector-universities .visit-signboard { border-top:5px double var(--line); }
+ .visit-page .sector-universities .visit-signboard h2 { font-family:'Room Invitation',Georgia,serif; font-weight:500; }
+ .visit-page .sector-hospitals .visit-signboard { border-top:0; border-inline-start:6px solid var(--link); border-radius:18px; }
+ :global(html[dir=rtl]) .visit-page .visit-signboard h2 { font-family:var(--f-arabic); }
+ :global(html[dir=rtl]) .visit-page .visit-sign-category { letter-spacing:0; }
+ @media(max-width:600px) { .visit-page .visit-signboard { padding:22px 18px; } .visit-page .visit-instruction-title { gap:12px; } .visit-page .visit-instruction-title>svg { width:32px; } }
+</style>

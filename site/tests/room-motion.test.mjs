@@ -256,9 +256,10 @@ test('category scroll separates the architectural fade from the retained glass a
  assert.equal(f.values.get('--room-approach'),'0');
  assert.equal(f.values.get('--room-wall-visibility'),'1');
  assert.equal(f.values.get('--room-glass-visibility'),'1');
- f.scenery(94-225);f.browser.scrollY=225;f.browser.emit('scroll');f.flush();
+ f.scenery(94-345);f.browser.scrollY=345;f.browser.emit('scroll');f.flush();
  assert.equal(f.values.get('--room-approach'),'0.5');
  assert.equal(f.values.get('--room-wall-visibility'),'0.5');
+ assert.equal(f.values.get('--room-rug-visibility'),'0.5');
  assert.equal(f.values.get('--room-glass-visibility'),'0.925');
  assert.equal(f.roomWrites(),0,'Scroll variables must not invalidate the entire directory subtree');
  f.scenery(-2000);f.browser.scrollY=2000;f.browser.emit('scroll');f.flush();
@@ -266,7 +267,7 @@ test('category scroll separates the architectural fade from the retained glass a
  assert.equal(f.values.get('--room-wall-visibility'),'0');
  assert.equal(f.values.get('--room-glass-visibility'),'0.85');
  const writes=f.writes.length;f.browser.emit('scroll');f.flush();assert.equal(f.writes.length,writes);
- f.scenery(94-225);f.browser.scrollY=225;f.browser.emit('scroll');f.flush();
+ f.scenery(94-345);f.browser.scrollY=345;f.browser.emit('scroll');f.flush();
  assert.equal(f.values.get('--room-approach'),'0.5');
  assert.equal(f.values.get('--room-wall-visibility'),'0.5');
  assert.equal(f.browser.location.href,url);assert.equal(f.doc.activeElement,focus);
@@ -275,7 +276,7 @@ test('category reduced motion and invalid geometry restore an opaque unscaled ro
  const f=fixture({presentation:'directory',withScenery:true});
  f.scenery(-500);f.browser.emit('scroll');f.flush();
  f.media.matches=true;f.media.emit('change');f.flush();
- for(const [name,value]of [['--room-approach','0'],['--room-wall-visibility','1'],['--room-glass-visibility','1']])assert.equal(f.values.get(name),value);
+ for(const [name,value]of [['--room-approach','0'],['--room-wall-visibility','1'],['--room-rug-visibility','1'],['--room-glass-visibility','1']])assert.equal(f.values.get(name),value);
  f.media.matches=false;f.scenery(NaN,0);f.media.emit('change');f.flush();
  assert.equal(f.values.get('--room-approach'),'0');assert.equal(f.values.get('--room-wall-visibility'),'1');
 });

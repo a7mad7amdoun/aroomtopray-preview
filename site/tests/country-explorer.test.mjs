@@ -30,20 +30,35 @@ test('uncovered territories appear only when requested and Arabic matching toler
  assert.equal(matchesCountryEntry(covered,{query:'Morocco Antarctica',scope:'all'}),false);
 });
 
-function fixture({locale='en',url='http://localhost/?q=airport#countries',blocked=false}={}) {
+function fixture({locale='en',url='http://localhost/?q=airport#countries',blocked=false,extraRows=0}={}) {
  let location=new URL(url),focused=false;
  const element=()=>({value:'',hidden:true,textContent:'',dataset:{},events:{},addEventListener(name,fn){this.events[name]=fn;},focus(){focused=true;}});
  const search=element(),scope=element(),clear=element(),status=element(),empty=element(),control=element();
  const rows=[{...element(),dataset:{countryCovered:'true',countryText:'MA Morocco Maroc المغرب Marruecos'}},{...element(),dataset:{countryCovered:'true',countryText:'FR France فرنسا Francia'}},{...element(),dataset:{countryCovered:'false',countryText:'AQ Antarctica القارة القطبية الجنوبية Antártida'}}];
+ for(let i=0;i<extraRows;i++)rows.push({...element(),dataset:{countryCovered:'true',countryText:`Example ${i}`},querySelector:()=>null});
+ const more=element();
  const template={en:'{count} of {total} countries and territories',fr:'{count} sur {total} pays et territoires',ar:'عرض {count} من {total} بلدًا وإقليمًا',es:'{count} de {total} países y territorios'}[locale];
  const nodes={'[data-country-search]':search,'[data-country-scope]':scope,'[data-country-clear]':clear,'[data-country-status]':status,'[data-country-empty]':empty,'[data-country-scope-control]':control};
+ nodes['[data-country-more]']=more;
  const root={dataset:{locale,resultTemplate:template},querySelector:key=>nodes[key],querySelectorAll:()=>rows};
  const writes=[],events={};
  const browser={get location(){return location;},history:{state:{retained:true}},addEventListener(name,fn){events[name]=fn;}};
  for(const method of ['pushState','replaceState'])browser.history[method]=(state,title,next)=>{if(blocked)throw new Error('History unavailable');assert.deepEqual(state,{retained:true});location=new URL(next,location);writes.push({method,url:location.href});};
  initCountryExplorer(root,browser);
- return {search,scope,clear,status,empty,control,rows,writes,browser,get focused(){return focused;},restore(url,event='popstate'){location=new URL(url);events[event]();}};
+ return {search,scope,clear,status,empty,control,more,rows,writes,browser,get focused(){return focused;},restore(url,event='popstate'){location=new URL(url);events[event]();}};
 }
+
+test('country browsing reveals manageable batches while search reaches every country',()=>{
+ const f=fixture({extraRows:25});
+ const visible=()=>f.rows.filter(row=>!row.hidden).length;
+ assert.equal(visible(),12);assert.equal(f.more.hidden,false);
+ f.more.events.click();assert.equal(visible(),24);
+ f.more.events.click();assert.equal(visible(),27);assert.equal(f.more.hidden,true);
+ f.search.value='Example 24';f.search.events.input();
+ assert.equal(visible(),1);assert.equal(f.rows.at(-1).hidden,false);
+ f.clear.events.click();assert.equal(visible(),12);assert.equal(f.more.hidden,false);
+ assert.equal(f.browser.location.search,'?q=airport');
+});
 
 test('reload, scope changes and back navigation restore the visible country results in all locales',()=>{
  for(const locale of ['en','fr','ar','es']){

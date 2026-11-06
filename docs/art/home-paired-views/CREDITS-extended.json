@@ -1,0 +1,53 @@
+{
+  "note": "Imagined settings, not records of real institutions or prayer rooms.",
+  "scenes": [
+    {
+      "id": "airport-2",
+      "type": "Generated architectural illustration",
+      "source": "design/home-views-extended/airport-day-evening.png",
+      "sourcePanel": {
+        "width": 792,
+        "height": 992
+      },
+      "outputWidths": [
+        640,
+        1122
+      ],
+      "viewpoint": "First-floor terminal room across the apron",
+      "processing": "Equal day/evening panels extracted with identical centered 4:5 crops; resized to responsive WebP. Enlarged variants do not add original detail.",
+      "date": "2026-11-05"
+    },
+    {
+      "id": "campus-2",
+      "type": "Generated architectural illustration",
+      "source": "design/home-views-extended/campus-day-evening.png",
+      "sourcePanel": {
+        "width": 768,
+        "height": 1024
+      },
+      "outputWidths": [
+        640,
+        1122
+      ],
+      "viewpoint": "First-floor corridor across a courtyard",
+      "processing": "Equal day/evening panels extracted with identical centered 4:5 crops; resized to responsive WebP. Enlarged variants do not add original detail.",
+      "date": "2026-11-05"
+    },
+    {
+      "id": "hospital-2",
+      "type": "Generated architectural illustration",
+      "source": "design/home-views-extended/hospital-day-evening.png",
+      "sourcePanel": {
+        "width": 543,
+        "height": 1448
+      },
+      "outputWidths": [
+        640,
+        1122
+      ],
+      "viewpoint": "Second-floor room across the healing courtyard",
+      "processing": "Equal day/evening panels extracted with identical centered 4:5 crops; resized to responsive WebP. Enlarged variants do not add original detail.",
+      "date": "2026-11-05"
+    }
+  ]
+}

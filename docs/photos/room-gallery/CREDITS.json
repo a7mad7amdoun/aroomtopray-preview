@@ -1,0 +1,225 @@
+{
+  "credits": [
+    {
+      "name": "Changi Airport · Terminal 3",
+      "author": "*angys*",
+      "date": "2023-08-15",
+      "width": 12000,
+      "height": 9000,
+      "source": "https://commons.wikimedia.org/wiki/File:Changi_Airport_T3_interior_(230815).jpg",
+      "original": "https://upload.wikimedia.org/wikipedia/commons/a/af/Changi_Airport_T3_interior_%28230815%29.jpg",
+      "title": "Changi Airport · Terminal 3",
+      "base": "/aroomtopray-preview/photos/settings/airport",
+      "widths": [
+        720,
+        1440,
+        2160
+      ],
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "files": [
+        "airport-1-1440.webp",
+        "airport-1-2880.webp"
+      ],
+      "inputWidth": 12000,
+      "inputHeight": 9000,
+      "upscaled": false,
+      "modifications": "Orientation normalized; resized with Lanczos3, lightly sharpened, converted to WebP. Enlargement does not add photographic detail. No change to colours or recorded time of day."
+    },
+    {
+      "title": "Suvarnabhumi Airport · Terminal E",
+      "author": "Grendelkhan",
+      "date": "2017-04-22",
+      "width": 4032,
+      "height": 3024,
+      "source": "https://commons.wikimedia.org/wiki/File:Suvarnabhumi_Airport_Terminal_E_interior_at_dusk.jpg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "base": "/aroomtopray-preview/photos/setting-gallery/airport",
+      "widths": [
+        720,
+        1440,
+        2160
+      ],
+      "files": [
+        "airport-2-1440.webp",
+        "airport-2-2880.webp"
+      ],
+      "inputWidth": 2160,
+      "inputHeight": 1620,
+      "upscaled": true,
+      "modifications": "Orientation normalized; resized with Lanczos3, lightly sharpened, converted to WebP. Enlargement does not add photographic detail. No change to colours or recorded time of day."
+    },
+    {
+      "title": "Zürich Airport",
+      "author": "Stimpy",
+      "date": "2026-04-02",
+      "source": "https://commons.wikimedia.org/wiki/File:Swiss_International_Air_Lines_aircraft_at_Zurich_Airport.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "width": 4080,
+      "height": 3072,
+      "base": "/aroomtopray-preview/art/real-views/airport",
+      "widths": [
+        800,
+        1400,
+        2048
+      ],
+      "files": [
+        "airport-3-1440.webp",
+        "airport-3-2880.webp"
+      ],
+      "inputWidth": 2048,
+      "inputHeight": 1542,
+      "upscaled": true,
+      "modifications": "Orientation normalized; resized with Lanczos3, lightly sharpened, converted to WebP. Enlargement does not add photographic detail. No change to colours or recorded time of day."
+    },
+    {
+      "name": "University of Glasgow · Cloisters",
+      "author": "Atreides83",
+      "date": "2022-07-21",
+      "width": 4032,
+      "height": 3024,
+      "source": "https://commons.wikimedia.org/wiki/File:The_Cloisters_at_the_University_of_Glasgow.jpg",
+      "original": "https://upload.wikimedia.org/wikipedia/commons/2/2d/The_Cloisters_at_the_University_of_Glasgow.jpg",
+      "title": "University of Glasgow · Cloisters",
+      "base": "/aroomtopray-preview/photos/settings/campus",
+      "widths": [
+        720,
+        1440,
+        2160
+      ],
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "files": [
+        "campus-1-1440.webp",
+        "campus-1-2880.webp"
+      ],
+      "inputWidth": 4032,
+      "inputHeight": 3024,
+      "upscaled": false,
+      "modifications": "Orientation normalized; resized with Lanczos3, lightly sharpened, converted to WebP. Enlargement does not add photographic detail. No change to colours or recorded time of day."
+    },
+    {
+      "title": "All Souls College · Hall and kitchen",
+      "author": "Camboxer",
+      "date": "2016-11-28",
+      "width": 3456,
+      "height": 2304,
+      "source": "https://commons.wikimedia.org/wiki/File:All_Souls_hall_%26_kitchen.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "base": "/aroomtopray-preview/photos/setting-gallery/campus",
+      "widths": [
+        720,
+        1440,
+        2160
+      ],
+      "files": [
+        "campus-2-1440.webp",
+        "campus-2-2880.webp"
+      ],
+      "inputWidth": 2160,
+      "inputHeight": 1440,
+      "upscaled": true,
+      "modifications": "Orientation normalized; resized with Lanczos3, lightly sharpened, converted to WebP. Enlargement does not add photographic detail. No change to colours or recorded time of day."
+    },
+    {
+      "title": "All Souls College · Oxford",
+      "author": "Arnaud Malon",
+      "date": "2006-06-20",
+      "source": "https://commons.wikimedia.org/wiki/File:All_Souls_College_from_St_Mary%27s_Church.jpg",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "width": 2048,
+      "height": 1536,
+      "base": "/aroomtopray-preview/art/real-views/campus",
+      "widths": [
+        800,
+        1400,
+        2048
+      ],
+      "files": [
+        "campus-3-1440.webp",
+        "campus-3-2880.webp"
+      ],
+      "inputWidth": 2048,
+      "inputHeight": 1536,
+      "upscaled": true,
+      "modifications": "Orientation normalized; resized with Lanczos3, lightly sharpened, converted to WebP. Enlargement does not add photographic detail. No change to colours or recorded time of day."
+    },
+    {
+      "name": "Princess Alexandra Hospital · Brisbane",
+      "author": "Kgbo",
+      "date": "2017-03-23",
+      "width": 3024,
+      "height": 4032,
+      "source": "https://commons.wikimedia.org/wiki/File:Princess_Alexandra_Hospital_corridors.jpg",
+      "original": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Princess_Alexandra_Hospital_corridors.jpg",
+      "title": "Princess Alexandra Hospital · Brisbane",
+      "base": "/aroomtopray-preview/photos/settings/hospital",
+      "widths": [
+        720,
+        1440,
+        2160
+      ],
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "files": [
+        "hospital-1-1440.webp",
+        "hospital-1-2880.webp"
+      ],
+      "inputWidth": 4032,
+      "inputHeight": 3024,
+      "upscaled": false,
+      "modifications": "Orientation normalized; resized with Lanczos3, lightly sharpened, converted to WebP. Enlargement does not add photographic detail. No change to colours or recorded time of day."
+    },
+    {
+      "title": "Queen Elizabeth Hospital · Main entrance, Woolwich",
+      "author": "Paul W",
+      "date": "2018-04-17",
+      "width": 4608,
+      "height": 2592,
+      "source": "https://commons.wikimedia.org/wiki/File:Main_entrance,_Queen_Elizabeth_Hospital,_Woolwich.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "base": "/aroomtopray-preview/photos/setting-gallery/hospital",
+      "widths": [
+        720,
+        1440,
+        2160
+      ],
+      "files": [
+        "hospital-2-1440.webp",
+        "hospital-2-2880.webp"
+      ],
+      "inputWidth": 2160,
+      "inputHeight": 1215,
+      "upscaled": true,
+      "modifications": "Orientation normalized; resized with Lanczos3, lightly sharpened, converted to WebP. Enlargement does not add photographic detail. No change to colours or recorded time of day."
+    },
+    {
+      "title": "Khoo Teck Puat Hospital · Singapore",
+      "author": "KTPH",
+      "date": "2013-07-05",
+      "source": "https://commons.wikimedia.org/wiki/File:Link_bridge_at_KTPH.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "width": 2848,
+      "height": 4288,
+      "base": "/aroomtopray-preview/art/real-views/hospital",
+      "widths": [
+        800,
+        1400
+      ],
+      "files": [
+        "hospital-3-1440.webp",
+        "hospital-3-2880.webp"
+      ],
+      "inputWidth": 1400,
+      "inputHeight": 2108,
+      "upscaled": true,
+      "modifications": "Orientation normalized; resized with Lanczos3, lightly sharpened, converted to WebP. Enlargement does not add photographic detail. No change to colours or recorded time of day."
+    }
+  ]
+}

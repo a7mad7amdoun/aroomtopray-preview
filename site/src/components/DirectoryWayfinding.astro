@@ -1,0 +1,115 @@
+---
+import { localizedPath } from '../lib/i18n.js';
+import { countryName } from '../lib/countries.js';
+import { visitSummary } from '../lib/visit-summary.js';
+import WayfindingSymbol from './WayfindingSymbol.astro';
+import PlaceIdentity from './PlaceIdentity.astro';
+import { placeIdentity } from '../lib/place-identities.js';
+import { PLACE_PHOTOS } from '../data/place-photos.js';
+import { PHOTO_COPY } from '../data/photo-copy.js';
+import { photoSrcset } from '../lib/place-photos.js';
+const { kind, locale='en', places=[] } = Astro.props;
+const selected = {
+  airports:['LHR','AMS','SIN'],
+  universities:['university-of-warwick','university-of-toronto','university-of-melbourne'],
+  hospitals:['st-thomas-hospital','toronto-general','houston-methodist-tmc'],
+}[kind];
+const entries=selected.map(id=>places.find(p=>(p.iata||p.slug)===id)).filter(Boolean);
+const copy={
+ en:{eyebrow:'Selected place guides',titles:{airports:'Find your airport. Follow the room guide.',universities:'A quiet place on campus.',hospitals:'Find a place to pause.'},intro:{airports:'Start with an airport, then check the terminal and security side in its guide.',universities:'Choose a campus to check room locations, access and opening hours.',hospitals:'Choose the hospital you are visiting for room directions and access information.'},open:'Open guide',all:'Search every place',name:{airports:'Airport',universities:'Campus',hospitals:'Hospital'},note:'A selection from the directory. Room details and sources are in each guide.'},
+ fr:{eyebrow:'Une sélection de guides',titles:{airports:'Votre aéroport. Votre guide de prière.',universities:'Un lieu calme sur le campus.',hospitals:'Un lieu pour faire une pause.'},intro:{airports:'Choisissez un aéroport, puis vérifiez le terminal et le côté du contrôle de sécurité dans son guide.',universities:'Choisissez un campus pour consulter les salles, les accès et les horaires.',hospitals:'Choisissez votre hôpital pour consulter les indications et les conditions d’accès.'},open:'Ouvrir le guide',all:'Rechercher tous les lieux',name:{airports:'Aéroport',universities:'Campus',hospitals:'Hôpital'},note:'Une sélection de l’annuaire. Chaque guide contient les détails des salles et les sources.'},
+ es:{eyebrow:'Guías de lugares seleccionados',titles:{airports:'Tu aeropuerto. Tu guía de oración.',universities:'Un lugar tranquilo en el campus.',hospitals:'Un lugar para hacer una pausa.'},intro:{airports:'Elige un aeropuerto y comprueba la terminal y el lado del control de seguridad en su guía.',universities:'Elige un campus para consultar las salas, el acceso y los horarios.',hospitals:'Elige el hospital que visitas para consultar las indicaciones y las condiciones de acceso.'},open:'Abrir guía',all:'Buscar todos los lugares',name:{airports:'Aeropuerto',universities:'Campus',hospitals:'Hospital'},note:'Una selección del directorio. Cada guía incluye detalles de las salas y fuentes.'},
+ ar:{eyebrow:'أدلة أماكن مختارة',titles:{airports:'ابحث عن مطارك. واتبع دليل الصلاة.',universities:'مكان هادئ في الحرم الجامعي.',hospitals:'مكان للاستراحة والصلاة.'},intro:{airports:'اختر المطار، ثم تحقق من مبنى الركاب وموقع الغرفة بالنسبة للتفتيش الأمني في دليله.',universities:'اختر الجامعة للاطلاع على مواقع الغرف وشروط الدخول ومواعيد الفتح.',hospitals:'اختر المستشفى الذي تزوره للاطلاع على إرشادات الوصول وشروط الدخول.'},open:'افتح الدليل',all:'ابحث في جميع الأماكن',name:{airports:'المطار',universities:'الجامعة',hospitals:'المستشفى'},note:'مجموعة مختارة من الدليل. تجد تفاصيل الغرف والمصادر في دليل كل مكان.'},
+}[locale];
+const symbol={airports:'airport',universities:'campus',hospitals:'care'}[kind];
+const photograph=PLACE_PHOTOS.find(photo=>photo.id===({airports:'heathrow-prayer-sign',universities:'warwick-campus-arts-centre',hospitals:'st-thomas-hospital-exterior'}[kind])&&photo.review.status==='accepted');
+const photoCopy=PHOTO_COPY[locale]||PHOTO_COPY.en;
+---
+<section class={`destination-flyer destination-flyer-${kind}`} aria-labelledby="destination-flyer-heading" dir={locale==='ar'?'rtl':'ltr'}>
+  <div class="flyer-cover">
+    <header class="flyer-masthead">
+      <div class="flyer-heading"><span class="flyer-symbol"><WayfindingSymbol name={symbol} size={112}/></span><p class="flyer-eyebrow">{copy.eyebrow}</p><h2 id="destination-flyer-heading">{copy.titles[kind]}</h2></div>
+      <p class="flyer-intro">{copy.intro[kind]}</p>
+    </header>
+    {photograph&&<figure class={`flyer-documentary flyer-documentary--${photograph.kind}`}>
+      <div class="flyer-photo-frame"><img src={photograph.images[1].src} srcset={photoSrcset(photograph)} sizes="(max-width:580px) 90vw, (max-width:800px) 45vw, 38vw" width={photograph.width} height={photograph.height} alt={photograph.alt[locale]||photograph.alt.en} loading="lazy" decoding="async"/></div>
+      <figcaption><span class="flyer-photo-kind">{photoCopy.kinds[photograph.kind]}</span><p>{photograph.caption[locale]||photograph.caption.en}</p>{photograph.kind==='exterior'&&<p class="flyer-photo-context">{photoCopy.context}</p>}<small><a href={photograph.sourceUrl}><bdi>{photograph.author}</bdi></a> · <a href={photograph.license.url}>{photograph.license.name}</a></small></figcaption>
+    </figure>}
+  </div>
+  {entries.length>0&&<div class="flyer-column-heading" aria-hidden="true"><span>{copy.name[kind]}</span><span>{visitSummary(entries[0],kind,locale)[0].label}</span><span>{copy.open}</span></div>}
+  <ul class="flyer-destinations">
+    {entries.map(place=>{const fact=visitSummary(place,kind,locale)[0]; return <li><a href={localizedPath(place.url,locale)}>
+      <span class="flyer-place">{kind==='airports'&&<bdi class="flyer-iata">{place.iata}</bdi>}<span class="flyer-place-copy"><span class="flyer-name"><strong dir="auto">{place.name}</strong><small><bdi>{place.city}</bdi> · {countryName(place.country,locale)}</small></span>{placeIdentity(place,kind)&&<PlaceIdentity {place} {kind} {locale} compact linked={false} decorative/>}</span></span>
+      <span class="flyer-fact"><small>{fact.label}</small><span lang={fact.lang} dir={fact.dir}>{fact.value}</span></span>
+      <span class="flyer-open"><span>{copy.open}</span><svg class="directional-icon" width="22" height="22" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+    </a></li>;})}
+  </ul>
+  <footer class="flyer-footer"><p>{copy.note}</p><a href="#q-dir">{copy.all}<svg class="directional-icon" width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a></footer>
+</section>
+<style>
+.destination-flyer{--flyer-bg:var(--category-paper);--flyer-ink:var(--category-panel-ink);--flyer-muted:var(--category-panel-muted);--flyer-rule:var(--category-rule);margin:12px 0 40px;background:var(--flyer-bg);color:var(--flyer-ink);border:1px solid var(--flyer-rule);border-radius:4px;overflow:hidden}
+.destination-flyer-airports{--flyer-bg:#101c2c;--flyer-ink:#f3f6fa;--flyer-muted:#c1cddd;--flyer-rule:#425064;border-top:6px solid #ffc629}
+.flyer-cover{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.68fr);border-bottom:1px solid var(--flyer-rule)}
+.flyer-masthead{display:flex;flex-direction:column;justify-content:center;gap:24px;padding:clamp(24px,3vw,40px)}
+.flyer-heading{display:grid;grid-template-columns:56px minmax(0,1fr);gap:10px 18px;min-width:0;align-items:start}
+.flyer-symbol{display:flex;align-items:center;justify-content:flex-start;color:var(--category-accent);margin:0;grid-column:1;grid-row:1/3}
+.flyer-symbol :global(svg){width:56px;height:56px;flex:none}
+.flyer-eyebrow,.flyer-heading h2{grid-column:2}
+.flyer-eyebrow{font-size:.75rem;font-weight:650;letter-spacing:.06em;margin:0;color:var(--flyer-muted)}
+.flyer-heading h2{font:750 clamp(1.9rem,3.1vw,3.15rem)/1.09 var(--f-body);letter-spacing:-.04em;margin:0;color:inherit;text-wrap:balance;max-width:20ch}
+#destination-flyer-heading{scroll-margin-top:calc(var(--room-header-height,160px) + 32px)}
+.flyer-intro{font-size:.95rem;line-height:1.7;margin:0;color:var(--flyer-muted);max-width:44ch}
+.flyer-documentary{display:flex;flex-direction:column;margin:0;border-inline-start:1px solid var(--flyer-rule);min-width:0;background:color-mix(in srgb,var(--flyer-ink) 4%,transparent)}
+.flyer-photo-frame{display:block;min-height:0;background:transparent;padding:0}
+.flyer-photo-frame img{display:block;inline-size:100%;block-size:auto;max-block-size:none;object-fit:contain;filter:none}
+.flyer-documentary figcaption{border-top:1px solid var(--flyer-rule);padding:14px 20px;line-height:1.6}
+.flyer-photo-kind{display:block;font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;font-weight:700;color:var(--flyer-muted)}
+.flyer-documentary figcaption p{font-size:.84rem;line-height:1.6;margin:7px 0 10px;max-width:50ch}
+.flyer-documentary figcaption .flyer-photo-context{font-size:.73rem;color:var(--flyer-muted)}
+.flyer-documentary figcaption small{font-size:.7rem;color:var(--flyer-muted);display:block}
+.flyer-documentary figcaption a{color:inherit;text-underline-offset:3px}
+.flyer-documentary a:focus-visible{outline:3px solid var(--category-accent);outline-offset:4px}
+.flyer-column-heading,.flyer-destinations a{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(0,.7fr) minmax(100px,.4fr);gap:24px;align-items:center;padding:20px 32px}
+.flyer-column-heading{padding-block:12px;border-block:1px solid var(--flyer-rule);font-size:.75rem;color:var(--flyer-muted)}
+.flyer-destinations{list-style:none;margin:0;padding:0}
+.flyer-destinations li+li{border-top:1px solid var(--flyer-rule)}
+.flyer-destinations a{color:inherit;text-decoration:none;min-height:100px;transition:background-color .2s ease;position:relative}
+.flyer-destinations a::before{content:'';position:absolute;inset-block:18px;inset-inline-start:0;width:3px;background:var(--category-accent);opacity:0;transition:opacity .2s ease}
+.flyer-destinations a:is(:hover,:focus-visible)::before{opacity:1}
+.flyer-destinations a:is(:hover,:focus-visible){background:color-mix(in srgb,var(--flyer-ink) 7%,transparent)}
+.flyer-destinations a:focus-visible,.flyer-footer a:focus-visible{outline:3px solid var(--focus);outline-offset:-4px}
+.flyer-place{display:flex;align-items:center;gap:18px;min-width:0}
+.flyer-iata{display:grid;place-items:center;min-inline-size:64px;min-block-size:52px;border:1px solid var(--flyer-rule);font:650 1.3rem/1.2 var(--f-mono,monospace);letter-spacing:.08em;color:#ffc629;flex:none}
+.flyer-place-copy{display:flex;align-items:center;justify-content:space-between;gap:16px;min-width:0;flex:1}
+.flyer-name{display:grid;gap:7px;min-width:0}
+.flyer-place strong{font-size:1.12rem;line-height:1.35;font-weight:650;overflow-wrap:break-word}
+.flyer-place small{font-size:.8rem;line-height:1.4;color:var(--flyer-muted)}
+.flyer-fact{font-size:.85rem;line-height:1.6;overflow-wrap:break-word}
+.flyer-fact small{position:absolute;inline-size:1px;block-size:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.flyer-open{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.8rem;font-weight:650}
+.flyer-open svg{flex:none;background:#ffc629;color:#101c2c;box-sizing:content-box;padding:7px;border-radius:2px}
+.flyer-open svg{transition:translate .2s ease}
+.flyer-destinations a:hover .flyer-open svg{translate:3px 0}
+[dir=rtl] .flyer-destinations a:hover .flyer-open svg{translate:-3px 0}
+@media(prefers-reduced-motion:reduce){.flyer-destinations a,.flyer-destinations a::before,.flyer-open svg{transition:none}.flyer-destinations a:hover .flyer-open svg,[dir=rtl] .flyer-destinations a:hover .flyer-open svg{translate:none}}
+.flyer-footer{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 32px;border-top:1px solid var(--flyer-rule)}
+.flyer-footer p{margin:0;max-width:65ch;font-size:.75rem;line-height:1.6;color:var(--flyer-muted)}
+.flyer-footer a{display:flex;align-items:center;gap:10px;min-height:44px;color:inherit;font-size:.8rem;font-weight:650;text-underline-offset:4px}
+.flyer-footer svg{flex:none}
+.destination-flyer-universities{border:0;border-block:4px double var(--flyer-rule);border-radius:0}
+.destination-flyer-universities .flyer-heading h2{font-family:'Room Invitation',Georgia,serif;font-weight:500;line-height:1.2}
+.destination-flyer-universities .flyer-place strong{font-family:'Room Invitation',Georgia,serif;font-size:1.45rem;font-weight:500}
+.destination-flyer-hospitals{border:0;border-inline-start:6px solid var(--category-accent);border-radius:12px;background:var(--category-panel)}
+.destination-flyer-hospitals .flyer-heading h2{font-weight:650;line-height:1.25}
+.destination-flyer-hospitals .flyer-symbol{background:var(--category-paper);padding:6px;border-radius:8px;justify-self:start}
+.destination-flyer-hospitals .flyer-symbol :global(svg){width:44px;height:44px}
+[dir=rtl] .flyer-heading h2,[dir=rtl] .flyer-place strong{font-family:var(--f-arabic);letter-spacing:0;line-height:1.55}
+@media(max-width:800px){.flyer-masthead{grid-template-columns:1fr;gap:16px;padding:24px}.flyer-column-heading{display:none}.flyer-destinations a{grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:22px 24px}.flyer-place{grid-column:1;grid-row:1}.flyer-fact{grid-column:1;grid-row:2}.flyer-fact small{display:block;color:var(--flyer-muted);font-size:.75rem;margin-bottom:3px}.flyer-open{grid-column:2;grid-row:1/3}.flyer-open>span{display:none}.flyer-footer{padding:16px 24px;align-items:start;flex-direction:column;gap:8px}}
+@media(max-width:400px){.flyer-masthead,.flyer-destinations a{padding:20px 16px}.flyer-heading{grid-template-columns:1fr}.flyer-symbol{grid-row:auto}.flyer-place{align-items:start;gap:12px;flex-direction:column}.flyer-iata{font-size:1.1rem;min-inline-size:56px;min-block-size:36px}.flyer-footer{padding:16px}}
+@media(max-width:800px){.flyer-fact small{position:static;inline-size:auto;block-size:auto;margin:0 0 3px;overflow:visible;clip-path:none;white-space:normal}}
+@media(max-width:800px){.flyer-cover{grid-template-columns:1fr}.flyer-masthead{gap:16px;padding:24px}.flyer-heading{grid-template-columns:56px minmax(0,1fr);gap:8px 16px}.flyer-symbol{grid-column:1;grid-row:1/3;margin:0}.flyer-heading h2{font-size:clamp(1.8rem,4.5vw,2.5rem);max-width:28ch}.flyer-intro{max-width:65ch}.flyer-documentary{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;border-inline-start:0;border-top:1px solid var(--flyer-rule)}.flyer-documentary figcaption{border-top:0;border-inline-start:1px solid var(--flyer-rule);padding:16px}}
+@media(max-width:580px){.flyer-place-copy{flex-wrap:wrap;gap:10px}.flyer-name{flex:1 1 170px}.flyer-place{align-items:start}.flyer-documentary{grid-template-columns:1fr}.flyer-documentary figcaption{border-inline-start:0;border-top:1px solid var(--flyer-rule);padding:14px 20px}}
+@media(max-width:480px){.flyer-masthead{padding:20px 16px}.flyer-heading{grid-template-columns:44px minmax(0,1fr);column-gap:12px}.flyer-symbol :global(svg){width:44px;height:44px}.destination-flyer-hospitals .flyer-symbol :global(svg){width:32px;height:32px}.flyer-eyebrow{font-size:.7rem}}
+[dir=rtl] .flyer-photo-kind{letter-spacing:0}
+@media print{.flyer-cover,.flyer-destinations li{break-inside:avoid}.flyer-symbol :global(svg){width:70px;height:70px}.flyer-photo-frame img{max-height:220px;object-fit:contain}}
+</style>

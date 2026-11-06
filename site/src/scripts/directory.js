@@ -23,6 +23,7 @@ if(controls){
  const pager=document.querySelector('[data-directory-pagination]'),previous=pager.querySelector('[data-page-previous]'),next=pager.querySelector('[data-page-next]'),pageStatus=pager.querySelector('[data-page-status]');
  const modeButtons=[...document.querySelectorAll('[data-directory-mode]')];
  const activeFilters=controls.querySelector('[data-active-filters]');
+ const visibleSearch=()=>mode==='map'?(mapPanel?.querySelector('#atlas-search')||input):input;
  function renderActiveFilters(){
   const items=[];
   if(country)items.push({kind:'country',value:country,label:countrySelect.selectedOptions[0].textContent});
@@ -51,6 +52,8 @@ if(controls){
   list.dataset.view=presentation.view;viewButtons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.directoryView===presentation.view)));sortSelect.value=presentation.sort;
   if(appliedSort!==presentation.sort){sortPlaces(data,presentation.sort).forEach(item=>list.insertBefore(item.el,empty));appliedSort=presentation.sort;}
   if(mapPanel)mapPanel.hidden=mode!=='map';listPanel.hidden=mode!=='list';guidePanel.hidden=mode!=='guide';browseTools.hidden=mode!=='list';document.querySelector('.results-toolbar').hidden=mode!=='list';
+  // The header shortcut always reaches the search field that is visible.
+  document.querySelector('.header-search')?.setAttribute('href',mode==='map'?'#atlas-search':'#q-dir');
   modeButtons.forEach(b=>{const selected=b.dataset.directoryMode===mode;b.setAttribute('aria-selected',String(selected));b.tabIndex=selected?0:-1;});
   [mapPanel,listPanel,guidePanel].filter(Boolean).forEach(panel=>{panel.setAttribute('role','tabpanel');panel.tabIndex=0;});
   pager.hidden=matching.length===0;previous.disabled=page===1;next.disabled=page===pageResult.totalPages;
@@ -75,9 +78,9 @@ if(controls){
   else state.f.delete(button.dataset.filterValue);
   page=1;apply('pushState');
   const remaining=activeFilters.querySelectorAll('button');
-  (remaining[Math.min(index,remaining.length-1)]||input).focus({preventScroll:true});
+  (remaining[Math.min(index,remaining.length-1)]||visibleSearch()).focus({preventScroll:true});
  });
- const clear=()=>{country='';state={q:'',region:'All',f:new Set()};page=1;apply('pushState');input.focus();};clearButton.addEventListener('click',clear);document.querySelector('[data-clear]').addEventListener('click',clear);
+ const clear=()=>{country='';state={q:'',region:'All',f:new Set()};page=1;apply('pushState');visibleSearch().focus();};clearButton.addEventListener('click',clear);document.querySelector('[data-clear]').addEventListener('click',clear);
  linkButton.addEventListener('click',()=>copyText(location.href,status,controls));sortSelect.addEventListener('change',()=>{presentation.sort=sortSelect.value;page=1;apply('pushState');});
  viewButtons.forEach(b=>b.addEventListener('click',()=>{presentation.view=b.dataset.directoryView;apply('pushState');}));
  modeButtons.forEach((b,i)=>{b.addEventListener('click',()=>{mode=b.dataset.directoryMode;apply('pushState');});b.addEventListener('keydown',event=>{const index=tabIndexForKey(event.key,i,modeButtons.length,document.documentElement.dir==='rtl');if(index!==null){event.preventDefault();modeButtons[index].focus();modeButtons[index].click();}});});
@@ -88,7 +91,13 @@ if(controls){
   matching[index].el.focus({preventScroll:true});matching[index].el.scrollIntoView({block:'nearest',behavior:'instant'});
  });
  document.addEventListener('atlas:selection',()=>data.forEach(item=>item.el.href=withBrowseContext(item.url,location.search)));
- const changePage=amount=>{page+=amount;apply('pushState');list.scrollTop=0;listPanel.scrollIntoView({block:'nearest',behavior:'instant'});};previous.addEventListener('click',()=>changePage(-1));next.addEventListener('click',()=>changePage(1));
+ const changePage=amount=>{
+  page+=amount;apply('pushState');list.scrollTop=0;
+  // Move back into the newly displayed results, including when Next becomes
+  // disabled on the last page. The page-status live region announces the page.
+  const target=pageWindow(matching,page).items[0]?.el||listPanel;
+  target.focus({preventScroll:true});target.scrollIntoView({block:'nearest',behavior:'instant'});
+ };previous.addEventListener('click',()=>changePage(-1));next.addEventListener('click',()=>changePage(1));
  window.addEventListener('popstate',()=>{state=readDirectoryState(location.search,regions,filters);presentation=readPresentation(location.search);page=readPage(location.search);country=readCountryFilter();mode=getMode();apply();});
  window.addEventListener('beforeprint',()=>{listPanel.hidden=false;if(mapPanel)mapPanel.hidden=true;const all=new Set(matching);data.forEach(item=>item.el.hidden=!all.has(item));});window.addEventListener('afterprint',()=>apply());
  if(state.region!=='All'||state.f.size)controls.querySelector('.directory-refine').open=true;

@@ -19,6 +19,10 @@ export function browseQuery(search = '') {
   if (/^\d{1,5}$/.test(page || '') && Number(page) > 1) output.set('page', String(Number(page)));
   const airport = input.get('airport');
   if (/^[a-z0-9-]{2,12}$/.test(airport || '')) output.set('airport', airport);
+  const room=input.get('room');
+  if(output.has('airport') && /^[1-9]\d{0,2}$/.test(room || ''))output.set('room',room);
+  const place = input.get('place');
+  if (/^[a-z0-9-]{2,120}$/.test(place || '')) output.set('place', place);
   return output.toString();
 }
 

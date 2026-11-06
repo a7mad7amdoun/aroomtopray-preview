@@ -1,0 +1,8 @@
+---
+import CategoryJournalPage from '../../components/CategoryJournalPage.astro';
+export function getStaticPaths(){
+ return ['airports','universities','hospitals'].map(kind=>({params:{kind},props:{kind}}));
+}
+const {kind}=Astro.props;
+---
+<CategoryJournalPage {kind} locale="en"/>

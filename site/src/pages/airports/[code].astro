@@ -1,7 +1,8 @@
 ---
 import PlacePhotos from '../../components/PlacePhotos.astro';
 import PlaceOverview from '../../components/PlaceOverview.astro';
-import VisitorArtwork from '../../components/VisitorArtwork.astro';
+import OfficialPlaceSource from '../../components/OfficialPlaceSource.astro';
+import RelatedPlaceGuides from '../../components/RelatedPlaceGuides.astro';
 import VisitInsights from '../../components/VisitInsights.astro';
 import DetailGuide from '../../components/DetailGuide.astro';
 import PlaceActions from '../../components/PlaceActions.astro';
@@ -50,6 +51,7 @@ const guideTabs=[{id:'room-details',label:g.rooms,icon:'pin'},{id:'direction',la
   <div class="wrap">
     <DetailGuide place={a} kind="Airport" food={!!h} />
     <PlaceOverview place={a} kind="airports" direction={dirName(a.qibla)} />
+    <OfficialPlaceSource place={a} kind="airports"/>
     {a.note && <p class="note place-access-note">{a.note}</p>}
     <PlaceActions place={a} kind="Airport" />
 
@@ -152,9 +154,9 @@ const guideTabs=[{id:'room-details',label:g.rooms,icon:'pin'},{id:'direction',la
           <div class="ok" hidden data-ok tabindex="-1"><svg width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg>Thanks. Your report is waiting for an editor to check it.</div>
           <p class="err" hidden data-err role="alert">Your report didn’t send. Check your connection and try again; your text is still here.</p>
         </details>
-        <VisitorArtwork scene="airport" placement="supporting" purpose="visitor-preparation"/>
       </div>
     </div>
+    <RelatedPlaceGuides place={a} kind="airports" places={airports}/>
   </div>
 </Base>
 <script>

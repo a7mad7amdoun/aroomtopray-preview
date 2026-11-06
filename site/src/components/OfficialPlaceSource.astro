@@ -1,0 +1,40 @@
+---
+import PlaceIdentity from './PlaceIdentity.astro';
+import { placeIdentity } from '../lib/place-identities.js';
+import { PLACE_OFFICIAL_GUIDES } from '../data/place-official-guides.js';
+const {place,kind,locale='en'}=Astro.props;
+const guide=PLACE_OFFICIAL_GUIDES.find(entry=>entry.placeUrl===place.url);
+const identity=placeIdentity(place,kind);
+const copy={
+ en:{heading:'From the official source',open:'Read the official guidance',website:'Visit the official website',checked:'Official page reviewed',note:'This review applies to the summary above. Individual room records retain their own source dates.',identity:'Institution website'},
+ fr:{heading:'À la source officielle',open:'Consulter les indications officielles',website:'Consulter le site officiel',checked:'Page officielle consultée',note:'Cette vérification concerne le résumé ci-dessus. Chaque fiche de salle conserve sa propre date de source.',identity:'Site de l’établissement'},
+ ar:{heading:'من المصدر الرسمي',open:'اقرأ الإرشادات الرسمية',website:'زيارة الموقع الرسمي',checked:'تاريخ مراجعة الصفحة الرسمية',note:'تخصّ هذه المراجعة الملخص أعلاه. وتحتفظ تفاصيل كل غرفة بتواريخ مصادرها الخاصة.',identity:'موقع المؤسسة'},
+ es:{heading:'Desde la fuente oficial',open:'Leer las indicaciones oficiales',website:'Visitar el sitio oficial',checked:'Página oficial revisada',note:'Esta revisión corresponde al resumen anterior. Cada sala conserva las fechas de sus propias fuentes.',identity:'Sitio de la institución'},
+}[locale];
+const url=guide?.officialUrl||identity?.officialSourceUrl;
+const date=guide&&new Intl.DateTimeFormat(locale,{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(`${guide.checkedOn}T12:00:00Z`));
+---
+{url&&<section class="official-place-source" aria-labelledby="official-place-source-heading">
+ <div class="official-source-copy">
+  <span class="official-source-kicker"><svg width="18" height="18" aria-hidden="true"><use href="#i-source"/></svg>{guide?copy.heading:copy.identity}</span>
+  <h2 id="official-place-source-heading" lang="en" dir="auto">{guide?.officialTitle||identity.name}</h2>
+  {guide&&<p lang="en" dir="ltr">{guide.summary}</p>}
+  <a class="official-source-link" href={url} rel="noopener">{guide?copy.open:copy.website}<svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg><bdi>{new URL(url).hostname.replace(/^www\./,'')}</bdi></a>
+  {guide&&<details class="official-source-review"><summary>{copy.checked} · <time datetime={guide.checkedOn}>{date}</time></summary><p>{copy.note}</p>{guide.ambiguities?.length>0&&<ul lang="en" dir="ltr">{guide.ambiguities.map(note=><li>{note}</li>)}</ul>}</details>}
+ </div>
+ {identity&&<div class="official-source-identity"><PlaceIdentity {place} {kind} {locale}/></div>}
+</section>}
+<style>
+ .official-place-source{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;padding:24px 28px;margin-block:24px;border:1px solid var(--line);border-inline-start:3px solid var(--category-accent,var(--sign));border-radius:8px;background:var(--surface);color:var(--ink)}
+ .official-source-copy{min-width:0}.official-source-kicker{display:flex;align-items:center;gap:8px;font-size:.75rem;font-weight:650;color:var(--muted)}
+ h2{font:650 1.15rem/1.4 var(--f-body);margin:10px 0 8px;overflow-wrap:anywhere}
+ p{font-size:.94rem;line-height:1.7;margin:0;max-width:78ch}
+ .official-source-link{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;width:fit-content;min-height:44px;margin-top:10px;font-size:.88rem;font-weight:650;color:var(--ink);text-underline-offset:4px}
+ .official-source-link svg{flex:none;transform:rotate(-45deg)}.official-source-link bdi{font-size:.78rem;font-weight:400;color:var(--muted);overflow-wrap:anywhere}
+ .official-source-review{margin-top:8px;color:var(--muted);font-size:.76rem;line-height:1.6}.official-source-review summary{cursor:pointer;padding-block:7px;min-height:32px}.official-source-review p{font-size:.8rem;margin-top:6px}
+ .official-source-review ul{margin:10px 0 0;padding-inline-start:20px;font-size:.82rem;line-height:1.65;max-width:82ch}.official-source-review li+li{margin-top:6px}
+ .official-source-identity{padding-inline-start:24px;border-inline-start:1px solid var(--line)}
+ a:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+ @media(max-width:700px){.official-place-source{grid-template-columns:minmax(0,1fr);gap:16px;padding:20px}.official-source-identity{border-inline-start:0;border-block-start:1px solid var(--line);padding-inline-start:0;padding-block-start:16px}}
+ @media print{.official-place-source{break-inside:avoid}}
+</style>

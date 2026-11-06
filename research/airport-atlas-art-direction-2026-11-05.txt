@@ -1,0 +1,245 @@
+A ROOM TO PRAY — LOCAL REVIEW HANDOVER
+Updated 6 November 2026
+
+Review links
+Local: http://127.0.0.1:4188/
+GitHub baseline: https://a7mad7amdoun.github.io/aroomtopray-preview/
+The published homepage was inspected directly beside the local version. This pass changes local source only. No GitHub push, production deployment, DNS change or backend connection.
+
+Preserved foundation
+Original logo, bold brand, commissioned room, glass, Arabic calligraphy, original three illustrated scenes, prayer mat, factual directory records, source links, languages and existing visitor tools remain. Forms, uploads and check-ins remain disabled in the review preview.
+
+Applied requests
+1. MENU AND IDENTITY
+   Immediate destination hover and keyboard-focus previews on the homepage, with a 650ms crossfade. Leaving restores the exact prior artwork, including its second variant. Previewing suspends autoplay without changing a visitor's manual pause preference.
+   Original logo and large Archivo wordmark retained. Simpler conventional destination symbols, equal-width navigation, quieter tabs and one yellow active-path indicator replace repeated decorative badges. The menu fits a 320px screen, including Arabic RTL.
+
+2. SIX HOMEPAGE ARTWORKS
+   Original airport, campus and hospital scenes remain, joined by a modest regional airport, everyday public university and refined hospital. Each of the six scenes has a daylight and evening state: twelve lighting images, with responsive sizes.
+   The three additions were revised after the owner's perspective feedback. Airport: first-floor terminal room across an apron. Campus: first-floor corridor overlooking a courtyard. Hospital: second-floor room overlooking a healing courtyard. No foreground window frame is baked into the artwork; the site's existing glazing supplies it.
+   Both halves of each new pair receive identical 4:5 crops. Responsive variants are 640px and 1122px wide. Resizing does not invent source detail. All imagery remains clearly labeled as generated architectural illustration, never evidence of a real room.
+   Previous/next, localized 1-of-6 counter and pause/resume controls provide access without waiting for autoplay. Manual navigation pauses the slideshow and remains available with reduced motion.
+   Approved paired originals: design/home-views-extended/. Responsive files and provenance: site/public/art/home-paired-views/ and CREDITS-extended.json. Reproduction script: site/scripts/prepare-home-variants.mjs.
+
+3. ROOM COMPOSITION
+   Airports, universities and hospitals retain one shared full-width opening. The entire architectural canvas is enlarged 1.5× on desktop, rather than enlarging a photograph independently of the real opening. The original glass aperture and frame remain registered.
+   Only part of the niche and rug appears initially. They remain part of the original artwork and fade together while the glass approaches slightly. Text and map entry point remain stationary and readable on a clear reading surface. Mobile receives a separate measured crop.
+   The niche and rug were not independently rotated or regenerated: the closer crop preserves their physically consistent relationship to the room.
+
+4. LIGHT, COLORS AND TYPOGRAPHY
+   Tactile light controls now sit outside navigation on every page. Homepage switch remains central; inner pages place it beside scenery controls. System/light/dark choices are available through its settings.
+   Dark identity retains #0A111C, #111B2A, #162235 and yellow #FFC629. Light mode is calmer blue-gray: background #E8EDF3, surface #F1F4F8, secondary #DDE5EF, with navy typography. Map geography uses more visible navy land/coast separation.
+   Light-mode measured text contrast: body 14.25:1, muted 5.09:1; field boundaries 3.74:1. The original serif/italic invitation, bold Archivo headings and Arabic type remain coordinated.
+   Shared directory tab spacing, one active yellow underline, simpler symbols, and opaque sticky tab backgrounds prevent content showing through navigation.
+
+5. MAP RELIABILITY AND IDENTITIES
+   Wheel zoom now responds immediately around the pointer, normalizes wheel units and does not repeatedly restart delayed animation. Ordinary wheel scrolling still scrolls the page; Ctrl-wheel zooms the map. Clear plus/minus controls work in smaller 1.3× steps; current scale and overview/reset remain visible.
+   Cluster expansion never zooms out. Nearby groups can progress 4× to 6.4× to the 7× maximum. Selecting a visible marker preserves the current view. Selecting a result preserves an already useful close view, otherwise moves to a readable location view. Back restores the preceding browsing position.
+   Airport codes and source-derived institution initials provide recognizable map markers and result badges without invented institutional logos. Full names remain primary. Dense marker labels are suppressed where they would collide.
+   Previous fixes remain: overlapping pointer targets resolve by nearest visible marker; broad country-code searches do not select an arbitrary institution; selection cancels stale animation; visible search receives restored focus; room-specific source/context links remain intact.
+
+6. REAL PHOTOGRAPHS
+   The nine existing credited destination photographs and their high-resolution responsive variants remain. Three per category, available in both themes, with previous/next, pause, photo count and changing credit. These are architectural context photographs, not claims about views from listed prayer rooms. Dark mode gently dims the same truthful images.
+
+Validation and comparison
+290 automated tests passed; zero failures. Full Astro build produced 2,177 pages. Twelve extended offline map interaction scenarios passed across all three categories in English, French, Arabic and Spanish. Source diagnostics reported no errors.
+Browser checks verified actual mouse hover and exact scene restoration, six-scene manual navigation/count/pause, light switch behavior, light/dark rendering, reduced-motion manual access, 320px Arabic menu bounds, sampled mobile/desktop overflow, loaded gallery images, and pointer-anchored wheel zoom. Equal opposite wheel gestures returned to the exact prior transform.
+The GitHub homepage still has three scene nodes and its original wall-mounted light control. The local homepage retains that room composition while adding the six-scene interaction, central switch and revised hierarchy. The shared category opening and corrected map interactions are further local improvements.
+These checks cover sampled browser layouts and automated interaction paths, not every physical touch device or externally loaded street-map tile. Visual preference remains a review judgment rather than a test assertion.
+
+Handover and cleanup
+Edit site/ source; docs/ is generated output for later preview publication. Do not edit generated deployment files directly. The existing preview preparation script retains mounted asset paths, disabled submissions and attribution.
+Temporary verification builds are removed after checks; unique source artwork, final paired originals, provenance and editable source are preserved. New paired source images occupy about 7.9 MB; the complete responsive homepage scene folder about 4 MB.
+Review the homepage in both themes, use its next/previous controls, then compare the three destination openings and map behavior. This version is ready for local review; it has not been published.
+
+6 November refinement and regression pass
+NAVIGATION
+• Opening or focusing the menu cancels temporary category previews. A stale pointer hover cannot keep an unrelated scene active during keyboard menu use.
+• Menu width now respects both page gutters at intermediate sizes. Menu height follows the measured header, keeping controls reachable in short landscape windows. Long translated labels wrap safely.
+• Browser verified Arrow Down opening, Arrow Up reaching the last control, Escape closing and restoring summary focus, French 638px menu bounds and 844×390 landscape scrolling.
+
+MAPS
+• Search/country/reset cleanup replaces the selection in the current filter history entry instead of adding a stale extra Back step. Orphan room parameters are cleared with a deselected airport.
+• Result rerenders preserve focus by place code; Show more focuses the first newly revealed result. Choosing a group member moves focus into its visible details.
+• Arrow and zoom keys work while a cluster is focused. Escape from group/detail panels restores the browsing view and focuses map search, while native form controls and expanded-map Escape retain their own behavior.
+• Drag tolerance is measured in screen pixels, preventing small mobile pointer movements from becoming unintended drags. Pointer cancellation does not suppress a later keyboard selection.
+• Light-mode map inputs now use visible field borders and navy focus outlines, replacing low-contrast yellow focus treatment.
+• Browser verified Heathrow selection → France filtering → Back restores Heathrow and its selected room. Group Enter → Escape returns to search.
+
+ARTWORK AND GALLERY CONTROLS
+• A manual scene change during a header preview is retained when the pointer leaves. Pending lower-page hover previews cannot overwrite an immediate header preview.
+• Temporary previews restore when a tab becomes hidden. Canceled, already-queued timers cannot advance a scene or interfere with a fresh timer.
+• Gallery Play works while its button retains focus. Reduced-motion changes keep playback paused and preserve focused controls; data-saving preferences begin with still photographs.
+• Nine additional automated regression tests cover the new selection, focus and lifecycle behavior; the map integration scenarios also cover Escape/native-control priorities.
+
+FULL GENERATED-SITE AUDIT
+Both the normal local build and a separately prepared GitHub Pages package passed the same offline audit, with zero issues:
+  2,177 HTML pages: one main landmark and one H1 each, no duplicate IDs.
+  172,140 local link/asset references resolve.
+  28,778 fragment links resolve to existing targets.
+  40,425 image references resolve.
+  10,931 aria-controls references resolve.
+The GitHub-path package additionally checks that local references remain mounted beneath /aroomtopray-preview. It was generated only for verification and not published.
+
+BROWSER LAYOUT COVERAGE
+14 routes at 320px: homepage, three directories, Heathrow detail, visit, planner, saved, about, travel, contact and French/Arabic/Spanish directory samples.
+7 routes at 1440px in light mode: homepage, all three maps, Heathrow detail, planner and about. Visible buttons had accessible naming and visible fields had labels in this sample.
+6 layouts at 390px with larger text: French home, Spanish airport map, Arabic university map, hospitals, Heathrow detail and planner.
+No horizontal page overflow in these samples. Intermediate menu and short-landscape cases were checked separately. Reduced-motion manual controls remain usable.
+These are targeted browser checks and structural audits, not a full accessibility certification or a claim to cover every physical device and external service.
+
+Temporary normal and GitHub-path verification builds (approximately 490 MB combined) are removed after the checks. Final source, artwork, credits, regression tests and this handover remain.
+
+SIGNAGE AND REAL PHOTOGRAPHY — 6 NOVEMBER 2026
+This section supersedes the earlier six illustrated destination-view treatment. The original room, glass, rug, calligraphy and artwork files remain intact. The six homepage window views now use credited real photography. The live production site and published GitHub preview have not been changed.
+
+THREE RELATED IDENTITIES
+Airports: bold Archivo, actual IATA identifiers, navy information boards and yellow direction accents. Universities: the existing invitation serif, stone-toned panels and restrained double rules. Hospitals: calm blue panels, clear destination labels and consistent facilities summaries. These styles extend across category entrances, directory results, room detail fact sheets, preparation guidance and homepage destination cards. No institutional logos or invented gate/route numbers were introduced.
+
+RESEARCH BASIS
+The three supplied Pinterest search pages were opened but required sign-in. They were not scraped or treated as licensed image libraries. Public primary case studies supplied the working design principles:
+• Mijksenaar / Schiphol: consistent hierarchy and information at the relevant decision point. https://www.mijksenaar.com/project/amsterdam-schiphol-airport/
+• Pentagram / Toronto Pearson: wayfinding that complements architecture, with visible bilingual information. https://www.pentagram.com/work/toronto-pearson-airport/story
+• Princeton: consistent named destinations and landmarks across physical and digital campus maps. https://www.princeton.edu/news/2022/05/10/new-wayfinding-system-being-introduced-princeton
+• Triagonal / Randers Hospital: plain terminology and recognizable guidance. https://triagonal.info/case/randers-regional-hospital/
+• NHS healthcare wayfinding guidance: a connected journey from preparation to arrival. https://www.england.nhs.uk/wp-content/uploads/2021/05/Wayfinding.pdf
+These are design interpretations, not claims that this website has undergone those organizations’ user studies.
+
+PHOTOGRAPHIC SELECTION AND PLACEMENT
+Six selected photographs, two per category, create the opening room sequence: Suvarnabhumi Terminal C; Toronto Pearson Terminal 1; University of Toronto Back Campus; Lincoln University’s Landscape Architecture Building; Suburban Hospital entrance; Khoo Teck Puat Hospital bridge and gardens. Five are new additions, and KTPH reuses an approved existing source from its original resolution.
+Each source was visually inspected and checked against Commons attribution/licence metadata. The rejected café and driveway choices are not displayed. All six have 720, 1600 and 2880px WebP variants. Five originals exceed the delivery resolution; KTPH’s 2848px original is enlarged by 1.12% for its largest variant, explicitly recorded in provenance. No generated details or synthetic night versions were added. Crops use reviewed focal positions; dark mode dims the glass and preserves photographic content.
+Each directory also has a visible three-image editorial section, combining architectural photographs with an existing location-specific documentary image. The preparation section now uses real Heathrow signage, Warwick architecture or St Thomas’ exterior imagery. Exact room photographs remain identified separately from architectural context. Photographer, source, date and licence remain available beside the images.
+One repeated photograph block was removed from each preparation panel. Existing commissioned illustration assets remain stored; the project’s artistic identity has not been deleted.
+
+COMFORT AND LOADING
+The current view and its credit remain visible while the next photograph decodes. Rapid requests discard stale completions; an unavailable image retains the current view. Previous/next controls, pause, category-hover previews and reduced motion remain supported.
+Mobile navigation uses three equal columns with icons above intact labels and 64px touch targets. Narrow directory headings scale down enough to keep punctuation with the word. The photographic sections use balanced columns, natural colours, restrained category rules and localized captions.
+
+FILES TO CONTINUE FROM
+site/src/styles/category-signage.css — category identities across the shared templates.
+site/src/data/category-photography.js — selected sources, localized captions and focal positions.
+site/scripts/prepare-category-photography.mjs — reproducible responsive image preparation.
+site/public/photos/category-editorial/provenance.json — hashes, source dimensions and processing disclosure.
+site/public/photos/category-editorial/commons-source-metadata.json — retained original licence evidence.
+site/src/components/CategoryPhotoEssay.astro — visible editorial photo sections.
+site/src/data/home-views.js and site/src/components/RoomArchitecture.astro — the six photographic window views.
+site/src/scripts/room-door.js and site/src/lib/room-cycle.js — asynchronous photo switching and accessible controls.
+
+HOUSEKEEPING
+The cleanup tool rejected removal of six unused generated Helsinki/Huddersfield WebPs with “rejected by user”; no reason was supplied and no deletion retry was made. They remain unreferenced. Source originals are retained locally for reproducibility. No user artwork was deleted.
+
+FINAL VALIDATION FOR THIS PASS
+• 297 automated regression tests passed, including source dimensions/licences, six-photo credits, decoding failures, rapid selection, stale completions and screen-reader announcement timing.
+• 2,177 pages built successfully. Normal and GitHub-mounted packages both passed the full structural audit: 172,117 local references, 28,766 fragment references, 40,477 image references and 10,907 aria-controls targets; zero reported issues.
+• 12 map integration scenarios passed across three categories and four languages, covering clusters, factual detail, room selection, local-map requests, filters, counts and history.
+• 40 browser layout cases: ten routes at 320px and 1440px in light and dark mode, including homepage, three directories, three detail pages and French/Spanish/Arabic samples. No horizontal page overflow, missing H1/main landmarks or unnamed visible buttons in this sample.
+• Browser confirmed all six manual selections match the visible credit and count, and actual header hover restores the prior selected photograph without navigating. Desktop crops and photographic sections were visually inspected; 320px Spanish navigation keeps whole labels, and the narrow heading no longer strands its final full stop.
+• Source diagnostics report no errors. These checks are targeted validation, not a claim of universal device coverage or formal accessibility certification.
+• The two regenerated verification packages were removed after validation, reclaiming approximately 502 MB. Validation logs and structured audit results remain in .local. No publication or Git commit was made; the system Git executable requires unavailable Xcode command-line tooling.
+
+REVIEW NOW
+http://127.0.0.1:4188/
+http://127.0.0.1:4188/airports/
+http://127.0.0.1:4188/universities/
+http://127.0.0.1:4188/hospitals/
+The browser is restored to the homepage in dark mode with normal device sizing.
+
+WORLDWIDE WAYFINDING AND PHOTO GUIDES — FOLLOW-UP, 6 NOVEMBER 2026
+This follow-up extends the preceding photographic pass. Local source only; neither GitHub Pages nor aroomtopray.com has been published or changed.
+
+VISIBLE GUIDE DESIGN
+Each directory now has a distinct, linked three-destination flyer after the results, with a header shortcut so search stays immediate. Airport: navy departure-board hierarchy, actual IATA codes and documented security-side summaries. University: stone-coloured campus directory, serif place names and neutral name-derived initials. Hospital: blue visitor directory, clear destination names and consistent yellow direction buttons. These are website guides, not invented institutional signs or live departure boards.
+Featured airports: Heathrow, Schiphol, Changi. Featured campuses: Warwick, Toronto, Melbourne. Featured hospitals: St Thomas’, Toronto General, Houston Methodist. Entries come from existing records; their exact room information and sources remain in the linked guides.
+Shared individual-place templates now use the same localized category guide in English, French, Arabic and Spanish. Lists of up to six rooms are immediately available; larger lists remain expandable. Single-room aggregate summaries are removed. Unknown aggregate facilities share one concise note, while each room retains its own uncertainty. The translated first-room-as-route assumption is removed. Repeated supporting artwork and a second set of section navigation links are removed from detail pages.
+The visit-preparation page has category-specific instruction boards and visible real photography. About, contact, planner, saved places, rooms-won and travel reading pages now use varied photographic editorial panels instead of the repeated generated visitor illustration. Original artwork files, the room, glass, rug and calligraphy remain intact.
+
+PHOTOGRAPHY EXPANSION
+The editorial collection now has twelve individually reviewed photographs, four per category, in 36 responsive WebP assets at 720, 1600 and 2880 pixels. The six existing homepage selections retain their original order.
+Six added sources: Marrakech Menara terminal, Madrid-Barajas Terminal 4, University of Cape Town, NTU’s Hive in Singapore, Charité in Berlin, Royal North Shore Hospital in Sydney. All six new originals are 4032–6016 pixels wide; they were resized and lightly sharpened from higher-resolution originals, not artificially enlarged. The earlier disclosed KTPH 1.12% enlargement remains the only enlargement in this collection. Cropping is presentation-only; original full frames and source metadata remain retained.
+Each category photo essay now contains five images in balanced three-plus-two columns, stacking on narrow screens. Photographs show actual architecture, with named location, photographer, date and licence. Room/sign photos remain explicitly distinct.
+Exact-match architecture photos are now also available in BKK, YYZ, RAK, MAD and University of Toronto St George place guides, with an enlargement viewer. No unrelated institution receives a borrowed image. A separate contextPhotosForPlace mapping preserves the original room/sign evidence and research queue semantics.
+Verified official website links were added for Bangkok/AOT, Madrid/Aena, University of Toronto, Cape Town, NTU and Charité. Unavailable or bot-challenged sources were not marked as verified. Photography rights do not imply logo permission: NTU’s terms explicitly require prior consent for its logo. Neutral text initials are used instead of fabricated official marks.
+
+ADDITIONAL RESEARCH
+Pinterest airport, university and hospital searches were retried; the browser still required sign-in for further access. Public primary references used alongside previous sources:
+https://www.dansign.dk/en/kobenhavns-lufthavn — Copenhagen’s blue/white/yellow sign hierarchy.
+https://uwaterloo.ca/wayfinding/exterior-design-system — consistent campus naming, scalable sign families and architectural integration.
+https://triagonal.info/case/randers-regional-hospital/ — visitor-friendly terminology and recognizable guidance.
+https://www.heathrow.com/at-the-airport/terminal-facilities — official passenger guidance and prayer-room links.
+https://warwick.ac.uk/services/chaplaincy/ — official campus chaplaincy information.
+https://www.guysandstthomas.nhs.uk/our-services/spiritual-care/religious-services — official hospital prayer-space guidance and access restrictions.
+https://www.ntu.edu.sg/footer/copyright — official branding-use terms.
+
+REVIEW FIXES
+Browser review caught dark text on the light-mode navy airport room board. Panel text and surface tokens now remain coherent in both themes.
+The embedded browser delivered Escape without its native dialog-cancel action. The photo viewer now explicitly handles Escape within the open dialog, preserving IME input and restoring focus and scrolling. A regression test covers this behavior. Actual browser checks confirmed dismissal and restoration after the fix.
+Flyer row motion is restrained and disabled under reduced-motion preference. Institution names remain ordinary text; colours supplement labels rather than replacing them.
+
+VALIDATION FOR THIS FOLLOW-UP
+302 automated tests pass. All 2,177 pages build. Structural audits of the normal and GitHub-mounted packages find zero issues across 151,528 local references, 25,238 fragment references, 25,520 image references and 10,883 control targets.
+Twelve map integration scenarios continue to pass. Sixty-four browser layout cases cover sixteen routes at 320px and 1440px in light/dark mode, including directories, details, editorial pages and translated routes. No horizontal overflow, missing main/H1 landmarks, unnamed visible buttons or broken new guide anchors in those cases.
+Interaction review confirms exact architectural-photo viewer opening, Escape dismissal, focus/scroll restoration, Arabic room links, preparation tabs and checklist updates. Source diagnostics report no errors. These checks are targeted validation, not a universal device or accessibility certification.
+
+CONTINUE FROM
+site/src/components/DirectoryWayfinding.astro — three category flyers and real destination links.
+site/src/components/DetailGuide.astro and site/src/data/detail-guide-copy.js — shared localized place guide.
+site/src/components/DocumentaryArtwork.astro — photographic editorial panels.
+site/src/components/VisitPage.astro — preparation signboards.
+site/src/components/CategoryPhotoEssay.astro — expanded photographic sections.
+site/src/lib/place-photos.js and site/src/components/PlacePhotos.astro — exact-place context imagery.
+site/src/scripts/photo-viewer.js — reliable viewer dismissal.
+site/src/data/category-photography.js — twelve photographic sources and verified official links.
+
+DIRECT REVIEW LINKS
+http://127.0.0.1:4188/airports/#destination-flyer-heading
+http://127.0.0.1:4188/universities/#destination-flyer-heading
+http://127.0.0.1:4188/hospitals/#destination-flyer-heading
+http://127.0.0.1:4188/airports/lhr/#visit-intro-title
+http://127.0.0.1:4188/airports/bkk/#place-photos
+http://127.0.0.1:4188/visit/
+
+The two reproducible verification packages were removed after the final audits, reclaiming approximately 522 MB. Logs, source photographs, derivatives, credits and regression tests remain. The browser is left on the new airport flyer in dark mode with normal device sizing. No publication was performed.
+
+FINAL REPAIR PASS — 6 NOVEMBER 2026
+Fixed the remaining concrete review findings without changing the design direction:
+• Desktop flyer access/security labels remain available to screen readers; mobile labels remain visible.
+• Reduced motion suppresses RTL arrow translation and photographic hover zoom.
+• Compact photo grids no longer retain oversized column spans. Wide second-row photographs advertise the correct display width to responsive image selection.
+• Single-room counts avoid plural wording, and room numbers follow the current locale.
+• Rapid photo close/reopen no longer lets a queued close event erase the new image or corrupt scroll/focus restoration; added a deferred-close regression.
+• Restarted the local preview to clear stale compiled styles. Explicit script closing tags in the base layout fix the development dependency scanner treating following markup as JavaScript. Preview startup is clean.
+Validation: 303 automated tests; 2,177 built pages; normal static audit zero issues with the same reference totals as above; 12 atlas integration scenarios. Another 48 browser layout cases cover 360/820/1280px, light/dark themes, English/Arabic/Spanish and larger reading controls where available. Live browser checks confirm reduced-motion suppression, map zoom 100→130%, reset to 100%, Heathrow search and four room choices. Source diagnostics clean. Local preview remains running; no publication.
+
+SYMBOLS AND OFFICIAL IDENTITIES — 6 NOVEMBER 2026
+Replaced both previously separate pictogram sets with one 35-symbol Threshold family in site/src/data/wayfinding-symbols.js. Airport, campus, hospital and prayer-room glyphs use a consistent architectural grid; services and controls share compatible solid/line construction. The original 40-unit doorway brand mark is byte-for-byte preserved. Existing sprite names, standalone component APIs and accessibility behavior remain compatible. Internal arrows in the destination boards, home, search and documentary panels use the same vector family, including RTL direction handling.
+
+The hospital cross was enlarged after independent rendered review found the first version resembled windows. Contact sheet: research/threshold-symbol-contact-sheet.svg, with every glyph at 16, 24 and 48px. Vector artwork remains sharp at every display size without raster enlargement.
+
+Directory flyers now combine a larger category symbol, distinctive category typography and an exact-place documentary photograph: Heathrow prayer-room sign, Warwick Arts Centre and St Thomas' exterior. Captions, sources and licenses remain visible. Navigation retains one destination link per row; contextual building photographs are not presented as room evidence.
+
+Five unchanged official-source assets are integrated into the matching English/localized detail headers, directory results and selected-place flyer rows: Heathrow Media Centre (explicit media scope), Changi Airport Group (operator), Airports of Thailand (operator), University of Toronto (institution), and Guy's and St Thomas' NHS Foundation Trust (trust). Toronto's official white artwork uses a navy plate; other marks use white plates. Original proportions and colours are preserved. Scope labels have readable sizing and inherit the surrounding surface contrast. Links inside directory rows are suppressed to avoid nested anchors. Detail-page marks link to their official source.
+
+Coverage is deliberately reported, not implied complete: five official marks imported; seven researched targets have explicit fallback records, with four published reuse restrictions and three without a usable imported asset. Other directory entries retain readable codes/names/initials. No synthetic crest, borrowed institution logo or favicon is presented as an official identity. Source URLs, retrieval date, exact destination match, dimensions, scope and fallback reasons are recorded in site/src/data/place-identities.js. Matching/rendering live in site/src/lib/place-identities.js and site/src/components/PlaceIdentity.astro.
+
+Validation: 311 automated tests passed; 2,177 pages built; 12 atlas integration scenarios passed. Normal and /aroomtopray-preview mounted audits each checked 151,632 local references, 25,238 fragments, 25,624 images and 10,883 control targets with zero issues. Another 48 browser cases covered eight representative routes at 360/820/1440px in both themes, including Arabic: no horizontal overflow, missing sprite targets or nested anchors. Rendered review covered the full symbol contact sheet, authentic assets, directory flyers and mobile Toronto detail header. Final CSS refinements increased scope-label legibility and spacing; production rebuild passed. Source diagnostics clean. Preview remains local, dark mode, on the airport flyer. No publication.
+
+ORGANIZATION, PAGE LENGTH AND OFFICIAL GUIDANCE — 6 NOVEMBER 2026
+The next pass establishes a clearer hierarchy: place name and location first, institutional identity as supporting context, then practical room details and sources. Directory marks sit beside names with consistent proportions and readable operator/trust labels. Detail-page logos moved out of the main heading into a dedicated official-source panel. Heathrow Media Centre artwork is retained as research evidence but excluded from public institution matching; it is not the airport's general identity. Four eligible marks remain unchanged in their original colours. Non-airport flyer names align consistently without decorative initial badges shifting some names sideways.
+
+Flyer covers now use a compact 56px category symbol and bounded documentary photography. Credits and setting/room distinctions remain visible. Single-room introductions link directly to their room without repeating every fact; longer comparison lists start collapsed. The directory shows six detailed results per page, maintaining complete search/filter/pagination access and balanced card rows. The main photographic preview shows three photographs; all five remain available in dedicated /explore/airports/, /explore/universities/ and /explore/hospitals/ journals. All three journals have English, French, Arabic and Spanish interfaces (12 new pages), accurate language-switch destinations, source credits, directory returns and preparation links.
+
+Every place guide now ends with at most three useful navigation cards: same-category/same-country guides, the complete directory, and preparation where appropriate. No geographic proximity or current access is inferred from these reading suggestions. The cards sit outside the room/qibla/help panels so they remain available in every tab. Redundant campus and hospital byline guidance was removed without deleting room facts.
+
+Official content reviewed for all nine featured places: Heathrow, Schiphol, Changi, Warwick, Toronto, Melbourne, St Thomas', Toronto General and Houston Methodist. Exact official URLs, concise summaries, review dates, source scope, evidence and caveats are recorded in site/src/data/place-official-guides.js. OfficialPlaceSource.astro presents these summaries and keeps caveats in its review disclosure; historical room-source dates are not silently refreshed by a summary review. Toronto's wording explicitly identifies the February 2026 publication instead of implying its booking statement was freshly issued. No certification, institutional endorsement or onsite inspection is claimed.
+
+One real data correction followed the official review: Melbourne's Musallah access changed from unknown to registered university staff/students only, with individual swipe cards and no unaffiliated visitors. Its Jumu'ah wording now refers to the published seasonal schedule. The Southbank Music Building booking route was corrected to DIBS rather than conflating it with the coordinator for other multi-faith rooms. These two room records carry the new 6 November source-review date. Other room records retain their prior dates. Source: https://students.unimelb.edu.au/support-and-wellbeing/health-and-wellbeing/faith-and-spirituality/faiths-directory
+
+Validation: 320 automated tests passed; 2,189 pages built. All 12 atlas integration scenarios passed, including map-to-list selection under the shorter pagination. Normal and GitHub-subpath audits checked 160,252 local references, 25,322 fragments, 25,864 images and 10,943 control targets with zero issues. 96 browser layout cases covered 12 representative routes at 320/390/820/1440px in both themes, including Arabic and French: no horizontal overflow, missing sprite references, nested anchors, broken visible images or incorrect photograph counts. Live navigation confirmed two distinct six-result pages, filtering back to a single Heathrow result, directory-to-journal navigation, journal language switching, and the Arabic airport-preparation target. Live Melbourne review confirmed the access restriction, caveats, official source and related links. Visual review covered source-panel logo treatment, compact airport/hospital flyers and Arabic mobile photography. Source diagnostics clean. No publication.
+
+SIGNIFICANT REFINEMENT — 6 NOVEMBER 2026
+Implemented locally, unpublished. Preserved the room, original brand mark, glass, real photography and all factual records.
+- Directory covers now give uncropped documentary photographs meaningful space, with stronger category headings and clearer destination rows.
+- Results have larger place names, grouped security/access and opening details, a single guide action, and full-width mobile records. Facility facts now participate in accessible link descriptions.
+- Photo journals use a large lead photograph, balanced subsequent images, category-to-category navigation and distinct directory/preparation next steps. Existing credits and contextual-photo limitations remain intact.
+- Fixed keyboard focus after pagination, including the last page, and after removing the final map filter.
+Validation: 320 tests passed; production build generated 2,189 pages; generated-site audit found zero issues across 161,935 local references, 25,334 fragment references, 25,864 images and 10,943 controls. Live responsive checks passed 48 route/width/theme combinations (320, 768, 1440px; light/dark; including Arabic). Visually reviewed directory records, hospital cover and airport photographic journal. Browser checks confirmed visible map-search focus and first-result focus on page 69. Editor diagnostics clean for all four changed files.

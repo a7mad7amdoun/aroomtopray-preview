@@ -2,15 +2,15 @@
 export const MAP_MIN_SCALE = 1;
 export const MAP_MAX_SCALE = 7;
 
-export function readMapSelection(search, validCodes) {
-  const code = new URLSearchParams(search).get('airport');
+export function readMapSelection(search, validCodes, key = 'airport') {
+  const code = new URLSearchParams(search).get(key);
   return validCodes.has(code) ? code : '';
 }
 
-export function writeMapSelection(code, search = '') {
+export function writeMapSelection(code, search = '', key = 'airport') {
   const params = new URLSearchParams(search);
-  params.delete('airport');
-  if (code) params.set('airport', code);
+  params.delete(key);
+  if (code) params.set(key, code);
   return params.toString();
 }
 

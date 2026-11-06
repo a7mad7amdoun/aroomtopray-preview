@@ -268,10 +268,6 @@ html[dir=rtl] .directory-access-note { font-family:var(--f-arabic); font-size:1r
 .room-main .directory-workspace .directory-result.lrow { padding-block:26px; border-radius:0; border-bottom:1px solid var(--line); }
 .room-main .directory-workspace .directory-result .nm>b { font-size:1.3rem; font-weight:650; line-height:1.35; }
 .room-main .directory-workspace .directory-result .code { border-radius:3px; background:var(--surface-2); }
-.room-main .atlas-canvas { border-radius:4px; border:1px solid var(--line); }
-.room-main .atlas-information { border-radius:4px; }
-.room-main .atlas-heading h2 { font-size:2rem; letter-spacing:-.04em; }
-.room-main .atlas-card-heading h3 { font-size:1.2rem; }
 .room-main .country-card { border-radius:4px; padding:24px; }
 .room-main .room { border-radius:4px; padding:28px; }
 .room-main .place-photo,.room-main .directory-photo { border-radius:4px; }

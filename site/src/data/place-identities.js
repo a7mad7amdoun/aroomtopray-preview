@@ -1,0 +1,26 @@
+// Untouched official-site assets for source-attributed editorial identification.
+// These are not open-licence declarations, partner badges, or room verification.
+export const IDENTITY_RESEARCH_ONLY = [
+ {id:'heathrow-media',placeUrls:['/airports/lhr/'],name:'Heathrow Media Centre',scope:'media',src:'/identities/heathrow.png',width:383,height:135,officialSourceUrl:'https://mediacentre.heathrow.com/',assetSourceUrl:'https://mediacentre.heathrow.com/assets/heathrow__site/images/logo.png?v=14',retrievedOn:'2026-11-06',sourceContext:'Positive-colour Heathrow Media Centre wordmark from the official airport media centre header. The media-centre qualifier is retained in the artwork and visible scope label; not presented as an unqualified airport logo.',changes:'None. Original PNG bytes, proportions and colours retained.'},
+];
+
+// Research-only media branding above is never used for institutional display.
+export const PLACE_IDENTITIES = [
+ {id:'changi-group',placeUrls:['/airports/sin/'],name:'Changi Airport Group',scope:'operator',src:'/identities/changi-group.svg',width:138,height:37,officialSourceUrl:'https://www.changiairport.com/en.html',assetSourceUrl:'https://www.changiairport.com/content/dam/changiairport/sg/airport/evergreen/homepage/Logo_CAG_Horizontal_RGB_Pos.svg',retrievedOn:'2026-11-06',sourceContext:'Positive-colour Changi Airport Group wordmark served in the official Changi Airport homepage. Identifies the airport operator, not a prayer room.',changes:'None. Original SVG bytes, proportions and colours retained.'},
+ {id:'university-toronto',placeUrls:['/universities/university-of-toronto/'],name:'University of Toronto',scope:'institution',variant:'inverse',src:'/identities/utoronto.svg',width:428.5,height:159,officialSourceUrl:'https://www.utoronto.ca/',assetSourceUrl:'https://www.utoronto.ca/themes/custom/bootstrap_uoft/logo.svg',retrievedOn:'2026-11-06',sourceContext:'Inverse white institutional crest and wordmark from the University of Toronto official homepage header; matched only to the St. George university guide. Displayed against navy without recolouring the original.',changes:'None. Original SVG bytes, proportions and colours retained.'},
+ {id:'guys-stthomas',placeUrls:['/hospitals/st-thomas-hospital/'],name:'Guy’s and St Thomas’ NHS Foundation Trust',scope:'trust',src:'/identities/stthomas.svg',width:235,height:77,officialSourceUrl:'https://www.guysandstthomas.nhs.uk/',assetSourceUrl:'https://www.guysandstthomas.nhs.uk/themes/custom/gstt/NHS_gstt.svg',retrievedOn:'2026-11-06',sourceContext:'Official trust wordmark from its homepage header. The visible trust label distinguishes this parent organisation from St Thomas’ Hospital itself.',changes:'None. Original SVG bytes, proportions and colours retained.'},
+ {id:'airports-thailand',placeUrls:['/airports/bkk/'],name:'Airports of Thailand',scope:'operator',src:'/identities/aot.png',width:1272,height:500,officialSourceUrl:'https://suvarnabhumi.airportthai.co.th/',assetSourceUrl:'https://suvarnabhumi.airportthai.co.th/images/navbar/aot_logo.png',retrievedOn:'2026-11-06',sourceContext:'Full-colour Airports of Thailand mark in the official Suvarnabhumi Airport navigation. Identifies the airport operator.',changes:'None. Original PNG bytes, proportions and colours retained.'},
+];
+
+// Coverage is deliberately finite. A missing record renders plain text, never a
+// fabricated crest, favicon promoted to a logo, or another institution’s mark.
+export const IDENTITY_COVERAGE = [
+ {placeUrl:'/airports/lhr/',status:'unsuitable',reason:'The retrieved Heathrow Media Centre lockup identifies a media service, not the airport institution. Retained for research only; never displayed as the airport logo.'},
+ {placeUrl:'/airports/ams/',status:'unavailable',reason:'Main website and meditation-centre page returned HTTP 403. The accessible official newsroom supplied an inline inverse lockup; no standalone positive asset imported in this pass.'},
+ {placeUrl:'/universities/university-of-melbourne/',status:'unavailable',reason:'Official university homepage and faiths-directory page returned HTTP 403; no usable official asset verified.'},
+ {placeUrl:'/airports/yyz/',status:'unavailable',reason:'Official site redirected to an anti-bot challenge; no usable official asset verified.'},
+ {placeUrl:'/universities/university-of-warwick/',status:'restricted',sourceUrl:'https://warwick.ac.uk/terms/general',reason:'Published terms explicitly require approval for trademarks except permitted personal-use extracts; no permission recorded for this use.'},
+ {placeUrl:'/hospitals/toronto-general/',status:'restricted',sourceUrl:'https://www.uhn.ca/Pages/terms_conditions.aspx',reason:'Published terms allow a single personal non-commercial copy and explicitly prohibit other use without prior written permission.'},
+ {placeUrl:'/hospitals/houston-methodist-tmc/',status:'restricted',sourceUrl:'https://www.houstonmethodist.org/privacy-disclaimer/',reason:'Published terms explicitly prohibit reproduction or redistribution of Digital Service material without express written consent.'},
+ {placeUrl:'/airports/mad/',status:'restricted',sourceUrl:'https://www.aena.es/en/legal-notice.html',reason:'Published legal notice specifically requires authorisation to use the Aena logo to illustrate a website link.'},
+];

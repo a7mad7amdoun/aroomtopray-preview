@@ -1,4 +1,6 @@
-export const PAGE_SIZE = 12;
+// Six detailed results keep the directory readable on phones and form two
+// complete rows in the three-column card view. Search still covers every place.
+export const PAGE_SIZE = 6;
 export function readPage(search) {
   const raw = new URLSearchParams(search).get('page');
   return /^\d{1,5}$/.test(raw || '') ? Math.max(1, Number(raw)) : 1;

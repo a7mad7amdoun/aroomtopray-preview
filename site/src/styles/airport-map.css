@@ -1,13 +1,193 @@
-/* One self-contained atlas; geography stays crisp at every zoom level. */
-.airport-atlas{--atlas-water-centre:color-mix(in srgb,var(--surface) 75%,#ccd9dc);--atlas-water-edge:color-mix(in srgb,var(--surface) 88%,#bccbd0);--atlas-land:color-mix(in srgb,var(--surface) 92%,#b3bdc0);--atlas-room:#32665c;--atlas-seating:#b77c23;--atlas-planned:#807044;--atlas-none:#a45a50;--atlas-pending:#677684;isolation:isolate;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden;margin-block:22px 30px;color:var(--ink)}
-.airport-atlas [hidden]{display:none!important}.atlas-heading{padding:24px 26px 20px;display:flex;align-items:start;gap:22px;justify-content:space-between}.atlas-heading .eyebrow{font-size:.6rem}.atlas-heading h2{font-family:var(--f-display);font-size:clamp(1.45rem,2.8vw,2rem);font-weight:650;line-height:1.15;margin-block:9px}.atlas-heading p{font-size:.89rem;color:var(--muted);max-width:60ch}.atlas-index{font:500 .6rem var(--f-mono);letter-spacing:.1em;white-space:nowrap;color:var(--muted);margin-top:6px;direction:ltr}.atlas-toolbar{display:flex;align-items:end;justify-content:space-between;gap:20px;padding:0 26px 21px}.atlas-toolbar>label:first-child{display:grid;gap:6px;font-size:.74rem;font-weight:700;width:min(100%,470px)}.atlas-toolbar select{width:100%;min-height:43px;padding:9px 35px 9px 12px;background:var(--surface);border:1px solid var(--line);border-radius:5px;font:400 .88rem var(--f-body);color:var(--ink)}.atlas-qibla-switch{display:flex;gap:9px;align-items:center;font-size:.75rem;line-height:1.3;cursor:pointer;min-height:43px;max-width:270px}.atlas-qibla-switch input{width:17px;height:17px;flex-shrink:0;accent-color:var(--ink)}
-.atlas-canvas{position:relative;overflow:hidden;background:color-mix(in srgb,var(--surface-2) 80%,var(--surface));border-block:1px solid var(--line)}.airport-atlas #dirmap{display:block;width:100%;height:auto;max-height:660px;overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none;direction:ltr}.airport-atlas[data-enhanced] #dirmap{cursor:grab}.airport-atlas #dirmap.is-dragging{cursor:grabbing}.airport-atlas #dirmap:focus-visible{outline:3px solid var(--sign);outline-offset:-4px}.airport-atlas #dirmap .dim{display:none}.airport-atlas #dirmap a{transition:opacity .15s;cursor:pointer}.atlas-sphere{fill:url(#atlas-water);stroke:var(--line);stroke-width:.7;vector-effect:non-scaling-stroke}.atlas-graticule{fill:none;stroke:var(--ink);stroke-width:.45;opacity:.14;vector-effect:non-scaling-stroke}.atlas-land{fill:var(--atlas-land);stroke:color-mix(in srgb,var(--muted) 52%,var(--surface));stroke-width:.65;vector-effect:non-scaling-stroke}.atlas-boundaries{fill:none;stroke:var(--muted);stroke-width:.5;opacity:.28;vector-effect:non-scaling-stroke}.atlas-continent-labels{fill:var(--muted);opacity:.7;pointer-events:none}.atlas-continent-labels text{font-family:var(--f-mono);font-size:10px;letter-spacing:1.4px;paint-order:stroke;stroke:var(--atlas-land);stroke-width:3px;stroke-linejoin:round}.airport-atlas[data-zoomed=true] .atlas-continent-labels{display:none}.atlas-hit{fill:transparent}.atlas-point{fill:var(--atlas-pending);stroke:var(--surface);stroke-width:1.05;vector-effect:non-scaling-stroke}.atlas-points a[data-status=room] .atlas-point{fill:var(--atlas-room)}.atlas-points a[data-status=seating] .atlas-point{fill:var(--atlas-seating)}.atlas-points a[data-status=planned] .atlas-point{fill:var(--surface);stroke:var(--atlas-planned);stroke-dasharray:2 1}.atlas-points a[data-status=none] .atlas-point{fill:var(--atlas-none)}.atlas-points a[data-status=pending] .atlas-point{fill:var(--surface);stroke:var(--atlas-pending)}.atlas-points a:hover .atlas-point,.atlas-points a.is-selected .atlas-point{fill:var(--ink);stroke:var(--sign);stroke-width:2}.atlas-direction{stroke:var(--ink);stroke-width:1.5;stroke-dasharray:5 5;fill:none;opacity:.7;vector-effect:non-scaling-stroke;pointer-events:none}.atlas-makkah{pointer-events:none}.atlas-makkah rect{fill:var(--ink);stroke:var(--surface);stroke-width:2}.atlas-makkah path{fill:none;stroke:var(--sign);stroke-width:2}.atlas-makkah text,.atlas-selected text{font:600 11px var(--f-mono);fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-width:4;stroke-linejoin:round}.atlas-selected{pointer-events:none}.atlas-selected>circle:not(.atlas-selection-ring){fill:var(--sign);stroke:var(--ink);stroke-width:2}.atlas-selection-ring{stroke:var(--ink);stroke-width:1.5;fill:color-mix(in srgb,var(--sign) 32%,transparent)}
-.atlas-zoom{position:absolute;inset-block-start:17px;inset-inline-end:17px;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--surface);box-shadow:0 3px 10px #00000009}.atlas-zoom button{display:grid;place-items:center;width:40px;height:40px;padding:0;border:0;background:var(--surface);color:var(--ink);font:400 1.45rem var(--f-body);cursor:pointer}.atlas-zoom button:hover:not(:disabled){background:var(--sign);color:var(--sign-ink)}.atlas-zoom button:disabled{opacity:.35;cursor:default}.atlas-zoom button:last-child{border-top:1px solid var(--line)}.atlas-zoom output{text-align:center;display:block;font:500 .53rem var(--f-mono);padding:2px 0;direction:ltr;color:var(--muted)}.atlas-map-count{position:absolute;inset-inline-start:18px;inset-block-end:16px;max-width:calc(100% - 36px);font:.65rem var(--f-mono);color:var(--muted);padding:7px 10px;background:color-mix(in srgb,var(--surface) 93%,transparent);border:1px solid var(--line);border-radius:3px;pointer-events:none}.atlas-no-results{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:25px;background:color-mix(in srgb,var(--surface) 65%,transparent);pointer-events:none;font-weight:700;color:var(--ink)}
-.atlas-bottom{padding:0 26px 22px}.atlas-legend{display:flex;gap:11px 23px;flex-wrap:wrap;padding-block:17px;border-bottom:1px solid var(--line);font-size:.68rem;color:var(--muted)}.atlas-legend>span{display:flex;gap:7px;align-items:center}.atlas-legend i{width:8px;height:8px;display:block;border-radius:50%;flex-shrink:0}.atlas-legend i[data-status=room]{background:var(--atlas-room)}.atlas-legend i[data-status=seating]{background:var(--atlas-seating)}.atlas-legend i[data-status=planned]{border:1.5px dashed var(--atlas-planned)}.atlas-legend i[data-status=none]{background:var(--atlas-none)}.atlas-legend i[data-status=pending]{border:1.5px solid var(--atlas-pending)}.atlas-information{padding-block:20px;border-bottom:1px solid var(--line)}.atlas-selection-empty{display:flex;gap:16px;align-items:center}.atlas-selection-empty h3{font-family:var(--f-display);font-size:1rem;margin-bottom:5px}.atlas-selection-empty p{font-size:.82rem;color:var(--muted);max-width:68ch}.atlas-empty-mark{display:grid;place-items:center;flex-shrink:0;border:1px solid var(--line);border-radius:50%;width:42px;height:42px;color:var(--muted);font-size:1.35rem}.atlas-card-heading{display:flex;gap:14px;align-items:center}.atlas-code{background:var(--ink);color:var(--surface);font:650 1.4rem var(--f-display);letter-spacing:.04em;display:grid;place-items:center;min-width:67px;height:51px;border-radius:4px;border-bottom:3px solid var(--sign)}.atlas-card-heading h3{font:650 1.08rem/1.25 var(--f-display);margin:0}.atlas-card-heading p{font-size:.8rem;color:var(--muted);margin-top:4px}.atlas-close{margin-inline-start:auto;flex-shrink:0;width:36px;height:36px;border:1px solid var(--line);border-radius:50%;background:var(--surface);color:var(--muted);font-size:1.3rem;cursor:pointer}.atlas-close:hover{color:var(--ink);border-color:var(--ink)}.atlas-status{display:inline-flex;font-size:.74rem;font-weight:700;align-items:center;gap:8px;margin-block:16px 13px}.atlas-status:before{content:'';width:7px;height:7px;border-radius:50%;background:var(--atlas-pending)}.atlas-status[data-status=room]:before{background:var(--atlas-room)}.atlas-status[data-status=seating]:before{background:var(--atlas-seating)}.atlas-status[data-status=planned]:before{background:var(--atlas-planned)}.atlas-status[data-status=none]:before{background:var(--atlas-none)}.atlas-airport-card dl{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:0}.atlas-airport-card dt{font-size:.66rem;color:var(--muted);margin-bottom:4px}.atlas-airport-card dd{font-size:.81rem;margin:0;font-weight:700}.atlas-card-footer{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:18px}.atlas-card-footer small{font-size:.66rem;color:var(--muted)}.atlas-guide-link{display:inline-flex;align-items:center;gap:21px;font-size:.83rem;font-weight:700;color:var(--ink);text-decoration:none;min-height:38px;border-bottom:1px solid var(--ink)}.atlas-guide-link:hover{color:var(--muted)}.atlas-guide-link span{font-size:1.2rem}.atlas-filtered-note{font-size:.76rem;color:var(--muted);margin-top:14px;border-inline-start:2px solid var(--sign);padding-inline-start:10px}.atlas-notes{padding-top:17px;display:grid;gap:8px}.atlas-notes p{font-size:.68rem;line-height:1.6;color:var(--muted);max-width:105ch}.atlas-notes>a{font-size:.64rem;color:var(--muted);justify-self:start;text-underline-offset:3px}.airport-atlas button:focus-visible,.airport-atlas a:focus-visible,.airport-atlas select:focus-visible,.airport-atlas input:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
-html[lang=ar] .atlas-continent-labels text,html[lang=ar] .atlas-makkah text{font-family:var(--f-body);letter-spacing:0;font-size:13px}html[lang=ar] .atlas-toolbar select{padding:9px 12px 9px 35px}html[data-theme=dark] .airport-atlas{--atlas-room:#8bbcac;--atlas-seating:#d7b874;--atlas-planned:#d4c493;--atlas-none:#d8988c;--atlas-pending:#899ca8}
-@media(prefers-color-scheme:dark){html:not([data-theme=light]) .airport-atlas{--atlas-room:#8bbcac;--atlas-seating:#d7b874;--atlas-planned:#d4c493;--atlas-none:#d8988c;--atlas-pending:#899ca8}}
-@media(max-width:700px){.atlas-heading{padding:20px 18px 17px}.atlas-heading h2{font-size:1.45rem}.atlas-index{display:none}.atlas-heading p{font-size:.82rem}.atlas-toolbar{padding:0 18px 16px;flex-direction:column;align-items:stretch;gap:7px}.atlas-toolbar>label:first-child{width:100%}.atlas-qibla-switch{min-height:35px;max-width:none;font-size:.72rem}.airport-atlas #dirmap{height:320px;width:100%;object-fit:cover}.atlas-zoom{inset-block-start:10px;inset-inline-end:10px}.atlas-zoom button{width:35px;height:35px}.atlas-zoom output{font-size:.49rem}.atlas-map-count{inset-inline-start:10px;inset-block-end:10px;font-size:.54rem;padding:5px 7px}.atlas-bottom{padding:0 18px 18px}.atlas-legend{font-size:.63rem;gap:9px 15px}.atlas-airport-card dl{grid-template-columns:repeat(2,1fr);gap:14px}.atlas-card-heading{gap:10px}.atlas-card-heading h3{font-size:.97rem}.atlas-code{min-width:54px;height:45px;font-size:1.1rem}.atlas-card-footer{flex-wrap:wrap;gap:8px}.atlas-selection-empty p{font-size:.77rem}.atlas-notes p{font-size:.65rem}}
-@media(prefers-reduced-motion:reduce){.airport-atlas #dirmap a{transition:none}}
-@media print{.atlas-toolbar,.atlas-zoom,.atlas-instructions{display:none!important}.airport-atlas{break-inside:avoid}.atlas-canvas{background:#fff}.atlas-guide-link{color:#000}}
-
-@media(max-width:700px){.atlas-continent-labels{display:none}}
+/* One map surface for airports, universities and hospitals. */
+.airport-atlas {
+ --atlas-water:#eaf0f7; --atlas-land:#faf8f2; --atlas-coast:#b9c8db;
+ --atlas-room:#244870; --atlas-pending:#7386a0; --atlas-none:#98685f;
+ --atlas-seating:#967634; --atlas-planned:#8b7452;
+ container:map-workspace / inline-size; isolation:isolate; min-width:0;
+ color:var(--ink); background:var(--surface); border:1px solid var(--line);
+ border-radius:22px; overflow:hidden; margin-block:24px 32px; box-shadow:0 16px 44px #162a2410;
+}
+.airport-atlas [hidden] { display:none!important; }
+.airport-atlas :is(button,input,select,summary,a):focus-visible { outline:3px solid var(--focus); outline-offset:3px; }
+.airport-atlas button { font-family:var(--f-body); cursor:pointer; }
+.airport-atlas button:disabled { opacity:.4; cursor:default; }
+.room-main .airport-atlas { margin:0; }
+.atlas-masthead { padding:28px 30px 0; }
+.atlas-heading { display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.atlas-heading>div { min-width:0; }
+.atlas-heading .eyebrow { display:flex; align-items:center; gap:8px; color:var(--muted); font-size:.68rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; }
+.atlas-heading h2 { color:var(--ink); font:500 clamp(1.6rem,2.8vw,2.25rem)/1.18 var(--f-display,var(--f-body)); letter-spacing:-.035em; margin:10px 0; }
+.atlas-heading p { color:var(--muted); font-size:.88rem; line-height:1.65; margin:0; max-width:68ch; }
+.atlas-heading-mark { width:60px; height:60px; flex:none; display:grid; place-items:center; border:1px solid var(--line); border-radius:50%; color:var(--ink); background:var(--surface-2); }
+.atlas-toolbar { display:grid; grid-template-columns:minmax(200px,1fr) minmax(170px,.5fr) auto; align-items:end; gap:14px; padding:24px 30px; }
+.atlas-toolbar>label { display:grid; gap:8px; min-width:0; font-size:.76rem; font-weight:550; }
+.atlas-toolbar :is(input,select) { width:100%; min-width:0; height:52px; padding:12px 14px; color:var(--ink); background:var(--surface-2); border:1px solid var(--field); border-radius:10px; font:400 .95rem var(--f-body); }
+.atlas-search-field>div { position:relative; }
+.atlas-search-field svg { position:absolute; inset-inline-start:16px; top:16px; color:var(--muted); pointer-events:none; }
+.atlas-toolbar .atlas-search-field input { padding-inline-start:46px; }
+.atlas-reset-filters { min-height:52px; padding:10px; color:var(--muted); background:none; border:0; font-size:.76rem; text-decoration:underline; text-underline-offset:4px; max-width:150px; }
+.airport-refine { margin:0 30px 22px; }
+.airport-refine>summary { display:flex; gap:10px; align-items:center; width:fit-content; min-height:40px; cursor:pointer; color:var(--muted); font-size:.8rem; }
+.airport-refine>summary::before { content:'+'; font-size:1.2rem; color:var(--ink); }
+.airport-refine[open]>summary::before { content:'−'; }
+.airport-refine>summary::-webkit-details-marker { display:none; }
+.airport-discovery { padding-top:10px; }
+.airport-requirements { display:flex; flex-wrap:wrap; gap:8px; }
+.airport-requirements button { min-height:42px; display:flex; align-items:center; gap:8px; padding:9px 13px; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:8px; font-size:.8rem; }
+.airport-requirements button[aria-pressed=true] { background:var(--ink); color:var(--surface); border-color:var(--ink); }
+.atlas-workspace { display:grid; grid-template-columns:minmax(300px,40%) minmax(0,1fr); grid-template-areas:'desk map'; border-block:1px solid var(--line); }
+.atlas-information { grid-area:desk; min-width:0; min-height:600px; max-height:700px; overflow:auto; padding:26px; border-inline-end:1px solid var(--line); scrollbar-width:thin; scrollbar-color:var(--line) transparent; background:var(--surface); }
+.atlas-geography { grid-area:map; min-width:0; display:flex; flex-direction:column; background:var(--atlas-water); }
+.airport-map-heading { display:flex; align-items:center; gap:12px; padding:18px 20px; border-bottom:1px solid color-mix(in srgb,var(--atlas-coast) 45%,transparent); }
+.airport-map-heading>div { flex:1; min-width:0; }
+.airport-map-heading .eyebrow { font-size:.7rem; color:var(--ink); font-weight:600; }
+.airport-map-heading p { font-size:.74rem; line-height:1.5; color:var(--muted); margin:5px 0 0; }
+.airport-map-heading>button { min-height:40px; padding:9px 0; border:0; background:none; color:var(--ink); font-size:.73rem; text-decoration:underline; text-underline-offset:4px; white-space:nowrap; }
+.airport-map-options { position:relative; z-index:8; flex:none; }
+.airport-map-options>summary { display:flex; align-items:center; justify-content:center; min-height:40px; padding:9px 11px; border:1px solid var(--line); border-radius:8px; background:var(--surface); color:var(--ink); cursor:pointer; font-size:.73rem; list-style:none; }
+.airport-map-options>summary::-webkit-details-marker { display:none; }
+.airport-map-options-content { position:absolute; inset-inline-end:0; top:calc(100% + 8px); width:270px; max-width:75vw; display:grid; gap:16px; padding:18px; border:1px solid var(--line); border-radius:12px; background:var(--surface); box-shadow:0 16px 36px #172b2520; }
+.atlas-map-bar { display:grid; gap:14px; }
+.atlas-map-bar>span { display:none; }
+.atlas-view-controls { display:flex; gap:8px; flex-wrap:wrap; }
+.atlas-view-controls button,.airport-expand { min-height:42px; padding:9px 12px; color:var(--ink); background:var(--surface-2); border:1px solid var(--line); border-radius:8px; font-size:.78rem; }
+.airport-expand { display:flex; align-items:center; justify-content:center; gap:8px; }
+.atlas-qibla-switch,.atlas-viewport-switch { display:flex; align-items:center; gap:9px; min-height:36px; font-size:.8rem; line-height:1.5; cursor:pointer; }
+.atlas-qibla-switch input,.atlas-viewport-switch input { width:17px; height:17px; accent-color:var(--ink); flex:none; }
+.airport-region-pins { display:flex; flex-wrap:wrap; gap:6px; padding:12px 20px; border-bottom:1px solid color-mix(in srgb,var(--atlas-coast) 35%,transparent); }
+.airport-region-pins button { min-height:34px; padding:7px 10px; border:1px solid transparent; border-radius:6px; color:var(--ink); background:color-mix(in srgb,var(--surface) 70%,transparent); font-size:.7rem; }
+.airport-region-pins button:is(:hover,[aria-pressed=true]) { border-color:var(--atlas-coast); background:var(--surface); }
+.atlas-canvas { position:relative; flex:1; overflow:hidden; min-height:430px; display:grid; align-items:center; background:radial-gradient(ellipse at center,color-mix(in srgb,var(--atlas-water) 65%,var(--surface)),var(--atlas-water)); }
+.airport-atlas #dirmap { display:block; width:100%; height:100%; min-height:430px; max-height:580px; touch-action:pan-y; user-select:none; -webkit-user-select:none; direction:ltr; }
+.airport-atlas[data-enhanced] #dirmap { cursor:grab; }
+.airport-atlas #dirmap.is-dragging { cursor:grabbing; }
+.airport-atlas #dirmap:focus-visible { outline:3px solid var(--focus); outline-offset:-4px; }
+.airport-atlas #dirmap .dim { display:none; }
+.atlas-sphere { fill:transparent; }
+.atlas-graticule { fill:none; stroke:var(--atlas-coast); stroke-width:.5; opacity:.2; vector-effect:non-scaling-stroke; }
+.atlas-country-shapes path,.atlas-land { fill:var(--atlas-land); stroke:var(--atlas-coast); stroke-width:.5; vector-effect:non-scaling-stroke; }
+.atlas-boundaries { fill:none; stroke:var(--atlas-coast); opacity:.45; stroke-width:.5; vector-effect:non-scaling-stroke; pointer-events:none; }
+.atlas-continent-labels { fill:var(--muted); opacity:.65; pointer-events:none; }
+.atlas-continent-labels text { font:500 10px var(--f-body); letter-spacing:1px; paint-order:stroke; stroke:var(--atlas-land); stroke-width:3px; stroke-linejoin:round; }
+.airport-atlas[data-zoomed=true] .atlas-continent-labels { display:none; }
+.atlas-hit { fill:transparent; }
+.atlas-point { fill:var(--atlas-pending); stroke:var(--atlas-land); stroke-width:1.5; vector-effect:non-scaling-stroke; }
+.atlas-points a { cursor:pointer; }
+.atlas-pin-label { pointer-events:none; }
+.atlas-pin-label rect { fill:var(--surface); stroke:var(--line); stroke-width:1; }
+.atlas-pin-label text { fill:var(--ink); font:650 10px var(--f-body); letter-spacing:.02em; }
+.atlas-points a[data-status=room] .atlas-point { fill:var(--atlas-room); }
+.atlas-points a[data-status=seating] .atlas-point { fill:var(--atlas-seating); }
+.atlas-points a[data-status=none] .atlas-point { fill:var(--atlas-none); }
+.atlas-points a[data-status=planned] .atlas-point { fill:var(--atlas-land); stroke:var(--atlas-planned); stroke-dasharray:2 1; }
+.atlas-points a[data-status=pending] .atlas-point { fill:var(--atlas-land); stroke:var(--atlas-pending); }
+.atlas-points a:is(:hover,.is-selected) .atlas-point { fill:var(--sign); stroke:var(--ink); stroke-width:2; }
+.atlas-direction { fill:none; stroke:var(--ink); stroke-width:1.5; stroke-dasharray:5 5; vector-effect:non-scaling-stroke; pointer-events:none; }
+.atlas-makkah,.atlas-selected { pointer-events:none; }
+.atlas-makkah { display:none; }
+.airport-atlas:has([data-atlas-qibla]:checked) .atlas-makkah { display:block; }
+.atlas-makkah rect { fill:var(--ink); stroke:var(--atlas-land); stroke-width:2; }
+.atlas-makkah path { fill:none; stroke:var(--sign); stroke-width:2; }
+.atlas-makkah text,.atlas-selected text { fill:var(--ink); font:600 12px var(--f-body); paint-order:stroke; stroke:var(--atlas-land); stroke-width:4px; stroke-linejoin:round; }
+.atlas-selected>circle { fill:var(--sign); stroke:var(--ink); stroke-width:2; }
+.atlas-selected .atlas-selection-ring { fill:color-mix(in srgb,var(--sign) 25%,transparent); stroke:var(--ink); stroke-width:1.5; }
+.atlas-cluster { cursor:pointer; }
+.atlas-cluster circle { fill:var(--ink); stroke:var(--atlas-land); stroke-width:2; }
+.atlas-cluster text { fill:var(--surface); font:600 12px var(--f-body); pointer-events:none; }
+.atlas-cluster:is(:hover,:focus) circle { fill:var(--sign); stroke:var(--ink); }
+.atlas-cluster:is(:hover,:focus) text { fill:var(--sign-ink,var(--ink)); }
+.atlas-cluster:focus { outline:none; }
+.atlas-clusters .atlas-cluster .atlas-cluster-hit { fill:transparent; stroke:none; }
+.atlas-zoom { position:absolute; inset-inline-end:16px; bottom:18px; display:grid; overflow:hidden; background:var(--surface); border:1px solid var(--line); border-radius:10px; box-shadow:0 4px 12px #172b2510; }
+.atlas-zoom button { display:grid; place-items:center; width:44px; height:44px; padding:0; border:0; background:var(--surface); color:var(--ink); font-size:1.4rem; }
+.atlas-zoom button+button { border-top:1px solid var(--line); }
+.atlas-zoom button:hover:not(:disabled) { background:var(--sign); color:var(--sign-ink); }
+.atlas-zoom output { display:block; padding:4px 2px; color:var(--muted); background:var(--surface-2); font:550 .65rem/1.5 var(--f-body); text-align:center; font-variant-numeric:tabular-nums; direction:ltr; }
+.atlas-zoom [data-map-zoom=reset] { display:grid; border-top:1px solid var(--line); }
+.atlas-compass { display:none; }
+.atlas-fit { position:absolute; inset-inline-start:16px; top:16px; display:flex; align-items:center; gap:8px; min-height:40px; padding:9px 12px; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:8px; font-size:.75rem; box-shadow:0 3px 10px #172b2508; }
+.atlas-map-count { position:absolute; inset-inline-start:16px; bottom:18px; padding:9px 12px; max-width:calc(100% - 85px); background:var(--surface); color:var(--muted); border:1px solid var(--line); border-radius:8px; font-size:.73rem; pointer-events:none; }
+.atlas-no-results { position:absolute; inset:75px 75px 75px 16px; display:grid; place-items:center; padding:24px; text-align:center; background:color-mix(in srgb,var(--surface) 94%,transparent); border-radius:12px; font-size:.9rem; pointer-events:none; }
+.atlas-street-frame { position:absolute; inset:0; z-index:3; display:grid; grid-template-rows:minmax(0,1fr) auto; background:var(--surface-2); }
+.atlas-street-frame iframe { width:100%; height:100%; min-height:0; border:0; }
+.atlas-street-fallback { min-height:44px; padding:12px 16px; font-size:.8rem; color:var(--ink); background:var(--surface); border-top:1px solid var(--line); }
+.airport-atlas[data-street=true] .atlas-canvas>:not(.atlas-street-frame),.airport-atlas[data-street=true] .atlas-qibla-switch { visibility:hidden; }
+.atlas-geography>.atlas-bottom { display:none; }
+.atlas-browser-heading { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.atlas-browser-heading h3 { font:550 1.1rem/1.4 var(--f-body); margin:0; }
+.atlas-browser-heading>span { padding:5px 9px; background:var(--surface-2); border:1px solid var(--line); border-radius:20px; font-size:.74rem; font-variant-numeric:tabular-nums; }
+.atlas-browser-hint { color:var(--muted); font-size:.8rem; line-height:1.6; margin:10px 0 18px; }
+.atlas-place-list { list-style:none; padding:0; margin:0; }
+.atlas-place-list li { margin:0; border-top:1px solid var(--line); }
+.atlas-place-list button { width:100%; display:grid; grid-template-columns:42px minmax(0,1fr) 16px; align-items:start; gap:12px; padding:19px 3px; text-align:start; color:var(--ink); border:0; background:transparent; transition:background .18s; }
+.atlas-place-list button:hover { background:var(--surface-2); }
+.atlas-place-code { min-height:38px; display:grid; place-items:center; padding:4px; border:1px solid var(--line); border-radius:7px; background:var(--surface-2); font-size:.73rem; font-weight:600; letter-spacing:.03em; }
+.atlas-place-copy { display:grid; gap:5px; min-width:0; }
+.atlas-place-copy strong { font-size:.9rem; line-height:1.45; font-weight:550; }
+.atlas-place-copy>span { font-size:.77rem; line-height:1.5; color:var(--muted); }
+.atlas-place-copy small { font-size:.73rem; line-height:1.5; color:var(--muted); }
+.atlas-place-copy small::before { content:''; display:inline-block; width:6px; height:6px; margin-inline-end:7px; border:1px solid currentColor; border-radius:50%; }
+.atlas-place-copy small[data-status=room]::before { background:var(--atlas-room); border-color:var(--atlas-room); }
+.atlas-place-arrow { color:var(--muted); }
+.atlas-more,.atlas-back { min-height:44px; padding:10px 12px; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:8px; font-size:.8rem; }
+.atlas-more { width:100%; margin-top:14px; }
+.atlas-back { display:flex; align-items:center; gap:8px; margin-bottom:22px; }
+html[dir=rtl] .atlas-back>span { transform:rotate(180deg); }
+.atlas-browser-empty,.atlas-filtered-note { color:var(--muted); font-size:.85rem; line-height:1.65; padding-block:14px; }
+.airport-welcome { padding-bottom:24px; margin-bottom:22px; border-bottom:1px solid var(--line); }
+.airport-example-label { display:block; margin-bottom:10px; color:var(--muted); font-size:.7rem; letter-spacing:.04em; }
+.airport-examples { display:grid; gap:7px; }
+.airport-examples button { display:flex; align-items:center; justify-content:space-between; gap:10px; min-height:44px; padding:9px 12px; text-align:start; color:var(--ink); border:1px solid var(--line); border-radius:8px; background:var(--surface-2); font-size:.8rem; }
+.airport-examples small { margin-inline-start:8px; color:var(--muted); font-size:.65rem; }
+.atlas-group h3 { font-size:1.15rem; }
+.atlas-group p { color:var(--muted); font-size:.85rem; line-height:1.6; }
+.atlas-group ul { display:grid; gap:8px; padding:0; margin:18px 0; list-style:none; }
+.atlas-group button { display:grid; gap:6px; width:100%; padding:13px; text-align:start; color:var(--ink); background:var(--surface-2); border:1px solid var(--line); border-radius:8px; }
+.atlas-group button strong { font-size:.88rem; }.atlas-group button span { font-size:.78rem; color:var(--muted); }
+.atlas-card-heading { display:flex; align-items:start; flex-wrap:wrap; gap:12px; }
+.atlas-code { display:grid; place-items:center; min-width:52px; height:46px; padding:8px; color:var(--surface); background:var(--ink); border-radius:8px; font:600 .9rem var(--f-body); }
+.atlas-card-heading>div { flex:1; min-width:150px; }
+.atlas-card-heading h3 { font:550 1.2rem/1.4 var(--f-body); margin:0 0 8px; }
+.atlas-card-heading p { color:var(--muted); font-size:.82rem; line-height:1.6; margin:0; }
+.atlas-country-line { display:flex; align-items:center; gap:7px; }.atlas-close { display:none; }
+.atlas-status { display:inline-block; padding:7px 0; margin:14px 0; font-size:.8rem; color:var(--muted); }
+.atlas-room-picker { display:grid; gap:8px; margin-bottom:20px; }.atlas-room-picker label { font-size:.78rem; font-weight:550; }
+.atlas-room-picker select { width:100%; min-width:0; min-height:48px; padding:11px; color:var(--ink); background:var(--surface-2); border:1px solid var(--line); border-radius:8px; font:400 .9rem var(--f-body); }
+.airport-single-room { margin:0; font-size:.95rem; line-height:1.6; font-weight:550; }
+.atlas-airport-card dl { display:grid; gap:17px; margin:0; }
+.atlas-airport-card dt { display:flex; align-items:center; gap:7px; color:var(--muted); font-size:.76rem; margin-bottom:5px; }
+.atlas-airport-card dd { margin:0; font-size:.9rem; line-height:1.7; overflow-wrap:anywhere; }
+.atlas-directions { padding:18px; background:var(--surface-2); border:1px solid var(--line); border-radius:12px; }
+.atlas-airport-card .atlas-facilities { grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:18px; padding-block:16px; }
+.atlas-caution,.airport-match-note,.airport-no-rooms { margin:0 0 18px; padding:13px; background:var(--surface-2); border-inline-start:3px solid var(--sign); font-size:.82rem; line-height:1.65; }
+.atlas-original-note { color:var(--muted); font-size:.73rem; line-height:1.6; margin-bottom:15px; }
+.atlas-source { display:grid; gap:7px; padding-block:16px; border-block:1px solid var(--line); font-size:.8rem; }
+.atlas-source a { font-weight:550; text-underline-offset:4px; }.atlas-source :is(span,small) { color:var(--muted); font-size:.74rem; }
+.atlas-indoor-map { display:grid; gap:8px; padding:15px; margin-top:16px; background:var(--surface-2); border:1px solid var(--line); border-radius:9px; font-size:.82rem; line-height:1.6; }.atlas-indoor-map small { color:var(--muted); font-size:.73rem; }
+.atlas-advisory>div { display:grid; gap:8px; margin-top:10px; }.atlas-place-meta { display:flex; flex-wrap:wrap; gap:8px 16px; margin-top:16px; color:var(--muted); font-size:.75rem; }.atlas-place-meta b { color:var(--ink); font-weight:500; }
+.atlas-card-footer { margin-top:22px; }.atlas-card-actions { display:flex; flex-direction:column-reverse; gap:9px; }
+.atlas-card-actions :is(a,button) { display:flex; align-items:center; justify-content:space-between; gap:10px; min-height:48px; padding:12px 15px; border:1px solid var(--line); border-radius:9px; font-size:.83rem; }
+.atlas-card-actions button { background:var(--surface); color:var(--ink); justify-content:center; }.atlas-guide-link { background:var(--ink); color:var(--surface); text-decoration:none; }
+.atlas-local { padding:22px 30px; background:var(--surface-2); border-bottom:1px solid var(--line); }.atlas-local h3 { font-size:1rem; line-height:1.5; }.atlas-local h3 span { font-weight:400; }.atlas-local p { max-width:80ch; color:var(--muted); font-size:.8rem; line-height:1.7; margin-top:8px; }
+.atlas-external-links { display:flex; flex-wrap:wrap; gap:12px 22px; margin-top:14px; font-size:.8rem; }.atlas-external-links a { display:flex; align-items:center; min-height:36px; text-underline-offset:4px; }.atlas-external-links>span { margin-inline-start:auto; color:var(--muted); align-self:center; }
+.airport-map-about { padding:15px 30px; }.airport-map-about>summary { cursor:pointer; color:var(--muted); font-size:.78rem; min-height:30px; padding-block:6px; }.airport-about-content { display:grid; gap:16px; padding-block:16px; }
+.atlas-stats { display:flex; flex-wrap:wrap; gap:18px 30px; margin:0; padding:0; }.atlas-stats>div { display:flex; align-items:baseline; gap:8px; flex-direction:row-reverse; }.atlas-stats dt { color:var(--muted); font-size:.76rem; }.atlas-stats dd { margin:0; font-size:1.3rem; font-weight:550; font-variant-numeric:tabular-nums; }
+.atlas-stats-note { margin:0; color:var(--muted); font-size:.74rem; line-height:1.6; }.atlas-legend { display:flex; flex-wrap:wrap; gap:10px 18px; color:var(--muted); font-size:.75rem; }.atlas-legend>span { display:flex; align-items:center; gap:7px; }.atlas-legend i { width:8px; height:8px; border-radius:50%; flex:none; }.atlas-legend i[data-status=room] { background:var(--atlas-room); }.atlas-legend i[data-status=none] { background:var(--atlas-none); }.atlas-legend i[data-status=seating] { background:var(--atlas-seating); }.atlas-legend i[data-status=planned] { border:1.5px dashed var(--atlas-planned); }.atlas-legend i[data-status=pending] { border:1.5px solid var(--atlas-pending); }
+.atlas-notes { display:grid; gap:8px; }.atlas-notes p,.atlas-notes>a { margin:0; color:var(--muted); font-size:.74rem; line-height:1.7; }.airport-mobile-map { display:none; }
+.airport-atlas.is-expanded { position:fixed; inset:14px; z-index:10000; margin:0; overflow:auto; box-shadow:0 0 0 30px #142033df; }.airport-close-expanded { display:block; position:sticky; top:12px; z-index:10; margin:12px 20px 12px auto; padding:12px 20px; min-height:46px; color:var(--sign-ink); background:var(--sign); border:0; border-radius:9px; font-weight:600; }.airport-atlas.is-expanded .atlas-masthead { display:none; }.airport-atlas.is-expanded .atlas-information { max-height:calc(100dvh - 200px); min-height:500px; }.airport-atlas.is-expanded .atlas-canvas { min-height:500px; }.airport-atlas.is-expanded #dirmap { max-height:none; }.airport-atlas.is-expanded .airport-map-about { display:none; }
+/* Keep shared amenity filters, but present just one search/country pair in map mode. */
+#prayer-room #guide-content .directory-workspace:has([data-directory-map]:not([hidden]))>.controls :is(.directory-fields,.directory-search-guidance,.directory-search-meta) { display:none; }
+#prayer-room #guide-content .directory-workspace:has([data-directory-map]:not([hidden]))>.controls { margin-bottom:14px; padding-block:10px; }
+html[lang=ar] .atlas-heading h2 { letter-spacing:0; line-height:1.5; }
+html[data-theme=dark] .airport-atlas { --atlas-water:#0a111c; --atlas-land:#21334b; --atlas-coast:#425a77; --atlas-room:#ffc629; --atlas-pending:#a4b4cd; --atlas-none:#d5a69a; --surface:#111b2a; --surface-2:#162235; --line:#26354b; --sign:#ffc629; }
+@media(prefers-color-scheme:dark) { html:not([data-theme=light]) .airport-atlas { --atlas-water:#0a111c; --atlas-land:#21334b; --atlas-coast:#425a77; --atlas-room:#ffc629; --atlas-pending:#a4b4cd; --atlas-none:#d5a69a; --surface:#111b2a; --surface-2:#162235; --line:#26354b; --sign:#ffc629; } }
+@container map-workspace (max-width:900px) {
+ .atlas-workspace { grid-template-columns:minmax(270px,42%) minmax(0,1fr); }.atlas-information { padding:20px; }.airport-map-heading { flex-wrap:wrap; padding:16px; }.airport-map-heading>div { flex-basis:100%; }.airport-map-options { margin-inline-start:auto; }.atlas-toolbar { gap:10px; padding-inline:22px; }.atlas-heading-mark { display:none; }
+}
+@container map-workspace (max-width:680px) {
+ .atlas-masthead { padding:24px 20px 0; }.atlas-heading h2 { font-size:1.65rem; }.atlas-toolbar { grid-template-columns:1fr 1fr; padding:20px; gap:12px; }.atlas-search-field { grid-column:1/-1; }.atlas-reset-filters { max-width:none; min-height:48px; text-align:end; }.atlas-toolbar :is(input,select) { font-size:1rem; }.airport-refine { margin-inline:20px; }
+ .atlas-workspace { grid-template-columns:1fr; grid-template-areas:'map' 'desk'; }.atlas-information { min-height:0; max-height:none; border-inline-end:0; border-top:1px solid var(--line); padding:24px 20px; }.atlas-place-list { max-height:440px; overflow:auto; padding-inline:3px; }.airport-map-heading { gap:10px; }.airport-map-heading>div { flex-basis:100%; }.atlas-canvas,.airport-atlas #dirmap { min-height:290px; height:310px; max-height:310px; }.airport-region-pins { padding:10px 16px; }.airport-region-pins button { font-size:.68rem; }.atlas-fit { top:12px; inset-inline-start:12px; }.atlas-map-count { inset-inline-start:12px; bottom:12px; }.atlas-zoom { inset-inline-end:12px; bottom:12px; }.atlas-continent-labels { display:none; }
+ .atlas-local,.airport-map-about { padding-inline:20px; }.atlas-external-links { display:grid; gap:8px; }.atlas-external-links>span { margin-inline-start:0; }.airport-examples { grid-template-columns:1fr; }.airport-atlas.is-expanded .atlas-information { max-height:none; min-height:0; }.airport-atlas.is-expanded .atlas-canvas { min-height:310px; }.airport-atlas.is-expanded { inset:6px; }
+}
+@media(prefers-reduced-motion:reduce) { .airport-atlas * { animation:none!important; transition:none!important; scroll-behavior:auto; } }
+@media print { .atlas-toolbar,.atlas-zoom,.atlas-fit,.atlas-browser,.atlas-back,.airport-refine,.airport-map-options,.airport-region-pins,.airport-close-expanded { display:none!important; }.atlas-workspace { display:block; }.atlas-information { max-height:none; min-height:0; overflow:visible; }.airport-atlas { box-shadow:none; } }

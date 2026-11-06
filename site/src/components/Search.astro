@@ -13,7 +13,7 @@ const index = airports.map((a) => [a.code, a.short, a.city, translateTerm(a.coun
   <svg class="ico" width="22" height="22" aria-hidden="true"><use href="#i-search"/></svg>
   <input id={id} name="q" type="search" placeholder={t.home.searchPlaceholder} autocomplete="off"
     role="combobox" aria-expanded="false" aria-controls={`${id}-list`} aria-autocomplete="list">
-  <button type="submit" class="search-submit" aria-label={t.home.searchLabel}><span aria-hidden="true">→</span></button>
+  <button type="submit" class="search-submit" aria-label={t.home.searchLabel}><svg class="directional-icon" width="24" height="24" aria-hidden="true"><use href="#i-arrow"/></svg></button>
   <p class="search-feedback" data-search-feedback role="status" hidden></p>
   <span class="sr" data-search-count role="status" aria-live="polite"></span>
   <ul class="suggest" id={`${id}-list`} role="listbox" aria-label={t.home.searchLabel} hidden></ul>

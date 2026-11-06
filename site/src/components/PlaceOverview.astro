@@ -1,4 +1,5 @@
 ---
+import WayfindingSymbol from './WayfindingSymbol.astro';
 import { getCopy, formatCount } from '../lib/i18n.js';
 import { PRESENTATION_COPY } from '../data/presentation-copy.js';
 const { place, kind, locale='en', direction='' } = Astro.props;
@@ -8,35 +9,36 @@ const count=place.spaces.length;
 const roomValue=airport && place.status!=='room' ? t.status[place.status] : formatCount(count,locale);
 const tone={yes:'p-yes',partial:'p-part',partition:'p-part',no:'p-no',unknown:'p-unk'};
 const fields=[
- {key:'rooms',icon:'mark',label:airport && place.status!=='room'?t.common.prayerRooms:t.common.listings,value:roomValue},
+ {key:'rooms',icon:'room',label:airport && place.status!=='room'?t.common.prayerRooms:t.common.listings,value:roomValue},
  {key:'wudu',icon:'water',label:t.common.wudu,value:pending?t.status.pending:t.amenities.wudu[place.wudu] || t.common.notStated,tone:pending?'p-unk':tone[place.wudu] || 'p-unk'},
  {key:'women',icon:'screen',label:t.common.women,value:pending?t.status.pending:t.amenities.women[place.women] || t.common.notStated,tone:pending?'p-unk':tone[place.women] || 'p-unk'},
  {key:'qibla',icon:'qibla',label:t.common.qibla,value:Number.isFinite(place.qibla)?`${new Intl.NumberFormat(locale,{maximumFractionDigits:1}).format(place.qibla)}°`:t.common.notStated},
-];
+].filter(field=>!(['wudu','women'].includes(field.key)&&(pending||!place[field.key]||place[field.key]==='unknown')));
+const missing=['wudu','women'].filter(key=>pending||!place[key]||place[key]==='unknown').map(key=>t.common[key]);
 ---
-<section class="place-overview" aria-labelledby="place-overview-title">
+{count!==1&&<section class="place-overview" aria-labelledby="place-overview-title">
  <h2 id="place-overview-title">{t.detail.facilities}</h2>
- <dl class="overview-facts">
+ <dl class:list={['overview-facts',`overview-facts--${fields.length}`]}>
   {fields.map(field=><div class={`overview-fact overview-${field.key}`} data-overview-fact={field.key}>
-   <dt><svg width="20" height="20" aria-hidden="true"><use href={`#i-${field.icon}`}/></svg>{field.label}</dt>
+   <dt><WayfindingSymbol name={field.icon} size={36}/>{field.label}</dt>
    <dd>{field.tone ? <span class={`pill ${field.tone}`}>{field.value}</span> : <span class:list={['overview-value',{'overview-number':field.key==='rooms'&&(!airport||place.status==='room'),'overview-degree':field.key==='qibla'&&Number.isFinite(place.qibla)}]}><bdi>{field.value}</bdi></span>}
     {field.key==='qibla'&&<span class="overview-bearing">{direction && <bdi>{direction} · </bdi>}{t.detail.qiblaFixed}</span>}
    </dd>
   </div>)}
  </dl>
  {kind==='hospitals' && <p class="overview-chaplain"><svg width="19" height="19" aria-hidden="true"><use href="#i-community"/></svg><span><strong>{p.chaplain}</strong> · {place.chaplain?p.listed:t.common.notStated}</span>{place.chaplaincy&&<a href="#chap-h">{t.detail.contactTeam}<span aria-hidden="true"> ↓</span></a>}</p>}
- {(count>1 || pending || place.wudu==='unknown' || place.women==='unknown')&&<p class="overview-scope"><svg width="16" height="16" aria-hidden="true"><use href="#i-info"/></svg><span>{count>1 && p.scope} {(pending || place.wudu==='unknown' || place.women==='unknown')&&t.detail.safety}</span></p>}
-</section>
+ {(count>1 || missing.length>0)&&<p class="overview-scope"><svg width="16" height="16" aria-hidden="true"><use href="#i-info"/></svg><span>{count>1 && p.scope} {missing.length>0&&`${t.common.notStated}: ${missing.join(' · ')}.`}</span></p>}
+</section>}
 <style>
  .place-overview { margin-block:28px 22px; min-width:0; }
  h2 { font:600 clamp(1.25rem,1.05rem + .6vw,1.55rem)/1.3 var(--f-display); margin:0 0 16px; letter-spacing:-.025em; }
- .overview-facts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); margin:0; border:1px solid var(--line); border-radius:8px; overflow:hidden; background:color-mix(in srgb,var(--surface-2) 66%,transparent); }
+ .overview-facts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); margin:0; border:1px solid var(--line); border-radius:14px; overflow:hidden; background:color-mix(in srgb,var(--surface-2) 66%,transparent); }
  .overview-fact { min-width:0; padding:clamp(18px,2.1vw,26px); border-inline-end:1px solid var(--line); }
  .overview-fact:nth-child(2n) { border-inline-end:0; }
  .overview-fact:nth-child(-n+2) { border-bottom:1px solid var(--line); }
- dt { display:flex; align-items:center; gap:9px; font-size:.88rem; font-weight:500; color:var(--muted); line-height:1.45; }
+ dt { display:flex; align-items:center; gap:12px; font-size:.88rem; font-weight:500; color:var(--muted); line-height:1.45; }
  dt svg { flex:none; color:var(--ink); }
- dd { margin:14px 0 0; display:grid; justify-items:start; gap:9px; }
+ dd { margin:20px 0 0; display:grid; justify-items:start; gap:9px; }
  .overview-value { font:600 clamp(1.08rem,1rem + .25vw,1.2rem)/1.35 var(--f-display); overflow-wrap:anywhere; }
  .overview-number { font-size:clamp(2.15rem,1.9rem + .8vw,2.65rem); font-variant-numeric:tabular-nums; letter-spacing:-.045em; line-height:1.08; }
  .overview-degree { font-size:clamp(1.4rem,1.2rem + .5vw,1.65rem); font-variant-numeric:tabular-nums; letter-spacing:-.02em; }
@@ -50,6 +52,8 @@ const fields=[
  .overview-scope svg { flex:none; margin-top:3px; }
  @container prayer-guide (min-width:760px) {
   .overview-facts { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .overview-facts--2 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .overview-facts--3 { grid-template-columns:repeat(3,minmax(0,1fr)); }
   .overview-fact:nth-child(-n+2) { border-bottom:0; }
   .overview-fact:nth-child(2) { border-inline-end:1px solid var(--line); }
  }

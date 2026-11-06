@@ -213,47 +213,7 @@ html[dir=rtl] .menu-destinations>a[aria-current] { box-shadow:inset -3px 0 var(-
 .directory-workspace .list[data-view=cards] .lrow .code { width:auto; min-height:0; padding:0; border:0; background:none; flex-direction:row; justify-content:start; }
 .directory-workspace .list[data-view=cards] .lrow .c-s { display:none; }
 .directory-workspace .list[data-view=cards] .row-arrow { position:absolute; top:14px; inset-inline-end:14px; }
-.airport-atlas { margin:0; border-radius:9px; background:color-mix(in srgb,var(--surface) 85%,transparent); }
-.atlas-heading { padding:18px 18px 14px; }
-.atlas-heading h2 { font-size:1.25rem; margin:8px 0; }
-.atlas-heading .eyebrow { font-size:.72rem; }
-.atlas-heading p { font-size:.86rem; }
-.atlas-toolbar { padding:0 18px 18px; gap:12px; flex-wrap:wrap; }
-.atlas-toolbar>label:first-child { width:100%; }
-.atlas-qibla-switch { max-width:none; min-height:44px; font-size:.86rem; }
-.atlas-toolbar>label:first-child { min-width:0; font-size:.87rem; }
-.atlas-toolbar select { min-width:0; min-height:48px; }
-.atlas-bottom { padding:0 18px 18px; }
-.atlas-legend { font-size:.8rem; }
-.atlas-notes p { font-size:.82rem; }
-.atlas-notes>a { font-size:.78rem; min-height:32px; display:inline-flex; align-items:center; }
-.atlas-zoom { inset-inline-end:10px; inset-block-start:10px; }
-.atlas-zoom button { width:44px; height:44px; }
-.atlas-zoom output { font-size:.65rem; padding-block:4px; }
-.atlas-zoom button:focus-visible { outline-offset:-4px; }
-.atlas-map-count { font:400 .75rem var(--f-body); }
-.atlas-close { width:44px; height:44px; }
-.atlas-card-heading>div { min-width:0; }
-.atlas-code { flex:none; }
-.atlas-card-footer { flex-direction:column; align-items:stretch; gap:12px; }
-.atlas-card-footer small { font-size:.8rem; }
-.atlas-card-actions { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px 20px; }
-.atlas-card-actions button { min-height:44px; padding:8px 12px; border:1px solid var(--line); border-radius:6px; background:var(--surface-2); color:var(--ink); font-size:.85rem; cursor:pointer; }
-.atlas-card-actions button:hover { border-color:var(--field); }
-.atlas-guide-link { min-height:44px; font-size:.9rem; }
-.atlas-card-heading h3 { font-size:1.04rem; }
-.atlas-airport-card dl { grid-template-columns:1fr 1fr; }
-.atlas-airport-card dt { font-size:.76rem; }
-.atlas-airport-card dd { font-size:.88rem; }
-/* The atlas has the same visual hierarchy as a room guide. */
-.room-main .atlas-information { margin-top:18px; padding:18px; border:1px solid var(--line); border-radius:8px; background:color-mix(in srgb,var(--surface-2) 45%,transparent); }
-.room-main .atlas-guide-link { background:var(--sign); color:var(--sign-ink); border:1px solid var(--sign); border-radius:6px; padding:10px 14px; line-height:1.4; }
-.room-main .atlas-guide-link:hover { border-color:var(--ink); }
-.room-main .atlas-map-count { max-width:calc(100% - 82px); line-height:1.4; }
-.room-main .atlas-legend { gap:10px 18px; }
-.room-main .atlas-airport-card dt { display:flex; align-items:center; gap:6px; }
-.room-main .atlas-airport-card dt svg { flex:none; }
-.room-main .atlas-airport-card dd { font-weight:400; font-size:.94rem; line-height:1.5; }
+/* The map explorer owns its styles in airport-map.css. */
 /* Place guides: facts first, each room's sources stay attached to it. */
 .room-main .crumbs { margin:0 0 18px; font-size:.85rem; flex-wrap:wrap; }
 .room-main .crumbs>a { display:inline-flex; align-items:center; gap:7px; min-height:36px; }
@@ -667,9 +627,7 @@ html[dir=rtl] .room-main .tag,html[dir=rtl] .room-main .badge { font-size:.93rem
  .room-main :is(input,select,textarea),.menu-preferences select { font-size:1rem; }
  .immersive-site .footer-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
  .immersive-site .footer-about { grid-column:1/-1; }
- .room-main .atlas-information { padding:14px; }
 }
 @media print {
  .active-filters,.directory-fields { display:none!important; }
- .room-main .atlas-guide-link { background:none; color:#111; border-color:#888; }
 }

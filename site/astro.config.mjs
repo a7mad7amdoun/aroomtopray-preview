@@ -16,6 +16,7 @@ pending.push(...hospHold);
 const travelHold = TRAVEL_REVIEWED ? [] : ['/travel/'];
 
 export default defineConfig({
+  devToolbar: { enabled: false },
   site: 'https://aroomtopray.com',
   trailingSlash: 'always',
   build: { format: 'directory' },

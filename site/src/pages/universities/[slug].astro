@@ -1,7 +1,8 @@
 ---
 import PlacePhotos from '../../components/PlacePhotos.astro';
 import PlaceOverview from '../../components/PlaceOverview.astro';
-import VisitorArtwork from '../../components/VisitorArtwork.astro';
+import OfficialPlaceSource from '../../components/OfficialPlaceSource.astro';
+import RelatedPlaceGuides from '../../components/RelatedPlaceGuides.astro';
 import VisitInsights from '../../components/VisitInsights.astro';
 import DetailGuide from '../../components/DetailGuide.astro';
 import PlaceActions from '../../components/PlaceActions.astro';
@@ -43,11 +44,12 @@ const guideTabs=[{id:'room-details',label:g.rooms,icon:'pin'},{id:'direction',la
   <div class="wrap">
     <DetailGuide place={u} kind="University" />
     <PlaceOverview place={u} kind="universities" direction={dirName(u.qibla)} />
+    <OfficialPlaceSource place={u} kind="universities"/>
     {u.conflict && <p class="note" style="margin-top:12px">Some details differ between the university’s own pages, or may be out of date. Confirm times and room numbers with the university or the Islamic society before you go.</p>}
     {u.thin && <p class="note" style="margin-top:12px">Limited information: we found only one official listing here. Confirm the location and access with the university or the Islamic society.</p>}
     <PlaceActions place={u} kind="University" />
 
-    <p class="byline" style="margin-top:12px"><span>Edited by <a href="/about/#editor">Hamza Abdul-Tawwaab</a></span><span>Most campus rooms are for students and staff; check access before you visit.</span><span><a href="#report">Report a correction</a></span></p>
+    <p class="byline" style="margin-top:12px"><span>Edited by <a href="/about/#editor">Hamza Abdul-Tawwaab</a></span><span><a href="#report">Report a correction</a></span></p>
     <div class="d-grid" data-guide-tabs>
       <GuideTabNav tabs={guideTabs} label={g.overview}/>
       <div class="d-main guide-panel" id="room-details">
@@ -106,9 +108,9 @@ const guideTabs=[{id:'room-details',label:g.rooms,icon:'pin'},{id:'direction',la
           <div class="ok" hidden data-ok tabindex="-1"><svg width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg>Thanks. Your report is waiting for the editor to check it.</div>
           <p class="err" hidden data-err role="alert">Your report didn’t send. Check your connection and try again; your text is still here.</p>
         </details>
-        <VisitorArtwork scene="campus" placement="supporting" purpose="visitor-preparation"/>
       </div>
     </div>
+    <RelatedPlaceGuides place={u} kind="universities" places={universities}/>
   </div>
 </Base>
 <script>

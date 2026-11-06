@@ -1,10 +1,17 @@
 ---
-import { photosForPlace, photoSearchUrl, linkedPhotoSources, photoSrcset } from '../lib/place-photos.js';
+import { photosForPlace, contextPhotosForPlace, photoSearchUrl, linkedPhotoSources, photoSrcset } from '../lib/place-photos.js';
 import { PHOTO_COPY } from '../data/photo-copy.js';
 import { PRESENTATION_COPY } from '../data/presentation-copy.js';
 import PhotoViewer from './PhotoViewer.astro';
 const { place, locale='en' } = Astro.props;
-const t=PHOTO_COPY[locale] || PHOTO_COPY.en, photos=photosForPlace(place.url), sources=linkedPhotoSources(place);
+const t=PHOTO_COPY[locale] || PHOTO_COPY.en, photos=[...photosForPlace(place.url),...contextPhotosForPlace(place.url)], sources=linkedPhotoSources(place);
+const contextCopy={
+ en:{kind:'Architecture of this place',note:'This photograph shows this institution’s architecture, not its prayer room or a verified route to it.',changes:'Resized, lightly sharpened and converted to WebP. No AI editing.'},
+ fr:{kind:'Architecture de ce lieu',note:'Cette photographie montre l’architecture de cet établissement, pas sa salle de prière ni un itinéraire vérifié pour y accéder.',changes:'Redimensionnement, légère accentuation et conversion en WebP. Aucune retouche par IA.'},
+ ar:{kind:'عمارة هذا المكان',note:'تُظهر هذه الصورة عمارة هذه المؤسسة، لا غرفة الصلاة ولا مسارًا مؤكدًا للوصول إليها.',changes:'تغيير الحجم وزيادة طفيفة للوضوح والتحويل إلى WebP، دون تعديل بالذكاء الاصطناعي.'},
+ es:{kind:'Arquitectura de este lugar',note:'Esta fotografía muestra la arquitectura de esta institución, no su sala de oración ni una ruta verificada para llegar a ella.',changes:'Redimensionada, con ligera mejora de nitidez y convertida a WebP. Sin edición mediante IA.'},
+};
+const context=contextCopy[locale]||contextCopy.en;
 const v=PRESENTATION_COPY[locale] || PRESENTATION_COPY.en;
 const date = value => new Intl.DateTimeFormat(locale,{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(`${value}T12:00:00Z`));
 ---
@@ -17,12 +24,13 @@ const date = value => new Intl.DateTimeFormat(locale,{day:'numeric',month:'long'
     <span class="photo-enlarge" data-photo-hint hidden><svg width="17" height="17" aria-hidden="true"><use href="#i-focus"/></svg>{v.enlarge}</span>
    </a>
    <figcaption>
-    <div class="photo-description"><span class="photo-kind">{t.kinds[photo.kind]}</span>
+    <div class="photo-description"><span class="photo-kind">{photo.kind==='context'?context.kind:t.kinds[photo.kind]}</span>
     <p>{photo.caption[locale] || photo.caption.en}</p>
     {photo.kind==='exterior'&&<p class="photo-caveat">{t.context}</p>}
+    {photo.kind==='context'&&<p class="photo-caveat">{context.note}</p>}
     </div><div class="photo-metadata"><p class="photo-date">{t.captured} <time datetime={photo.dateTaken}>{date(photo.dateTaken)}</time></p>
     <div class="photo-credit"><span>© <bdi>{photo.author}</bdi></span><a href={photo.sourceUrl} target="_blank" rel="noopener noreferrer">{t.original} ↗</a><a href={photo.license.url} target="_blank" rel="license noopener noreferrer">{photo.license.name}</a></div>
-    <small class="photo-processing">{t.changes}</small></div>
+    <small class="photo-processing">{photo.kind==='context'?context.changes:t.changes}</small></div>
    </figcaption>
   </figure>)}</div>
  </>}

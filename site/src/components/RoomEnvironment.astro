@@ -1,14 +1,13 @@
 ---
-import { ROOM_COPY } from '../data/room-copy.js';
-import { DOOR_COPY } from '../data/door-copy.js';
-import ReceptionCard from './ReceptionCard.astro';
 import RoomDestinations from './RoomDestinations.astro';
+import ReceptionCard from './ReceptionCard.astro';
 import RoomArchitecture from './RoomArchitecture.astro';
 import RoomSceneControls from './RoomSceneControls.astro';
 import RoomViewCredits from './RoomViewCredits.astro';
+import RoomLightControls from './RoomLightControls.astro';
 import { QUIET_COPY } from '../data/quiet-copy.js';
 const { kind='home', locale='en', presentation='home' }=Astro.props;
-const r=ROOM_COPY[locale], d=DOOR_COPY[locale], q=QUIET_COPY[locale];
+const q=QUIET_COPY[locale];
 const settings={airports:'airport', universities:'campus', hospitals:'hospital'};
 const outside=settings[kind] || 'airport';
 ---
@@ -27,16 +26,12 @@ const outside=settings[kind] || 'airport';
     <RoomArchitecture {kind} {locale} {presentation}/>
     <div class="room-scene-tools" data-room-tour-interaction>
      <RoomSceneControls {kind} {locale} {presentation}/>
+     <RoomLightControls {locale}/>
      <RoomViewCredits {kind} {locale} {presentation}/>
     </div>
    </div>
    {presentation==='home'&&<RoomDestinations {kind} {locale} {presentation}/>}
-   <div class="room-guide-threshold" dir={locale==='ar'?'rtl':'ltr'}>
-    <span class="room-guide-identity"><svg width="30" height="30" aria-hidden="true"><use href="#i-mark"/></svg><span>{r.information}</span></span>
-    <a class="room-return" href="#prayer-room" data-room-return><svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg>{d.restore}</a>
-   </div>
    <slot name="guide" />
-   {presentation!=='home'&&<RoomDestinations {kind} {locale} {presentation}/>}
   </main>
  </div>
 </div>

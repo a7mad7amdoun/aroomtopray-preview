@@ -1,0 +1,85 @@
+---
+import { CATEGORY_PHOTOGRAPHY } from '../data/category-photography.js';
+import { PLACE_PHOTOS } from '../data/place-photos.js';
+import { PHOTO_COPY } from '../data/photo-copy.js';
+import { localeMeta, localizedPath } from '../lib/i18n.js';
+
+const {kind='airports',locale='en',compact=false,idPrefix='category-photographs',limit}=Astro.props;
+const category=['airports','universities','hospitals'].includes(kind)?kind:'airports';
+const lang=localeMeta(locale).code,pc=PHOTO_COPY[lang];
+const officialLabel={en:'Official website',fr:'Site officiel',ar:'الموقع الرسمي',es:'Sitio web oficial'}[lang];
+const copy={
+ en:{title:{airports:'Before the next departure.',universities:'A place within campus life.',hospitals:'Finding your way through care.'},eyebrow:'Places, photographed',intro:'Real photographs, with their locations and sources. Building views show the setting; they do not establish a prayer room or current access.',listing:'Read the place guide',map:'Find this location on a map',source:'Original photograph',context:'Architecture & surroundings',changes:'Resized and framed for display. No AI editing.'},
+ fr:{title:{airports:'Avant le prochain départ.',universities:'Un lieu dans la vie du campus.',hospitals:'Se repérer dans un lieu de soins.'},eyebrow:'Des lieux photographiés',intro:'Photographies réelles, avec leurs lieux et leurs sources. Les vues des bâtiments présentent le cadre, sans confirmer une salle de prière ni les conditions d’accès actuelles.',listing:'Consulter la fiche du lieu',map:'Chercher ce lieu sur une carte',source:'Photographie originale',context:'Architecture et alentours',changes:'Redimensionnement et cadrage pour l’affichage. Aucune retouche par IA.'},
+ ar:{title:{airports:'قبل الرحلة التالية.',universities:'مكان ضمن الحياة الجامعية.',hospitals:'اهتدِ إلى وجهتك في مكان الرعاية.'},eyebrow:'أماكن بعدسة المصوّرين',intro:'صور حقيقية مع مواقعها ومصادرها. تعرض صور المباني البيئة المحيطة، ولا تثبت وجود غرفة صلاة أو شروط الدخول الحالية.',listing:'اقرأ دليل المكان',map:'ابحث عن الموقع على الخريطة',source:'الصورة الأصلية',context:'العمارة والمحيط',changes:'تغيير الحجم والتأطير للعرض، دون تعديل بالذكاء الاصطناعي.'},
+ es:{title:{airports:'Antes de la próxima salida.',universities:'Un lugar en la vida del campus.',hospitals:'Orientarse en un lugar de cuidados.'},eyebrow:'Lugares fotografiados',intro:'Fotografías reales con sus ubicaciones y fuentes. Las vistas de edificios muestran el entorno; no confirman una sala de oración ni las condiciones actuales de acceso.',listing:'Leer la guía del lugar',map:'Buscar este lugar en el mapa',source:'Fotografía original',context:'Arquitectura y entorno',changes:'Redimensionadas y encuadradas para la presentación. Sin edición con IA.'},
+}[lang];
+const exact=PLACE_PHOTOS.find(photo=>photo.id===({airports:'kuala-lumpur-prayer-room',universities:'warwick-campus-arts-centre',hospitals:'st-thomas-hospital-exterior'}[category]));
+const exactTitle={airports:'Kuala Lumpur International Airport',universities:'University of Warwick · Arts Centre',hospitals:'St Thomas’ Hospital · London'}[category];
+const additional=CATEGORY_PHOTOGRAPHY[category];
+const allPhotos=[...additional.slice(0,2),{...exact,title:exactTitle,location:exactTitle,date:exact.dateTaken},...additional.slice(2)].filter(Boolean);
+const photos=Number.isInteger(limit)&&limit>0?allPhotos.slice(0,limit):allPhotos;
+const headingId=`${idPrefix}-${category}`;
+---
+<section class:list={['category-photo-essay',`category-photo-essay--${category}`,{'category-photo-essay--compact':compact}]} aria-labelledby={headingId} dir={lang==='ar'?'rtl':'ltr'}>
+ <header class="photo-essay-heading"><span>{copy.eyebrow}</span><h2 id={headingId}>{copy.title[category]}</h2><p>{copy.intro}</p></header>
+ <div class="photo-essay-grid">
+  {photos.map((photo,index)=>{
+   const image=photo.images.find(image=>image.width>=960)||photo.images.at(-1);
+   const knownListing=photo.placeUrl||({'bangkok-terminal':'/airports/bkk/','toronto-terminal':'/airports/yyz/','marrakech-terminal':'/airports/rak/','madrid-terminal':'/airports/mad/','toronto-campus':'/universities/university-of-toronto/'}[photo.id]);
+   const local=knownListing?localizedPath(knownListing,lang):null;
+   const locationUrl=local||photo.officialUrl||`https://www.openstreetmap.org/search?${new URLSearchParams({query:[photo.title.split('·')[0].trim(),photo.location].filter(Boolean).join(', ')})}`;
+   return <figure class:list={['photo-essay-entry',{'photo-essay-entry--lead':index===0}]}>
+    <a class="photo-essay-image" data-documentary={photo.kind?'true':undefined} href={photo.sourceUrl} aria-label={`${copy.source}: ${photo.title}`}><img src={image.src} srcset={photo.images.map(image=>`${image.src} ${image.width}w`).join(', ')} sizes={`(max-width: 760px) 92vw, ${!compact&&index>=3?'50vw':'33vw'}`} width={photo.width} height={photo.height} alt={photo.alt[lang]||photo.alt.en} loading="lazy" decoding="async" style={`object-position:${photo.objectPosition||'50% 50%'}`}/></a>
+    <figcaption><span class="photo-essay-type">{photo.kind?pc.kinds[photo.kind]:copy.context}</span><h3 lang="en" dir="auto">{photo.title}</h3><p>{photo.caption[lang]||photo.caption.en}</p>
+     {photo.kind==='exterior'&&<p class="photo-essay-context">{pc.context}</p>}
+     <div class="photo-essay-credit"><a href={photo.sourceUrl}><bdi>{photo.author}</bdi></a><span> · </span><time datetime={photo.date}>{photo.date?.slice(0,4)}</time><span> · </span><a href={photo.license.url} lang="en">{photo.license.name}</a></div>
+     <a class="photo-essay-location" href={locationUrl}>{local?copy.listing:photo.officialUrl?officialLabel:copy.map}<span aria-hidden="true"> ↗</span></a>
+    </figcaption>
+   </figure>;
+  })}
+ </div>
+ <p class="photo-essay-footnote">{copy.changes} {pc.historical}</p>
+</section>
+<style>
+ .category-photo-essay { container:photo-essay/inline-size; margin-block:clamp(36px,5vw,72px); color:var(--ink); min-width:0; }
+ .photo-essay-heading { display:grid; gap:12px; padding-block-end:26px; border-bottom:2px solid var(--ink); margin-bottom:24px; }
+ .photo-essay-heading>span { font:650 .75rem/1.4 var(--f-body); letter-spacing:.09em; text-transform:uppercase; color:var(--muted); }
+ .photo-essay-heading h2 { margin:0; max-width:25ch; font:600 clamp(1.8rem,3vw,3rem)/1.13 var(--f-display); letter-spacing:-.03em; }
+ .photo-essay-heading p { margin:0; max-width:72ch; color:var(--muted); font-size:1rem; line-height:1.65; }
+ .photo-essay-grid { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:28px; align-items:start; }
+ .photo-essay-entry { grid-column:span 2; }
+ .photo-essay-entry:nth-child(n+4) { grid-column:span 3; }
+ .photo-essay-entry { margin:0; min-width:0; }
+ .photo-essay-entry--lead { grid-row:auto; }
+ .photo-essay-image { display:block; background:var(--surface-2); border:1px solid var(--line); overflow:hidden; aspect-ratio:4/3; }
+ .photo-essay-image img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+ .photo-essay-image[data-documentary] img { object-fit:contain; }
+ .photo-essay-image:not([data-documentary]):hover img { transform:scale(1.025); }
+ .photo-essay-entry--lead img { max-height:none; }
+ .photo-essay-entry figcaption { padding-block:16px 0; }
+ .photo-essay-type { display:block; margin-bottom:7px; font:600 .72rem/1.5 var(--f-body); letter-spacing:.04em; color:var(--muted); }
+ .photo-essay-entry h3 { margin:0 0 9px; font:600 clamp(1.05rem,1.4vw,1.35rem)/1.35 var(--f-display); }
+ .photo-essay-entry p { font-size:.93rem; line-height:1.65; margin:0 0 10px; }
+ .photo-essay-credit,.photo-essay-context { color:var(--muted); font-size:.78rem!important; line-height:1.6; }
+ .photo-essay-location { display:inline-flex; align-items:center; min-height:44px; font:600 .83rem/1.5 var(--f-body); }
+ .category-photo-essay a { color:inherit; text-underline-offset:4px; }
+ .category-photo-essay a:focus-visible { outline:3px solid var(--focus); outline-offset:4px; }
+ .photo-essay-footnote { margin:24px 0 0; border-top:1px solid var(--line); padding-top:14px; font-size:.8rem; line-height:1.65; color:var(--muted); max-width:95ch; }
+ .category-photo-essay--airports .photo-essay-heading { border-color:var(--sign); }
+ .category-photo-essay--universities .photo-essay-heading { border-block-end:3px double var(--category-rule,var(--line)); }
+ .category-photo-essay--universities .photo-essay-heading h2 { font-family:'Room Invitation',Georgia,serif; font-size:clamp(2rem,3.6vw,3.5rem); font-weight:500; }
+ .category-photo-essay--hospitals .photo-essay-heading { border-color:var(--category-rule,var(--line)); }
+ .category-photo-essay--hospitals .photo-essay-image { border-radius:14px; }
+ .category-photo-essay--compact .photo-essay-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+ .category-photo-essay--compact .photo-essay-entry { grid-column:span 1; }
+ .category-photo-essay--compact .photo-essay-entry--lead { grid-row:auto; }
+ .category-photo-essay--compact .photo-essay-heading h2 { font-size:1.7rem; }
+ @container photo-essay (max-width:650px) { .photo-essay-grid,.category-photo-essay--compact .photo-essay-grid { grid-template-columns:1fr; gap:28px; } .photo-essay-entry--lead { grid-row:auto; } }
+ @container photo-essay (max-width:650px) { .photo-essay-entry,.photo-essay-entry:nth-child(n+4) { grid-column:1; } }
+ .category-photo-essay[dir=rtl] :is(h2,h3,.photo-essay-type,.photo-essay-heading>span) { letter-spacing:0; }
+ .category-photo-essay[dir=rtl] .photo-essay-heading h2 { line-height:1.5; }
+ .category-photo-essay[dir=rtl] .photo-essay-heading h2 { font-family:var(--f-arabic); }
+ @media(prefers-reduced-motion:reduce) { .photo-essay-image img { transition:none; } .photo-essay-image:not([data-documentary]):hover img { transform:none; } }
+ @media print { .photo-essay-entry { break-inside:avoid; } }
+</style>

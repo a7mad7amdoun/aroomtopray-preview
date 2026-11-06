@@ -1624,30 +1624,30 @@
       {
         "name": "University of Melbourne Musallah",
         "location": "Corner of Pelham and Leicester Streets: female space 156-162 Pelham St (Building 252), male space 164-170 Pelham St (Building 253), ground floor; entrances via Little Pelham Street",
-        "access": "unknown",
+        "access": "Registered University of Melbourne staff and students only; individual swipe cards required. Unaffiliated visitors are not admitted.",
         "hours": "All five daily prayers",
         "wudu": "yes",
         "women": "separate",
         "type": "musalla",
-        "jumuah": "Friday prayers weekly in the Islamic Prayer Space (time not stated)",
+        "jumuah": "Friday prayers weekly in the Islamic Prayer Space; times vary by semester and daylight saving. Check the official schedule.",
         "source_url": "https://students.unimelb.edu.au/support-and-wellbeing/health-and-wellbeing/faith-and-spirituality/faiths-directory",
-        "source_type": "official page; fetched via r.jina.ai",
+        "source_type": "official page; content reviewed 6 November 2026",
         "verified": "official-read",
-        "accessed": "2026-10-13"
+        "accessed": "2026-11-06"
       },
       {
         "name": "Music Building multi-faith room",
         "location": "Southbank, Music Building (Building 862), Room 404",
-        "access": "Bookable through the chaplaincy coordinator; Southbank rooms via DIBS",
+        "access": "Book the Southbank prayer/quiet room through DIBS; check the booking conditions.",
         "hours": "unknown",
         "wudu": "unknown",
         "women": "unknown",
         "type": "multi-faith",
         "jumuah": "unknown",
         "source_url": "https://students.unimelb.edu.au/support-and-wellbeing/health-and-wellbeing/faith-and-spirituality/faiths-directory",
-        "source_type": "official page; fetched via r.jina.ai",
+        "source_type": "official page; content reviewed 6 November 2026",
         "verified": "official-read",
-        "accessed": "2026-10-13"
+        "accessed": "2026-11-06"
       }
     ],
     "feedback_url": "https://students.unimelb.edu.au/support-and-wellbeing/health-and-wellbeing/faith-and-spirituality/contact-us",

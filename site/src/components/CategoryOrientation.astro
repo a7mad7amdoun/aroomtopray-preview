@@ -1,7 +1,9 @@
 ---
-import { getCopy, localeMeta } from '../lib/i18n.js';
+import { getCopy, localeMeta, localizedPath } from '../lib/i18n.js';
 import { GUIDE_COPY } from '../data/guide-copy.js';
-import { getGuideArtwork } from '../data/guide-artwork.js';
+import { PLACE_PHOTOS } from '../data/place-photos.js';
+import { PHOTO_COPY } from '../data/photo-copy.js';
+import { photoSrcset } from '../lib/place-photos.js';
 import '../styles/category-orientation.css';
 
 const { kind = 'airports', locale = 'en' } = Astro.props;
@@ -11,7 +13,9 @@ const category = ['airports', 'universities', 'hospitals'].includes(kind) ? kind
 const c = t.directories[category];
 const g = GUIDE_COPY[language];
 const emblem = { airports: 'airport', universities: 'campus', hospitals: 'care' }[category];
-const artwork = getGuideArtwork(category, language);
+const photo = PLACE_PHOTOS.find(photo=>photo.id===({airports:'heathrow-prayer-sign',universities:'warwick-campus-arts-centre',hospitals:'st-thomas-hospital-exterior'}[category]));
+const pc=PHOTO_COPY[language];
+const checkpointLabels={en:{airports:['Destination','Security','Facilities'],universities:['Campus','Access','Opening hours'],hospitals:['Hospital site','Room location','Staff support']},fr:{airports:['Destination','Sécurité','Équipements'],universities:['Campus','Accès','Horaires'],hospitals:['Site hospitalier','Emplacement','Aide du personnel']},ar:{airports:['الوجهة','الأمن','المرافق'],universities:['الحرم الجامعي','الدخول','ساعات العمل'],hospitals:['موقع المستشفى','مكان الغرفة','مساعدة الموظفين']},es:{airports:['Destino','Seguridad','Instalaciones'],universities:['Campus','Acceso','Horario'],hospitals:['Sede del hospital','Ubicación','Ayuda del personal']}}[language][category];
 const symbols = {
   airports: ['search', 'security', 'door-open'],
   universities: ['campus', 'key', 'clock'],
@@ -29,13 +33,15 @@ const headingId = `orientation-${category}`;
       </div>
       <h2 id={headingId}>{c.wayfindingTitle}</h2>
     </div>
-    <figure class="orientation-art" data-artwork={artwork.id}>
+    <figure class="orientation-art orientation-photograph" data-photo-kind={photo.kind}>
       <div class="orientation-art-mat">
-        <img src={artwork.src} srcset={artwork.srcset} sizes="(max-width: 600px) 85vw, 440px" width={artwork.width} height={artwork.height} alt={artwork.alt} loading="lazy" decoding="async"/>
+        <a href={localizedPath(photo.placeUrl,language)}><img src={photo.images[1].src} srcset={photoSrcset(photo)} sizes="(max-width: 600px) 85vw, 440px" width={photo.width} height={photo.height} alt={photo.alt[language]} loading="lazy" decoding="async"/></a>
       </div>
       <figcaption>
-        <span class="orientation-art-title" lang="en" dir="ltr"><cite>{artwork.title}</cite>{artwork.artist && <> · {artwork.artist}, {artwork.date}</>}</span>
-        {artwork.source ? <a href={artwork.source}>{artwork.credit}<svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a> : <span>{artwork.credit}</span>}
+        <span class="orientation-art-title">{pc.kinds[photo.kind]} · {photo.caption[language]}</span>
+        <span><a href={photo.sourceUrl}>{photo.author}</a> · <a href={photo.license.url}>{photo.license.name}</a></span>
+        {photo.kind==='exterior'&&<span>{pc.context}</span>}
+        <span>{pc.changes}</span>
       </figcaption>
     </figure>
   </header>
@@ -44,7 +50,7 @@ const headingId = `orientation-${category}`;
     {c.steps.map((step, index) => (
       <li>
         <span class="orientation-symbol" aria-hidden="true"><svg width="28" height="28"><use href={`#i-${symbols[index]}`}/></svg></span>
-        <h3><span>{step.title}</span></h3>
+        <h3><span class="orientation-checkpoint"><span class="orientation-sequence">{new Intl.NumberFormat(language,{minimumIntegerDigits:2}).format(index+1)}</span> {checkpointLabels[index]}</span><span>{step.title}</span></h3>
         <p>{step.text}</p>
       </li>
     ))}
@@ -55,3 +61,9 @@ const headingId = `orientation-${category}`;
     <div><strong>{t.detail.caution}</strong><p>{c.note}</p></div>
   </div>
 </section>
+<style>
+ .orientation-art-mat>a { display:block; width:100%; height:100%; min-height:0; }
+ .orientation-checkpoint { display:block; margin-bottom:5px; font:600 .72rem/1.45 var(--f-body); letter-spacing:.06em; color:var(--orientation-muted); }
+ .orientation-sequence { font-variant-numeric:tabular-nums; margin-inline-end:7px; }
+ :global(html[dir=rtl]) .orientation-checkpoint { letter-spacing:0; font-size:.9rem; }
+</style>

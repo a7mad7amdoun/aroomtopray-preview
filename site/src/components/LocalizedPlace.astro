@@ -1,17 +1,19 @@
 ---
-import RoomPicker from './RoomPicker.astro';
+import DetailGuide from './DetailGuide.astro';
 import PlacePhotos from './PlacePhotos.astro';
 import PlaceOverview from './PlaceOverview.astro';
-import VisitorArtwork from './VisitorArtwork.astro';
+import OfficialPlaceSource from './OfficialPlaceSource.astro';
+import RelatedPlaceGuides from './RelatedPlaceGuides.astro';
+import { universities } from '../lib/universities.js';
+import { hospitals } from '../lib/hospitals.js';
 import GuideTabNav from './GuideTabNav.astro';
 import CountryBadge from './CountryBadge.astro';
 import {GUIDE_COPY} from '../data/guide-copy.js';
 import Base from '../layouts/Base.astro';
 import PlaceActions from './PlaceActions.astro';
 import VisitInsights from './VisitInsights.astro';
-import { photosForPlace } from '../lib/place-photos.js';
-import { PHOTO_COPY } from '../data/photo-copy.js';
-import { L, host } from '../lib/airports.js';
+import { DETAIL_GUIDE_COPY } from '../data/detail-guide-copy.js';
+import { L, host, airports } from '../lib/airports.js';
 import { getCopy, translateTerm, localizedPath } from '../lib/i18n.js';
 
 interface Props { place: any; kind: 'airports' | 'universities' | 'hospitals'; locale: 'fr' | 'ar' | 'es' }
@@ -127,7 +129,6 @@ const provenance = (verified) => verified === true ? (airport ? t.officialAirpor
   : verified === 'archive' ? t.archive : verified === 'snippet' ? t.snippet : verified === 'indirect' ? t.indirect : t.unofficial;
 const verificationClass = (verified) => verified === false || verified == null ? 'b-unv' : 'b-ok';
 const warnings = [place.hold && t.hold, place.conflict && t.conflict, place.thin && t.thin, airport && place.status === 'pending' && t.pending, airport && place.status === 'none' && t.unlisted, airport && place.status === 'planned' && t.planned].filter(Boolean);
-const firstRoom = place.spaces[0];
 const qibla = Number(place.qibla);
 const badge = (map, key) => map[key] || map.unknown;
 const roomStatus = airport ? common.status[place.status] : place.hold ? common.common.checking : `${place.spaces.length} · ${t.rooms}`;
@@ -152,22 +153,14 @@ const amenity = (group, key) => common.amenities[group][key] || common.amenities
     </div>
   </Fragment>
   <div class={`wrap localized-place sector-${kind}`}>
+    <DetailGuide {place} {kind} {locale}/>
     <PlaceOverview {place} {kind} {locale} />
+    <OfficialPlaceSource {place} {kind} {locale}/>
     {warnings.map(warning => <p class="note localized-warning">{warning}</p>)}
     {place.note && <p class="note localized-warning" lang="en" dir="ltr">{place.note}</p>}
     {kind === 'hospitals' && <p class="fine localized-summary-note">{t.hospitalScope}</p>}
-    <section class="visit-intro" aria-labelledby="visit-intro-title">
-      <div class="visit-intro-copy"><span class="icon-tile"><svg width="28" height="28" aria-hidden="true"><use href="#i-pin" /></svg></span><div><h2 id="visit-intro-title">{t.before}</h2><p>{intro}</p></div></div>
-      <nav class="page-jumps" aria-label={t.onPage}><a href="#room-details">{t.details} <span aria-hidden="true">↓</span></a><a href="#qibla">{t.qibla} <span aria-hidden="true">↓</span></a>{photosForPlace(place.url).length>0&&<a href="#place-photos"><svg width="17" height="17" aria-hidden="true"><use href="#i-photo"/></svg>{PHOTO_COPY[locale].title}<span aria-hidden="true">↓</span></a>}{place.chaplaincy && <a href="#chap-h">{t.chaplaincy} <span aria-hidden="true">↓</span></a>}</nav>
-      <RoomPicker {place} {kind} {locale} label={t.choose} countLabel={String(place.spaces.length)}/>
-    </section>
     <PlaceActions {place} kind={noteKind} />
-    <aside class="translation-notice note"><p>{t.sourceNotice}</p><a href={place.url} hreflang="en">{t.original} <span aria-hidden="true">↗</span></a></aside>
-    {firstRoom && <ol class="visit-steps" aria-label={t.before}>
-      <li><span class="eyebrow">01 · {t.locate}</span><strong><bdi lang="en">{firstRoom.name}</bdi></strong><span lang="en" dir="ltr">{firstRoom.loc}</span></li>
-      <li><span class="eyebrow">02 · {t.enter}</span><strong>{airport ? t.security : t.access}</strong><span lang={airport ? undefined : attrs(firstRoom.access).lang} dir={airport ? undefined : attrs(firstRoom.access).dir}>{airport ? amenity('side', firstRoom.side) : term(firstRoom.access)}</span></li>
-      <li><span class="eyebrow">03 · {t.prepare}</span><strong>{t.checkHours}</strong><span {...attrs(firstRoom.hours)}>{term(firstRoom.hours)}</span></li>
-    </ol>}
+    <details class="translation-notice note"><summary>{DETAIL_GUIDE_COPY[locale].translations}</summary><p>{t.sourceNotice}</p><a href={place.url} hreflang="en">{t.original} <span aria-hidden="true">↗</span></a></details>
     <div class="d-grid" data-guide-tabs>
       <GuideTabNav tabs={guideTabs} label={g.overview}/>
       <div class="d-main guide-panel" id="room-details">
@@ -212,8 +205,8 @@ const amenity = (group, key) => common.amenities[group][key] || common.amenities
       <aside id="visitor-tools" class="d-side guide-panel">
         <VisitInsights {kind} {locale} placeUrl={place.url} compact />
         <section class="card stack"><h2>{t.original}</h2><p>{t.originalHelp}</p><a class="btn sign-btn" href={place.url} hreflang="en">{t.original} <span aria-hidden="true">↗</span></a><a class="fine" href={`${place.url}#report`} hreflang="en">{t.correction}</a></section>
-        <VisitorArtwork scene={airport ? 'airport' : university ? 'campus' : 'hospital'} {locale} placement="supporting" purpose="visitor-preparation"/>
       </aside>
     </div>
+    <RelatedPlaceGuides {place} {kind} {locale} places={airport?airports:university?universities:hospitals}/>
   </div>
 </Base>

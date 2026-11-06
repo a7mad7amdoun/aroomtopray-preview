@@ -1,6 +1,9 @@
 ---
 import { visitSummary } from '../lib/visit-summary.js';
 import CountryFlag from './CountryFlag.astro';
+import PlaceIdentity from './PlaceIdentity.astro';
+import { placeIdentity } from '../lib/place-identities.js';
+import { ROOM_COPY } from '../data/room-copy.js';
 import { countryCode, countryName, countrySearchText } from '../lib/countries.js';
 import { getCopy, localizedPath, translateTerm, formatCount } from '../lib/i18n.js';
 import { photosForPlace } from '../lib/place-photos.js';
@@ -19,24 +22,47 @@ const fields=[
  {icon:'qibla',label:t.common.qibla,value:`${formatCount(Math.round(p.qibla),locale)}°`},
 ];
 ---
-<a class="lrow directory-result" href={localizedPath(p.url,locale)} aria-labelledby={`${id}-name`} aria-describedby={`${id}-location ${id}-status${p.spaces.length ? ` ${id}-visit` : ''}`}
+<a class="lrow directory-result" href={localizedPath(p.url,locale)} aria-labelledby={`${id}-name`} aria-describedby={`${id}-location ${id}-status${p.spaces.length ? ` ${id}-visit` : ''} ${id}-facilities`}
  data-name={p.name} data-location={p.city} data-country={countryCode(p.country)} data-region={airport?p.region:p.country} data-status={p.status} data-halal={hasHalal?'1':'0'} data-rooms={JSON.stringify(p.rooms)} data-text={[p.iata,p.name,p.city,p.country,translateTerm(p.country,locale),countrySearchText(p.country),p.group].filter(Boolean).join(' ')}>
  <span class="code"><CountryFlag country={p.country}/><bdi>{p.iata||countryCode(p.country)}</bdi></span>
  <span class="nm">
-  <b id={`${id}-name`} dir="auto">{airport?p.short:p.name}</b>
-  <span class="result-location" id={`${id}-location`}><bdi>{p.city}</bdi><span aria-hidden="true"> · </span>{countryName(p.country,locale)}</span>
+  <span class:list={['result-heading',{'result-heading--campus':kind==='universities'}]}>
+    <span class="result-name"><b id={`${id}-name`} dir="auto">{airport?p.short:p.name}</b><span class="result-location" id={`${id}-location`}><bdi>{p.city}</bdi><span aria-hidden="true"> · </span>{countryName(p.country,locale)}</span></span>
+    {placeIdentity(p,kind)&&<span class="result-identity"><PlaceIdentity place={p} {kind} {locale} compact linked={false} decorative/></span>}
+  </span>
   <span class="mob mob-s" id={`${id}-status`}><span class={`pill ${statusClass}`}>{status}</span></span>
   {p.spaces.length>0&&<span class="result-visit-summary" id={`${id}-visit`}>{visitSummary(p,kind,locale).map(field=><span class="result-visit-fact"><span class="result-visit-label"><svg width="16" height="16" aria-hidden="true"><use href={`#i-${field.icon}`}/></svg>{field.label}</span><span class="result-visit-value" lang={field.lang} dir={field.dir}>{field.value}</span></span>)}</span>}
-  <span class="row-facilities">{fields.map(field=><span class="result-fact"><svg width="16" height="16" aria-hidden="true"><use href={`#i-${field.icon}`}/></svg><span class="result-fact-label">{field.label}</span><span class="result-fact-value"><bdi>{field.value}</bdi></span></span>)}</span>
+  <span class="row-facilities" id={`${id}-facilities`}>{fields.map(field=><span class="result-fact"><svg width="16" height="16" aria-hidden="true"><use href={`#i-${field.icon}`}/></svg><span class="result-fact-label">{field.label}</span><span class="result-fact-value"><bdi>{field.value}</bdi></span></span>)}</span>
   {photo&&<span class="result-photo-note"><svg width="14" height="14" aria-hidden="true"><use href="#i-photo"/></svg>{PHOTO_COPY[locale].kinds[photo.kind]}<span aria-hidden="true"> · </span>{photoYear}</span>}
+  <span class="result-open-guide">{ROOM_COPY[locale].details}<svg width="17" height="17" class="directional-icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
  </span>
- <svg class="row-arrow directional-icon" width="19" height="19" aria-hidden="true"><use href="#i-arrow"/></svg>
 </a>
 <style>
+ /* One readable record, one next step. Keep source facts intact in both views. */
+ :global(.room-main #guide-content .directory-workspace .list) .directory-result.lrow { grid-template-columns:56px minmax(0,1fr); align-items:start; gap:20px; }
+ :global(.room-main #guide-content .directory-workspace) .directory-result .result-name>b { font-size:clamp(1.25rem,1.5vw,1.65rem); line-height:1.25; letter-spacing:-.025em; }
+ :global(.room-main #guide-content .directory-workspace) .directory-result .result-heading--campus .result-name>b { font-size:clamp(1.45rem,1.8vw,1.9rem); font-weight:500; }
+ :global(.room-main #guide-content .directory-workspace) .directory-result .result-location { display:block; font-size:.9rem; margin-top:8px; }
+ :global(.room-main #guide-content .directory-workspace) .directory-result .result-visit-summary { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; padding:16px; background:var(--surface-2); border:1px solid var(--line); border-radius:8px; }
+ :global(.room-main #guide-content .directory-workspace) .directory-result .result-visit-fact:last-child:nth-child(3) { grid-column:1/-1; padding-top:12px; border-top:1px solid var(--line); }
+ :global(.room-main #guide-content .directory-workspace) .directory-result .result-open-guide { justify-content:space-between; gap:16px; padding-top:14px; border-top:1px solid var(--line); font-size:.95rem; margin-top:18px; min-height:44px; }
+ :global(.room-main #guide-content .directory-workspace) .directory-result .result-open-guide>svg { box-sizing:content-box; padding:7px; border:1px solid var(--line); border-radius:50%; color:var(--ink); flex:none; transition:background .18s; }
+ :global(.room-main #guide-content .directory-workspace) .directory-result:is(:hover,:focus-visible) .result-open-guide>svg { background:var(--selection-mark); color:var(--sign-ink); }
+ :global(.room-main #guide-content .directory-workspace .list[data-view=cards]) .directory-result.lrow { grid-template-columns:1fr; }
+ @container prayer-guide (max-width:600px) {
+  :global(.room-main #guide-content .directory-workspace .list) .directory-result.lrow { grid-template-columns:1fr; padding:20px 16px; gap:14px; }
+  :global(.room-main #guide-content .directory-workspace .list) .directory-result .code { width:fit-content; min-height:0; display:flex; flex-direction:row; padding:6px 10px; gap:8px; }
+  :global(.room-main #guide-content .directory-workspace) .directory-result .result-visit-summary { padding:12px; gap:12px; }
+ }
+ @media(prefers-reduced-motion:reduce) { .directory-result .result-open-guide>svg { transition:none; } }
  :global(.room-main .directory-workspace) .directory-result.lrow { padding:20px 14px; border-radius:3px; text-decoration:none; transition:background-color .16s,border-color .16s; }
  :global(.room-main .directory-workspace) .directory-result:focus-visible { outline:3px solid var(--focus); outline-offset:2px; position:relative; z-index:1; }
- .directory-result .nm>b { text-wrap:pretty; }
- .directory-result:is(:hover,:focus-visible) .nm>b { text-decoration:underline; text-underline-offset:4px; text-decoration-thickness:1px; }
+ .result-heading{display:flex;align-items:start;justify-content:space-between;gap:16px;min-width:0}
+ .result-name{display:grid;gap:6px;min-width:0}
+ .result-name>b{font-size:1.1rem;font-weight:650;line-height:1.4;text-wrap:pretty;color:var(--ink)}
+ .result-heading--campus .result-name>b{font-family:'Room Invitation',Georgia,serif;font-size:1.45rem;font-weight:500}
+ .directory-result .result-identity { display:block;flex:none;max-width:96px;margin:0; }
+ .directory-result:is(:hover,:focus-visible) .result-name>b { text-decoration:underline; text-underline-offset:4px; text-decoration-thickness:1px; }
  .directory-result .result-location { line-height:1.5; }
  :global(.room-main .directory-workspace) .directory-result .row-facilities { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 16px; padding-top:12px; margin-top:12px; border-top:1px solid var(--line); }
  .directory-result .row-facilities .result-fact { display:grid; grid-template-columns:16px minmax(0,1fr); align-items:start; gap:2px 6px; margin:0; min-width:0; }
@@ -58,18 +84,21 @@ const fields=[
  }
  @container prayer-guide (min-width:900px) {
   :global(.room-main .directory-workspace .list:not([data-view=cards])) .directory-result .nm { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:4px 28px; align-items:start; }
-  :global(.room-main .directory-workspace .list:not([data-view=cards])) .directory-result .nm>b { grid-column:1; grid-row:1; }
+  :global(.room-main .directory-workspace .list:not([data-view=cards])) .directory-result .result-heading { grid-column:1; grid-row:1; }
   :global(.room-main .directory-workspace .list:not([data-view=cards])) .directory-result :is(.result-location,.mob-s,.result-photo-note) { grid-column:1; margin-top:2px; }
   :global(.room-main .directory-workspace .list:not([data-view=cards])) .directory-result .row-facilities { grid-column:1/-1; padding:16px 0 0; margin:12px 0 0; border-top:1px solid var(--line); border-inline-start:0; }
   :global(.room-main .directory-workspace .list:not([data-view=cards])) .directory-result .result-visit-summary { grid-column:2; grid-row:1/5; margin:0; align-self:start; }
  }
  @container prayer-guide (max-width:400px) {
+  .result-heading{flex-wrap:wrap;gap:10px}
+  .result-name{flex:1 1 160px}
   :global(.room-main .directory-workspace) .directory-result.lrow { grid-template-columns:40px minmax(0,1fr) 16px; padding:18px 0; gap:10px; }
   :global(.room-main .directory-workspace) .directory-result .code { width:40px; min-height:50px; font-size:.7rem; }
   :global(.room-main .directory-workspace .list[data-view=cards]) .directory-result.lrow { grid-template-columns:1fr; padding:16px; }
   :global(.room-main .directory-workspace .list[data-view=cards]) .directory-result .code { width:auto; min-height:0; }
  }
  :global(html[dir=rtl]) .directory-result .result-fact .result-fact-label { font-size:var(--guide-meta); }
+ :global(html[dir=rtl]) .result-name>b{font-family:var(--f-arabic);line-height:1.65;letter-spacing:0}
  :global(html[dir=rtl]) .directory-result .result-fact .result-fact-value { font-size:var(--guide-copy); line-height:1.7; }
  @media(prefers-reduced-motion:reduce) { :global(.room-main .directory-workspace) .directory-result.lrow { transition:none; } }
 </style>

@@ -1,0 +1,6 @@
+---
+import { symbolMarkup } from '../data/wayfinding-symbols.js';
+interface Props { name?: string; size?: number; }
+const { name = 'room', size = 40 } = Astro.props;
+---
+<svg class="wayfinding-symbol" data-symbol={name} width={size} height={size} viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><g transform="scale(2)" set:html={symbolMarkup(name)}/></svg>

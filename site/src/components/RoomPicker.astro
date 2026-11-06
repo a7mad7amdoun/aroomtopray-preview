@@ -1,16 +1,18 @@
 ---
 import { visitSummary } from '../lib/visit-summary.js';
 import { VISIT_SUMMARY_COPY } from '../data/visit-summary-copy.js';
-const { place, kind, locale='en', label='Choose a room or location', countLabel=`${place.spaces.length} listings` } = Astro.props;
+import { getCopy } from '../lib/i18n.js';
+const { place, kind, locale='en', label='Choose a room or location', countLabel=`${place.spaces.length} listings`, expanded=false, includeSingle=false, concise=false } = Astro.props;
 const copy=VISIT_SUMMARY_COPY[locale] || VISIT_SUMMARY_COPY.en;
+const unknown=getCopy(locale).common.notStated;
 ---
-{place.spaces.length > 1 && <details class="room-picker">
+{place.spaces.length > (includeSingle?0:1) && <details class="room-picker" open={expanded}>
   <summary>{label} <span>{countLabel}</span><svg class="room-picker-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-  <p class="room-picker-help">{copy.compare}</p>
+  {place.spaces.length>1&&<p class="room-picker-help">{copy.compare}</p>}
   <ol>{place.spaces.map((space,index)=><li><a href={`#room-${index+1}`}>
-    <span class="tnum">{String(index+1).padStart(2,'0')}</span>
+    <span class="tnum">{new Intl.NumberFormat(locale,{minimumIntegerDigits:2}).format(index+1)}</span>
     <span class="room-picker-copy"><strong><bdi lang="en">{space.name}</bdi></strong><small lang="en" dir="ltr">{space.loc}</small>
-      <span class="room-picker-facts">{visitSummary({spaces:[space]},kind,locale).map(field=><span><span class="room-picker-label">{field.label}</span><span lang={field.lang} dir={field.dir}>{field.value}</span></span>)}</span>
+      <span class="room-picker-facts">{visitSummary({spaces:[space]},kind,locale).filter(field=>!concise||field.value!==unknown).map(field=><span><span class="room-picker-label">{field.label}</span><span lang={field.lang} dir={field.dir}>{field.value}</span></span>)}</span>
     </span>
     <svg width="19" height="19" class="directional-icon" aria-hidden="true"><use href="#i-arrow"/></svg>
   </a></li>)}</ol>

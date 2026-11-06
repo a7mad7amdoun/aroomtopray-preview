@@ -1,0 +1,31 @@
+/* Restrained reading rhythm. The original continuous room stays intact. */
+:root { --room-reading-width:1280px; --room-gutter:clamp(18px,3vw,48px); }
+body.immersive-site { background:var(--bg); }
+.room-main>.guide-content { padding:0; margin:40px auto 64px; border:0; border-radius:0; background:transparent; box-shadow:none; }
+.room-main .guide-content :is(h2,h3) { line-height:1.3; }
+.room-main .guide-content p { line-height:1.7; }
+.room-main :is(#guide-content,#browse,.guide-panel) { scroll-margin-top:calc(var(--room-header-height,100px) + 24px); }
+.room-main .guide-source-credit { margin-top:44px; padding-top:24px; border-top:1px solid var(--line); }
+.room-environment:not([data-room-presentation=home]) .room-arrival-copy { border-radius:8px; box-shadow:none; backdrop-filter:none; }
+.room-main .room-directory-intro h1 { font-size:clamp(2rem,3vw,3rem); line-height:1.15; }
+.room-main .category-emblem { border-radius:6px; }
+html .immersive-site .site-footer { padding-block:44px 24px; }
+.site-footer .footer-grid { gap:32px; }
+@media(max-width:760px) {
+ .room-main>.guide-content { margin:28px auto 44px; }
+ .room-main .guide-source-credit { margin-top:32px; }
+}
+@media print { .room-main>.guide-content { margin:0; } }
+/* Search already explains its purpose; source guidance needs only one link. */
+.room-main .home-source-link { grid-column:1/-1; margin:8px 0 0; font-size:.85rem; color:var(--muted); }
+.room-main .home-source-link a { text-underline-offset:4px; }
+.room-main .home-search-intro { max-width:56ch; }
+/* Airport search and map presentation remain owned by its own stylesheet. */
+html:is([data-sector=universities],[data-sector=hospitals]) .room-main #guide-content .directory-workspace>.controls { padding:24px 0; border:0; border-block:1px solid var(--line); border-radius:0; background:transparent; }
+html:is([data-sector=universities],[data-sector=hospitals]) .room-main #guide-content .directory-mode-tabs { gap:6px; }
+html:is([data-sector=universities],[data-sector=hospitals]) .room-main #guide-content .directory-mode-tabs>button { min-height:76px; padding:14px; border-radius:6px; }
+html:is([data-sector=universities],[data-sector=hospitals]) .room-main #guide-content .directory-mode-tabs>button>svg { width:28px; height:28px; }
+html:is([data-sector=universities],[data-sector=hospitals]) .room-main #guide-content .directory-workspace .directory-result .result-open-guide { margin-top:12px; }
+@media(max-width:600px) {
+ html:is([data-sector=universities],[data-sector=hospitals]) .room-main #guide-content .directory-mode-tabs>button { min-height:84px; padding:10px 5px; }
+}

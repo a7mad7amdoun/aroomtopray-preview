@@ -1,21 +1,25 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { existsSync } from 'node:fs';
 import { initRoomCycle, ROOM_CYCLE_DELAY } from '../src/lib/room-cycle.js';
+import { HOME_SCENES } from '../src/data/home-views.js';
 
 function target() {
  const listeners=new Map();
  return { dataset:{}, addEventListener(type,handler){const list=listeners.get(type)||[];list.push(handler);listeners.set(type,list);}, emit(type,values={}){for(const handler of listeners.get(type)||[])handler(values);} };
 }
-function fixture({reduced=false,saveData=false,presentation='home',scoped=false,multipleRegions=false,withStage=false}={}) {
+function fixture({reduced=false,saveData=false,presentation='home',scoped=false,multipleRegions=false,withStage=false,six=false}={}) {
  const room=target(),control=target(),document=target(),browser=target(),media=target(),interaction=target(),secondInteraction=target(),scenery=target(),stage=target();
  const label={textContent:''},status={textContent:''},timers=new Map(),seen=[];
+ const navigation=target(),previous=target(),next=target(),count={dataset:{locale:'en',of:'of'},textContent:''};
+ previous.dataset.homeSceneStep='-1';next.dataset.homeSceneStep='1';navigation.querySelectorAll=()=>[previous,next];
  let serial=0,observer,observed;
  control.hidden=true;
  control.dataset={startLabel:'Explore views',pauseLabel:'Pause views',resumeLabel:'Resume views',pausedMessage:'Paused',playingMessage:'Playing'};
  control.querySelector=()=>label;
  room.dataset={roomPresentation:presentation,roomPreview:'airport'};
  room.ownerDocument=document;
- room.querySelector=selector=>selector==='[data-room-cycle]'?control:selector==='[data-room-cycle-status]'?status:scoped&&selector==='[data-room-tour-interaction]'?interaction:scoped&&selector==='[data-room-scenery]'?scenery:withStage&&selector==='.room-stage'?stage:null;
+ room.querySelector=selector=>selector==='[data-home-scene-controls]'?navigation:selector==='[data-home-scene-count]'?count:selector==='[data-room-cycle]'?control:selector==='[data-room-cycle-status]'?status:scoped&&selector==='[data-room-tour-interaction]'?interaction:scoped&&selector==='[data-room-scenery]'?scenery:withStage&&selector==='.room-stage'?stage:null;
  if(multipleRegions)room.querySelectorAll=selector=>selector==='[data-room-tour-interaction]'?[interaction,secondInteraction]:[];
  room.contains=node=>node===control;
  browser.matchMedia=()=>media;
@@ -25,9 +29,10 @@ function fixture({reduced=false,saveData=false,presentation='home',scoped=false,
  browser.clearTimeout=id=>timers.delete(id);
  browser.IntersectionObserver=class {constructor(callback){observer=callback;}observe(node){observed=node;assert.equal(node,scoped?scenery:withStage?stage:room);}};
  const links=['airport','campus','hospital'].map(scene=>({dataset:{doorPreview:scene}}));
- const cycle=initRoomCycle(room,browser,links,link=>{seen.push(link.dataset.doorPreview);room.dataset.roomPreview=link.dataset.doorPreview;});
+ const sceneItems=six?['airport','campus','hospital','airport-2','campus-2','hospital-2'].map(id=>({dataset:{homeScene:id,doorPreview:id.replace(/-2$/,'')}})):links;
+ const cycle=initRoomCycle(room,browser,links,link=>{seen.push(link.dataset.homeScene||link.dataset.doorPreview);room.dataset.roomPreview=link.dataset.doorPreview;room.dataset.roomScene=link.dataset.homeScene||link.dataset.doorPreview;},sceneItems);
  const tick=()=>{assert.equal(timers.size,1);const [id,callback]=timers.entries().next().value;timers.delete(id);callback();};
- return {room,control,interaction,secondInteraction,scenery,stage,observed,document,browser,media,label,status,timers,seen,cycle,tick,start:()=>control.emit('click'),visibility:visible=>observer([{target:observed,isIntersecting:visible}]),intersections:entries=>observer(entries)};
+ return {room,control,navigation,previous,next,count,interaction,secondInteraction,scenery,stage,observed,document,browser,media,label,status,timers,seen,cycle,tick,start:()=>control.emit('click'),visibility:visible=>observer([{target:observed,isIntersecting:visible}]),intersections:entries=>observer(entries)};
 }
 test('the homepage starts a slow tour without a door state or a live announcement',()=>{
  const f=fixture();
@@ -179,5 +184,53 @@ test('layouts without a scenery element fall back to the visible introduction',(
  assert.equal(f.timers.size,1);
  f.visibility(false);assert.equal(f.timers.size,0);
  f.visibility(true);assert.equal(f.timers.size,1);
+ f.tick();assert.deepEqual(f.seen,['campus']);
+});
+test('six artworks cycle individually while preserving their category identity',()=>{
+ const f=fixture({six:true});
+ for(let i=0;i<6;i++)f.tick();
+ assert.deepEqual(f.seen,['campus','hospital','airport-2','campus-2','hospital-2','airport']);
+ assert.equal(f.room.dataset.roomPreview,'airport');assert.equal(f.room.dataset.roomScene,'airport');
+ assert.equal(f.status.textContent,'');assert.equal(f.timers.size,1);
+});
+test('external menu preview suspends the tour without overriding a manual pause',()=>{
+ const f=fixture({six:true});f.cycle.setExternalPaused('header',true);assert.equal(f.timers.size,0);
+ f.visibility(true);f.browser.emit('pageshow');assert.equal(f.timers.size,0);
+ f.cycle.setExternalPaused('header',false);assert.equal(f.timers.size,1);
+ f.control.emit('click');f.cycle.setExternalPaused('header',true);f.cycle.setExternalPaused('header',false);
+ assert.equal(f.timers.size,0);assert.equal(f.room.dataset.roomCycle,'paused');
+});
+test('home photography manifest has exactly two distinct credited photographs for each category',()=>{
+ assert.equal(HOME_SCENES.length,6);assert.equal(new Set(HOME_SCENES.map(scene=>scene.id)).size,6);
+ for(const category of ['airport','campus','hospital']){
+  const scenes=HOME_SCENES.filter(scene=>scene.category===category);
+  assert.equal(scenes.length,2);assert.equal(scenes[0].id,category);
+  assert.notEqual(scenes[0].photo.id,scenes[1].photo.id);
+  for(const scene of scenes)for(const image of scene.photo.images){
+   assert.ok(scene.photo.author && scene.photo.sourceUrl && scene.photo.license.url);
+   assert.ok(existsSync(new URL(`../public${image.src}`,import.meta.url)),`Missing real photograph: ${image.src}`);
+  }
+ }
+});
+test('manual scene controls initialize accurate count, wrap both ways and pause playback',()=>{
+ const f=fixture({six:true});assert.equal(f.count.textContent,'1 of 6');assert.equal(f.room.dataset.roomScene,'airport');
+ f.previous.emit('click');assert.equal(f.count.textContent,'6 of 6');assert.equal(f.room.dataset.roomScene,'hospital-2');
+ assert.equal(f.timers.size,0);assert.equal(f.label.textContent,'Resume views');assert.match(f.status.textContent,/6 of 6/);
+ f.next.emit('click');assert.equal(f.count.textContent,'1 of 6');assert.equal(f.room.dataset.roomScene,'airport');
+ f.next.emit('click');assert.equal(f.count.textContent,'2 of 6');
+ f.browser.emit('pageshow');f.visibility(true);assert.equal(f.timers.size,0);
+ f.control.emit('click');f.tick();assert.equal(f.count.textContent,'3 of 6');
+});
+test('manual scene navigation remains available for reduced-motion and save-data visitors',()=>{
+ for(const preferences of [{reduced:true},{saveData:true}]){
+  const f=fixture({six:true,...preferences});assert.equal(f.timers.size,0);assert.equal(f.navigation.hidden,false);
+  f.next.emit('click');assert.equal(f.room.dataset.roomScene,'campus');assert.equal(f.count.textContent,'2 of 6');assert.equal(f.timers.size,0);
+  f.media.emit('change',{matches:false});assert.equal(f.timers.size,0);
+ }
+});
+test('a canceled tour callback cannot advance after a fresh visibility delay starts',()=>{
+ const f=fixture({six:true}),stale=[...f.timers.values()][0];
+ f.visibility(false);f.visibility(true);stale();
+ assert.deepEqual(f.seen,[]);assert.equal(f.timers.size,1);
  f.tick();assert.deepEqual(f.seen,['campus']);
 });

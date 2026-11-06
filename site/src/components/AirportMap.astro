@@ -1,126 +1,94 @@
 ---
-import { geoNaturalEarth1, geoPath, geoGraticule } from 'd3-geo';
+import { geoEquirectangular, geoPath, geoGraticule } from 'd3-geo';
 import { feature, mesh } from 'topojson-client';
 import world from 'world-atlas/countries-50m.json';
-import {countryFlagUrl,countryName} from '../lib/countries.js';
+import {countryFlagUrl,countryName,countryCode} from '../lib/countries.js';
 import { airports } from '../lib/airports.js';
-import { getCopy, localizedPath, translateTerm, formatCount } from '../lib/i18n.js';
+import { universities } from '../lib/universities.js';
+import { hospitals } from '../lib/hospitals.js';
+import { mapCopy } from '../data/atlas-copy.js';
+import { EXPLORER_COPY } from '../data/map-explorer-copy.js';
+import { AIRPORT_EXPERIENCE } from '../data/airport-experience-copy.js';
+import { WAYFINDING } from '../data/airport-wayfinding-copy.js';
+import { airportRoomFlags } from '../lib/airport-room-selection.js';
+import { roomMapResource, roomMapAdvisory } from '../data/place-map-resources.js';
+import { validMapLocation, mapStatus, sourceKind, safeSourceUrl, mapLinks, mapCoverage } from '../lib/place-map.js';
+import { getCopy, localizedPath, formatCount } from '../lib/i18n.js';
 import '../styles/airport-map.css';
+import WayfindingSymbol from './WayfindingSymbol.astro';
 
-const { locale = 'en' } = Astro.props;
+const { locale = 'en', kind = 'airports' } = Astro.props;
 const t = getCopy(locale);
-const copies = {
-  en: {
-    title: 'A little closer to a quiet place.', eyebrow: 'The airport atlas',
-    intro: 'Find your airport on the map. Your search and filters work here too.',
-    select: 'Choose an airport', choose: 'Select an airport…',
-    emptyTitle: 'Where are you travelling?', empty: 'Select a point on the map or choose an airport above to see its prayer-space information.',
-    zoomIn: 'Zoom in', zoomOut: 'Zoom out', reset: 'Show the world', zoom: 'Zoom',
-    instructions: 'Drag to explore. Use + and − to zoom. With the map focused, use arrow keys to pan and 0 to reset.',
-    description: 'World map of airports in this directory. Choose an airport from the selector for the same information.',
-    count: 'airports on the map', none: 'No airports match these filters.', filtered: 'This airport is outside your current filters.',
-    route: 'Show the direction to Makkah', routeNote: 'The line follows the shortest path over the Earth to the Kaʿbah. It is a qibla reference, not a walking route.',
-    locationNote: 'Points mark airports, not individual prayer rooms. Check the airport guide for room location and access.',
-    showResult: 'Show in results', open: 'Open airport guide', checked: 'Source checked', notChecked: 'Not checked yet',
-    qibla: 'Qibla · from true north', rooms: 'Room listings', close: 'Clear airport selection', makkah: 'Makkah',
-    source: 'Geography: Natural Earth', list: 'Browse the airport list',
-    continents: ['NORTH AMERICA', 'SOUTH AMERICA', 'EUROPE', 'AFRICA', 'ASIA', 'OCEANIA'],
-  },
-  fr: {
-    title: 'Un peu plus près du calme.', eyebrow: 'L’atlas des aéroports',
-    intro: 'Repérez votre aéroport. La recherche et les filtres s’appliquent aussi à la carte.',
-    select: 'Choisir un aéroport', choose: 'Sélectionner un aéroport…',
-    emptyTitle: 'Où voyagez-vous ?', empty: 'Sélectionnez un point sur la carte ou un aéroport ci-dessus pour consulter les informations sur ses espaces de prière.',
-    zoomIn: 'Agrandir', zoomOut: 'Réduire', reset: 'Voir le monde', zoom: 'Zoom',
-    instructions: 'Faites glisser pour explorer. Utilisez + et − pour zoomer. Lorsque la carte est sélectionnée, déplacez-vous avec les flèches et réinitialisez avec 0.',
-    description: 'Carte des aéroports de cet annuaire. Le sélecteur d’aéroport donne accès aux mêmes informations.',
-    count: 'aéroports sur la carte', none: 'Aucun aéroport ne correspond à ces filtres.', filtered: 'Cet aéroport ne correspond pas aux filtres actuels.',
-    route: 'Afficher la direction de La Mecque', routeNote: 'La ligne suit le plus court chemin sur la Terre vers la Kaaba. Elle indique la qibla, pas un itinéraire à pied.',
-    locationNote: 'Les points indiquent les aéroports, pas les salles de prière. Consultez le guide de l’aéroport pour leur emplacement et leurs conditions d’accès.',
-    showResult: 'Voir dans les résultats', open: 'Consulter le guide', checked: 'Source vérifiée le', notChecked: 'Pas encore vérifié',
-    qibla: 'Qibla · depuis le nord vrai', rooms: 'Espaces répertoriés', close: 'Effacer la sélection', makkah: 'La Mecque',
-    source: 'Géographie : Natural Earth', list: 'Parcourir la liste des aéroports',
-    continents: ['AMÉRIQUE DU NORD', 'AMÉRIQUE DU SUD', 'EUROPE', 'AFRIQUE', 'ASIE', 'OCÉANIE'],
-  },
-  ar: {
-    title: 'أقرب قليلًا إلى مكان هادئ.', eyebrow: 'أطلس المطارات',
-    intro: 'اعثر على مطارك على الخريطة. ينطبق البحث والتصفية هنا أيضًا.',
-    select: 'اختر مطارًا', choose: 'اختر مطارًا…',
-    emptyTitle: 'إلى أين تسافر؟', empty: 'اختر نقطة على الخريطة أو مطارًا من القائمة أعلاه للاطلاع على معلومات أماكن الصلاة فيه.',
-    zoomIn: 'تكبير', zoomOut: 'تصغير', reset: 'عرض العالم', zoom: 'التكبير',
-    instructions: 'اسحب لاستكشاف الخريطة. استخدم + و− للتكبير والتصغير. عند تحديد الخريطة، استخدم مفاتيح الأسهم للتحرك و0 لإعادة الضبط.',
-    description: 'خريطة العالم للمطارات الموجودة في الدليل. يمكنك اختيار مطار من القائمة للوصول إلى المعلومات نفسها.',
-    count: 'مطارًا على الخريطة', none: 'لا توجد مطارات تطابق هذه التصفية.', filtered: 'هذا المطار خارج نتائج التصفية الحالية.',
-    route: 'إظهار الاتجاه إلى مكة', routeNote: 'يتبع الخط أقصر مسار على سطح الأرض إلى الكعبة. هو مرجع لاتجاه القبلة وليس مسارًا للمشي.',
-    locationNote: 'تشير النقاط إلى المطارات، وليس إلى غرف الصلاة. راجع دليل المطار لمعرفة موقع الغرفة وشروط الدخول.',
-    showResult: 'عرض في النتائج', open: 'فتح دليل المطار', checked: 'تاريخ مراجعة المصدر', notChecked: 'لم يُتحقق منه بعد',
-    qibla: 'القبلة · من الشمال الحقيقي', rooms: 'الأماكن المدرجة', close: 'إلغاء اختيار المطار', makkah: 'مكة',
-    source: 'البيانات الجغرافية: Natural Earth', list: 'تصفح قائمة المطارات',
-    continents: ['أمريكا الشمالية', 'أمريكا الجنوبية', 'أوروبا', 'أفريقيا', 'آسيا', 'أوقيانوسيا'],
-  },
-  es: {
-    title: 'Un poco más cerca de la calma.', eyebrow: 'El atlas de aeropuertos',
-    intro: 'Encuentra tu aeropuerto. La búsqueda y los filtros también se aplican al mapa.',
-    select: 'Elegir un aeropuerto', choose: 'Selecciona un aeropuerto…',
-    emptyTitle: '¿Adónde viajas?', empty: 'Selecciona un punto del mapa o un aeropuerto de la lista para consultar sus espacios de oración.',
-    zoomIn: 'Acercar', zoomOut: 'Alejar', reset: 'Ver el mundo', zoom: 'Zoom',
-    instructions: 'Arrastra para explorar. Usa + y − para acercar o alejar. Con el mapa seleccionado, usa las flechas para moverte y 0 para restablecer.',
-    description: 'Mapa mundial de los aeropuertos de este directorio. El selector de aeropuertos ofrece la misma información.',
-    count: 'aeropuertos en el mapa', none: 'Ningún aeropuerto coincide con estos filtros.', filtered: 'Este aeropuerto no coincide con los filtros actuales.',
-    route: 'Mostrar la dirección a La Meca', routeNote: 'La línea sigue el camino más corto sobre la Tierra hacia la Kaaba. Es una referencia de la alquibla, no una ruta a pie.',
-    locationNote: 'Los puntos indican aeropuertos, no salas de oración. Consulta la guía del aeropuerto para conocer la ubicación y el acceso.',
-    showResult: 'Ver en los resultados', open: 'Abrir la guía del aeropuerto', checked: 'Fuente consultada', notChecked: 'Aún sin comprobar',
-    qibla: 'Alquibla · desde el norte verdadero', rooms: 'Espacios registrados', close: 'Borrar selección', makkah: 'La Meca',
-    source: 'Geografía: Natural Earth', list: 'Explorar la lista de aeropuertos',
-    continents: ['AMÉRICA DEL NORTE', 'AMÉRICA DEL SUR', 'EUROPA', 'ÁFRICA', 'ASIA', 'OCEANÍA'],
-  },
-};
-const c = copies[locale] || copies.en;
+const c = mapCopy(locale, kind);
+const e = EXPLORER_COPY[locale] || EXPLORER_COPY.en;
+const aCopy = {...(AIRPORT_EXPERIENCE[locale] || AIRPORT_EXPERIENCE.en),wayfinding:WAYFINDING[locale] || WAYFINDING.en};
+const placePlaceholder = {en:'Name or city',fr:'Nom ou ville',ar:'الاسم أو المدينة',es:'Nombre o ciudad'}[locale] || 'Name or city';
 const W = 1200, H = 640;
-const projection = geoNaturalEarth1().fitExtent([[30, 24], [W - 30, H - 24]], { type: 'Sphere' }).precision(0.15);
+const projection = geoEquirectangular().fitExtent([[24, 24], [W - 24, H - 24]], { type: 'Sphere' }).precision(0.15);
 const path = geoPath(projection).digits(1);
-const land = path(feature(world, world.objects.land));
 const boundaries = path(mesh(world, world.objects.countries, (a, b) => a !== b));
+const countryShapes = feature(world, world.objects.countries).features.map(country => ({name:country.properties.name,d:path(country)}));
 const graticule = path(geoGraticule().step([30, 30])());
 const sphere = path({ type: 'Sphere' });
 const K = [39.826206, 21.422487];
 const [kx, ky] = projection(K);
-const points = airports.filter(a => Number.isFinite(a.lat) && Number.isFinite(a.lon) && Math.abs(a.lat) <= 90 && Math.abs(a.lon) <= 180).map(a => {
+const records = {airports, universities, hospitals}[kind];
+const date = value => /^\d{4}-\d{2}-\d{2}$/.test(value || '') && !Number.isNaN(Date.parse(value)) ? new Intl.DateTimeFormat(locale, {dateStyle:'medium',timeZone:'UTC'}).format(new Date(`${value}T12:00:00Z`)) : c.notChecked;
+const points = records.filter(validMapLocation).map(a => {
   const [x, y] = projection([a.lon, a.lat]);
+  const status=mapStatus(a,kind);
+  const roomDetails=a.spaces.map(room=>({
+    name:room.name, location:room.loc, access:room.access || (kind==='airports' ? c.notStated : ({airside:c.afterSecurity,landside:c.beforeSecurity,both:c.bothSecurity}[room.side] || c.notStated)),
+    security:({airside:c.afterSecurity,landside:c.beforeSecurity,both:c.bothSecurity}[room.side] || c.notStated), filters:kind==='airports'?airportRoomFlags(room):{},
+    hours:room.hours || c.notStated, caution:room.caution || '',
+    wudu:t.amenities.wudu[room.wudu] || c.notStated, women:t.amenities.women[room.women] || c.notStated,
+    source:safeSourceUrl(room.src), sourceLabel:c[sourceKind(room.verified)], checked:date(room.checked),
+    indoorMap:roomMapResource(a.code || a.slug,room.name), advisory:roomMapAdvisory(a.code || a.slug,room.name),
+    accessLang:room.access ? 'en' : locale,
+  }));
   return {
-    code: a.code, iata: a.iata, name: a.short, fullName: a.name, city: a.city,
-    country: countryName(a.country, locale), flagUrl:countryFlagUrl(a.country), status: a.status,
-    statusLabel: t.status[a.status], url: localizedPath(a.url, locale),
-    x: +x.toFixed(2), y: +y.toFixed(2),
-    qibla: `${new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(a.qibla)}°`,
-    rooms: formatCount(a.spaces.length, locale),
-    wudu: a.status === 'pending' ? c.notChecked : t.amenities.wudu[a.wudu],
-    women: a.status === 'pending' ? c.notChecked : t.amenities.women[a.women],
-    checked: a.checked ? new Intl.DateTimeFormat(locale, { dateStyle: 'medium', timeZone: 'UTC' }).format(new Date(`${a.checked}T12:00:00Z`)) : c.notChecked,
-    arc: path({ type: 'LineString', coordinates: [[a.lon, a.lat], K] }) || '',
+    code:a.code || a.slug, iata:a.iata || countryCode(a.country), name:a.short, fullName:a.name, city:a.city,
+    country:countryName(a.country,locale), countryCode:countryCode(a.country), flagUrl:countryFlagUrl(a.country), status,
+    statusLabel:kind==='airports' ? t.status[status] : a.hold ? t.common.checking : `${formatCount(roomDetails.length,locale)} ${t.common.listings}`,
+    url:localizedPath(a.url,locale), lat:a.lat, lon:a.lon, x:+x.toFixed(2), y:+y.toFixed(2),
+    qibla:`${new Intl.NumberFormat(locale,{maximumFractionDigits:0}).format(a.qibla)}°`,
+    rooms:formatCount(roomDetails.length,locale), roomDetails, checked:date(a.checked),
+    caution:a.note || (a.hold ? c.unconfirmed : a.conflict ? c.conflict : ''),
+    links:mapLinks(a), arc:path({type:'LineString',coordinates:[[a.lon,a.lat],K]}) || '',
   };
 });
+const coverage=mapCoverage(points);
 const ordered = [...points].sort((a, b) => a.city.localeCompare(b.city, locale) || a.iata.localeCompare(b.iata));
+const mapCountries = [...new Map(points.map(point => [point.countryCode, point.country])).entries()].sort((a,b)=>a[1].localeCompare(b[1],locale));
 const continentLabels = [[-106, 44], [-59, -15], [15, 54], [16, 4], [86, 46], [133, -29]].map((position, i) => ({ point: projection(position), text: c.continents[i] }));
-const payload = JSON.stringify({ points, copy: c, locale, width: W, height: H }).replace(/</g, '\\u003c');
+const payload = JSON.stringify({ points, copy:c, explorerCopy:e, airportCopy:aCopy, locale, kind, selectionKey:kind==='airports'?'airport':'place', width:W, height:H }).replace(/</g, '\\u003c');
 ---
-<section class="airport-atlas" data-airport-map aria-labelledby="atlas-title">
+<section class="airport-atlas atlas-explorer" data-airport-map data-atlas-kind={kind} aria-labelledby="atlas-title">
+ <div class="atlas-masthead">
   <header class="atlas-heading">
-    <div><span class="eyebrow">{c.eyebrow}</span><h2 id="atlas-title">{c.title}</h2><p>{c.intro}</p></div>
-    <span class="atlas-index" aria-hidden="true">01 / WORLD</span>
+    <div><span class="eyebrow"><svg width="16" height="16" aria-hidden="true"><use href={kind==='airports'?'#i-airport':'#i-globe'}/></svg>{c.eyebrow}</span><h2 id="atlas-title">{c.title}</h2><p>{e.hint}</p></div>
+    <span class="atlas-heading-mark" aria-hidden="true"><WayfindingSymbol name="globe" size={40}/></span>
   </header>
+  <dl class="atlas-stats" aria-describedby="atlas-stats-note">{[['places',c.places],['countries',c.countries],['rooms',c.roomCount]].map(([key,label])=><div><dt>{label}</dt><dd data-atlas-stat={key}>{formatCount(coverage[key],locale)}</dd></div>)}</dl>
+  <p class="atlas-stats-note" id="atlas-stats-note">{c.statsNote}</p>
+ </div>
   <div class="atlas-toolbar" data-atlas-tools hidden>
-    <label for="atlas-airport">{c.select}<select id="atlas-airport" data-atlas-select><option value="">{c.choose}</option>{ordered.map(a => <option value={a.code}>{a.iata} · {a.city} · {a.name}</option>)}</select></label>
-    <label class="atlas-qibla-switch"><input type="checkbox" data-atlas-qibla checked /><span>{c.route}</span></label>
+    <label class="atlas-search-field" for="atlas-search"><span>{e.search}</span><div><svg width="20" height="20" aria-hidden="true"><use href="#i-search"/></svg><input id="atlas-search" data-explorer-search type="search" maxlength="160" autocomplete="off" placeholder={kind==='airports'?e.placeholder:placePlaceholder}/></div></label>
+    <label class="atlas-country-field" for="atlas-country"><span>{e.country}</span><select id="atlas-country" data-explorer-country><option value="">{e.all}</option>{mapCountries.map(([code,name])=><option value={code}>{name}</option>)}</select></label>
+    <button class="atlas-reset-filters" type="button" data-explorer-reset>{e.clear}</button>
+    <label hidden for="atlas-airport">{c.select}<select id="atlas-airport" data-atlas-select><option value="">{c.choose}</option>{ordered.map(a => <option value={a.code}>{a.iata} · {a.city} · {a.name}</option>)}</select></label>
   </div>
+  <div class="atlas-workspace">
+  <div class="atlas-geography" id={kind==='airports'?'airport-geography':undefined}>
+  <div class="airport-map-heading"><div><span class="eyebrow" data-airport-map-eyebrow>{e.map}</span><p data-airport-map-hint>{c.locationNote}</p></div><button type="button" data-airport-world>{e.world}<span aria-hidden="true">↗</span></button></div>
+  <div class="atlas-map-bar"><span><svg width="17" height="17" aria-hidden="true"><use href="#i-globe"/></svg>{e.map}</span><div class="atlas-view-controls"><button type="button" data-explorer-world hidden>{e.world}</button><button type="button" data-atlas-load-local hidden aria-expanded="false" aria-controls="atlas-street-map">{e.street}</button></div><label class="atlas-qibla-switch"><input type="checkbox" data-atlas-qibla /><span>{c.route}</span></label></div>
   <div class="atlas-canvas">
     <svg id="dirmap" viewBox={`0 0 ${W} ${H}`} role="group" aria-labelledby="atlas-map-title" aria-describedby="atlas-map-description atlas-instructions" data-atlas-svg>
-      <title id="atlas-map-title">{c.eyebrow}</title><desc id="atlas-map-description">{c.description}</desc>
-      <defs><radialGradient id="atlas-water"><stop offset="0%" stop-color="var(--atlas-water-centre)"/><stop offset="100%" stop-color="var(--atlas-water-edge)"/></radialGradient></defs>
+      <title id="atlas-map-title">{c.eyebrow}</title><desc id="atlas-map-description">{c.locationNote} {e.hint}</desc>
       <g data-atlas-world>
         <path class="atlas-sphere" d={sphere}/>
         <path class="atlas-graticule" d={graticule}/>
-        <path class="atlas-land" d={land}/>
+        <g class="atlas-country-shapes">{countryShapes.map(country=><path d={country.d}><title>{country.name}</title></path>)}</g>
         <path class="atlas-boundaries" d={boundaries}/>
         <g class="atlas-continent-labels" aria-hidden="true">{continentLabels.map(({ point, text }) => <text x={point[0]} y={point[1]} text-anchor="middle">{text}</text>)}</g>
         <path class="atlas-direction" data-atlas-arc hidden />
@@ -130,6 +98,7 @@ const payload = JSON.stringify({ points, copy: c, locale, width: W, height: H })
             <circle class="atlas-point" cx={a.x} cy={a.y} r="3.5"><title>{a.iata} · {a.name} · {a.statusLabel}</title></circle>
           </a>
         ))}</g>
+        <g class="atlas-clusters" data-atlas-clusters></g>
         <g class="atlas-makkah" transform={`translate(${kx},${ky})`} aria-hidden="true">
           <rect x="-6" y="-6" width="12" height="12" rx="1.5"/>
           <path d="M-6 -2H6"/>
@@ -138,32 +107,70 @@ const payload = JSON.stringify({ points, copy: c, locale, width: W, height: H })
         <g class="atlas-selected" data-atlas-selected hidden aria-hidden="true"><circle class="atlas-selection-ring" r="12"/><circle r="4"/><text x="17" y="4" data-atlas-selected-label /></g>
       </g>
     </svg>
+    <div class="atlas-street-frame" id="atlas-street-map" data-atlas-local-frame hidden></div>
     <div class="atlas-zoom" data-atlas-zoom hidden role="group" aria-label={c.zoom}>
       <button type="button" data-map-zoom="in" aria-label={c.zoomIn} title={c.zoomIn}>+</button>
       <output data-atlas-scale aria-label={c.zoom}>100%</output>
       <button type="button" data-map-zoom="out" aria-label={c.zoomOut} title={c.zoomOut}>−</button>
       <button type="button" data-map-zoom="reset" aria-label={c.reset} title={c.reset}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 9V4h5M20 15v5h-5M4 4l5 5M20 20l-5-5"/><path d="M15 4h5v5M9 20H4v-5M20 4l-5 5M4 20l5-5"/></svg></button>
     </div>
+    <button class="atlas-fit" type="button" data-atlas-fit hidden title={c.fitHint}><svg width="17" height="17" aria-hidden="true"><use href="#i-grid"/></svg>{c.fit}</button>
+    <span class="atlas-compass" aria-label={e.north}><span aria-hidden="true">↑</span>N</span>
+    <button class="airport-expand" type="button" data-airport-expand aria-expanded="false" hidden><svg width="18" height="18" aria-hidden="true"><use href="#i-grid"/></svg><span>{aCopy.expand}</span></button>
     <div class="atlas-map-count" data-atlas-count role="status">{formatCount(points.length, locale)} {c.count}</div>
     <div class="atlas-no-results" data-atlas-no-results hidden>{c.none}</div>
   </div>
   <div class="atlas-bottom">
     <div class="atlas-legend" aria-label={t.common.prayerRooms}>
-      {['room', 'seating', 'planned', 'none', 'pending'].map(status => <span><i data-status={status} aria-hidden="true"/>{t.status[status]}</span>)}
+      {(kind==='airports'?['room','seating','planned','none','pending']:['room','pending']).map(status => <span><i data-status={status} aria-hidden="true"/>{kind==='airports'?t.status[status]:status==='pending'?t.common.checking:c.roomCount}</span>)}
     </div>
+  </div>
+  </div>
     <div class="atlas-information" data-atlas-information hidden>
-      <div class="atlas-selection-empty" data-atlas-empty><span class="atlas-empty-mark" aria-hidden="true">↗</span><div><h3>{c.emptyTitle}</h3><p>{c.empty}</p></div></div>
+      <button class="atlas-back" type="button" data-explorer-back hidden><span aria-hidden="true">←</span>{e.back}</button>
+      <section class="atlas-browser" data-explorer-browser aria-labelledby="atlas-results-title">
+        <div class="atlas-browser-heading"><h3 id="atlas-results-title" tabindex="-1">{e.results}</h3><span data-explorer-count role="status"></span></div>
+        <label class="atlas-viewport-switch"><input type="checkbox" data-explorer-viewport/>{e.visible}</label>
+        <p class="atlas-browser-hint">{e.hint}</p>
+        <ul class="atlas-place-list" data-explorer-list></ul>
+        <p class="atlas-browser-empty" data-explorer-empty hidden>{e.empty}</p>
+        <button class="atlas-more" type="button" data-airport-show-all hidden>{e.allResults}</button>
+        <button class="atlas-more" type="button" data-explorer-more hidden>{e.more}</button>
+      </section>
+      <section class="atlas-group" data-atlas-group hidden aria-labelledby="atlas-group-title"><h3 id="atlas-group-title" tabindex="-1">{c.group}</h3><p>{c.groupHint}</p><ul data-atlas-group-list aria-label={c.nearby}></ul></section>
+      <div class="atlas-selection-empty" data-atlas-empty hidden><span class="atlas-empty-mark" aria-hidden="true">↗</span><div><h3>{c.emptyTitle}</h3><p>{c.empty}</p></div></div>
       <article class="atlas-airport-card" data-atlas-card hidden aria-live="polite" aria-atomic="true">
         <div class="atlas-card-heading"><span class="atlas-code" data-atlas-code dir="ltr"></span><div><h3 data-atlas-name dir="auto"></h3><p class="atlas-country-line"><img class="country-flag" data-atlas-flag width="28" height="21" alt="" aria-hidden="true" hidden/><span data-atlas-location dir="auto"></span></p></div><button type="button" class="atlas-close" data-atlas-clear aria-label={c.close}>×</button></div>
         <span class="atlas-status" data-atlas-status></span>
-        <dl><div><dt><svg width="16" height="16" aria-hidden="true"><use href="#i-water"/></svg>{t.common.wudu}</dt><dd data-atlas-wudu></dd></div><div><dt><svg width="16" height="16" aria-hidden="true"><use href="#i-screen"/></svg>{t.common.women}</dt><dd data-atlas-women></dd></div><div><dt><svg width="16" height="16" aria-hidden="true"><use href="#i-qibla"/></svg>{c.qibla}</dt><dd data-atlas-bearing></dd></div><div><dt><svg width="16" height="16" aria-hidden="true"><use href="#i-mark"/></svg>{c.rooms}</dt><dd data-atlas-rooms></dd></div></dl>
+        <p class="atlas-caution" data-atlas-caution hidden></p>
+        <div class="atlas-room-picker"><label for="atlas-room">{c.roomSelect}</label><select id="atlas-room" data-atlas-room></select></div>
+        {kind==='airports'&&<p class="airport-no-rooms" data-airport-no-rooms hidden>{aCopy.noRooms}</p>}
+        <section class="atlas-room-details" data-atlas-room-details>
+          {kind==='airports'&&<p class="airport-match-note" data-airport-match hidden></p>}
+          {locale!=='en'&&<p class="atlas-original-note">{c.originalText}</p>}
+          <dl class="atlas-directions"><div><dt><svg width="16" height="16" aria-hidden="true"><use href="#i-pin"/></svg>{c.location}</dt><dd data-atlas-room-location dir="auto" lang="en"></dd></div>{kind==='airports'&&<div><dt>{aCopy.security}</dt><dd data-atlas-room-security></dd></div>}<div><dt><svg width="16" height="16" aria-hidden="true"><use href="#i-key"/></svg>{kind==='airports'?aCopy.conditions:c.access}</dt><dd data-atlas-room-access dir="auto"></dd></div><div><dt><svg width="16" height="16" aria-hidden="true"><use href="#i-clock"/></svg>{c.hours}</dt><dd data-atlas-room-hours dir="auto" lang="en"></dd></div></dl>
+          <p class="atlas-caution" data-atlas-room-caution hidden lang="en" dir="auto"></p>
+          <aside class="atlas-caution atlas-advisory" data-atlas-advisory hidden><p data-atlas-advisory-text></p><div data-atlas-advisory-sources></div></aside>
+          <dl class="atlas-facilities"><div><dt>{t.common.wudu}</dt><dd data-atlas-wudu></dd></div><div><dt>{t.common.women}</dt><dd data-atlas-women></dd></div></dl>
+          <div class="atlas-source"><a data-atlas-source target="_blank" rel="noopener noreferrer">{c.sourceLink} ↗</a><span data-atlas-source-kind></span><small>{c.checked}: <span data-atlas-checked></span></small></div>
+          <div class="atlas-indoor-map" data-atlas-indoor hidden><a data-atlas-indoor-link target="_blank" rel="noopener noreferrer"></a><span data-atlas-indoor-name lang="en" dir="auto"></span><small>{c.mapResourceNote}</small><small>{c.resourceChecked}: <time data-atlas-indoor-checked></time> · <a data-atlas-indoor-source target="_blank" rel="noopener noreferrer">{c.resourceSource}</a></small></div>
+        </section>
+        <p class="atlas-source" data-atlas-no-source hidden>{c.noSource}</p>
+        <div class="atlas-place-meta"><span>{c.qibla}: <b data-atlas-bearing></b></span><span>{c.rooms}: <b data-atlas-rooms></b></span></div>
         <p class="atlas-filtered-note" data-atlas-filtered hidden>{c.filtered}</p>
-        <div class="atlas-card-footer"><small>{c.checked}: <span data-atlas-checked></span></small><div class="atlas-card-actions"><button type="button" data-atlas-reveal>{c.showResult}</button><a data-atlas-link class="atlas-guide-link">{c.open}<span aria-hidden="true">↗</span></a></div></div>
+        <div class="atlas-card-footer"><div class="atlas-card-actions"><button type="button" data-atlas-reveal>{c.showResult}</button><a data-atlas-link class="atlas-guide-link">{c.open}<span aria-hidden="true">↗</span></a></div></div>
       </article>
     </div>
+  </div>
+  <section class="atlas-local" data-atlas-local hidden aria-label={c.local}>
+    <div class="atlas-local-heading"><div><h3>{c.local} <span data-atlas-local-name dir="auto"></span></h3><p>{c.mapNote}</p></div></div>
+    <div class="atlas-external-links"><a data-atlas-google target="_blank" rel="noopener noreferrer">{c.google} ↗</a><a data-atlas-osm target="_blank" rel="noopener noreferrer">{c.osm} ↗</a><span>{c.coordinates}: <bdi data-atlas-coordinates></bdi></span></div>
+  </section>
+  <div class="atlas-bottom">
     <div class="atlas-notes"><p>{c.locationNote} {c.routeNote}</p><p id="atlas-instructions" data-atlas-instructions hidden>{c.instructions}</p><a href="https://www.naturalearthdata.com/about/terms-of-use/" target="_blank" rel="noopener noreferrer">{c.source} ↗</a></div>
     <noscript><p><a href="#list">{c.list}</a></p></noscript>
   </div>
   <script is:inline type="application/json" data-atlas-data set:html={payload}/>
 </section>
 <script>import '../scripts/airport-map.js';</script>
+<script>import '../scripts/airport-experience.js';</script>

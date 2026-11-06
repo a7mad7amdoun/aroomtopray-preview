@@ -1,0 +1,60 @@
+---
+import { CATEGORY_PHOTOGRAPHY } from '../data/category-photography.js';
+import { getCopy, localizedPath } from '../lib/i18n.js';
+import WayfindingSymbol from './WayfindingSymbol.astro';
+const {scene='airport',locale='en',purpose='visit-context',placement='story'}=Astro.props;
+const kind={airport:'airports',campus:'universities',hospital:'hospitals'}[scene]||'airports';
+const t=getCopy(locale);
+const officialLabel={en:'Official website',fr:'Site officiel',ar:'الموقع الرسمي',es:'Sitio web oficial'}[locale];
+const copy={
+ en:{label:'A place to discover',context:'Photographed setting · not a prayer-room photograph',source:'Original photograph',action:'Explore the guide'},
+ fr:{label:'Un lieu à découvrir',context:'Cadre photographié · pas une photographie de salle de prière',source:'Photographie originale',action:'Explorer le guide'},
+ ar:{label:'مكان يستحق الاكتشاف',context:'صورة للمكان المحيط · وليست صورة لغرفة صلاة',source:'الصورة الأصلية',action:'استكشف الدليل'},
+ es:{label:'Un lugar por descubrir',context:'Entorno fotografiado · no es una fotografía de una sala de oración',source:'Fotografía original',action:'Explorar la guía'},
+}[locale];
+const preferred={planner:0,saved:1,travel:2,about:1,contact:2,'rooms-won':3,'praying-on-a-plane':1,'wudu-at-the-airport':3,tayammum:2,'shortening-and-combining':0,'praying-in-public':1,'visitor-preparation':2};
+const photos=CATEGORY_PHOTOGRAPHY[kind];
+const photo=photos[(preferred[purpose]??0)%photos.length];
+---
+<figure class:list={['documentary-art',`documentary-art--${kind}`,`documentary-art--${placement}`]} data-documentary-art={purpose} dir={locale==='ar'?'rtl':'ltr'}>
+ <a class="documentary-art-image" href={photo.sourceUrl} aria-label={`${copy.source}: ${photo.title}`}>
+  <img src={photo.images[1].src} srcset={photo.images.map(image=>`${image.src} ${image.width}w`).join(', ')} sizes="(max-width:700px) 90vw, 680px" width={photo.width} height={photo.height} alt={photo.alt[locale]} loading="lazy" decoding="async" style={`object-position:${photo.objectPosition}`}/>
+ </a>
+ <figcaption>
+  <div class="documentary-art-label"><WayfindingSymbol name={scene==='airport'?'airport':scene==='campus'?'campus':'care'} size={27}/><span>{t.nav[kind]}</span><span class="documentary-art-arrow" aria-hidden="true"><svg class="directional-icon" width="26" height="26"><use href="#i-arrow"/></svg></span></div>
+  <span class="documentary-art-kicker">{copy.label}</span><strong lang="en" dir="auto">{photo.title}</strong>
+  <p>{photo.caption[locale]}</p>
+  <small class="documentary-art-context">{copy.context}</small>
+  <div class="documentary-art-credit"><a href={photo.sourceUrl}><bdi>{photo.author}</bdi></a> · <time datetime={photo.date}>{photo.date.slice(0,4)}</time> · <a href={photo.license.url} lang="en">{photo.license.name}</a></div>
+  <a class="documentary-art-action" href={localizedPath(`/${kind}/`,locale)}>{copy.action}<svg class="directional-icon" width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  {photo.officialUrl&&<a class="documentary-art-action documentary-art-official" href={photo.officialUrl}>{officialLabel}<span aria-hidden="true"> ↗</span></a>}
+ </figcaption>
+</figure>
+<style>
+ .documentary-art { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); width:100%; max-width:1120px; min-width:0; margin:32px 0; border:1px solid var(--line); background:var(--surface); overflow:hidden; color:var(--ink); }
+ .documentary-art-image { display:block; min-width:0; min-height:290px; overflow:hidden; background:var(--surface-2); }
+ .documentary-art-image img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .7s ease; }
+ .documentary-art-image:hover img { transform:scale(1.025); }
+ figcaption { padding:clamp(20px,3vw,36px); min-width:0; display:flex; flex-direction:column; align-items:flex-start; }
+ .documentary-art-label { display:flex; align-items:center; gap:12px; width:100%; padding-bottom:18px; border-bottom:1px solid var(--line); margin-bottom:25px; font:700 .9rem/1.4 var(--f-body); }
+ .documentary-art-arrow { margin-inline-start:auto; font-size:1.6rem; }
+ .directional-icon{display:block;flex:none}
+ .documentary-art-kicker { color:var(--muted); font:.72rem/1.5 var(--f-body); text-transform:uppercase; letter-spacing:.07em; }
+ strong { margin-top:9px; font:650 clamp(1.2rem,2vw,1.8rem)/1.2 var(--f-display); letter-spacing:-.025em; }
+ p { margin:16px 0; font:400 .95rem/1.65 var(--f-body); max-width:50ch; }
+ .documentary-art-context,.documentary-art-credit { color:var(--muted); font:400 .75rem/1.65 var(--f-body); }
+ .documentary-art-credit { margin-top:12px; }
+ a { color:inherit; text-underline-offset:4px; }
+ .documentary-art-action { display:inline-flex; align-items:center; gap:16px; min-height:44px; margin-top:16px; font:650 .85rem/1.5 var(--f-body); }
+ .documentary-art-official { margin-top:0; font-weight:400; }
+ .documentary-art--airports .documentary-art-label { border-bottom:3px solid var(--sign); }
+ .documentary-art--universities { border-top:5px solid var(--line); }
+ .documentary-art--universities strong { font-family:'Room Invitation',Georgia,serif; font-weight:500; font-size:clamp(1.5rem,2.5vw,2.2rem); }
+ .documentary-art--hospitals { border-radius:18px; }
+ .documentary-art--hospitals .documentary-art-label { color:var(--link); }
+ .documentary-art a:focus-visible { outline:3px solid var(--focus); outline-offset:-3px; }
+ .documentary-art[dir=rtl] .documentary-art-action span { scale:-1 1; }
+ @media(max-width:700px) { .documentary-art { grid-template-columns:1fr; } .documentary-art-image { min-height:0; aspect-ratio:3/2; } figcaption { padding:22px; } }
+ @media(prefers-reduced-motion:reduce) { .documentary-art-image img { transition:none; } .documentary-art-image:hover img { transform:none; } }
+ @media print { .documentary-art { break-inside:avoid; } }
+</style>

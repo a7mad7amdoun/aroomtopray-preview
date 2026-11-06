@@ -4,7 +4,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 import { PLACE_PHOTOS } from '../src/data/place-photos.js';
-import { photosForPlace, photoSearchUrl, linkedPhotoSources } from '../src/lib/place-photos.js';
+import { photosForPlace, contextPhotosForPlace, photoSearchUrl, linkedPhotoSources } from '../src/lib/place-photos.js';
 
 test('curated images have exact existing place identities, credits, dates and reuse licences',()=>{
  const queue=JSON.parse(readFileSync(new URL('../../research/PHOTO-RESEARCH.json',import.meta.url)));
@@ -81,4 +81,31 @@ test('Doha photographs remain historical entrance signage, not evidence of a roo
  assert.equal(places.find(place=>place.placeUrl==='/airports/doh/').status,'sourced-sign-photo');
  const credits=JSON.parse(readFileSync(new URL('../public/photos/places/CREDITS.json',import.meta.url)));
  assert.deepEqual(credits.filter(photo=>photo.placeUrl==='/airports/doh/'),photos,'published derivatives retain full credits and reuse terms');
+});
+
+test('architectural photographs attach only to the exact matching institution and preserve source identity',()=>{
+ const expected={
+  '/airports/bkk/':'bangkok-terminal','/airports/yyz/':'toronto-terminal',
+  '/airports/rak/':'marrakech-terminal','/airports/mad/':'madrid-terminal',
+  '/universities/university-of-toronto/':'toronto-campus',
+ };
+ const {places}=JSON.parse(readFileSync(new URL('../../research/PHOTO-RESEARCH.json',import.meta.url)));
+ for(const [url,id]of Object.entries(expected)){
+  assert.ok(places.some(place=>place.placeUrl===url),'context may only attach to an existing guide');
+  const photos=contextPhotosForPlace(url);assert.equal(photos.length,1);
+  const photo=photos[0];assert.equal(photo.id,id);assert.equal(photo.placeUrl,url);
+  assert.equal(photo.kind,'context');assert.equal(photo.context,'architecture');
+  assert.equal(photo.dateTaken,photo.date);assert.ok(photo.sourceUrl&&photo.author&&photo.license.url);
+  assert.equal(photo.review,undefined,'architecture does not become accepted room evidence');
+  assert.deepEqual(photosForPlace(url),[],'documentary queue remains unchanged');
+  for(const image of photo.images)assert.ok(existsSync(new URL('../public'+image.src,import.meta.url)));
+ }
+});
+test('context lookup never borrows a photo through city names, partial routes or unrelated category fallbacks',()=>{
+ for(const url of [undefined,null,'','__proto__','/airports/dmk/','/airports/yyt/','/airports/yzt/','/airports/yyz','/airports/yyz/?q=Toronto','/fr/airports/yyz/','/universities/toronto-metropolitan-university/','/hospitals/toronto-general-hospital/','/universities/lincoln/','/airports/unknown/']){
+  assert.deepEqual(contextPhotosForPlace(url),[],String(url));
+ }
+ assert.equal(photosForPlace('/airports/lhr/')[0].kind,'sign');
+ assert.equal(contextPhotosForPlace('/airports/lhr/').length,0);
+ assert.equal(photosForPlace('/airports/kul/')[0].kind,'room');
 });

@@ -1,10 +1,11 @@
 ---
+import WayfindingSymbol from './WayfindingSymbol.astro';
 import { IDENTITY_COPY } from '../data/identity-copy.js';
 import { localizedPath } from '../lib/i18n.js';
 const {locale='en'}=Astro.props,c=IDENTITY_COPY[locale];
 ---
 <section class="guide-principles" aria-labelledby="guide-principles-title">
  <h2 id="guide-principles-title">{c.title}</h2>
- <ol>{c.principles.map(([title,text],i)=><li><svg width="22" height="22" aria-hidden="true"><use href={`#i-${['book','help','check'][i]}`}/></svg><div><h3>{title}</h3><p>{text}</p></div></li>)}</ol>
+ <ol>{c.principles.map(([title,text],i)=><li><WayfindingSymbol name={['book','help','check'][i]} size={40}/><div><h3>{title}</h3><p>{text}</p></div></li>)}</ol>
  <div class="guide-contribution"><h3>{c.askTitle}</h3><p>{c.askText}</p><div><a href={localizedPath('/airports/?f=ask&mode=list',locale)}>{c.ask}<span aria-hidden="true">↗</span></a><a href="/rooms-won/">{c.wins}{locale!=='en'&&<small>{c.english}</small>}<span aria-hidden="true">↗</span></a></div></div>
 </section>

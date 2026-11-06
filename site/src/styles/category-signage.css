@@ -1,0 +1,325 @@
+/* Three related place guides, each with its own information hierarchy.
+   References: Pentagram / Toronto Pearson; Applied / Princeton Digital;
+   Triagonal / Randers Regional Hospital. These are design principles, not
+   institutional identities. All labels, numbers and directions remain data.
+   Scope stops at the room's reading layer: no header, scene or map geometry. */
+html[data-sector=airports] .room-main {
+  --category-accent:#ffc629; --category-rule:#ad831b;
+  --category-paper:var(--surface); --category-panel:#101c2c;
+  --category-panel-ink:#f3f6fa; --category-panel-muted:#c1cddd;
+  --category-panel-line:#435369; --category-radius:4px;
+}
+html[data-sector=universities] .room-main {
+  --category-accent:#70573c; --category-rule:#b7a68e;
+  --category-paper:#f1eee7; --category-panel:#e9e3d8;
+  --category-panel-ink:#302c28; --category-panel-muted:#635c52;
+  --category-panel-line:#c9c0b2; --category-radius:2px;
+}
+html[data-sector=hospitals] .room-main {
+  --category-accent:#236191; --category-rule:#80a9c7;
+  --category-paper:#edf3f8; --category-panel:#e1edf6;
+  --category-panel-ink:#153c5b; --category-panel-muted:#456175;
+  --category-panel-line:#b7cfdf; --category-radius:14px;
+}
+html[data-theme=dark][data-sector=universities] .room-main {
+  --category-accent:#ddc7a3; --category-rule:#716858;
+  --category-paper:#1b2530; --category-panel:#27313b;
+  --category-panel-ink:#ede9df; --category-panel-muted:#c3bdae;
+  --category-panel-line:#50575c;
+}
+html[data-theme=dark][data-sector=hospitals] .room-main {
+  --category-accent:#9dcff2; --category-rule:#4a7a9b;
+  --category-paper:#152737; --category-panel:#1c3549;
+  --category-panel-ink:#e1f0fb; --category-panel-muted:#b3ccdf;
+  --category-panel-line:#43667f;
+}
+@media(prefers-color-scheme:dark) {
+  html:not([data-theme=light])[data-sector=universities] .room-main {
+    --category-accent:#ddc7a3; --category-rule:#716858;
+    --category-paper:#1b2530; --category-panel:#27313b;
+    --category-panel-ink:#ede9df; --category-panel-muted:#c3bdae;
+    --category-panel-line:#50575c;
+  }
+  html:not([data-theme=light])[data-sector=hospitals] .room-main {
+    --category-accent:#9dcff2; --category-rule:#4a7a9b;
+    --category-paper:#152737; --category-panel:#1c3549;
+    --category-panel-ink:#e1f0fb; --category-panel-muted:#b3ccdf;
+    --category-panel-line:#43667f;
+  }
+}
+
+/* The room remains the welcome. Category typography describes what is beyond
+   its window; controls and factual descriptions stay in the shared sans. */
+html[data-sector=airports] #prayer-room :is(.room-directory-intro,.d-title) h1 {
+  font-family:var(--f-display); font-weight:800; font-stretch:100%;
+  letter-spacing:-.045em; line-height:1.12;
+}
+html[data-sector=universities] #prayer-room :is(.room-directory-intro,.d-title) h1 {
+  font-family:'Room Invitation',Georgia,serif; font-weight:500;
+  font-stretch:normal; letter-spacing:-.025em; line-height:1.16;
+}
+html[data-sector=hospitals] #prayer-room :is(.room-directory-intro,.d-title) h1 {
+  font-family:var(--f-display); font-weight:650; font-stretch:100%;
+  letter-spacing:-.035em; line-height:1.2;
+}
+html[data-sector=airports] #prayer-room .category-emblem { border-radius:4px; }
+html[data-sector=universities] #prayer-room .category-emblem {
+  border:1px solid var(--category-rule); border-radius:2px;
+  background:var(--category-paper); color:var(--category-accent);
+}
+html[data-sector=hospitals] #prayer-room .category-emblem {
+  border-radius:14px; background:var(--category-panel); color:var(--category-accent);
+}
+
+/* Detail identifiers continue the same visual grammar on English and
+   translated pages. IATA codes remain the actual airport identifiers. */
+html[data-sector=airports] #prayer-room .d-code {
+  background:#ffc629; color:#101c2c; border:0; border-radius:3px;
+  font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
+  font-weight:750; font-variant-numeric:tabular-nums; letter-spacing:.035em;
+}
+html[data-sector=universities] #prayer-room .d-code {
+  background:var(--category-paper); color:var(--category-accent);
+  border:1px solid var(--category-rule); border-radius:2px;
+}
+html[data-sector=hospitals] #prayer-room .d-code {
+  background:var(--category-panel); color:var(--category-accent);
+  border:0; border-radius:14px;
+}
+html:is([data-sector=universities],[data-sector=hospitals]) #prayer-room .place-arrival .crumbs {
+  border-bottom:1px solid var(--category-rule); padding-bottom:16px; margin-bottom:24px;
+}
+html[data-sector=airports] #prayer-room .place-arrival .crumbs {
+  border-bottom:2px solid #ffc629; padding-bottom:16px; margin-bottom:24px;
+}
+
+/* Directory identifiers and a selected-view rail. Category color never
+   replaces room-status colors or masks unknown facilities. */
+html[data-sector=airports] #prayer-room #guide-content .directory-result .code {
+  background:#101c2c; color:#f3f6fa; border:0; border-bottom:3px solid #ffc629;
+  border-radius:3px; font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
+  font-variant-numeric:tabular-nums; letter-spacing:.025em;
+}
+html[data-sector=universities] #prayer-room #guide-content .directory-result .code {
+  background:var(--category-paper); color:var(--category-accent);
+  border:1px solid var(--category-rule); border-radius:2px;
+}
+html[data-sector=universities] #prayer-room #guide-content .directory-result .nm>b {
+  font-family:'Room Invitation',Georgia,serif; font-weight:500;
+  font-size:1.65rem; line-height:1.3; letter-spacing:-.015em;
+}
+html[data-sector=hospitals] #prayer-room #guide-content .directory-result .code {
+  background:var(--category-panel); color:var(--category-panel-ink);
+  border:0; border-radius:10px;
+}
+html[data-sector=hospitals] #prayer-room #guide-content .directory-result .nm>b {
+  font-weight:650; line-height:1.4;
+}
+html[data-sector=airports] #prayer-room #guide-content .directory-mode-tabs>button[aria-selected=true] {
+  background:#101c2c; color:#f3f6fa; border-color:#101c2c; box-shadow:inset 0 -3px #ffc629;
+}
+html[data-sector=airports] #prayer-room #guide-content .directory-mode-tabs>button[aria-selected=true] small { color:#c1cddd; }
+html[data-sector=airports] #prayer-room #guide-content .directory-mode-tabs>button[aria-selected=true]>svg { color:#ffc629; }
+html:is([data-sector=universities],[data-sector=hospitals]) #prayer-room #guide-content .directory-mode-tabs>button[aria-selected=true] {
+  background:var(--category-panel); color:var(--category-panel-ink);
+  border-color:var(--category-rule); box-shadow:inset 0 -3px var(--category-rule);
+}
+html:is([data-sector=universities],[data-sector=hospitals]) #prayer-room #guide-content .directory-mode-tabs>button[aria-selected=true] small { color:var(--category-panel-muted); }
+html[data-sector=airports] #prayer-room #guide-content .guide-tabs>:is(a,button)[aria-selected=true] {
+  background:#101c2c; color:#f3f6fa; box-shadow:inset 0 -3px #ffc629;
+}
+html:is([data-sector=universities],[data-sector=hospitals]) #prayer-room #guide-content .guide-tabs>:is(a,button)[aria-selected=true] {
+  background:var(--category-panel); color:var(--category-panel-ink);
+  box-shadow:inset 0 -3px var(--category-rule);
+}
+
+/* Room fact sheets are visibly different but equally predictable. */
+html[data-sector=airports] #prayer-room #guide-content .d-main>.room {
+  border-top:0; margin-top:28px; padding-top:0;
+}
+html[data-sector=airports] #prayer-room #guide-content .room .room-top {
+  --ink:#f3f6fa; --muted:#c1cddd; --line:#435369; --surface-2:#1c2d42;
+  padding:20px 24px; background:#101c2c; color:#f3f6fa;
+  border-top:3px solid #ffc629; border-radius:4px 4px 0 0;
+}
+html[data-sector=airports] #prayer-room #guide-content .room .room-top h2 { color:inherit; font-weight:750; letter-spacing:-.025em; }
+html[data-sector=airports] #prayer-room #guide-content .room .room-number {
+  color:#101c2c; background:#ffc629; border:0; border-radius:2px;
+  font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
+}
+html[data-sector=airports] #prayer-room #guide-content .room .facts>.fact-essential {
+  --ink:#f3f6fa; --muted:#c1cddd;
+  background:#1c2d42; color:#f3f6fa; border-color:#435369;
+}
+html[data-sector=universities] #prayer-room #guide-content .d-main>.room {
+  border-top:3px double var(--category-rule); padding-top:26px;
+}
+html[data-sector=universities] #prayer-room #guide-content .room .room-top h2 {
+  font-family:'Room Invitation',Georgia,serif; font-weight:500;
+  font-size:clamp(1.55rem,2.2vw,2rem); line-height:1.3; letter-spacing:-.02em;
+}
+html[data-sector=universities] #prayer-room #guide-content .room .room-number {
+  background:transparent; color:var(--category-accent); border:1px solid var(--category-rule); border-radius:0;
+}
+html[data-sector=universities] #prayer-room #guide-content .room .facts>.fact-essential {
+  --ink:var(--category-panel-ink); --muted:var(--category-panel-muted);
+  background:var(--category-paper); color:var(--category-panel-ink); border-color:var(--category-panel-line);
+}
+html[data-sector=hospitals] #prayer-room #guide-content .d-main>.room {
+  border-top:0; padding:24px; margin-block:24px;
+  border-inline-start:4px solid var(--category-rule); border-radius:0 14px 14px 0;
+  background:var(--category-paper); color:var(--ink);
+}
+html[data-sector=hospitals] #prayer-room #guide-content .room .room-top h2 { font-weight:650; line-height:1.35; }
+html[data-sector=hospitals] #prayer-room #guide-content .room .room-number {
+  background:var(--category-panel); color:var(--category-panel-ink); border:0; border-radius:8px;
+}
+html[data-sector=hospitals] #prayer-room #guide-content .room .facts>.fact-essential {
+  --ink:var(--category-panel-ink); --muted:var(--category-panel-muted);
+  background:var(--category-panel); color:var(--category-panel-ink); border-color:var(--category-panel-line);
+}
+
+/* Facility overview: a transit sign, a campus index, a calm care directory. */
+html[data-sector=airports] #prayer-room #guide-content .overview-facts {
+  --ink:#f3f6fa; --muted:#c1cddd; --line:#435369; --mute-bg:#2b3e53;
+  color:#f3f6fa; background:#101c2c; border:0; border-top:3px solid #ffc629; border-radius:4px;
+}
+html[data-sector=airports] #prayer-room #guide-content .overview-fact dt { color:#c1cddd; }
+html[data-sector=airports] #prayer-room #guide-content .overview-fact dt>svg { color:#ffc629; }
+html[data-sector=universities] #prayer-room #guide-content .overview-facts {
+  --ink:var(--category-panel-ink); --muted:var(--category-panel-muted); --line:var(--category-panel-line);
+  background:var(--category-paper); color:var(--category-panel-ink);
+  border:0; border-block:3px double var(--category-rule); border-radius:0;
+}
+html[data-sector=hospitals] #prayer-room #guide-content .overview-facts {
+  --ink:var(--category-panel-ink); --muted:var(--category-panel-muted); --line:var(--category-panel-line);
+  background:var(--category-panel); color:var(--category-panel-ink); border:0; border-radius:14px;
+}
+html:is([data-sector=universities],[data-sector=hospitals]) #prayer-room #guide-content .overview-fact dt { color:var(--category-panel-muted); }
+html[data-sector=hospitals] #prayer-room #guide-content .overview-chaplain {
+  background:var(--category-paper); padding:18px 20px; border:0;
+  border-inline-start:4px solid var(--category-rule); border-radius:0 10px 10px 0;
+}
+html[data-sector=universities] #prayer-room #guide-content :is(.place-overview>h2,.results-heading h2) {
+  font-family:'Room Invitation',Georgia,serif; font-weight:500; font-size:1.85rem; line-height:1.3;
+}
+html:is([data-sector=airports],[data-sector=universities],[data-sector=hospitals]) #prayer-room #guide-content .room .src {
+  border-top:1px solid var(--category-rule); padding-top:18px; line-height:1.7;
+}
+
+/* Practical guidance follows the same family as the place detail pages. */
+html[data-sector=airports] #prayer-room #guide-content .orientation-running-line {
+  padding:14px 18px; background:#101c2c; color:#f3f6fa; border-top:3px solid #ffc629;
+}
+html[data-sector=airports] #prayer-room #guide-content .orientation-running-line :is(.orientation-category,.orientation-kicker) { color:inherit; }
+html[data-sector=airports] #prayer-room #guide-content .orientation-heading h2 { font-weight:800; font-stretch:100%; letter-spacing:-.035em; }
+html[data-sector=universities] #prayer-room #guide-content .orientation-running-line { border-block:1px solid var(--category-rule); padding-block:14px; }
+html[data-sector=universities] #prayer-room #guide-content .orientation-heading h2 {
+  font-family:'Room Invitation',Georgia,serif; font-weight:500; font-size:clamp(2rem,3.5vw,3.4rem); line-height:1.2;
+}
+html[data-sector=hospitals] #prayer-room #guide-content .orientation-running-line {
+  background:var(--category-panel); color:var(--category-panel-ink); border:0; border-radius:10px; padding:16px;
+}
+html[data-sector=hospitals] #prayer-room #guide-content .orientation-running-line :is(.orientation-category,.orientation-kicker) { color:inherit; }
+html[data-sector=hospitals] #prayer-room #guide-content .orientation-heading h2 { font-weight:650; line-height:1.3; }
+html:is([data-sector=airports],[data-sector=universities],[data-sector=hospitals]) #prayer-room #guide-content .orientation-steps>li {
+  border-radius:var(--category-radius); border-top:2px solid var(--category-rule);
+}
+html[data-sector=airports] #prayer-room #guide-content .orientation-symbol { background:#101c2c; color:#ffc629; border:0; border-radius:4px; }
+html[data-sector=universities] #prayer-room #guide-content .orientation-symbol { background:var(--category-paper); color:var(--category-accent); border:1px solid var(--category-rule); border-radius:0; }
+html[data-sector=hospitals] #prayer-room #guide-content .orientation-symbol { background:var(--category-panel); color:var(--category-accent); border:0; border-radius:12px; }
+html:is([data-sector=airports],[data-sector=universities],[data-sector=hospitals]) #prayer-room #guide-content .orientation-sequence {
+  font-variant-numeric:tabular-nums; font-weight:650; letter-spacing:.03em;
+}
+
+/* Captions identify real places and retain their existing source metadata. */
+html[data-sector=universities] #prayer-room #guide-content .place-photo-grid>figure { border-radius:2px; }
+html[data-sector=universities] #prayer-room #guide-content .place-photo-grid figcaption { background:var(--category-paper); }
+html[data-sector=hospitals] #prayer-room #guide-content .place-photo-grid>figure { border-radius:14px; }
+html[data-sector=airports] #prayer-room #guide-content .place-photo-grid>figure { border-radius:4px; }
+html[data-sector=airports] #prayer-room #guide-content .place-photo-grid figcaption { border-top:3px solid #ffc629; }
+
+/* Three destinations share one photographic layout and distinct, quiet signs. */
+#prayer-room[data-room-presentation=home] .destination-gallery .door-notice-airports {
+  --destination-paper:#101c2c; --destination-ink:#f3f6fa;
+  --destination-muted:#c1cddd; --destination-line:#425064; --destination-mark:#ffc629;
+}
+#prayer-room[data-room-presentation=home] .destination-gallery .door-notice-universities {
+  --destination-paper:#e9e3d8; --destination-ink:#302c28;
+  --destination-muted:#635c52; --destination-line:#b7a68e; --destination-mark:#70573c;
+}
+#prayer-room[data-room-presentation=home] .destination-gallery .door-notice-hospitals {
+  --destination-paper:#e1edf6; --destination-ink:#153c5b;
+  --destination-muted:#456175; --destination-line:#80a9c7; --destination-mark:#236191;
+}
+html[data-theme=dark] #prayer-room[data-room-presentation=home] .destination-gallery .door-notice-universities {
+  --destination-paper:#27313b; --destination-ink:#ede9df;
+  --destination-muted:#c3bdae; --destination-line:#716858; --destination-mark:#ddc7a3;
+}
+html[data-theme=dark] #prayer-room[data-room-presentation=home] .destination-gallery .door-notice-hospitals {
+  --destination-paper:#1c3549; --destination-ink:#e1f0fb;
+  --destination-muted:#b3ccdf; --destination-line:#4a7a9b; --destination-mark:#9dcff2;
+}
+@media(prefers-color-scheme:dark) {
+  html:not([data-theme=light]) #prayer-room[data-room-presentation=home] .destination-gallery .door-notice-universities {
+    --destination-paper:#27313b; --destination-ink:#ede9df;
+    --destination-muted:#c3bdae; --destination-line:#716858; --destination-mark:#ddc7a3;
+  }
+  html:not([data-theme=light]) #prayer-room[data-room-presentation=home] .destination-gallery .door-notice-hospitals {
+    --destination-paper:#1c3549; --destination-ink:#e1f0fb;
+    --destination-muted:#b3ccdf; --destination-line:#4a7a9b; --destination-mark:#9dcff2;
+  }
+}
+#prayer-room[data-room-presentation=home] .destination-gallery .notice-information {
+  background:var(--destination-paper); color:var(--destination-ink);
+  border-top:3px solid var(--destination-mark);
+}
+#prayer-room[data-room-presentation=home] .destination-gallery :is(.notice-sign,.door-notice-title>b,.notice-action) { color:var(--destination-ink); }
+#prayer-room[data-room-presentation=home] .destination-gallery :is(.door-notice-count,.notice-description) { color:var(--destination-muted); }
+#prayer-room[data-room-presentation=home] .destination-gallery .door-notice-title>svg:first-child { color:var(--destination-mark); }
+#prayer-room[data-room-presentation=home] .destination-gallery .door-notice-airports .door-notice-title>b { font-weight:800; letter-spacing:-.025em; }
+#prayer-room[data-room-presentation=home] .destination-gallery .door-notice-universities .door-notice-title>b {
+  font-family:'Room Invitation',Georgia,serif; font-weight:500; font-size:clamp(1.35rem,2vw,1.8rem); letter-spacing:-.015em;
+}
+#prayer-room[data-room-presentation=home] .destination-gallery .door-notice-hospitals .door-notice-title>b { font-weight:650; letter-spacing:-.02em; }
+#prayer-room[data-room-presentation=home] .destination-gallery .notice-action { border-color:var(--destination-line); gap:16px; line-height:1.5; }
+#prayer-room[data-room-presentation=home] .destination-gallery .notice-action>.notice-arrow {
+  width:32px; height:32px; flex:0 0 32px; padding:7px;
+  background:#ffc629; color:#101c2c; border-radius:3px;
+  transition:background-color 180ms ease,color 180ms ease;
+}
+#prayer-room[data-room-presentation=home] .destination-gallery .door-notice:is(:hover,:focus-visible) .notice-action>.notice-arrow { background:#ffda69; color:#101c2c; }
+#prayer-room[data-room-presentation=home] .destination-gallery .door-notice:focus-visible { outline-color:var(--focus); outline-offset:-3px; }
+@media(max-width:760px) {
+  #prayer-room[data-room-presentation=home] .destination-gallery .notice-information { padding:20px 16px; }
+  #prayer-room[data-room-presentation=home] .destination-gallery .door-notice-universities .door-notice-title>b { font-size:1.35rem; }
+}
+html[dir=rtl] #prayer-room[data-room-presentation=home] .destination-gallery .door-notice-title>b { font-family:var(--f-arabic); letter-spacing:0; }
+@media(prefers-reduced-motion:reduce) {
+  #prayer-room[data-room-presentation=home] .destination-gallery .notice-action>.notice-arrow { transition:none; }
+}
+
+/* The Arabic face retains its own readable proportions. */
+html[dir=rtl][data-sector] #prayer-room :is(.room-directory-intro,.d-title) h1,
+html[dir=rtl][data-sector=universities] #prayer-room #guide-content :is(.room .room-top h2,.directory-result .nm>b,.place-overview>h2,.results-heading h2,.orientation-heading h2) {
+  font-family:var(--f-arabic); letter-spacing:0; line-height:1.6;
+}
+html[dir=rtl][data-sector=hospitals] #prayer-room #guide-content :is(.d-main>.room,.overview-chaplain) { border-radius:14px 0 0 14px; }
+@media(max-width:600px) {
+  html[data-sector=airports] #prayer-room #guide-content .room .room-top { padding:18px 16px; }
+  html[data-sector=hospitals] #prayer-room #guide-content .d-main>.room { padding:20px 16px; }
+  html[data-sector=universities] #prayer-room #guide-content .directory-result .nm>b { font-size:1.4rem; }
+}
+@media print {
+  html[data-sector] .room-main {
+    --category-accent:#182738; --category-rule:#8a949d;
+    --category-paper:#fff; --category-panel:#fff; --category-panel-ink:#182738;
+    --category-panel-muted:#465363; --category-panel-line:#bac1c9;
+  }
+  html[data-sector=airports] #prayer-room #guide-content :is(.room .room-top,.room .facts>.fact-essential,.overview-facts) {
+    --ink:#182738; --muted:#465363; --line:#bac1c9;
+    background:#fff; color:#182738; border-color:#8a949d;
+  }
+  html[data-sector=airports] #prayer-room #guide-content .overview-fact dt,
+  html[data-sector=airports] #prayer-room #guide-content .overview-fact dt>svg { color:#465363; }
+}

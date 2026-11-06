@@ -31,11 +31,13 @@ const resultTemplate={en:'{count} of {total} countries and territories',fr:'{cou
  <div class="country-results-status"><p class="country-search-status fine" data-country-status role="status" aria-atomic="true"></p><button class="clear" type="button" data-country-clear hidden>{t.common.clear}</button></div>
  <div class="country-grid">{rows.map(row=><article class="country-card" data-country-card data-country-covered={row.counts.some(Boolean)} data-country-text={countrySearchText(row.code)} hidden={!row.counts.some(Boolean)}><h3><CountryFlag country={row.code}/><span>{row.name}</span><small>{row.code}</small></h3><div>{row.counts.map((count,i)=>count>0&&<a href={`${localizedPath('/'+kinds[i]+'/',locale)}?country=${row.code}&mode=list`}><svg width="17" height="17" aria-hidden="true"><use href={`#i-${icons[i]}`}/></svg><span>{t.nav[kinds[i]]}</span><b>{formatCount(count,locale)}</b><svg class="directional-icon" width="15" height="15" aria-hidden="true"><use href="#i-arrow"/></svg></a>)}</div>{!row.counts.some(Boolean)&&<p class="country-coverage-note">{coverage.empty}</p>}</article>)}</div>
  <p data-country-empty hidden>{g.noCountries}</p>
+ <button class="country-more btn" type="button" data-country-more hidden>{{en:'Show more countries',fr:'Afficher plus de pays',ar:'عرض المزيد من البلدان',es:'Mostrar más países'}[locale]}</button>
 </section>
 <script>
  import '../scripts/country-explorer.js';
 </script>
 <style>
+ .country-more { margin-top:24px; min-height:48px; }
  .country-explorer-controls { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:12px; align-items:end; }
  .country-explorer-controls .country-scope { display:grid; grid-column:2; grid-row:1; gap:6px; margin:0; color:var(--muted); font-size:.75rem; }
  .country-explorer-controls .country-scope select { width:100%; min-height:52px; border-color:var(--field); border-radius:10px; font-size:.85rem; color:var(--ink); }
