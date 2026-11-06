@@ -20,7 +20,7 @@ const outside=settings[kind] || 'airport';
      <slot name="arrival" />
      <div class="arrival-actions">
       <ReceptionCard {locale} id="room-reception"/>
-      {presentation!=='home'&&<a class="arrival-guide-link" href="#guide-content">{q.guide}<svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a>}
+      {presentation!=='home'&&presentation!=='directory'&&<a class="arrival-guide-link" href="#guide-content">{q.guide}<svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a>}
      </div>
     </div>
     <RoomArchitecture {kind} {locale} {presentation}/>

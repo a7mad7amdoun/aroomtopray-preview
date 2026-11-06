@@ -1,11 +1,9 @@
 ---
 import { getCopy } from '../lib/i18n.js';
-import { ROOM_COPY } from '../data/room-copy.js';
 const { locale='en' } = Astro.props;
-const t=getCopy(locale), r=ROOM_COPY[locale];
+const t=getCopy(locale);
 ---
 <div class="results-toolbar">
-  <div class="results-heading"><h2>{r.results}</h2><p>{r.information}</p></div>
   <div class="browse-tools" data-browse-tools hidden>
     <label class="directory-sort-label" for="directory-sort"><span>{t.common.sort}</span><select id="directory-sort" data-directory-sort><option value="default">{t.common.recommended}</option><option value="name">{t.common.sortName}</option><option value="location">{t.common.sortLocation}</option></select></label>
     <div class="seg directory-layout-choice" role="group" aria-label={t.common.view}>

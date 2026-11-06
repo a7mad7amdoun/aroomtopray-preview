@@ -1,0 +1,103 @@
+---
+import WayfindingSymbol from './WayfindingSymbol.astro';
+import DirectoryMapPreview from './DirectoryMapPreview.astro';
+const {kind='airports',locale='en',title,description,places=[]}=Astro.props;
+const category=['airports','universities','hospitals'].includes(kind)?kind:'airports';
+const copy={
+ en:{label:{airports:'Airport prayer guides',universities:'The campus directory',hospitals:'A guide for your visit'},search:'Search the directory'},
+ fr:{label:{airports:'Guides de prière aux aéroports',universities:'L’annuaire des campus',hospitals:'Un guide pour votre visite'},search:'Rechercher dans l’annuaire'},
+ ar:{label:{airports:'أدلة الصلاة في المطارات',universities:'دليل الحرم الجامعي',hospitals:'دليل لزيارتك'},search:'ابحث في الدليل'},
+ es:{label:{airports:'Guías de oración en aeropuertos',universities:'El directorio del campus',hospitals:'Una guía para tu visita'},search:'Buscar en el directorio'},
+}[locale];
+const symbol={airports:'airport',universities:'campus',hospitals:'care'}[category];
+---
+<div class="category-arrival-frame">
+<header class={`category-arrival category-arrival--${category}`} dir={locale==='ar'?'rtl':'ltr'}>
+ <div class="category-arrival-story">
+  <span class="category-arrival-label">{copy.label[category]}</span>
+  <h1>{title}</h1>
+  <p>{description}</p>
+  <a class="category-arrival-search" href="#q-dir"><WayfindingSymbol name="search" size={23}/><span>{copy.search}</span><span aria-hidden="true">↓</span></a>
+ </div>
+ <div class="category-arrival-atlas">
+  <span class="category-arrival-symbol"><WayfindingSymbol name={symbol} size={112}/></span>
+  <DirectoryMapPreview {places} {locale}/>
+ </div>
+</header>
+</div>
+<script>
+ for(const link of document.querySelectorAll<HTMLAnchorElement>('.category-arrival-search')){
+  link.addEventListener('click',event=>{
+   if(event.defaultPrevented||event.button>0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+   const input=document.querySelector<HTMLInputElement>('#q-dir');
+   if(!input)return;
+   const listTab=document.querySelector<HTMLButtonElement>('[data-directory-mode="list"]');
+   if(listTab&&!listTab.closest('[hidden]'))listTab.click();
+   if(input.closest('[hidden]'))return;
+   event.preventDefault();
+   document.getElementById('browse')?.scrollIntoView({block:'start',behavior:'auto'});
+   input.focus({preventScroll:true});
+  });
+ }
+</script>
+<style>
+ .category-arrival-frame{container:arrival-frame/inline-size;inline-size:100%;min-inline-size:0;max-inline-size:1280px}
+ .category-arrival{--arrival-paper:#101d30;--arrival-ink:#f6f8fb;--arrival-muted:#c4d0df;--arrival-mark:#ffce38;--arrival-line:#4a5c74;--arrival-map:#0b1524;--arrival-land:#243b56;--arrival-coast:#526986;--arrival-button-ink:#101d30;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);inline-size:100%;max-inline-size:1280px;color:var(--arrival-ink);background:var(--arrival-paper);border-block-start:7px solid var(--arrival-mark);border-radius:4px;isolation:isolate;container:category-arrival/inline-size}
+ .category-arrival-story{display:flex;flex-direction:column;align-items:flex-start;min-width:0;padding:clamp(24px,4vw,54px);padding-inline-end:clamp(24px,3vw,44px)}
+ .category-arrival-label{display:block;max-width:42ch;font:650 .75rem/1.55 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--arrival-muted);padding-block-end:18px;border-block-end:1px solid var(--arrival-line);inline-size:100%}
+ .category-arrival h1{color:var(--arrival-ink);font:800 clamp(2.5rem,5.5vw,5.3rem)/1.02 var(--f-body);letter-spacing:-.055em;text-wrap:balance;max-width:14ch;margin:28px 0 24px;overflow-wrap:break-word}
+ .category-arrival-story p{color:var(--arrival-muted);font-size:clamp(.98rem,1.3vw,1.1rem);line-height:1.75;max-width:50ch;margin:0 0 28px}
+ .category-arrival-search{display:inline-flex;align-items:center;gap:14px;min-height:52px;padding:14px 18px;margin-block-start:auto;color:var(--arrival-button-ink);background:var(--arrival-mark);font:700 .9rem/1.45 var(--f-body);text-decoration:none;border:1px solid var(--arrival-mark);border-radius:2px;max-width:100%}
+ .category-arrival-search>span:last-child{margin-inline-start:12px}.category-arrival-search :global(svg){flex:none}
+ .category-arrival-search:hover{outline:1px solid var(--arrival-mark);outline-offset:3px}.category-arrival-search:focus-visible{outline:3px solid var(--arrival-ink);outline-offset:5px}
+ .category-arrival-atlas{display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;gap:28px;min-width:0;padding:clamp(24px,3vw,42px);border-inline-start:1px dashed var(--arrival-line)}
+ .category-arrival-symbol{display:grid;place-items:center;align-self:flex-start;min-height:140px;color:var(--arrival-mark)}
+ .category-arrival-symbol :global(svg){width:112px;height:112px}
+ .category-arrival :global(.directory-map-preview){display:grid;grid-template-columns:minmax(0,1fr);gap:16px;max-width:none;width:100%;padding:0;border:0;border-block-start:1px solid var(--arrival-line);border-radius:0;padding-block-start:18px;background:transparent;color:var(--arrival-ink);box-shadow:none;transition:none}
+ .category-arrival :global(.directory-map-preview>svg){width:100%;height:auto;max-height:none;background:var(--arrival-map);border:1px solid var(--arrival-line);border-radius:3px}
+ .category-arrival :global(.directory-map-preview>svg path){fill:var(--arrival-land);stroke:var(--arrival-coast)}
+ .category-arrival :global(.directory-map-preview>svg circle){fill:var(--arrival-mark);opacity:1}
+ .category-arrival :global(.directory-map-preview-copy){gap:10px}.category-arrival :global(.directory-map-counts){color:var(--arrival-muted);font-size:.78rem;line-height:1.6}
+ .category-arrival :global(.directory-map-counts b){color:var(--arrival-ink)}
+ .category-arrival :global(.directory-map-preview-copy strong){color:var(--arrival-mark);font-size:.95rem;line-height:1.5}
+ .category-arrival :global(.directory-map-preview:hover){background:transparent;border-color:var(--arrival-mark)}
+ .category-arrival :global(.directory-map-preview:focus-visible){outline:3px solid var(--arrival-mark);outline-offset:6px}
+ .category-arrival--universities{--arrival-paper:#efeadd;--arrival-ink:#293b2e;--arrival-muted:#53624f;--arrival-mark:#4d6440;--arrival-line:#b8c1a9;--arrival-map:#e3e5d5;--arrival-land:#c4cdb5;--arrival-coast:#8f9e81;--arrival-button-ink:#fff;border-block-start:6px double var(--arrival-mark);border-radius:0}
+ .category-arrival--universities h1{font-family:'Room Invitation',Georgia,serif;font-weight:500;line-height:1.05;letter-spacing:-.035em}
+ .category-arrival--universities .category-arrival-atlas{border-inline-start-style:solid}.category-arrival--universities .category-arrival-symbol{border:1px solid var(--arrival-line);padding:12px;min-height:0;align-self:flex-end}
+ .category-arrival--hospitals{--arrival-paper:#e5f0f3;--arrival-ink:#183e51;--arrival-muted:#456575;--arrival-mark:#1b6379;--arrival-line:#afcad4;--arrival-map:#d7e7ed;--arrival-land:#b6d0db;--arrival-coast:#799eac;--arrival-button-ink:#fff;border-block-start:0;border-inline-start:7px solid var(--arrival-mark);border-radius:18px}
+ .category-arrival--hospitals h1{font-weight:650;line-height:1.09;letter-spacing:-.04em}.category-arrival--hospitals .category-arrival-atlas{border-inline-start-style:solid}.category-arrival--hospitals .category-arrival-symbol{background:#f4fafc;border-radius:16px;min-height:0;padding:16px}.category-arrival--hospitals .category-arrival-search{border-radius:7px}
+ [dir=rtl].category-arrival h1{font-family:var(--f-arabic);font-weight:650;letter-spacing:0;line-height:1.4;max-width:17ch}[dir=rtl] .category-arrival-label{letter-spacing:0;font-size:.9rem}[dir=rtl] .category-arrival-story p{line-height:1.85}
+ @media(max-width:900px){.category-arrival{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}.category-arrival h1{font-size:clamp(2.3rem,5.7vw,4rem)}.category-arrival-story,.category-arrival-atlas{padding:26px}.category-arrival-symbol :global(svg){width:82px;height:82px}.category-arrival-symbol{min-height:96px}.category-arrival-atlas{gap:22px}}
+ @media(max-width:650px){.category-arrival{grid-template-columns:1fr}.category-arrival h1{font-size:clamp(2.5rem,10vw,3.7rem);max-width:17ch;margin-block:22px}.category-arrival-story{padding:28px 24px}.category-arrival-atlas{border-inline-start:0;border-block-start:1px dashed var(--arrival-line);display:grid;grid-template-columns:64px minmax(0,1fr);align-items:center;gap:20px;padding:22px 24px}.category-arrival-symbol :global(svg){width:56px;height:56px}.category-arrival-symbol{min-height:0;align-self:center}.category-arrival :global(.directory-map-preview){padding-block-start:0;border:0}.category-arrival--universities .category-arrival-symbol,.category-arrival--hospitals .category-arrival-symbol{padding:6px;align-self:center}.category-arrival--universities .category-arrival-symbol :global(svg),.category-arrival--hospitals .category-arrival-symbol :global(svg){width:48px;height:48px}.category-arrival--universities .category-arrival-atlas,.category-arrival--hospitals .category-arrival-atlas{border-block-start-style:solid}.category-arrival-search{inline-size:100%;justify-content:space-between;gap:10px}}
+ @media(max-width:380px){.category-arrival-story{padding:24px 20px}.category-arrival-atlas{grid-template-columns:44px minmax(0,1fr);gap:12px;padding:20px}.category-arrival-symbol :global(svg){width:40px;height:40px}.category-arrival--universities .category-arrival-symbol :global(svg),.category-arrival--hospitals .category-arrival-symbol :global(svg){width:30px;height:30px}}
+ @container arrival-frame (max-width:749px){
+  .category-arrival{grid-template-columns:1fr}
+  .category-arrival-story{padding:24px}
+  .category-arrival-label{font-size:.7rem;padding-block-end:12px}
+  .category-arrival h1{font-size:clamp(2rem,7.6cqi,2.65rem);line-height:1.08;max-width:23ch;margin-block:18px 14px;letter-spacing:-.035em}
+  .category-arrival-story p{font-size:.94rem;line-height:1.65;max-width:58ch;margin-bottom:18px}
+  .category-arrival-search{min-height:48px;padding:11px 16px;inline-size:auto;margin-block-start:0;font-size:.85rem}
+  .category-arrival-atlas{display:grid;grid-template-columns:64px minmax(0,1fr);align-items:center;gap:20px;padding:18px 24px;border-inline-start:0;border-block-start:1px dashed var(--arrival-line)}
+  .category-arrival-symbol{min-height:0;align-self:center;justify-self:start}
+  .category-arrival-symbol :global(svg){width:56px;height:56px}
+  .category-arrival--universities .category-arrival-symbol,.category-arrival--hospitals .category-arrival-symbol{padding:6px;align-self:center}
+  .category-arrival--universities .category-arrival-symbol :global(svg),.category-arrival--hospitals .category-arrival-symbol :global(svg){width:48px;height:48px}
+  .category-arrival--universities .category-arrival-atlas,.category-arrival--hospitals .category-arrival-atlas{border-block-start-style:solid}
+  .category-arrival :global(.directory-map-preview){grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:14px;padding:0;border:0;align-items:center}
+  .category-arrival :global(.directory-map-preview>svg){max-height:110px}
+  .category-arrival :global(.directory-map-counts){font-size:.72rem}
+  .category-arrival :global(.directory-map-preview-copy strong){font-size:.82rem;gap:6px}
+  [dir=rtl].category-arrival h1{font-size:clamp(2rem,7.6cqi,2.65rem);line-height:1.4;letter-spacing:0;max-width:24ch}
+ }
+ @container arrival-frame (max-width:420px){
+  .category-arrival-story{padding:20px}
+  .category-arrival-atlas{grid-template-columns:42px minmax(0,1fr);gap:14px;padding:16px 20px}
+  .category-arrival-symbol :global(svg){width:40px;height:40px}
+  .category-arrival--universities .category-arrival-symbol :global(svg),.category-arrival--hospitals .category-arrival-symbol :global(svg){width:30px;height:30px}
+  .category-arrival :global(.directory-map-preview){grid-template-columns:1fr;gap:8px}
+  .category-arrival :global(.directory-map-preview>svg){max-height:82px}
+  .category-arrival :global(.directory-map-preview-copy){gap:5px}
+ }
+ @media print{.category-arrival{display:block;background:white;color:#182738;border-color:#182738;--arrival-ink:#182738;--arrival-muted:#465363;--arrival-line:#8a949d}.category-arrival-atlas,.category-arrival-search{display:none}.category-arrival h1{font-size:28pt}}
+</style>

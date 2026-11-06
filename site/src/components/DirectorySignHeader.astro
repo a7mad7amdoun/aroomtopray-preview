@@ -1,0 +1,44 @@
+---
+import WayfindingSymbol from './WayfindingSymbol.astro';
+const {kind='airports',locale='en'}=Astro.props;
+const category=['airports','universities','hospitals'].includes(kind)?kind:'airports';
+const copy={
+ en:{title:{airports:'Prayer room directory',universities:'Campus prayer spaces',hospitals:'Hospital prayer spaces'},label:{airports:'Airport guides',universities:'Campus directory',hospitals:'Visitor information'},instruction:'Choose a place to open its guide, then check the room’s location and access.'},
+ fr:{title:{airports:'Annuaire des salles de prière',universities:'Espaces de prière sur les campus',hospitals:'Espaces de prière des hôpitaux'},label:{airports:'Guides des aéroports',universities:'Annuaire des campus',hospitals:'Informations aux visiteurs'},instruction:'Choisissez un lieu pour ouvrir son guide, puis vérifiez l’emplacement de la salle et les conditions d’accès.'},
+ ar:{title:{airports:'دليل غرف الصلاة',universities:'أماكن الصلاة في الجامعات',hospitals:'أماكن الصلاة في المستشفيات'},label:{airports:'أدلة المطارات',universities:'دليل الحرم الجامعي',hospitals:'معلومات الزوّار'},instruction:'اختر مكانًا لفتح دليله، ثم تحقّق من موقع غرفة الصلاة وشروط الدخول.'},
+ es:{title:{airports:'Directorio de salas de oración',universities:'Espacios de oración en el campus',hospitals:'Espacios de oración en hospitales'},label:{airports:'Guías de aeropuertos',universities:'Directorio del campus',hospitals:'Información para visitantes'},instruction:'Elige un lugar para abrir su guía y comprueba la ubicación de la sala y las condiciones de acceso.'},
+}[locale]||null;
+const c=copy||{title:{airports:'Prayer room directory',universities:'Campus prayer spaces',hospitals:'Hospital prayer spaces'},label:{airports:'Airport guides',universities:'Campus directory',hospitals:'Visitor information'},instruction:'Choose a place to open its guide, then check the room’s location and access.'};
+const symbol={airports:'airport',universities:'campus',hospitals:'care'}[category];
+---
+<header class={`directory-sign directory-sign--${category}`} dir={locale==='ar'?'rtl':'ltr'}>
+ <span class="directory-sign-emblem"><WayfindingSymbol name={symbol} size={64}/></span>
+ <div class="directory-sign-copy"><span class="directory-sign-label">{c.label[category]}</span><h2>{c.title[category]}</h2></div>
+ <span class="directory-sign-room"><WayfindingSymbol name="room" size={52}/></span>
+</header>
+<style>
+ .directory-sign{--sign-paper:#101e31;--sign-text:#f6f8fb;--sign-secondary:#c4d0de;--sign-marker:#ffcd38;--sign-rule:#536173;display:grid;grid-template-columns:80px minmax(0,1fr) 64px;align-items:center;gap:24px;padding:clamp(24px,3vw,36px);margin-block:28px 0;background:var(--sign-paper);color:var(--sign-text);border-block-start:5px solid var(--sign-marker);border-radius:3px 3px 0 0;position:relative;isolation:isolate}
+ .directory-sign-emblem{display:grid;place-items:center;min-height:80px;color:var(--sign-marker);border-inline-end:1px solid var(--sign-rule);padding-inline-end:16px}
+ .directory-sign-emblem :global(svg){display:block;width:64px;height:64px;flex:none}
+ .directory-sign-copy{min-width:0}.directory-sign-label{display:block;font:650 .72rem/1.5 var(--f-body);letter-spacing:.09em;text-transform:uppercase;color:var(--sign-secondary);margin-bottom:8px}
+ .directory-sign h2{font:750 clamp(1.6rem,2.8vw,2.6rem)/1.14 var(--f-body);letter-spacing:-.025em;margin:0;color:var(--sign-text);text-wrap:balance;max-width:30ch}
+ .directory-sign p{font-size:.92rem;line-height:1.65;color:var(--sign-secondary);margin:12px 0 0;max-width:70ch}
+ .directory-sign-room{display:grid;place-items:center;align-self:center;background:var(--sign-marker);color:var(--sign-paper);width:64px;height:72px;border-radius:3px}
+ .directory-sign-room :global(svg){display:block;width:46px;height:46px}
+ .directory-sign--universities{--sign-paper:#eeeadd;--sign-text:#263a30;--sign-secondary:#526354;--sign-marker:#495e42;--sign-rule:#b5bca7;border:1px solid var(--sign-rule);border-block-start:5px double var(--sign-marker);border-radius:0}
+ .directory-sign--universities h2{font-family:'Room Invitation',Georgia,serif;font-weight:500;font-size:clamp(1.85rem,3.1vw,2.9rem);line-height:1.15}
+ .directory-sign--universities .directory-sign-room{background:transparent;color:var(--sign-marker);border:1px solid var(--sign-rule);border-radius:0}
+ .directory-sign--hospitals{--sign-paper:#e6f1f2;--sign-text:#153f4d;--sign-secondary:#3f636c;--sign-marker:#176373;--sign-rule:#b3cdd1;border-block-start:0;border-inline-start:6px solid var(--sign-marker);border-radius:12px 12px 0 0}
+ .directory-sign--hospitals h2{font-weight:650;letter-spacing:-.018em;line-height:1.2}
+ .directory-sign--hospitals .directory-sign-emblem{border:0;padding:0;background:#f5fafb;border-radius:12px}
+ .directory-sign--hospitals .directory-sign-room{color:#f5fafb;background:var(--sign-marker);border-radius:9px}
+ :global(.signage-directory) .directory-sign{margin:0;--sign-paper:var(--board-bg);--sign-text:var(--board-ink);--sign-secondary:var(--board-muted);--sign-marker:var(--board-accent);--sign-rule:var(--board-line);border-radius:0}
+ :global(.signage-directory) .directory-sign--hospitals .directory-sign-emblem{background:var(--board-row)}
+ :global(.signage-directory) .directory-sign--hospitals .directory-sign-room{color:var(--board-accent-ink)}
+ [dir=rtl] .directory-sign-label{letter-spacing:0;font-size:.85rem}
+ [dir=rtl].directory-sign h2{font-family:var(--f-arabic);line-height:1.55;letter-spacing:0;font-weight:650}
+ [dir=rtl].directory-sign p{line-height:1.8}
+ @media(max-width:700px){.directory-sign{grid-template-columns:56px minmax(0,1fr);gap:18px;padding:24px 20px}.directory-sign-emblem{min-height:60px;padding-inline-end:12px}.directory-sign-emblem :global(svg){width:44px;height:44px}.directory-sign-room{display:none}.directory-sign h2{font-size:clamp(1.45rem,4.8vw,2rem)}.directory-sign p{font-size:.88rem}.directory-sign--universities h2{font-size:clamp(1.65rem,5.2vw,2.25rem)}}
+ @media(max-width:400px){.directory-sign{grid-template-columns:1fr;gap:16px;padding:22px 18px}.directory-sign-emblem{width:52px;min-height:52px;border:0;padding:0;justify-content:start}.directory-sign--hospitals .directory-sign-emblem{justify-content:center}.directory-sign-label{font-size:.68rem}}
+ @media print{.directory-sign{background:#fff;color:#182738;border-color:#182738;--sign-text:#182738;--sign-secondary:#465363;--sign-marker:#182738;--sign-paper:#fff;break-inside:avoid}.directory-sign-room{display:none}}
+</style>

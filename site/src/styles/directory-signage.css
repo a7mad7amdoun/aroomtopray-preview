@@ -1,0 +1,82 @@
+/* Shared directory structure; sector palettes evoke real signs without inventing routes. */
+#prayer-room #guide-content #directory-list-panel.signage-directory {
+ --board-bg:#101c2c;--board-row:#142337;--board-hover:#1c3048;--board-ink:#f3f6fb;--board-muted:#b7c6d8;--board-line:#35485f;--board-accent:#ffcb32;--board-accent-ink:#102033;
+ background:var(--board-bg);color:var(--board-ink);border:1px solid var(--board-line);border-radius:10px;overflow:clip;box-shadow:0 12px 36px #07111e16;
+}
+#prayer-room #guide-content #directory-list-panel[data-signage=universities] {--board-bg:#ede9dc;--board-row:#f5f2e8;--board-hover:#e5e3d4;--board-ink:#203d38;--board-muted:#52625a;--board-line:#bdc7b5;--board-accent:#315f51;--board-accent-ink:#fff;}
+#prayer-room #guide-content #directory-list-panel[data-signage=hospitals] {--board-bg:#e5f0f5;--board-row:#f4f8fa;--board-hover:#dcecf1;--board-ink:#143e55;--board-muted:#466574;--board-line:#afc8d5;--board-accent:#176983;--board-accent-ink:#fff;}
+html[data-theme=dark] #prayer-room #guide-content #directory-list-panel[data-signage=universities] {--board-bg:#142b28;--board-row:#1a3430;--board-hover:#23443e;--board-ink:#f0f0e4;--board-muted:#b9ccbf;--board-line:#49665b;--board-accent:#ddcc93;--board-accent-ink:#172c27;}
+html[data-theme=dark] #prayer-room #guide-content #directory-list-panel[data-signage=hospitals] {--board-bg:#102a3b;--board-row:#153447;--board-hover:#1c4255;--board-ink:#eff8fc;--board-muted:#b5d0dd;--board-line:#3c6377;--board-accent:#a6daeb;--board-accent-ink:#123548;}
+#prayer-room #guide-content .signage-directory #list {margin:0;padding:0;border:0;container:signboard/inline-size;}
+#prayer-room #guide-content .signage-directory #list .headrow {display:none;}
+#prayer-room #guide-content .signage-directory #list .directory-result.lrow {
+ --ink:var(--board-ink);--muted:var(--board-muted);--line:var(--board-line);--surface:var(--board-row);--surface-2:var(--board-hover);--selection-mark:var(--board-accent);--sign-ink:var(--board-accent-ink);
+ position:relative;display:grid;grid-template-columns:72px minmax(0,1fr);gap:24px;align-items:start;padding:26px 28px;margin:0;background:var(--board-row);border:0;border-bottom:1px solid var(--board-line);border-inline-start:4px solid transparent;border-radius:0;box-shadow:none;color:var(--board-ink);text-decoration:none;transition:background-color .2s,border-color .2s;
+}
+#prayer-room #guide-content .signage-directory #list .directory-result.lrow[hidden] {display:none;}
+#prayer-room #guide-content .signage-directory #list .directory-result.lrow:is(:hover,:focus-visible) {background:var(--board-hover);border-inline-start-color:var(--board-accent);}
+#prayer-room #guide-content .signage-directory #list .directory-result:focus-visible {outline:3px solid var(--board-accent);outline-offset:-4px;z-index:1;}
+#prayer-room #guide-content .signage-directory #list .directory-result .code {display:flex;flex-direction:column;justify-content:center;gap:8px;width:72px;min-height:78px;margin:0;padding:10px 6px;border:1px solid var(--board-line);border-bottom:3px solid var(--board-accent);border-radius:3px;background:var(--board-bg);color:var(--board-accent);font:700 1.15rem/1.2 var(--f-mono);letter-spacing:.05em;}
+#prayer-room #guide-content .signage-directory[data-signage=airports] #list .code bdi {padding:4px;background:linear-gradient(transparent 49%,#0008 50%,transparent 53%);}
+#prayer-room #guide-content .signage-directory #list .directory-result .nm {display:grid;grid-template-columns:minmax(0,1fr);gap:0;}
+#prayer-room #guide-content .signage-directory #list .directory-result .result-heading {grid-column:1;grid-row:auto;gap:16px;}
+#prayer-room #guide-content .signage-directory #list .directory-result .result-name>b {font-size:1.35rem;line-height:1.3;color:var(--board-ink);font-weight:700;letter-spacing:-.015em;}
+#prayer-room #guide-content .signage-directory[data-signage=universities] #list .result-name>b {font:500 1.65rem/1.25 'Room Invitation',Georgia,serif;}
+#prayer-room #guide-content .signage-directory #list .directory-result .result-location {color:var(--board-muted);font-size:.88rem;line-height:1.5;margin-top:7px;}
+#prayer-room #guide-content .signage-directory #list .directory-result .mob-s {grid-column:1;grid-row:auto;margin:12px 0 0;display:block;}
+#prayer-room #guide-content .signage-directory #list .directory-result .pill {color:var(--board-ink);background:transparent;border:1px solid var(--board-line);font-size:.76rem;padding:5px 8px;}
+#prayer-room #guide-content .signage-directory #list .directory-result .result-visit-summary {grid-column:1;grid-row:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:18px 0;margin:18px 0 0;border:0;border-block:1px solid var(--board-line);border-radius:0;background:transparent;}
+#prayer-room #guide-content .signage-directory #list .directory-result .result-visit-label {font-size:.77rem;color:var(--board-muted);}
+#prayer-room #guide-content .signage-directory #list .directory-result .result-visit-value {font-size:.92rem;line-height:1.55;color:var(--board-ink);}
+#prayer-room #guide-content .signage-directory #list .directory-result .row-facilities {grid-column:1;grid-row:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0;padding:16px 0 0;border:0;}
+#prayer-room #guide-content .signage-directory #list .directory-result .result-fact-label {font-size:.73rem;color:var(--board-muted);}
+#prayer-room #guide-content .signage-directory #list .directory-result .result-fact-value {font-size:.9rem;color:var(--board-ink);}
+#prayer-room #guide-content .signage-directory #list .directory-result .result-fact svg {color:var(--board-muted);}
+#prayer-room #guide-content .signage-directory #list .directory-result .result-photo-note {grid-column:1;grid-row:auto;color:var(--board-muted);}
+#prayer-room #guide-content .signage-directory #list .directory-result .result-open-guide {grid-column:1;grid-row:auto;color:var(--board-ink);font-size:.86rem;margin:16px 0 0;padding:0;border:0;min-height:36px;}
+#prayer-room #guide-content .signage-directory #list .directory-result .result-open-guide>svg {color:var(--board-accent-ink);background:var(--board-accent);border:0;border-radius:2px;transition:transform .2s;}
+#prayer-room #guide-content .signage-directory #list .directory-result:is(:hover,:focus-visible) .result-open-guide>svg {transform:translateX(3px);}
+html[dir=rtl] #prayer-room #guide-content .signage-directory #list .directory-result:is(:hover,:focus-visible) .result-open-guide>svg {transform:scaleX(-1) translateX(3px);}
+html[dir=rtl] #prayer-room #guide-content .signage-directory #list .result-name>b {font-family:var(--f-arabic);line-height:1.6;letter-spacing:0;}
+#prayer-room #guide-content .signage-directory .directory-pagination {margin:0;padding:20px 28px;border:0;background:var(--board-bg);color:var(--board-muted);}
+#prayer-room #guide-content .signage-directory .directory-pagination button {color:var(--board-ink);border-color:var(--board-line);background:var(--board-row);}
+#prayer-room #guide-content .signage-directory .empty {padding:28px;color:var(--board-ink);}
+#prayer-room #guide-content .signage-directory .empty button {color:var(--board-ink);}
+@container signboard (min-width:950px) {
+ #prayer-room #guide-content .signage-directory #list:not([data-view=cards]) .nm {grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,.8fr);column-gap:28px;}
+ #prayer-room #guide-content .signage-directory #list:not([data-view=cards]) .result-heading {grid-column:1;grid-row:1;flex-wrap:wrap;}
+ #prayer-room #guide-content .signage-directory #list:not([data-view=cards]) .mob-s {grid-column:1;grid-row:2;}
+ #prayer-room #guide-content .signage-directory #list:not([data-view=cards]) .result-photo-note {grid-column:1;grid-row:3;}
+ #prayer-room #guide-content .signage-directory #list:not([data-view=cards]) .result-visit-summary {grid-column:2;grid-row:1/5;grid-template-columns:1fr;padding:0 0 0 24px;padding-inline:24px 0;margin:0;border:0;border-inline-start:1px solid var(--board-line);}
+ #prayer-room #guide-content .signage-directory #list:not([data-view=cards]) .row-facilities {grid-column:3;grid-row:1/4;grid-template-columns:1fr;padding:0;}
+ #prayer-room #guide-content .signage-directory #list:not([data-view=cards]) .result-open-guide {grid-column:3;grid-row:4;}
+}
+#prayer-room #guide-content .signage-directory #list[data-view=cards] {gap:1px;background:var(--board-line);padding:1px;}
+#prayer-room #guide-content .signage-directory #list[data-view=cards] .directory-result {grid-template-columns:1fr;padding:22px;border:0;border-top:3px solid var(--board-accent);}
+#prayer-room #guide-content .signage-directory #list[data-view=cards] .code {flex-direction:row;width:fit-content;min-height:0;padding:8px;}
+@container signboard (max-width:600px) {
+ #prayer-room #guide-content .signage-directory #list .directory-result.lrow {grid-template-columns:1fr;padding:20px 18px;gap:16px;}
+ #prayer-room #guide-content .signage-directory #list .directory-result .code {flex-direction:row;width:fit-content;min-height:0;padding:7px 10px;font-size:1rem;}
+ #prayer-room #guide-content .signage-directory #list .directory-result .row-facilities {grid-template-columns:repeat(2,minmax(0,1fr));}
+ #prayer-room #guide-content .signage-directory #list .directory-result .result-name>b {font-size:1.3rem;}
+ #prayer-room #guide-content .signage-directory .directory-pagination {padding:18px;gap:12px;flex-wrap:wrap;}
+}
+@media(prefers-reduced-motion:reduce) {#prayer-room #guide-content .signage-directory #list .directory-result,#prayer-room #guide-content .signage-directory #list .result-open-guide>svg {transition:none;animation:none;}}
+@media print {#prayer-room #guide-content #directory-list-panel.signage-directory {--board-bg:#fff;--board-row:#fff;--board-ink:#111;--board-muted:#333;--board-line:#aaa;--board-accent:#111;--board-accent-ink:#fff;box-shadow:none;}#prayer-room #guide-content .signage-directory #list .directory-result {break-inside:avoid;}}
+@media print {html[data-theme] #prayer-room #guide-content #directory-list-panel.signage-directory[data-signage] {--board-bg:#fff;--board-row:#fff;--board-hover:#fff;--board-ink:#111;--board-muted:#333;--board-line:#aaa;--board-accent:#111;--board-accent-ink:#fff;}}
+/* Details drawn from departure slats, campus plaques and hospital service bands. */
+#prayer-room #guide-content .signage-directory[data-signage=airports] #list .code bdi {display:flex;gap:2px;padding:0;background:none;}
+#prayer-room #guide-content .signage-directory[data-signage=airports] #list .code-letter {display:inline-grid;place-items:center;width:18px;min-height:25px;background:linear-gradient(#20324b 49%,#080f18 49%,#080f18 54%,#1a2a40 54%);border:1px solid #42516a;border-radius:2px;color:#ffcf45;font:700 1rem/1 var(--f-mono);letter-spacing:0;}
+#prayer-room #guide-content .signage-directory[data-signage=universities] #list:not([data-view=cards]) .directory-result {border-bottom:3px double var(--board-line);}
+#prayer-room #guide-content .signage-directory[data-signage=universities] #list .code {border:1px solid var(--board-line);box-shadow:inset 0 0 0 4px var(--board-row),inset 0 0 0 5px var(--board-line);}
+#prayer-room #guide-content .signage-directory[data-signage=hospitals] #list .result-visit-fact {padding:10px 12px;border-inline-start:3px solid var(--board-accent);background:var(--board-bg);border-radius:0 5px 5px 0;}
+#prayer-room #guide-content .signage-directory[data-signage=hospitals] #list .result-visit-fact:last-child:nth-child(3) {border-top:0;}
+#prayer-room #guide-content .signage-directory[data-signage=hospitals] #list .code {border:0;border-radius:6px;background:var(--board-accent);color:var(--board-accent-ink);}
+@media print {#prayer-room #guide-content .signage-directory[data-signage=airports] #list .code-letter {color:#111;background:#fff;border-color:#888;}}
+/* Sorting belongs to the directory board, rather than another introduction. */
+#prayer-room #guide-content .signage-directory .results-toolbar {margin:0;padding:16px 28px;border-block:1px solid var(--board-line);background:var(--board-bg);color:var(--board-ink);justify-content:flex-end;}
+#prayer-room #guide-content .signage-directory .results-toolbar .browse-tools {width:100%;justify-content:space-between;align-items:center;}
+#prayer-room #guide-content .signage-directory .directory-sort-label {display:flex;align-items:center;gap:12px;color:var(--board-muted);}
+#prayer-room #guide-content .signage-directory .results-toolbar :is(select,.seg,button) {background:var(--board-row);color:var(--board-ink);border-color:var(--board-line);}
+#prayer-room #guide-content .signage-directory .results-toolbar button[aria-pressed=true] {background:var(--board-accent);color:var(--board-accent-ink);}
+@media(max-width:600px){#prayer-room #guide-content .signage-directory .results-toolbar{padding:14px 18px;}#prayer-room #guide-content .signage-directory .directory-sort-label{flex-wrap:wrap;}}

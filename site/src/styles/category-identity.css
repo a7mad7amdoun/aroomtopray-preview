@@ -1,0 +1,139 @@
+/* Category reading surfaces only. Scenery, photographs, authored arrival panels
+   and directory signboards retain their own palette and geometry. */
+html[data-sector] .room-environment[data-room-presentation=directory] {
+ --directory-paper:#f3f5f8;--directory-panel:#ffffff;--directory-soft:#e8eef4;
+ --directory-ink:#172c43;--directory-muted:#4e6278;--directory-line:#aab9c9;
+ --directory-accent:#234c72;--directory-selected:#14273e;--directory-selected-ink:#f7f9fc;
+ --directory-mark:#ffcf3d;--directory-focus:#215f9a;--directory-radius:5px;
+ --directory-rule:#b18747;
+}
+html[data-sector=universities] .room-environment[data-room-presentation=directory] {
+ --directory-paper:#f1eee5;--directory-panel:#fbfaf5;--directory-soft:#e7ebdf;
+ --directory-ink:#2b3d30;--directory-muted:#52634f;--directory-line:#adb9a5;
+ --directory-accent:#365b43;--directory-selected:#2b4a39;--directory-selected-ink:#faf8ed;
+ --directory-mark:#e5cd8d;--directory-focus:#315d43;--directory-radius:2px;
+ --directory-rule:#8d9b7d;
+}
+html[data-sector=hospitals] .room-environment[data-room-presentation=directory] {
+ --directory-paper:#edf5f3;--directory-panel:#fbfdfe;--directory-soft:#e4eee9;
+ --directory-ink:#193e50;--directory-muted:#466675;--directory-line:#a8c2cd;
+ --directory-accent:#1d6479;--directory-selected:#194d62;--directory-selected-ink:#f6fbfd;
+ --directory-mark:#c5e9ef;--directory-focus:#176078;--directory-radius:12px;
+ --directory-rule:#87a79c;
+}
+html[data-theme=dark][data-sector] .room-environment[data-room-presentation=directory] {
+ --directory-paper:#111e2f;--directory-panel:#182a40;--directory-soft:#21364f;
+ --directory-ink:#edf4fc;--directory-muted:#bdccde;--directory-line:#536b86;
+ --directory-accent:#d5b479;--directory-selected:#f0c642;--directory-selected-ink:#14243b;
+ --directory-mark:#182a40;--directory-focus:#ffd353;--directory-rule:#a68a5d;
+}
+html[data-theme=dark][data-sector=universities] .room-environment[data-room-presentation=directory] {
+ --directory-paper:#19251f;--directory-panel:#22332a;--directory-soft:#2c4335;
+ --directory-ink:#f0f2e6;--directory-muted:#c3d1bf;--directory-line:#61745d;
+ --directory-accent:#d5cf9c;--directory-selected:#dcd8b1;--directory-selected-ink:#23362b;
+ --directory-mark:#334b3c;--directory-focus:#e5d49d;--directory-rule:#899774;
+}
+html[data-theme=dark][data-sector=hospitals] .room-environment[data-room-presentation=directory] {
+ --directory-paper:#142834;--directory-panel:#1a3544;--directory-soft:#244858;
+ --directory-ink:#eff8fb;--directory-muted:#c0d8e2;--directory-line:#5a7f90;
+ --directory-accent:#a2d8e6;--directory-selected:#b9e4ef;--directory-selected-ink:#193c4d;
+ --directory-mark:#25596d;--directory-focus:#beeaf4;--directory-rule:#729eaf;
+}
+@media(prefers-color-scheme:dark) {
+ html:not([data-theme=light])[data-sector] .room-environment[data-room-presentation=directory] {
+  --directory-paper:#111e2f;--directory-panel:#182a40;--directory-soft:#21364f;--directory-ink:#edf4fc;--directory-muted:#bdccde;--directory-line:#536b86;--directory-accent:#d5b479;--directory-selected:#f0c642;--directory-selected-ink:#14243b;--directory-mark:#182a40;--directory-focus:#ffd353;--directory-rule:#a68a5d;
+ }
+ html:not([data-theme=light])[data-sector=universities] .room-environment[data-room-presentation=directory] {
+  --directory-paper:#19251f;--directory-panel:#22332a;--directory-soft:#2c4335;--directory-ink:#f0f2e6;--directory-muted:#c3d1bf;--directory-line:#61745d;--directory-accent:#d5cf9c;--directory-selected:#dcd8b1;--directory-selected-ink:#23362b;--directory-mark:#334b3c;--directory-focus:#e5d49d;--directory-rule:#899774;
+ }
+ html:not([data-theme=light])[data-sector=hospitals] .room-environment[data-room-presentation=directory] {
+  --directory-paper:#142834;--directory-panel:#1a3544;--directory-soft:#244858;--directory-ink:#eff8fb;--directory-muted:#c0d8e2;--directory-line:#5a7f90;--directory-accent:#a2d8e6;--directory-selected:#b9e4ef;--directory-selected-ink:#193c4d;--directory-mark:#25596d;--directory-focus:#beeaf4;--directory-rule:#729eaf;
+ }
+}
+/* A quiet field surrounds the functional controls; fine rules establish rhythm. */
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .directory-workspace>.controls {
+ --ink:var(--directory-ink);--muted:var(--directory-muted);--line:var(--directory-line);
+ --surface:var(--directory-panel);--surface-2:var(--directory-soft);--field:var(--directory-accent);
+ color:var(--directory-ink);background:var(--directory-paper);border:1px solid var(--directory-line);
+ border-block-start:3px solid var(--directory-rule);border-radius:var(--directory-radius);box-shadow:none;
+ padding:clamp(22px,3vw,34px);margin-block-end:24px;
+}
+html[data-sector=airports] #prayer-room[data-room-presentation=directory] #guide-content .directory-workspace>.controls {
+ border-block-start:4px solid var(--directory-rule);
+ background-image:linear-gradient(90deg,transparent calc(50% - .5px),color-mix(in srgb,var(--directory-line) 20%,transparent) 50%,transparent calc(50% + .5px));
+}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .directory-search-guidance {
+ font-size:1rem;line-height:1.65;color:var(--directory-ink);max-width:75ch;margin-block:0 22px;
+}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .directory-fields label {
+ color:var(--directory-muted);font-weight:650;font-size:.82rem;letter-spacing:.01em;
+}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .controls :is(input[type=search],select) {
+ color:var(--directory-ink);background:var(--directory-panel);border:1px solid var(--directory-line);
+ border-radius:var(--directory-radius);min-height:54px;font-size:1rem;box-shadow:none;
+}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .controls input::placeholder {color:var(--directory-muted);opacity:1;}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .directory-search-row>svg {color:var(--directory-accent);}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .directory-search-meta {
+ border-block-start:1px solid var(--directory-line);padding-block-start:16px;margin-block-start:20px;color:var(--directory-muted);
+}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .directory-search-meta .count {color:var(--directory-ink);font-size:.88rem;font-variant-numeric:tabular-nums;}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .controls .clear {color:var(--directory-accent);text-underline-offset:4px;}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .directory-refine {border-color:var(--directory-line);}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .directory-refine>summary {color:var(--directory-ink);min-height:52px;font-size:.9rem;}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .controls :is(.chip,.seg button) {
+ border-color:var(--directory-line);color:var(--directory-ink);background:var(--directory-panel);border-radius:var(--directory-radius);min-height:44px;
+}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .controls :is(.chip,.seg button)[aria-pressed=true] {
+ color:var(--directory-selected-ink);background:var(--directory-selected);border-color:var(--directory-selected);box-shadow:none;
+}
+/* Tabs read as three choices in one system, with a persistent selected edge. */
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .directory-mode-tabs {gap:10px;margin-block:24px 18px;}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .directory-mode-tabs>button {
+ --ink:var(--directory-ink);--muted:var(--directory-muted);
+ background:var(--directory-panel);color:var(--directory-ink);border:1px solid var(--directory-line);
+ border-radius:var(--directory-radius);box-shadow:none;min-height:100px;padding:20px;gap:16px;
+}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .directory-mode-tabs>button>svg {color:var(--directory-accent);}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .directory-mode-tabs>button[aria-selected=true] {
+ background:var(--directory-selected);color:var(--directory-selected-ink);border-color:var(--directory-selected);
+ box-shadow:inset 0 -4px 0 var(--directory-mark);
+}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .directory-mode-tabs>button[aria-selected=true] :is(svg,small) {color:var(--directory-selected-ink);}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .directory-mode-copy strong {font-size:1.03rem;line-height:1.35;}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .directory-mode-copy small {color:var(--directory-muted);font-size:.8rem;line-height:1.55;}
+html[data-sector=universities] #prayer-room[data-room-presentation=directory] #guide-content .directory-mode-copy strong {font:500 1.35rem/1.25 'Room Invitation',Georgia,serif;}
+/* Supporting navigation and factual notes, without repainting the map or boards. */
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .directory-access-note {
+ background:var(--directory-soft);color:var(--directory-ink);border:0;border-inline-start:3px solid var(--directory-rule);
+ border-radius:var(--directory-radius);padding:16px 20px;font-size:.87rem;line-height:1.7;
+}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .browse-tools {
+ color:var(--directory-muted);padding-block:12px 18px;border-block-end:1px solid var(--directory-line);
+}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .browse-tools :is(select,button) {
+ background:var(--directory-panel);color:var(--directory-ink);border:1px solid var(--directory-line);border-radius:var(--directory-radius);min-height:44px;
+}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .browse-tools button[aria-pressed=true] {
+ background:var(--directory-selected);color:var(--directory-selected-ink);border-color:var(--directory-selected);
+}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .directory-journal-link {
+ background:var(--directory-paper);color:var(--directory-ink);border-color:var(--directory-line);border-inline-start-color:var(--directory-accent);border-radius:var(--directory-radius);
+}
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content :is(.controls,.directory-mode-tabs,.browse-tools,.directory-journal-link) :is(input,select,button,summary,a):focus-visible,
+html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .directory-journal-link:focus-visible {
+ outline:3px solid var(--directory-focus);outline-offset:4px;box-shadow:none;
+}
+html[dir=rtl][data-sector] #prayer-room[data-room-presentation=directory] #guide-content :is(.directory-mode-copy strong,.directory-fields label) {font-family:var(--f-arabic);letter-spacing:0;line-height:1.65;}
+@media(max-width:700px) {
+ html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .directory-workspace>.controls {padding:22px 18px;background-image:none;}
+ html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .directory-mode-tabs>button {padding:16px 10px;gap:10px;min-height:98px;}
+ html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content .directory-mode-copy strong {font-size:.9rem;}
+ html[data-sector=universities] #prayer-room[data-room-presentation=directory] #guide-content .directory-mode-copy strong {font-size:1.1rem;}
+}
+@media(prefers-reduced-motion:reduce) {
+ html[data-sector] #prayer-room[data-room-presentation=directory] #guide-content :is(.controls,.directory-mode-tabs,.browse-tools) :is(button,input,select,a) {transition:none;}
+}
+@media print {
+ html[data-sector] .room-environment[data-room-presentation=directory] {--directory-paper:#fff;--directory-panel:#fff;--directory-soft:#fff;--directory-ink:#182738;--directory-muted:#465363;--directory-line:#8a949d;--directory-accent:#182738;--directory-selected:#fff;--directory-selected-ink:#182738;--directory-mark:#182738;--directory-focus:#182738;}
+}

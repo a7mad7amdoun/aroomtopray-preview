@@ -24,6 +24,7 @@ if(controls){
  const modeButtons=[...document.querySelectorAll('[data-directory-mode]')];
  const activeFilters=controls.querySelector('[data-active-filters]');
  const visibleSearch=()=>mode==='map'?(mapPanel?.querySelector('#atlas-search')||input):input;
+ const rowAnimations=new WeakMap();
  function renderActiveFilters(){
   const items=[];
   if(country)items.push({kind:'country',value:country,label:countrySelect.selectedOptions[0].textContent});
@@ -44,7 +45,15 @@ if(controls){
  function apply(historyMode){
   matching=sortPlaces(data.filter(item=>matchesDirectory(item,state)&&(!country||item.country===country)),presentation.sort);
   const pageResult=pageWindow(matching,page);page=pageResult.page;const visible=new Set(pageResult.items);
+  const arriving=pageResult.items.filter(item=>item.el.hidden);
   data.forEach(item=>item.el.hidden=!visible.has(item));
+  if(historyMode&&mode==='list'&&!window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches){
+   arriving.forEach((item,index)=>{
+    rowAnimations.get(item.el)?.cancel();
+    const animation=item.el.animate?.([{opacity:.65,transform:'translateY(6px)'},{opacity:1,transform:'translateY(0)'}],{duration:240,delay:index*22,easing:'cubic-bezier(.2,.7,.2,1)'});
+    if(animation)rowAnimations.set(item.el,animation);
+   });
+  }
   controls.dataset.matchingCodes=JSON.stringify(matching.map(item=>item.code));
   controls.querySelector('#count').textContent=`${number.format(matching.length)} / ${number.format(data.length)} ${controls.dataset.directoryLabel||controls.dataset.directory}`;
   empty.hidden=matching.length>0;clearButton.hidden=!(state.q||state.region!=='All'||state.f.size||country);input.value=state.q;countrySelect.value=country;
